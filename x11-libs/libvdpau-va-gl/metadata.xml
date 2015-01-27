@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	
+<upstream>
+<description lang="en">
+VDPAU driver with OpenGL/VAAPI backend
+</description>
+	<maintainer>
+	<name>Rinat Ibragimov</name>
+	<email>ibragimovrinat@mail.ru</email>
+	</maintainer>
+	<remote-id type="github">i-rinat/libvdpau-va-gl</github>
+</upstream>
+</pkgmetadata>

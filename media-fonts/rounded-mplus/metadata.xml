@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<upstream>
+<maintainer>
+<description>Author</description>
+<email>mm@jikasei.me</email>
+</maintainer>
+<maintainer>
+<description>Original author</description>
+<name>Hiro Itou</name>
+<email>itouhiro@users.sourceforge.jp</email>
+</maintainer>
+</upstream>
+</pkgmetadata>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<upstream>
+<maintainer>
+	<email>hwoarang@gentoo.org</email>
+	<name>Markos Chandras</name>
+</maintainer>
+</upstream>
+<use>
+	<flag name="gtk">Pull in the gtk+ greeter</flag>
+	<flag name="introspection">Use dev-libs/gobject-introspection for introspection</flag>
+	<flag name="kde">Pull in the kde greeter</flag>
+	<flag name="qt4">Support Qt4</flag>
+	<flag name="qt5">Support Qt5</flag>
+</use>
+<longdescription lang="en">
+</longdescription>
+</pkgmetadata>

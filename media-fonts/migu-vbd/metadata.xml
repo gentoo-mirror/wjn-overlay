@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<upstream>
+<maintainer>
+<description>Author</description>
+<name>Hiro Itou</name>
+<email>itouhiro@users.sourceforge.jp</email>
+</maintainer>
+<remote-id type="sourceforge-jp">mix-mplus-ipa</remote-id>
+</upstream>
+</pkgmetadata>
+

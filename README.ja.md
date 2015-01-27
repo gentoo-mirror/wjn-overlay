@@ -1,0 +1,76 @@
+# wjn-overlay
+----
+
+Gentoo GNU/Linux 向けの overlay です。
+
+追加や最新の情報は、 Wikiに書いていきます。
+
+----
+
+## 内容
+
+例えば以下の ebuild が入っています。
+
+- [Audacious](http://audacious-media-player.org/)  
+    (Ver.3.5 と Git 版)  
+    
+- [GStreamer](http://gstreamer.freedesktop.org/)  
+    (Ver.1.2.4, 1.3.1。[Libav](http://libav.org/) 10 対応)  
+    
+- [Mozc](https://code.google.com/p/mozc/)  
+    (**[Fcitx](http://fcitx-im.org/)、[uim](https://code.google.com/p/uim/)対応パッチ付**)  
+    
+- [Mozc UT Dictionary](http://www.geocities.jp/ep3797/mozc_01.html)  
+    (追加辞書付 Mozc。**Fcitx、uim 対応パッチ付**)  
+    <small>※はてなキーワード辞書およびニコニコ大百科(nicodic)辞書機能は、ライセンス不明です。  
+    とりわけニコニコ大百科は収載単語が独特で著作性が高く、また運営企業は２ちゃんねるで有名な未来検索ブラジルですので、無用な紛争に巻き込まれないためにもインストールしないことをお勧めします。デフォルトのUSEフラグも無効にしてあります。</small>  
+    
+- [gdk-pixbuf-psd](http://cgit.sukimashita.com/gdk-pixbuf-psd.git/)  
+    (Photoshop の PSD を画像ビューア等で読み込むための gdk-pixbuf ローダ)
+- [gdk-pixbuf-xcf(io-xcf)](https://gitorious.org/xcf-pixbuf-loader)  
+    (GIMP の XCF を画像ビューア等で読み込むための gdk-pixbuf ローダ)  
+    
+- [libvdpau-va-gl](https://github.com/i-rinat/libvdpau-va-gl)  
+    (VDPAU の OpenGL/VAAPI バックエンドライブラリ)  
+    
+- [libguess](http://atheme.org/projects/libguess.html)  
+    (Git 版。最新の Audacious のキャラコードセット自動判別機能で必要)
+
+- [neu-icon-theme](http://www.silvestre.com.ar/)
+    (GNOME アイコンテーマ)
+
+- [gion-icon-theme](http://www.silvestre.com.ar/)
+    (GNOME アイコンテーマ)
+
+- [yozfont](http://yozvox.web.fc2.com/)
+    (ペン字フォント)
+
+- [yozfontkm](http://yozvox.web.fc2.com/)
+    (毛筆フォント)
+
+- [yozeng](http://yozvox.web.fc2.com/)
+    (タイプライター / デジタルディスプレイ風フォント)
+
+- [yoz-mobomoga](http://yozvox.web.fc2.com/)
+    (M+ / IPAフォント 系 明朝・ゴシック)
+
+なお、以下の ebuild が入っていますが、早晩にupstreamで対応され不要になると思われます。
+
+- FreeType Ver.2.5.1 以降では include/freetype が include/freetype2 にリネームされているため、それに対応した 以下の ebuild
+
+    - tuxonice-userui
+    - splashutils
+
+----
+### ライセンス
+
+GPL v2
+
+----
+### 免責条項
+
+このリポジトリの内容は**完全に無保証**です。
+自分で何をしようとしているか解る人だけが利用してください。
+
+----
+wjn

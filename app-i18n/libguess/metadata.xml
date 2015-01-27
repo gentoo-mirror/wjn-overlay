@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<maintainer>
+		<email>jdhore@gentoo.org</email>
+		<name>Jeff Horelick</name>
+</maintainer>
+<upstream>
+<longdescription lang="en">
+libguess is a high speed, open source character set encoding detector. libguess employs discrete-finite automata to deduce the character set of the input buffer. The advantage of this is that all character sets can be checked in parallel, and quickly.
+</longdescription>
+<remote-id type="github">atheme/libguess</remote-id>
+</upstream>
+</pkgmetadata>

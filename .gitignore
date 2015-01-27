@@ -1,0 +1,8 @@
+*~
+*.bak
+*.bak/
+*.cache
+metadata/cache/
+metadata/md5-cache/
+profiles/use.local.desc
+

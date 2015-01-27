@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<use>
+  <flag name='emacs'>Enable support for <pkg>virtual/emacs</pkg></flag>
+  <flag name='fcitx'>Enable support for <pkg>app-i18n/fcitx</pkg></flag>
+  <flag name='ibus'>Enable support for <pkg>app-i18n/ibus</pkg></flag>
+  <flag name='nicodic'>Enable support words in "Nico Nico Pedia" (NICODIC)</flag>
+  <flag name='renderer'>Enable native candidate window.</flag>
+  <flag name='scim'>Enable support for <pkg>app-i18n/scim</pkg></flag>
+</use>
+<upstream>
+<description>Author of Mozc UT Dictionary</description>
+<longdescription lang="en">
+ Mozc is a Japanese Input Method Editor (IME) designed for multi-platform such as Chromium OS, Windows, Mac and Linux. This open-source project originates from Google Japanese Input.
+ Mozc UT Dictionary is Additional Japanese dictionary for Mozc.
+</longdescription>
+<maintainer>
+<name>UTUMI Hirosi</name>
+<email>utuhiro78@yahoo.co.jp</email>
+</maintainer>
+<doc>http://www.geocities.jp/ep3797/mozc_01.html</doc>
+<remote-id type="sourceforge">mdk-ut</remote-id>
+</upstream>
+</pkgmetadata>
