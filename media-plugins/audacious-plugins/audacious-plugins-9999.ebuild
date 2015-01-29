@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="5"
+EAPI=5
 inherit autotools git-2
 use qt5 && inherit multilib
 
@@ -17,21 +17,24 @@ KEYWORDS=""
 IUSE="aac adplug alsa bs2b cdda cue ffmpeg +filewriter flac gnome gtk
 	  jack lame libav libnotify libsamplerate lirc midi mms mp3 nls
 	  pulseaudio -qt5 scrobbler sdl sid sndfile soxr +spectrum vorbis wavpack"
-REQUIRED_USE=" ffmpeg? ( !libav )"
+REQUIRED_USE="ffmpeg? ( !libav )"
 
-RDEPEND="app-arch/unzip
+RDEPEND="
+	app-arch/unzip
 	>=dev-libs/dbus-glib-0.60
 	dev-libs/libxml2:2
 	media-libs/libmodplug
 	~media-sound/audacious-9999
 	>=net-libs/neon-0.26.4
-	( || ( >=dev-libs/glib-2.32.2 dev-util/gdbus-codegen ) )
+	( || ( >=dev-libs/glib-2.32.2
+		dev-util/gdbus-codegen ) )
 	aac? ( >=media-libs/faad2-2.7 )
 	adplug? ( >=dev-cpp/libbinio-1.4 )
 	alsa? ( >=media-libs/alsa-lib-1.0.16 )
 	bs2b? ( media-libs/libbs2b )
 	cdda? ( >=media-libs/libcddb-1.2.1
-		|| ( dev-libs/libcdio-paranoia <dev-libs/libcdio-0.90[-minimal] ) )
+		|| ( dev-libs/libcdio-paranoia
+			<dev-libs/libcdio-0.90[-minimal] ) )
 	cue? ( media-libs/libcue )
 	ffmpeg? ( >=virtual/ffmpeg-0.7.3 )
 	flac? ( >=media-libs/libvorbis-1.0
@@ -57,13 +60,13 @@ RDEPEND="app-arch/unzip
 	soxr? ( media-libs/soxr )
 	vorbis? ( >=media-libs/libvorbis-1.2.0
 		>=media-libs/libogg-1.1.3 )
-	wavpack? ( >=media-sound/wavpack-4.50.1-r1 )"
+	wavpack? ( >=media-sound/wavpack-4.50.1-r1 )
+	"
 
 DEPEND="${RDEPEND}
 	nls? ( dev-util/intltool )
-	virtual/pkgconfig"
-
-DOCS="AUTHORS"
+	virtual/pkgconfig
+	"
 
 pkg_setup() {
 	use qt5 && export PATH="/usr/$(get_libdir)/qt5/bin:${PATH}"
@@ -79,12 +82,12 @@ src_prepare() {
 			--generate-c-code object-player mpris2-player.xml
 		cd "${S}"
 	fi
+	eautoreconf
 }
 
 src_configure() {
 	use mp3 || ewarn \ 
 		"MP3 support is optional, you may want to enable the mp3 USE-flag"
-	eautoreconf
 	econf \
 		--enable-modplug \
 		--enable-neon \
