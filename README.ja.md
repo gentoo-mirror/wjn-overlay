@@ -11,11 +11,7 @@ Gentoo GNU/Linux 向けの overlay です。
 
 例えば以下の ebuild が入っています。
 
-- [Audacious](http://audacious-media-player.org/)  
-    (Ver.3.5 と Git 版)  
-    
-- [GStreamer](http://gstreamer.freedesktop.org/)  
-    (Ver.1.2.4, 1.3.1。[Libav](http://libav.org/) 10 対応)  
+### IM
     
 - [Mozc](https://code.google.com/p/mozc/)  
     (**[Fcitx](http://fcitx-im.org/)、[uim](https://code.google.com/p/uim/)対応パッチ付**)  
@@ -24,7 +20,35 @@ Gentoo GNU/Linux 向けの overlay です。
     (追加辞書付 Mozc。**Fcitx、uim 対応パッチ付**)  
     <small>※はてなキーワード辞書およびニコニコ大百科(nicodic)辞書機能は、ライセンス不明です。  
     とりわけニコニコ大百科は収載単語が独特で著作性が高く、また運営企業は２ちゃんねるで有名な未来検索ブラジルですので、無用な紛争に巻き込まれないためにもインストールしないことをお勧めします。デフォルトのUSEフラグも無効にしてあります。</small>  
+
+- [fcitx-qt5](http://fcitx-im.org/)  
+    (Fcitx Qt5 support)
+
+- [uim](http://code.google.com/p/uim/)  
+    (added Qt5 support)
+
+### テキスト
+
+- Nikola
+
+- CuteMarkEd
+
+- mined
+
+- 青空文庫ビューア (aobook)
+
+### メディア
+
+- AzPainter
+
+- AzDrawing
+
+- [Audacious](http://audacious-media-player.org/)  
+    (Git 版)  
     
+- [GStreamer](http://gstreamer.freedesktop.org/)  
+    (gst-plugins-faac-1.4.5, gst-plugins-libav-1.4.5, gst-rtsp-server-1.4.5)  
+
 - [gdk-pixbuf-psd](http://cgit.sukimashita.com/gdk-pixbuf-psd.git/)  
     (Photoshop の PSD を画像ビューア等で読み込むための gdk-pixbuf ローダ)
 - [gdk-pixbuf-xcf(io-xcf)](https://gitorious.org/xcf-pixbuf-loader)  
@@ -36,30 +60,85 @@ Gentoo GNU/Linux 向けの overlay です。
 - [libguess](http://atheme.org/projects/libguess.html)  
     (Git 版。最新の Audacious のキャラコードセット自動判別機能で必要)
 
-- [neu-icon-theme](http://www.silvestre.com.ar/)
+### テーマ
+
+- [neu-icon-theme](http://www.silvestre.com.ar/)  
     (GNOME アイコンテーマ)
 
-- [gion-icon-theme](http://www.silvestre.com.ar/)
+- [gion-icon-theme](http://www.silvestre.com.ar/)  
     (GNOME アイコンテーマ)
 
-- [yozfont](http://yozvox.web.fc2.com/)
+- [faience-icon-theme](http://tiheum.deviantart.com/art/Faience-icon-theme-255099649)
+    (GNOME アイコンテーマ)
+
+### フォント
+
+- Souce Hans Sans (源ノ角ゴシック)
+
+- Noto
+
+- Noto CJK JP
+
+- 小夏
+
+- けいふぉんと
+
+- Koruri
+
+- 源真ゴシック
+
+- 源柔ゴシック
+
+- Mgen+
+
+- Rounded Mgen+
+
+- Rounded M+
+
+- Circle M+
+
+- Pixel M+
+
+- やさしさアンチック
+
+- やさしさゴシック
+
+- Migu VS, BT, DS
+
+- [yozfont](http://yozvox.web.fc2.com/)  
     (ペン字フォント)
 
-- [yozfontkm](http://yozvox.web.fc2.com/)
+- [yozfontkm](http://yozvox.web.fc2.com/)  
     (毛筆フォント)
 
-- [yozeng](http://yozvox.web.fc2.com/)
+- [yozeng](http://yozvox.web.fc2.com/)  
     (タイプライター / デジタルディスプレイ風フォント)
 
-- [yoz-mobomoga](http://yozvox.web.fc2.com/)
+- [yoz-mobomoga](http://yozvox.web.fc2.com/)  
     (M+ / IPAフォント 系 明朝・ゴシック)
 
-なお、以下の ebuild が入っていますが、早晩にupstreamで対応され不要になると思われます。
+- 青柳疎石フォント
 
-- FreeType Ver.2.5.1 以降では include/freetype が include/freetype2 にリネームされているため、それに対応した 以下の ebuild
+- 青柳衡山フォント
 
-    - tuxonice-userui
-    - splashutils
+- TTEdit 半角
+
+- TTEdit 2/3
+
+### アクセシビリティ
+
+- Onboard
+
+- xvkbd
+
+### その他
+
+- tuxonice-userui  
+FreeType Ver.2.5.1 以降では include/freetype が include/freetype2 にリネームされているため、それに対応
+
+- lightdm (Qt5対応)
+
+ほか
 
 ----
 ### ライセンス
