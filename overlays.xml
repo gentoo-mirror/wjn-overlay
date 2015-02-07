@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<layman>
+  <overlay
+      contact = "wjn@aol.jp"
+      type = "git"
+      src  = "https://wjn@bitbucket.org/wjn/wjn-overlay.git"
+      name = "wjn-overlay">
+    <link>
+      https://bitbucket.org/wjn/wjn-overlay/
+    </link>
+    <description>
+    	wjn's user overlay for Gentoo GNU/Linux.
+    </description>
+  </overlay>
+</layman>
+
