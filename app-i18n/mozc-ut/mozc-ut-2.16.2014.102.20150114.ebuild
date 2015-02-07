@@ -59,7 +59,6 @@ RDEPEND="dev-libs/glib:2
 	${PYTHON_DEPS}"
 DEPEND="${RDEPEND}
 	>=dev-lang/ruby-2.0
-	>=dev-libs/protobuf-2.5.0
 	dev-util/ninja
 	dev-vcs/subversion
 	virtual/pkgconfig"
