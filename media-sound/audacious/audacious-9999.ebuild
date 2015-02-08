@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit git-2
+inherit autotools git-2
 
 DESCRIPTION="Audacious Player - Your music, your way, no exceptions"
 HOMEPAGE="http://audacious-media-player.org/"
@@ -36,16 +36,18 @@ DEPEND="${RDEPEND}
 	"
 
 PDEPEND="
-	~media-plugins/audacious-plugins-9999
-	qt5? ( media-plugins/audacious-plugins[qt5] )
+	~media-plugins/audacious-plugins-9999[qt5?]
 	"
 
 pkg_setup() {
 	use qt5 && export PATH="/usr/$(get_libdir)/qt5/bin:${PATH}"
 }
 
+src_prepare() {
+	eautoreconf
+}
+
 src_configure() {
-	./autogen.sh
 	econf \
 		--enable-dbus \
 		$(use_enable chardet) \
@@ -71,4 +73,3 @@ pkg_postinst() {
 		ewarn 'Run audacious --qt to get the Qt interface.'
 	fi
 }
-
