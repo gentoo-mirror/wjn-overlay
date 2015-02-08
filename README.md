@@ -26,7 +26,7 @@ e.g.
     (development version)  
 
 - [GStreamer](http://gstreamer.freedesktop.org/)  
-    (gst-plugins-faac-1.4.5, gst-plugins-libav-1.4.5, gst-rtsp-server-1.4.5)  
+    (gst-rtsp-server-1.4.5)  
 
 - [gdk-pixbuf-psd](http://cgit.sukimashita.com/gdk-pixbuf-psd.git/)  
     (gdk-pixbuf loader for PSD files)  

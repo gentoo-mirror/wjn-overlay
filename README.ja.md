@@ -47,7 +47,7 @@ Gentoo GNU/Linux 向けの overlay です。
     (Git 版)  
     
 - [GStreamer](http://gstreamer.freedesktop.org/)  
-    (gst-plugins-faac-1.4.5, gst-plugins-libav-1.4.5, gst-rtsp-server-1.4.5)  
+    (gst-rtsp-server-1.4.5)  
 
 - [gdk-pixbuf-psd](http://cgit.sukimashita.com/gdk-pixbuf-psd.git/)  
     (Photoshop の PSD を画像ビューア等で読み込むための gdk-pixbuf ローダ)
