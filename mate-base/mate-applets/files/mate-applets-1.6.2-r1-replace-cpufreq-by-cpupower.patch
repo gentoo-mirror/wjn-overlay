@@ -3,14 +3,14 @@ Obtained from: http://pkgs.fedoraproject.org/cgit/mate-applets.git/plain/cpufreq
 diff -upr mate-applets-1.5.0-orig/configure.ac mate-applets-1.5.0/configure.ac
 --- mate-applets-1.5.0-orig/configure.ac	2012-12-08 22:37:32.000000000 +0100
 +++ mate-applets-1.5.0/configure.ac	2013-01-14 18:04:15.726598991 +0100
-@@ -506,13 +506,13 @@ if test "x$HAVE_POLKIT" = "xyes"; then
- fi
+@@ -408,13 +408,13 @@ 	AS_HELP_STRING([--with-cpufreq-lib=lib], [library to use for cpufreq applet @<:@default=cpufreq@:>@]),
+ 	[with_cpufreq_lib=$withval], [with_cpufreq_lib="cpufreq"])
  
  AC_CHECK_HEADER(cpufreq.h, have_libcpufreq=yes, have_libcpufreq=no)
 -LIBCPUFREQ_LIBS=
 -if test "x$have_libcpufreq" = "xyes"; then
 -   AC_DEFINE([HAVE_LIBCPUFREQ], [1], [Have libcpufreq.])
--   LIBCPUFREQ_LIBS=-lcpufreq
+-   LIBCPUFREQ_LIBS="-l$with_cpufreq_lib"
 +LIBCPUPOWER_LIBS=
 +if test "x$have_libcpupower" = "xyes"; then
 +   AC_DEFINE([HAVE_LIBCPUPOWER], [1], [Have libcpupower.])
