@@ -29,8 +29,8 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	>=dev-libs/libxml2-2.5:2
 	dev-python/pygobject:3
 	>=gnome-base/libgtop-2.11.92:2=
-	>=mate-base/mate-desktop-1.6:0
-	>=mate-base/mate-panel-1.8:0
+	~mate-base/mate-desktop-9999
+	~mate-base/mate-panel-9999
 	~mate-base/mate-settings-daemon-9999
 	>=sys-apps/dbus-1.1.2:0
 	|| ( sys-power/cpupower:0 sys-power/cpufrequtils )

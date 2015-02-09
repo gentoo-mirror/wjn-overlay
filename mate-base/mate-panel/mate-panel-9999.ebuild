@@ -42,8 +42,7 @@ COMMON_DEPEND="dev-libs/atk:0
 	x11-libs/libXau:0
 	>=x11-libs/libXrandr-1.2:0
 	virtual/libintl:0
-	introspection? ( >=dev-libs/gobject-introspection-0.6.7:0 )
-	networkmanager? ( >=net-misc/networkmanager-0.6:0 )"
+	introspection? ( >=dev-libs/gobject-introspection-0.6.7:0 )"
 DEPEND="${COMMON_DEPEND}
 	app-text/docbook-xml-dtd:4.1.2
 	app-text/yelp-tools:0
@@ -71,7 +70,6 @@ src_configure() {
 	gnome2_src_configure \
 		--libexecdir=/usr/libexec/mate-applets \
 		--disable-deprecation-flags \
-		$(use_enable networkmanager network-manager) \
 		$(use_enable introspection) \
 		$(use_with X x)
 }
