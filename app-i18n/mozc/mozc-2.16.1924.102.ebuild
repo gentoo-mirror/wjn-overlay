@@ -3,8 +3,8 @@
 # $Header: $
 
 EAPI=4
-PYTHON_COMPAT=( python{2_6,2_7} )
-inherit elisp-common eutils multilib multiprocessing python toolchain-funcs
+PYTHON_COMPAT=( python2_7 )
+inherit elisp-common eutils multilib multiprocessing python-single-r1 toolchain-funcs
 
 DESCRIPTION="Mozc - Japanese Input Method"
 HOMEPAGE="http://code.google.com/p/mozc/"
@@ -28,7 +28,6 @@ SRC_URI="
 	${PROTOBUF_URI}
 	${USAGEDICT_URI}
 	fcitx? ( ${FCITX_PATCH_URI} )
-	uim? ( ${UIM_PATCH_URI} )
 	"
 
 LICENSE="BSD ipadic public-domain unicode"
@@ -65,26 +64,23 @@ SITEFILE=50${PN}-gentoo.el
 
 src_unpack() {
 
-# Below is in the upstream's official instruction 
-# ( https://code.google.com/p/mozc/wiki/LinuxBuildInstructions ).
-# But I think it isn't necessary to install depot_tools...
-#
-#	svn export "${DEPOT_URI}@{DEPOT_REV}"
-#	export PATH="$PATH":`pwd`/depot_tools
-#	gclient config "${MOZC_URI}@${MOZC_REV}
-#	gclient sync
-#	mv "src@${MOZC_REV}" ${P}
-#
-# Instead, simply do svn checkout mozc :)
-
-	svn checkout ${MOZC_URI}@${MOZC_REV} "${S}"
+	# Below is in the upstream's official instruction 
+	# ( https://code.google.com/p/mozc/wiki/LinuxBuildInstructions ).
+	#	svn export "${DEPOT_URI}@{DEPOT_REV}"
+	#	export PATH="$PATH":`pwd`/depot_tools
+	#	gclient config "${MOZC_URI}@${MOZC_REV}
+	#	gclient sync
+	#	mv "src@${MOZC_REV}" ${P}
+	# But I think it isn't necessary to install depot_tools...
+	# Instead, simply do svn checkout mozc :)
+	svn co -q ${MOZC_URI}@${MOZC_REV} "${S}"
 
 	cd "${S}/third_party"
 	unpack $(basename ${PROTOBUF_URI})
 	mv protobuf-${PROTOBUF_VER} protobuf
-	svn checkout ${GYP_URI} gyp
+	svn co -q ${GYP_URI} gyp
 	
-	use uim && svn checkout ${UIM_PATCH_URI}@${UIM_PATCH_REV} "${WORKDIR}/macuim"
+	use uim && svn co -q ${UIM_PATCH_URI}@${UIM_PATCH_REV} "${WORKDIR}/macuim"
 }
 
 src_prepare() {
@@ -117,7 +113,7 @@ src_configure() {
 
 	use renderer || GYP_DEFINES="${GYP_DEFINES} enable_gtk_renderer=0"
 
-	"$(PYTHON)" build_mozc.py gyp "${myconf}" "gyp failed" || die
+	"${PYTHON}" build_mozc.py gyp "${myconf}" "gyp failed" || die
 }
 
 src_compile() {
@@ -138,8 +134,8 @@ src_compile() {
 	use renderer && mytarget="${mytarget} renderer/renderer.gyp:mozc_renderer"
 	use uim && mytarget="${mytarget} unix/uim/uim.gyp:uim-mozc"
 
-	"$(PYTHON)" build_mozc.py build_tools -c "${BUILDTYPE}" ${myjobs} || die
-	"$(PYTHON)" build_mozc.py build -c "${BUILDTYPE}" ${mytarget} ${myjobs} || die
+	"${PYTHON}" build_mozc.py build_tools -c "${BUILDTYPE}" ${myjobs} || die
+	"${PYTHON}" build_mozc.py build -c "${BUILDTYPE}" ${mytarget} ${myjobs} || die
 
 	use emacs && elisp-compile unix/emacs/*.el
 }

@@ -2,9 +2,11 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="5"
-PYTHON_COMPAT=( python{2_7} )
-inherit elisp-common eutils multilib multiprocessing python toolchain-funcs versionator
+EAPI=5
+
+PYTHON_COMPAT=( python2_7 )
+inherit elisp-common eutils multilib multiprocessing python-single-r1 \
+	toolchain-funcs versionator
 
 DESCRIPTION="Mozc Japanese Input Method with Additional Japanese dictionary"
 HOMEPAGE="http://www.geocities.jp/ep3797/mozc_01.html"
@@ -27,26 +29,28 @@ GYP_URI="http://gyp.googlecode.com/svn/trunk/"
 UIM_PATCH_URI="https://macuim.googlecode.com/svn/trunk/Mozc"
 
 SRC_URI="
-	${USAGEDICT_URI}
-	${PROTOBUF_URI}
-	${USAGEDICT_URI}
 	${MOZCUT_URI}
 	${PROTOBUF_URI}
+	${USAGEDICT_URI}
 	fcitx? ( ${FCITX_PATCH_URI} )
-	uim? ( ${UIM_PATCH_URI} )
 	"
 
-LICENSE="BSD CC-BY-SA-3.0 GPL-2 ipadic public-domain unicode"
+# MAKE SURE:
+# 	The licenses of nicodic as well as hatena-keyword are unknown.
+# 	Therefore they can be all-rights-reserved.
+LICENSE="BSD CC-BY-SA-3.0 GPL-2 all-rights-reserved ipadic public-domain unicode
+	ejdic? ( wn-ja )"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="ejdic emacs fcitx ibus -nicodic +qt4 renderer uim"
 REQUIRED_USE="|| ( emacs fcitx ibus uim )"
 
-RDEPEND="dev-libs/glib:2
-	dev-libs/openssl
+COMMON_DEPEND="${PYTHON_DEPS}
+	!app-i18n/mozc
+	dev-libs/glib:2
+	dev-libs/openssl:*
 	x11-libs/libXfixes
 	x11-libs/libxcb
-	!app-i18n/mozc
 	emacs? ( virtual/emacs )
 	fcitx? ( app-i18n/fcitx )
 	ibus? ( >=app-i18n/ibus-1.4.1 )
@@ -56,12 +60,14 @@ RDEPEND="dev-libs/glib:2
 		app-i18n/zinnia
 	)
 	uim? ( app-i18n/uim )
-	${PYTHON_DEPS}"
-DEPEND="${RDEPEND}
+	"
+DEPEND="${COMMON_DEPEND}
 	>=dev-lang/ruby-2.0
 	dev-util/ninja
 	dev-vcs/subversion
-	virtual/pkgconfig"
+	virtual/pkgconfig
+	"
+RDEPEND="${COMMON_DEPEND}"
 
 RESTRICT="test"
 
@@ -71,59 +77,44 @@ SITEFILE=50${PN%-ut}-gentoo.el
 
 pkg_pretend(){
 	if use nicodic; then
-		ewarn "WARNING :"
-		ewarn "'Nico Nico Pedia' (NICODIC) feature is not recommended,"
-		ewarn "because NICODIC's license is not unknown."
-		ewarn "Mozc UT Dictionary's author doesn't recomend it also."
-		ewarn "Are you sure to install NICODIC feature?"
+		ewarn "WARNING:"
+		ewarn "The author of Mozc UT recommends disabling its NICODIC feature,"
+		ewarn "because the license of NICODIC isn't clear."
+		ewarn "Are you sure to enable NICODIC feature?"
 	fi
 }
 
 src_unpack() {
 	unpack $(basename ${MOZCUT_URI})
 
-	use ejdic && sed -i 's/#EJDIC="true"/EJDIC="true"/g' "${WORKDIR}/mozcdic-ut-${MOZCUT_VER}/generate-mozc-ut.sh"
-
-	use nicodic && sed -i 's/#NICODIC="true"/NICODIC="true"/g' "${WORKDIR}/mozcdic-ut-${MOZCUT_VER}/generate-mozc-ut.sh"
-
 	cd "${WORKDIR}/mozcdic-ut-${MOZCUT_VER}"
- 
-	rm -rf mozc_src/
-	mkdir -p mozc_src
-	cd mozc_src/
 
-	svn checkout ${MOZC_URI}@${MOZC_REV}
+	rm -rf mozc_src && mkdir -p mozc_src && cd mozc_src \
+		&& svn co -q ${MOZC_URI}@${MOZC_REV}
 
-	cd src/
-	rm -rf `find . -type d -name .svn`
+	cd src && rm -rf `find . -type d -name .svn`
 
 	cd third_party
-	unpack $(basename ${PROTOBUF_URI})
-	mv protobuf-${PROTOBUF_VER} protobuf
-	mkdir japanese_usage_dictionary
-	cp "${DISTDIR}/$(basename ${USAGEDICT_URI})" japanese_usage_dictionary/
+	unpack $(basename ${PROTOBUF_URI}) && mv protobuf-${PROTOBUF_VER} protobuf
+	mkdir japanese_usage_dictionary \
+		&& cp "${DISTDIR}/$(basename ${USAGEDICT_URI})" japanese_usage_dictionary/
 
-	cd "${WORKDIR}/mozcdic-ut-${MOZCUT_VER}"
+	cd "${WORKDIR}/mozcdic-ut-${MOZCUT_VER}" && ruby generate-mozc-tarball.rb \
+	 && mv mozc_src/mozc-*.tar.bz2 ../ && rm -rf mozc_src/
 
-	ruby generate-mozc-tarball.rb
-	mv mozc_src/mozc-*.tar.bz2 .
-	rm -rf mozc_src/
-
-	mv mozc-*.tar.bz2 ..
-
+	# FIX BELOW:
+	# 	These sed(s) are called in src_unpack, violate the Quality Assurance.
+	use ejdic && sed -i 's/#EJDIC="true"/EJDIC="true"/g' "${WORKDIR}/mozcdic-ut-${MOZCUT_VER}/generate-mozc-ut.sh"
+	use nicodic && sed -i 's/#NICODIC="true"/NICODIC="true"/g' "${WORKDIR}/mozcdic-ut-${MOZCUT_VER}/generate-mozc-ut.sh"
 	./generate-mozc-ut.sh
 
 	cd "${S}/third_party"
-	unpack "$(basename ${PROTOBUF_URI})"
-	mv protobuf-${PROTOBUF_VER} protobuf
-	svn checkout ${GYP_URI} gyp
-
-	use uim && svn checkout ${UIM_PATCH_URI}@${UIM_PATCH_REV} "${WORKDIR}/macuim"
+	unpack "$(basename ${PROTOBUF_URI})" && mv protobuf-${PROTOBUF_VER} protobuf
+	svn co -q ${GYP_URI} gyp
+	use uim && svn co -q ${UIM_PATCH_URI}@${UIM_PATCH_REV} "${WORKDIR}/macuim"
 }
 
 src_prepare() {
-	cd "${S}"
-
 	if use fcitx; then
 		rm -rf unix/fcitx/
 		EPATCH_OPTS="-p2" epatch "${DISTDIR}/$(basename ${FCITX_PATCH_URI})"
@@ -148,7 +139,7 @@ src_configure() {
 
 	use renderer || GYP_DEFINES="${GYP_DEFINES} enable_gtk_renderer=0"
 
-	"$(PYTHON)" build_mozc.py gyp "${myconf}" "gyp failed" || die
+	"${PYTHON}" build_mozc.py gyp "${myconf}" "gyp failed" || die
 }
 
 src_compile() {
@@ -168,9 +159,9 @@ src_compile() {
 	fi
 	use renderer && mytarget="${mytarget} renderer/renderer.gyp:mozc_renderer"
 	use uim && mytarget="${mytarget} unix/uim/uim.gyp:uim-mozc"
-	
-	"$(PYTHON)" build_mozc.py build_tools -c "${BUILDTYPE}" ${myjobs} || die
-	"$(PYTHON)" build_mozc.py build -c "${BUILDTYPE}" ${mytarget} ${myjobs} || die
+
+	"${PYTHON}" build_mozc.py build_tools -c "${BUILDTYPE}" ${myjobs} || die
+	"${PYTHON}" build_mozc.py build -c "${BUILDTYPE}" ${mytarget} ${myjobs} || die
 
 	use emacs && elisp-compile unix/emacs/*.el
 }

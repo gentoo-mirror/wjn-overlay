@@ -64,14 +64,14 @@ BUILDTYPE=${BUILDTYPE:-Release}
 SITEFILE=50${PN}-gentoo.el
 
 src_unpack() {
-	svn checkout ${MOZC_URI}@${MOZC_REV} "${S}"
+	svn co -q ${MOZC_URI}@${MOZC_REV} "${S}"
 
 	cd "${S}/third_party"
 	unpack $(basename ${PROTOBUF_URI})
 	mv protobuf-${PROTOBUF_VER} protobuf
-	svn checkout ${GYP_URI} gyp
+	svn -q co ${GYP_URI} gyp
 	
-	use uim && svn checkout ${UIM_PATCH_URI}@${UIM_PATCH_REV} "${WORKDIR}/macuim"
+	use uim && svn co -q ${UIM_PATCH_URI}@${UIM_PATCH_REV} "${WORKDIR}/macuim"
 }
 
 src_prepare() {
@@ -104,7 +104,7 @@ src_configure() {
 
 	use renderer || GYP_DEFINES="${GYP_DEFINES} enable_gtk_renderer=0"
 
-	"$(PYTHON)" build_mozc.py gyp "${myconf}" "gyp failed" || die
+	"${PYTHON}" build_mozc.py gyp "${myconf}" "gyp failed" || die
 }
 
 src_compile() {
@@ -125,8 +125,8 @@ src_compile() {
 	use renderer && mytarget="${mytarget} renderer/renderer.gyp:mozc_renderer"
 	use uim && mytarget="${mytarget} unix/uim/uim.gyp:uim-mozc"
 
-	"$(PYTHON)" build_mozc.py build_tools -c "${BUILDTYPE}" ${myjobs} || die
-	"$(PYTHON)" build_mozc.py build -c "${BUILDTYPE}" ${mytarget} ${myjobs} || die
+	"${PYTHON}" build_mozc.py build_tools -c "${BUILDTYPE}" ${myjobs} || die
+	"${PYTHON}" build_mozc.py build -c "${BUILDTYPE}" ${mytarget} ${myjobs} || die
 
 	use emacs && elisp-compile unix/emacs/*.el
 }
