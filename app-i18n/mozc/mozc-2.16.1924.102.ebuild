@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 PYTHON_COMPAT=( python2_7 )
 inherit elisp-common eutils multilib multiprocessing python-single-r1 toolchain-funcs
 
@@ -11,14 +11,11 @@ HOMEPAGE="http://code.google.com/p/mozc/"
 
 MOZC_REV="383"
 PROTOBUF_VER="2.5.0"
-#DEPOT_REV="233649"
 FCITX_PATCH_VER="1.15.1834.102.1"
 UIM_PATCH_REV="334"
 
-#MOZC_URI="http://mozc.googlecode.com/files/${P}.tar.bz2"
 MOZC_URI="http://mozc.googlecode.com/svn/trunk/src"
 USAGEDICT_URI="http://japanese-usage-dictionary.googlecode.com/svn/trunk/usage_dict.txt"
-#DEPOT_URI="http://src.chromium.org/svn/trunk/tools/depot_tools"
 PROTOBUF_URI="http://protobuf.googlecode.com/files/protobuf-${PROTOBUF_VER}.tar.bz2"
 GYP_URI="http://gyp.googlecode.com/svn/trunk/"
 FCITX_PATCH_URI="http://download.fcitx-im.org/fcitx-mozc/fcitx-mozc-${FCITX_PATCH_VER}.patch"
@@ -36,8 +33,9 @@ KEYWORDS="~amd64 ~x86"
 IUSE="emacs fcitx ibus +qt4 renderer uim"
 REQUIRED_USE="|| ( emacs fcitx ibus uim )"
 
-RDEPEND="dev-libs/glib:2
-	dev-libs/openssl
+COMMON_DEPEND="${PYTHON_DEPS}
+	dev-libs/glib:2
+	dev-libs/openssl:*
 	x11-libs/libxcb
 	!app-i18n/mozc-ut
 	emacs? ( virtual/emacs )
@@ -49,12 +47,12 @@ RDEPEND="dev-libs/glib:2
 		app-i18n/zinnia
 	)
 	uim? ( app-i18n/uim )
-	${PYTHON_DEPS}
-"
-DEPEND="${RDEPEND}
-	dev-vcs/subversion
+	"
+DEPEND="${COMMON_DEPEND}
 	dev-util/ninja
+	dev-vcs/subversion
 	virtual/pkgconfig"
+RDEPEND="${COMMON_DEPEND}"
 
 RESTRICT="test"
 
@@ -63,31 +61,20 @@ BUILDTYPE=${BUILDTYPE:-Release}
 SITEFILE=50${PN}-gentoo.el
 
 src_unpack() {
-
-	# Below is in the upstream's official instruction 
-	# ( https://code.google.com/p/mozc/wiki/LinuxBuildInstructions ).
-	#	svn export "${DEPOT_URI}@{DEPOT_REV}"
-	#	export PATH="$PATH":`pwd`/depot_tools
-	#	gclient config "${MOZC_URI}@${MOZC_REV}
-	#	gclient sync
-	#	mv "src@${MOZC_REV}" ${P}
-	# But I think it isn't necessary to install depot_tools...
-	# Instead, simply do svn checkout mozc :)
 	svn co -q ${MOZC_URI}@${MOZC_REV} "${S}"
 
 	cd "${S}/third_party"
-	unpack $(basename ${PROTOBUF_URI})
-	mv protobuf-${PROTOBUF_VER} protobuf
+	unpack $(basename ${PROTOBUF_URI}) && \
+		mv protobuf-${PROTOBUF_VER} protobuf
 	svn co -q ${GYP_URI} gyp
-	
+
 	use uim && svn co -q ${UIM_PATCH_URI}@${UIM_PATCH_REV} "${WORKDIR}/macuim"
 }
 
 src_prepare() {
-	cd "${S}"
-	
-	mkdir -p third_party/japanese_usage_dictionary
-	cp "${DISTDIR}/$(basename ${USAGEDICT_URI})" third_party/japanese_usage_dictionary/
+	mkdir -p third_party/japanese_usage_dictionary && \
+		cp "${DISTDIR}/$(basename ${USAGEDICT_URI})" \
+			third_party/japanese_usage_dictionary/
 
 	if use fcitx; then
 		rm -rf unix/fcitx/
@@ -252,4 +239,3 @@ pkg_postrm() {
 	use emacs && elisp-site-regen
 	use uim && uim-module-manager --unregister mozc
 }
-

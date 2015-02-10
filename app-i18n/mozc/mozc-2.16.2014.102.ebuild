@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="5"
-PYTHON_COMPAT=( python{2_7} )
-inherit elisp-common eutils multilib multiprocessing python toolchain-funcs
+EAPI=5
+PYTHON_COMPAT=( python2_7 )
+inherit elisp-common eutils multilib multiprocessing python-single-r1 toolchain-funcs
 
 DESCRIPTION="Mozc - Japanese Input Method"
 HOMEPAGE="http://code.google.com/p/mozc/"
@@ -25,7 +25,6 @@ SRC_URI="
 	${PROTOBUF_URI}
 	${USAGEDICT_URI}
 	fcitx? ( ${FCITX_PATCH_URI} )
-	uim? ( ${UIM_PATCH_URI} )
 	"
 
 LICENSE="BSD ipadic public-domain unicode"
@@ -34,9 +33,9 @@ KEYWORDS="~amd64 ~x86"
 IUSE="emacs fcitx ibus +qt4 renderer uim"
 REQUIRED_USE="|| ( emacs fcitx ibus uim )"
 
-RDEPEND="
+COMMON_DEPEND="${PYTHON_DEPS}
 	dev-libs/glib:2
-	dev-libs/openssl
+	dev-libs/openssl:*
 	x11-libs/libXfixes
 	x11-libs/libxcb
 	!app-i18n/mozc-ut
@@ -49,13 +48,13 @@ RDEPEND="
 		app-i18n/zinnia
 	)
 	uim? ( app-i18n/uim )
-	${PYTHON_DEPS}
 	"
-DEPEND="${RDEPEND}
-	dev-vcs/subversion
+DEPEND="${COMMON_DEPEND}
 	dev-util/ninja
+	dev-vcs/subversion
 	virtual/pkgconfig
 	"
+RDEPEND="${COMMON_DEPEND}"
 
 RESTRICT="test"
 
@@ -67,18 +66,17 @@ src_unpack() {
 	svn co -q ${MOZC_URI}@${MOZC_REV} "${S}"
 
 	cd "${S}/third_party"
-	unpack $(basename ${PROTOBUF_URI})
-	mv protobuf-${PROTOBUF_VER} protobuf
+	unpack $(basename ${PROTOBUF_URI}) && \
+		mv protobuf-${PROTOBUF_VER} protobuf
 	svn -q co ${GYP_URI} gyp
-	
+
 	use uim && svn co -q ${UIM_PATCH_URI}@${UIM_PATCH_REV} "${WORKDIR}/macuim"
 }
 
 src_prepare() {
-	cd "${S}"
-	
-	mkdir -p third_party/japanese_usage_dictionary
-	cp "${DISTDIR}/$(basename ${USAGEDICT_URI})" third_party/japanese_usage_dictionary/
+	mkdir -p third_party/japanese_usage_dictionary && \
+		cp "${DISTDIR}/$(basename ${USAGEDICT_URI})" \
+			third_party/japanese_usage_dictionary/
 
 	if use fcitx; then
 		rm -rf unix/fcitx/
@@ -243,4 +241,3 @@ pkg_postrm() {
 	use emacs && elisp-site-regen
 	use uim && uim-module-manager --unregister mozc
 }
-
