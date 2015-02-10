@@ -14,12 +14,11 @@ if [[ ${PV} = *9999* ]]; then
 	KEYWORDS=""
 else
 	SRC_URI="http://download.fcitx-im.org/fcitx-qt5/${P}.tar.xz"
-	KEYWORDS=""
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-2+"
 SLOT="0"
-IUSE=""
 
 DEPEND="
 	app-i18n/fcitx
@@ -29,5 +28,3 @@ DEPEND="
 	dev-qt/qtdbus:5
 	"
 RDEPEND="${DEPEND}"
-
-

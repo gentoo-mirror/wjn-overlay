@@ -14,12 +14,11 @@ if [[ ${PV} = *9999* ]]; then
 	KEYWORDS=""
 else
 	SRC_URI="http://download.fcitx-im.org/fcitx-qt5/${P}.tar.xz"
-	KEYWORDS=""
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-2+"
 SLOT="0"
-IUSE=""
 
 COMMON_DEPEND="
 	app-i18n/fcitx
@@ -32,4 +31,3 @@ DEPEND="${COMMON_DEPEND}
 	>=dev-libs/extra-cmake-modules-1.4.0
 "
 RDEPEND="${COMMON_DEPEND}"
-
