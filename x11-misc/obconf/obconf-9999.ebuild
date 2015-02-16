@@ -12,7 +12,7 @@ EGIT_REPO_URI="git://git.openbox.org/dana/obconf.git"
 
 if [[ ${PV} = *9999* ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="git:/git.openbox.org/dana/${PN}.git"
+	EGIT_REPO_URI="git://git.openbox.org/dana/${PN}.git"
 else
 	SRC_URI="http://openbox.org/dist/${PN}/${P}.tar.gz"
 fi
