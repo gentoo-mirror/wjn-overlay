@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<longdescription lang="en">
+Openbox window manager configuration tool. 
+</longdescription>
+<maintainer>
+	<email>wjn@aol.jp</email>
+</maintainer>
+<upstream>
+	<doc>http://openbox.org/wiki/Main_Page</doc>
+</upstream>
+<use>
+	<flag name='nls'>Enable native language support</flag>
+</use>
+</pkgmetadata>
