@@ -1,0 +1,4 @@
+# mask because of segmentation fault on running.
+=app-i18n/mozc-2.16.2068.102
+=app-i18n/mozc-ut-2.16.2061.102.20150214
+
