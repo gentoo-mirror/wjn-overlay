@@ -27,7 +27,7 @@ RDEPEND="
 		~mate-base/mate-applets-9999
 		~mate-base/mate-control-center-9999
 		~mate-extra/mate-media-9999
-		~x11-terms/mate-terminal-9999
+		x11-terms/mate-terminal
 	)
 	bluetooth? ( net-wireless/blueman:0 )
 	themes? (
