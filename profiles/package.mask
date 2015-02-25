@@ -1,2 +1,0 @@
-# mask because of segmentation fault on running.
-=x11-terms/mate-terminal-9999

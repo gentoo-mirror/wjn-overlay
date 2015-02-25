@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -6,7 +6,7 @@ EAPI=5
 
 GCONF_DEBUG="no"
 
-inherit autotools git-r3 gnome2 
+inherit autotools git-r3 gnome2
 
 DESCRIPTION="The MATE Terminal Emulator"
 HOMEPAGE="http://mate-desktop.org/"
@@ -43,6 +43,7 @@ src_unpack() {
 }
 
 src_prepare() {
+	sed -i 's/g_variant_get (parameters, "(@ay@ay@ay@ay@i@ay)",/g_variant_get (parameters, "(@ay@ay@ay@ayi@ay)",/' src/terminal.c
 	eautoreconf
 	gnome2_src_prepare
 }
