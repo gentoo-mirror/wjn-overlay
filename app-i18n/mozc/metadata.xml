@@ -16,6 +16,7 @@ Mozc is a Japanese Input Method Editor (IME) designed for multi-platform such as
 	<flag name='fcitx'>Enable support for <pkg>app-i18n/fcitx</pkg></flag>
 	<flag name='ibus'>Enable support for <pkg>app-i18n/ibus</pkg></flag>
 	<flag name='renderer'>Enable native candidate window</flag>
+	<flag name='test'>Enable src_test phase for runtests</flag>
 	<flag name='uim'>Enable support for <pkg>app-i18n/uim</pkg></flag>
 </use>
 </pkgmetadata>

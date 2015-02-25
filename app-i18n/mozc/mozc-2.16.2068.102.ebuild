@@ -10,7 +10,12 @@ DESCRIPTION="Mozc - Japanese Input Method"
 HOMEPAGE="http://code.google.com/p/mozc/"
 
 MOZC_REV="551"
+GMOCK_REV="501"
+GTEST_REV="700"
+GYP_REV="2012"
 PROTOBUF_REV="512"
+JSONCPP_REV="11086dd"
+FONTTOOLS_REV="5ba7d98"
 FCITX_PATCH_VER="2.16.2037.102.2"
 UIM_PATCH_REV="334"
 
@@ -24,46 +29,49 @@ USAGEDICT_URI="http://japanese-usage-dictionary.googlecode.com/svn/trunk/usage_d
 # See Mozc r482; https://code.google.com/p/mozc/source/detail?r=482
 # PROTOBUF_URI="https://github.com/google/protobuf/releases/download/v${PROTOBUF_VER}/protobuf-${PROTOBUF_VER}.tar.bz2"
 PROTOBUF_URI="http://protobuf.googlecode.com/svn/trunk/"
+GMOCK_URI="http://googlemock.googlecode.com/svn/trunk"
+GTEST_URI="http://googletest.googlecode.com/svn/trunk"
 GYP_URI="http://gyp.googlecode.com/svn/trunk/"
+JSONCPP_URI="https://github.com/open-source-parsers/jsoncpp.git"
+FONTTOOLS_URI="https://github.com/behdad/fonttools.git"
 FCITX_PATCH_URI="http://download.fcitx-im.org/fcitx-mozc/fcitx-mozc-${FCITX_PATCH_VER}.patch"
 UIM_PATCH_URI="https://macuim.googlecode.com/svn/trunk/Mozc"
 
-SRC_URI="
-	${USAGEDICT_URI}
-	fcitx? ( ${FCITX_PATCH_URI} )
-	"
+SRC_URI="${USAGEDICT_URI}
+	fcitx? ( ${FCITX_PATCH_URI} )"
 
 LICENSE="BSD ipadic public-domain unicode"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="emacs fcitx ibus +qt4 renderer uim"
+IUSE="emacs fcitx ibus +qt4 renderer -test uim"
 REQUIRED_USE="|| ( emacs fcitx ibus uim )"
 
+# NOTE: Here aren't protobuf and clang.
+#	 We should use specific protobuf revesion,
+#	still use gcc instead of clang (to avoid segmentaiton faults).
 COMMON_DEPEND="${PYTHON_DEPS}
 	dev-libs/glib:2
 	dev-libs/openssl:*
-	sys-devel/clang
 	x11-libs/libXfixes
 	x11-libs/libxcb
 	!app-i18n/mozc-ut
 	emacs? ( virtual/emacs )
 	fcitx? ( app-i18n/fcitx )
 	ibus? ( >=app-i18n/ibus-1.4.1 )
+	qt4? ( dev-qt/qtgui:4
+		app-i18n/zinnia )
 	renderer? ( x11-libs/gtk+:2 )
-	qt4? (
-		dev-qt/qtgui:4
-		app-i18n/zinnia
-	)
 	uim? ( app-i18n/uim )
 	"
 DEPEND="${COMMON_DEPEND}
 	dev-util/ninja
 	dev-vcs/subversion
+	>=sys-libs/zlib-1.2.8
 	virtual/pkgconfig
 	"
 RDEPEND="${COMMON_DEPEND}"
 
-RESTRICT="test"
+use test || RESTRICT="test"
 
 BUILDTYPE=${BUILDTYPE:-Release}
 
@@ -74,16 +82,22 @@ src_unpack() {
 
 	cd "${S}/third_party"
 	svn co -q ${PROTOBUF_URI}@${PROTOBUF_REV} protobuf
-	svn co -q ${GYP_URI} gyp
+	svn co -q ${GYP_URI}@${GYP_REV} gyp
+	git clone -q ${JSONCPP_URI} jsoncpp && cd jsoncpp \
+		&& git checkout -q ${JSONCPP_REV} && cd ..
+	git clone -q ${FONTTOOLS_URI} fontTools && cd fontTools \
+		&& git checkout -q ${FONTTOOLS_REV} && cd ..
+	mkdir japanese_usage_dictionary && \
+		cp "${DISTDIR}/$(basename ${USAGEDICT_URI})" japanese_usage_dictionary/
+	if use test; then
+		svn co -q ${GMOCK_URI}@${GMOCK_REV} gmock
+		svn co -q ${GTEST_URI}@${GTEST_REV} gtest
+	fi
 
 	use uim && svn co -q ${UIM_PATCH_URI}@${UIM_PATCH_REV} "${WORKDIR}/macuim"
 }
 
 src_prepare() {
-	mkdir -p third_party/japanese_usage_dictionary && \
-		cp "${DISTDIR}/$(basename ${USAGEDICT_URI})" \
-			third_party/japanese_usage_dictionary/
-
 	if use fcitx; then
 		rm -rf unix/fcitx/
 		EPATCH_OPTS="-p2" epatch "${DISTDIR}/$(basename ${FCITX_PATCH_URI})"
@@ -94,9 +108,16 @@ src_prepare() {
 		mv "${WORKDIR}/macuim/uim" "${S}/unix/"
 		epatch "${WORKDIR}/macuim/mozc-kill-line.diff"
 	fi
+
+	# Disable clang. That's because built binaries fall segmentation fault.
+	sed -i -e "s/<!(which clang)/$(tc-getCC)/" \
+		-e "s/<!(which clang++)/$(tc-getCXX)/" \
+		gyp/common.gypi || die
 }
 
 src_configure() {
+	local GYP_DEFINES="compiler_target=gcc compiler_host=gcc"
+
 	local myconf="--server_dir=/usr/$(get_libdir)/mozc"
 
 	use ibus && GYP_DEFINES="${GYP_DEFINES} ibus_mozc_path=/usr/libexec/ibus-engine-mozc ibus_mozc_icon_path=/usr/share/ibus-mozc/product_icon.png"
@@ -107,6 +128,8 @@ src_configure() {
 	fi
 
 	use renderer || GYP_DEFINES="${GYP_DEFINES} enable_gtk_renderer=0"
+
+	tc-export CC CXX AR AS RANLIB LD NM
 
 	"${PYTHON}" build_mozc.py gyp "${myconf}" "gyp failed" || die
 }
@@ -132,6 +155,10 @@ src_compile() {
 	"${PYTHON}" build_mozc.py build -c "${BUILDTYPE}" ${mytarget} ${myjobs} || die
 
 	use emacs && elisp-compile unix/emacs/*.el
+}
+
+src_test() {
+	"${PYTHON}" build_mozc.py runtests -c Release
 }
 
 src_install() {
