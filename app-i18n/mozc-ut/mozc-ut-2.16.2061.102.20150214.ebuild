@@ -15,7 +15,11 @@ HOMEPAGE="http://www.geocities.jp/ep3797/mozc_01.html"
 MOZC_VER="2.16.2061.102"
 MOZC_REV="544"
 MOZCUT_VER=$(get_version_component_range $(get_version_component_count))
+GMOCK_REV="501"
+GTEST_REV="700"
 PROTOBUF_REV="512"
+JSONCPP_REV="11086dd"
+FONTTOOLS_REV="5ba7d98"
 FCITX_PATCH_VER="2.16.2037.102.2"
 UIM_PATCH_REV="334"
 
@@ -29,6 +33,10 @@ USAGEDICT_URI="http://japanese-usage-dictionary.googlecode.com/svn/trunk/usage_d
 # See Mozc r482; https://code.google.com/p/mozc/source/detail?r=482
 # PROTOBUF_URI="https://github.com/google/protobuf/releases/download/v${PROTOBUF_VER}/protobuf-${PROTOBUF_VER}.tar.bz2"
 PROTOBUF_URI="http://protobuf.googlecode.com/svn/trunk/"
+GMOCK_URI="http://googlemock.googlecode.com/svn/trunk"
+GTEST_URI="http://googletest.googlecode.com/svn/trunk"
+JSONCPP_URI="https://github.com/open-source-parsers/jsoncpp.git"
+FONTTOOLS_URI="https://github.com/behdad/fonttools.git"
 MOZCUT_URI="mirror://sourceforge/mdk-ut/mozcdic-ut-${MOZCUT_VER}.tar.bz2"
 FCITX_PATCH_URI="http://download.fcitx-im.org/fcitx-mozc/fcitx-mozc-${FCITX_PATCH_VER}.patch"
 GYP_URI="http://gyp.googlecode.com/svn/trunk/"
@@ -47,14 +55,16 @@ LICENSE="BSD CC-BY-SA-3.0 GPL-2 all-rights-reserved ipadic public-domain unicode
 	ejdic? ( wn-ja )"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="ejdic emacs fcitx ibus -nicodic +qt4 renderer uim"
+IUSE="ejdic emacs fcitx ibus -nicodic +qt4 renderer -test uim"
 REQUIRED_USE="|| ( emacs fcitx ibus uim )"
 
+# NOTE: Here aren't protobuf and clang.
+#	 We should use specific protobuf revesion,
+#	still use gcc instead of clang (to avoid segmentaiton faults).
 COMMON_DEPEND="${PYTHON_DEPS}
 	!app-i18n/mozc
 	dev-libs/glib:2
 	dev-libs/openssl:*
-	sys-devel/clang
 	x11-libs/libXfixes
 	x11-libs/libxcb
 	emacs? ( virtual/emacs )
@@ -73,9 +83,9 @@ DEPEND="${COMMON_DEPEND}
 	dev-vcs/subversion
 	virtual/pkgconfig
 	"
-RDEPEND="${COMMON_DEPEND}"
+RDEPEND=${COMMON_DEPEND}
 
-RESTRICT="test"
+use test || RESTRICT="test"
 
 BUILDTYPE=${BUILDTYPE:-Release}
 
@@ -117,7 +127,20 @@ src_unpack() {
 	cd "${S}/third_party"
 	svn co -q ${PROTOBUF_URI}@${PROTOBUF_REV} protobuf
 	svn co -q ${GYP_URI} gyp
+	git clone -q ${JSONCPP_URI} jsoncpp && cd jsoncpp \
+		&& git checkout -q ${JSONCPP_REV} && cd ..
+	git clone -q ${FONTTOOLS_URI} fontTools && cd fontTools \
+		&& git checkout -q ${FONTTOOLS_REV} && cd ..
+	if use test; then
+		svn co -q ${GMOCK_URI}@${GMOCK_REV} gmock
+		svn co -q ${GTEST_URI}@${GTEST_REV} gtest
+	fi
 	use uim && svn co -q ${UIM_PATCH_URI}@${UIM_PATCH_REV} "${WORKDIR}/macuim"
+
+	# Disable clang. That's because built binaries fall in segmentation fault.
+	sed -i -e "s/<!(which clang)/$(tc-getCC)/" \
+		-e "s/<!(which clang++)/$(tc-getCXX)/" \
+		"${S}"/gyp/common.gypi || die
 }
 
 src_prepare() {
@@ -134,6 +157,7 @@ src_prepare() {
 }
 
 src_configure() {
+	local GYP_DEFINES="compiler_target=gcc compiler_host=gcc"
 	local myconf="--server_dir=/usr/$(get_libdir)/mozc"
 
 	use ibus && GYP_DEFINES="${GYP_DEFINES} ibus_mozc_path=/usr/libexec/ibus-engine-mozc ibus_mozc_icon_path=/usr/share/ibus-mozc/product_icon.png"
@@ -144,6 +168,8 @@ src_configure() {
 	fi
 
 	use renderer || GYP_DEFINES="${GYP_DEFINES} enable_gtk_renderer=0"
+
+	tc-export CC CXX AR AS RANLIB LD NM
 
 	"${PYTHON}" build_mozc.py gyp "${myconf}" "gyp failed" || die
 }
@@ -169,6 +195,10 @@ src_compile() {
 	"${PYTHON}" build_mozc.py build -c "${BUILDTYPE}" ${mytarget} ${myjobs} || die
 
 	use emacs && elisp-compile unix/emacs/*.el
+}
+
+src_test() {
+	"${PYTHON}" build_mozc.py runtests -c Release
 }
 
 src_install() {

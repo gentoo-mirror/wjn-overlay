@@ -24,6 +24,7 @@
 	<flag name='nicodic'>Add "Nico Nico Pedia" dictionary (NICODIC)</flag>
 	<flag name='qt4'>Enable <pkg>app-i18n/zinnia</pkg> functionality</flag>
 	<flag name='renderer'>Enable native candidate window</flag>
+	<flag name='test'>Enable src_test phase for runtests</flag>
 	<flag name='uim'>Enable support for <pkg>app-i18n/uim</pkg></flag>
 </use>
 </pkgmetadata>
