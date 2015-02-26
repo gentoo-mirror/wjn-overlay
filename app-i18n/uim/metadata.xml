@@ -1,19 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-<herd>cjk</herd>
 <longdescription lang="en">
-  uim is a simple, secure and flexible input method library.  At the moment
-  Anthy, SKK, Prime, T-code, TUT-code (these are Japanese input method),
-  Pinyin (Chinese input method), Hangul (Korean input method), IPA
-  (International Phonetic Alphabet) are implemented.  You can extend the
-  library with Scheme thus easily, or with C if it becomes rather complicated.
+ uim is a simple, secure and flexible input method library. At the moment
+Anthy, SKK, Prime, T-code, TUT-code (these are Japanese input method),
+ Pinyin (Chinese input method), Hangul (Korean input method), IPA
+ (International Phonetic Alphabet) are implemented. You can extend the
+ library with Scheme thus easily, or with C if it becomes rather complicated.
 </longdescription>
+<maintainer>
+	<email>wjn@aol.jp</email>
+</maintainer>
+<upstream>
+	<remote-id type="google-code">uim</remote-id>
+	<doc>https://code.google.com/p/uim/</doc>
+</upstream>
 <use>
-  <flag name='anthy'>Enable support for <pkg>app-i18n/anthy</pkg> input method
-	</flag>
-  <flag name='eb'>Enable support for <pkg>dev-libs/eb</pkg></flag>
-  <flag name='gtk3'>Enable support for <pkg>x11-libs/gtk+</pkg>:3</flag>
-  <flag name='skk'>Enable support for <pkg>app-i18n/skk-jisyo</pkg></flag>
+	<flag name='anthy'>Enable support for <pkg>app-i18n/anthy</pkg></flag>
+	<flag name='canna'>Enable support for <pkg>app-i18n/canna</pkg></flag>
+	<flag name='curl'>Enable support for <pkg>app-i18n/curl</pkg></flag>
+	<flag name='eb'>Enable support for <pkg>dev-libs/eb</pkg></flag>
+	<flag name='emacs'>Enable support for <pkg>virtual/emacs</pkg></flag>
+	<flag name='expat'>Enable support for <pkg>dev-libs/expat</pkg></flag>
+	<flag name='gtk'>Enable support for <pkg>x11-libs/gtk+</pkg>:2</flag>
+	<flag name='gtk3'>Enable support for <pkg>x11-libs/gtk+</pkg>:3</flag>
+	<flag name='kde'>Enable support for <pkg>kde-base/kdelibs</pkg></flag>
+	<flag name='skk'>Enable support for <pkg>app-i18n/skk-jisyo</pkg></flag>
 </use>
 </pkgmetadata>

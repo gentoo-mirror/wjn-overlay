@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="5"
+EAPI=5
 inherit autotools base eutils multilib elisp-common gnome2-utils qmake-utils
 
 SSCM_VER="0.8.5"
@@ -13,24 +13,23 @@ if [[ ${PV} = *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="git://github.com/uim/uim.git"
 	EGIT_BRANCH="master"
-	EGIT_CHECKOUT_DIR="${S}"
+	EGIT_CHECKOUT_DIR=${S}
 	SRC_URI="https://uim.googlecode.com/files/${PN}-1.8.6.tar.gz
 	https://sigscheme.googlecode.com/files/sigscheme-${SSCM_VER}.tar.gz"
 else
 	SRC_URI="http://uim.googlecode.com/files/${P}.tar.bz2"
 fi
 
-
 LICENSE="BSD GPL-2 LGPL-2.1"
 SLOT="0"
 KEYWORDS=""
-IUSE="+anthy canna curl eb emacs expat libffi gtk gtk3 kde libedit libnotify m17n-lib ncurses nls qt4 qt5 skk sqlite ssl static-libs test unicode X xft linguas_zh_CN linguas_zh_TW linguas_ja linguas_ko"
+IUSE="+anthy canna curl eb emacs expat gtk gtk3 kde libedit libffi libnotify
+	m17n-lib ncurses nls qt4 qt5 skk sqlite ssl static-libs unicode X xft
+	linguas_zh_CN linguas_zh_TW linguas_ja linguas_ko"
 
 RESTRICT="test"
 
-REQUIRED_USE="gtk? ( X ) qt4? ( X )"
-
-RDEPEND="X? (
+COMMON_DEPEND="X? (
 		x11-libs/libX11
 		x11-libs/libXft
 		x11-libs/libXt
@@ -48,11 +47,11 @@ RDEPEND="X? (
 	eb? ( dev-libs/eb )
 	emacs? ( virtual/emacs )
 	expat? ( dev-libs/expat )
-	libffi? ( virtual/libffi )
 	gtk? ( >=x11-libs/gtk+-2.4:2 )
 	gtk3? ( x11-libs/gtk+:3 )
 	kde? ( >=kde-base/kdelibs-4 )
 	libedit? ( dev-libs/libedit )
+	libffi? ( virtual/libffi )
 	libnotify? ( >=x11-libs/libnotify-0.4 )
 	m17n-lib? ( >=dev-libs/m17n-lib-1.3.1 )
 	ncurses? ( sys-libs/ncurses )
@@ -61,12 +60,9 @@ RDEPEND="X? (
 	qt5? ( dev-qt/qtgui:5 )
 	skk? ( app-i18n/skk-jisyo )
 	sqlite? ( dev-db/sqlite:3 )
-	ssl? ( dev-libs/openssl )
+	ssl? ( dev-libs/openssl:* )
 	!dev-scheme/sigscheme"
-#	scim? ( >=app-i18n/scim-1.3.0 ) # broken
-#	wnn? ( app-i18n/wnn )
-
-DEPEND="${RDEPEND}
+DEPEND="${COMMON_DEPEND}
 	app-text/asciidoc
 	dev-lang/perl
 	dev-lang/ruby
@@ -82,8 +78,7 @@ DEPEND="${RDEPEND}
 		x11-proto/xextproto
 		x11-proto/xproto
 	)"
-
-RDEPEND="${RDEPEND}
+RDEPEND="${COMMON_DEPEND}
 	X? (
 		media-fonts/font-sony-misc
 		linguas_zh_CN? (
@@ -99,7 +94,6 @@ RDEPEND="${RDEPEND}
 			|| ( media-fonts/font-daewoo-misc media-fonts/intlfonts )
 		)
 	)"
-#	test? ( dev-scheme/gauche )
 
 SITEFILE=50${PN}-gentoo.el
 
@@ -125,9 +119,9 @@ src_prepare() {
 	sed -i -e "s:\$libedit_path/lib:/$(get_libdir):g" configure.ac || die "sed failed!"
 
 	AT_NO_RECURSIVE=1 eautoreconf
-	
+
 	cp -Rn "${WORKDIR}/${PN}-1.8.6/pixmaps" "${S}/"
-	
+
 	rm -rf "${S}/sigscheme"
 	mv "${WORKDIR}/sigscheme-${SSCM_VER}" "${S}/sigscheme"
 }
@@ -163,7 +157,7 @@ src_configure() {
 
 	if use qt4 ; then
 		export QT4DIR="/usr/$(get_libdir)/qt4"
-   		export QMAKE4="/usr/bin/qmake"
+		export QMAKE4="/usr/bin/qmake"
 	fi
 
 	if use qt5 ; then
@@ -171,7 +165,7 @@ src_configure() {
 		export QT5DIR="/usr/$(get_libdir)/qt5"
 		export QMAKE5="/usr/$(get_libdir)/qt5/bin/qmake"
 	fi
- 
+
 	addwrite "/usr/plugins"
 
 	if [[ ${PV} = *9999* ]]; then
@@ -214,7 +208,7 @@ src_configure() {
 		${myconf}
 
 	if use qt4 ; then
-		sed -i 's:/usr/plugins:/usr/'$(get_libdir)'/qt4/plugins:g' ${S}/qt4/immodule/*
+		sed -i 's:/usr/plugins:/usr/'$(get_libdir)'/qt4/plugins:g' "${S}"/qt4/immodule/*
 		cd "${S}/qt4/candwin"
 		"${QMAKE4}" -makefile -o Makefile.qmake uim-candwin-qt4.pro
 		cd "${S}/qt4/chardict"
@@ -235,7 +229,7 @@ src_configure() {
 	fi
 
 	if use qt5 ; then
-		sed -i 's:/usr/plugins:/usr/'$(get_libdir)'/qt5/plugins:g' ${S}/qt5/immodule/*
+		sed -i 's:/usr/plugins:/usr/'$(get_libdir)'/qt5/plugins:g' "${S}"/qt5/immodule/*
 		cd "${S}/qt5/candwin"
 		"${QMAKE5}" -makefile -o Makefile.qmake uim-candwin-qt4.pro
 		cd "${S}/qt5/chardict"
