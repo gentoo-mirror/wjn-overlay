@@ -24,7 +24,6 @@ RDEPEND="${DEPEND}"
 src_install() {
 	cmake-utils_src_install
 	dodoc README.md
-	echo 'export VDPAU_DRIVER=va_gl' > 61libvdpau-va-gl
+	echo 'VDPAU_DRIVER=va_gl' > 61libvdpau-va-gl
 	doenvd 61libvdpau-va-gl
 }
-
