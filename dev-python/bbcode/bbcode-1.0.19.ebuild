@@ -21,4 +21,3 @@ RDEPEND="${DEPEND}"
 DEPEND=""
 
 DOCS="README.md"
-

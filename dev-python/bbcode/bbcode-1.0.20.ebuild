@@ -11,7 +11,7 @@ inherit distutils-r1
 DESCRIPTION="A pure python bbcode parser and formatter"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 HOMEPAGE="https://github.com/dcwatson/bbcode
-    https://pypi.python.org/pypi/bbcode"
+	https://pypi.python.org/pypi/bbcode"
 
 LICENSE="BSD"
 SLOT="0"
@@ -22,4 +22,3 @@ RDEPEND="${DEPEND}"
 DEPEND=""
 
 DOCS="README.md"
-
