@@ -1,37 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
+<maintainer>
+  <email>wjn@aol.jp</email>
+</maintainer>
+<upstream>
+	<remote-id type="github">audacious-media-player/audacious-plugins</remote-id>
+	<doc>http://audacious-media-player.org/</doc>
+</upstream>
 <use>
 	<flag name='aac'>Support AAC decode</flag>
-	<flag name='adplug'>Build with AdPlug (Adlib sound card emulation)
-		support</flag>
+	<flag name='adplug'>Support AdPlug (Adlib sound card emulation)</flag>
 	<flag name='alsa'>Support ALSA output</flag>
 	<flag name='bs2b'>Enable Bauer Bauer stereophonic-to-binaural
 		headphone filter</flag>
 	<flag name='cdda'>Support CD-DA input</flag>
-	<flag name='cue'>Support CUE sheets using the libcue library</flag>
-	<flag name='ffmpeg'>Support Libav/FFmpeg library</flag>
+	<flag name='cue'>Support CUE sheets (<pkg>media-libs/libcue</pkg>)</flag>
+	<flag name='ffmpeg'>Support FFmpeg library <pkg>virtual/ffmpeg</pkg></flag>
 	<flag name='filewriter'>Enable outputing to file</flag>
-	<flag name='flac'>Support FLAC decode</flag>
-	<flag name='fluidsynth'>Support FluidSynth as MIDI synth backend</flag>
-	<flag name="gnome">Support GNOME shortcut</flag>
-	<flag name='jack'>Support JACK output</flag>
+	<flag name='flac'>Support FLAC decode and encode</flag>
+	<flag name="gnome">Enable GNOME shortcut</flag>
+	<flag name="gtk">Enable GTK+2 User Interface (<pkg>x11-libs/gtk+:2</pkg>)</flag>
+	<flag name='jack'>Support JACK Audio Connection Kit output</flag>
+	<flag name='lame'>Support mp3 output to file</flag>
+	<flag name='libav'>Support Libav library <pkg>media-video/libav</pkg></flag>
 	<flag name='libnotify'>Enable desktop notification</flag>
-	<flag name='midi'>Build with amidi-plug (MIDI synth) support</flag>
-	<flag name='pulseaudio'>Support Pulseaudio output</flag>
-	<flag name='scrobbler'>Build with scrobbler/LastFM submission support</flag>
-	<flag name='sid'>Build with SID (Commodore 64 Audio) support</flag>
-	<flag name='soxr'>Support SOX Resampler library</flag>
-	<flag name='soxr'>Enable OpenGL spectram analizer</flag>
-	<flag name='volbis'>Support Volbis decode</flag>
+	<flag name='libsamplerate'>Enable libsamplerate converter (Secret Rabbit Code)</flag>
+	<flag name='lirc'>Support Linux Infrared Remote Control</flag>
+	<flag name='midi'>Support amidi-plug (<pkg>media-sound/fluidsynth</pkg>)</flag>
+	<flag name='mms'>Support Microsoft Media Server media streaming protocol</flag>
+	<flag name='modplug'>Support module (modplug) decode</flag>
+	<flag name='mp3'>Support MPEG 1/2 Audio decode</flag>
+	<flag name='neon'>Support neon HTTP transport</flag>
+	<flag name='pulseaudio'>Support PulseAudio output</flag>
+	<flag name="qt5">Enable experimental Qt5 UI and output (<pkg>dev-qt/qtgui:5</pkg>, <pkg>dev-qt/qtmultimedia:5</pkg>)</flag>	
+	<flag name='scrobbler'>Enable scrobbler/LastFM submission support</flag>
+	<flag name='sdl'>Support Simple Direct Media Layer</flag>
+	<flag name='sid'>Support SID (Commodore 64 Audio) </flag>
+	<flag name='sndfile'>Enable <pkg>media-libs/libsndfile</pkg></flag>
+	<flag name='soxr'>Enable SOX Resampler library</flag>
+	<flag name='spectrum'>Enable OpenGL spectram analizer</flag>
+	<flag name='vorbis'>Support Volbis decode</flag>
+	<flag name='wavpack'>Support wavpack decode</flag>
 </use>
-
-
-<herd>sound</herd>
-<maintainer>
-  <email>jdhore@gentoo.org</email>
-  <name>Jeff Horelick</name>
-</maintainer>
-
-<upstream><doc>http://audacious-media-player.org/</doc></upstream>
 </pkgmetadata>

@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit autotools git-2
+inherit autotools git-r3 multilib
 
 DESCRIPTION="Audacious Player - Your music, your way, no exceptions"
 HOMEPAGE="http://audacious-media-player.org/"
@@ -14,30 +14,26 @@ SRC_URI="mirror://gentoo/gentoo_ice-xmms-0.2.tar.bz2"
 LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS=""
+IUSE="chardet +gtk qt5"
 
-IUSE="chardet +gtk nls qt5"
-
-RDEPEND=">=dev-libs/dbus-glib-0.60
-	>=dev-libs/glib-2.28
+COMMON_DEPEND=">=dev-libs/glib-2.28
 	dev-libs/libxml2
+	>=sys-apps/dbus-0.6.0
+	>=sys-devel/gcc-4.7.0
 	>=x11-libs/cairo-1.2.6
 	>=x11-libs/pango-1.8.0
-	"
-
-DEPEND="${RDEPEND}
-	dev-util/gdbus-codegen
-	virtual/pkgconfig
-	chardet? ( >=app-i18n/libguess-1.1 )
+	chardet? ( >=app-i18n/libguess-1.2 )
 	gtk? ( x11-libs/gtk+:2 )
-	nls? ( dev-util/intltool )
 	qt5? ( dev-qt/qtcore:5
-		   dev-qt/qtgui:5
-		   dev-qt/qtwidgets:5 )
-	"
-
-PDEPEND="
-	~media-plugins/audacious-plugins-9999[qt5?]
-	"
+		dev-qt/qtgui:5
+		dev-qt/qtmultimedia:5
+		dev-qt/qtwidgets:5 )"
+DEPEND="${COMMON_DEPEND}
+	dev-util/gdbus-codegen
+	sys-devel/gettext
+	virtual/pkgconfig"
+RDEPEND=${COMMON_DEPEND}
+PDEPEND="~media-plugins/audacious-plugins-9999[qt5?]"
 
 pkg_setup() {
 	use qt5 && export PATH="/usr/$(get_libdir)/qt5/bin:${PATH}"
@@ -48,11 +44,9 @@ src_prepare() {
 }
 
 src_configure() {
-	econf \
-		--enable-dbus \
+	econf --enable-dbus \
 		$(use_enable chardet) \
 		$(use_enable gtk) \
-		$(use_enable nls) \
 		$(use_enable qt5 qt)
 }
 
@@ -68,7 +62,7 @@ src_install() {
 }
 
 pkg_postinst() {
-	if use qt5 && ( use gtk || use gtk3 ) ; then
+	if use qt5 && use gtk ; then
 		ewarn 'It is not possible to switch between GTK+ and Qt while Audacious is running.'
 		ewarn 'Run audacious --qt to get the Qt interface.'
 	fi
