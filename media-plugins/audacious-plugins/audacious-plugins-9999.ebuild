@@ -20,7 +20,7 @@ IUSE="aac adplug alsa bs2b cdda cue ffmpeg +filewriter flac gnome +gtk
 
 COMMON_DEPEND=">=dev-libs/dbus-glib-0.60
 	dev-libs/libxml2:2
-	~media-sound/audacious-9999
+	~media-sound/audacious-9999[gtk=,qt5=]
 	>=sys-apps/dbus-0.6.0
 	>=sys-devel/gcc-4.7.0
 	aac? ( >=media-libs/faad2-2.7 )
@@ -34,8 +34,7 @@ COMMON_DEPEND=">=dev-libs/dbus-glib-0.60
 	ffmpeg? ( >=virtual/ffmpeg-0.7.3 )
 	flac? ( >=media-libs/libvorbis-1.0
 		>=media-libs/flac-1.2.1-r1 )
-	gtk? ( media-sound/audacious[gtk]
-		x11-libs/gtk+:2 )
+	gtk? ( x11-libs/gtk+:2 )
 	jack? ( >=media-libs/bio2jack-0.4
 		>=media-sound/jack-audio-connection-kit-0.120.1 )
 	lame? ( media-sound/lame )
@@ -53,7 +52,7 @@ COMMON_DEPEND=">=dev-libs/dbus-glib-0.60
 		dev-qt/qtgui:5
 		dev-qt/qtmultimedia:5
 		dev-qt/qtwidgets:5
-		media-sound/audacious[qt5] )
+		spectrum? ( dev-qt/qtopengl:5 ) )
 	scrobbler? ( >=net-misc/curl-7.9.7 )
 	sdl? ( || ( >=media-libs/libsdl-1.2.11[sound]
 			>=media-libs/libsdl2-2.0[sound] ) )
@@ -71,6 +70,11 @@ DEPEND="${COMMON_DEPEND}
 	virtual/pkgconfig"
 RDEPEND=${COMMON_DEPEND}
 
+pkg_pretend() {
+	use mp3 || ewarn \
+		"MP3 support is optional. Are you sure to disable mp3 USE flag?"
+}
+
 pkg_setup() {
 	use qt5 && export PATH="/usr/$(get_libdir)/qt5/bin:${PATH}"
 }
@@ -83,6 +87,11 @@ src_configure() {
 	local ffmpeg_conf=""
 	use ffmpeg && ffmpeg_conf="--with-ffmpeg=ffmpeg"
 	use libav && ffmpeg_conf="--with-ffmpeg=libav"
+	local spectrum_conf=""
+	if use spectrum ; then
+		spectrum_conf+="--enable-glspectrum"
+		use qt5 && spectrum_conf+="--enable-qtglspectrum"
+	fi
 	use mp3 || ewarn \
 		"MP3 support is optional, you may want to enable mp3 USE flag"
 	econf \
@@ -96,11 +105,9 @@ src_configure() {
 		$(use_enable filewriter) \
 		$(use_enable flac flacng) \
 		$(use_enable flac filewriter_flac) \
-		$(use_enable spectrum glspectrum) \
 		$(use_enable jack) \
 		$(use_enable gnome gnomeshortcuts) \
 		$(use_enable gtk gtk) \
-		$(use_enable gtk gtkui) \
 		$(use_enable lame filewriter_mp3) \
 		$(use_enable libnotify notify) \
 		$(use_enable libsamplerate resample) \
@@ -119,6 +126,7 @@ src_configure() {
 		$(use_enable sid) \
 		$(use_enable sndfile) \
 		$(use_enable soxr) \
+		${spectrum_conf} \
 		$(use_enable vorbis) \
 		$(use_enable wavpack)
 }

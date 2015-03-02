@@ -35,7 +35,7 @@ DEPEND="${COMMON_DEPEND}
 	sys-devel/gettext
 	virtual/pkgconfig"
 RDEPEND=${COMMON_DEPEND}
-PDEPEND="~media-plugins/audacious-plugins-3.6[qt5?]"
+PDEPEND="~media-plugins/audacious-plugins-3.6[gtk=,qt5=]"
 
 S="${WORKDIR}/${MY_P}"
 

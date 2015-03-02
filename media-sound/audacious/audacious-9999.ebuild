@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit autotools git-r3 multilib
+inherit autotools git-2 multilib
 
 DESCRIPTION="Audacious Player - Your music, your way, no exceptions"
 HOMEPAGE="http://audacious-media-player.org/"
@@ -33,7 +33,7 @@ DEPEND="${COMMON_DEPEND}
 	sys-devel/gettext
 	virtual/pkgconfig"
 RDEPEND=${COMMON_DEPEND}
-PDEPEND="~media-plugins/audacious-plugins-9999[qt5?]"
+PDEPEND="~media-plugins/audacious-plugins-9999[gtk=,qt5=]"
 
 pkg_setup() {
 	use qt5 && export PATH="/usr/$(get_libdir)/qt5/bin:${PATH}"
