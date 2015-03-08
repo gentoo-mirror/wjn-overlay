@@ -19,7 +19,7 @@ fi
 
 LICENSE="MIT-with-advertising Apache-2.0" # Gutenberg
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="amd64 x86"
 IUSE="+assets bbcode charts -extras hyphenation ipython jinja livereload +markdown micawber mock php typogrify"
 REQUIRED_USE="extras? ( assets bbcode charts hyphenation ipython jinja livereload markdown micawber mock php typogrify )"
 RESTRICT="test"
