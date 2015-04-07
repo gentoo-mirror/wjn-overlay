@@ -12,35 +12,35 @@ DESCRIPTION="Mozc Japanese Input Method with Additional Japanese dictionary"
 HOMEPAGE="http://www.geocities.jp/ep3797/mozc_01.html"
 
 #MOZC_VER=$(get_version_component_range 1-$(get_last_version_component_index))
-MOZC_VER="2.16.2061.102"
-MOZC_REV="544"
+MOZC_VER="2.16.2072.102"
+MOZC_REV="555"
 MOZCUT_VER=$(get_version_component_range $(get_version_component_count))
 GMOCK_REV="501"
 GTEST_REV="700"
-PROTOBUF_REV="512"
+PROTOBUF_REV="172019c"
 JSONCPP_REV="11086dd"
 FONTTOOLS_REV="5ba7d98"
 FCITX_PATCH_VER="2.16.2037.102.2"
-UIM_PATCH_REV="334"
+UIM_PATCH_REV="2b3eff9"
 
 # There aren't Mozc archives after Jan 2014.
 # See https://code.google.com/p/mozc/downloads/list
 # MOZC_URI="http://mozc.googlecode.com/files/${P}.tar.bz2"
 MOZC_URI="http://mozc.googlecode.com/svn/trunk/src"
 USAGEDICT_URI="http://japanese-usage-dictionary.googlecode.com/svn/trunk/usage_dict.txt"
-# Reverted its dependency on protobuf from 2.6.1 to near 2.5.0 (r512).
+# Reverted its dependency on protobuf from 2.6.1 to near 2.5.0 (r512; 172019c).
 # We should download older codes.
 # See Mozc r482; https://code.google.com/p/mozc/source/detail?r=482
 # PROTOBUF_URI="https://github.com/google/protobuf/releases/download/v${PROTOBUF_VER}/protobuf-${PROTOBUF_VER}.tar.bz2"
-PROTOBUF_URI="http://protobuf.googlecode.com/svn/trunk/"
+PROTOBUF_URI="https://github.com/google/protobuf.git"
 GMOCK_URI="http://googlemock.googlecode.com/svn/trunk"
 GTEST_URI="http://googletest.googlecode.com/svn/trunk"
 JSONCPP_URI="https://github.com/open-source-parsers/jsoncpp.git"
 FONTTOOLS_URI="https://github.com/behdad/fonttools.git"
 MOZCUT_URI="mirror://sourceforge/mdk-ut/mozcdic-ut-${MOZCUT_VER}.tar.bz2"
 FCITX_PATCH_URI="http://download.fcitx-im.org/fcitx-mozc/fcitx-mozc-${FCITX_PATCH_VER}.patch"
-GYP_URI="http://gyp.googlecode.com/svn/trunk/"
-UIM_PATCH_URI="https://macuim.googlecode.com/svn/trunk/Mozc"
+GYP_URI="https://chromium.googlesource.com/external/gyp.git"
+UIM_PATCH_URI="https://github.com/e-kato/macuim.git"
 
 SRC_URI="
 	${MOZCUT_URI}
@@ -106,41 +106,46 @@ src_unpack() {
 	cd "${WORKDIR}/mozcdic-ut-${MOZCUT_VER}"
 
 	rm -rf mozc_src && mkdir -p mozc_src && cd mozc_src \
-		&& svn co -q ${MOZC_URI}@${MOZC_REV}
+		&& svn co -q ${MOZC_URI}@${MOZC_REV} || die
 
-	cd src && rm -rf `find . -type d -name .svn`
+	cd src && rm -rf $(find . -type d -name .svn)
 
 	cd third_party
-	svn co -q ${PROTOBUF_URI}@${PROTOBUF_REV} protobuf
+	git clone -q ${PROTOBUF_URI} protobuf \
+		&& ( cd protobuf && git checkout -q ${PROTOBUF_REV} )
 	mkdir japanese_usage_dictionary \
 		&& cp "${DISTDIR}/$(basename ${USAGEDICT_URI})" japanese_usage_dictionary/
 
 	cd "${WORKDIR}/mozcdic-ut-${MOZCUT_VER}" && ruby generate-mozc-tarball.rb \
-	 && mv mozc_src/mozc-*.tar.bz2 ../ && rm -rf mozc_src/
+		&& mv mozc_src/mozc-*.tar.bz2 ../ && rm -rf mozc_src/ || die
 
 	# FIX BELOW:
 	# 	These sed(s) are called in src_unpack, violate the Quality Assurance.
-	use ejdic && sed -i 's/#EJDIC="true"/EJDIC="true"/g' "${WORKDIR}/mozcdic-ut-${MOZCUT_VER}/generate-mozc-ut.sh"
-	use nicodic && sed -i 's/#NICODIC="true"/NICODIC="true"/g' "${WORKDIR}/mozcdic-ut-${MOZCUT_VER}/generate-mozc-ut.sh"
-	./generate-mozc-ut.sh
+	use ejdic \
+		&& sed -i 's/#EJDIC="true"/EJDIC="true"/g' \
+			"${WORKDIR}/mozcdic-ut-${MOZCUT_VER}/generate-mozc-ut.sh"
+	use nicodic \
+		&& sed -i 's/#NICODIC="true"/NICODIC="true"/g' \
+			"${WORKDIR}/mozcdic-ut-${MOZCUT_VER}/generate-mozc-ut.sh"
+	./generate-mozc-ut.sh || die
 
 	cd "${S}/third_party"
-	svn co -q ${PROTOBUF_URI}@${PROTOBUF_REV} protobuf
-	svn co -q ${GYP_URI} gyp
-	git clone -q ${JSONCPP_URI} jsoncpp && cd jsoncpp \
-		&& git checkout -q ${JSONCPP_REV} && cd ..
-	git clone -q ${FONTTOOLS_URI} fontTools && cd fontTools \
-		&& git checkout -q ${FONTTOOLS_REV} && cd ..
+	git clone -q ${GYP_URI} gyp || die
+	git clone -q ${JSONCPP_URI} jsoncpp \
+		&& ( cd jsoncpp && git checkout -q ${JSONCPP_REV} ) || die
+	git clone -q ${FONTTOOLS_URI} fontTools \
+		&& ( cd fontTools && git checkout -q ${FONTTOOLS_REV} ) || die
 	if use test; then
 		svn co -q ${GMOCK_URI}@${GMOCK_REV} gmock
 		svn co -q ${GTEST_URI}@${GTEST_REV} gtest
 	fi
-	use uim && svn co -q ${UIM_PATCH_URI}@${UIM_PATCH_REV} "${WORKDIR}/macuim"
+	use uim && git clone -q ${UIM_PATCH_URI} "${WORKDIR}/macuim" \
+		&& (cd "${WORKDIR}/macuim" && git checkout -q ${UIM_PATCH_REV} ) || die
 
 	# Disable clang. That's because built binaries fall in segmentation fault.
 	sed -i -e "s/<!(which clang)/$(tc-getCC)/" \
 		-e "s/<!(which clang++)/$(tc-getCXX)/" \
-		"${S}"/gyp/common.gypi || die
+		"${S}/gyp/common.gypi" || die
 }
 
 src_prepare() {
@@ -151,8 +156,8 @@ src_prepare() {
 
 	if use uim; then
 		rm -rf unix/uim/
-		mv "${WORKDIR}/macuim/uim" "${S}/unix/"
-		epatch "${WORKDIR}/macuim/mozc-kill-line.diff"
+		cp -r "${WORKDIR}/macuim/Mozc/uim" "${S}/unix/"
+		epatch "${WORKDIR}/macuim/Mozc/mozc-kill-line.diff"
 	fi
 }
 
@@ -160,7 +165,9 @@ src_configure() {
 	local GYP_DEFINES="compiler_target=gcc compiler_host=gcc"
 	local myconf="--server_dir=/usr/$(get_libdir)/mozc"
 
-	use ibus && GYP_DEFINES="${GYP_DEFINES} ibus_mozc_path=/usr/libexec/ibus-engine-mozc ibus_mozc_icon_path=/usr/share/ibus-mozc/product_icon.png"
+	use ibus && GYP_DEFINES="${GYP_DEFINES} \
+		ibus_mozc_path=/usr/libexec/ibus-engine-mozc \
+		ibus_mozc_icon_path=/usr/share/ibus-mozc/product_icon.png"
 
 	if ! use qt4 ; then
 		myconf="${myconf} --noqt"
@@ -194,7 +201,7 @@ src_compile() {
 
 	"${PYTHON}" build_mozc.py build -c "${BUILDTYPE}" ${mytarget} ${myjobs} || die
 
-	use emacs && elisp-compile unix/emacs/*.el
+	use emacs && elisp-compile unix/emacs/*.el || die
 }
 
 src_test() {
@@ -249,7 +256,8 @@ src_install() {
 	if use ibus ; then
 		exeinto /usr/libexec
 		newexe "out_linux/${BUILDTYPE}/ibus_mozc" "ibus-engine-mozc"
-		sed -i "s_/usr/lib/ibus-mozc/ibus-engine-mozc_/usr/libexec/ibus-engine-mozc_g" \
+		sed -i \
+			"s_/usr/lib/ibus-mozc/ibus-engine-mozc_/usr/libexec/ibus-engine-mozc_g" \
 			"out_linux/${BUILDTYPE}/gen/unix/ibus/mozc.xml"
 		insinto /usr/share/ibus/component
 		doins "out_linux/${BUILDTYPE}/gen/unix/ibus/mozc.xml"
@@ -286,7 +294,7 @@ src_install() {
 
 		insinto /usr/share/uim
 		(
-			cd "${WORKDIR}/macuim/scm"
+			cd "${WORKDIR}/macuim/Mozc/scm"
 			for f in *.scm ; do
 				doins "${f}"
 			done
