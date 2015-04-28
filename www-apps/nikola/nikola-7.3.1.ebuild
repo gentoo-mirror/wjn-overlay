@@ -36,7 +36,7 @@ RDEPEND="${DEPEND}
 	dev-python/pillow[${PYTHON_USEDEP}]
 	>=dev-python/pygments-1.6[${PYTHON_USEDEP}]
 	>=dev-python/PyRSS2Gen-1.1[${PYTHON_USEDEP}]
-	>=dev-python/python-dateutil-2.4.1[${PYTHON_USEDEP}]
+	~dev-python/python-dateutil-2.4.1[${PYTHON_USEDEP}]
 	>=dev-python/pytz-2013d[${PYTHON_USEDEP}]
 	>=dev-python/requests-1.0[${PYTHON_USEDEP}]
 	>=dev-python/setuptools-5.4.1[${PYTHON_USEDEP}]
