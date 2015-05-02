@@ -4,78 +4,104 @@
 
 EAPI=5
 PYTHON_COMPAT=( python2_7 )
-inherit elisp-common eutils multilib multiprocessing python-single-r1 toolchain-funcs
+inherit elisp-common eutils multilib multiprocessing python-single-r1 \
+	toolchain-funcs
 
 DESCRIPTION="Mozc - Japanese Input Method"
 HOMEPAGE="http://code.google.com/p/mozc/"
 
-MOZC_REV="383"
-PROTOBUF_VER="2.5.0"
-FCITX_PATCH_VER="1.15.1834.102.1"
-UIM_PATCH_REV="334"
+MOZC_REV="4124e06"
+GMOCK_REV="501"
+GTEST_REV="700"
+GYP_REV="2012"
+PROTOBUF_REV="172019c"
+JSONCPP_REV="11086dd"
+FONTTOOLS_REV="5ba7d98"
+FCITX_PATCH_VER="2.16.2037.102.2"
+UIM_PATCH_REV="2b3eff9"
 
-MOZC_URI="http://mozc.googlecode.com/svn/trunk/src"
+# We must clone Mozc by git to manage its versions.
+MOZC_URI="https://github.com/google/mozc.git"
 USAGEDICT_URI="http://japanese-usage-dictionary.googlecode.com/svn/trunk/usage_dict.txt"
-PROTOBUF_URI="http://protobuf.googlecode.com/files/protobuf-${PROTOBUF_VER}.tar.bz2"
-GYP_URI="http://gyp.googlecode.com/svn/trunk/"
+# The dependency on protobuf version is near 2.5.0 (172019c).
+# We should checkout this commit.
+# See Mozc commit 444f8a7 https://github.com/google/mozc/commit/444f8a7
+# PROTOBUF_URI="https://github.com/google/protobuf/releases/download/v${PROTOBUF_VER}/protobuf-${PROTOBUF_VER}.tar.bz2"
+PROTOBUF_URI="https://github.com/google/protobuf.git"
+GMOCK_URI="http://googlemock.googlecode.com/svn/trunk"
+GTEST_URI="http://googletest.googlecode.com/svn/trunk"
+GYP_URI="https://chromium.googlesource.com/external/gyp.git"
+JSONCPP_URI="https://github.com/open-source-parsers/jsoncpp.git"
+FONTTOOLS_URI="https://github.com/behdad/fonttools.git"
 FCITX_PATCH_URI="http://download.fcitx-im.org/fcitx-mozc/fcitx-mozc-${FCITX_PATCH_VER}.patch"
-UIM_PATCH_URI="https://macuim.googlecode.com/svn/trunk/Mozc"
+UIM_PATCH_URI="https://github.com/e-kato/macuim.git"
 
-SRC_URI="
-	${PROTOBUF_URI}
-	${USAGEDICT_URI}
-	fcitx? ( ${FCITX_PATCH_URI} )
-	"
+SRC_URI="${USAGEDICT_URI}
+	fcitx? ( ${FCITX_PATCH_URI} )"
 
 LICENSE="BSD ipadic public-domain unicode"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="emacs fcitx ibus +qt4 renderer uim"
+IUSE="emacs fcitx ibus +qt4 renderer -test uim"
 REQUIRED_USE="|| ( emacs fcitx ibus uim )"
 
+# NOTE: Here aren't protobuf and clang.
+#	 We should use specific protobuf revesion,
+#	still use gcc instead of clang (to avoid segmentaiton faults).
 COMMON_DEPEND="${PYTHON_DEPS}
 	dev-libs/glib:2
-	dev-libs/openssl:*
+	x11-libs/libXfixes
 	x11-libs/libxcb
 	!app-i18n/mozc-ut
 	emacs? ( virtual/emacs )
 	fcitx? ( app-i18n/fcitx )
 	ibus? ( >=app-i18n/ibus-1.4.1 )
+	qt4? ( dev-qt/qtgui:4
+		app-i18n/zinnia )
 	renderer? ( x11-libs/gtk+:2 )
-	qt4? (
-		dev-qt/qtgui:4
-		app-i18n/zinnia
-	)
 	uim? ( app-i18n/uim )
 	"
 DEPEND="${COMMON_DEPEND}
 	dev-util/ninja
-	dev-vcs/subversion
-	virtual/pkgconfig"
-RDEPEND="${COMMON_DEPEND}"
+	dev-vcs/git
+	>=sys-libs/zlib-1.2.8
+	virtual/pkgconfig
+	test? ( dev-vcs/subversion )
+	"
+RDEPEND="${COMMON_DEPEND}
+	qt4? ( app-i18n/tegaki-zinnia-japanese )
+	"
 
-RESTRICT="test"
+use test || RESTRICT="test"
 
 BUILDTYPE=${BUILDTYPE:-Release}
 
 SITEFILE=50${PN}-gentoo.el
 
 src_unpack() {
-	svn co -q ${MOZC_URI}@${MOZC_REV} "${S}"
+	git clone -q ${MOZC_URI} "${WORKDIR}" \
+		&& ( cd "${WORKDIR}" && git checkout -q ${MOZC_REV} && mv src ${P}) \
+		|| die
 
 	cd "${S}/third_party"
-	unpack $(basename ${PROTOBUF_URI}) && \
-		mv protobuf-${PROTOBUF_VER} protobuf
-	svn co -q ${GYP_URI} gyp
-
-	use uim && svn co -q ${UIM_PATCH_URI}@${UIM_PATCH_REV} "${WORKDIR}/macuim"
+	mkdir japanese_usage_dictionary
+	cp "${DISTDIR}/$(basename ${USAGEDICT_URI})" japanese_usage_dictionary/
+	git clone -q --depth 1 ${GYP_URI} gyp || die
+	git clone -q ${PROTOBUF_URI} protobuf \
+		&& ( cd protobuf && git checkout -q ${PROTOBUF_REV} ) || die
+	git clone -q ${JSONCPP_URI} jsoncpp \
+		&& ( cd jsoncpp && git checkout -q ${JSONCPP_REV} ) || die
+	git clone -q ${FONTTOOLS_URI} fontTools \
+		&& ( cd fontTools && git checkout -q ${FONTTOOLS_REV} ) || die
+	if use test; then
+		svn co -q ${GMOCK_URI}@${GMOCK_REV} gmock
+		svn co -q ${GTEST_URI}@${GTEST_REV} gtest
+	fi
+	use uim && git clone -q ${UIM_PATCH_URI} "${WORKDIR}/macuim" \
+		&& (cd "${WORKDIR}/macuim" && git checkout -q ${UIM_PATCH_REV} ) || die
 }
 
 src_prepare() {
-	mkdir -p third_party/japanese_usage_dictionary && \
-		cp "${DISTDIR}/$(basename ${USAGEDICT_URI})" \
-			third_party/japanese_usage_dictionary/
-
 	if use fcitx; then
 		rm -rf unix/fcitx/
 		EPATCH_OPTS="-p2" epatch "${DISTDIR}/$(basename ${FCITX_PATCH_URI})"
@@ -83,12 +109,19 @@ src_prepare() {
 
 	if use uim; then
 		rm -rf unix/uim/
-		mv "${WORKDIR}/macuim/uim" "${S}/unix/"
-		epatch "${WORKDIR}/macuim/mozc-kill-line.diff"
+		cp -r "${WORKDIR}/macuim/Mozc/uim" "${S}/unix/"
+		epatch "${WORKDIR}/macuim/Mozc/mozc-kill-line.diff"
 	fi
+
+	# Disable clang. That's because built binaries fall segmentation fault.
+	sed -i -e "s/<!(which clang)/$(tc-getCC)/" \
+		-e "s/<!(which clang++)/$(tc-getCXX)/" \
+		gyp/common.gypi || die
 }
 
 src_configure() {
+	local GYP_DEFINES="compiler_target=gcc compiler_host=gcc"
+
 	local myconf="--server_dir=/usr/$(get_libdir)/mozc"
 
 	use ibus && GYP_DEFINES="${GYP_DEFINES} ibus_mozc_path=/usr/libexec/ibus-engine-mozc ibus_mozc_icon_path=/usr/share/ibus-mozc/product_icon.png"
@@ -99,6 +132,8 @@ src_configure() {
 	fi
 
 	use renderer || GYP_DEFINES="${GYP_DEFINES} enable_gtk_renderer=0"
+
+	tc-export CC CXX AR AS RANLIB LD NM
 
 	"${PYTHON}" build_mozc.py gyp "${myconf}" "gyp failed" || die
 }
@@ -121,10 +156,13 @@ src_compile() {
 	use renderer && mytarget="${mytarget} renderer/renderer.gyp:mozc_renderer"
 	use uim && mytarget="${mytarget} unix/uim/uim.gyp:uim-mozc"
 
-	"${PYTHON}" build_mozc.py build_tools -c "${BUILDTYPE}" ${myjobs} || die
 	"${PYTHON}" build_mozc.py build -c "${BUILDTYPE}" ${mytarget} ${myjobs} || die
 
 	use emacs && elisp-compile unix/emacs/*.el
+}
+
+src_test() {
+	"${PYTHON}" build_mozc.py runtests -c Release
 }
 
 src_install() {

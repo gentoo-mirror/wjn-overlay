@@ -4,38 +4,37 @@
 
 EAPI=5
 PYTHON_COMPAT=( python2_7 )
-inherit elisp-common eutils multilib multiprocessing python-single-r1 toolchain-funcs
+inherit elisp-common eutils multilib multiprocessing python-single-r1 \
+	toolchain-funcs
 
 DESCRIPTION="Mozc - Japanese Input Method"
 HOMEPAGE="http://code.google.com/p/mozc/"
 
-MOZC_REV="551"
+MOZC_REV="9ecd7c6"
 GMOCK_REV="501"
 GTEST_REV="700"
 GYP_REV="2012"
-PROTOBUF_REV="512"
+PROTOBUF_REV="172019c"
 JSONCPP_REV="11086dd"
 FONTTOOLS_REV="5ba7d98"
 FCITX_PATCH_VER="2.16.2037.102.2"
-UIM_PATCH_REV="334"
+UIM_PATCH_REV="2b3eff9"
 
-# There aren't Mozc archives after Jan 2014.
-# See https://code.google.com/p/mozc/downloads/list
-# MOZC_URI="http://mozc.googlecode.com/files/${P}.tar.bz2"
-MOZC_URI="http://mozc.googlecode.com/svn/trunk/src"
+# We must clone Mozc by git to manage its versions.
+MOZC_URI="https://github.com/google/mozc.git"
 USAGEDICT_URI="http://japanese-usage-dictionary.googlecode.com/svn/trunk/usage_dict.txt"
-# Reverted its dependency on protobuf from 2.6.1 to near 2.5.0 (r512).
-# We should download older codes.
-# See Mozc r482; https://code.google.com/p/mozc/source/detail?r=482
+# The dependency on protobuf version is near 2.5.0 (172019c).
+# We should checkout this commit.
+# See Mozc commit 444f8a7 https://github.com/google/mozc/commit/444f8a7
 # PROTOBUF_URI="https://github.com/google/protobuf/releases/download/v${PROTOBUF_VER}/protobuf-${PROTOBUF_VER}.tar.bz2"
-PROTOBUF_URI="http://protobuf.googlecode.com/svn/trunk/"
+PROTOBUF_URI="https://github.com/google/protobuf.git"
 GMOCK_URI="http://googlemock.googlecode.com/svn/trunk"
 GTEST_URI="http://googletest.googlecode.com/svn/trunk"
-GYP_URI="http://gyp.googlecode.com/svn/trunk/"
+GYP_URI="https://chromium.googlesource.com/external/gyp.git"
 JSONCPP_URI="https://github.com/open-source-parsers/jsoncpp.git"
 FONTTOOLS_URI="https://github.com/behdad/fonttools.git"
 FCITX_PATCH_URI="http://download.fcitx-im.org/fcitx-mozc/fcitx-mozc-${FCITX_PATCH_VER}.patch"
-UIM_PATCH_URI="https://macuim.googlecode.com/svn/trunk/Mozc"
+UIM_PATCH_URI="https://github.com/e-kato/macuim.git"
 
 SRC_URI="${USAGEDICT_URI}
 	fcitx? ( ${FCITX_PATCH_URI} )"
@@ -51,7 +50,6 @@ REQUIRED_USE="|| ( emacs fcitx ibus uim )"
 #	still use gcc instead of clang (to avoid segmentaiton faults).
 COMMON_DEPEND="${PYTHON_DEPS}
 	dev-libs/glib:2
-	dev-libs/openssl:*
 	x11-libs/libXfixes
 	x11-libs/libxcb
 	!app-i18n/mozc-ut
@@ -65,11 +63,14 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	"
 DEPEND="${COMMON_DEPEND}
 	dev-util/ninja
-	dev-vcs/subversion
+	dev-vcs/git
 	>=sys-libs/zlib-1.2.8
 	virtual/pkgconfig
+	test? ( dev-vcs/subversion )
 	"
-RDEPEND="${COMMON_DEPEND}"
+RDEPEND="${COMMON_DEPEND}
+	qt4? ( app-i18n/tegaki-zinnia-japanese )
+	"
 
 use test || RESTRICT="test"
 
@@ -78,23 +79,26 @@ BUILDTYPE=${BUILDTYPE:-Release}
 SITEFILE=50${PN}-gentoo.el
 
 src_unpack() {
-	svn co -q ${MOZC_URI}@${MOZC_REV} "${S}"
+	git clone -q ${MOZC_URI} "${WORKDIR}" \
+		&& ( cd "${WORKDIR}" && git checkout -q ${MOZC_REV} && mv src ${P}) \
+		|| die
 
 	cd "${S}/third_party"
-	svn co -q ${PROTOBUF_URI}@${PROTOBUF_REV} protobuf
-	svn co -q ${GYP_URI}@${GYP_REV} gyp
-	git clone -q ${JSONCPP_URI} jsoncpp && cd jsoncpp \
-		&& git checkout -q ${JSONCPP_REV} && cd ..
-	git clone -q ${FONTTOOLS_URI} fontTools && cd fontTools \
-		&& git checkout -q ${FONTTOOLS_REV} && cd ..
-	mkdir japanese_usage_dictionary && \
-		cp "${DISTDIR}/$(basename ${USAGEDICT_URI})" japanese_usage_dictionary/
+	mkdir japanese_usage_dictionary
+	cp "${DISTDIR}/$(basename ${USAGEDICT_URI})" japanese_usage_dictionary/
+	git clone -q --depth 1 ${GYP_URI} gyp || die
+	git clone -q ${PROTOBUF_URI} protobuf \
+		&& ( cd protobuf && git checkout -q ${PROTOBUF_REV} ) || die
+	git clone -q ${JSONCPP_URI} jsoncpp \
+		&& ( cd jsoncpp && git checkout -q ${JSONCPP_REV} ) || die
+	git clone -q ${FONTTOOLS_URI} fontTools \
+		&& ( cd fontTools && git checkout -q ${FONTTOOLS_REV} ) || die
 	if use test; then
 		svn co -q ${GMOCK_URI}@${GMOCK_REV} gmock
 		svn co -q ${GTEST_URI}@${GTEST_REV} gtest
 	fi
-
-	use uim && svn co -q ${UIM_PATCH_URI}@${UIM_PATCH_REV} "${WORKDIR}/macuim"
+	use uim && git clone -q ${UIM_PATCH_URI} "${WORKDIR}/macuim" \
+		&& (cd "${WORKDIR}/macuim" && git checkout -q ${UIM_PATCH_REV} ) || die
 }
 
 src_prepare() {
@@ -105,8 +109,8 @@ src_prepare() {
 
 	if use uim; then
 		rm -rf unix/uim/
-		mv "${WORKDIR}/macuim/uim" "${S}/unix/"
-		epatch "${WORKDIR}/macuim/mozc-kill-line.diff"
+		cp -r "${WORKDIR}/macuim/Mozc/uim" "${S}/unix/"
+		epatch "${WORKDIR}/macuim/Mozc/mozc-kill-line.diff"
 	fi
 
 	# Disable clang. That's because built binaries fall segmentation fault.
