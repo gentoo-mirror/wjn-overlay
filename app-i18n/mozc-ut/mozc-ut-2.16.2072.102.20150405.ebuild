@@ -13,7 +13,7 @@ HOMEPAGE="http://www.geocities.jp/ep3797/mozc_01.html"
 
 #MOZC_VER=$(get_version_component_range 1-$(get_last_version_component_index))
 MOZC_VER="2.16.2072.102"
-MOZC_REV="555"
+MOZC_REV="9b5e5dd"
 MOZCUT_VER=$(get_version_component_range $(get_version_component_count))
 GMOCK_REV="501"
 GTEST_REV="700"
@@ -23,14 +23,12 @@ FONTTOOLS_REV="5ba7d98"
 FCITX_PATCH_VER="2.16.2037.102.2"
 UIM_PATCH_REV="2b3eff9"
 
-# There aren't Mozc archives after Jan 2014.
-# See https://code.google.com/p/mozc/downloads/list
-# MOZC_URI="http://mozc.googlecode.com/files/${P}.tar.bz2"
-MOZC_URI="http://mozc.googlecode.com/svn/trunk/src"
+# We must clone Mozc by git to manage its versions.
+MOZC_URI="https://github.com/google/mozc.git"
 USAGEDICT_URI="http://japanese-usage-dictionary.googlecode.com/svn/trunk/usage_dict.txt"
-# Reverted its dependency on protobuf from 2.6.1 to near 2.5.0 (r512; 172019c).
-# We should download older codes.
-# See Mozc r482; https://code.google.com/p/mozc/source/detail?r=482
+# The dependency on protobuf version is near 2.5.0 (172019c).
+# We should checkout this commit.
+# See Mozc commit 444f8a7 https://github.com/google/mozc/commit/444f8a7
 # PROTOBUF_URI="https://github.com/google/protobuf/releases/download/v${PROTOBUF_VER}/protobuf-${PROTOBUF_VER}.tar.bz2"
 PROTOBUF_URI="https://github.com/google/protobuf.git"
 GMOCK_URI="http://googlemock.googlecode.com/svn/trunk"
@@ -64,7 +62,6 @@ REQUIRED_USE="|| ( emacs fcitx ibus uim )"
 COMMON_DEPEND="${PYTHON_DEPS}
 	!app-i18n/mozc
 	dev-libs/glib:2
-	dev-libs/openssl:*
 	x11-libs/libXfixes
 	x11-libs/libxcb
 	emacs? ( virtual/emacs )
@@ -80,10 +77,13 @@ COMMON_DEPEND="${PYTHON_DEPS}
 DEPEND="${COMMON_DEPEND}
 	>=dev-lang/ruby-2.0
 	dev-util/ninja
-	dev-vcs/subversion
+	dev-vcs/git
 	virtual/pkgconfig
+	test? ( dev-vcs/subversion )
 	"
-RDEPEND=${COMMON_DEPEND}
+RDEPEND="${COMMON_DEPEND}
+	qt4? ( app-i18n/tegaki-zinnia-japanese )
+	"
 
 use test || RESTRICT="test"
 
@@ -105,16 +105,18 @@ src_unpack() {
 
 	cd "${WORKDIR}/mozcdic-ut-${MOZCUT_VER}"
 
-	rm -rf mozc_src && mkdir -p mozc_src && cd mozc_src \
-		&& svn co -q ${MOZC_URI}@${MOZC_REV} || die
+	rm -rf mozc_src \
+		&& git clone -q ${MOZC_URI} mozc_src \
+		&& cd mozc_src \
+		&& git checkout -q ${MOZC_REV} || die
 
-	cd src && rm -rf $(find . -type d -name .svn)
+	cd src && rm -rf .git
 
 	cd third_party
 	git clone -q ${PROTOBUF_URI} protobuf \
-		&& ( cd protobuf && git checkout -q ${PROTOBUF_REV} )
-	mkdir japanese_usage_dictionary \
-		&& cp "${DISTDIR}/$(basename ${USAGEDICT_URI})" japanese_usage_dictionary/
+		&& ( cd protobuf && git checkout -q ${PROTOBUF_REV} && rm -rf .git )
+	mkdir japanese_usage_dictionary
+	cp "${DISTDIR}/$(basename ${USAGEDICT_URI})" japanese_usage_dictionary/
 
 	cd "${WORKDIR}/mozcdic-ut-${MOZCUT_VER}" && ruby generate-mozc-tarball.rb \
 		&& mv mozc_src/mozc-*.tar.bz2 ../ && rm -rf mozc_src/ || die
@@ -130,7 +132,7 @@ src_unpack() {
 	./generate-mozc-ut.sh || die
 
 	cd "${S}/third_party"
-	git clone -q ${GYP_URI} gyp || die
+	git clone -q --depth 1 ${GYP_URI} gyp || die
 	git clone -q ${JSONCPP_URI} jsoncpp \
 		&& ( cd jsoncpp && git checkout -q ${JSONCPP_REV} ) || die
 	git clone -q ${FONTTOOLS_URI} fontTools \
@@ -141,14 +143,14 @@ src_unpack() {
 	fi
 	use uim && git clone -q ${UIM_PATCH_URI} "${WORKDIR}/macuim" \
 		&& (cd "${WORKDIR}/macuim" && git checkout -q ${UIM_PATCH_REV} ) || die
+}
 
+src_prepare() {
 	# Disable clang. That's because built binaries fall in segmentation fault.
 	sed -i -e "s/<!(which clang)/$(tc-getCC)/" \
 		-e "s/<!(which clang++)/$(tc-getCXX)/" \
 		"${S}/gyp/common.gypi" || die
-}
 
-src_prepare() {
 	if use fcitx; then
 		rm -rf unix/fcitx/
 		EPATCH_OPTS="-p2" epatch "${DISTDIR}/$(basename ${FCITX_PATCH_URI})"
@@ -199,7 +201,8 @@ src_compile() {
 	use renderer && mytarget="${mytarget} renderer/renderer.gyp:mozc_renderer"
 	use uim && mytarget="${mytarget} unix/uim/uim.gyp:uim-mozc"
 
-	"${PYTHON}" build_mozc.py build -c "${BUILDTYPE}" ${mytarget} ${myjobs} || die
+	"${PYTHON}" build_mozc.py build -c "${BUILDTYPE}" ${mytarget} ${myjobs} \
+		|| die
 
 	use emacs && elisp-compile unix/emacs/*.el || die
 }
@@ -269,7 +272,6 @@ src_install() {
 				newins "${f}" "${f/ui-}"
 			done
 		)
-
 	fi
 
 	if use qt4 ; then
@@ -285,13 +287,14 @@ src_install() {
 	if use uim; then
 		exeinto "/usr/$(get_libdir)/uim/plugin"
 		doexe "out_linux/${BUILDTYPE}/libuim-mozc.so"
-
 		insinto /usr/share/uim/pixmaps/
-		newins data/images/unix/ime_product_icon_opensource-32.png mozc.png
-		newins data/images/unix/ui-dictionary.png mozc_tool_uim_dictionary_tool.png
-		newins data/images/unix/ui-properties.png mozc_tool_uim_config_dialog.png
-		newins data/images/unix/ui-tool.png mozc_tool_uim_selector.png
-
+		(
+			cd data/images/unix
+			newins ime_product_icon_opensource-32.png mozc.png
+			newins ui-dictionary.png mozc_tool_uim_dictionary_tool.png
+			newins ui-properties.png mozc_tool_uim_config_dialog.png
+			newins ui-tool.png mozc_tool_uim_selector.png
+		)
 		insinto /usr/share/uim
 		(
 			cd "${WORKDIR}/macuim/Mozc/scm"
