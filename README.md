@@ -9,24 +9,36 @@ ebuilds for ...
 
 e.g.
 
+### DE
+
+- [mate](https://github.com/mate-desktop)  
+	(Development version)
+
 ### text
 
 - [nikola](http://getnikola.com/)  
     (7.0.0 and newer. A static website generator based on python)
 
 - [cutemarked](http://cloose.github.io/CuteMarkEd/)  
-    (a Qt-based markdown text editor)
+    (a Qt5-based markdown text editor)
 
 - [mined](http://towo.net/mined/)  
     (a terminal-based Text Editor with extensive Unicode and CJK support)
+
+- asciidoc-gtksourceview
+
+- markdown-gtksourceview
+
+### graphic
+
+- AzPainter
+
+- AzDrawing
 
 ### media
 
 - [Audacious](http://audacious-media-player.org/)  
     (development version)  
-
-- [GStreamer](http://gstreamer.freedesktop.org/)  
-    (gst-rtsp-server-1.4.5)  
 
 - [gdk-pixbuf-psd](http://cgit.sukimashita.com/gdk-pixbuf-psd.git/)  
     (gdk-pixbuf loader for PSD files)  
@@ -64,13 +76,13 @@ e.g.
     <small>The each dictionary's license of "hatena" and "nicodic" is unknown. Specifically "nicodic" feature is not recommended to use. My ebuild's default is "-nicodic".</small>
 
 - [fcitx-qt5](http://fcitx-im.org/)  
-    (Fcitx Qt5 support)
+    (Development ver.)
 
 - [uim](http://code.google.com/p/uim/)  
-    (added Qt5 support)
+    (Development ver.)
 
 - [libguess](http://atheme.org/projects/libguess.html)  
-    (Git ver., for newer Audacious's chardet functionality)
+    (Development ver., for newer Audacious's chardet functionality)
 
 ### etc.
 
