@@ -21,9 +21,6 @@ Gentoo GNU/Linux 向けの overlay です。
     <small>※はてなキーワード辞書およびニコニコ大百科(nicodic)辞書機能は、ライセンス不明です。  
     とりわけニコニコ大百科は収載単語が独特で著作性が高く、また運営企業は２ちゃんねるで有名な未来検索ブラジルですので、無用な紛争に巻き込まれないためにもインストールしないことをお勧めします。デフォルトのUSEフラグも無効にしてあります。</small>  
 
-- [fcitx-qt5](http://fcitx-im.org/)  
-    (Fcitx Qt5 support)
-
 - [uim](http://code.google.com/p/uim/)  
     (added Qt5 support)
 
@@ -46,9 +43,6 @@ Gentoo GNU/Linux 向けの overlay です。
 - [Audacious](http://audacious-media-player.org/)  
     (Git 版)  
     
-- [GStreamer](http://gstreamer.freedesktop.org/)  
-    (gst-rtsp-server-1.4.5)  
-
 - [gdk-pixbuf-psd](http://cgit.sukimashita.com/gdk-pixbuf-psd.git/)  
     (Photoshop の PSD を画像ビューア等で読み込むための gdk-pixbuf ローダ)
 - [gdk-pixbuf-xcf(io-xcf)](https://gitorious.org/xcf-pixbuf-loader)  
