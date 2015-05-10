@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
+<maintainer>
+	<email>wjn@aol.jp</email>
+</maintainer>
 <upstream>
-<remote-id type="github">cloose/CuteMarkEd</remote-id>
+	<remote-id type="github">cloose/CuteMarkEd</remote-id>
 </upstream>
+<use>
+	<flag name='test'>Build support of <pkg>dev-qt/qttest:5</pkg></flag>
+</use>
 </pkgmetadata>

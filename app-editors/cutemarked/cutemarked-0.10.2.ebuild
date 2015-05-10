@@ -21,7 +21,6 @@ fi
 LICENSE="BSD GPL-2+ MIT"
 SLOT="0"
 KEYWORDS=""
-IUSE="test"
 
 COMMON_DEPEND="
 	>=app-text/discount-2.1.6
@@ -29,12 +28,11 @@ COMMON_DEPEND="
 	app-text/peg-markdown
 	dev-qt/qtcore:5
 	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
 	dev-qt/qtprintsupport:5
-	dev-qt/qtsql:5
 	dev-qt/qtwebkit:5
 	dev-qt/qtwidgets:5
-	media-libs/libpng"
+	media-libs/libpng
+	virtual/pkgconfig"
 DEPEND=${COMMON_DEPEND}
 RDEPEND=${COMMON_DEPEND}
 

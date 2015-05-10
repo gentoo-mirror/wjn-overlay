@@ -21,23 +21,20 @@ fi
 LICENSE="BSD GPL-2+ MIT"
 SLOT="0"
 KEYWORDS=""
-IUSE=""
 
-RDEPEND="
+COMMON_DEPEND="
 	>=app-text/discount-2.1.6
 	>=app-text/hunspell-1.3.2
 	app-text/peg-markdown
 	dev-qt/qtcore:5
 	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
 	dev-qt/qtprintsupport:5
-	dev-qt/qtsql:5
-	dev-qt/qttest:5
 	dev-qt/qtwebkit:5
 	dev-qt/qtwidgets:5
 	media-libs/libpng
-	"
-DEPEND="${RDEPEND}"
+	virtual/pkgconfig"
+DEPEND=${COMMON_DEPEND}
+RDEPEND=${COMMON_DEPEND}
 
 DOCS="README.md"
 
@@ -53,4 +50,3 @@ src_install() {
 	base_src_install INSTALL_ROOT="${D}" "$@"
 	dodoc ${DOCS}
 }
-
