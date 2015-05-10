@@ -7,7 +7,7 @@ PYTHON_COMPAT=( python{2_7,3_3,3_4} )
 inherit distutils-r1
 
 DESCRIPTION="A static website and blog generator"
-HOMEPAGE="http://getnikola.com/"
+HOMEPAGE="https://getnikola.com/"
 if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="git://github.com/getnikola/${PN}.git"
