@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit autotools git-2 multilib
+inherit autotools git-r3 multilib
 
 DESCRIPTION="Audacious Player - Your music, your way, no exceptions"
 HOMEPAGE="http://audacious-media-player.org/"
@@ -37,6 +37,11 @@ PDEPEND="~media-plugins/audacious-plugins-9999[gtk=,qt5=]"
 
 pkg_setup() {
 	use qt5 && export PATH="/usr/$(get_libdir)/qt5/bin:${PATH}"
+}
+
+src_unpack() {
+	git-r3_src_unpack
+	default
 }
 
 src_prepare() {
