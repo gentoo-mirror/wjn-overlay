@@ -3,7 +3,13 @@
 # $Header: $
 
 EAPI=5
-inherit autotools git-r3 multilib
+
+PLOCALES="be bg ca cmn cs da de el en_GB es_AR es_MX es et eu fa_IR fi fr gl
+	hu id_ID it ja ko ky lt lv ml_IN ms nl pl pt_BR pt_PT ru si sk sr sr_RS sv
+	ta tr uk zh_CN zh_TW"
+PLOCALE_BACKUP="en_GB"
+
+inherit autotools git-r3 l10n multilib
 
 DESCRIPTION="Audacious Player - Your music, your way, no exceptions"
 HOMEPAGE="http://audacious-media-player.org/"
@@ -81,6 +87,7 @@ pkg_setup() {
 
 src_prepare() {
 	eautoreconf
+	l10n_for_each_disabled_locale_do remove_locales
 }
 
 src_configure() {
@@ -129,4 +136,8 @@ src_configure() {
 		${spectrum_conf} \
 		$(use_enable vorbis) \
 		$(use_enable wavpack)
+}
+
+remove_locales() {
+	sed -i "s/${1}.po//" "${S}"/po/Makefile
 }

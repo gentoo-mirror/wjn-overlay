@@ -4,7 +4,12 @@
 
 EAPI=5
 
-inherit multilib
+PLOCALES="be bg ca cmn cs da de el en_GB es_AR es_MX es et eu fa_IR fi fr gl
+	hu id_ID it ja ko ky lt lv ml_IN ms nl pl pt_BR pt_PT ru si sk sr sr_RS sv
+	ta tr uk zh_CN zh_TW"
+PLOCALE_BACKUP="en_GB"
+
+inherit l10n multilib
 
 MY_P="${P/_/-}"
 
@@ -128,4 +133,8 @@ src_configure() {
 		${spectrum_conf} \
 		$(use_enable vorbis) \
 		$(use_enable wavpack)
+}
+
+remove_locales() {
+	sed -i "s/${1}.po//" "${S}"/po/Makefile
 }
