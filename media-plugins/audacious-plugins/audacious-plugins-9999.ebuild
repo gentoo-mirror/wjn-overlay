@@ -8,7 +8,7 @@ inherit autotools git-r3 multilib
 DESCRIPTION="Audacious Player - Your music, your way, no exceptions"
 HOMEPAGE="http://audacious-media-player.org/"
 SRC_URI=""
-EGIT_REPO_URI="git://github.com/audacious-media-player/${PN}.git"
+EGIT_REPO_URI="https://github.com/audacious-media-player/${PN}.git"
 
 LICENSE="BSD filewriter? ( GPL-2+ ) libnotify? ( GPL-3+ ) pulseaudio? ( GPL-2+ )
 	sndfile? ( GPL-2+ ) spectrum? ( GPL-2+ )"
