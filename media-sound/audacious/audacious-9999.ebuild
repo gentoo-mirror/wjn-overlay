@@ -4,7 +4,12 @@
 
 EAPI=5
 
-inherit autotools git-r3 multilib
+PLOCALES="ast be bg ca cmn cs da de el en_GB eo es_AR es_MX es et eu fa_IR fi
+	fr gl he hu id_ID it ja ko ky lt lv ml_IN ms nl pl pt_BR pt_PT ro ru si sk
+	sq sr@latin sr sr_RS sv ta tr uk vi zh_CN zh_TW"
+PLOCALE_BACKUP="en_GB"
+
+inherit autotools git-r3 l10n multilib
 
 DESCRIPTION="Audacious Player - Your music, your way, no exceptions"
 HOMEPAGE="http://audacious-media-player.org/"
@@ -46,6 +51,7 @@ src_unpack() {
 
 src_prepare() {
 	eautoreconf
+	l10n_for_each_disabled_locale_do remove_locales
 }
 
 src_configure() {
@@ -71,4 +77,8 @@ pkg_postinst() {
 		ewarn 'It is not possible to switch between GTK+ and Qt while Audacious is running.'
 		ewarn 'Run audacious --qt to get the Qt interface.'
 	fi
+}
+
+remove_locales() {
+	sed -i "s/${1}.po//" "${S}"/po/Makefile
 }

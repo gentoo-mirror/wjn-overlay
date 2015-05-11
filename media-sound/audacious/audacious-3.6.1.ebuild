@@ -4,7 +4,12 @@
 
 EAPI=5
 
-inherit multilib
+PLOCALES="ast be bg ca cmn cs da de el en_GB eo es_AR es_MX es et eu fa_IR fi
+	fr gl he hu id_ID it ja ko ky lt lv ml_IN ms nl pl pt_BR pt_PT ro ru si sk
+	sq sr@latin sr sr_RS sv ta tr uk vi zh_CN zh_TW"
+PLOCALE_BACKUP="en_GB"
+
+inherit l10n multilib
 
 MY_P="${P/_/-}"
 
@@ -43,6 +48,10 @@ pkg_setup() {
 	use qt5 && export PATH="/usr/$(get_libdir)/qt5/bin:${PATH}"
 }
 
+src_prepare() {
+	l10n_for_each_disabled_locale_do remove_locales
+}
+
 src_configure() {
 	econf --enable-dbus \
 		$(use_enable chardet) \
@@ -66,4 +75,8 @@ pkg_postinst() {
 		ewarn 'It is not possible to switch between GTK+ and Qt while Audacious is running.'
 		ewarn 'Run audacious --qt to get the Qt interface.'
 	fi
+}
+
+remove_locales() {
+	sed -i "s/${1}.po//" "${S}"/po/Makefile
 }
