@@ -11,11 +11,9 @@ PLOCALE_BACKUP="en_GB"
 
 inherit l10n multilib
 
-MY_P="${P/_/-}"
-
 DESCRIPTION="Audacious Player - Your music, your way, no exceptions"
 HOMEPAGE="http://audacious-media-player.org/"
-SRC_URI="http://distfiles.audacious-media-player.org/${MY_P}.tar.bz2
+SRC_URI="http://distfiles.audacious-media-player.org/${P}.tar.bz2
 	 mirror://gentoo/gentoo_ice-xmms-0.2.tar.bz2"
 
 LICENSE="BSD-2"
