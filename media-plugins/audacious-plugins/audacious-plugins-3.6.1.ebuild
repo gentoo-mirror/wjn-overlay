@@ -11,11 +11,9 @@ PLOCALE_BACKUP="en_GB"
 
 inherit l10n multilib
 
-MY_P="${P/_/-}"
-
 DESCRIPTION="Audacious Player - Your music, your way, no exceptions"
 HOMEPAGE="http://audacious-media-player.org/"
-SRC_URI="http://distfiles.audacious-media-player.org/${MY_P}.tar.bz2"
+SRC_URI="http://distfiles.audacious-media-player.org/${P}.tar.bz2"
 
 LICENSE="BSD filewriter? ( GPL-2+ ) libnotify? ( GPL-3+ ) pulseaudio? ( GPL-2+ )
 	sndfile? ( GPL-2+ ) spectrum? ( GPL-2+ )"
