@@ -7,7 +7,7 @@ inherit font
 
 DESCRIPTION="Japanese TrueType font based on Source Hans Sans and M+"
 HOMEPAGE="http://jikasei.me/font/mgenplus/"
-SRC_URI="mirror://sourceforge.jp/users/7/7134/mgenplus-20140828.7z"
+SRC_URI="mirror://sourceforge.jp/users/7/7783/${P}.7z"
 
 LICENSE="Apache-2.0"
 SLOT="0"
@@ -23,4 +23,3 @@ DEPEND="app-arch/p7zip"
 RDEPEND=""
 
 DOCS=( README_MgenPlus.txt )
-
