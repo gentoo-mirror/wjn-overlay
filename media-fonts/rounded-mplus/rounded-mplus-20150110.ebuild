@@ -8,10 +8,10 @@ inherit font
 DESCRIPTION="Japanese TrueType rounded gothic fonts based on mplus-fonts."
 HOMEPAGE="http://jikasei.me/font/rounded-mplus/"
 SRC_URI="
-	mirror://sourceforge.jp/users/6/6593/rounded-mplus-20140812.7z
-	mirror://sourceforge.jp/users/6/6592/rounded-x-mplus-20140812.7z
-	mirror://sourceforge.jp/users/6/6594/rounded-l-mplus-20140812.7z
-		"
+	mirror://sourceforge.jp/users/7/7708/rounded-mplus-${PV}.7z
+	mirror://sourceforge.jp/users/7/7709/rounded-x-mplus-${PV}.7z
+	mirror://sourceforge.jp/users/7/7707/rounded-l-mplus-${PV}.7z
+	"
 
 LICENSE="mplus-fonts"
 SLOT="0"
@@ -27,4 +27,3 @@ DEPEND="app-arch/p7zip"
 RDEPEND=""
 
 DOCS=( README_E_Rounded.txt README_J_Rounded.txt )
-
