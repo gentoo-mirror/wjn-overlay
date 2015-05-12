@@ -11,10 +11,10 @@ MY_PN="SourceHanSansJP"
 DESCRIPTION="Subset OTF of GennoKakuGothic, a Japanese font by Adobe and Google"
 HOMEPAGE="https://github.com/adobe-fonts/source-han-sans"
 SRC_URI="
-	https://raw.githubusercontent.com/adobe-fonts/source-han-sans/1.002R/SubsetOTF/${MY_PN}.zip
-	https://github.com/adobe-fonts/source-han-sans/raw/1.002R/README.md
-	https://raw.githubusercontent.com/adobe-fonts/source-han-sans/1.002R/SourceHanSansDesignGuide.pdf
-	https://raw.githubusercontent.com/adobe-fonts/source-han-sans/1.002R/SourceHanSansReadMe.pdf
+	https://raw.githubusercontent.com/adobe-fonts/${PN}/1.002R/SubsetOTF/${MY_PN}.zip
+	https://github.com/adobe-fonts/${PN}/raw/1.002R/README.md
+	https://raw.githubusercontent.com/adobe-fonts/${PN}/1.002R/${MY_PN/JP/}DesignGuide.pdf
+	https://raw.githubusercontent.com/adobe-fonts/${PN}/1.002R/${MY_PN/JP/}ReadMe.pdf
 	"
 
 LICENSE="Apache-2.0"
@@ -33,5 +33,5 @@ FONT_S="${WORKDIR}/${MY_PN}"
 
 src_install() {
 	font_src_install
-	dodoc SourceHanSansDesignGuide.pdf SourceHanSansReadMe.pdf
+	dodoc ${MY_PN/JP/}DesignGuide.pdf ${MY_PN/JP/}ReadMe.pdf
 }
