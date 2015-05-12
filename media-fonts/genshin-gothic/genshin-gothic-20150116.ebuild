@@ -7,7 +7,7 @@ inherit font
 
 DESCRIPTION="Japanese TrueType font based on Source Hans Sans (GennoKakuGothic)"
 HOMEPAGE="http://jikasei.me/font/genshin/"
-SRC_URI="mirror://sourceforge.jp/users/7/7117/genshingothic-20140828.7z"
+SRC_URI="mirror://sourceforge.jp/users/7/7765/genshingothic-${PV}.7z"
 
 LICENSE="Apache-2.0"
 SLOT="0"
@@ -23,4 +23,3 @@ DEPEND="app-arch/p7zip"
 RDEPEND=""
 
 DOCS=( README_GenShin.txt )
-
