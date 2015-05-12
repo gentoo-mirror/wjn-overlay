@@ -9,10 +9,10 @@ inherit font
 DESCRIPTION="an OpenType/CFF Pan-CJK fonts by Adobe and Google. SuperOTC ver."
 HOMEPAGE="https://github.com/adobe-fonts/source-han-sans"
 SRC_URI="
-	https://raw.githubusercontent.com/adobe-fonts/source-han-sans/1.001R/SuperOTC/SourceHanSans.ttc.zip
-	https://github.com/adobe-fonts/source-han-sans/raw/1.001R/README.md
-	https://raw.githubusercontent.com/adobe-fonts/source-han-sans/1.001R/SourceHanSansDesignGuide.pdf
-	https://raw.githubusercontent.com/adobe-fonts/source-han-sans/1.001R/SourceHanSansReadMe.pdf
+	https://raw.githubusercontent.com/adobe-fonts/source-han-sans/1.002R/SuperOTC/SourceHanSans.ttc.zip
+	https://github.com/adobe-fonts/source-han-sans/raw/1.002R/README.md
+	https://raw.githubusercontent.com/adobe-fonts/source-han-sans/1.002R/SourceHanSansDesignGuide.pdf
+	https://raw.githubusercontent.com/adobe-fonts/source-han-sans/1.002R/SourceHanSansReadMe.pdf
 	"
 
 LICENSE="Apache-2.0"
@@ -38,4 +38,3 @@ src_install() {
 	font_src_install
 	dodoc SourceHanSansDesignGuide.pdf SourceHanSansReadMe.pdf
 }
-
