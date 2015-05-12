@@ -8,9 +8,9 @@ inherit font
 DESCRIPTION="Japanese TrueType rounded font based on Source Hans Sans and M+"
 HOMEPAGE="http://jikasei.me/font/rounded-mgenplus/"
 SRC_URI="
-	mirror://sourceforge.jp/users/7/7130/rounded-mgenplus-20140828.7z
-	mirror://sourceforge.jp/users/7/7131/rounded-x-mgenplus-20140828.7z
-	mirror://sourceforge.jp/users/7/7129/rounded-l-mgenplus-20140828.7z
+	mirror://sourceforge.jp/users/7/7778/rounded-mgenplus-${PV}.7z
+	mirror://sourceforge.jp/users/7/7776/rounded-x-mgenplus-${PV}.7z
+	mirror://sourceforge.jp/users/7/7777/rounded-l-mgenplus-${PV}.7z
 "
 
 LICENSE="Apache-2.0"
@@ -27,4 +27,3 @@ DEPEND="app-arch/p7zip"
 RDEPEND=""
 
 DOCS=( README_Rounded-MgenPlus.txt )
-
