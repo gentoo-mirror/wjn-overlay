@@ -28,7 +28,7 @@ DEPEND=">=dev-python/docutils-0.12[${PYTHON_USEDEP}]"
 RDEPEND="${DEPEND}
 	>=dev-python/blinker-1.3[${PYTHON_USEDEP}]
 	dev-python/colorama[${PYTHON_USEDEP}]
-	>=dev-python/doit-0.23.0[${PYTHON_USEDEP}]
+	~dev-python/doit-0.28.0[${PYTHON_USEDEP}]
 	>=dev-python/logbook-0.7.0[${PYTHON_USEDEP}]
 	>=dev-python/lxml-3.3.5[${PYTHON_USEDEP}]
 	>=dev-python/mako-1.0.0[${PYTHON_USEDEP}]
