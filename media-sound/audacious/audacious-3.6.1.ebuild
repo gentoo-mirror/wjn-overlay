@@ -40,8 +40,6 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND=${COMMON_DEPEND}
 PDEPEND="~media-plugins/audacious-plugins-3.6[gtk=,qt5=]"
 
-S="${WORKDIR}/${MY_P}"
-
 pkg_setup() {
 	use qt5 && export PATH="/usr/$(get_libdir)/qt5/bin:${PATH}"
 }
@@ -76,5 +74,5 @@ pkg_postinst() {
 }
 
 remove_locales() {
-	sed -i "s/${1}.po//" "${S}"/po/Makefile
+	sed -i "s/${1}.po//" po/Makefile
 }

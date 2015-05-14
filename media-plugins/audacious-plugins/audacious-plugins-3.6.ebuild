@@ -75,8 +75,6 @@ DEPEND="${COMMON_DEPEND}
 	virtual/pkgconfig"
 RDEPEND=${COMMON_DEPEND}
 
-S="${WORKDIR}/${MY_P}"
-
 pkg_pretend() {
 	use mp3 || ewarn \
 		"MP3 support is optional. Are you sure to disable mp3 USE flag?"
@@ -134,5 +132,5 @@ src_configure() {
 }
 
 remove_locales() {
-	sed -i "s/${1}.po//" "${S}"/po/Makefile
+	sed -i "s/${1}.po//" po/Makefile
 }
