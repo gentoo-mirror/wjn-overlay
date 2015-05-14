@@ -5,7 +5,7 @@
 EAPI=5
 PYTHON_COMPAT=( python2_7 )
 
-inherit distutils-r1 flag-o-matic
+inherit distutils-r1
 
 DESCRIPTION="MATE desktop tweak tool"
 HOMEPAGE="https://launchpad.net/ubuntu/+source/mate-tweak"
