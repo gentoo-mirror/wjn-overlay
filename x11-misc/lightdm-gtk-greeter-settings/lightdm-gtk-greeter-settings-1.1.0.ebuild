@@ -5,7 +5,7 @@
 EAPI=5
 PYTHON_COMPAT=( python{3_2,3_3,3_4} )
 
-inherit distutils-r1 flag-o-matic versionator
+inherit distutils-r1 versionator
 
 MPV=$(get_version_component_range 1-2)
 
