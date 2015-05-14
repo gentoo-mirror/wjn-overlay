@@ -14,12 +14,13 @@ inherit autotools git-r3 l10n multilib
 DESCRIPTION="Audacious Player - Your music, your way, no exceptions"
 HOMEPAGE="http://audacious-media-player.org/"
 EGIT_REPO_URI="https://github.com/audacious-media-player/${PN}.git"
+use gtk3 && EGIT_BRANCH="gtk3"
 SRC_URI="mirror://gentoo/gentoo_ice-xmms-0.2.tar.bz2"
 
 LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="chardet +gtk qt5"
+IUSE="chardet +gtk -gtk3 qt5"
 
 COMMON_DEPEND=">=dev-libs/glib-2.28
 	dev-libs/libxml2
@@ -28,7 +29,8 @@ COMMON_DEPEND=">=dev-libs/glib-2.28
 	>=x11-libs/cairo-1.2.6
 	>=x11-libs/pango-1.8.0
 	chardet? ( >=app-i18n/libguess-1.2 )
-	gtk? ( x11-libs/gtk+:2 )
+	gtk? ( !gtk3? ( x11-libs/gtk+:2 ) )
+	gtk3? ( x11-libs/gtk+:3 )
 	qt5? ( dev-qt/qtcore:5
 		dev-qt/qtgui:5
 		dev-qt/qtmultimedia:5
@@ -38,7 +40,7 @@ DEPEND="${COMMON_DEPEND}
 	sys-devel/gettext
 	virtual/pkgconfig"
 RDEPEND=${COMMON_DEPEND}
-PDEPEND="~media-plugins/audacious-plugins-9999[gtk=,qt5=]"
+PDEPEND="~media-plugins/audacious-plugins-9999[gtk=,gtk3=,qt5=]"
 
 pkg_setup() {
 	use qt5 && export PATH="/usr/$(get_libdir)/qt5/bin:${PATH}"
@@ -80,5 +82,5 @@ pkg_postinst() {
 }
 
 remove_locales() {
-	sed -i "s/${1}.po//" "${S}"/po/Makefile
+	sed -i "s/${1}.po//" po/Makefile
 }

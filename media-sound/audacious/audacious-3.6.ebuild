@@ -13,13 +13,15 @@ inherit l10n multilib
 
 DESCRIPTION="Audacious Player - Your music, your way, no exceptions"
 HOMEPAGE="http://audacious-media-player.org/"
-SRC_URI="http://distfiles.audacious-media-player.org/${P}.tar.bz2
-	 mirror://gentoo/gentoo_ice-xmms-0.2.tar.bz2"
+SRC_URI="!gtk3? ( http://distfiles.audacious-media-player.org/${P}.tar.bz2 )
+	gtk3? ( http://distfiles.audacious-media-player.org/${P}-gtk3.tar.bz2 )
+	mirror://gentoo/gentoo_ice-xmms-0.2.tar.bz2"
 
 LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="chardet +gtk qt5"
+IUSE="chardet +gtk -gtk3 qt5"
+REQUIRED_USE="gtk3? ( gtk )"
 
 COMMON_DEPEND=">=dev-libs/glib-2.28
 	dev-libs/libxml2
@@ -28,7 +30,8 @@ COMMON_DEPEND=">=dev-libs/glib-2.28
 	>=x11-libs/cairo-1.2.6
 	>=x11-libs/pango-1.8.0
 	chardet? ( >=app-i18n/libguess-1.2 )
-	gtk? ( x11-libs/gtk+:2 )
+	gtk? ( !gtk3? ( x11-libs/gtk+:2 ) )
+	gtk3? ( x11-libs/gtk+:3 )
 	qt5? ( dev-qt/qtcore:5
 		dev-qt/qtgui:5
 		dev-qt/qtmultimedia:5
@@ -39,6 +42,8 @@ DEPEND="${COMMON_DEPEND}
 	virtual/pkgconfig"
 RDEPEND=${COMMON_DEPEND}
 PDEPEND="~media-plugins/audacious-plugins-3.6[gtk=,qt5=]"
+
+use gtk3 && S="${WORKDIR}/${P}-gtk3"
 
 pkg_setup() {
 	use qt5 && export PATH="/usr/$(get_libdir)/qt5/bin:${PATH}"

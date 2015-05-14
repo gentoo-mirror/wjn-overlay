@@ -13,20 +13,20 @@ inherit autotools git-r3 l10n multilib
 
 DESCRIPTION="Audacious Player - Your music, your way, no exceptions"
 HOMEPAGE="http://audacious-media-player.org/"
-SRC_URI=""
 EGIT_REPO_URI="https://github.com/audacious-media-player/${PN}.git"
+use gtk3 && EGIT_BRANCH="gtk3"
 
 LICENSE="BSD filewriter? ( GPL-2+ ) libnotify? ( GPL-3+ ) pulseaudio? ( GPL-2+ )
 	sndfile? ( GPL-2+ ) spectrum? ( GPL-2+ )"
 SLOT="0"
 KEYWORDS=""
-IUSE="aac adplug alsa bs2b cdda cue ffmpeg +filewriter flac gnome +gtk
+IUSE="aac adplug alsa bs2b cdda cue ffmpeg +filewriter flac gnome +gtk -gtk3
 	jack lame libav libnotify libsamplerate lirc midi mms modplug mp3 neon
 	pulseaudio qt5 scrobbler sdl sid sndfile soxr spectrum vorbis wavpack"
 
 COMMON_DEPEND=">=dev-libs/dbus-glib-0.60
 	dev-libs/libxml2:2
-	~media-sound/audacious-9999[gtk=,qt5=]
+	~media-sound/audacious-9999[gtk=,gtk3=,qt5=]
 	>=sys-apps/dbus-0.6.0
 	>=sys-devel/gcc-4.7.0
 	aac? ( >=media-libs/faad2-2.7 )
@@ -40,7 +40,8 @@ COMMON_DEPEND=">=dev-libs/dbus-glib-0.60
 	ffmpeg? ( >=virtual/ffmpeg-0.7.3 )
 	flac? ( >=media-libs/libvorbis-1.0
 		>=media-libs/flac-1.2.1-r1 )
-	gtk? ( x11-libs/gtk+:2 )
+	gtk? ( !gtk3? ( x11-libs/gtk+:2 ) )
+	gtk3? ( x11-libs/gtk+:3 )
 	jack? ( >=media-libs/bio2jack-0.4
 		>=media-sound/jack-audio-connection-kit-0.120.1 )
 	lame? ( media-sound/lame )
@@ -139,5 +140,5 @@ src_configure() {
 }
 
 remove_locales() {
-	sed -i "s/${1}.po//" "${S}"/po/Makefile
+	sed -i "s/${1}.po//" po/Makefile
 }
