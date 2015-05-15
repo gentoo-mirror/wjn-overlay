@@ -1,6 +1,0 @@
-README
-------
-
- freetype2 renamed include/freetype to include/freetype2 recently.
-wjn-overlay's tuxonice-userui ebuild can support this.
-
