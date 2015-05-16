@@ -28,15 +28,15 @@ COMMON_DEPEND=">=app-i18n/fcitx-4.2.8[qt4?]
 	>=app-i18n/libkkc-0.2.3
 	qt4? ( >=dev-qt/qtcore-4.8:4
 		>=dev-qt/qtdbus-4.8:4
-		>=dev-qt/qtgui-4.8:4
-		>=dev-qt/qtxml-4.8:4 )"
+		>=dev-qt/qtgui-4.8:4 )"
 DEPEND="${COMMON_DEPEND}
 	dev-libs/glib:2
 	dev-libs/json-glib
 	dev-libs/libgee:0.8
 	sys-devel/gettext
 	virtual/pkgconfig"
-RDEPEND="${COMMON_DEPEND}"
+RDEPEND="${COMMON_DEPEND}
+	app-i18n/libkkc-data"
 
 src_prepare() {
 	disable_locale() {

@@ -28,7 +28,8 @@ DEPEND="${COMMON_DEPEND}
 	dev-libs/glib:2
 	>=dev-util/intltool-0.35.0
 	virtual/pkgconfig"
-RDEPEND="${COMMON_DEPEND}"
+RDEPEND="${COMMON_DEPEND}
+	app-i18n/libkkc-data"
 
 DOCS=( AUTHORS README )
 
