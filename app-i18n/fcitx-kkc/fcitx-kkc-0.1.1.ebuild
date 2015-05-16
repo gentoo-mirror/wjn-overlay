@@ -36,7 +36,8 @@ DEPEND="${COMMON_DEPEND}
 	sys-devel/gettext
 	virtual/pkgconfig"
 RDEPEND="${COMMON_DEPEND}
-	app-i18n/libkkc-data"
+	app-i18n/libkkc-data
+	app-i18n/skk-jisyo"
 
 src_prepare() {
 	disable_locale() {

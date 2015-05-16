@@ -37,7 +37,8 @@ DEPEND="${COMMON_DEPEND}
 	introspection? ( >=dev-libs/gobject-introspection-0.9.0 )
 	nls? ( sys-devel/gettext )"
 RDEPEND="${COMMON_DEPEND}"
-PDEPEND="app-i18n/libkkc-data"
+PDEPEND="app-i18n/libkkc-data
+	app-i18n/skk-jisyo"
 
 DOCS=( README.md )
 

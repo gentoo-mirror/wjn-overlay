@@ -29,7 +29,8 @@ DEPEND="${COMMON_DEPEND}
 	>=dev-util/intltool-0.35.0
 	virtual/pkgconfig"
 RDEPEND="${COMMON_DEPEND}
-	app-i18n/libkkc-data"
+	app-i18n/libkkc-data
+	app-i18n/skk-jisyo"
 
 DOCS=( AUTHORS README )
 
