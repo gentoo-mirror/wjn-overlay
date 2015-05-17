@@ -24,3 +24,5 @@ RDEPEND="dev-libs/glib:2
 	x11-libs/gtk+
 	x11-libs/pango
 	>=x11-misc/lightdm-gtk-greeter-2.0.0"
+
+DOCS=( NEWS README )
