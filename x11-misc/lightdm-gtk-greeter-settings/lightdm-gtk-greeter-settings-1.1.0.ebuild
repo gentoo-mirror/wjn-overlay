@@ -21,6 +21,7 @@ DEPEND=">=dev-python/python-distutils-extra-2.18[${PYTHON_USEDEP}]
 	dev-python/setuptools[${PYTHON_USEDEP}]"
 
 RDEPEND="dev-libs/glib:2
+	sys-auth/polkit
 	x11-libs/gtk+
 	x11-libs/pango
 	>=x11-misc/lightdm-gtk-greeter-2.0.0"
