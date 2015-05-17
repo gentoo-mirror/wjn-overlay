@@ -10,7 +10,7 @@ inherit distutils-r1 versionator
 MPV=$(get_version_component_range 1-2)
 
 DESCRIPTION="LightDM Gtk+ Greeter settings editor"
-HOMEPAGE="https://launchpad.net/lightdm-gtk-greeter-setting"
+HOMEPAGE="https://launchpad.net/lightdm-gtk-greeter-settings"
 SRC_URI="https://launchpad.net/${PN}/${MPV}/${PV}/+download/${P}.tar.gz"
 
 LICENSE="GPL-3"
