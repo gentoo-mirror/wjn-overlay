@@ -42,6 +42,7 @@ RDEPEND="${COMMON_DEPEND}
 src_prepare() {
 	epatch "${FILESDIR}/${P}-add-direct-input.patch"
 	epatch "${FILESDIR}/${P}-fix-keymap-conflict.patch"
+	epatch "${FILESDIR}/${P}-add-dicts.patch"
 
 	disable_locale() {
 		sed -i "s/ ${1}//" po/CMakeLists.txt
