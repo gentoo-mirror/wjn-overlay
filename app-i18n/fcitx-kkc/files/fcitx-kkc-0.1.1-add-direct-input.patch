@@ -1,0 +1,78 @@
+diff --git a/gui/addshortcutdialog.cpp b/gui/addshortcutdialog.cpp
+index 6440cf7..fd235e9 100644
+--- a/gui/addshortcutdialog.cpp
++++ b/gui/addshortcutdialog.cpp
+@@ -33,7 +33,7 @@ AddShortcutDialog::AddShortcutDialog(QWidget* parent): QDialog(parent)
+     m_ui->keyLabel->setText(_("&Key"));
+     m_ui->keyButton->setModifierlessAllowed(true);
+     m_ui->keyButton->setMultiKeyShortcutsAllowed(false);
+-    for (int i = 0; i < KKC_INPUT_MODE_DIRECT; i++) {
++    for (int i = 0; i <= KKC_INPUT_MODE_DIRECT; i++) {
+         m_ui->inputModeComboBox->addItem(_(modeName[i]));
+     }
+ 
+diff --git a/gui/shortcutmodel.cpp b/gui/shortcutmodel.cpp
+index d6ffbda..22f2710 100644
+--- a/gui/shortcutmodel.cpp
++++ b/gui/shortcutmodel.cpp
+@@ -50,6 +50,7 @@ const char* modeName[] = {
+     N_("Half width Katakana"),
+     N_("Latin"),
+     N_("Wide latin"),
++    N_("Direct input"),
+ };
+ 
+ QVariant ShortcutModel::data(const QModelIndex& index, int role) const
+@@ -124,7 +125,7 @@ void ShortcutModel::load(const QString& name)
+             break;
+         }
+ 
+-        for (int mode = 0; mode < KKC_INPUT_MODE_DIRECT; mode ++) {
++        for (int mode = 0; mode <= KKC_INPUT_MODE_DIRECT; mode ++) {
+             KkcKeymap* keymap = kkc_rule_get_keymap(KKC_RULE(userRule), (KkcInputMode) mode);
+             int length;
+             KkcKeymapEntry* entries = kkc_keymap_entries(keymap, &length);
+@@ -153,7 +154,7 @@ void ShortcutModel::load(const QString& name)
+ void ShortcutModel::save()
+ {
+     if (m_userRule && m_needSave) {
+-        for (int mode = 0; mode < KKC_INPUT_MODE_DIRECT; mode ++) {
++        for (int mode = 0; mode <= KKC_INPUT_MODE_DIRECT; mode ++) {
+             kkc_user_rule_write(m_userRule, (KkcInputMode) mode, NULL);
+         }
+     }
+diff --git a/src/fcitx-kkc.desc b/src/fcitx-kkc.desc
+index a5023d8..65f0786 100644
+--- a/src/fcitx-kkc.desc
++++ b/src/fcitx-kkc.desc
+@@ -12,12 +12,13 @@ Enum3=Wide latin Japanese
+ Type=Enum
+ Description=Initial Input Mode
+ DefaultValue=Hiragana
+-EnumCount=5
++EnumCount=6
+ Enum0=Hiragana
+ Enum1=Katakana
+ Enum2=Half width Katakana
+-Enum3=Direct input
++Enum3=Latin
+ Enum4=Wide latin
++Enum5=Direct input
+ 
+ [General/PageSize]
+ Type=Integer
+diff --git a/src/kkc.c b/src/kkc.c
+index 030359a..604c239 100644
+--- a/src/kkc.c
++++ b/src/kkc.c
+@@ -81,8 +81,9 @@ KkcStatus input_mode_status[] = {
+     {"",  "\xe3\x81\x82", N_("Hiragana") },
+     {"", "\xe3\x82\xa2", N_("Katakana") },
+     {"", "\xef\xbd\xb1", N_("Half width Katakana") },
+-    {"", "A", N_("Latin") },
++    {"", "A\xcc\xb2", N_("Latin") },
+     {"", "\xef\xbc\xa1", N_("Wide latin") },
++    {"", "A", N_("Direct input") },
+ };
+ 
+ const char* FcitxKkcGetInputModeIconName(void* arg)

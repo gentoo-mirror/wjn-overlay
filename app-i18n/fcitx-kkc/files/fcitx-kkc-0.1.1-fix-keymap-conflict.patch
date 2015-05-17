@@ -1,0 +1,13 @@
+diff --git a/gui/shortcutwidget.cpp b/gui/shortcutwidget.cpp
+index ea8e0e6..1f6c93f 100644
+--- a/gui/shortcutwidget.cpp
++++ b/gui/shortcutwidget.cpp
+@@ -151,7 +151,7 @@ void KkcShortcutWidget::addShortcutClicked()
+ {
+     AddShortcutDialog dialog;
+     if (dialog.exec() == QDialog::Accepted) {
+-        if (m_shortcutModel->add(dialog.shortcut())) {
++        if (!m_shortcutModel->add(dialog.shortcut())) {
+             QMessageBox::critical(this, _("Key Conflict"), _("Key to add is conflict with existing shortcut."));
+         }
+     }

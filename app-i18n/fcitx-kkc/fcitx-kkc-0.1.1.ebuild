@@ -6,7 +6,7 @@ EAPI=5
 
 PLOCALES="de ja zh_CN zh_TW"
 
-inherit cmake-utils l10n
+inherit cmake-utils eutils l10n
 
 DESCRIPTION="Japanese libkkc module for Fcitx"
 HOMEPAGE="https://github.com/fcitx/fcitx-kkc"
@@ -40,6 +40,9 @@ RDEPEND="${COMMON_DEPEND}
 	app-i18n/skk-jisyo"
 
 src_prepare() {
+	epatch "${FILESDIR}/${P}-add-direct-input.patch"
+	epatch "${FILESDIR}/${P}-fix-keymap-conflict.patch"
+
 	disable_locale() {
 		sed -i "s/ ${1}//" po/CMakeLists.txt
 	}
