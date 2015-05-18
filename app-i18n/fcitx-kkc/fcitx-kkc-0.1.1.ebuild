@@ -49,3 +49,10 @@ src_prepare() {
 	}
 	l10n_for_each_disabled_locale_do disable_locale
 }
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_enable qt4 QT)
+	)
+	cmake-utils_src_configure
+}
