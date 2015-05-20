@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit fdo-mime gnome2-utils autotools
+inherit autotools eutils fdo-mime gnome2-utils
 
 MY_PN="Viewnior"
 
@@ -28,6 +28,7 @@ S="${WORKDIR}/${MY_PN}-${P}"
 DOCS="AUTHORS ChangeLog* NEWS README TODO"
 
 src_prepare() {
+	epatch "${FILESDIR}/${P}-revert-wallpaper-conf.patch"
 	eautoreconf
 }
 
