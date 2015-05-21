@@ -11,7 +11,7 @@ DESCRIPTION="Simple, secure and flexible input method library"
 HOMEPAGE="http://code.google.com/p/uim/"
 if [[ ${PV} = *9999* ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="git://github.com/uim/uim.git"
+	EGIT_REPO_URI="https://github.com/uim/uim.git"
 	EGIT_BRANCH="master"
 	EGIT_CHECKOUT_DIR=${S}
 	SRC_URI="https://uim.googlecode.com/files/${PN}-1.8.6.tar.gz
