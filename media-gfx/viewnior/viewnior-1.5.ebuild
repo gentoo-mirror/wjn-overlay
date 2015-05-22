@@ -28,7 +28,7 @@ S="${WORKDIR}/${MY_PN}-${P}"
 DOCS="AUTHORS ChangeLog* NEWS README TODO"
 
 src_prepare() {
-	epatch "${FILESDIR}/${P}-revert-wallpaper-conf.patch"
+	epatch "${FILESDIR}/${P}-move-vnr-prefs-desktop.patch"
 	eautoreconf
 }
 
