@@ -139,7 +139,7 @@ src_configure() {
 		$(use_enable kde kde4-applet) \
 		$(use_with libedit) \
 		$(use_with libffi ffi) \
-		$(use_with libnotify) \
+		$(use_enable libnotify notify libnotify) \
 		$(use_with m17n-lib m17nlib) \
 		$(use_enable ncurses fep) \
 		$(use_enable nls) \
