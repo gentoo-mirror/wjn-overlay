@@ -29,6 +29,7 @@ DOCS="AUTHORS ChangeLog* NEWS README TODO"
 
 src_prepare() {
 	epatch "${FILESDIR}/${P}-move-vnr-prefs-desktop.patch"
+	epatch "${FILESDIR}/${P}-background-mate-cinnamon.patch"
 	eautoreconf
 }
 
