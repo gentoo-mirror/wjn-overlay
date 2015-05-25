@@ -105,9 +105,6 @@ src_unpack() {
 #	elog "Cloning JsonCpp..."
 #	git clone -q ${JSONCPP_URI} jsoncpp \
 #		&& ( cd jsoncpp && git checkout -q ${JSONCPP_REV} ) || die
-#	elog "Cloning FontTools..."
-#	git clone -q ${FONTTOOLS_URI} fontTools \
-#		&& ( cd fontTools && git checkout -q ${FONTTOOLS_REV} ) || die
 	if use test; then
 		elog "Checking out GMOCK..."
 		svn co -q ${GMOCK_URI}@${GMOCK_REV} gmock
