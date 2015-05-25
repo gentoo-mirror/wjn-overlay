@@ -14,20 +14,20 @@ DESCRIPTION="Mozc - Japanese Input Method"
 HOMEPAGE="https://github.com/google/mozc"
 
 MOZC_REV="1f0df31"
-GMOCK_REV="501"
-GTEST_REV="700"
 GYP_REV="2012"
 PROTOBUF_REV="172019c"
 # JSONCPP_REV="11086dd"
 FCITX_PATCH_VER="2.16.2037.102.2"
 UIM_PATCH_REV="2b3eff9"
+GMOCK_REV="501"
+GTEST_REV="700"
 
 # We must clone Mozc by git to manage its versions.
 # MOZC_URI="https://github.com/google/mozc.git"
 EGIT_REPO_URI="https://github.com/google/mozc.git"
 EGIT_COMMIT=${MOZC_REV}
 
-USAGEDICT_URI="http://japanese-usage-dictionary.googlecode.com/svn/trunk/usage_dict.txt"
+USAGEDICT_URI="https://raw.githubusercontent.com/hiroyuki-komatsu/japanese-usage-dictionary/master/usage_dict.txt"
 GYP_URI="https://chromium.googlesource.com/external/gyp.git"
 
 # The dependency on protobuf version is near 2.5.0 (172019c).
@@ -47,7 +47,10 @@ GTEST_URI="http://googletest.googlecode.com/svn/trunk"
 SRC_URI="${USAGEDICT_URI}
 	fcitx? ( ${FCITX_PATCH_URI} )"
 
-LICENSE="BSD ipadic public-domain unicode"
+# Mozc: BSD, dictionary_oss: ipadic and public-domain, unicode: unicode,
+# usagedict: BSD-2, GYP: BSD, Mozc Fcitx: BSD, MacUIM: BSD,
+# GMOCK: Boost-1.0, GTEST: BSD. IPAfont is in repo, but not used.
+LICENSE="BSD BSD-2 ipadic public-domain unicode test? ( Boost-1.0 )"
 SLOT="0"
 KEYWORDS=""
 
