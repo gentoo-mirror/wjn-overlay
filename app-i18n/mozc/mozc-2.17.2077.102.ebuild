@@ -16,7 +16,6 @@ GTEST_REV="700"
 GYP_REV="2012"
 PROTOBUF_REV="172019c"
 JSONCPP_REV="11086dd"
-FONTTOOLS_REV="5ba7d98"
 FCITX_PATCH_VER="2.16.2037.102.2"
 UIM_PATCH_REV="2b3eff9"
 
@@ -32,7 +31,6 @@ GMOCK_URI="http://googlemock.googlecode.com/svn/trunk"
 GTEST_URI="http://googletest.googlecode.com/svn/trunk"
 GYP_URI="https://chromium.googlesource.com/external/gyp.git"
 JSONCPP_URI="https://github.com/open-source-parsers/jsoncpp.git"
-FONTTOOLS_URI="https://github.com/behdad/fonttools.git"
 FCITX_PATCH_URI="http://download.fcitx-im.org/fcitx-mozc/fcitx-mozc-${FCITX_PATCH_VER}.patch"
 UIM_PATCH_URI="https://github.com/e-kato/macuim.git"
 
@@ -91,8 +89,6 @@ src_unpack() {
 		&& ( cd protobuf && git checkout -q ${PROTOBUF_REV} ) || die
 	git clone -q ${JSONCPP_URI} jsoncpp \
 		&& ( cd jsoncpp && git checkout -q ${JSONCPP_REV} ) || die
-	git clone -q ${FONTTOOLS_URI} fontTools \
-		&& ( cd fontTools && git checkout -q ${FONTTOOLS_REV} ) || die
 	if use test; then
 		svn co -q ${GMOCK_URI}@${GMOCK_REV} gmock
 		svn co -q ${GTEST_URI}@${GTEST_REV} gtest
