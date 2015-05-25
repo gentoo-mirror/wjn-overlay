@@ -10,7 +10,7 @@ inherit elisp-common eutils multilib multiprocessing python-single-r1 \
 DESCRIPTION="Mozc - Japanese Input Method"
 HOMEPAGE="http://code.google.com/p/mozc/"
 
-MOZC_REV="4124e06"
+MOZC_REV="68ecbb93"
 GMOCK_REV="501"
 GTEST_REV="700"
 GYP_REV="2012"
