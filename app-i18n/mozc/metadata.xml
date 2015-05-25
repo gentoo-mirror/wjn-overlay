@@ -8,10 +8,11 @@ Mozc is a Japanese Input Method Editor (IME) designed for multi-platform such as
 	<email>wjn@aol.jp</email>
 </maintainer>
 <upstream>
-	<remote-id type="google-code">mozc</remote-id>
-	<doc>https://code.google.com/p/mozc/</doc>
+	<remote-id type="github">google/mozc</remote-id>
+	<doc>https://github.com/google/mozc</doc>
 </upstream>
 <use>
+	<flag name='clang'>Use <pkg>sys-devel/clang</pkg> for building</flag>
 	<flag name='emacs'>Enable support for <pkg>virtual/emacs</pkg></flag>
 	<flag name='fcitx'>Enable support for <pkg>app-i18n/fcitx</pkg></flag>
 	<flag name='ibus'>Enable support for <pkg>app-i18n/ibus</pkg></flag>
