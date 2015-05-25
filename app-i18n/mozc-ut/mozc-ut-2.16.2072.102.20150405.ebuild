@@ -13,7 +13,7 @@ HOMEPAGE="http://www.geocities.jp/ep3797/mozc_01.html"
 
 #MOZC_VER=$(get_version_component_range 1-$(get_last_version_component_index))
 MOZC_VER="2.16.2072.102"
-MOZC_REV="9b5e5dd"
+MOZC_REV="20c1c08"
 MOZCUT_VER=$(get_version_component_range $(get_version_component_count))
 GMOCK_REV="501"
 GTEST_REV="700"
