@@ -17,6 +17,7 @@
 	<remote-id type="sourceforge">mdk-ut</remote-id>
 </upstream>
 <use>
+	<flag name='clang'>Use <pkg>sys-devel/clang</pkg> for building</flag>
 	<flag name='ejdic'>Add English-Japanese dictionary</flag>
 	<flag name='emacs'>Enable support for <pkg>virtual/emacs</pkg></flag>
 	<flag name='fcitx'>Enable support for <pkg>app-i18n/fcitx</pkg></flag>
