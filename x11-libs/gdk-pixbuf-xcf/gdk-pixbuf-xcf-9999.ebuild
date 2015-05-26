@@ -2,32 +2,27 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="5"
+EAPI=5
 
-inherit autotools git-2 gnome2-utils multilib
+inherit autotools git-r3 gnome2-utils multilib
 
 DESCRIPTION="A gdk-pixbuf loader for xcf (The Gimp) files"
 HOMEPAGE="https://gitorious.org/xcf-pixbuf-loader/"
-EGIT_REPO_URI="git://gitorious.org/xcf-pixbuf-loader/mainline.git"
-SRC_URI=""
+EGIT_REPO_URI="https://gitorious.org/xcf-pixbuf-loader/mainline.git"
 
 LICENSE="LGPL-2+"
 SLOT="0"
 KEYWORDS=""
 IUSE="-static"
 
-COMMON_DEPEND="
-	>=x11-libs/gdk-pixbuf-2.0
-	app-arch/bzip2
-	"
+COMMON_DEPEND=">=x11-libs/gdk-pixbuf-2.0"
 DEPEND="${COMMON_DEPEND}
-	>=dev-libs/glib-2.0
-	"
+	>=dev-libs/glib-2.0"
 RDEPEND="${COMMON_DEPEND}"
 
 DOCS=( README )
 
-src_prerpare() {
+src_prepare() {
 	eautoreconf
 }
 
@@ -53,4 +48,3 @@ pkg_postinst() {
 pkg_postrm() {
 	gnome2_gdk_pixbuf_update
 }
-
