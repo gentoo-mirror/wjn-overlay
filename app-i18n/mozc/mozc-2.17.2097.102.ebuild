@@ -9,46 +9,45 @@ PYTHON_COMPAT=( python2_7 )
 
 inherit elisp-common eutils git-r3 multilib multiprocessing python-single-r1 \
 	toolchain-funcs
+use test && inherit subversion
 
 DESCRIPTION="Mozc - Japanese Input Method"
 HOMEPAGE="https://github.com/google/mozc"
 
 MOZC_REV="1f0df31"
-GYP_REV="2012"
-PROTOBUF_REV="172019c"
-# JSONCPP_REV="11086dd"
-FCITX_PATCH_VER="2.16.2037.102.2"
-UIM_PATCH_REV="2b3eff9"
-GMOCK_REV="501"
-GTEST_REV="700"
-
-# We must clone Mozc by git to manage its versions.
-# MOZC_URI="https://github.com/google/mozc.git"
-EGIT_REPO_URI="https://github.com/google/mozc.git"
-EGIT_COMMIT=${MOZC_REV}
-
-USAGEDICT_URI="https://raw.githubusercontent.com/hiroyuki-komatsu/japanese-usage-dictionary/master/usage_dict.txt"
-GYP_URI="https://chromium.googlesource.com/external/gyp.git"
+USAGEDIC_REV="HEAD"
+GYP_REV="cdf037c"
 
 # The dependency on protobuf version is near 2.5.0 (172019c).
-# We should checkout this commit.
 # See Mozc commit 444f8a7 https://github.com/google/mozc/commit/444f8a7
-# PROTOBUF_URI="https://github.com/google/protobuf/releases/download/v${PROTOBUF_VER}/protobuf-${PROTOBUF_VER}.tar.bz2"
+PROTOBUF_REV="172019c"
+
+# Use JsonCpp in the system-global's.
+# JSONCPP_REV="11086dd"
+
+GMOCK_REV="501"
+GTEST_REV="700"
+FCITX_PATCH_VER="2.16.2037.102.2"
+UIM_PATCH_REV="2b3eff9"
+
+# We must clone Mozc by git to manage its versions.
+MOZC_URI="https://github.com/google/mozc.git"
+
+USAGEDIC_URI="https://github.com/hiroyuki-komatsu/japanese-usage-dictionary.git"
+GYP_URI="https://chromium.googlesource.com/external/gyp.git"
 PROTOBUF_URI="https://github.com/google/protobuf.git"
-
 # JSONCPP_URI="https://github.com/open-source-parsers/jsoncpp.git"
-
+GMOCK_URI="https://googlemock.googlecode.com/svn/trunk"
+GTEST_URI="https://googletest.googlecode.com/svn/trunk"
 FCITX_PATCH_URI="http://download.fcitx-im.org/fcitx-mozc/fcitx-mozc-${FCITX_PATCH_VER}.patch"
 UIM_PATCH_URI="https://github.com/e-kato/macuim.git"
 
-GMOCK_URI="http://googlemock.googlecode.com/svn/trunk"
-GTEST_URI="http://googletest.googlecode.com/svn/trunk"
-
-SRC_URI="${USAGEDICT_URI}
-	fcitx? ( ${FCITX_PATCH_URI} )"
+EGIT_REPO_URI=${MOZC_URI}
+EGIT_COMMIT=${MOZC_REV}
+SRC_URI="fcitx? ( ${FCITX_PATCH_URI} )"
 
 # Mozc: BSD, dictionary_oss: ipadic and public-domain, unicode: unicode,
-# usagedict: BSD-2, GYP: BSD, Mozc Fcitx: BSD, MacUIM: BSD,
+# usagedic: BSD-2, GYP: BSD, Mozc Fcitx: BSD, MacUIM: BSD,
 # GMOCK: Boost-1.0, GTEST: BSD. IPAfont is in repo, but not used.
 LICENSE="BSD BSD-2 ipadic public-domain unicode test? ( Boost-1.0 )"
 SLOT="0"
@@ -57,8 +56,8 @@ KEYWORDS=""
 IUSE="clang emacs fcitx ibus +qt4 renderer -test uim"
 REQUIRED_USE="|| ( emacs fcitx ibus uim )"
 
-# NOTE: Here isn't protobuf.
-#	    We should use specific revision for protobuf.
+# NOTE: Here isn't protobuf,
+#	    because specific revision must be used.
 COMMON_DEPEND="${PYTHON_DEPS}
 	!app-i18n/mozc-ut
 	dev-libs/glib:2
@@ -82,7 +81,7 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	qt4? ( app-i18n/tegaki-zinnia-japanese )"
 
-S="${WORKDIR}"/${P}/src
+S="${WORKDIR}/${P}/src"
 
 use test || RESTRICT="test"
 
@@ -91,29 +90,36 @@ BUILDTYPE=${BUILDTYPE:-Release}
 SITEFILE="50${PN}-gentoo.el"
 
 src_unpack() {
-	elog "Cloning Mozc..."
-	git-r3_src_unpack
+	# We don't have any tarball :)
+	# if [ "${A}" != "" ]; then
+	# 	unpack ${A}
+	# fi
 
-	cd "${S}/third_party"
-	mkdir japanese_usage_dictionary
-	cp "${DISTDIR}/$(basename ${USAGEDICT_URI})" japanese_usage_dictionary/
-	elog "Cloning GYP..."
-	git clone -q --depth 1 ${GYP_URI} gyp || die
-	elog "Cloning Protobuf..."
-	git clone -q ${PROTOBUF_URI} protobuf \
-		&& ( cd protobuf && git checkout -q ${PROTOBUF_REV} ) || die
-#	elog "Cloning JsonCpp..."
-#	git clone -q ${JSONCPP_URI} jsoncpp \
-#		&& ( cd jsoncpp && git checkout -q ${JSONCPP_REV} ) || die
+	git-r3_fetch ${MOZC_URI} ${MOZC_REV} mozc
+	git-r3_checkout ${MOZC_URI} "${WORKDIR}/${P}" mozc
+
+	git-r3_fetch ${USAGEDIC_URI} ${USAGEDIC_REV} usagedic
+	git-r3_checkout ${USAGEDIC_URI} \
+		"${S}/third_party/japanese_usage_dictionary" usagedic
+
+	git-r3_fetch ${GYP_URI} ${GYP_REV} gyp
+	git-r3_checkout ${GYP_URI} "${S}/third_party/gyp" gyp
+
+	git-r3_fetch ${PROTOBUF_URI} ${PROTOBUF_REV} protobuf
+	git-r3_checkout ${PROTOBUF_URI} "${S}/third_party/protobuf" protobuf
+
+	# git-r3_fetch ${JSONCPP_URI} ${JSONCPP_REV} jsoncpp
+	# git-r3_checkout ${JSONCPP_URI} "${S}/third_party/jsoncpp" jsoncpp
+
 	if use test; then
-		elog "Checking out GMOCK..."
-		svn co -q ${GMOCK_URI}@${GMOCK_REV} gmock
-		elog "Checking out GTEST..."
-		svn co -q ${GTEST_URI}@${GTEST_REV} gtest
+		subversion_fetch ${GMOCK_URI}@${GMOCK_REV} "${S}/third_party/gmock"
+		subversion_fetch ${GTEST_URI}@${GTEST_REV} "${S}/third_party/gtest"
 	fi
-	use uim && elog "Cloning MacUIM (UIM patch)..." \
-		&& git clone -q ${UIM_PATCH_URI} "${WORKDIR}/macuim" \
-		&& ( cd "${WORKDIR}/macuim" && git checkout -q ${UIM_PATCH_REV} ) || die
+
+	if use uim; then
+		git-r3_fetch ${UIM_PATCH_URI} ${UIM_PATCH_REV} macuim
+		git-r3_checkout ${UIM_PATCH_URI} "${WORKDIR}/macuim" macuim
+	fi
 }
 
 src_prepare() {
