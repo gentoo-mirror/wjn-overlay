@@ -4,50 +4,61 @@
 
 EAPI=5
 
+# Mozc doesn't support Python 3 yet.
 PYTHON_COMPAT=( python2_7 )
+
 inherit elisp-common eutils git-r3 multilib multiprocessing python-single-r1 \
 	toolchain-funcs versionator
+use test && inherit subversion
 
 DESCRIPTION="Mozc Japanese Input Method with Additional Japanese dictionary"
-HOMEPAGE="http://www.geocities.jp/ep3797/mozc_01.html"
+HOMEPAGE="http://www.geocities.jp/ep3797/mozc_01.html
+	https://github.com/google/mozc"
 
+UT_VER=$(get_version_component_range $(get_version_component_count))
 MOZC_VER=$(get_version_component_range 1-$(get_last_version_component_index))
 MOZC_REV="20c1c08"
-MOZCUT_VER=$(get_version_component_range $(get_version_component_count))
-PROTOBUF_REV="172019c"
-# JSONCPP_REV="11086dd"
-FCITX_PATCH_VER="2.16.2037.102.2"
-UIM_PATCH_REV="2b3eff9"
-GMOCK_REV="501"
-GTEST_REV="700"
-
-# We must clone Mozc by git to manage its versions.
-# MOZC_URI="https://github.com/google/mozc.git"
-EGIT_REPO_URI="https://github.com/google/mozc.git"
-EGIT_COMMIT=${MOZC_REV}
-EGIT_CHECKOUT_DIR="${WORKDIR}/mozcdic-ut-${MOZCUT_VER}/mozc_src"
-
-USAGEDICT_URI="https://raw.githubusercontent.com/hiroyuki-komatsu/japanese-usage-dictionary/master/usage_dict.txt"
-GYP_URI="https://chromium.googlesource.com/external/gyp.git"
+USAGEDIC_REV="HEAD"
+GYP_REV="cdf037c"
 
 # The dependency on protobuf version is near 2.5.0 (172019c).
-# We should checkout this commit.
 # See Mozc commit 444f8a7 https://github.com/google/mozc/commit/444f8a7
-# PROTOBUF_URI="https://github.com/google/protobuf/releases/download/v${PROTOBUF_VER}/protobuf-${PROTOBUF_VER}.tar.bz2"
+PROTOBUF_REV="172019c"
+
+# Use JsonCpp in the system-global's.
+# JSONCPP_REV="11086dd"
+
+GMOCK_REV="501"
+GTEST_REV="700"
+FCITX_PATCH_VER="2.16.2037.102.2"
+UIM_PATCH_REV="2b3eff9"
+
+UT_URI="mirror://sourceforge/mdk-ut/mozcdic-ut-${UT_VER}.tar.bz2"
+
+# We must clone Mozc by git to manage its versions.
+MOZC_URI="https://github.com/google/mozc.git"
+
+USAGEDIC_URI="https://github.com/hiroyuki-komatsu/japanese-usage-dictionary.git"
+ZIP1_URI="http://www.post.japanpost.jp/zipcode/dl/kogaki/zip/ken_all.zip"
+ZIP2_URI="http://www.post.japanpost.jp/zipcode/dl/jigyosyo/zip/jigyosyo.zip"
+EDICT_URI="http://ftp.monash.edu.au/pub/nihongo/edict.gz"
+
+GYP_URI="https://chromium.googlesource.com/external/gyp.git"
 PROTOBUF_URI="https://github.com/google/protobuf.git"
-
-#JSONCPP_URI="https://github.com/open-source-parsers/jsoncpp.git"
-#FONTTOOLS_URI="https://github.com/behdad/fonttools.git"
-
-MOZCUT_URI="mirror://sourceforge/mdk-ut/mozcdic-ut-${MOZCUT_VER}.tar.bz2"
+# JSONCPP_URI="https://github.com/open-source-parsers/jsoncpp.git"
+GMOCK_URI="https://googlemock.googlecode.com/svn/trunk"
+GTEST_URI="https://googletest.googlecode.com/svn/trunk"
 FCITX_PATCH_URI="http://download.fcitx-im.org/fcitx-mozc/fcitx-mozc-${FCITX_PATCH_VER}.patch"
 UIM_PATCH_URI="https://github.com/e-kato/macuim.git"
 
-GMOCK_URI="http://googlemock.googlecode.com/svn/trunk"
-GTEST_URI="http://googletest.googlecode.com/svn/trunk"
+EGIT_REPO_URI=${MOZC_URI}
+EGIT_COMMIT=${MOZC_REV}
+EGIT_CHECKOUT_DIR="${WORKDIR}/mozcdic-ut-${UT_VER}/mozc_src"
 
-SRC_URI="${MOZCUT_URI}
-	${USAGEDICT_URI}
+SRC_URI="${UT_URI}
+	${ZIP1_URI} -> jp-zipcode1.zip
+	${ZIP2_URI} -> jp-zipcode2.zip
+	${EDICT_URI} -> monash-nihongo-edict.gz
 	fcitx? ( ${FCITX_PATCH_URI} )"
 
 # MAKE SURE:
@@ -56,8 +67,7 @@ SRC_URI="${MOZCUT_URI}
 LICENSE="BSD BSD-2 CC-BY-SA-3.0 GPL-2 all-rights-reserved ipadic public-domain
 	unicode ejdic? ( wn-ja )  test? ( Boost-1.0 )"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
-
+KEYWORDS=""
 IUSE="clang ejdic emacs fcitx ibus -nicodic +qt4 renderer -test uim"
 REQUIRED_USE="|| ( emacs fcitx ibus uim )"
 
@@ -77,6 +87,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 		app-i18n/zinnia	)
 	uim? ( app-i18n/uim )"
 DEPEND="${COMMON_DEPEND}
+	app-arch/unzip
 	>=dev-lang/ruby-2.0
 	dev-util/ninja
 	dev-vcs/git
@@ -86,6 +97,8 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	qt4? ( app-i18n/tegaki-zinnia-japanese )"
 
+S="${WORKDIR}/${P}/src"
+UT_SRC="${WORKDIR}/mozcdic-ut-${UT_VER}"
 use test || RESTRICT="test"
 
 BUILDTYPE=${BUILDTYPE:-Release}
@@ -93,7 +106,7 @@ BUILDTYPE=${BUILDTYPE:-Release}
 SITEFILE="50${PN%-ut}-gentoo.el"
 
 pkg_pretend(){
-	if use nicodic; then
+	if use nicodic ; then
 		ewarn "WARNING:"
 		ewarn "The author of Mozc UT recommends disabling its NICODIC feature,"
 		ewarn "because the license of NICODIC isn't clear."
@@ -102,71 +115,60 @@ pkg_pretend(){
 }
 
 src_unpack() {
-	unpack $(basename ${MOZCUT_URI})
+	unpack ${A}
 
-	cd "${WORKDIR}/mozcdic-ut-${MOZCUT_VER}"
+	git-r3_fetch ${MOZC_URI} ${MOZC_REV} mozc
+	git-r3_checkout ${MOZC_URI} "${S/\/src//}" mozc
 
-	rm -rf mozc_src && git-r3_src_unpack || die
+	git-r3_fetch ${USAGEDIC_URI} ${USAGEDIC_REV} usagedic
+	git-r3_checkout ${USAGEDIC_URI} \
+		"${S}/third_party/japanese_usage_dictionary" usagedic
 
-	cd mozc_src/src && rm -rf .git
+	git-r3_fetch ${GYP_URI} ${GYP_REV} gyp
+	git-r3_checkout ${GYP_URI} "${S}/third_party/gyp" gyp
 
-	cd third_party
-	elog "Cloning Protobuf..."
-	git clone -q ${PROTOBUF_URI} protobuf \
-		&& ( cd protobuf && git checkout -q ${PROTOBUF_REV} && rm -rf .git )
-	mkdir japanese_usage_dictionary
-	cp "${DISTDIR}/$(basename ${USAGEDICT_URI})" japanese_usage_dictionary/
+	git-r3_fetch ${PROTOBUF_URI} ${PROTOBUF_REV} protobuf
+	git-r3_checkout ${PROTOBUF_URI} "${S}/third_party/protobuf" protobuf
 
-	cd "${WORKDIR}/mozcdic-ut-${MOZCUT_VER}" && ruby generate-mozc-tarball.rb \
-		&& mv mozc_src/mozc-*.tar.bz2 ../ && rm -rf mozc_src/ || die
+	# git-r3_fetch ${JSONCPP_URI} ${JSONCPP_REV} jsoncpp
+	# git-r3_checkout ${JSONCPP_URI} "${S}/third_party/jsoncpp" jsoncpp
 
-	# FIX BELOW:
-	# 	These sed(s) are called in src_unpack, violate the Quality Assurance.
-	use ejdic \
-		&& sed -i 's/#EJDIC="true"/EJDIC="true"/g' \
-			"${WORKDIR}/mozcdic-ut-${MOZCUT_VER}/generate-mozc-ut.sh"
-	use nicodic \
-		&& sed -i 's/#NICODIC="true"/NICODIC="true"/g' \
-			"${WORKDIR}/mozcdic-ut-${MOZCUT_VER}/generate-mozc-ut.sh"
-	./generate-mozc-ut.sh || die
-
-	cd "${S}/third_party"
-		elog "Cloning GYP..."
-	git clone -q --depth 1 ${GYP_URI} gyp || die
-#	elog "Cloning JsonCpp..."
-#	git clone -q ${JSONCPP_URI} jsoncpp \
-#		&& ( cd jsoncpp && git checkout -q ${JSONCPP_REV} ) || die
-	if use test; then
-		svn co -q ${GMOCK_URI}@${GMOCK_REV} gmock
-		svn co -q ${GTEST_URI}@${GTEST_REV} gtest
+	if use test ; then
+		subversion_fetch ${GMOCK_URI}@${GMOCK_REV} \
+			"${S}/third_party/gmock"
+		subversion_fetch ${GTEST_URI}@${GTEST_REV} \
+			"${S}/third_party/gtest"
 	fi
 
-	use uim && elog "Cloning MacUIM (UIM patch)..." \
-		&& git clone -q ${UIM_PATCH_URI} "${WORKDIR}/macuim" \
-		&& (cd "${WORKDIR}/macuim" && git checkout -q ${UIM_PATCH_REV} ) || die
+	if use uim ; then
+		git-r3_fetch ${UIM_PATCH_URI} ${UIM_PATCH_REV} macuim
+		git-r3_checkout ${UIM_PATCH_URI} "${WORKDIR}/macuim" macuim
+	fi
 }
 
 src_prepare() {
-	if ! use clang; then
-		sed -i -e "s/<!(which clang)/$(tc-getCC)/" \
-			-e "s/<!(which clang++)/$(tc-getCXX)/" \
-			gyp/common.gypi || die
-	fi
+	generate-mozc-ut
 
-	if use fcitx; then
+	if use fcitx ; then
 		rm -rf unix/fcitx/
 		EPATCH_OPTS="-p2" epatch "${DISTDIR}/$(basename ${FCITX_PATCH_URI})"
 	fi
 
-	if use uim; then
+	if use uim ; then
 		rm -rf unix/uim/
 		cp -r "${WORKDIR}/macuim/Mozc/uim" "${S}/unix/"
-		epatch "${WORKDIR}/macuim/Mozc/mozc-kill-line.diff"
+		epatch "${FILESDIR}/mozc-kill-line.diff"
+	fi
+
+	if ! use clang ; then
+		sed -i -e "s/<!(which clang)/$(tc-getCC)/" \
+			-e "s/<!(which clang++)/$(tc-getCXX)/" \
+			gyp/common.gypi || die
 	fi
 }
 
 src_configure() {
-	if use clang; then
+	if use clang ; then
 		local GYP_DEFINES="compiler_target=clang compiler_host=clang"
 	else
 		local GYP_DEFINES="compiler_target=gcc compiler_host=gcc"
@@ -214,7 +216,7 @@ src_compile() {
 }
 
 src_test() {
-	"${PYTHON}" build_mozc.py runtests -c Release
+	"${PYTHON}" build_mozc.py runtests -c "${BUILDTYPE}"
 }
 
 src_install() {
@@ -227,10 +229,17 @@ src_install() {
 			doexe "${f}"
 		done
 	)
-	dodoc "${WORKDIR}/mozcdic-ut-${MOZCUT_VER}/README"
-	dodoc "${WORKDIR}/mozcdic-ut-${MOZCUT_VER}/AUTHORS"
-	dodoc "${WORKDIR}/mozcdic-ut-${MOZCUT_VER}/COPYING"
-	dodoc "${WORKDIR}/mozcdic-ut-${MOZCUT_VER}/ChangeLog"
+	dodoc "${UT_SRC}/README"
+	dodoc "${UT_SRC}/AUTHORS"
+	dodoc "${UT_SRC}/COPYING"
+	dodoc "${UT_SRC}/ChangeLog"
+
+	local dic_dir=( altcanna chimei edict ekimei hatena jinmei skk )
+	use ejdic && dic_dir=( ${dic_dir} wordnet-ejdic )
+	use nicodic && dic_dir=( ${dic_dir} niconico )
+	for dn in $dic_dir ; do
+		dodoc "${UT_SRC}"/${dn}/doc/*
+	done
 
 	if use emacs ; then
 		dobin "out_linux/${BUILDTYPE}/mozc_emacs_helper"
@@ -290,7 +299,7 @@ src_install() {
 		doexe "out_linux/${BUILDTYPE}/mozc_renderer"
 	fi
 
-	if use uim; then
+	if use uim ; then
 		exeinto "/usr/$(get_libdir)/uim/plugin"
 		doexe "out_linux/${BUILDTYPE}/libuim-mozc.so"
 		insinto /usr/share/uim/pixmaps/
@@ -333,4 +342,105 @@ pkg_postinst() {
 pkg_postrm() {
 	use emacs && elisp-site-regen
 	use uim && uim-module-manager --unregister mozc
+}
+
+generate-mozc-ut() {
+	cd "${UT_SRC}"
+
+	# get official mozcdic
+	cat "${S}"/data/dictionary_oss/dictionary*.txt > mozcdic_all.txt
+
+	# get mozcdic costlist
+	ruby 32-* mozcdic_all.txt
+	mv mozcdic_all.txt.cost costlist
+
+	# get hinsi ID
+	cp "${S}/data/dictionary_oss/id.def" id.def
+
+	(
+		# generate zip code dic
+		ebegin "generate zip code dic"
+		cd chimei/
+		cp "${WORKDIR}"/*.CSV ./
+		cp "${S}/dictionary/gen_zip_code_seed.py" ./
+		ruby modify-zipcode.rb KEN_ALL.CSV
+		python gen_zip_code_seed.py --zip_code=KEN_ALL.CSV.r \
+			--jigyosyo=JIGYOSYO.CSV \
+			>> "${S}/data/dictionary_oss/dictionary09.txt"
+		eend
+
+		# generate chimei.txt
+		ebegin "generate chimei.txt"
+		ruby get-entries.rb KEN_ALL.CSV.r
+		eend
+	)
+	
+	# check major ut dictionaries
+	ebegin "check major ut dictionaries"
+	# ruby 12-* dicfile min_hits
+	ruby 12-* altcanna/altcanna.txt 300
+	ruby 12-* jinmei/jinmei.txt 20
+	ruby 12-* ekimei/ekimei.txt 0
+	ruby 12-* chimei/chimei.txt 0
+	cat altcanna/altcanna.txt.r jinmei/jinmei.txt.r ekimei/ekimei.txt.r \
+		chimei/chimei.txt.r > ut-dic1.txt
+	if use ejdic; then
+		ruby 12-* wordnet-ejdic/wordnet-ejdic.txt 0
+		cat wordnet-ejdic/wordnet-ejdic.txt.r ut-dic1.txt > ut-dic1.txt.new
+		mv ut-dic1.txt.new ut-dic1.txt
+	fi
+	ruby 44-* mozcdic_all.txt ut-dic1.txt
+	ruby 36-* ut-dic1.txt.yomihyouki
+	cat ut-dic1.txt.yomihyouki.cost mozcdic_all.txt > mozcdic_all.txt.utmajor
+	eend
+
+	# check minor ut dictionaries
+	ebegin "check minor ut dictionaries"
+	ruby 12-* skk/skk.txt 300
+	ruby 12-* edict/edict.txt 300
+	ruby 12-* hatena/hatena.txt 300
+	cat skk/skk.txt.r edict/edict.txt.r hatena/hatena.txt.r > ut-dic2.txt
+	if use nicodic; then
+		ruby 12-* niconico/niconico.txt 300
+		cat niconico/niconico.txt.r ut-dic2.txt > ut-dic2.txt.new
+		mv ut-dic2.txt.new ut-dic2.txt
+	fi
+	ruby 42-* mozcdic_all.txt.utmajor ut-dic2.txt
+	ruby 40-* mozcdic_all.txt.utmajor ut-dic2.txt.yomi
+	ruby 36-* ut-dic2.txt.yomi.hyouki
+	eend
+
+	(
+		# generate katakana-eigo entries
+		ebegin "generate katakana-eigo entries"
+		cd edict-katakanago
+		cp "${WORKDIR}/monash-nihongo-edict" ./edict
+		ruby 01-* edict
+		ruby 02-* edict.utf8
+		ruby remove-duplicates.rb edict.utf8.kata
+		cat ../mozcdic_all.txt ../*.cost ./edict.utf8.kata.r > ./edict.kata
+		ruby 03-* edict.kata
+		eend
+	)
+
+	# add yomigana ba
+	# 「べーとーべん」から「ベートーヴェン」に変換できるようにする
+	ebegin "generate babibubebo from vavivuvevo"
+	cat *.cost mozcdic_all.txt edict-katakanago/edict.kata.cost \
+		> ut-check-va.txt
+	ruby 60-* ut-check-va.txt
+	ruby 62-* ut-check-va.txt.va
+	eend
+
+	# install mozcdic-ut
+	cat *.cost edict-katakanago/edict.kata.cost *.va.to_ba > dictionary-ut.txt
+
+	cat dictionary-ut.txt \
+		"${S}/data/dictionary_oss/dictionary00.txt" > dictionary00.txt
+	mv dictionary00.txt "${S}/data/dictionary_oss/"
+
+	# change mozc branding
+	sed -i 's/"Mozc"/"Mozc-UT"/g' "${S}/base/const.h"
+	
+	cd ${S}
 }
