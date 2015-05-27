@@ -52,7 +52,6 @@ SRC_URI="fcitx? ( ${FCITX_PATCH_URI} )"
 LICENSE="BSD BSD-2 ipadic public-domain unicode test? ( Boost-1.0 )"
 SLOT="0"
 KEYWORDS=""
-
 IUSE="clang emacs fcitx ibus +qt4 renderer -test uim"
 REQUIRED_USE="|| ( emacs fcitx ibus uim )"
 
@@ -96,7 +95,7 @@ src_unpack() {
 	# fi
 
 	git-r3_fetch ${MOZC_URI} ${MOZC_REV} mozc
-	git-r3_checkout ${MOZC_URI} "${WORKDIR}/${P}" mozc
+	git-r3_checkout ${MOZC_URI} "${S/\/src//}" mozc
 
 	git-r3_fetch ${USAGEDIC_URI} ${USAGEDIC_REV} usagedic
 	git-r3_checkout ${USAGEDIC_URI} \
@@ -111,30 +110,30 @@ src_unpack() {
 	# git-r3_fetch ${JSONCPP_URI} ${JSONCPP_REV} jsoncpp
 	# git-r3_checkout ${JSONCPP_URI} "${S}/third_party/jsoncpp" jsoncpp
 
-	if use test; then
+	if use test ; then
 		subversion_fetch ${GMOCK_URI}@${GMOCK_REV} "${S}/third_party/gmock"
 		subversion_fetch ${GTEST_URI}@${GTEST_REV} "${S}/third_party/gtest"
 	fi
 
-	if use uim; then
+	if use uim ; then
 		git-r3_fetch ${UIM_PATCH_URI} ${UIM_PATCH_REV} macuim
 		git-r3_checkout ${UIM_PATCH_URI} "${WORKDIR}/macuim" macuim
 	fi
 }
 
 src_prepare() {
-	if use fcitx; then
+	if use fcitx ; then
 		rm -rf unix/fcitx/
 		EPATCH_OPTS="-p2" epatch "${DISTDIR}/$(basename ${FCITX_PATCH_URI})"
 	fi
 
-	if use uim; then
+	if use uim ; then
 		rm -rf unix/uim/
 		cp -r "${WORKDIR}/macuim/Mozc/uim" "${S}/unix/"
 		epatch "${WORKDIR}/macuim/Mozc/mozc-kill-line.diff"
 	fi
 
-	if ! use clang; then
+	if ! use clang ; then
 		sed -i -e "s/<!(which clang)/$(tc-getCC)/" \
 			-e "s/<!(which clang++)/$(tc-getCXX)/" \
 			gyp/common.gypi || die
@@ -142,7 +141,7 @@ src_prepare() {
 }
 
 src_configure() {
-	if use clang; then
+	if use clang ; then
 		local GYP_DEFINES="compiler_target=clang compiler_host=clang"
 	else
 		local GYP_DEFINES="compiler_target=gcc compiler_host=gcc"
@@ -210,7 +209,7 @@ src_install() {
 		elisp-site-file-install "${FILESDIR}/${SITEFILE}" ${PN}
 	fi
 
-	if use fcitx; then
+	if use fcitx ; then
 		exeinto "/usr/$(get_libdir)/fcitx"
 		doexe "out_linux/${BUILDTYPE}/fcitx-mozc.so"
 		insinto /usr/share/fcitx/addon
