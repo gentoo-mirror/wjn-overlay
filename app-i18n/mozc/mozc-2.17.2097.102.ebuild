@@ -130,7 +130,7 @@ src_prepare() {
 	if use uim ; then
 		rm -rf unix/uim/
 		cp -r "${WORKDIR}/macuim/Mozc/uim" "${S}/unix/"
-		epatch "${WORKDIR}/macuim/Mozc/mozc-kill-line.diff"
+		epatch "${FILESDIR}/mozc-kill-line.diff"
 	fi
 
 	if ! use clang ; then
@@ -189,7 +189,7 @@ src_compile() {
 }
 
 src_test() {
-	"${PYTHON}" build_mozc.py runtests -c Release
+	"${PYTHON}" build_mozc.py runtests -c "${BUILDTYPE}"
 }
 
 src_install() {
