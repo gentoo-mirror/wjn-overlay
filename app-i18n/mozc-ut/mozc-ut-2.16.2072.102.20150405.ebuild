@@ -234,10 +234,10 @@ src_install() {
 	dodoc "${UT_SRC}/COPYING"
 	dodoc "${UT_SRC}/ChangeLog"
 
-	local dic_dir=( altcanna chimei edict ekimei hatena jinmei skk )
-	use ejdic && dic_dir=( ${dic_dir} wordnet-ejdic )
-	use nicodic && dic_dir=( ${dic_dir} niconico )
-	for dn in $dic_dir ; do
+	local dics=( "altcanna" "chimei" "edict" "ekimei" "hatena" "jinmei" "skk" )
+	use ejdic && dics=( ${dics[@]} "wordnet-ejdic" )
+	use nicodic && dics=( ${dics[@]} "niconico" )
+	for dn in ${dics[@]} ; do
 		dodoc "${UT_SRC}"/${dn}/doc/*
 	done
 
