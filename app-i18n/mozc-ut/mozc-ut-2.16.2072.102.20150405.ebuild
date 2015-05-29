@@ -16,6 +16,10 @@ HOMEPAGE="http://www.geocities.jp/ep3797/mozc_01.html
 	https://github.com/google/mozc"
 
 UT_VER=$(get_version_component_range $(get_version_component_count))
+
+# ZIP codes are revised monthly.
+ZIPCODE_REV="201505"
+
 MOZC_VER=$(get_version_component_range 1-$(get_last_version_component_index))
 MOZC_REV="20c1c08"
 USAGEDIC_REV="HEAD"
@@ -56,8 +60,8 @@ EGIT_COMMIT=${MOZC_REV}
 EGIT_CHECKOUT_DIR="${WORKDIR}/mozcdic-ut-${UT_VER}/mozc_src"
 
 SRC_URI="${UT_URI}
-	${ZIP1_URI} -> jp-zipcode1.zip
-	${ZIP2_URI} -> jp-zipcode2.zip
+	${ZIP1_URI} -> jp-zipcode${ZIPCODE_REV}-1.zip
+	${ZIP2_URI} -> jp-zipcode${ZIPCODE_REV}-2.zip
 	${EDICT_URI} -> monash-nihongo-edict.gz
 	fcitx? ( ${FCITX_PATCH_URI} )"
 
