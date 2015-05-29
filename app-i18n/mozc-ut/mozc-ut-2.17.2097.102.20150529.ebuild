@@ -21,7 +21,7 @@ UT_VER=$(get_version_component_range $(get_version_component_count))
 ZIPCODE_REV="201505"
 
 MOZC_VER=$(get_version_component_range 1-$(get_last_version_component_index))
-MOZC_REV="20c1c08"
+MOZC_REV="2ceaee9"
 USAGEDIC_REV="HEAD"
 GYP_REV="cdf037c"
 
@@ -242,6 +242,7 @@ src_install() {
 	use ejdic && dics=( ${dics[@]} "wordnet-ejdic" )
 	use nicodic && dics=( ${dics[@]} "niconico" )
 	for dn in ${dics[@]} ; do
+		docinto ${dn}
 		dodoc "${UT_SRC}"/${dn}/doc/*
 	done
 
