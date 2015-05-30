@@ -17,9 +17,15 @@ LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="0"
 
-DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
+DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
+	sys-devel/gettext"
 
 RDEPEND="dev-libs/glib:2
+	gnome-base/dconf
+	mate-base/caja
+	mate-base/mate-panel
+	mate-extra/mate-media
+	sys-process/psmisc
 	x11-libs/gdk-pixbuf:2
 	x11-libs/gtk+:2
 	x11-misc/wmctrl"
