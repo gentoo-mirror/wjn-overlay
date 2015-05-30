@@ -389,7 +389,7 @@ generate-mozc-ut() {
 	ruby 12-* chimei/chimei.txt 0
 	cat altcanna/altcanna.txt.r jinmei/jinmei.txt.r ekimei/ekimei.txt.r \
 		chimei/chimei.txt.r > ut-dic1.txt
-	if use ejdic; then
+	if use ejdic ; then
 		ruby 12-* wordnet-ejdic/wordnet-ejdic.txt 0
 		cat wordnet-ejdic/wordnet-ejdic.txt.r ut-dic1.txt > ut-dic1.txt.new
 		mv ut-dic1.txt.new ut-dic1.txt
@@ -405,7 +405,7 @@ generate-mozc-ut() {
 	ruby 12-* edict/edict.txt 300
 	ruby 12-* hatena/hatena.txt 300
 	cat skk/skk.txt.r edict/edict.txt.r hatena/hatena.txt.r > ut-dic2.txt
-	if use nicodic; then
+	if use nicodic ; then
 		ruby 12-* niconico/niconico.txt 300
 		cat niconico/niconico.txt.r ut-dic2.txt > ut-dic2.txt.new
 		mv ut-dic2.txt.new ut-dic2.txt
