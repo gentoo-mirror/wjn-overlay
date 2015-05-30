@@ -2,18 +2,17 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
-inherit cmake-utils git-2
+EAPI=5
+inherit cmake-utils git-r3
 
 DESCRIPTION="VDPAU driver with OpenGL/VAAPI backend"
 HOMEPAGE="https://github.com/i-rinat/libvdpau-va-gl"
-EGIT_REPO_URI="git://github.com/i-rinat/${PN}.git"
+EGIT_REPO_URI="https://github.com/i-rinat/${PN}.git"
 EGIT_BRANCH="master"
 
 KEYWORDS=""
 LICENSE="LGPL-3"
 SLOT="0"
-IUSE=""
 
 DEPEND="x11-libs/libvdpau
 		x11-libs/libva

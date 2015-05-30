@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 inherit font
 
 DESCRIPTION="Japanse fonts mixed mplus, IPA-font and also DejaVu, Bitter or Droid."

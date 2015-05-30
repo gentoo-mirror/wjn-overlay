@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="5"
+EAPI=5
 
 DESCRIPTION="Viewer for Aozora Bunko (Japanese electric library)"
 HOMEPAGE="http://azsky2.html.xdomain.jp/linux/aobook/index.html"

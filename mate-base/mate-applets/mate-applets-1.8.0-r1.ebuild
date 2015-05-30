@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/mate-base/mate-applets/mate-applets-1.8.0-r1.ebuild,v 1.5 2014/06/01 08:31:46 pacho Exp $
 
-EAPI="5"
+EAPI=5
 
 GCONF_DEBUG="no"
 PYTHON_COMPAT=( python2_{6,7} )
