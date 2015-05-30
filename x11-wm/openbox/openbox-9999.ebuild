@@ -2,24 +2,25 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header:  $
 
-EAPI="5"
+EAPI=5
 
-PYTHON_COMPAT=( python2_6 python2_7 )
-inherit multilib autotools python-r1 eutils
+PYTHON_COMPAT=( python2_7 )
+inherit multilib autotools python-r1 python-utils-r1 eutils
 
 DESCRIPTION="A standards compliant, fast, light-weight, extensible window manager"
 HOMEPAGE="http://openbox.org/"
 if [[ ${PV} == *9999* ]]; then
-	inherit git-2
+	inherit git-r3
 	EGIT_REPO_URI="git://git.openbox.org/dana/openbox"
 	SRC_URI="branding? (
-	http://dev.gentoo.org/~hwoarang/distfiles/surreal-gentoo.tar.gz )"
+		http://dev.gentoo.org/~hwoarang/distfiles/surreal-gentoo.tar.gz )"
 	KEYWORDS=""
-
 else
 	SRC_URI="http://openbox.org/dist/openbox/${P}.tar.gz
-	branding? ( http://dev.gentoo.org/~hwoarang/distfiles/surreal-gentoo.tar.gz )"
-	KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd ~arm-linux ~x86-linux"
+		branding? (
+			http://dev.gentoo.org/~hwoarang/distfiles/surreal-gentoo.tar.gz )"
+	KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd
+		~arm-linux ~x86-linux"
 fi
 
 LICENSE="GPL-2"
@@ -27,7 +28,7 @@ SLOT="3"
 IUSE="branding debug imlib nls session startup-notification static-libs svg xdg"
 REQUIRED_USE="xdg? ( ${PYTHON_REQUIRED_USE} )"
 
-RDEPEND="dev-libs/glib:2
+COMMON_DEPEND="dev-libs/glib:2
 	>=dev-libs/libxml2-2.0
 	>=media-libs/fontconfig-2
 	x11-libs/libXft
@@ -41,27 +42,29 @@ RDEPEND="dev-libs/glib:2
 	xdg? (
 		${PYTHON_DEPS}
 		dev-python/pyxdg[${PYTHON_USEDEP}]
-	)
-	"
-DEPEND="${RDEPEND}
+	)"
+DEPEND="${COMMON_DEPEND}
 	app-text/docbook2X
 	sys-devel/gettext
 	virtual/pkgconfig
 	x11-proto/xextproto
 	x11-proto/xf86vidmodeproto
 	x11-proto/xineramaproto"
+RDEPEND=${COMMON_DEPEND}
 
 src_unpack() {
 	if [[ ${PV} == *9999* ]]; then
-		git-2_src_unpack
+		git-r3_src_unpack
+		use branding && unpack ${A}
 	else
 		unpack ${A}
 	fi
 }
 
 src_prepare() {
-	use xdg && python_export_best
+	use xdg && python_setup && python_export
 	epatch "${FILESDIR}"/${PN}-3.5.2-gnome-session.patch
+	epatch "${FILESDIR}"/${P}-docbooktoman-pl.patch
 	sed -i \
 		-e "s:-O0 -ggdb ::" \
 		"${S}"/m4/openbox.m4 || die

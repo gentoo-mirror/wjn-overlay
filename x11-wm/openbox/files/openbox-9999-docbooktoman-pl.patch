@@ -1,0 +1,13 @@
+diff --git a/Makefile.am b/Makefile.am
+index f25bf8e..17d47d2 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -525,7 +525,7 @@ data/autostart/openbox-autostart: $(top_srcdir)/data/autostart/openbox-autostart
+ 
+ %.1.in: %.1.sgml
+ 	@echo make: creating $@
+-	@docbook-to-man $< >$@
++	@docbooktoman.pl $< >$@
+ 
+ %.1: %.1.in Makefile
+ 	@echo make: creating $@
