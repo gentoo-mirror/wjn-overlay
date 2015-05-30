@@ -15,9 +15,10 @@ REV="9dcf744abc9e"
 LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="0"
+IUSE="nls"
 
 DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
-	sys-devel/gettext"
+	nls? ( sys-devel/gettext )"
 
 RDEPEND="dev-libs/glib:2
 	gnome-base/dconf
