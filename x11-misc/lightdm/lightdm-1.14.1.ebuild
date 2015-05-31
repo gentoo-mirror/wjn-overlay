@@ -1,9 +1,9 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $
+# $Header: $
 
 EAPI=5
-inherit autotools eutils multilib pam readme.gentoo systemd versionator
+inherit autotools eutils pam readme.gentoo systemd versionator
 
 TRUNK_VERSION="$(get_version_component_range 1-2)"
 DESCRIPTION="A lightweight display manager"
@@ -14,43 +14,33 @@ SRC_URI="http://launchpad.net/${PN}/${TRUNK_VERSION}/${PV}/+download/${P}.tar.xz
 LICENSE="GPL-3 LGPL-3"
 SLOT="0"
 KEYWORDS=""
-IUSE="gnome +gtk +introspection kde qt4 qt5"
+IUSE="+gnome +gtk +introspection kde qt4 qt5"
 REQUIRED_USE="|| ( gtk kde )
 	|| ( qt4 qt5 )"
 
-COMMON_DEPEND="
-	>=dev-libs/glib-2.32.3:2
+COMMON_DEPEND=">=dev-libs/glib-2.32.3:2
 	dev-libs/libxml2
 	virtual/pam
 	x11-libs/libX11
 	>=x11-libs/libxklavier-5
 	gnome? ( sys-apps/accountsservice )
 	introspection? ( >=dev-libs/gobject-introspection-1 )
-	qt4? (
-		dev-qt/qtcore:4
+	qt4? ( dev-qt/qtcore:4
 		dev-qt/qtdbus:4
-		dev-qt/qtgui:4
-	)
-	qt5? (
-		dev-qt/qtcore:5
+		dev-qt/qtgui:4 )
+	qt5? ( dev-qt/qtcore:5
 		dev-qt/qtdbus:5
-		dev-qt/qtgui:5
-	)
-	"
-RDEPEND="${COMMON_DEPEND}
-	>=sys-auth/pambase-20101024-r2
-	"
+		dev-qt/qtgui:5 )"
 DEPEND="${COMMON_DEPEND}
 	dev-util/gtk-doc-am
 	dev-util/intltool
-	gnome? ( gnome-base/gnome-common )
 	sys-devel/gettext
 	virtual/pkgconfig
-	"
-PDEPEND="
-	gtk? ( x11-misc/lightdm-gtk-greeter )
-	kde? ( x11-misc/lightdm-kde )
-	"
+	gnome? ( gnome-base/gnome-common )"
+RDEPEND="${COMMON_DEPEND}
+	>=sys-auth/pambase-20101024-r2"
+PDEPEND="gtk? ( x11-misc/lightdm-gtk-greeter )
+	kde? ( x11-misc/lightdm-kde )"
 
 DOCS=( NEWS )
 RESTRICT="test"
@@ -124,7 +114,10 @@ src_install() {
 	prune_libtool_files --all
 	rm -rf "${ED}"/etc/init
 
-	pamd_mimic system-local-login ${PN} auth account session #372229
+	# Remove existing pam file. We will build a new one. Bug #524792
+	rm -rf "${ED}"/etc/pam.d/${PN}{,-greeter}
+	pamd_mimic system-local-login ${PN} auth account password session #372229
+	pamd_mimic system-local-login ${PN}-greeter auth account password session #372229
 	dopamd "${FILESDIR}"/${PN}-autologin #390863, #423163
 
 	readme.gentoo_create_doc

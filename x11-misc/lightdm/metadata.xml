@@ -3,8 +3,7 @@
 <pkgmetadata>
 <upstream>
 <maintainer>
-	<email>hwoarang@gentoo.org</email>
-	<name>Markos Chandras</name>
+	<email>wjn@aol.jp</email>
 </maintainer>
 </upstream>
 <use>
@@ -15,5 +14,12 @@
 	<flag name="qt5">Support Qt5</flag>
 </use>
 <longdescription lang="en">
+A lightweight display manager
+
+A display manager that:
+* Is cross-desktop - supports different desktops
+* Supports different display technologies
+* Is lightweight - low memory usage and fast performance
+* Has a comprehensive test suite
 </longdescription>
 </pkgmetadata>
