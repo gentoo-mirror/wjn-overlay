@@ -89,6 +89,10 @@ pkg_setup() {
 	use qt5 && export PATH="/usr/$(get_libdir)/qt5/bin:${PATH}"
 }
 
+src_prepare() {
+    l10n_for_each_disabled_locale_do remove_locales
+}
+
 src_configure() {
 	local ffmpeg_conf=""
 	use ffmpeg && ffmpeg_conf="--with-ffmpeg=ffmpeg"
