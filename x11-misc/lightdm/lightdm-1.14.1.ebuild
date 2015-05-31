@@ -45,6 +45,10 @@ PDEPEND="gtk? ( x11-misc/lightdm-gtk-greeter )
 DOCS=( NEWS )
 RESTRICT="test"
 
+pkg_setup() {
+	use qt5 && export PATH="/usr/$(get_libdir)/qt5/bin/:${PATH}"
+}
+
 src_prepare() {
 	sed -i -e 's:getgroups:lightdm_&:' tests/src/libsystem.c || die #412369
 	sed -i -e '/minimum-uid/s:500:1000:' data/users.conf || die
@@ -76,8 +80,6 @@ src_configure() {
 	einfo "Default greeter: ${_greeter}"
 	einfo "Default session: ${_session}"
 	einfo "Greeter user: ${_user}"
-
-	use qt5 && export PATH="/usr/$(get_libdir)/qt5/bin/:${PATH}"
 
 	# also disable tests because libsystem.c does not build. Tests are
 	# restricted so it does not matter anyway.
