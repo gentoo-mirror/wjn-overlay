@@ -38,7 +38,8 @@ COMMON_DEPEND=">=dev-libs/dbus-glib-0.60
 		>=dev-libs/libcdio-0.70
 		>=dev-libs/libcdio-paranoia-0.70 )
 	cue? ( media-libs/libcue )
-	ffmpeg? ( >=virtual/ffmpeg-0.7.3 )
+	ffmpeg? ( libav? ( media-video/libav:0= )
+		!libav? ( media-video/ffmpeg:0= ) )
 	flac? ( >=media-libs/libvorbis-1.0
 		>=media-libs/flac-1.2.1-r1 )
 	gtk? ( !gtk3? ( x11-libs/gtk+:2 ) )
@@ -46,7 +47,6 @@ COMMON_DEPEND=">=dev-libs/dbus-glib-0.60
 	jack? ( >=media-libs/bio2jack-0.4
 		>=media-sound/jack-audio-connection-kit-0.120.1 )
 	lame? ( media-sound/lame )
-	libav? ( media-video/libav )
 	libnotify? ( >=x11-libs/libnotify-0.7 )
 	libsamplerate? ( media-libs/libsamplerate )
 	lirc? ( app-misc/lirc )
