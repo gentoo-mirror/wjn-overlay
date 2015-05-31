@@ -19,7 +19,7 @@ SLOT="0"
 IUSE="nls"
 
 DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
-	nls? ( sys-devel/gettext) "
+	nls? ( sys-devel/gettext ) "
 
 RDEPEND="dev-libs/glib:2
 	gnome-base/dconf
