@@ -1,4 +1,6 @@
-# wada-ken is wada-ken font license.
-# wn-ja (Japanese WordNet) license is a derivative of "Princeton" license by NICT.
-MISC-FREE wada-ken wn-ja
+# - wadalab-font is Wada Laboratory Font License
+#   http://www.tanaka.ecc.u-tokyo.ac.jp/ktanaka/Font/
+# - wn-ja (Japanese WordNet) license is a 
+#   derivative of "Princeton" license by NICT.
+MISC-FREE wadalab-font wn-ja
 

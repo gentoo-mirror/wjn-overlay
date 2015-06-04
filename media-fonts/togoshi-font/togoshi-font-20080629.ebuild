@@ -19,7 +19,7 @@ SRC_URI="
 	mirror://sourceforge.jp/${PN}/31795/${MY_PN}-monago-${MONAGO_VER}.tar.gz
 	mirror://sourceforge.jp/${PN}/31796/${MY_PN}-mono-${MONO_VER}.tar.gz"
 
-LICENSE="BSD wada-ken"
+LICENSE="BSD wadalab-font"
 SLOT="0"
 KEYWORDS=""
 
