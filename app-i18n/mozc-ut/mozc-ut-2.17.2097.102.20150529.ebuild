@@ -122,7 +122,7 @@ src_unpack() {
 	unpack ${A}
 
 	git-r3_fetch ${MOZC_URI} ${MOZC_REV} mozc
-	git-r3_checkout ${MOZC_URI} "${S/\/src//}" mozc
+	git-r3_checkout ${MOZC_URI} "${S%/src}" mozc
 
 	git-r3_fetch ${USAGEDIC_URI} ${USAGEDIC_REV} usagedic
 	git-r3_checkout ${USAGEDIC_URI} \
