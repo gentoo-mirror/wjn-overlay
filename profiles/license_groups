@@ -1,6 +1,7 @@
+# - hanazono-font is Hanazono Font License http://fonts.jp/hanazono/
 # - wadalab-font is Wada Laboratory Font License
 #   http://www.tanaka.ecc.u-tokyo.ac.jp/ktanaka/Font/
 # - wn-ja (Japanese WordNet) license is a 
 #   derivative of "Princeton" license by NICT.
-MISC-FREE wadalab-font wn-ja
+MISC-FREE hanazono-font wadalab-font wn-ja
 
