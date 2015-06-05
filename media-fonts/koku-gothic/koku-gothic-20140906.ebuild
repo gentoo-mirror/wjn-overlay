@@ -27,8 +27,8 @@ FONT_S=${S}
 
 src_prepare() {
 	for fn in readme.txt; do
-		cp $fn ${fn%txt}
-		nkf -S -w ${fn%txt} > $fn
+		cp $fn ${fn%.txt}
+		nkf -S -w ${fn%.txt} > $fn
 	done
 }
 
