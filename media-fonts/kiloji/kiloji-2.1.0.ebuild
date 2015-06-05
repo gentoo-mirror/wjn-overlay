@@ -5,7 +5,7 @@
 EAPI=5
 inherit font
 
-DESCRIPTION="A Japanese handwrited TrueType font family"
+DESCRIPTION="A Japanese hand-written TrueType font family"
 HOMEPAGE="http://www.ez0.net/distribution/font/kiloji/"
 SRC_URI="
 	http://www.ez0.net/wp-content/uploads/distribution/font/${PN}/${P/-/_}.zip
