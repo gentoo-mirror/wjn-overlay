@@ -26,13 +26,14 @@ FONT_SUFFIX="ttf"
 FONT_S=${S}
 
 src_prepare() {
-	for fn in *.txt; do
-		cp $fn ${fn%txt}
-		nkf -S -w ${fn%txt} > $fn
+	for fn in *.txt ipaexfont/*.txt; do
+		cp $fn ${fn%.txt}
+		nkf -S -w ${fn%.txt} > $fn
 	done
 }
 
 src_install() {
 	font_src_install
 	dodoc *.txt
+	newdoc ipaexfont/Readme_IPAexfont00201.txt IPAexfont.txt
 }
