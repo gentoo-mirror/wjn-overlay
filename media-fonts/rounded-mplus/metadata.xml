@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
+<use>
+	<flag name="rounded-l">Install "Rounded-L M+" as well as "Rounded M+"</flag>
+	<flag name="rounded-x">Install "Rounded-X M+" as well as "Rounded M+"</flag>
+</use>
+<maintainer>
+	<email>wjn@aol.jp</email>
+</maintainer>
 <upstream>
-<maintainer>
-<description>Author</description>
-<email>mm@jikasei.me</email>
-</maintainer>
-<maintainer>
-<description>Original author</description>
-<name>Hiro Itou</name>
-<email>itouhiro@users.sourceforge.jp</email>
-</maintainer>
+	<maintainer>
+		<description>Author</description>
+		<email>mm@jikasei.me</email>
+	</maintainer>
+	<maintainer>
+	<description>Original author</description>
+		<name>Hiro Itou</name>
+		<email>itouhiro@users.sourceforge.jp</email>
+	</maintainer>
 </upstream>
 </pkgmetadata>
