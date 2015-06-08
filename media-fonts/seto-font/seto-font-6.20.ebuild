@@ -13,7 +13,7 @@ DESCRIPTION="Japanese hand-written TTF includes much more kanji chars"
 HOMEPAGE="http://nonty.net/sorry/"
 SRC_URI="mirror://sourceforge.jp/${MY_PN}/${S_DIR}/${MY_P}.zip"
 
-LICENSE="OFL"
+LICENSE="OFL-1.1"
 SLOT="0"
 KEYWORDS=""
 

@@ -13,7 +13,7 @@ DESCRIPTION="Japanese OpenType pen writing fonts made by Y.Oz"
 HOMEPAGE="http://yozvox.web.fc2.com/"
 SRC_URI="http://yozvox.web.fc2.com/${MY_P}.7z"
 
-LICENSE="OFL"
+LICENSE="OFL-1.1"
 SLOT="0"
 KEYWORDS=""
 IUSE=""

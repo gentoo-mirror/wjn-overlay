@@ -28,7 +28,7 @@ SRC_URI="
   http://sourceforge.jp/cvs/view/mix-mplus-ipa/mixfont-mplus-ipa/mplus_outline_fonts/mig.d/release/migu-2ds-README.txt?view=co -> migu-2ds-README.txt
   "
 
-LICENSE="IPAfont mplus-fonts public-domain OFL Apache-2.0"
+LICENSE="IPAfont mplus-fonts public-domain"
 SLOT="0"
 KEYWORDS=""
 IUSE=""
