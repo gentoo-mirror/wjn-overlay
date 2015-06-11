@@ -20,14 +20,13 @@ fi
 LICENSE="MIT-with-advertising Apache-2.0" # Gutenberg
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="+assets bbcode charts -extras gh-pages hyphenation ipython jinja livereload +markdown micawber mock php typogrify"
-REQUIRED_USE="extras? ( assets bbcode charts gh-pages hyphenation ipython jinja livereload markdown micawber mock php typogrify )"
+IUSE="+assets bbcode charts -extras gh-pages hyphenation ipython jinja livereload +markdown micawber php typogrify"
+REQUIRED_USE="extras? ( assets bbcode charts gh-pages hyphenation ipython jinja livereload markdown micawber php typogrify )"
 RESTRICT="test"
 
 DEPEND=">=dev-python/docutils-0.12[${PYTHON_USEDEP}]"
 RDEPEND="${DEPEND}
 	>=dev-python/blinker-1.3[${PYTHON_USEDEP}]
-	dev-python/colorama[${PYTHON_USEDEP}]
 	~dev-python/doit-0.28.0[${PYTHON_USEDEP}]
 	>=dev-python/logbook-0.7.0[${PYTHON_USEDEP}]
 	>=dev-python/lxml-3.3.5[${PYTHON_USEDEP}]
@@ -53,7 +52,6 @@ RDEPEND="${DEPEND}
 	livereload? ( >=dev-python/livereload-2.3.2[${PYTHON_USEDEP}] )
 	markdown? ( >=dev-python/markdown-2.4.0[${PYTHON_USEDEP}] )
 	micawber? ( >=dev-python/micawber-0.3.0[${PYTHON_USEDEP}] )
-	mock? ( >=dev-python/mock-1.0.0[${PYTHON_USEDEP}] )
 	php? ( >=dev-python/phpserialize-1.3[${PYTHON_USEDEP}] )
 	typogrify? ( >=dev-python/typogrify-2.0.4[${PYTHON_USEDEP}] )
 	"
