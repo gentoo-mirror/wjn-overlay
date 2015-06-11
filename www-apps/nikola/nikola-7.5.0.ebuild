@@ -20,8 +20,8 @@ fi
 LICENSE="MIT-with-advertising Apache-2.0" # Gutenberg
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="+assets bbcode charts -extras gh-pages hyphenation ipython jinja livereload +markdown micawber php typogrify websocket"
-REQUIRED_USE="extras? ( assets bbcode charts gh-pages hyphenation ipython jinja livereload markdown micawber php typogrify websocket )"
+IUSE="+assets bbcode charts -extras gh-pages hyphenation ipython jinja +markdown micawber php typogrify websocket"
+REQUIRED_USE="extras? ( assets bbcode charts gh-pages hyphenation ipython jinja markdown micawber php typogrify websocket )"
 RESTRICT="test"
 
 DEPEND=">=dev-python/docutils-0.12[${PYTHON_USEDEP}]"
@@ -49,7 +49,6 @@ RDEPEND="${DEPEND}
 	hyphenation? ( >=dev-python/pyphen-0.9.1[${PYTHON_USEDEP}] )
 	ipython? ( >=dev-python/ipython-1.2.1[${PYTHON_USEDEP},notebook] )
 	jinja? ( >=dev-python/jinja-2.7.2[${PYTHON_USEDEP}] )
-	livereload? ( >=dev-python/livereload-2.3.2[${PYTHON_USEDEP}] )
 	markdown? ( >=dev-python/markdown-2.4.0[${PYTHON_USEDEP}] )
 	micawber? ( >=dev-python/micawber-0.3.0[${PYTHON_USEDEP}] )
 	php? ( >=dev-python/phpserialize-1.3[${PYTHON_USEDEP}] )
