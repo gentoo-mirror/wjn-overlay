@@ -10,7 +10,7 @@ DESCRIPTION="A static website and blog generator"
 HOMEPAGE="https://getnikola.com/"
 if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="git://github.com/getnikola/${PN}.git"
+	EGIT_REPO_URI="https://github.com/getnikola/${PN}.git"
 	SRC_URI=""
 else
 	SRC_URI="https://github.com/getnikola/${PN}/archive/v${PV}.zip
