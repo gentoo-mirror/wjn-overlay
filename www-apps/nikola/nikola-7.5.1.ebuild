@@ -17,11 +17,13 @@ else
 		-> ${P}.zip"
 fi
 
-LICENSE="MIT-with-advertising Apache-2.0" # Gutenberg
+LICENSE="Gutenberg MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="+assets bbcode charts -extras gh-pages hyphenation ipython jinja +markdown micawber php typogrify websocket"
 REQUIRED_USE="extras? ( assets bbcode charts gh-pages hyphenation ipython jinja markdown micawber php typogrify websocket )"
+# mock, coverage, pytest, pytest-cov, freezegun, python-coveralls and colorama
+# are necessary for test.
 RESTRICT="test"
 
 DEPEND=">=dev-python/docutils-0.12[${PYTHON_USEDEP}]"
@@ -41,6 +43,7 @@ RDEPEND="${DEPEND}
 	>=dev-python/setuptools-5.4.1[${PYTHON_USEDEP}]
 	>=dev-python/unidecode-0.04.16[${PYTHON_USEDEP}]
 	~dev-python/yapsy-1.10.423[${PYTHON_USEDEP}]
+	# virtual pkg calls Pillow, but Pillow is explicitly used.
 	virtual/python-imaging[${PYTHON_USEDEP}]
 	assets? ( >=dev-python/webassets-0.10.1[${PYTHON_USEDEP}] )
 	bbcode? ( dev-python/bbcode[${PYTHON_USEDEP}] )

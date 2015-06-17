@@ -5,3 +5,6 @@
 #   derivative of "Princeton" license by NICT.
 MISC-FREE hanazono-font wadalab-font wn-ja
 
+# - Gutenberg is the Project Gutenberg License.
+#   http://www.gutenberg.org/license
+MISC-FREE-DOCS Gutenberg
