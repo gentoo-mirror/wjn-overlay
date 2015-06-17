@@ -7,26 +7,24 @@ EAPI=5
 DESCRIPTION="A painting software by drawing"
 HOMEPAGE="http://sourceforge.jp/projects/azdrawing/"
 SRC_URI="mirror://sourceforge.jp/${PN}/61103/${P}-src.tar.bz2"
+
 LICENSE="GPL-3 LGPL-3"
 SLOT="0"
 KEYWORDS=""
 
-RDEPEND="
-	media-libs/fontconfig
+COMMON_DEPEND="media-libs/fontconfig
 	media-libs/freetype:2
 	media-libs/libjpeg-turbo
 	sys-libs/zlib
 	x11-libs/libX11
 	x11-libs/libXext
 	x11-libs/libXft
-	x11-libs/libXi
-	"
+	x11-libs/libXi"
 
-DEPEND="${RDEPEND}
-	app-arch/bzip2
-	sys-apps/sed
-	sys-devel/gcc
-"
+DEPEND="${COMMON_DEPEND}
+	sys-apps/sed"
+
+RDEPEND=${COMMON_DEPEND}
 
 src_prepare() {
 	sed -i 's_prefix := /usr/local_prefix := '${EPREFIX}'/usr_' Makefile
@@ -39,7 +37,6 @@ src_compile() {
 
 src_install() {
 	einstall datadir=${ED}/usr/share/${PN}
-	dodoc README NEWS
+	dodoc NEWS README
 	dohtml help/*
 }
-
