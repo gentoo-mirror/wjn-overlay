@@ -31,17 +31,21 @@ DEPEND="app-arch/unzip"
 RDEPEND=""
 S=${WORKDIR}
 
+DOCS=( "DesignGuide.pdf" "ReadMe.pdf" "README.md" )
+
 FONT_SUFFIX="otf"
 FONT_S="${S}/${MY_PN}"
 
 src_unpack() {
 	unpack ${P}.zip
-	cp "${DISTDIR}"/${P}-*.pdf "${DISTDIR}"/${P}-README.md "${S}"
+	for fn in ${DOCS[@]}; do
+		cp "${DISTDIR}/${P}-${fn}" "${S}/${fn}"
+	done
 }
 
 src_install() {
 	font_src_install
-	newdoc ${P}-DesignGuide.pdf DesignGuide.pdf
-	newdoc ${P}-ReadMe.pdf ReadMe.pdf
-	newdoc ${P}-README.md README.md
+	for fn in ${DOCS[@]}; do
+		dodoc ${fn}
+	done
 }
