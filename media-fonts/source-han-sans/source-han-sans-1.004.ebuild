@@ -12,7 +12,7 @@ MY_PV="${PV}R"
 DESCRIPTION="an OpenType/CFF Pan-CJK fonts by Adobe and Google. SuperOTC ver."
 HOMEPAGE="https://github.com/adobe-fonts/source-han-sans"
 SRC_URI="
-	https://github.com/adobe-fonts/${PN}/raw/${MY_PV}/SuperOTC/SourceHanSans.ttc.zip
+	https://github.com/adobe-fonts/${PN}/raw/${MY_PV}/SuperOTC/${MY_PN}.ttc.zip
 		-> ${P}.zip
 	https://github.com/adobe-fonts/${PN}/raw/${MY_PV}/README.md
 		-> ${P}-README.md
@@ -29,10 +29,10 @@ RESTRICT="binchecks strip"
 
 DEPEND="app-arch/unzip"
 RDEPEND=""
-S="${WORKDIR}"
+S=${WORKDIR}
 
 FONT_SUFFIX="ttc"
-FONT_S="${S}"
+FONT_S=${S}
 
 src_unpack() {
 	unpack ${P}.zip
