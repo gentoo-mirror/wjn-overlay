@@ -31,7 +31,7 @@ DEPEND="app-arch/unzip"
 RDEPEND=""
 S=${WORKDIR}
 
-DOCS=( "DesignGuide.pdf" "ReadMe.pdf" "README.md" )
+DOCS="DesignGuide.pdf ReadMe.pdf README.md"
 
 FONT_SUFFIX="ttc"
 FONT_S=${S}
@@ -40,12 +40,5 @@ src_unpack() {
 	unpack ${P}.zip
 	for fn in ${DOCS[@]}; do
 		cp "${DISTDIR}/${P}-${fn}" "${S}/${fn}"
-	done
-}
-
-src_install() {
-	font_src_install
-	for fn in ${DOCS[@]}; do
-		dodoc ${fn}
 	done
 }
