@@ -7,7 +7,7 @@ EAPI=5
 inherit font
 
 MY_PN="SourceHanCodeJP"
-MY_PV=${PV/r/R}
+MY_PV="${PV}R"
 DESCRIPTION="Derivative of Source-Han-Sans replaced Latin letters to fixed"
 HOMEPAGE="https://github.com/adobe-fonts/source-han-code-jp/"
 SRC_URI="https://github.com/adobe-fonts/${PN}/archive/${MY_PV}.zip -> ${P}.zip"
@@ -22,7 +22,7 @@ RDEPEND=""
 S="${WORKDIR}/${PN}-${MY_PV}"
 RESTRICT="binchecks strip"
 
-DOCS=( README.md )
+DOCS=( "README.md" "relnotes.txt" )
 
 FONT_SUFFIX="otf"
 FONT_S="${S}/OTF/${MY_PN}"
