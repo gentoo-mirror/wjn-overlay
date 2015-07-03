@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit eutils
+inherit eutils gnome2-utils
 
 SF_DIR="63501"
 
@@ -24,14 +24,11 @@ COMMON_DEPEND="media-libs/fontconfig
 	x11-libs/libXext
 	x11-libs/libXft
 	x11-libs/libXi"
-DEPEND="${COMMON_DEPEND}
-	sys-apps/sed"
+DEPEND=${COMMON_DEPEND}
 RDEPEND=${COMMON_DEPEND}
 
-
 src_prepare() {
-	sed -i 's_prefix := /usr/local_prefix := '${EPREFIX}'/usr_' Makefile
-	mkdir -p "_obj/azxc"
+	epatch "${FILESDIR}/${PN}-makefile.patch"
 }
 
 src_compile() {
@@ -41,4 +38,16 @@ src_compile() {
 src_install() {
 	einstall datadir=${ED}/usr/share/${PN}
 	dodoc NEWS README
+}
+
+pkg_preinst() {
+	gnome2_icon_savelist
+}
+
+pkg_postinst() {
+	gnome2_icon_cache_update
+}
+
+pkg_postrm() {
+	gnome2_icon_cache_update
 }
