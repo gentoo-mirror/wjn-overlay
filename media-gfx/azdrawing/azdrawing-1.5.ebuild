@@ -45,9 +45,11 @@ src_install() {
 pkg_preinst() {
 	gnome2_icon_savelist
 }
+
 pkg_postinst() {
 	gnome2_icon_cache_update
 }
+
 pkg_postrm() {
 	gnome2_icon_cache_update
 }
