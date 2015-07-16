@@ -18,10 +18,10 @@ HOMEPAGE="http://www.geocities.jp/ep3797/mozc_01.html
 UT_VER=$(get_version_component_range $(get_version_component_count))
 
 # ZIP codes are revised monthly.
-ZIPCODE_REV="201505"
+ZIPCODE_REV="201506"
 
 MOZC_VER=$(get_version_component_range 1-$(get_last_version_component_index))
-MOZC_REV="2ceaee9"
+MOZC_REV="3648b9b"
 USAGEDIC_REV="HEAD"
 GYP_REV="cdf037c"
 
@@ -34,8 +34,8 @@ PROTOBUF_REV="172019c"
 
 GMOCK_REV="501"
 GTEST_REV="700"
-FCITX_PATCH_VER="2.16.2037.102.2"
-UIM_PATCH_REV="2b3eff9"
+FCITX_PATCH_VER="2.17.2102.102.1"
+UIM_PATCH_REV="0562676"
 
 UT_URI="mirror://sourceforge/mdk-ut/mozcdic-ut-${UT_VER}.tar.bz2"
 
@@ -216,7 +216,7 @@ src_compile() {
 	"${PYTHON}" build_mozc.py build -c "${BUILDTYPE}" ${mytarget} ${myjobs} \
 		|| die
 
-	use emacs && elisp-compile unix/emacs/*.el || die
+	use emacs && elisp-compile unix/emacs/*.el
 }
 
 src_test() {
