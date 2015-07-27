@@ -20,7 +20,7 @@ SRC_URI="mirror://gentoo/gentoo_ice-xmms-0.2.tar.bz2"
 LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="chardet +gtk -gtk3 qt5"
+IUSE="+gtk -gtk3 qt5"
 
 COMMON_DEPEND=">=dev-libs/glib-2.28
 	dev-libs/libxml2
@@ -28,7 +28,6 @@ COMMON_DEPEND=">=dev-libs/glib-2.28
 	>=sys-devel/gcc-4.7.0
 	>=x11-libs/cairo-1.2.6
 	>=x11-libs/pango-1.8.0
-	chardet? ( >=app-i18n/libguess-1.2 )
 	gtk? ( !gtk3? ( x11-libs/gtk+:2 ) )
 	gtk3? ( x11-libs/gtk+:3 )
 	qt5? ( dev-qt/qtcore:5
@@ -58,7 +57,6 @@ src_prepare() {
 
 src_configure() {
 	econf --enable-dbus \
-		$(use_enable chardet) \
 		$(use_enable gtk) \
 		$(use_enable qt5 qt)
 }
