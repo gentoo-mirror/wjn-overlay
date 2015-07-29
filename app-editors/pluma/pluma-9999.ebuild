@@ -49,7 +49,7 @@ DEPEND="${COMMON_DEPEND}
 	~app-text/docbook-xml-dtd-4.1.2
 	>=app-text/scrollkeeper-dtd-1:1.0
 	app-text/yelp-tools:0
-	dev-util/gtk-doc
+	>=dev-util/gtk-doc-1.0
 	>=dev-util/intltool-0.40:*
 	~mate-base/mate-common-9999
 	>=sys-devel/gettext-0.17:*

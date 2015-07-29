@@ -50,10 +50,10 @@ DEPEND="${COMMON_DEPEND}
 	app-text/docbook-xml-dtd:4.1.2
 	app-text/yelp-tools:0
 	>=app-text/scrollkeeper-dtd-1:1.0
-	dev-util/gtk-doc
 	>=dev-util/intltool-0.35:*
 	virtual/pkgconfig:*
-	sys-devel/gettext:*"
+	sys-devel/gettext:*
+	doc? ( >=dev-util/gtk-doc-1.13 )"
 RDEPEND="${COMMON_DEPEND}"
 
 RESTRICT="test"
@@ -83,6 +83,7 @@ src_configure() {
 		--with-gtk=2.0 \
 		$(use_enable dbus) \
 		$(use_enable djvu) \
+		$(use_enable doc gtk-doc) \
 		$(use_enable dvi) \
 		$(use_with gnome-keyring keyring) \
 		$(use_enable introspection) \

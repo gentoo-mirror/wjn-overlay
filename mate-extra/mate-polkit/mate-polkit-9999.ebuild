@@ -26,12 +26,12 @@ COMMON_DEPEND=">=dev-libs/glib-2.28:2
 	virtual/libintl:0
 	introspection? ( >=dev-libs/gobject-introspection-0.6.2:0 )"
 DEPEND="${COMMON_DEPEND}
-	>=dev-util/gtk-doc-1.3:0
 	>=dev-util/intltool-0.35:*
 	~mate-base/mate-common-9999
 	sys-devel/gettext:*
 	virtual/pkgconfig:*
-	!<gnome-extra/polkit-gnome-0.102:0"
+	!<gnome-extra/polkit-gnome-0.102:0
+	doc? ( >=dev-util/gtk-doc-1.3 )"
 RDEPEND="${COMMON_DEPEND}"
 # Entropy PMS specific. This way we can install the pkg into the build chroots.
 ENTROPY_RDEPEND="!lxde-base/lxpolkit"

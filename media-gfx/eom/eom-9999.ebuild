@@ -48,7 +48,7 @@ COMMON_DEPEND="dev-libs/atk:0
 	!!media-gfx/mate-image-viewer"
 DEPEND="${COMMON_DEPEND}
 	app-text/yelp-tools:0
-	dev-util/gtk-doc
+	>=dev-util/gtk-doc-1.9
 	>=dev-util/intltool-0.40:*
 	sys-devel/gettext:*
 	virtual/pkgconfig:*"

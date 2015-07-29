@@ -42,7 +42,7 @@ DEPEND="${COMMON_DEPEND}
 	>=x11-proto/randrproto-1.2:0
 	x11-proto/xproto:0
 	virtual/pkgconfig:*
-	doc? ( dev-util/gtk-doc )"
+	doc? ( >=dev-util/gtk-doc-1.4 )"
 RDEPEND="${COMMON_DEPEND}"
 
 DOCS=( AUTHORS ChangeLog HACKING MAINTAINERS NEWS README )
