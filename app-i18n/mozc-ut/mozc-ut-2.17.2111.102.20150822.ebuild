@@ -16,12 +16,13 @@ HOMEPAGE="http://www.geocities.jp/ep3797/mozc_01.html
 	https://github.com/google/mozc"
 
 UT_VER=$(get_version_component_range $(get_version_component_count))
+UT_DIR="8/8903"
 
 # ZIP codes are revised monthly.
-ZIPCODE_REV="201506"
+ZIPCODE_REV="201507"
 
 MOZC_VER=$(get_version_component_range 1-$(get_last_version_component_index))
-MOZC_REV="3648b9b"
+MOZC_REV="0605d8b"
 USAGEDIC_REV="HEAD"
 GYP_REV="cdf037c"
 
@@ -37,7 +38,7 @@ GTEST_REV="700"
 FCITX_PATCH_VER="2.17.2102.102.1"
 UIM_PATCH_REV="0562676"
 
-UT_URI="mirror://sourceforge/mdk-ut/mozcdic-ut-${UT_VER}.tar.bz2"
+UT_URI="mirror://sourceforge.jp/users/${UT_DIR}/mozcdic-ut-${UT_VER}.tar.bz2"
 
 # We must clone Mozc by git to manage its versions.
 MOZC_URI="https://github.com/google/mozc.git"
