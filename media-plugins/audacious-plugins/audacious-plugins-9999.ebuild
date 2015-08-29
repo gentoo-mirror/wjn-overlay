@@ -43,6 +43,7 @@ COMMON_DEPEND=">=dev-libs/dbus-glib-0.60
 		>=media-libs/flac-1.2.1-r1 )
 	gtk? ( !gtk3? ( x11-libs/gtk+:2 ) )
 	gtk3? ( x11-libs/gtk+:3 )
+	http? ( >=net-libs/neon-0.26.4 )
 	jack? ( >=media-libs/bio2jack-0.4
 		>=media-sound/jack-audio-connection-kit-0.120.1 )
 	lame? ( media-sound/lame )
@@ -53,7 +54,6 @@ COMMON_DEPEND=">=dev-libs/dbus-glib-0.60
 	midi? ( >=media-sound/fluidsynth-1.0.6 )
 	mms? ( >=media-libs/libmms-0.3 )
 	mp3? ( >=media-sound/mpg123-1.12.1 )
-	neon? ( >=net-libs/neon-0.26.4 )
 	pulseaudio? ( >=media-sound/pulseaudio-0.9.5 )
 	qt5? ( dev-qt/qtcore:5
 		dev-qt/qtgui:5
@@ -116,6 +116,7 @@ src_configure() {
 		$(use_enable jack) \
 		$(use_enable gnome gnomeshortcuts) \
 		$(use_enable gtk gtk) \
+		$(use_enable http neon) \
 		$(use_enable lame filewriter_mp3) \
 		$(use_enable libnotify notify) \
 		$(use_enable libsamplerate resample) \
@@ -125,7 +126,6 @@ src_configure() {
 		$(use_enable modplug) \
 		$(use_enable mp3) \
 		$(use_enable midi amidiplug) \
-		$(use_enable neon) \
 		$(use_enable pulseaudio pulse) \
 		$(use_enable qt5 qt) \
 		$(use_enable qt5 qtaudio) \
