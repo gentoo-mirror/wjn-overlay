@@ -24,7 +24,7 @@ IUSE="X doc startup-notification"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 COMMON_DEPEND="${PYTHON_DEPS}
-	>=dev-libs/glib-2.34:2
+	>=dev-libs/glib-2.36:2
 	>=dev-libs/libunique-1:1
 	x11-libs/cairo:0
 	>=x11-libs/gdk-pixbuf-2.4:2
