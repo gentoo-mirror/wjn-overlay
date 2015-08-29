@@ -11,7 +11,7 @@ DESCRIPTION="MATE desktop tweak tool"
 HOMEPAGE="https://launchpad.net/ubuntu/+source/mate-tweak"
 SRC_URI="https://launchpad.net/ubuntu/+archive/primary/+files/${PN}_${PV}.orig.tar.gz"
 
-REV="7de2c0b5ee5f"
+REV="78307aaa6fc1"
 
 LICENSE="GPL-2"
 KEYWORDS=""
