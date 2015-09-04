@@ -11,9 +11,9 @@ DESCRIPTION="A python SVG charts generator"
 HOMEPAGE="http://pygal.org/"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
-LICENSE="BSD"
+LICENSE="LGPL-3+"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 
 DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
 RDEPEND="
