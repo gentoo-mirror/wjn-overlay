@@ -1,0 +1,47 @@
+# Copyright 1999-2015 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+EAPI=5
+
+GCONF_DEBUG="no"
+GNOME2_LA_PUNT="yes"
+
+inherit autotools git-r3 gnome2
+
+DESCRIPTION="Applet to display information from applications in the panel"
+HOMEPAGE="http://mate-desktop.org/"
+SRC_URI=""
+EGIT_REPO_URI="git://github.com/mate-desktop/${PN}.git"
+
+LICENSE="GPL-3 LGPL-2.1"
+SLOT="0"
+KEYWORDS=""
+
+COMMON_DEPEND=">=dev-libs/glib-2.2.0:2
+	>=dev-libs/libindicator-0.4:0
+	~mate-base/mate-panel-9999
+	>=x11-libs/gtk+-2.24:2
+	virtual/libintl:0"
+DEPEND="${COMMON_DEPEND}
+	dev-util/intltool:*
+	sys-devel/gettext:*
+	virtual/pkgconfig:*"
+RDEPEND="${COMMON_DEPEND}"
+
+DOCS=( AUTHORS NEWS README )
+
+src_unpack() {
+	git-r3_src_unpack
+}
+
+src_prepare() {
+	eautoreconf
+	gnome2_src_prepare
+}
+
+src_configure() {
+	gnome2_src_configure \
+		--disable-static \
+		--with-gtk=2.0
+}
