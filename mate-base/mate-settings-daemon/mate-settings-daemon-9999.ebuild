@@ -60,7 +60,7 @@ src_unpack() {
 
 src_prepare() {
 	# mouse: Use event driven mode for syndaemon
-	epatch "${FILESDIR}/${PN}-1.2.0-syndaemon-mode.patch"
+	# epatch "${FILESDIR}/${PN}-1.2.0-syndaemon-mode.patch"
 
 	eautoreconf
 	gnome2_src_prepare
