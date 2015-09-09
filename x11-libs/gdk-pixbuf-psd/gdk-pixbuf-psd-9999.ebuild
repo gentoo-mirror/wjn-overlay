@@ -12,7 +12,7 @@ HOMEPAGE="http://cgit.sukimashita.com/gdk-pixbuf-psd.git/"
 if [[ ${PV} = *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="http://git.sukimashita.com/${PN}.git"
-	KEYWORDS=""	
+	KEYWORDS=""
 else
 	SRC_URI="http://cgit.sukimashita.com/${PN}.git/snapshot/${P}.tar.bz2"
 	KEYWORDS="~alpha amd64 ~arm hppa ia64 ~mips ppc ppc64 ~s390 ~sh ~sparc x86

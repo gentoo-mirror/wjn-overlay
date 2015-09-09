@@ -28,4 +28,3 @@ FONT_S="${S}"
 #FONT_CONF=( "${FILESDIR}"/66-${PN}.conf )
 
 DOCS=""
-

@@ -34,4 +34,3 @@ src_prepare() {
 		mv $f ${f%.TTC}.ttc
 	done
 }
-

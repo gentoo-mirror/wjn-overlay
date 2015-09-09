@@ -16,7 +16,6 @@ HOMEPAGE="http://audacious-media-player.org/"
 SRC_URI="!gtk3? ( http://distfiles.audacious-media-player.org/${P}.tar.bz2 )
 	gtk3? ( http://distfiles.audacious-media-player.org/${P}-gtk3.tar.bz2 )"
 
-
 LICENSE="BSD filewriter? ( GPL-2+ ) libnotify? ( GPL-3+ ) pulseaudio? ( GPL-2+ )
 	sndfile? ( GPL-2+ ) spectrum? ( GPL-2+ )"
 SLOT="0"
@@ -90,7 +89,7 @@ pkg_setup() {
 }
 
 src_prepare() {
-    l10n_for_each_disabled_locale_do remove_locales
+	l10n_for_each_disabled_locale_do remove_locales
 }
 
 src_configure() {

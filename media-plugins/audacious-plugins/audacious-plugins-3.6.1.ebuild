@@ -89,7 +89,7 @@ pkg_setup() {
 }
 
 src_prepare() {
-    l10n_for_each_disabled_locale_do remove_locales
+	l10n_for_each_disabled_locale_do remove_locales
 }
 
 src_configure() {

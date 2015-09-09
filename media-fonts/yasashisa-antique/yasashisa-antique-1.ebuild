@@ -29,4 +29,3 @@ DOCS="ReadMe_unix.txt"
 src_prepare() {
 	nkf -w --overwrite ReadMe_unix.txt
 }
-

@@ -29,9 +29,7 @@ FONT_S="${S}"
 DOCS="ReadMe_unix.txt"
 
 src_prepare() {
-	cd "${S}"
 	convmv -f Shift_JIS -t UTF-8 --notest *.ttf
 	mv "07やさしさゴシック.ttf" "07YasashisaGothic.ttf"
 	nkf -w --overwrite ReadMe_unix.txt
 }
-

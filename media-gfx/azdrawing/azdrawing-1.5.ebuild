@@ -33,11 +33,11 @@ src_prepare() {
 }
 
 src_compile() {
-	emake datadir=/usr/share/${PN}
+	emake datadir="/usr/share/${PN}"
 }
 
 src_install() {
-	einstall datadir=${ED}/usr/share/${PN}
+	einstall datadir="${ED}/usr/share/${PN}"
 	dodoc NEWS README
 	dohtml manual/*
 }
