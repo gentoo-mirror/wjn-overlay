@@ -7,25 +7,19 @@ EAPI=5
 DESCRIPTION="Viewer for Aozora Bunko (Japanese electric library)"
 HOMEPAGE="http://azsky2.html.xdomain.jp/linux/aobook/index.html"
 SRC_URI="mirror://sourceforge.jp/${PN}/62557/${P}.tar.bz2"
+
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS=""
 
-RDEPEND="
-	media-libs/fontconfig
+RDEPEND="media-libs/fontconfig
 	media-libs/freetype:2
 	media-libs/libjpeg-turbo
-	media-libs/libpng
+	media-libs/libpng:0
 	sys-libs/zlib
 	x11-libs/libX11
-	x11-libs/libXext
-	"
+	x11-libs/libXext"
 
-DEPEND="${RDEPEND}
-	app-arch/bzip2
-	sys-devel/gcc
-	sys-devel/make
-	"
+DEPEND=${RDEPEND}
 
 DOCS=( AUTHORS ChangeLog NEWS README manual.html )
-

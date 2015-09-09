@@ -19,7 +19,6 @@ else
 	EGIT_BRANCH="v${PV}"
 fi
 
-
 LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS=""

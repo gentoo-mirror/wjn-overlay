@@ -21,4 +21,3 @@ FONT_S="${S}"
 
 DEPEND="app-arch/unzip"
 RDEPEND=""
-

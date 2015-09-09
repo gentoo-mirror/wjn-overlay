@@ -26,7 +26,7 @@ REQUIRED_USE="gtk3? ( gtk )"
 COMMON_DEPEND=">=dev-libs/glib-2.28
 	dev-libs/libxml2
 	>=sys-apps/dbus-0.6.0
-	>=sys-devel/gcc-4.7.0
+	>=sys-devel/gcc-4.7.0:*
 	>=x11-libs/cairo-1.2.6
 	>=x11-libs/pango-1.8.0
 	chardet? ( >=app-i18n/libguess-1.2 )

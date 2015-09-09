@@ -18,7 +18,6 @@ if [[ ${PV} != *9999* ]]; then
 	EGIT_COMMIT="v${PV}"
 fi
 
-
 LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS=""

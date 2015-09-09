@@ -16,7 +16,6 @@ SRC_URI="http://opentype.jp/bin/${MY_PN}.zip"
 LICENSE="IPAfont"
 SLOT="0"
 KEYWORDS=""
-IUSE=""
 RESTRICT="binchecks strip"
 
 DEPEND="app-arch/unzip"
@@ -27,4 +26,3 @@ FONT_SUFFIX="ttf"
 FONT_S="${S}"
 
 DOCS="Readme.txt"
-

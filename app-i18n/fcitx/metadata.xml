@@ -13,7 +13,6 @@
     <flag name='opencc'>Enable OpenCC for Chinese Transform</flag>
     <flag name='pango'>Enable support for <pkg>x11-libs/pango</pkg></flag>
     <flag name='qt4'>Install Qt4 IM module</flag>
-    <flag name='snooper'>Enable Key Snooper for GTK app</flag>
     <flag name='table'>Enable Table IM</flag>
   </use>
 </pkgmetadata>

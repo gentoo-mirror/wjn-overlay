@@ -16,15 +16,13 @@ SRC_URI="http://opentype.jp/bin/${MY_PN}.zip"
 LICENSE="public-domain"
 SLOT="0"
 KEYWORDS=""
-IUSE=""
 RESTRICT="binchecks strip"
 
 DEPEND="app-arch/unzip"
 RDEPEND=""
-S="${WORKDIR}"
+S=${WORKDIR}
 
 FONT_SUFFIX="otf"
-FONT_S="${S}"
+FONT_S=${S}
 
 DOCS=""
-

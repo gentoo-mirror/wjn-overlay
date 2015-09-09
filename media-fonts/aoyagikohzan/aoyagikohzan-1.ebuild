@@ -8,25 +8,21 @@ inherit font
 
 DESCRIPTION="Japanese OpenType brush font written by AOYAGI Kohzan."
 HOMEPAGE="http://opentype.jp/freemouhitufont.htm"
-SRC_URI="
-  http://opentype.jp/bin/KouzanMouhituFontOTF.zip
-  http://opentype.jp/bin/AoyagiKouzanTOTF.zip
-  http://opentype.jp/bin/KouzanGyoushoOTF.zip
-  http://opentype.jp/bin/KouzanSoushoOTF.zip
-  "
+SRC_URI="http://opentype.jp/bin/KouzanMouhituFontOTF.zip
+	http://opentype.jp/bin/AoyagiKouzanTOTF.zip
+	http://opentype.jp/bin/KouzanGyoushoOTF.zip
+	http://opentype.jp/bin/KouzanSoushoOTF.zip"
 
 LICENSE="public-domain"
 SLOT="0"
 KEYWORDS=""
-IUSE=""
 RESTRICT="binchecks strip"
 
 DEPEND="app-arch/unzip"
 RDEPEND=""
-S="${WORKDIR}"
+S=${WORKDIR}
 
 FONT_SUFFIX="otf"
-FONT_S="${S}"
+FONT_S=${S}
 
 DOCS=""
-

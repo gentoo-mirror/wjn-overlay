@@ -12,13 +12,13 @@ SRC_URI="http://download.fcitx-im.org/${PN}/${P}.tar.xz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 ~ppc ppc64 ~x86"
-IUSE=""
 
-RDEPEND=">=app-i18n/fcitx-4.2.8
+COMMON_DEPEND=">=app-i18n/fcitx-4.2.8
 	app-i18n/anthy"
-DEPEND="${RDEPEND}
+DEPEND="${COMMON_DEPEND}
 	sys-devel/gettext
 	virtual/libintl"
+RDEPEND=${COMMON_DEPEND}
 
 pkg_postinst() {
 	gnome2_icon_cache_update

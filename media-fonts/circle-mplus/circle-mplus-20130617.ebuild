@@ -18,12 +18,11 @@ SRC_URI="
 LICENSE="mplus-fonts"
 SLOT="0"
 KEYWORDS=""
-IUSE=""
 
-S="${WORKDIR}"
+S=${WORKDIR}
 
 FONT_SUFFIX="ttf"
-FONT_S="${S}"
+FONT_S=${S}
 
 DEPEND="app-arch/unzip"
 RDEPEND=""

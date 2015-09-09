@@ -35,75 +35,53 @@ REQUIRED_USE="dump? ( agg ffmpeg )
 	python? ( gtk )
 	vaapi? ( agg ffmpeg )
 	|| ( agg cairo opengl openvg )
-	|| ( dump fbcon gtk kde sdl )
-	"
+	|| ( dump fbcon gtk kde sdl )"
 
 RDEPEND=">=dev-libs/boost-1.41.0:0=
 	dev-libs/expat
 	dev-libs/libxml2
-	virtual/jpeg
-	media-libs/libpng
+	media-libs/giflib
+	media-libs/libpng:0
+	media-libs/speex[ogg]
 	net-misc/curl
+	>=sys-devel/libtool-2.2
+	sys-libs/zlib
+	virtual/jpeg:0
 	x11-libs/libX11
 	x11-libs/libXi
 	x11-libs/libXmu
 	x11-libs/libXt
-	media-libs/giflib
 	x11-proto/xproto
 	agg? ( x11-libs/agg )
 	cairo? ( x11-libs/cairo )
-	directfb? (
-		dev-libs/DirectFB
-	)
-	doc? (
-		>=app-text/docbook2X-0.8.8
-		app-text/docbook-sgml-utils
-	)
-	egl? (
-		media-libs/mesa[egl]
-	)
-	fbcon? (
-		x11-libs/tslib
-	)
-	ffmpeg? (
-		>=virtual/ffmpeg-9[vaapi?]
-	)
-	gconf? (
-		gnome-base/gconf
-	)
-	gstreamer? (
-		media-plugins/gst-plugins-ffmpeg
-		media-plugins/gst-plugins-mad
-		media-plugins/gst-plugins-meta
-	)
-	gtk? (
-		x11-libs/gtk+:2
-		python? ( dev-python/pygtk:2 )
-	)
+	dbus? ( sys-apps/dbus )
+	directfb? ( dev-libs/DirectFB )
+	doc? ( >=app-text/docbook2X-0.8.8
+		app-text/docbook-sgml-utils )
+	egl? ( media-libs/mesa[egl] )
+	fbcon? ( x11-libs/tslib )
+	ffmpeg? ( >=virtual/ffmpeg-9[vaapi?] )
+	gconf? ( gnome-base/gconf )
+	gstreamer? ( media-plugins/gst-plugins-ffmpeg:0.10
+		media-plugins/gst-plugins-mad:0.10
+		media-plugins/gst-plugins-meta:0.10 )
+	gtk? ( x11-libs/gtk+:2
+		python? ( dev-python/pygtk:2 ) )
 	jemalloc? ( dev-libs/jemalloc )
 	kde? ( $(add_kdebase_dep kdebase-startkde) )
-	opengl? (
-		virtual/glu
+	lirc? ( app-misc/lirc )
+	mysql? ( virtual/mysql )
+	opengl? ( virtual/glu
 		virtual/opengl
-		gtk? ( x11-libs/gtkglext )
-	)
-	openvg? (
-		media-libs/mesa[openvg]
-	)
+		gtk? ( x11-libs/gtkglext ) )
+	openvg? ( media-libs/mesa[openvg] )
 	sdl? ( media-libs/libsdl[X] )
 	sdl-sound? ( media-libs/libsdl )
-	media-libs/speex[ogg]
-	sys-libs/zlib
-	>=sys-devel/libtool-2.2
-	mysql? ( virtual/mysql )
-	lirc? ( app-misc/lirc )
-	dbus? ( sys-apps/dbus )
 	ssh?  ( >=net-libs/libssh-0.4[server] )
-	ssl? ( dev-libs/openssl )
-	vaapi? ( x11-libs/libva[opengl?] )
-	"
+	ssl? ( dev-libs/openssl:0 )
+	vaapi? ( x11-libs/libva[opengl?] )"
 DEPEND="${RDEPEND}
-	virtual/pkgconfig
+	virtual/pkgconfig:0
 	nls? ( sys-devel/gettext )
 	gnome? ( app-text/rarian )
 	nsplugin? ( net-misc/npapi-sdk )

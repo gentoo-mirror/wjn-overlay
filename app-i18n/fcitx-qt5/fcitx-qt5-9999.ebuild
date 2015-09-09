@@ -20,14 +20,11 @@ fi
 LICENSE="GPL-2+"
 SLOT="0"
 
-COMMON_DEPEND="
-	app-i18n/fcitx
+COMMON_DEPEND="app-i18n/fcitx
 	dev-qt/qtcore:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
-	dev-qt/qtdbus:5
-"
+	dev-qt/qtdbus:5"
 DEPEND="${COMMON_DEPEND}
-	>=dev-libs/extra-cmake-modules-1.4.0
-"
+	kde-frameworks/extra-cmake-modules:5"
 RDEPEND="${COMMON_DEPEND}"

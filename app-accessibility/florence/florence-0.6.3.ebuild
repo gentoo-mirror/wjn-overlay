@@ -15,24 +15,20 @@ SLOT="0"
 KEYWORDS=""
 IUSE="doc libnotify"
 
-RDEPEND=""
-DEPEND="${RDEPEND}
-	gnome-base/librsvg
-	>=dev-libs/libxml2-2.0
-	>=dev-util/intltool-0.23
+COMMON_DEPEND=">=dev-libs/libxml2-2.0
 	gnome-base/gconf:2
 	>=gnome-base/libglade-2.0
-	sys-devel/gettext
+	gnome-base/librsvg
+	media-libs/gstreamer:1.0
 	x11-libs/cairo
-	>=x11-libs/gtk+-2.1
+	x11-libs/gtk+:3
 	x11-libs/libXtst
-	doc? (
-		app-text/gnome-doc-utils
-	)
-	libnotify? (
-		x11-libs/libnotify
-	)
-	"
+	doc? ( app-text/gnome-doc-utils )
+	libnotify? ( x11-libs/libnotify )"
+DEPEND="${COMMON_DEPEND}
+	>=dev-util/intltool-0.23
+	sys-devel/gettext"
+RDEPEND=${COMMON_DEPEND}
 
 DOCS=( README NEWS )
 
@@ -41,7 +37,6 @@ src_configure() {
 		--with-xtst \
 		$(use_with doc docs ) \
 		$(use_with libnotify notification )
-
 }
 
 src_compile() {
@@ -59,4 +54,3 @@ pkg_postinst() {
 pkg_postrm() {
 	gnome2_schemas_update
 }
-

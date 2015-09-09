@@ -18,7 +18,6 @@ SRC_URI="mirror://sourceforge.jp/jis2004/${S_DIR}/${MY_PN}${PV//./}.lzh
 	mirror://sourceforge.jp/jis2004/${SC_DIR}/${MY_PN/wlm/wlcm}${PV//./}.lzh
 	mirror://sourceforge.jp/jis2004/${SCP_DIR}/${MY_PN/wlm/wlcm}p${PV//./}.lzh"
 
-
 LICENSE="freedist"
 SLOT="0"
 KEYWORDS=""

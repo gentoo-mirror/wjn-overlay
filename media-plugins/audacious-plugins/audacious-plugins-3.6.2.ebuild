@@ -28,7 +28,7 @@ COMMON_DEPEND=">=dev-libs/dbus-glib-0.60
 	dev-libs/libxml2:2
 	~media-sound/audacious-3.6[gtk=,gtk3=,qt5=]
 	>=sys-apps/dbus-0.6.0
-	>=sys-devel/gcc-4.7.0
+	>=sys-devel/gcc-4.7.0:*
 	aac? ( >=media-libs/faad2-2.7 )
 	adplug? ( >=dev-cpp/libbinio-1.4 )
 	alsa? ( >=media-libs/alsa-lib-1.0.16 )

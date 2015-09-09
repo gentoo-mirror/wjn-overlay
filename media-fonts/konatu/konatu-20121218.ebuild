@@ -25,4 +25,3 @@ DEPEND="app-arch/unzip"
 RDEPEND=""
 
 DOCS=( README.txt README_Japanese.txt )
-

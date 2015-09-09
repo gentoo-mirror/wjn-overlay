@@ -24,7 +24,6 @@ to set an alarm in the morning, and more.
 <use>
 	<flag name="chardet">Try to handle non-UTF8 CJK ID3 tags (<pkg>app-i18n/libguess</pkg>)</flag>
 	<flag name="gtk">Enable GTK+2 User Interface (<pkg>x11-libs/gtk+:2</pkg>)</flag>
-	<flag name="nls">Enable Native Language Support (<pkg>dev-util/intltool</pkg></flag>
 	<flag name="qt5">Enable Qt5 UI and output (<pkg>dev-qt/qtgui:5</pkg>, <pkg>dev-qt/qtmultimedia:5</pkg>)</flag>
 </use>
 </pkgmetadata>

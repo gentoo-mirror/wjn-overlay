@@ -26,7 +26,6 @@ DEPEND="${COMMON_DEPEND}
 	sys-apps/sed"
 RDEPEND=${COMMON_DEPEND}
 
-
 src_prepare() {
 	sed -i 's_prefix := /usr/local_prefix := '${EPREFIX}'/usr_' Makefile
 	epatch "${FILESDIR}/${P}-rulepos.patch"

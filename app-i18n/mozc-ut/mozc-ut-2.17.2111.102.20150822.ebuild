@@ -380,7 +380,7 @@ generate-mozc-ut() {
 		ruby get-entries.rb KEN_ALL.CSV.r
 		eend
 	)
-	
+
 	# check major ut dictionaries
 	ebegin "check major ut dictionaries"
 	# ruby 12-* dicfile min_hits
@@ -447,6 +447,6 @@ generate-mozc-ut() {
 
 	# change mozc branding
 	sed -i 's/"Mozc"/"Mozc-UT"/g' "${S}/base/const.h"
-	
-	cd ${S}
+
+	cd "${S}"
 }

@@ -33,4 +33,3 @@ src_unpack() {
 	unpack NotoSans-hinted.zip NotoSerif-hinted.zip
 	cp "${DISTDIR}"/*.ttf "${S}"
 }
-

@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -25,7 +25,7 @@ CDEPEND="x11-libs/gtk+:2
 	oniguruma? ( dev-libs/oniguruma )
 	pda? ( app-pda/jpilot )
 	spell? ( app-text/gtkspell:2 )
-	ssl? ( dev-libs/openssl )"
+	ssl? ( dev-libs/openssl:0 )"
 RDEPEND="${CDEPEND}
 	app-misc/mime-types
 	net-misc/curl"

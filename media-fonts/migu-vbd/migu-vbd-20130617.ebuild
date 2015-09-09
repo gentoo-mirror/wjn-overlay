@@ -31,7 +31,6 @@ SRC_URI="
 LICENSE="IPAfont mplus-fonts public-domain"
 SLOT="0"
 KEYWORDS=""
-IUSE=""
 
 DEPEND="media-gfx/fontforge
 		app-arch/unzip
@@ -68,5 +67,5 @@ src_compile() {
 src_install() {
 	rm circle*.ttf
 	font_src_install
-	dodoc ${DISTDIR}/migu-*-README.txt
+	dodoc "${DISTDIR}"/migu-*-README.txt
 }

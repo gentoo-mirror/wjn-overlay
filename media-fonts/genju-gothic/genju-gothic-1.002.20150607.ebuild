@@ -17,9 +17,9 @@ DESCRIPTION=\
 "Japanese TrueType rounded fonts based on Source Hans Sans (GennoKakuGothic)"
 HOMEPAGE="http://jikasei.me/font/genjyuu/"
 SRC_URI="mirror://sourceforge.jp/users/${S_DIR}/${MY_PN}-${MY_PV}.7z
-	rounded-l? ( 
+	rounded-l? (
 		mirror://sourceforge.jp/users/${S_DIR_L}/${MY_PN}-l-${MY_PV}.7z )
-	rounded-x? ( 
+	rounded-x? (
 		mirror://sourceforge.jp/users/${S_DIR_X}/${MY_PN}-x-${MY_PV}.7z )"
 
 LICENSE="OFL-1.1"

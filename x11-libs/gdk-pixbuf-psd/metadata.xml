@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-<description lang="en">
+<longdescription lang="en">
 A GdkPixbuf loader for the PSD file format
-</description>
+</longdescription>
+	<maintainer>
+		<email>wjn@aol.jp</email>
+	</maintainer>
 <upstream>
-<maintainer>
-<email>jd@jandudek.com</email>
-<name>Jan Dudek</name>
-</maintainer>
-<doc>http://cgit.sukimashita.com/gdk-pixbuf-psd.git/tree/README</doc>
+	<maintainer>
+		<email>jd@jandudek.com</email>
+		<name>Jan Dudek</name>
+	</maintainer>
+	<doc>http://cgit.sukimashita.com/gdk-pixbuf-psd.git/tree/README</doc>
 </upstream>
 </pkgmetadata>

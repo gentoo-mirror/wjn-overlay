@@ -24,5 +24,4 @@ S="${WORKDIR}/${MY_P}"
 DOCS=( README.md README_ja.md )
 
 FONT_SUFFIX="ttf"
-FONT_S="${S}"
-
+FONT_S=${S}

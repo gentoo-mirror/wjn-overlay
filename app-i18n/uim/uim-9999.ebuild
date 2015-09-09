@@ -47,7 +47,7 @@ COMMON_DEPEND="!dev-scheme/sigscheme
 	libffi? ( virtual/libffi )
 	libnotify? ( >=x11-libs/libnotify-0.4 )
 	m17n-lib? ( >=dev-libs/m17n-lib-1.3.1 )
-	ncurses? ( sys-libs/ncurses )
+	ncurses? ( sys-libs/ncurses:0 )
 	nls? ( virtual/libintl )
 	qt3support? ( dev-qt/qtgui:4[qt3support] )
 	qt4? ( dev-qt/qtgui:4 )

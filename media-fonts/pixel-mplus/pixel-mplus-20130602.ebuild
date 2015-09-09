@@ -10,11 +10,10 @@ MY_P="PixelMplus-${PV}"
 DESCRIPTION="Japanese TrueType monospace fonts looks like bitmap fonts, based on mplus-fonts."
 HOMEPAGE="http://mix-mplus-ipa.sourceforge.jp/"
 SRC_URI="mirror://sourceforge.jp/mix-mplus-ipa/58930/${MY_P}.zip"
-	
+
 LICENSE="mplus-fonts"
 SLOT="0"
 KEYWORDS=""
-IUSE=""
 
 S="${WORKDIR}/${MY_P}"
 
@@ -23,4 +22,3 @@ FONT_S="${S}"
 
 DEPEND="app-arch/unzip"
 RDEPEND=""
-

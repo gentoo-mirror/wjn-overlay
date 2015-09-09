@@ -20,7 +20,8 @@ fi
 
 LICENSE="Gutenberg MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
+
 IUSE="+assets bbcode charts -extras gh-pages hyphenation ipython jinja +markdown micawber php typogrify websocket"
 REQUIRED_USE="extras? ( assets bbcode charts gh-pages hyphenation ipython jinja markdown micawber php typogrify websocket )"
 # mock, coverage, pytest, pytest-cov, freezegun, python-coveralls and colorama

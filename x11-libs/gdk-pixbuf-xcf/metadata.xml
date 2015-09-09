@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-<description lang="en">
+<longdescription>
 A gdk-pixbuf loader for xcf (The Gimp) files
-</description>
+</longdescription>
+	<maintainer>
+		<email>wjn@aol.jp</email>
+	</maintainer>
 <upstream>
-<maintainer>
-<email>stephane@delcroix.org</email>
-<name>Stephane Delcroix</name>
-</maintainer>
-<remote-id type="gitorious">xcf-pixbuf-loader</remote-id>
+	<maintainer>
+		<email>stephane@delcroix.org</email>
+		<name>Stephane Delcroix</name>
+	</maintainer>
+	<remote-id type="gitorious">xcf-pixbuf-loader</remote-id>
 </upstream>
 </pkgmetadata>

@@ -18,7 +18,8 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 
-IUSE="X -bluetooth"
+# IUSE="X -bluetooth"
+IUSE="X"
 
 COMMON_DEPEND=">=app-mobilephone/obex-data-server-0.4:0
 	>=dev-libs/dbus-glib-0.70:0
@@ -34,9 +35,9 @@ COMMON_DEPEND=">=app-mobilephone/obex-data-server-0.4:0
 	>=x11-libs/libnotify-0.7:0
 	>=www-apache/mod_dnssd-0.6:0
 	>=www-servers/apache-2.2:2[apache2_modules_dav,apache2_modules_dav_fs,apache2_modules_authn_file,apache2_modules_auth_digest,apache2_modules_authz_groupfile]
-	virtual/libintl:0
-	bluetooth? ( >=net-wireless/mate-bluetooth-1.6:0
-		>=net-wireless/bluez-4.18:0= )"
+	virtual/libintl:0"
+#	bluetooth? ( >=net-wireless/mate-bluetooth-1.6:0
+#		>=net-wireless/bluez-4.18:0= )"
 DEPEND="${COMMON_DEPEND}
 	app-text/docbook-xml-dtd:4.1.2
 	app-text/yelp-tools:0
@@ -60,6 +61,6 @@ src_configure() {
 	gnome2_src_configure \
 		--with-httpd=apache2 \
 		--with-modules-path=/usr/$(get_libdir)/apache2/modules/ \
-		$(use_enable bluetooth) \
 		$(use_with X x)
+# 		$(use_enable bluetooth)
 }
