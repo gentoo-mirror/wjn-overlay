@@ -35,7 +35,7 @@ COMMON_DEPEND="dev-libs/atk:0
 	!x11-misc/notification-daemon:*"
 DEPEND="${COMMON_DEPEND}
 	app-arch/xz-utils:0
-	>=dev-util/intltool-0.40.0:0
+	>=dev-util/intltool-0.50.1:0
 	sys-devel/gettext:0
 	>=sys-devel/libtool-2.2.6:2
 	virtual/pkgconfig:0"
