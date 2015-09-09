@@ -23,7 +23,8 @@ fi
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="alsa celt dbus doc ieee1394 opus pam"
+# IUSE="alsa celt dbus doc ieee1394 opus pam"
+IUSE="alsa celt dbus doc opus pam"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
@@ -40,9 +41,10 @@ CDEPEND="media-libs/libsamplerate[${MULTILIB_USEDEP}]
 		dev-libs/expat[${MULTILIB_USEDEP}]
 		sys-apps/dbus[${MULTILIB_USEDEP}]
 	)
-	ieee1394? ( media-libs/libffado[${MULTILIB_USEDEP}] )
 	opus? ( media-libs/opus[custom-modes,${MULTILIB_USEDEP}] )
 	abi_x86_32? ( !app-emulation/emul-linux-x86-soundlibs[-abi_x86_32(-)] )"
+# This is in proaudio overlay.
+# CDEPEND="${CDEPEND} ieee1394? ( media-libs/libffado[${MULTILIB_USEDEP}] )"
 DEPEND="${CDEPEND}
 	virtual/pkgconfig
 	doc? ( app-doc/doxygen )"
@@ -68,10 +70,14 @@ src_prepare() {
 }
 
 multilib_src_configure() {
+# 	local mywafconfargs=(
+# 		$(usex alsa --alsa "")
+# 		$(usex dbus --dbus --classic)
+# 		$(usex ieee1394 --firewire "")
+# 	)
 	local mywafconfargs=(
 		$(usex alsa --alsa "")
 		$(usex dbus --dbus --classic)
-		$(usex ieee1394 --firewire "")
 	)
 
 	WAF_BINARY="${BUILD_DIR}"/waf waf-utils_src_configure ${mywafconfargs[@]}
