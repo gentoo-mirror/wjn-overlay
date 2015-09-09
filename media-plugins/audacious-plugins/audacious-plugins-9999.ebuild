@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -21,7 +21,7 @@ LICENSE="BSD filewriter? ( GPL-2+ ) libnotify? ( GPL-3+ ) pulseaudio? ( GPL-2+ )
 SLOT="0"
 KEYWORDS=""
 IUSE="aac adplug alsa bs2b cdda cue ffmpeg +filewriter flac gnome +gtk -gtk3
-	jack lame libav libnotify libsamplerate lirc midi mms modplug mp3 neon
+	http jack lame libav libnotify libsamplerate lirc midi mms modplug mp3
 	pulseaudio qt5 scrobbler sdl sid sndfile soxr spectrum vorbis wavpack"
 
 COMMON_DEPEND=">=dev-libs/dbus-glib-0.60
@@ -135,6 +135,7 @@ src_configure() {
 		$(use_enable sndfile) \
 		$(use_enable soxr) \
 		${spectrum_conf} \
+		--enable-statusicon
 		$(use_enable vorbis) \
 		$(use_enable wavpack)
 }

@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 inherit font
@@ -28,10 +28,10 @@ FONT_S=${S}
 DOCS=("read_me.txt")
 
 pkg_nofetch() {
-    einfo " This author forbids downloading directly."
-    einfo " Please visit ${HOMEPAGE}"
-    einfo "download ${MY_PN}.zip"
-    einfo "and place them in ${DISTDIR}"
+	einfo " This author forbids downloading directly."
+	einfo " Please visit ${HOMEPAGE}"
+	einfo "download ${MY_PN}.zip"
+	einfo "and place them in ${DISTDIR}"
 }
 
 src_prepare() {

@@ -38,12 +38,12 @@ RDEPEND="${COMMON_DEPEND}"
 DOCS="AUTHORS ChangeLog NEWS README"
 
 src_unpack() {
-    git-r3_src_unpack
+	git-r3_src_unpack
 }
 
 src_prepare() {
-    eautoreconf
-    gnome2_src_prepare
+	eautoreconf
+	gnome2_src_prepare
 }
 
 src_configure() {

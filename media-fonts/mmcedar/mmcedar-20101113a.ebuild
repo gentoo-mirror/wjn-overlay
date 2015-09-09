@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 inherit font
@@ -9,7 +9,7 @@ DESCRIPTION="MMCedar are combined fonts that use Motoya L Cedar and M+ fonts"
 HOMEPAGE="http://www.geocities.jp/ep3797/modified_fonts_01.html"
 SRC_URI="mirror://sourceforge/mdk-ut/${P}.tar.lzma"
 
-LICENSE="apache-2.0 mplus-fonts"
+LICENSE="Apache-2.0 mplus-fonts"
 SLOT="0"
 KEYWORDS=""
 
