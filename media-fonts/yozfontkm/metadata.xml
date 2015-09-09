@@ -2,9 +2,8 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 <upstream>
-<description>Author</description>
-<maintainer>
-<email>yozvox@yahoo.co.jp</email>
-</maintainer>
+	<maintainer>
+		<email>yozvox@yahoo.co.jp</email>
+	</maintainer>
 </upstream>
 </pkgmetadata>
