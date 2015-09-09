@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -19,22 +19,22 @@ KEYWORDS=""
 
 IUSE="doc +introspection"
 
-COMMON_DEPEND=">=dev-libs/glib-2.28:2
+COMMON_DEPEND=">=dev-libs/glib-2.36.0:2
 	>=sys-auth/polkit-0.102:0[introspection?]
-	>=x11-libs/gtk+-2.24:2[introspection?]
+	>=x11-libs/gtk+-2.24.0:2[introspection?]
 	x11-libs/gdk-pixbuf:2[introspection?]
 	virtual/libintl:0
 	introspection? ( >=dev-libs/gobject-introspection-0.6.2:0 )"
 DEPEND="${COMMON_DEPEND}
-	>=dev-util/intltool-0.35:*
-	~mate-base/mate-common-9999
-	sys-devel/gettext:*
-	virtual/pkgconfig:*
-	!<gnome-extra/polkit-gnome-0.102:0
-	doc? ( >=dev-util/gtk-doc-1.3 )"
+	>=dev-util/intltool-0.35.0:0
+	~mate-base/mate-common-9999:0
+	sys-devel/gettext:0
+	virtual/pkgconfig:0
+	!<gnome-extra/polkit-gnome-0.102:*
+	doc? ( >=dev-util/gtk-doc-1.3:0 )"
 RDEPEND="${COMMON_DEPEND}"
 # Entropy PMS specific. This way we can install the pkg into the build chroots.
-ENTROPY_RDEPEND="!lxde-base/lxpolkit"
+ENTROPY_RDEPEND="!lxde-base/lxpolkit:*"
 
 DOCS=( AUTHORS HACKING NEWS README )
 

@@ -40,11 +40,11 @@ RDEPEND="${COMMON_DEPEND}
 DOCS=( AUTHORS NEWS NEWS.GNOME README )
 
 src_unpack() {
-    git-r3_src_unpack
+	git-r3_src_unpack
 }
 
 src_prepare() {
-    eautoreconf
+	eautoreconf
 	gnome2_src_prepare
 	python_copy_sources
 }

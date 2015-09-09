@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -18,7 +18,7 @@ LICENSE="LGPL-2"
 SLOT="0"
 KEYWORDS=""
 
-IUSE="X test"
+IUSE="X introspection test"
 
 DOCS=( AUTHORS NEWS README )
 
@@ -31,9 +31,10 @@ COMMON_DEPEND=">=dev-libs/glib-2.18:2
 	x11-libs/pango:0
 	virtual/libintl:0"
 DEPEND="${COMMON_DEPEND}
-	sys-devel/gettext:*
-	>=dev-util/intltool-0.35:*
-	virtual/pkgconfig:*"
+	sys-devel/gettext:0
+	>=dev-util/intltool-0.50.1:0
+	virtual/pkgconfig:0
+	introspection? ( >=dev-libs/gobject-introspection-0.6.7:0[cairo] )"
 RDEPEND="${COMMON_DEPEND}"
 
 src_unpack() {
@@ -48,6 +49,7 @@ src_prepare() {
 src_configure() {
 	gnome2_src_configure \
 		--with-gtk=2.0 \
+		$(use_enable introspection) \
 		$(use_enable test tests) \
 		$(use_with X x)
 }

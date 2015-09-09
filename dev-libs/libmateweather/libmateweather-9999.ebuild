@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -22,21 +22,21 @@ KEYWORDS=""
 IUSE="python"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
-COMMON_DEPEND=">=dev-libs/glib-2.13:2[${PYTHON_USEDEP}]
-	>=dev-libs/libxml2-2.6:2
-	>=net-libs/libsoup-2.34:2.4
+COMMON_DEPEND=">=dev-libs/glib-2.36.0:2[${PYTHON_USEDEP}]
+	>=dev-libs/libxml2-2.6.0:2
+	>=net-libs/libsoup-2.34.0:2.4
 	>=sys-libs/timezone-data-2010k:0
 	x11-libs/gdk-pixbuf:2
-	>=x11-libs/gtk+-2.11:2
+	>=x11-libs/gtk+-2.24.0:2
 	virtual/libintl:0
 	python? ( ${PYTHON_DEPS}
 		>=dev-python/pygobject-2:2[${PYTHON_USEDEP}]
 		>=dev-python/pygtk-2:2[${PYTHON_USEDEP}] )"
 DEPEND="${COMMON_DEPEND}
-	>=dev-util/intltool-0.40.3:*
-	~mate-base/mate-common-9999
-	sys-devel/gettext:*
-	virtual/pkgconfig:*"
+	>=dev-util/intltool-0.50.1:0
+	~mate-base/mate-common-9999:0
+	sys-devel/gettext:0
+	virtual/pkgconfig:0"
 RDEPEND="${COMMON_DEPEND}"
 
 DOCS=( AUTHORS NEWS NEWS.GNOME README )

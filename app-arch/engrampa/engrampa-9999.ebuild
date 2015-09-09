@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -20,20 +20,20 @@ KEYWORDS=""
 
 IUSE="caja"
 
-COMMON_DEPEND=">=dev-libs/glib-2.25.5:2
+COMMON_DEPEND=">=dev-libs/glib-2.32.0:2
 	>=dev-libs/json-glib-0.14:0
-	~mate-base/caja-9999
 	x11-libs/gdk-pixbuf:2
-	>=x11-libs/gtk+-2.21.4:2
+	>=x11-libs/gtk+-2.24.0:2
 	x11-libs/pango:0
 	virtual/libintl:0
-	!!app-arch/mate-file-archiver"
+	caja? ( ~mate-base/caja-9999:0 )
+	!!app-arch/mate-file-archiver:*"
 DEPEND="${COMMON_DEPEND}
-	>=dev-util/intltool-0.35:*
+	>=dev-util/intltool-0.50.1:0
 	dev-util/itstool:0
-	~mate-base/mate-common-9999
-	sys-devel/gettext:*
-	virtual/pkgconfig:*"
+	~mate-base/mate-common-9999:0
+	sys-devel/gettext:0
+	virtual/pkgconfig:0"
 RDEPEND="${COMMON_DEPEND}"
 
 DOCS=( AUTHORS HACKING MAINTAINERS NEWS NEWS.GNOME README README-DISTRIBUTIONS TODO )

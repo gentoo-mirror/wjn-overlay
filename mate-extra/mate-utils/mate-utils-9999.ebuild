@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -20,10 +20,9 @@ KEYWORDS=""
 
 IUSE="X applet ipv6 test"
 
-
 COMMON_DEPEND="app-text/rarian:0
 	dev-libs/atk:0
-	>=dev-libs/glib-2.20:2
+	>=dev-libs/glib-2.36:2
 	>=gnome-base/libgtop-2.12:2=
 	>=media-libs/libcanberra-0.4:0[gtk]
 	sys-libs/zlib:0
@@ -35,15 +34,15 @@ COMMON_DEPEND="app-text/rarian:0
 	x11-libs/libX11:0
 	x11-libs/libXext:0
 	x11-libs/pango:0
-	applet? ( ~mate-base/mate-panel-9999 )"
+	applet? ( ~mate-base/mate-panel-9999:0 )"
 DEPEND="${COMMON_DEPEND}
 	>=app-text/scrollkeeper-dtd-1:1.0
 	app-text/yelp-tools:0
-	>=dev-util/intltool-0.40:*
-	~mate-base/mate-common-9999
+	>=dev-util/intltool-0.50.1:0
+	~mate-base/mate-common-9999:0
 	x11-proto/xextproto:0
-	sys-devel/gettext:*
-	virtual/pkgconfig:*"
+	sys-devel/gettext:0
+	virtual/pkgconfig:0"
 RDEPEND="${COMMON_DEPEND}"
 
 DOCS=( AUTHORS NEWS README THANKS )

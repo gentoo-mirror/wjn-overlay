@@ -1,11 +1,11 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
 GCONF_DEBUG="yes"
-PYTHON_COMPAT=( python2_{6,7} )
+PYTHON_COMPAT=( python2_7 )
 
 inherit autotools git-r3 gnome2 python-single-r1
 
@@ -18,22 +18,23 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 
-IUSE="X dbus exif jpeg lcms python svg tiff xmp"
+IUSE="X dbus doc exif introspection jpeg lcms python svg tiff xmp"
 
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
 COMMON_DEPEND="dev-libs/atk:0
-	>=dev-libs/glib-2.25.9:2
-	>=dev-libs/libxml2-2:2
+	>=dev-libs/glib-2.36:2
+	>=dev-libs/libxml2-2.0:2
 	gnome-base/dconf:0
-	~mate-base/mate-desktop-9999
+	gnome-base/gsettings-desktop-schemas:0
+	~mate-base/mate-desktop-9999:0
 	sys-libs/zlib:0
 	x11-libs/cairo:0
-	>=x11-libs/gdk-pixbuf-2.4:2[jpeg?,tiff?]
+	>=x11-libs/gdk-pixbuf-2.4.0:2[jpeg?,tiff?]
 	>=x11-libs/gtk+-2.18:2
 	x11-libs/libX11:0
 	>=x11-misc/shared-mime-info-0.20:0
-	~x11-themes/mate-icon-theme-9999
+	~x11-themes/mate-icon-theme-9999:0
 	virtual/libintl:0
 	dbus? ( >=dev-libs/dbus-glib-0.71:0 )
 	exif? ( >=media-libs/libexif-0.6.14:0
@@ -42,17 +43,19 @@ COMMON_DEPEND="dev-libs/atk:0
 	lcms? ( media-libs/lcms:2 )
 	python? ( ${PYTHON_DEPS}
 		>=dev-python/pygobject-2.15.1:2[${PYTHON_USEDEP}]
-		>=dev-python/pygtk-2.13:2[${PYTHON_USEDEP}] )
-	svg? ( >=gnome-base/librsvg-2.26:2 )
+		>=dev-python/pygtk-2.13.0:2[${PYTHON_USEDEP}] )
+	svg? ( >=gnome-base/librsvg-2.36.2:2 )
 	xmp? ( >=media-libs/exempi-1.99.5:2 )
-	!!media-gfx/mate-image-viewer"
+	!!media-gfx/mate-image-viewer:*"
 DEPEND="${COMMON_DEPEND}
 	app-text/yelp-tools:0
 	>=dev-util/gtk-doc-1.9
-	>=dev-util/intltool-0.40:*
-	sys-devel/gettext:*
-	virtual/pkgconfig:*"
+	>=dev-util/intltool-0.50.1:0
+	sys-devel/gettext:0
+	virtual/pkgconfig:0
+	introspection? ( >=dev-libs/gobject-introspection-0.9.3:0 )"
 RDEPEND="${COMMON_DEPEND}"
+
 DOCS=( AUTHORS HACKING NEWS NEWS.gnome README THANKS TODO )
 
 pkg_setup() {
@@ -70,6 +73,7 @@ src_prepare() {
 
 src_configure() {
 	gnome2_src_configure \
+		$(use_enable introspection) \
 		$(use_enable python) \
 		$(use_with jpeg libjpeg) \
 		$(use_with exif libexif) \

@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -18,9 +18,9 @@ SLOT="0"
 KEYWORDS=""
 COMMON_DEPEND="app-text/rarian:0
 	dev-libs/atk:0
-	>=dev-libs/glib-2.25:2
+	>=dev-libs/glib-2.36:2
 	>=gnome-base/dconf-0.10:0
-	~mate-base/mate-desktop-9999
+	~mate-base/mate-desktop-9999:0
 	x11-libs/gdk-pixbuf:2
 	>=x11-libs/gtk+-2.18:2
 	x11-libs/libICE:0
@@ -31,9 +31,10 @@ COMMON_DEPEND="app-text/rarian:0
 DEPEND="${COMMON_DEPEND}
 	>=app-text/scrollkeeper-dtd-1:1.0
 	app-text/yelp-tools:0
-	>=dev-util/intltool-0.40:*
-	sys-devel/gettext:*
-	virtual/pkgconfig:*"
+	>=dev-util/intltool-0.50.1:0
+	sys-apps/sed:0
+	sys-devel/gettext:0
+	virtual/pkgconfig:0"
 RDEPEND="${COMMON_DEPEND}"
 
 DOCS=( AUTHORS HACKING NEWS NEWS.GNOME README )

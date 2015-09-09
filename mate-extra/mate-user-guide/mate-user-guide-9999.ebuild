@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -15,11 +15,17 @@ LICENSE="CC-BY-SA-3.0"
 SLOT="0"
 KEYWORDS=""
 
-DEPEND=""
-RDEPEND="gnome-extra/yelp"
+DEPEND=">=dev-util/intltool-0.40.0:0
+	app-text/yelp-tools:0
+	sys-devel/gettext:0"
+RDEPEND=""
 
 DOCS=( AUTHORS HACKING NEWS README )
 
 src_prepare() {
 	eautoreconf
+}
+
+pkg_postinst(){
+	elog "gnome-extra/yelp is needed to parse documents fully."
 }

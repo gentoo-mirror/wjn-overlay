@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -25,11 +25,11 @@ DOC_CONTENTS="
 "
 
 COMMON_DEPEND=">=dev-libs/dbus-glib-0.71:0
-	>=dev-libs/glib-2.26:2
+	>=dev-libs/glib-2.36:2
 	gnome-base/dconf:0
-	~mate-base/libmatekbd-9999
-	~mate-base/mate-desktop-9999
-	~mate-base/mate-menus-9999
+	~mate-base/libmatekbd-9999:0
+	~mate-base/mate-desktop-9999:0
+	~mate-base/mate-menus-9999:0
 	>=sys-apps/dbus-0.30:0
 	>=x11-libs/gdk-pixbuf-2.14:2
 	>=x11-libs/gtk+-2.14:2
@@ -49,16 +49,16 @@ COMMON_DEPEND=">=dev-libs/dbus-glib-0.71:0
 	opengl? ( virtual/opengl:0 )
 	pam? ( gnome-base/gnome-keyring:0 virtual/pam:0 )
 	!pam? ( kernel_linux? ( sys-apps/shadow:0 ) )
-	!!<gnome-extra/gnome-screensaver-3:0"
+	!!<gnome-extra/gnome-screensaver-3:*"
 DEPEND="${COMMON_DEPEND}
-	>=dev-util/intltool-0.35:*
+	>=dev-util/intltool-0.35:0
 	~mate-base/mate-common-9999
-	sys-devel/gettext:*
+	sys-devel/gettext:0
 	x11-proto/randrproto:0
 	x11-proto/scrnsaverproto:0
 	x11-proto/xextproto:0
 	x11-proto/xf86miscproto:0
-	virtual/pkgconfig:*"
+	virtual/pkgconfig:0"
 RDEPEND="${COMMON_DEPEND}"
 
 DOCS=( AUTHORS NEWS README )

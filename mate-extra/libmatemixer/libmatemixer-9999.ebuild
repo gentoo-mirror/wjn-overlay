@@ -1,39 +1,36 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
-ELTCONF="--portage"
 GCONF_DEBUG="yes"
 GNOME2_LA_PUNT="yes"
 
 inherit autotools git-r3 gnome2
 
-DESCRIPTION="Atril document viewer for MATE"
+DESCRIPTION="Mixer library for MATE Desktop"
 HOMEPAGE="http://mate-desktop.org/"
 SRC_URI=""
 EGIT_REPO_URI="git://github.com/mate-desktop/${PN}.git"
 
-LICENSE="GPL-2"
+LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS=""
 
 IUSE="alsa oss pulseaudio"
 
 COMMON_DEPEND="
-	>=dev-libs/glib-2.40.2
-	>=dev-libs/gobject-introspection-1.38.0
-	>=dev-libs/libxml2-2.5:2
-	>=x11-libs/gtk+-2.21.5:2
-	alsa? ( media-libs/alsa-lib )
-	oss? ( virtual/os-headers )
-	pulseaudio? ( media-sound/pulseaudio )"
+	>=dev-libs/glib-2.40.2:2
+	>=dev-libs/gobject-introspection-1.38.0:0
+	alsa? ( >=media-libs/alsa-lib-1.0.0:0 )
+	oss? ( virtual/os-headers:0 )
+	pulseaudio? ( >=media-sound/pulseaudio-0.9.23:0 )"
 DEPEND="${COMMON_DEPEND}
-	>=dev-util/gtk-doc-1.10
-	>=dev-util/intltool-0.35
-	virtual/pkgconfig
-	sys-devel/gettext"
+	>=dev-util/gtk-doc-1.10:0
+	>=dev-util/intltool-0.35:0
+	sys-devel/gettext:0
+	virtual/pkgconfig:0"
 RDEPEND="${COMMON_DEPEND}"
 
 DOCS=( AUTHORS NEWS README )
@@ -48,8 +45,6 @@ src_prepare() {
 }
 
 src_configure() {
-	# Passing --disable-help would drop offline help, that would be inconsistent
-	# with helps of the most of GNOME apps that doesn't require network for that.
 	gnome2_src_configure \
 		--enable-null \
 		$(use_enable alsa) \

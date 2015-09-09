@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -18,12 +18,12 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 
-IUSE="X debug libnotify policykit pulseaudio smartcard"
+IUSE="X -debug libnotify policykit pulseaudio smartcard"
 
 COMMON_DEPEND=">=dev-libs/dbus-glib-0.74:0
-	>=dev-libs/glib-2.17.3:2
-	~mate-base/libmatekbd-9999
-	~mate-base/mate-desktop-9999
+	>=dev-libs/glib-2.36:2
+	~mate-base/libmatekbd-9999:0
+	~mate-base/mate-desktop-9999:0
 	media-libs/fontconfig:1.0
 	>=gnome-base/dconf-0.13.4:0
 	x11-libs/cairo:0
@@ -51,7 +51,7 @@ DEPEND="${COMMON_DEPEND}
 	x11-proto/inputproto:0
 	x11-proto/xproto:0"
 RDEPEND="${COMMON_DEPEND}"
-	
+
 DOCS=( AUTHORS NEWS README )
 
 src_unpack() {

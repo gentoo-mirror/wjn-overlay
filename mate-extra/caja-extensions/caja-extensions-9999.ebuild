@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -9,7 +9,7 @@ GNOME2_LA_PUNT="yes"
 
 inherit autotools eutils git-r3 gnome2
 
-DESCRIPTION="Several Caja extensions"
+DESCRIPTION="Several extensions for Caja file manager"
 HOMEPAGE="http://mate-desktop.org/"
 SRC_URI=""
 EGIT_REPO_URI="git://github.com/mate-desktop/${PN}.git"
@@ -18,31 +18,33 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 
-SENDTO="cdr doc gajim +mail pidgin upnp"
-IUSE="image-converter +open-terminal share ${SENDTO}"
+SENDTO="cdr drive gajim mail pidgin upnp"
+IUSE="${SENDTO} gksu image-converter +open-terminal share wallpaper"
+REQUIRED_USE="gksu? ( open-terminal )"
 
-COMMON_DEPEND=">=x11-libs/gtk+-2.18:2
-	>=dev-libs/glib-2.26:2
-	>=mate-base/caja-1.8:0
+COMMON_DEPEND=">=x11-libs/gtk+-2.24.0:2
+	>=dev-libs/glib-2.36.0:2
+	~mate-base/caja-9999:0
 	virtual/libintl:0
 	x11-libs/gdk-pixbuf:2
-	cdr? ( >=app-cdr/brasero-2.32.1:0= )
 	gajim? ( net-im/gajim:0
 		>=dev-libs/dbus-glib-0.60:0
-		>=sys-apps/dbus-1:0 )
-	open-terminal? ( ~mate-base/mate-desktop-9999 )
+		>=sys-apps/dbus-1.0:0 )
+	open-terminal? ( ~mate-base/mate-desktop-9999:0 )
 	pidgin? ( >=dev-libs/dbus-glib-0.60:0 )
 	upnp? ( >=net-libs/gupnp-0.13:0= )"
 DEPEND="${COMMON_DEPEND}
-	>=dev-util/intltool-0.18:*
-	~mate-base/mate-common-9999
-	sys-devel/gettext:*
-	virtual/pkgconfig:*
-	!!mate-extra/mate-file-manager-open-terminal
-	!!mate-extra/mate-file-manager-sendto
-	!!mate-extra/mate-file-manager-image-converter
-	!!mate-extra/mate-file-manager-share"
-RDEPEND="${COMMON_DEPEND}"
+	>=dev-util/gtk-doc-1.9:0
+	>=dev-util/intltool-0.18:0
+	~mate-base/mate-common-9999:0
+	sys-devel/gettext:0
+	virtual/pkgconfig:0
+	!!mate-extra/mate-file-manager-open-terminal:*
+	!!mate-extra/mate-file-manager-sendto:*
+	!!mate-extra/mate-file-manager-image-converter:*
+	!!mate-extra/mate-file-manager-share:*"
+RDEPEND="${COMMON_DEPEND}
+	gksu? ( x11-libs/gksu:0 )"
 
 DOCS=( AUTHORS NEWS README )
 
@@ -56,23 +58,22 @@ src_prepare() {
 }
 
 src_configure() {
-	MY_CONF=""
-
-	if use cdr || use mail || use pidgin || use gajim || use upnp ; then
-		MY_CONF="${MY_CONF} --enable-sendto"
-		MY_CONF="${MY_CONF} --with-sendto-plugins=removable-devices"
+	if use cdr || use drive || use mail || use pidgin || use gajim || use upnp ; then
+		MY_CONF="--enable-sendto --with-sendto-plugins="
 		use cdr && MY_CONF="${MY_CONF},caja-burn"
+		use drive && MY_CONF="${MY_CONF},removable-devices"
 		use mail && MY_CONF="${MY_CONF},emailclient"
 		use pidgin && MY_CONF="${MY_CONF},pidgin"
 		use gajim && MY_CONF="${MY_CONF},gajim"
 		use upnp && MY_CONF="${MY_CONF},upnp"
 	else
-		MYCONF="${MY_CONF} --disable-sendto"
+		MY_CONF="--disable-sendto"
 	fi
 
 	gnome2_src_configure ${MY_CONF} \
-		--disable-gksu \
+		$(use_enable gksu) \
 		$(use_enable image-converter) \
 		$(use_enable open-terminal) \
-		$(use_enable share)
+		$(use_enable share) \
+		$(use_enable wallpaper)
 }

@@ -1,13 +1,13 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
 GCONF_DEBUG="yes"
 GNOME2_LA_PUNT="yes"
 
-PYTHON_COMPAT=( python2_6 python2_7 )
+PYTHON_COMPAT=( python2_7 )
 
 inherit autotools git-r3 gnome2 multilib python-r1
 
@@ -20,29 +20,31 @@ LICENSE="GPL-2 FDL-1.1 LGPL-2"
 SLOT="0"
 KEYWORDS=""
 
-IUSE="X doc startup-notification"
+IUSE="X doc introspection startup-notification"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 COMMON_DEPEND="${PYTHON_DEPS}
 	>=dev-libs/glib-2.36:2
 	>=dev-libs/libunique-1:1
+	>=gnome-base/dconf-0.13.4:0
 	x11-libs/cairo:0
 	>=x11-libs/gdk-pixbuf-2.4:2
 	>=x11-libs/gtk+-2.24:2
 	x11-libs/libX11:0
-	>=x11-libs/libXrandr-1.2:0
+	>=x11-libs/libXrandr-1.3:0
 	virtual/libintl:0
 	startup-notification? ( >=x11-libs/startup-notification-0.5:0 )"
 DEPEND="${COMMON_DEPEND}
 	app-text/docbook-xml-dtd:4.1.2
 	app-text/yelp-tools:0
-	>=dev-util/intltool-0.40:*
+	>=dev-util/intltool-0.50.1:0
 	>=gnome-base/dconf-0.10:0
-	sys-devel/gettext:*
+	sys-devel/gettext:0
 	>=x11-proto/randrproto-1.2:0
 	x11-proto/xproto:0
-	virtual/pkgconfig:*
-	doc? ( >=dev-util/gtk-doc-1.4 )"
+	virtual/pkgconfig:0
+	doc? ( >=dev-util/gtk-doc-1.4:0 )
+	introspection? ( >=dev-libs/gobject-introspection-0.9.7:0 )"
 RDEPEND="${COMMON_DEPEND}"
 
 DOCS=( AUTHORS ChangeLog HACKING MAINTAINERS NEWS README )
@@ -63,6 +65,7 @@ src_configure() {
 		--with-gtk=2.0 \
 		$(use_with X x) \
 		$(use_enable doc gtk-doc) \
+		$(use_enable introspection) \
 		$(use_enable startup-notification)
 }
 

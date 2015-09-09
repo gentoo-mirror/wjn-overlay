@@ -1,10 +1,11 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
 GCONF_DEBUG="yes"
+GNOME2_LA_PUNT="yes"
 
 inherit autotools git-r3 gnome2
 
@@ -23,36 +24,36 @@ IUSE="ipv6 elibc_FreeBSD gnome-keyring systemd upower"
 # create .config/user-dirs.dirs which is read by glib to get G_USER_DIRECTORY_*
 # xdg-user-dirs-update is run during login (see 10-user-dirs-update-gnome below).
 
-COMMON_DEPEND=">=dev-libs/dbus-glib-0.76
-	>=dev-libs/glib-2.25:2
-	dev-libs/libxslt
-	sys-apps/dbus
-	x11-apps/xdpyinfo
+COMMON_DEPEND=">=dev-libs/dbus-glib-0.76:0
+	>=dev-libs/glib-2.36:2
+	dev-libs/libxslt:0
+	sys-apps/dbus:0
+	x11-apps/xdpyinfo:0
 	x11-libs/gdk-pixbuf:2
 	>=x11-libs/gtk+-2.14:2
-	x11-libs/libICE
-	x11-libs/libSM
-	x11-libs/libX11
-	x11-libs/libXau
-	x11-libs/libXext
-	x11-libs/libXrender
-	x11-libs/libXtst
-	x11-libs/pango
-	x11-libs/xtrans
-	x11-misc/xdg-user-dirs
-	x11-misc/xdg-user-dirs-gtk
-	virtual/libintl
-	elibc_FreeBSD? ( dev-libs/libexecinfo )
-	gnome-keyring? ( gnome-base/gnome-keyring )
-	systemd? ( sys-apps/systemd )
+	x11-libs/libICE:0
+	x11-libs/libSM:0
+	x11-libs/libX11:0
+	x11-libs/libXau:0
+	x11-libs/libXext:0
+	x11-libs/libXrender:0
+	x11-libs/libXtst:0
+	x11-libs/pango:0
+	x11-libs/xtrans:0
+	x11-misc/xdg-user-dirs:0
+	x11-misc/xdg-user-dirs-gtk:0
+	virtual/libintl:0
+	elibc_FreeBSD? ( dev-libs/libexecinfo:0 )
+	gnome-keyring? ( gnome-base/gnome-keyring:0 )
+	systemd? ( sys-apps/systemd:0 )
 	upower? ( >=sys-power/upower-pm-utils-0.9.23 )"
 DEPEND="${COMMON_DEPEND}
-	>=dev-util/intltool-0.40:*
-	>=dev-lang/perl-5
-	~mate-base/mate-common-9999
-	>=sys-devel/gettext-0.10.40:*
-	virtual/pkgconfig:*
-	!<gnome-base/gdm-2.20.4"
+	>=dev-util/intltool-0.40:0
+	>=dev-lang/perl-5:0
+	~mate-base/mate-common-9999:0
+	>=sys-devel/gettext-0.10.40:0
+	virtual/pkgconfig:0
+	!<gnome-base/gdm-2.20.4:*"
 RDEPEND="${COMMON_DEPEND}"
 
 DOCS=( AUTHORS HACKING MAINTAINERS NEWS README )

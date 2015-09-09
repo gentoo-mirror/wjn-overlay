@@ -1,11 +1,12 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
-PYTHON_COMPAT=( python2_{6,7} )
 GNOME2_LA_PUNT="yes"
+
+PYTHON_COMPAT=( python2_7 )
 
 inherit autotools eutils gnome2 python-single-r1 linux-info user
 
@@ -14,16 +15,16 @@ HOMEPAGE="http://mate-desktop.org/"
 SRC_URI=""
 EGIT_REPO_URI="git://github.com/mate-desktop/${PN}.git"
 
-LICENSE="GPL-2"
+LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
 
-IUSE="debug"
+IUSE="-debug"
 
 COMMON_DEPEND="dev-libs/atk:0
-	>=dev-libs/glib-2.14:2
+	>=dev-libs/glib-2.14.0:2
 	dev-python/pygtk:2[${PYTHON_USEDEP}]
-	~mate-base/caja-9999
+	~mate-base/caja-9999:0
 	media-libs/fontconfig:1.0
 	media-libs/freetype:2
 	net-misc/dropbox:0
@@ -34,7 +35,7 @@ COMMON_DEPEND="dev-libs/atk:0
 	x11-libs/pango:0"
 DEPEND="${COMMON_DEPEND}
 	dev-python/docutils:0
-	virtual/pkgconfig:*"
+	virtual/pkgconfig:0"
 RDEPEND="${COMMON_DEPEND}"
 
 G2CONF="${G2CONF} $(use_enable debug) --disable-static"

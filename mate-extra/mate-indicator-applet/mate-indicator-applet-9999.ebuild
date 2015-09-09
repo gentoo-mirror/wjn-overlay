@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -21,12 +21,12 @@ KEYWORDS=""
 COMMON_DEPEND=">=dev-libs/glib-2.2.0:2
 	>=dev-libs/libindicator-0.4:0
 	~mate-base/mate-panel-9999
-	>=x11-libs/gtk+-2.24:2
+	>=x11-libs/gtk+-2.24.0:2
 	virtual/libintl:0"
 DEPEND="${COMMON_DEPEND}
-	dev-util/intltool:*
-	sys-devel/gettext:*
-	virtual/pkgconfig:*"
+	>=dev-util/intltool-0.35.0:0
+	sys-devel/gettext:0
+	virtual/pkgconfig:0"
 RDEPEND="${COMMON_DEPEND}"
 
 DOCS=( AUTHORS NEWS README )

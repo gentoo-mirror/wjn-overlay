@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -18,17 +18,17 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 
-IUSE="X bluetooth"
+IUSE="X -bluetooth"
 
 COMMON_DEPEND=">=app-mobilephone/obex-data-server-0.4:0
 	>=dev-libs/dbus-glib-0.70:0
 	>=dev-libs/glib-2.15.2:2
 	>=dev-libs/libunique-1:1
-	~mate-base/caja-9999
+	~mate-base/caja-9999:0
 	media-libs/libcanberra:0[gtk]
 	>=sys-apps/dbus-1.1.1:0
 	>=x11-libs/gdk-pixbuf-2:2
-	>=x11-libs/gtk+-2.14:2
+	>=x11-libs/gtk+-2.24.0:2
 	x11-libs/libX11:0
 	x11-libs/pango:0
 	>=x11-libs/libnotify-0.7:0
@@ -40,11 +40,10 @@ COMMON_DEPEND=">=app-mobilephone/obex-data-server-0.4:0
 DEPEND="${COMMON_DEPEND}
 	app-text/docbook-xml-dtd:4.1.2
 	app-text/yelp-tools:0
-	>=dev-util/intltool-0.35:*
-	sys-devel/gettext:*
-	virtual/pkgconfig:*"
+	>=dev-util/intltool-0.35.0:0
+	sys-devel/gettext:0
+	virtual/pkgconfig:0"
 RDEPEND="${COMMON_DEPEND}"
-
 
 DOCS=( AUTHORS NEWS NEWS.GNOME README )
 

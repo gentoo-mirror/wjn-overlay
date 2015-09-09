@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -19,12 +19,13 @@ KEYWORDS=""
 
 COMMON_DEPEND="dev-libs/atk:0
 	>=dev-libs/dbus-glib-0.78:0
-	>=dev-libs/glib-2.18:2
+	>=dev-libs/glib-2.36.0:2
+	gnome-base/gsettings-desktop-schemas:0
 	>=media-libs/libcanberra-0.4:0[gtk]
-	>=sys-apps/dbus-1:0
+	>=sys-apps/dbus-0.78:0
 	x11-libs/cairo:0
-	x11-libs/gdk-pixbuf:2
-	>=x11-libs/gtk+-2.18:2
+	>=x11-libs/gdk-pixbuf-2.22.0:2
+	>=x11-libs/gtk+-2.24.0:2
 	>=x11-libs/libnotify-0.7:0
 	x11-libs/libX11:0
 	>=x11-libs/libwnck-1:1
@@ -34,10 +35,10 @@ COMMON_DEPEND="dev-libs/atk:0
 	!x11-misc/notification-daemon:*"
 DEPEND="${COMMON_DEPEND}
 	app-arch/xz-utils:0
-	>=dev-util/intltool-0.40:*
-	sys-devel/gettext:*
+	>=dev-util/intltool-0.40.0:0
+	sys-devel/gettext:0
 	>=sys-devel/libtool-2.2.6:2
-	virtual/pkgconfig:*"
+	virtual/pkgconfig:0"
 RDEPEND="${COMMON_DEPEND}"
 
 DOCS=( AUTHORS NEWS NEWS.GNOME README )

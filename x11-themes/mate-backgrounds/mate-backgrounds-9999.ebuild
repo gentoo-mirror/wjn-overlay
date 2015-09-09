@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -17,8 +17,9 @@ LICENSE="CC-BY-SA-4.0 GPL-2+"
 SLOT="0"
 KEYWORDS=""
 
-DEPEND=">=dev-util/intltool-0.35:*
-	sys-devel/gettext:*"
+DEPEND=">=dev-util/intltool-0.35.0:0
+	sys-devel/gettext:0"
+RDEPEND=""
 
 DOCS=( AUTHORS NEWS NEWS.GNOME README )
 

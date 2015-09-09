@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -17,9 +17,9 @@ SLOT="0"
 LICENSE="GPL-2"
 KEYWORDS=""
 
-COMMON_DEPEND="dev-libs/glib:2
+COMMON_DEPEND=">=dev-libs/glib-2.36:2
 	>=gnome-base/libgtop-2.14.2:2
-	~mate-base/mate-panel-9999
+	~mate-base/mate-panel-9999:0
 	>=net-wireless/wireless-tools-28_pre9:0
 	x11-libs/gdk-pixbuf:2
 	x11-libs/gtk+:2
@@ -27,9 +27,9 @@ COMMON_DEPEND="dev-libs/glib:2
 	virtual/libintl:0"
 DEPEND="${COMMON_DEPEND}
 	app-text/yelp-tools:0
-	>=dev-util/intltool-0.35:*
-	sys-devel/gettext:*
-	virtual/pkgconfig:*"
+	>=dev-util/intltool-0.50.1:0
+	sys-devel/gettext:0
+	virtual/pkgconfig:0"
 RDEPEND="${COMMON_DEPEND}"
 
 DOCS=( AUTHORS NEWS README TODO )

@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -16,12 +16,13 @@ SLOT="0"
 KEYWORDS=""
 IUSE="minimal"
 
+DEPEND=""
 RDEPEND="!minimal? ( >=x11-themes/mate-icon-theme-1.6:0 )
 	x11-themes/hicolor-icon-theme:0"
 
 RESTRICT="binchecks strip"
 
-DOCS=( NEWS README )
+DOCS=( AUTHORS NEWS README )
 
 src_unpack() {
 	git-r3_src_unpack

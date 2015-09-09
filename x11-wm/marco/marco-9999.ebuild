@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -20,13 +20,13 @@ KEYWORDS=""
 IUSE="startup-notification test xinerama"
 
 COMMON_DEPEND="dev-libs/atk:0
-	>=dev-libs/glib-2.25.10:2
-	>=gnome-base/libgtop-2:2=
-	gnome-extra/zenity
+	>=dev-libs/glib-2.32.0:2
+	>=gnome-base/libgtop-2.0:2=
+	gnome-extra/zenity:0
 	media-libs/libcanberra:0[gtk]
 	x11-libs/cairo:0
 	x11-libs/gdk-pixbuf:2
-	>=x11-libs/gtk+-2.20:2
+	>=x11-libs/gtk+-2.24.0:2
 	x11-libs/libICE:0
 	x11-libs/libSM:0
 	x11-libs/libX11:0
@@ -37,16 +37,17 @@ COMMON_DEPEND="dev-libs/atk:0
 	x11-libs/libXfixes:0
 	x11-libs/libXrandr:0
 	x11-libs/libXrender:0
-	>=x11-libs/pango-1.2:0[X]
+	x11-libs/libxkbcommon:0
+	>=x11-libs/pango-1.2.0:0[X]
 	>=x11-libs/startup-notification-0.7:0
 	virtual/libintl:0
 	xinerama? ( x11-libs/libXinerama:0 )
-	!!x11-wm/mate-window-manager"
+	!!x11-wm/mate-window-manager:*"
 DEPEND="${COMMON_DEPEND}
 	app-text/yelp-tools:0
-	>=dev-util/intltool-0.34.90:*
-	sys-devel/gettext:*
-	virtual/pkgconfig:*
+	>=dev-util/intltool-0.34.90:0
+	sys-devel/gettext:0
+	virtual/pkgconfig:0
 	x11-proto/xextproto:0
 	x11-proto/xproto:0
 	test? ( app-text/docbook-xml-dtd:4.5 )
