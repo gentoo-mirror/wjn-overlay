@@ -18,7 +18,8 @@ LICENSE="GPL-2 FDL-1.1 LGPL-2"
 SLOT="0"
 KEYWORDS=""
 
-IUSE="X -cpufrequtils ipv6 networkmanager policykit"
+# IUSE="X -cpufrequtils ipv6 networkmanager policykit"
+IUSE="X ipv6 networkmanager policykit"
 
 COMMON_DEPEND="${PYTHON_DEPS}
 	app-text/rarian:0
@@ -64,7 +65,7 @@ src_unpack() {
 }
 
 src_prepare() {
-	use cpufrequtils || epatch "${FILESDIR}"/${PN}-1.6.2-r1-replace-cpufreq-by-cpupower.patch
+# 	use cpufrequtils || epatch "${FILESDIR}"/${PN}-1.6.2-r1-replace-cpufreq-by-cpupower.patch
 	eautoreconf
 }
 

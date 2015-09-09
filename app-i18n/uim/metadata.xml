@@ -25,6 +25,7 @@ Anthy, SKK, Prime, T-code, TUT-code (these are Japanese input method),
 	<flag name='gtk'>Enable support for <pkg>x11-libs/gtk+</pkg>:2</flag>
 	<flag name='gtk3'>Enable support for <pkg>x11-libs/gtk+</pkg>:3</flag>
 	<flag name='kde'>Enable support for <pkg>kde-base/kdelibs</pkg></flag>
+	<flag name='qt3support'>Enable support for <pkg>dev-qt/qtgui:4[qt3support]</pkg></flag>
 	<flag name='skk'>Enable support for <pkg>app-i18n/skk-jisyo</pkg></flag>
 </use>
 </pkgmetadata>

@@ -4,6 +4,9 @@
 	<maintainer>
 		<email>wjn@aol.jp</email>
 	</maintainer>
+	<use>
+	<flag name='appindicator'>Support <pkg>dev-libs/libappindicator</pkg></flag>
+	</use>
     <upstream>
         <remote-id type="github">mate-desktop/mate-control-center</remote-id>
     </upstream>

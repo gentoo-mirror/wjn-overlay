@@ -20,7 +20,9 @@
 	<flag name='filewriter'>Enable outputing to file</flag>
 	<flag name='flac'>Support FLAC decode and encode</flag>
 	<flag name="gnome">Enable GNOME shortcut</flag>
-	<flag name="gtk">Enable GTK+2 User Interface (<pkg>x11-libs/gtk+:2</pkg>)</flag>
+	<flag name="gtk">Enable GTK+ User Interface (<pkg>x11-libs/gtk+</pkg>)</flag>
+	<flag name="gtk3">Link against version 3 of the GIMP Toolkit (<pkg>x11-libs/gtk+:3</pkg>) instead of version 2</flag>
+	<flag name='http'>Support neon HTTP transport</flag>
 	<flag name='jack'>Support JACK Audio Connection Kit output</flag>
 	<flag name='lame'>Support mp3 output to file</flag>
 	<flag name='libav'>Support Libav library <pkg>media-video/libav</pkg></flag>
@@ -31,7 +33,6 @@
 	<flag name='mms'>Support Microsoft Media Server media streaming protocol</flag>
 	<flag name='modplug'>Support module (modplug) decode</flag>
 	<flag name='mp3'>Support MPEG 1/2 Audio decode</flag>
-	<flag name='neon'>Support neon HTTP transport</flag>
 	<flag name='pulseaudio'>Support PulseAudio output</flag>
 	<flag name="qt5">Enable experimental Qt5 UI and output (<pkg>dev-qt/qtgui:5</pkg>, <pkg>dev-qt/qtmultimedia:5</pkg>)</flag>	
 	<flag name='scrobbler'>Enable scrobbler/LastFM submission support</flag>

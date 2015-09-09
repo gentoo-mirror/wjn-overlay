@@ -21,6 +21,7 @@ LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS=""
 IUSE="+gtk -gtk3 qt5"
+REQUIRED_USE="gtk3? ( gtk )"
 
 COMMON_DEPEND=">=dev-libs/glib-2.28
 	dev-libs/libxml2

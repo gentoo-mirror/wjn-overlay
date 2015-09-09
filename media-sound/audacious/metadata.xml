@@ -23,7 +23,8 @@ to set an alarm in the morning, and more.
 </upstream>
 <use>
 	<flag name="chardet">Try to handle non-UTF8 CJK ID3 tags (<pkg>app-i18n/libguess</pkg>)</flag>
-	<flag name="gtk">Enable GTK+2 User Interface (<pkg>x11-libs/gtk+:2</pkg>)</flag>
+	<flag name="gtk">Enable GTK+ User Interface (<pkg>x11-libs/gtk+</pkg>)</flag>
+	<flag name="gtk3">Link against version 3 of the GIMP Toolkit instead of version 2 (x11-libs/gtk+)</flag>
 	<flag name="qt5">Enable Qt5 UI and output (<pkg>dev-qt/qtgui:5</pkg>, <pkg>dev-qt/qtmultimedia:5</pkg>)</flag>
 </use>
 </pkgmetadata>
