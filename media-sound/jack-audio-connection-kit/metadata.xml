@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer>
+		<email>wjn@aol.jp</email>
+	</maintainer>
+  <use>
+	<flag name="pam">Add basic realime configuration via <pkg>sys-auth/realtime-base</pkg></flag>
+  </use>
+</pkgmetadata>
