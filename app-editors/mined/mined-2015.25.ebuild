@@ -3,7 +3,6 @@
 # $Id$
 
 EAPI=5
-inherit 
 
 DESCRIPTION="a terminal-based Text Editor with extensive Unicode and CJK support"
 HOMEPAGE="http://towo.net/mined/"
