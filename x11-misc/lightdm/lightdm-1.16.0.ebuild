@@ -7,8 +7,9 @@ inherit autotools eutils pam readme.gentoo systemd versionator
 
 TRUNK_VERSION="$(get_version_component_range 1-2)"
 DESCRIPTION="A lightweight display manager"
-HOMEPAGE="http://www.freedesktop.org/wiki/Software/LightDM"
-SRC_URI="http://launchpad.net/${PN}/${TRUNK_VERSION}/${PV}/+download/${P}.tar.xz
+HOMEPAGE="http://www.freedesktop.org/wiki/Software/LightDM
+	https://launchpad.net/lightdm"
+SRC_URI="https://launchpad.net/${PN}/${TRUNK_VERSION}/${PV}/+download/${P}.tar.xz
 	mirror://gentoo/introspection-20110205.m4.tar.bz2"
 
 LICENSE="GPL-3 LGPL-3"
@@ -16,14 +17,14 @@ SLOT="0"
 KEYWORDS=""
 IUSE="+gnome +gtk +introspection kde qt4 qt5"
 REQUIRED_USE="|| ( gtk kde )
-	|| ( qt4 qt5 )"
+	qt4? ( !qt5 )"
 
 COMMON_DEPEND=">=dev-libs/glib-2.32.3:2
 	dev-libs/libxml2
+	gnome? ( sys-apps/accountsservice )
 	virtual/pam
 	x11-libs/libX11
 	>=x11-libs/libxklavier-5
-	gnome? ( sys-apps/accountsservice )
 	introspection? ( >=dev-libs/gobject-introspection-1 )
 	qt4? ( dev-qt/qtcore:4
 		dev-qt/qtdbus:4
@@ -31,23 +32,20 @@ COMMON_DEPEND=">=dev-libs/glib-2.32.3:2
 	qt5? ( dev-qt/qtcore:5
 		dev-qt/qtdbus:5
 		dev-qt/qtgui:5 )"
+
+RDEPEND="${COMMON_DEPEND}
+	>=sys-auth/pambase-20101024-r2"
 DEPEND="${COMMON_DEPEND}
 	dev-util/gtk-doc-am
 	dev-util/intltool
+	gnome? ( gnome-base/gnome-common )
 	sys-devel/gettext
-	virtual/pkgconfig
-	gnome? ( gnome-base/gnome-common )"
-RDEPEND="${COMMON_DEPEND}
-	>=sys-auth/pambase-20101024-r2"
+	virtual/pkgconfig"
 PDEPEND="gtk? ( x11-misc/lightdm-gtk-greeter )
 	kde? ( x11-misc/lightdm-kde )"
 
 DOCS=( NEWS )
 RESTRICT="test"
-
-pkg_setup() {
-	use qt5 && export PATH="/usr/$(get_libdir)/qt5/bin/:${PATH}"
-}
 
 src_prepare() {
 	sed -i -e 's:getgroups:lightdm_&:' tests/src/libsystem.c || die #412369
