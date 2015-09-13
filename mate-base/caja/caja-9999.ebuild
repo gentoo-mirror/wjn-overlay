@@ -17,17 +17,15 @@ EGIT_REPO_URI="git://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-2 LGPL-2 FDL-1.1"
 SLOT="0"
 KEYWORDS=""
+IUSE="doc -gtk3 +mate +introspection +unique xmp"
 
-IUSE="doc +mate +introspection +unique xmp"
-
-COMMON_DEPEND="dev-libs/atk:0
+COMMON_DEPEND="dev-libs/atk:0[introspection?]
 	>=dev-libs/glib-2.36.0:2
 	>=dev-libs/libxml2-2.4.7:2
 	gnome-base/dconf:0
 	>=gnome-base/gvfs-1.10.1:0[udisks]
-	~mate-base/mate-desktop-9999:0
+	~mate-base/mate-desktop-9999:0[gtk3?]
 	>=media-libs/libexif-0.6.14:0
-	>=x11-libs/gtk+-2.24.0:2[introspection?]
 	x11-libs/cairo:0
 	x11-libs/gdk-pixbuf:2
 	x11-libs/libICE:0
@@ -38,11 +36,12 @@ COMMON_DEPEND="dev-libs/atk:0
 	x11-libs/libXrender:0
 	>=x11-libs/pango-1.1.2:0
 	virtual/libintl:0
+	!gtk3? ( >=x11-libs/gtk+-2.24.0:2[introspection?] )
+	gtk3? ( >=x11-libs/gtk+-3.0.0:3[introspection?] )
 	introspection? ( >=dev-libs/gobject-introspection-0.6.4:0 )
 	unique? ( >=dev-libs/libunique-1:1 )
 	xmp? ( >=media-libs/exempi-1.99.5:2 )"
 DEPEND="${COMMON_DEPEND}
-	!!mate-base/mate-file-manager:*
 	>=dev-lang/perl-5:0=
 	dev-util/gdbus-codegen:0
 	>=dev-util/intltool-0.50.1:0
@@ -50,7 +49,8 @@ DEPEND="${COMMON_DEPEND}
 	sys-apps/sed:0
 	sys-devel/gettext:0
 	virtual/pkgconfig:0
-	doc? ( >=dev-util/gtk-doc-1.4:0 )"
+	doc? ( >=dev-util/gtk-doc-1.4:0 )
+	!!mate-base/mate-file-manager:*"
 RDEPEND="${COMMON_DEPEND}"
 PDEPEND="mate? ( ~x11-themes/mate-icon-theme-9999:0 )"
 
@@ -77,8 +77,8 @@ src_configure() {
 		--enable-unique \
 		--disable-packagekit \
 		--disable-update-mimedb \
-		--with-gtk=2.0 \
 		$(use_enable doc gtk-doc) \
+		--with-gtk=$(usex gtk3 '3.0' '2.0') \
 		$(use_enable introspection) \
 		$(use_enable unique) \
 		$(use_enable xmp)

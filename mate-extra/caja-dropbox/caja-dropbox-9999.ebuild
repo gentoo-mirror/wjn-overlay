@@ -18,13 +18,12 @@ EGIT_REPO_URI="git://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
-
 IUSE="-debug"
 
 COMMON_DEPEND="dev-libs/atk:0
 	>=dev-libs/glib-2.14.0:2
 	dev-python/pygtk:2[${PYTHON_USEDEP}]
-	~mate-base/caja-9999:0
+	~mate-base/caja-9999:0[-gtk3]
 	media-libs/fontconfig:1.0
 	media-libs/freetype:2
 	net-misc/dropbox:0

@@ -17,16 +17,17 @@ EGIT_REPO_URI="git://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-
-IUSE="+dbus hddtemp libnotify lm_sensors video_cards_fglrx video_cards_nvidia"
+IUSE="+dbus -gtk3 hddtemp libnotify lm_sensors
+	video_cards_fglrx video_cards_nvidia"
 
 COMMON_DEPEND="app-text/rarian:0
 	>=dev-libs/glib-2.36:2
-	~mate-base/mate-panel-9999:0
+	~mate-base/mate-panel-9999:0[gtk3?]
 	>=x11-libs/cairo-1.0.4:0
 	x11-libs/gdk-pixbuf:2
-	>=x11-libs/gtk+-2.14:2
 	virtual/libintl:0
+	!gtk3? ( >=x11-libs/gtk+-2.24.0:2 )
+	gtk3? ( >=x11-libs/gtk+-3.0.0:3 )
 	hddtemp? ( dbus? ( >=dev-libs/dbus-glib-0.80:0
 			>=dev-libs/libatasmart-0.16:0 )
 		!dbus? ( >=app-admin/hddtemp-0.3_beta13:0 ) )
@@ -68,6 +69,7 @@ src_configure() {
 
 	gnome2_src_configure \
 		--disable-static \
+		--with-gtk=$(usex gtk3 '3.0' '2.0') \
 		$(use_enable libnotify) \
 		$(use_with lm_sensors libsensors) \
 		$(use_with video_cards_fglrx aticonfig) \

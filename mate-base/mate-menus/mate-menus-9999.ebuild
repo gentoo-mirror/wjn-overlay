@@ -6,7 +6,8 @@ EAPI=5
 
 GCONF_DEBUG="no"
 GNOME2_LA_PUNT="yes"
-PYTHON_COMPAT=( python2_{6,7} )
+
+PYTHON_COMPAT=( python2_7 )
 
 inherit autotools git-r3 gnome2 python-r1
 
@@ -18,7 +19,6 @@ EGIT_REPO_URI="git://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-2 LGPL-2"
 SLOT="0"
 KEYWORDS=""
-
 IUSE="debug +introspection python"
 
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
@@ -29,10 +29,10 @@ COMMON_DEPEND=">=dev-libs/glib-2.15.2:2
 	python? ( dev-python/pygtk:2[${PYTHON_USEDEP}]
 		${PYTHON_DEPS} )"
 DEPEND="${COMMON_DEPEND}
-	>=dev-util/intltool-0.40:*
+	>=dev-util/intltool-0.40:0
 	~mate-base/mate-common-9999
-	sys-devel/gettext:*
-	virtual/pkgconfig:*"
+	sys-devel/gettext:0
+	virtual/pkgconfig:0"
 RDEPEND="${COMMON_DEPEND}"
 
 DOCS="AUTHORS NEWS README"

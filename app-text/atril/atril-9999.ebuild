@@ -18,29 +18,30 @@ EGIT_REPO_URI="git://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-
-IUSE="caja dbus debug djvu doc dvi +introspection gnome-keyring +ps t1lib tiff xps"
+IUSE="caja dbus debug djvu doc dvi -gtk3 +introspection gnome-keyring +ps
+	t1lib tiff xps"
 
 COMMON_DEPEND=">=app-text/poppler-0.16.0:0=[cairo]
 	app-text/rarian:0
 	dev-libs/atk:0
 	>=dev-libs/glib-2.36.0:2
 	>=dev-libs/libxml2-2.5.0:2
-	~mate-base/mate-desktop-9999:0
+	~mate-base/mate-desktop-9999:0[gtk3?]
 	sys-libs/zlib:0
-	x11-libs/gdk-pixbuf:2
-	>=x11-libs/gtk+-2.21.5:2[introspection?]
+	x11-libs/gdk-pixbuf:2[introspection?]
 	x11-libs/libICE:0
 	>=x11-libs/libSM-1:0
 	x11-libs/libX11:0
 	>=x11-libs/cairo-1.9.10:0
 	x11-libs/pango:0
 	~x11-themes/mate-icon-theme-9999:0
-	caja? ( ~mate-base/caja-9999[introspection?] )
+	caja? ( ~mate-base/caja-9999[gtk3?,introspection?] )
 	djvu? ( >=app-text/djvu-3.5.17:0 )
 	dvi? ( virtual/tex-base:0
 		t1lib? ( >=media-libs/t1lib-5:5 ) )
 	gnome-keyring? ( >=app-crypt/libsecret-0.5:0 )
+	!gtk3? ( >=x11-libs/gtk+-2.24.0:2[introspection?] )
+	gtk3? ( >=x11-libs/gtk+-3.0.0:3[introspection?] )
 	introspection? ( >=dev-libs/gobject-introspection-0.6:0 )
 	ps? ( >=app-text/libspectre-0.2.0:0 )
 	tiff? ( >=media-libs/tiff-3.6:0 )
@@ -80,12 +81,12 @@ src_configure() {
 		--enable-thumbnailer \
 		--with-smclient=xsmp \
 		--with-platform=mate \
-		--with-gtk=2.0 \
 		$(use_enable dbus) \
 		$(use_enable djvu) \
 		$(use_enable doc gtk-doc) \
 		$(use_enable dvi) \
 		$(use_with gnome-keyring keyring) \
+		--with-gtk=$(usex gtk3 '3.0' '2.0') \
 		$(use_enable introspection) \
 		$(use_enable caja) \
 		$(use_enable ps) \

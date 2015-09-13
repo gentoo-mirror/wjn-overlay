@@ -16,8 +16,7 @@ EGIT_REPO_URI="git://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-
-IUSE="X consolekit kernel_linux libnotify opengl pam systemd"
+IUSE="X consolekit -gtk3 kernel_linux libnotify opengl pam systemd"
 
 DOC_CONTENTS="
 	Information for converting screensavers is located in
@@ -27,12 +26,11 @@ DOC_CONTENTS="
 COMMON_DEPEND=">=dev-libs/dbus-glib-0.71:0
 	>=dev-libs/glib-2.36:2
 	gnome-base/dconf:0
-	~mate-base/libmatekbd-9999:0
-	~mate-base/mate-desktop-9999:0
+	~mate-base/libmatekbd-9999:0[gtk3?]
+	~mate-base/mate-desktop-9999:0[gtk3?]
 	~mate-base/mate-menus-9999:0
 	>=sys-apps/dbus-0.30:0
 	>=x11-libs/gdk-pixbuf-2.14:2
-	>=x11-libs/gtk+-2.14:2
 	>=x11-libs/libX11-1:0
 	x11-libs/cairo:0
 	x11-libs/libXext:0
@@ -44,11 +42,13 @@ COMMON_DEPEND=">=dev-libs/dbus-glib-0.71:0
 	x11-libs/pango:0
 	virtual/libintl:0
 	consolekit? ( sys-auth/consolekit:0 )
-	systemd? ( sys-apps/systemd:0= )
+	!gtk3? ( >=x11-libs/gtk+-2.24.0:2 )
+	gtk3? ( >=x11-libs/gtk+-3.0.0:3 )
 	libnotify? ( >=x11-libs/libnotify-0.7:0 )
 	opengl? ( virtual/opengl:0 )
 	pam? ( gnome-base/gnome-keyring:0 virtual/pam:0 )
 	!pam? ( kernel_linux? ( sys-apps/shadow:0 ) )
+	systemd? ( sys-apps/systemd:0= )
 	!!<gnome-extra/gnome-screensaver-3:*"
 DEPEND="${COMMON_DEPEND}
 	>=dev-util/intltool-0.35:0
@@ -74,18 +74,19 @@ src_prepare() {
 
 src_configure() {
 	gnome2_src_configure \
-		$(use_with consolekit console-kit) \
-		$(use_enable debug) \
-		$(use_with libnotify) \
-		$(use_with opengl libgl) \
-		$(use_enable pam) \
-		$(use_with systemd) \
-		$(use_with X x) \
 		--enable-locking \
 		--with-kbd-layout-indicator \
 		--with-xf86gamma-ext \
 		--with-xscreensaverdir=/usr/share/xscreensaver/config \
-		--with-xscreensaverhackdir=/usr/$(get_libdir)/misc/xscreensaver
+		--with-xscreensaverhackdir=/usr/$(get_libdir)/misc/xscreensaver \
+		$(use_with X x) \
+		$(use_with consolekit console-kit) \
+		$(use_enable debug) \
+		--with-gtk=$(usex gtk3 '3.0' '2.0') \
+		$(use_with libnotify) \
+		$(use_with opengl libgl) \
+		$(use_enable pam) \
+		$(use_with systemd)
 }
 
 src_install() {

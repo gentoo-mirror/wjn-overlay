@@ -17,29 +17,29 @@ EGIT_REPO_URI="git://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-
-IUSE="X -debug libnotify policykit pulseaudio smartcard"
+IUSE="X -debug -gtk3 libnotify policykit pulseaudio smartcard"
 
 COMMON_DEPEND=">=dev-libs/dbus-glib-0.74:0
 	>=dev-libs/glib-2.36:2
-	~mate-base/libmatekbd-9999:0
-	~mate-base/mate-desktop-9999:0
+	~mate-base/libmatekbd-9999:0[gtk3?]
+	~mate-base/mate-desktop-9999:0[gtk3?]
 	media-libs/fontconfig:1.0
 	>=gnome-base/dconf-0.13.4:0
 	x11-libs/cairo:0
 	x11-libs/gdk-pixbuf:2
-	>=x11-libs/gtk+-2.24:2
 	x11-libs/libX11:0
 	x11-libs/libXi:0
 	x11-libs/libXext:0
 	x11-libs/libXxf86misc:0
 	>=x11-libs/libxklavier-5:0
 	virtual/libintl:0
+	!gtk3? ( >=x11-libs/gtk+-2.24.0:2 )
+	gtk3? ( >=x11-libs/gtk+-3.0.0:3 )
 	libnotify? ( >=x11-libs/libnotify-0.7:0 )
 	policykit? ( >=dev-libs/dbus-glib-0.71:0
 		>=sys-apps/dbus-1.1.2:0
 		>=sys-auth/polkit-0.97:0 )
-	pulseaudio? ( media-libs/libcanberra:0[gtk]
+	pulseaudio? ( media-libs/libcanberra:0[gtk,gtk3?]
 		>=media-sound/pulseaudio-0.9.15:0 )
 	!pulseaudio? ( >=media-libs/gstreamer-0.10.1.2:0.10
 		>=media-libs/gst-plugins-base-0.10.1.2:0.10 )
@@ -59,20 +59,17 @@ src_unpack() {
 }
 
 src_prepare() {
-	# mouse: Use event driven mode for syndaemon
-	# epatch "${FILESDIR}/${PN}-1.2.0-syndaemon-mode.patch"
-
 	eautoreconf
 	gnome2_src_prepare
 }
 
 src_configure() {
 	gnome2_src_configure \
-		$(use_with libnotify) \
+		$(use_with X x) \
 		$(use_enable debug) \
+		--with-gtk=$(usex gtk3 '3.0' '2.0') \
+		$(use_with libnotify) \
 		$(use_enable policykit polkit) \
-		$(use_enable pulseaudio pulse) \
-		$(use_enable !pulseaudio gstreamer) \
-		$(use_enable smartcard smartcard-support) \
-		$(use_with X x)
+		--enable-$(usex pulseaudio pulse gstreamer) \
+		$(use_enable smartcard smartcard-support)
 }

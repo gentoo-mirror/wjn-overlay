@@ -17,19 +17,19 @@ EGIT_REPO_URI="git://github.com/mate-desktop/${PN}.git"
 LICENSE="LGPL-2"
 SLOT="0"
 KEYWORDS=""
-
-IUSE="X introspection test"
+IUSE="X -gtk3 introspection test"
 
 DOCS=( AUTHORS NEWS README )
 
 COMMON_DEPEND=">=dev-libs/glib-2.18:2
 	x11-libs/cairo:0
-	>=x11-libs/gdk-pixbuf-2.18:2
-	>=x11-libs/gtk+-2.18:2
+	>=x11-libs/gdk-pixbuf-2.18:2[introspection?]
 	x11-libs/libX11:0
 	>=x11-libs/libxklavier-5.0:0
 	x11-libs/pango:0
-	virtual/libintl:0"
+	virtual/libintl:0
+	!gtk3? ( >=x11-libs/gtk+-2.24.0:2[introspection?] )
+	gtk3? ( >=x11-libs/gtk+-3.0.0:3[introspection?] )"
 DEPEND="${COMMON_DEPEND}
 	sys-devel/gettext:0
 	>=dev-util/intltool-0.50.1:0
@@ -48,8 +48,8 @@ src_prepare() {
 
 src_configure() {
 	gnome2_src_configure \
-		--with-gtk=2.0 \
+		$(use_with X x) \
+		--with-gtk=$(usex gtk3 '3.0' '2.0') \
 		$(use_enable introspection) \
-		$(use_enable test tests) \
-		$(use_with X x)
+		$(use_enable test tests)
 }

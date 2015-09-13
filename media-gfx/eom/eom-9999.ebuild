@@ -17,21 +17,19 @@ EGIT_REPO_URI="git://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
+IUSE="X dbus doc exif -gtk3 introspection jpeg lcms python svg tiff xmp"
+REQUIRED_USE="gtk3? ( !python )
+	python? ( ${PYTHON_REQUIRED_USE} )"
 
-IUSE="X dbus doc exif introspection jpeg lcms python svg tiff xmp"
-
-REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
-
-COMMON_DEPEND="dev-libs/atk:0
+COMMON_DEPEND="dev-libs/atk:0[introspection?]
 	>=dev-libs/glib-2.36:2
 	>=dev-libs/libxml2-2.0:2
 	gnome-base/dconf:0
-	gnome-base/gsettings-desktop-schemas:0
-	~mate-base/mate-desktop-9999:0
+	gnome-base/gsettings-desktop-schemas:0[introspection?]
+	~mate-base/mate-desktop-9999:0[gtk3?,introspection?]
 	sys-libs/zlib:0
 	x11-libs/cairo:0
-	>=x11-libs/gdk-pixbuf-2.4.0:2[jpeg?,tiff?]
-	>=x11-libs/gtk+-2.18:2
+	>=x11-libs/gdk-pixbuf-2.4.0:2[introspection?,jpeg?,tiff?]
 	x11-libs/libX11:0
 	>=x11-misc/shared-mime-info-0.20:0
 	~x11-themes/mate-icon-theme-9999:0
@@ -39,6 +37,9 @@ COMMON_DEPEND="dev-libs/atk:0
 	dbus? ( >=dev-libs/dbus-glib-0.71:0 )
 	exif? ( >=media-libs/libexif-0.6.14:0
 		virtual/jpeg:0 )
+	!gtk3? ( >=x11-libs/gtk+-2.18.0:2[introspection?] )
+	gtk3? ( >=x11-libs/gtk+-3.0.0:3[introspection?] )
+	introspection? ( >=dev-libs/gobject-introspection-0.9.3:0 )
 	jpeg? ( virtual/jpeg:0 )
 	lcms? ( media-libs/lcms:2 )
 	python? ( ${PYTHON_DEPS}
@@ -52,8 +53,7 @@ DEPEND="${COMMON_DEPEND}
 	>=dev-util/gtk-doc-1.9
 	>=dev-util/intltool-0.50.1:0
 	sys-devel/gettext:0
-	virtual/pkgconfig:0
-	introspection? ( >=dev-libs/gobject-introspection-0.9.3:0 )"
+	virtual/pkgconfig:0"
 RDEPEND="${COMMON_DEPEND}"
 
 DOCS=( AUTHORS HACKING NEWS NEWS.gnome README THANKS TODO )
@@ -73,14 +73,15 @@ src_prepare() {
 
 src_configure() {
 	gnome2_src_configure \
-		$(use_enable introspection) \
-		$(use_enable python) \
-		$(use_with jpeg libjpeg) \
-		$(use_with exif libexif) \
-		$(use_with dbus) \
-		$(use_with lcms cms) \
-		$(use_with xmp) \
-		$(use_with svg librsvg) \
+		--without-cms \
 		$(use_with X x) \
-		--without-cms
+		$(use_with dbus) \
+		$(use_with exif libexif) \
+		--with-gtk=$(usex gtk3 '3.0' '2.0') \
+		$(use_enable introspection) \
+		$(use_with jpeg libjpeg) \
+		$(use_with lcms cms) \
+		$(use_enable python) \
+		$(use_with svg librsvg) \
+		$(use_with xmp)
 }

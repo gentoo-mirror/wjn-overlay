@@ -19,8 +19,7 @@ EGIT_REPO_URI="git://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-2 FDL-1.1 LGPL-2"
 SLOT="0"
 KEYWORDS=""
-
-IUSE="X doc introspection startup-notification"
+IUSE="X doc -gtk3 introspection startup-notification"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 COMMON_DEPEND="${PYTHON_DEPS}
@@ -28,12 +27,14 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	>=dev-libs/libunique-1:1
 	>=gnome-base/dconf-0.13.4:0
 	x11-libs/cairo:0
-	>=x11-libs/gdk-pixbuf-2.4:2
-	>=x11-libs/gtk+-2.24:2
+	>=x11-libs/gdk-pixbuf-2.4:2[introspection?]
 	x11-libs/libX11:0
 	>=x11-libs/libXrandr-1.3:0
 	virtual/libintl:0
-	startup-notification? ( >=x11-libs/startup-notification-0.5:0 )"
+	introspection? ( >=dev-libs/gobject-introspection-0.9.7:0 )
+	startup-notification? ( >=x11-libs/startup-notification-0.5:0 )
+	!gtk3? ( >=x11-libs/gtk+-2.24.0:2[introspection?] )
+	gtk3? ( >=x11-libs/gtk+-3.0.0:3[introspection?] )"
 DEPEND="${COMMON_DEPEND}
 	app-text/docbook-xml-dtd:4.1.2
 	app-text/yelp-tools:0
@@ -43,8 +44,7 @@ DEPEND="${COMMON_DEPEND}
 	>=x11-proto/randrproto-1.2:0
 	x11-proto/xproto:0
 	virtual/pkgconfig:0
-	doc? ( >=dev-util/gtk-doc-1.4:0 )
-	introspection? ( >=dev-libs/gobject-introspection-0.9.7:0 )"
+	doc? ( >=dev-util/gtk-doc-1.4:0 )"
 RDEPEND="${COMMON_DEPEND}"
 
 DOCS=( AUTHORS ChangeLog HACKING MAINTAINERS NEWS README )
@@ -62,9 +62,9 @@ src_configure() {
 	gnome2_src_configure \
 		--enable-mate-about \
 		--enable-mate-conf-import \
-		--with-gtk=2.0 \
 		$(use_with X x) \
 		$(use_enable doc gtk-doc) \
+		--with-gtk=$(usex gtk3 '3.0' '2.0') \
 		$(use_enable introspection) \
 		$(use_enable startup-notification)
 }

@@ -16,18 +16,21 @@ EGIT_REPO_URI="git://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
+IUSE="-gtk3"
+
 COMMON_DEPEND="app-text/rarian:0
 	dev-libs/atk:0
 	>=dev-libs/glib-2.36:2
 	>=gnome-base/dconf-0.10:0
-	~mate-base/mate-desktop-9999:0
+	~mate-base/mate-desktop-9999:0[gtk3?]
 	x11-libs/gdk-pixbuf:2
-	>=x11-libs/gtk+-2.18:2
 	x11-libs/libICE:0
 	x11-libs/libSM:0
 	x11-libs/libX11:0
 	x11-libs/pango:0
-	>=x11-libs/vte-0.27.1:0"
+	>=x11-libs/vte-0.27.1:0
+	!gtk3? ( >=x11-libs/gtk+-2.24.0:2 )
+	gtk3? ( >=x11-libs/gtk+-3.0.0:3 )"
 DEPEND="${COMMON_DEPEND}
 	>=app-text/scrollkeeper-dtd-1:1.0
 	app-text/yelp-tools:0
@@ -47,4 +50,9 @@ src_prepare() {
 	sed -i 's/g_variant_get (parameters, "(@ay@ay@ay@ay@i@ay)",/g_variant_get (parameters, "(@ay@ay@ay@ayi@ay)",/' src/terminal.c
 	eautoreconf
 	gnome2_src_prepare
+}
+
+src_configure() {
+	gnome2_src_configure \
+		--with-gtk=$(usex gtk3 '3.0' '2.0')
 }

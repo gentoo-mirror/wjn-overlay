@@ -19,9 +19,9 @@ EGIT_REPO_URI="git://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-
-IUSE="python spell"
-REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
+IUSE="-gtk3 python spell"
+REQUIRED_USE="gtk3? ( !python )
+	python? ( ${PYTHON_REQUIRED_USE} )"
 
 RESTRICT="test"
 
@@ -29,16 +29,18 @@ COMMON_DEPEND="app-text/rarian:0
 	dev-libs/atk:0
 	>=dev-libs/glib-2.36:2
 	>=dev-libs/libxml2-2.5:2
-	~mate-base/mate-desktop-9999:0
+	~mate-base/mate-desktop-9999:0[gtk3?]
 	x11-libs/cairo:0
 	x11-libs/gdk-pixbuf:2
-	>=x11-libs/gtk+-2.19:2
-	>=x11-libs/gtksourceview-2.9.7:2.0
 	x11-libs/libICE:0
 	x11-libs/libX11:0
 	>=x11-libs/libSM-1.0
 	x11-libs/pango:0
 	virtual/libintl:0
+	!gtk3? ( >=x11-libs/gtk+-2.24.0:2
+		>=x11-libs/gtksourceview-2.9.7:2.0 )
+	gtk3? ( >=x11-libs/gtk+-3.0.0:3
+		>=x11-libs/gtksourceview-3.0.0:3.0 )
 	python? ( ${PYTHON_DEPS}
 		>=dev-python/pygobject-2.15.4:2[${PYTHON_USEDEP}]
 		>=dev-python/pygtk-2.12:2[${PYTHON_USEDEP}]
@@ -76,6 +78,7 @@ src_prepare() {
 src_configure() {
 	gnome2_src_configure \
 		--disable-updater \
+		--with-gtk=$(usex gtk3 '3.0' '2.0') \
 		$(use_enable python) \
 		$(use_enable spell)
 }

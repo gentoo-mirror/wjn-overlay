@@ -17,34 +17,34 @@ EGIT_REPO_URI="git://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-2 FDL-1.1 LGPL-2"
 SLOT="0"
 KEYWORDS=""
-
-# IUSE="X -cpufrequtils ipv6 networkmanager policykit"
-IUSE="X ipv6 networkmanager policykit"
+IUSE="X -gtk3 ipv6 networkmanager policykit"
 
 COMMON_DEPEND="${PYTHON_DEPS}
 	app-text/rarian:0
 	dev-libs/atk:0
 	>=dev-libs/dbus-glib-0.74:0
 	>=dev-libs/glib-2.22:2
-	~dev-libs/libmateweather-9999:0
+	~dev-libs/libmateweather-9999:0[gtk3?]
 	>=dev-libs/libxml2-2.5:2
 	dev-python/pygobject:3
 	>=gnome-base/libgtop-2.11.92:2=
-	~mate-base/mate-desktop-9999:0
-	~mate-base/mate-panel-9999:0
-	~mate-base/mate-settings-daemon-9999:0
+	~mate-base/mate-desktop-9999:0[gtk3?]
+	~mate-base/mate-panel-9999:0[gtk3?]
+	~mate-base/mate-settings-daemon-9999:0[gtk3?]
 	>=sys-apps/dbus-1.1.2:0
 	sys-power/cpupower:0
 	|| ( >=sys-power/upower-0.9.4:0 sys-power/upower-pm-utils:0 )
 	x11-libs/gdk-pixbuf:2
-	>=x11-libs/gtk+-2.24:2
 	>=x11-libs/libnotify-0.7:0
 	x11-libs/libX11:0
 	>=x11-libs/libxklavier-4:0
-	>=x11-libs/libwnck-2.30:1
 	x11-libs/pango:0
 	~x11-themes/mate-icon-theme-9999:0
 	virtual/libintl:0
+	!gtk3? ( >=x11-libs/gtk+-2.24.0:2
+			>=x11-libs/libwnck-2.30.0:1 )
+	gtk3? ( >=x11-libs/gtk+-3.0.0:3
+			>=x11-libs/libwnck-3.4.0:3 )
 	networkmanager? ( >=net-misc/networkmanager-0.7:0 )
 	policykit? ( >=sys-auth/polkit-0.92:0 )"
 DEPEND="${COMMON_DEPEND}
@@ -65,7 +65,6 @@ src_unpack() {
 }
 
 src_prepare() {
-# 	use cpufrequtils || epatch "${FILESDIR}"/${PN}-1.6.2-r1-replace-cpufreq-by-cpupower.patch
 	eautoreconf
 }
 
@@ -73,10 +72,11 @@ src_configure() {
 	gnome2_src_configure \
 		--libexecdir=/usr/libexec/mate-applets \
 		--without-hal \
+		$(use_with X x) \
+		--with-gtk=$(usex gtk3 '3.0' '2.0') \
 		$(use_enable ipv6) \
 		$(use_enable networkmanager) \
-		$(use_enable policykit polkit) \
-		$(use_with X x)
+		$(use_enable policykit polkit)
 }
 
 src_test() {
@@ -89,8 +89,8 @@ src_install() {
 	gnome2_src_install
 
 	local APPLETS="accessx-status battstat charpick command cpufreq drivemount
-			geyes invest-applet mateweather mini-commander mixer multiload
-			null_applet stickynotes timerapplet trashapplet"
+			geyes invest-applet mateweather multiload null_applet stickynotes
+			timerapplet trashapplet"
 
 	for applet in ${APPLETS}; do
 		docinto ${applet}

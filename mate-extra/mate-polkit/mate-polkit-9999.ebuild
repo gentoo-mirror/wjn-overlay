@@ -16,14 +16,14 @@ EGIT_REPO_URI="git://github.com/mate-desktop/${PN}.git"
 LICENSE="LGPL-2"
 SLOT="0"
 KEYWORDS=""
-
-IUSE="doc +introspection"
+IUSE="doc -gtk3 +introspection"
 
 COMMON_DEPEND=">=dev-libs/glib-2.36.0:2
 	>=sys-auth/polkit-0.102:0[introspection?]
-	>=x11-libs/gtk+-2.24.0:2[introspection?]
 	x11-libs/gdk-pixbuf:2[introspection?]
 	virtual/libintl:0
+	!gtk3? ( >=x11-libs/gtk+-2.24.0:2[introspection?] )
+	gtk3? ( >=x11-libs/gtk+-3.0.0:3[introspection?] )
 	introspection? ( >=dev-libs/gobject-introspection-0.6.2:0 )"
 DEPEND="${COMMON_DEPEND}
 	>=dev-util/intltool-0.35.0:0
@@ -50,5 +50,6 @@ src_prepare() {
 src_configure() {
 	gnome2_src_configure \
 		--disable-static \
+		--with-gtk=$(usex gtk3 '3.0' '2.0') \
 		$(use_enable introspection)
 }

@@ -16,28 +16,30 @@ EGIT_REPO_URI="git://github.com/mate-desktop/${PN}.git"
 LICENSE="LGPL-2 GPL-2 FDL-1.1"
 SLOT="0"
 KEYWORDS=""
+IUSE="-gtk3"
 
 COMMON_DEPEND="app-text/rarian:0
 	dev-libs/libxml2:2
 	>=dev-libs/glib-2.36.0:2
 	dev-libs/libunique:1
-	~mate-base/mate-panel-9999:0
-	~mate-base/mate-desktop-9999:0
+	~mate-base/mate-applets-9999[gtk3?]
+	~mate-base/mate-panel-9999:0[gtk3?]
+	~mate-base/mate-desktop-9999:0[gtk3?]
 	~mate-extra/libmatemixer-9999:0
-	>=media-libs/libcanberra-0.13:0[gtk]
+	>=media-libs/libcanberra-0.13:0[gtk,gtk3?]
 	>=dev-libs/libunique-1:1
 	x11-libs/cairo:0
-	>=x11-libs/gtk+-2.24:2
 	x11-libs/pango:0
-	virtual/libintl:0"
+	virtual/libintl:0
+	!gtk3? ( >=x11-libs/gtk+-2.24.0:2 )
+	gtk3? ( >=x11-libs/gtk+-3.0.0:3 )"
 DEPEND="${COMMON_DEPEND}
 	app-text/docbook-xml-dtd:4.1.2
 	app-text/yelp-tools:0
 	>=app-text/scrollkeeper-dtd-1:1.0
 	>=dev-util/intltool-0.35.0:0
 	sys-devel/gettext:0
-	virtual/pkgconfig:0
-	~mate-base/mate-applets-9999"
+	virtual/pkgconfig:0"
 RDEPEND="${COMMON_DEPEND}"
 
 DOCS=( AUTHORS NEWS README )
@@ -49,4 +51,9 @@ src_unpack() {
 src_prepare() {
 	eautoreconf
 	gnome2_src_prepare
+}
+
+src_configure() {
+	gnome2_src_configure \
+		--with-gtk=$(usex gtk3 '3.0' '2.0')
 }

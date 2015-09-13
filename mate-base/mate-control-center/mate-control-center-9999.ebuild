@@ -17,8 +17,7 @@ EGIT_REPO_URI="git://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-
-IUSE="appindicator"
+IUSE="appindicator -gtk3"
 
 COMMON_DEPEND="app-text/rarian:0
 	dev-libs/atk:0
@@ -28,19 +27,18 @@ COMMON_DEPEND="app-text/rarian:0
 	dev-libs/libxml2:2
 	>=gnome-base/dconf-0.13.4:0
 	>=gnome-base/librsvg-2.0:2
-	~mate-base/libmatekbd-9999:0
-	~mate-base/mate-desktop-9999:0
-	~mate-base/caja-9999:0
+	~mate-base/libmatekbd-9999:0[gtk3?]
+	~mate-base/mate-desktop-9999:0[gtk3?]
+	~mate-base/caja-9999:0[gtk3?]
 	~mate-base/mate-menus-9999:0
-	~mate-base/mate-settings-daemon-9999:0
+	~mate-base/mate-settings-daemon-9999:0[gtk3?]
 	>=media-libs/fontconfig-1:1.0
 	media-libs/freetype:2
-	media-libs/libcanberra:0[gtk]
+	media-libs/libcanberra:0[gtk,gtk3?]
 	>=sys-apps/dbus-1:0
 	x11-apps/xmodmap:0
 	x11-libs/cairo:0
 	x11-libs/gdk-pixbuf:2
-	>=x11-libs/gtk+-2.24:2
 	x11-libs/libX11:0
 	x11-libs/libXScrnSaver:0
 	x11-libs/libXcursor:0
@@ -52,9 +50,10 @@ COMMON_DEPEND="app-text/rarian:0
 	x11-libs/libXxf86misc:0
 	>=x11-libs/libxklavier-4:0
 	x11-libs/pango:0
-	~x11-wm/marco-9999
+	~x11-wm/marco-9999[gtk3?]
 	virtual/libintl:0
-	appindicator? ( >=dev-libs/libappindicator-0.0.7:2 )"
+	appindicator? ( !gtk3? ( >=dev-libs/libappindicator-0.0.7:2 )
+		gtk3? ( >=dev-libs/libappindicator-0.0.7:3 ) )"
 DEPEND="${COMMON_DEPEND}
 	>=app-text/scrollkeeper-dtd-1:1.0
 	app-text/yelp-tools:0
@@ -86,5 +85,6 @@ src_prepare() {
 src_configure() {
 	gnome2_src_configure \
 		--disable-update-mimedb \
-		$(use_enable appindicator)
+		$(use_enable appindicator) \
+		--with-gtk=$(usex gtk3 '3.0' '2.0')
 }

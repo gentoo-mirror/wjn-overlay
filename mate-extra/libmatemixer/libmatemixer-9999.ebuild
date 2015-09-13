@@ -17,7 +17,6 @@ EGIT_REPO_URI="git://github.com/mate-desktop/${PN}.git"
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS=""
-
 IUSE="alsa oss pulseaudio"
 
 COMMON_DEPEND="

@@ -17,12 +17,16 @@ EGIT_REPO_URI="git://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-3 LGPL-2.1"
 SLOT="0"
 KEYWORDS=""
+IUSE="-gtk3"
 
 COMMON_DEPEND=">=dev-libs/glib-2.2.0:2
 	>=dev-libs/libindicator-0.4:0
-	~mate-base/mate-panel-9999
-	>=x11-libs/gtk+-2.24.0:2
-	virtual/libintl:0"
+	~mate-base/mate-panel-9999[gtk3?]
+	virtual/libintl:0
+	!gtk3? ( >=x11-libs/gtk+-2.24.0:2
+		>=dev-libs/libindicator-0.4:0 )
+	gtk3? ( >=x11-libs/gtk+-3.0.0:3
+		>=dev-libs/libindicator-0.4:3 )"
 DEPEND="${COMMON_DEPEND}
 	>=dev-util/intltool-0.35.0:0
 	sys-devel/gettext:0
@@ -43,5 +47,5 @@ src_prepare() {
 src_configure() {
 	gnome2_src_configure \
 		--disable-static \
-		--with-gtk=2.0
+		--with-gtk=$(usex gtk3 '3.0' '2.0')
 }

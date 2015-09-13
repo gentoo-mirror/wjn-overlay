@@ -6,7 +6,7 @@ EAPI=5
 
 GCONF_DEBUG="yes"
 GNOME2_LA_PUNT="yes"
-PYTHON_COMPAT=( python2_{6,7} )
+PYTHON_COMPAT=( python2_7 )
 
 inherit autotools git-r3 gnome2 python-r1
 
@@ -18,17 +18,18 @@ EGIT_REPO_URI="git://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-
-IUSE="python"
-REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
+IUSE="-gtk3 python"
+REQUIRED_USE="gtk3? ( !python )
+	python? ( ${PYTHON_REQUIRED_USE} )"
 
 COMMON_DEPEND=">=dev-libs/glib-2.36.0:2[${PYTHON_USEDEP}]
 	>=dev-libs/libxml2-2.6.0:2
 	>=net-libs/libsoup-2.34.0:2.4
 	>=sys-libs/timezone-data-2010k:0
 	x11-libs/gdk-pixbuf:2
-	>=x11-libs/gtk+-2.24.0:2
 	virtual/libintl:0
+	!gtk3? ( >=x11-libs/gtk+-2.24.0:2 )
+	gtk3? ( >=x11-libs/gtk+-3.0.0:3 )
 	python? ( ${PYTHON_DEPS}
 		>=dev-python/pygobject-2:2[${PYTHON_USEDEP}]
 		>=dev-python/pygtk-2:2[${PYTHON_USEDEP}] )"
@@ -66,6 +67,7 @@ src_configure() {
 	my_command gnome2_src_configure \
 		--enable-locations-compression \
 		--disable-all-translations-in-one-xml \
+		--with-gtk=$(usex gtk3 '3.0' '2.0') \
 		$(use_enable python)
 }
 
