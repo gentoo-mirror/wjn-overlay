@@ -6,9 +6,9 @@ EAPI=5
 
 GCONF_DEBUG="no"
 
-inherit autotools git-r3 gnome2 versionator
+inherit autotools git-r3 gnome2
 
-DESCRIPTION="A set of MATE themes, with sets for users with limited or low vision"
+DESCRIPTION="A theme set for MATE Desktop Environment"
 HOMEPAGE="http://mate-desktop.org/"
 SRC_URI=""
 EGIT_REPO_URI="git://github.com/mate-desktop/${PN}.git"
@@ -17,15 +17,15 @@ LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS=""
 
-COMMON_DEPEND=">=x11-libs/gdk-pixbuf-2:2
-	>=x11-libs/gtk+-2:2
+COMMON_DEPEND=">=x11-libs/gdk-pixbuf-2.0.0:2
+	|| ( >=x11-libs/gtk+-2.0.0:2 >=x11-libs/gtk+-3.16.0:3 )
 	>=x11-themes/gtk-engines-2.15.3:2
 	x11-themes/murrine-themes:0"
 DEPEND="${COMMON_DEPEND}
-	>=dev-util/intltool-0.35:*
-	sys-devel/gettext:*
+	>=dev-util/intltool-0.35:0
+	sys-devel/gettext:0
 	>=x11-misc/icon-naming-utils-0.8.7:0
-	virtual/pkgconfig:*"
+	virtual/pkgconfig:0"
 RDEPEND="${COMMON_DEPEND}"
 
 RESTRICT="binchecks strip"
@@ -42,6 +42,5 @@ src_prepare() {
 }
 
 src_configure() {
-	gnome2_src_configure \
-		--enable-icon-mapping
+	gnome2_src_configure
 }
