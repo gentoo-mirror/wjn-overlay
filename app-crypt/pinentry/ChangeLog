@@ -2,6 +2,29 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*pinentry-0.9.6-r1 (15 Sep 2015)
+
+  15 Sep 2015; wjn <wjn@aol.jp> +files/pinentry-0.9.6-qt4.diff,
+  -pinentry-0.9.6.ebuild, +pinentry-0.9.6-r1.ebuild:
+  Modify to make correct support for Qt4 or Qt5.
+
+   Its configure prefers Qt5.
+  If Qt5 is not installed and Qt4 is installed,
+  it fallbacks to Qt4 support.
+
+   But if (deps) qtcore:5 is installed and qtgui:5 or qtwidgets:5 is not,
+  something weird occurs, including headers fails.
+  so compilation fails.
+
+   DEPEND="qt4? ( dev-qt/qtcore:4 dev-qt/qtgui:4 )
+          qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 )"
+  is needed.
+
+   I fixed it by this commit.
+
+   I have already reported gentoo bugzilla,
+  it will be fixed in gentoo repository.
+
 *pinentry-0.9.6 (15 Sep 2015)
 
   15 Sep 2015; wjn <wjn@aol.jp> +files/pinentry-0.8.2-ncurses.patch,
