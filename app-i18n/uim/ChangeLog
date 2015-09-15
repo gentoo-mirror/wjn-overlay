@@ -1,0 +1,36 @@
+# ChangeLog for app-i18n/uim
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  09 Sep 2015; wjn <wjn@aol.jp> metadata.xml:
+  Update metadata.xml(s) and IUSE(s).
+
+  09 Sep 2015; wjn <wjn@aol.jp> uim-9999.ebuild:
+  Trivial fixes for QA.
+
+  09 Sep 2015; wjn <wjn@aol.jp> uim-9999.ebuild:
+  Update ebuild file format from "# $Header: $" to "# $Id"
+
+   Since Gentoo changes the VCS from CVS to git, ebuild header is changed.
+
+  22 May 2015; wjn <wjn@aol.jp> uim-9999.ebuild:
+  Fix to $(use_enable libnotify notify libnotify) in econf.
+
+   It must be "--enable-notify=libnotify" on ./configure.
+
+  21 May 2015; wjn <wjn@aol.jp> uim-9999.ebuild:
+  Update (add USE=qt3support, tidy up deps, use submodules)
+
+  21 May 2015; wjn <wjn@aol.jp> uim-9999.ebuild:
+  Use https:// instead of git://
+
+  26 Feb 2015; wjn <wjn@aol.jp> metadata.xml, uim-9999.ebuild:
+  Update for the Quality Assurance.
+
+*uim-9999 (27 Jan 2015)
+
+  27 Jan 2015; wjn <wjn@aol.jp> +files/50uim-gentoo.el,
+  +files/uim-1.5.4-zhTW.patch, +files/uim-1.6.0-gentoo.patch,
+  +files/xinput-uim, +metadata.xml, +uim-9999.ebuild:
+  Commit for initializing, Move from GitHub
+

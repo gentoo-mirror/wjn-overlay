@@ -1,0 +1,19 @@
+# ChangeLog for app-crypt/pinentry
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*pinentry-0.9.6 (15 Sep 2015)
+
+  15 Sep 2015; wjn <wjn@aol.jp> +files/pinentry-0.8.2-ncurses.patch,
+  +files/pinentry-0.8.2-texi.patch, +files/pinentry-0.9.0-accessibility.patch,
+  +files/pinentry-0.9.5-build.patch, +metadata.xml, +pinentry-0.9.6.ebuild:
+  Add version 0.9.6
+
+   Because pinentry-0.9.6.ebuild in gentoo repository has a bug,
+  I added my ebuild.
+   I already reported the bug, It will be fixed.
+
+   Also, I added Qt5 support to mine.
+  And I changed IUSE, please ensure.
+  ( Upstream supports Qt5 newly, and changes configure options. )
+

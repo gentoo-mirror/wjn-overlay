@@ -1,0 +1,27 @@
+# ChangeLog for media-fonts/yoz-mobomoga
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  09 Sep 2015; wjn <wjn@aol.jp> yoz-mobomoga-001.02.12b.ebuild:
+  Trivial fixes for QA.
+
+  09 Sep 2015; wjn <wjn@aol.jp> yoz-mobomoga-001.02.12b.ebuild:
+  Fix trivials such as redundant new lines etc.
+
+  09 Sep 2015; wjn <wjn@aol.jp> metadata.xml:
+  Fix metadata.xml(s)
+
+  09 Sep 2015; wjn <wjn@aol.jp> yoz-mobomoga-001.02.12b.ebuild:
+  Update ebuild file format from "# $Header: $" to "# $Id"
+
+   Since Gentoo changes the VCS from CVS to git, ebuild header is changed.
+
+  30 May 2015; wjn <wjn@aol.jp> yoz-mobomoga-001.02.12b.ebuild:
+  Update to EAPI=5 and git-r3.eclass
+
+*yoz-mobomoga-001.02.12b (27 Jan 2015)
+
+  27 Jan 2015; wjn <wjn@aol.jp> +metadata.xml,
+  +yoz-mobomoga-001.02.12b.ebuild:
+  Commit for initializing, Move from GitHub
+

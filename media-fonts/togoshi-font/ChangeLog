@@ -1,0 +1,39 @@
+# ChangeLog for media-fonts/togoshi-font
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  09 Sep 2015; wjn <wjn@aol.jp> togoshi-font-20080629.ebuild:
+  Update ebuild file format from "# $Header: $" to "# $Id"
+
+   Since Gentoo changes the VCS from CVS to git, ebuild header is changed.
+
+  04 Jun 2015; wjn <wjn@aol.jp> metadata.xml:
+  media-fonts/*: Fix typo in metadata.xml
+
+  04 Jun 2015; wjn <wjn@aol.jp> togoshi-font-20080629.ebuild:
+  Rename wada-ken to wadalab-font.
+
+*togoshi-font-20080629 (04 Jun 2015)
+
+  04 Jun 2015; wjn <wjn@aol.jp> +metadata.xml, +togoshi-font-20080629.ebuild:
+  Add newly.
+
+    Togoshi-font is a font family based on Kochi-alternative.
+
+    It is licensed under Wada-ken(Wada Labo. in Univ. of Tokyo)'s
+   font license and BSD.
+    Wada-ken font license is like BSD license, but not approved by FSF yet.
+
+    See...
+   - Togoshi-font:
+     http://togoshi-font.osdn.jp/
+   - Kochi-alternative:
+     http://wiki.fdiary.net/font/?kochi-alternative
+
+    戸越フォントは、「東風フォント代用品」派生のフォントファミリである。
+   ライセンスは和田研フォントライセンスと、その余は BSD である。
+   このライセンスは BSD 類似であり、フリーソフトウェアだと解せるが、
+   FSF 等から未だ認められていないため、 Debian や Fedora 等は収録を
+   回避中である（要は「お墨付き」が無いからである）。詳しくは上記 URL 及び
+   Wikipedia の「和田研フォント」の項を参照のこと
+

@@ -1,0 +1,23 @@
+# ChangeLog for app-accessibility/onboard
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  09 Sep 2015; wjn <wjn@aol.jp> onboard-1.0.1.ebuild, onboard-1.1.1.ebuild:
+  Update ebuild file format from "# $Header: $" to "# $Id"
+
+   Since Gentoo changes the VCS from CVS to git, ebuild header is changed.
+
+*onboard-1.1.1 (27 Feb 2015)
+
+  27 Feb 2015; wjn <wjn@aol.jp> metadata.xml, onboard-1.0.1.ebuild,
+  +onboard-1.1.1.ebuild:
+  Add version 1.1.1
+
+   Version bump.
+   See https://launchpad.net/onboard/1.1/1.1.1
+
+*onboard-1.0.1 (27 Jan 2015)
+
+  27 Jan 2015; wjn <wjn@aol.jp> +metadata.xml, +onboard-1.0.1.ebuild:
+  Commit for initializing, Move from GitHub
+

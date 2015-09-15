@@ -1,13 +1,13 @@
-# ChangeLog for x11-themes/gion-icon-theme
+# ChangeLog for x11-themes/faience-icon-theme
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
-  09 Sep 2015; wjn <wjn@aol.jp> gion-icon-theme-0.1.2.ebuild:
+  09 Sep 2015; wjn <wjn@aol.jp> faience-icon-theme-0.5.1.ebuild:
   Update ebuild file format from "# $Header: $" to "# $Id"
 
    Since Gentoo changes the VCS from CVS to git, ebuild header is changed.
 
-  08 Feb 2015; wjn <wjn@aol.jp> gion-icon-theme-0.1.2.ebuild, metadata.xml:
+  08 Feb 2015; wjn <wjn@aol.jp> faience-icon-theme-0.5.1.ebuild:
   x11-themes/*: Tidy up ebuilds and metadatas.
 
           modified:   faience-icon-theme/faience-icon-theme-0.5.1.ebuild
@@ -16,8 +16,9 @@
           modified:   neu-icon-theme/metadata.xml
           modified:   neu-icon-theme/neu-icon-theme-0.6.ebuild
 
-*gion-icon-theme-0.1.2 (27 Jan 2015)
+*faience-icon-theme-0.5.1 (27 Jan 2015)
 
-  27 Jan 2015; wjn <wjn@aol.jp> +gion-icon-theme-0.1.2.ebuild, +metadata.xml:
+  27 Jan 2015; wjn <wjn@aol.jp> +faience-icon-theme-0.5.1.ebuild,
+  +metadata.xml:
   Commit for initializing, Move from GitHub
 

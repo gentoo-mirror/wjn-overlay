@@ -1,0 +1,131 @@
+# ChangeLog for media-plugins/audacious-plugins
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  09 Sep 2015; wjn <wjn@aol.jp> audacious-plugins-3.6.ebuild,
+  audacious-plugins-3.6.1.ebuild, audacious-plugins-3.6.2.ebuild,
+  audacious-plugins-9999.ebuild, metadata.xml:
+  Update metadata.xml(s) and IUSE(s).
+
+  09 Sep 2015; wjn <wjn@aol.jp> audacious-plugins-3.6.ebuild,
+  audacious-plugins-3.6.1.ebuild, audacious-plugins-3.6.2.ebuild,
+  audacious-plugins-9999.ebuild:
+  Trivial fixes for QA.
+
+  09 Sep 2015; wjn <wjn@aol.jp> audacious-plugins-3.6.ebuild,
+  audacious-plugins-3.6.1.ebuild:
+  Fix trivials such as redundant new lines etc.
+
+  09 Sep 2015; wjn <wjn@aol.jp> audacious-plugins-3.6.ebuild,
+  audacious-plugins-3.6.1.ebuild, audacious-plugins-3.6.2.ebuild,
+  audacious-plugins-9999.ebuild:
+  Update ebuild file format from "# $Header: $" to "# $Id"
+
+   Since Gentoo changes the VCS from CVS to git, ebuild header is changed.
+
+  29 Aug 2015; wjn <wjn@aol.jp> audacious-plugins-9999.ebuild:
+  Modify IUSE "neon" to "http".
+
+*audacious-plugins-3.6.2 (31 May 2015)
+
+  31 May 2015; wjn <wjn@aol.jp> +audacious-plugins-3.6.2.ebuild:
+  media-*/audacious*: Add version 3.6.2.
+
+  31 May 2015; wjn <wjn@aol.jp> audacious-plugins-3.6.ebuild,
+  audacious-plugins-3.6.1.ebuild:
+  Fix about removal of undesired *.po.
+
+  31 May 2015; wjn <wjn@aol.jp> audacious-plugins-3.6.ebuild,
+  audacious-plugins-3.6.1.ebuild, audacious-plugins-9999.ebuild:
+  Modify libav/ffmpeg choice deps.
+
+  14 May 2015; wjn <wjn@aol.jp> audacious-plugins-3.6.ebuild,
+  audacious-plugins-3.6.1.ebuild, audacious-plugins-9999.ebuild:
+  media-*/audacious*: Add GTK+:3 support.
+
+    To build for GTK+:3, define USE="gtk +gtk3".
+
+    USE="-gtk3" is default
+   because upstream releases GTK+ 2 version as default.
+
+          modified:   media-sound/audacious/audacious-3.6.1.ebuild
+          modified:   media-sound/audacious/audacious-3.6.ebuild
+          modified:   media-sound/audacious/audacious-9999.ebuild
+          modified:   media-plugins/audacious-plugins/audacious-
+  plugins-3.6.1.ebuild
+          modified:   media-plugins/audacious-plugins/audacious-
+  plugins-3.6.ebuild
+          modified:   media-plugins/audacious-plugins/audacious-
+  plugins-9999.ebuild
+
+  14 May 2015; wjn <wjn@aol.jp> audacious-plugins-3.6.ebuild,
+  audacious-plugins-3.6.1.ebuild:
+  media-*/audacious*: Delete unneeded substitution of ${S}.
+
+  11 May 2015; wjn <wjn@aol.jp> audacious-plugins-3.6.ebuild,
+  audacious-plugins-3.6.1.ebuild:
+  Remove unneeded ${MY_P}, use ${P} directly.
+
+  11 May 2015; wjn <wjn@aol.jp> audacious-plugins-3.6.ebuild,
+  audacious-plugins-3.6.1.ebuild, audacious-plugins-9999.ebuild:
+  Use l10n.eclass to prevent installing unwanted *.mo files.
+
+  11 May 2015; wjn <wjn@aol.jp> audacious-plugins-9999.ebuild:
+  Use https:// instead of git://.
+
+*audacious-plugins-3.6.1 (05 Apr 2015)
+
+  05 Apr 2015; wjn <wjn@aol.jp> -audacious-plugins-3.5.2.ebuild,
+  +audacious-plugins-3.6.1.ebuild:
+  media-sound/audacious: Add version 3.6.1, Drop old version 3.5.2.
+
+  02 Mar 2015; wjn <wjn@aol.jp> audacious-plugins-3.6.ebuild,
+  audacious-plugins-9999.ebuild:
+  audacious: Fix DEPs, etc.
+
+  - inherit git-2 (not git-r3) in audacious-9999,
+   because git-r3 doesn't parse SRC_URI.
+
+  -  Fix dependencies.
+   e.g. qt5 and spectrum.
+
+          modified:   media-plugins/audacious-plugins/audacious-
+  plugins-3.6.ebuild
+          modified:   media-plugins/audacious-plugins/audacious-
+  plugins-9999.ebuild
+          modified:   media-sound/audacious/audacious-3.6.ebuild
+          modified:   media-sound/audacious/audacious-9999.ebuild
+
+  02 Mar 2015; wjn <wjn@aol.jp> audacious-plugins-3.5.2.ebuild,
+  audacious-plugins-9999.ebuild, metadata.xml:
+  audacious: Fix version 3.5.2 and 9999, metadata.xml.
+
+*audacious-plugins-3.6 (02 Mar 2015)
+
+  02 Mar 2015; wjn <wjn@aol.jp> +audacious-plugins-3.6.ebuild:
+  audacious: Add version 3.6.
+
+  02 Mar 2015; wjn <wjn@aol.jp> -audacious-plugins-3.5.ebuild,
+  -audacious-plugins-3.5.1.ebuild:
+  audacious*: Drop old version 3.5 and 3.5.1.
+
+          deleted:    media-sound/audacious-3.5.1.ebuild
+          deleted:    media-sound/audacious-3.5.ebuild
+          deleted:    media-plugins/audacious-plugins-3.5.1.ebuild
+          deleted:    media-plugins/audacious-plugins-3.5.ebuild
+
+  P.S. These are in the gentoo repository.
+
+  29 Jan 2015; wjn <wjn@aol.jp> audacious-plugins-9999.ebuild:
+  Remove DOCS="AUTHORS"
+
+*audacious-plugins-9999 (27 Jan 2015)
+*audacious-plugins-3.5.2 (27 Jan 2015)
+*audacious-plugins-3.5.1 (27 Jan 2015)
+*audacious-plugins-3.5 (27 Jan 2015)
+
+  27 Jan 2015; wjn <wjn@aol.jp> +audacious-plugins-3.5.ebuild,
+  +audacious-plugins-3.5.1.ebuild, +audacious-plugins-3.5.2.ebuild,
+  +audacious-plugins-9999.ebuild, +metadata.xml:
+  Commit for initializing, Move from GitHub
+

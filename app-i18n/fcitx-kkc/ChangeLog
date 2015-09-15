@@ -1,0 +1,61 @@
+# ChangeLog for app-i18n/fcitx-kkc
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  09 Sep 2015; wjn <wjn@aol.jp> +metadata.xml:
+  Add minimal metadata.xml(s) for QA.
+
+  09 Sep 2015; wjn <wjn@aol.jp> fcitx-kkc-0.1.2.ebuild, fcitx-kkc-9999.ebuild:
+  Update ebuild file format from "# $Header: $" to "# $Id"
+
+   Since Gentoo changes the VCS from CVS to git, ebuild header is changed.
+
+*fcitx-kkc-0.1.2 (26 May 2015)
+
+  26 May 2015; wjn <wjn@aol.jp> -fcitx-kkc-0.1.1.ebuild,
+  +fcitx-kkc-0.1.2.ebuild:
+  Upgrade version 0.1.1 to 0.1.2.
+
+  26 May 2015; wjn <wjn@aol.jp> fcitx-kkc-9999.ebuild:
+  Remove add-dicts patch from version 9999.
+
+    That patch has been merged by the upstream.
+
+  18 May 2015; wjn <wjn@aol.jp> fcitx-kkc-0.1.1.ebuild, fcitx-kkc-9999.ebuild:
+  Modify qt4 deps (cmake configure etc).
+
+   USE="-qt4" だと、KKC の詳細を設定するダイアログが出ず、
+  替わりにテキストエディタが開く。KKC自体は使える。
+
+  17 May 2015; wjn <wjn@aol.jp> fcitx-kkc-0.1.1.ebuild, fcitx-kkc-9999.ebuild,
+  +files/fcitx-kkc-0.1.1-add-dicts.patch:
+  Add SKK extras to dictionaries.
+
+   See ikunya https://github.com/ikunya/fcitx-kkc/commit/8da42fb
+
+   単漢字変換以外に、郵便番号や地名、駅名、人名の辞書も追加するパッチである
+
+  17 May 2015; wjn <wjn@aol.jp> fcitx-kkc-0.1.1.ebuild, fcitx-kkc-9999.ebuild,
+  +files/fcitx-kkc-0.1.1-add-direct-input.patch,
+  +files/fcitx-kkc-0.1.1-fix-keymap-conflict.patch:
+  Add patches to add direct-input and fix keymap-conflict msg.
+
+   See https://github.com/m-shibata/fcitx-kkc/commit/49c0045
+  and https://github.com/m-shibata/fcitx-kkc/commit/3650189
+
+   あわしろいくや氏の斬鉄も参照
+  http://blog.goo.ne.jp/ikunya/e/92f6d3bb253563e43719e994a896e089
+
+  16 May 2015; wjn <wjn@aol.jp> fcitx-kkc-0.1.1.ebuild, fcitx-kkc-9999.ebuild:
+  app-i18n/*kkc: Add app-i18n/skk-jisyo to depends to convert single char.
+
+  16 May 2015; wjn <wjn@aol.jp> fcitx-kkc-0.1.1.ebuild, fcitx-kkc-9999.ebuild:
+  app-i18n/*-kkc: Fix dependencies.
+
+*fcitx-kkc-9999 (16 May 2015)
+*fcitx-kkc-0.1.1 (16 May 2015)
+
+  16 May 2015; wjn <wjn@aol.jp> +fcitx-kkc-0.1.1.ebuild,
+  +fcitx-kkc-9999.ebuild:
+  Add newly.
+

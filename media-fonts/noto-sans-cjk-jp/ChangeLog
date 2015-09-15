@@ -1,0 +1,34 @@
+# ChangeLog for media-fonts/noto-sans-cjk-jp
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  09 Sep 2015; wjn <wjn@aol.jp> +metadata.xml:
+  Add minimal metadata.xml(s) for QA.
+
+  09 Sep 2015; wjn <wjn@aol.jp> noto-sans-cjk-jp-9999.ebuild:
+  Update ebuild file format from "# $Header: $" to "# $Id"
+
+   Since Gentoo changes the VCS from CVS to git, ebuild header is changed.
+
+  20 Jun 2015; wjn <wjn@aol.jp> noto-sans-cjk-jp-9999.ebuild:
+  media-fonts/{noto*,source-han-sans*}: Modify ${DOCs} to list from array.
+
+    font.eclass supports space-delimited listed ${DOCS} only,
+   though EAPI(>=4) can treat arrayed ${DOCS}.
+    Therefore, space-delimited list (not array) makes codes shorter,
+   because src_install can be left as default spec of font.eclass.
+
+  20 Jun 2015; wjn <wjn@aol.jp> noto-sans-cjk-jp-9999.ebuild:
+  Update for version 1.004.
+
+    About version 1.004,
+   see https://github.com/googlei18n/noto-cjk/blob/master/NEWS
+
+  30 May 2015; wjn <wjn@aol.jp> noto-sans-cjk-jp-9999.ebuild:
+  Update to EAPI=5 and git-r3.eclass
+
+*noto-sans-cjk-jp-9999 (27 Jan 2015)
+
+  27 Jan 2015; wjn <wjn@aol.jp> +noto-sans-cjk-jp-9999.ebuild:
+  Commit for initializing, Move from GitHub
+

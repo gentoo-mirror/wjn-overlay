@@ -1,0 +1,46 @@
+# ChangeLog for x11-misc/lightdm
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*lightdm-1.16.0 (12 Sep 2015)
+
+  12 Sep 2015; wjn <wjn@aol.jp> +files/lightdm-1.2.0-fix-configure.patch,
+  +files/lightdm-1.7.7-session-wrapper.patch,
+  +files/session-wrapper-lightdm.patch, -lightdm-1.14.1.ebuild,
+  -lightdm-1.15.0.ebuild, +lightdm-1.16.0.ebuild:
+  Add version 1.16.0, delete old version 1.14.1 and 1.15.0.
+
+   This ebuild file experimentally supports Qt5.
+  If you don't need, please use one in the gentoo repository.
+
+  09 Sep 2015; wjn <wjn@aol.jp> lightdm-1.14.1.ebuild, lightdm-1.15.0.ebuild:
+  Update ebuild file format from "# $Header: $" to "# $Id"
+
+   Since Gentoo changes the VCS from CVS to git, ebuild header is changed.
+
+  31 May 2015; wjn <wjn@aol.jp> lightdm-1.14.1.ebuild, lightdm-1.15.0.ebuild:
+  Move "export PATH" to pkg_setup().
+
+   export should be in pkg_setup().
+  https://devmanual.gentoo.org/ebuild-writing/functions/pkg_setup/index.html
+
+*lightdm-1.15.0 (31 May 2015)
+*lightdm-1.14.1 (31 May 2015)
+
+  31 May 2015; wjn <wjn@aol.jp> -files/lightdm-1.2.0-fix-configure.patch,
+  -files/lightdm-1.7.7-session-wrapper.patch,
+  -files/session-wrapper-lightdm.patch, -lightdm-1.12.2.ebuild,
+  -lightdm-1.13.1.ebuild, +lightdm-1.14.1.ebuild, +lightdm-1.15.0.ebuild,
+  metadata.xml:
+  Update to version 1.14.1 and 1.15.0, delete olds.
+
+*lightdm-1.13.1 (27 Jan 2015)
+*lightdm-1.12.2 (27 Jan 2015)
+
+  27 Jan 2015; wjn <wjn@aol.jp> +files/README.gentoo, +files/Xsession,
+  +files/lightdm, +files/lightdm-1.2.0-fix-configure.patch,
+  +files/lightdm-1.7.7-session-wrapper.patch, +files/lightdm-autologin,
+  +files/lightdm.service, +files/session-wrapper-lightdm.patch,
+  +lightdm-1.12.2.ebuild, +lightdm-1.13.1.ebuild, +metadata.xml:
+  Commit for initializing, Move from GitHub
+

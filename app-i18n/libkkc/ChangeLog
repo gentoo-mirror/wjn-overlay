@@ -1,0 +1,24 @@
+# ChangeLog for app-i18n/libkkc
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  09 Sep 2015; wjn <wjn@aol.jp> +metadata.xml:
+  Add minimal metadata.xml(s) for QA.
+
+  09 Sep 2015; wjn <wjn@aol.jp> libkkc-0.3.5.ebuild, libkkc-9999.ebuild:
+  Trivial fixes for QA.
+
+  09 Sep 2015; wjn <wjn@aol.jp> libkkc-0.3.5.ebuild, libkkc-9999.ebuild:
+  Update ebuild file format from "# $Header: $" to "# $Id"
+
+   Since Gentoo changes the VCS from CVS to git, ebuild header is changed.
+
+  16 May 2015; wjn <wjn@aol.jp> libkkc-0.3.5.ebuild, libkkc-9999.ebuild:
+  app-i18n/*kkc: Add app-i18n/skk-jisyo to depends to convert single char.
+
+*libkkc-9999 (16 May 2015)
+*libkkc-0.3.5 (16 May 2015)
+
+  16 May 2015; wjn <wjn@aol.jp> +libkkc-0.3.5.ebuild, +libkkc-9999.ebuild:
+  Add newly.
+

@@ -1,0 +1,19 @@
+# ChangeLog for media-video/libav
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  09 Sep 2015; wjn <wjn@aol.jp> +metadata.xml:
+  Add metadata.xml(s) for QA.
+
+  09 Sep 2015; wjn <wjn@aol.jp> libav-11.4.ebuild:
+  Update ebuild file format from "# $Header: $" to "# $Id"
+
+   Since Gentoo changes the VCS from CVS to git, ebuild header is changed.
+
+*libav-11.4 (11 Jun 2015)
+
+  11 Jun 2015; wjn <wjn@aol.jp> +libav-11.4.ebuild:
+  11.4: Add temporarily.
+
+   Temporary adding because of missing in gentoo repository.
+

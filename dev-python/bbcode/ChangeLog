@@ -1,0 +1,30 @@
+# ChangeLog for dev-python/bbcode
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  09 Sep 2015; wjn <wjn@aol.jp> bbcode-1.0.21.ebuild:
+  Update ebuild file format from "# $Header: $" to "# $Id"
+
+   Since Gentoo changes the VCS from CVS to git, ebuild header is changed.
+
+  09 Sep 2015; wjn <wjn@aol.jp> bbcode-1.0.21.ebuild:
+  dev-python/{bbcode,phpserialize,typogrify}: Remove obsolete python ver 2.6
+  and 3.2
+
+*bbcode-1.0.21 (14 May 2015)
+
+  14 May 2015; wjn <wjn@aol.jp> -bbcode-1.0.19.ebuild, -bbcode-1.0.20.ebuild,
+  +bbcode-1.0.21.ebuild:
+  Add version 1.0.21, delete version 1.0.19 and 1.0.20.
+
+  26 Feb 2015; wjn <wjn@aol.jp> bbcode-1.0.19.ebuild, bbcode-1.0.20.ebuild,
+  metadata.xml:
+  Update for the Quality Assurance
+
+*bbcode-1.0.20 (27 Jan 2015)
+*bbcode-1.0.19 (27 Jan 2015)
+
+  27 Jan 2015; wjn <wjn@aol.jp> +bbcode-1.0.19.ebuild, +bbcode-1.0.20.ebuild,
+  +metadata.xml:
+  Commit for initializing, Move from GitHub
+

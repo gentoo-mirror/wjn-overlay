@@ -1,0 +1,175 @@
+# ChangeLog for app-i18n/mozc
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  09 Sep 2015; wjn <wjn@aol.jp> mozc-2.17.2097.102.ebuild:
+  Update ebuild file format from "# $Header: $" to "# $Id"
+
+   Since Gentoo changes the VCS from CVS to git, ebuild header is changed.
+
+  04 Jun 2015; wjn <wjn@aol.jp> mozc-2.17.2097.102.ebuild:
+  Improve to stricter replacing for variable.
+
+  27 May 2015; wjn <wjn@aol.jp> +files/mozc-kill-line.diff,
+  mozc-2.17.2097.102.ebuild:
+  Fix the patch for UIM.
+
+  27 May 2015; wjn <wjn@aol.jp> mozc-2.17.2097.102.ebuild:
+  Tidy up codes.
+
+  27 May 2015; wjn <wjn@aol.jp> -mozc-2.17.2077.102.ebuild:
+  Delete old version 2.17.2077.102.
+
+  27 May 2015; wjn <wjn@aol.jp> mozc-2.17.2097.102.ebuild:
+  Use git-r3.eclass and subversion.eclass for all repositories.
+
+    ${DISTDIR} 以下に保存がなされて再ダウンロードの手間が省けるので、
+   全てのリポジトリの fetch について eclass の機能を用いることにする
+
+  25 May 2015; wjn <wjn@aol.jp> mozc-2.17.2097.102.ebuild:
+  Remove needless comment of FontTools.
+
+  25 May 2015; wjn <wjn@aol.jp> mozc-2.17.2097.102.ebuild:
+  Fix ${LICENSE}.
+
+   Mozc: BSD, dictionary_oss: ipadic and public-domain, unicode: unicode,
+   usagedict: BSD-2, GYP: BSD, Mozc Fcitx: BSD, MacUIM: BSD,
+   GMOCK: Boost-1.0, GTEST: BSD. IPAfont is in repo, but not used.
+
+*mozc-2.17.2097.102 (25 May 2015)
+
+  25 May 2015; wjn <wjn@aol.jp> metadata.xml, +mozc-2.17.2097.102.ebuild:
+  Add version 2.17.2097.102.
+
+    - Clang compiler have been tested. Added it.
+    - Use git-r3.eclass to clone Mozc repository.
+    - Use system-global JsonCpp instead of cloning repository.
+
+  25 May 2015; wjn <wjn@aol.jp> mozc-2.17.2077.102.ebuild:
+  Omit FontTools because GNU/Linux build doesn't depend on it.
+
+  25 May 2015; wjn <wjn@aol.jp> metadata.xml, mozc-2.17.2077.102.ebuild:
+  Update offcial site from GoogleCode to GitHub.
+
+  25 May 2015; wjn <wjn@aol.jp> -mozc-2.16.2068.102.ebuild:
+  Delete old version 2.16.2068.102
+
+  25 May 2015; wjn <wjn@aol.jp> mozc-2.17.2077.102.ebuild:
+  Update to follow upstream's commit hash change.
+
+*mozc-2.17.2077.102 (02 May 2015)
+
+  02 May 2015; wjn <wjn@aol.jp> -mozc-2.16.1924.102.ebuild,
+  -mozc-2.16.2014.102.ebuild, mozc-2.16.2068.102.ebuild,
+  +mozc-2.17.2077.102.ebuild:
+  Add version 2.17.2077.102. Drop old.
+
+   Now, Mozc has moved from "Google Code" to "GitHub".
+   See https://code.google.com/p/mozc/ and https://github.com/google/mozc
+
+   ----
+
+   御存知の通り、Google Code は来年に廃止される。
+   そのため、 Mozc も GitHub に引っ越した。
+
+   これにより、 Subversion ではなく Git で、
+   GitHub から clone を行う必要がある。
+
+   よって、 ebuild ファイルの更新を行って対応させた。
+
+   Subversion は、 gmock と gtest が使用している。
+   TEST を行わなければ Subversion は不要になった。
+
+   ----
+
+   また、RDEPEND に app-i18n/tegaki-zinnia-japanese を入れていなかったため
+   いままで 手書き認識が動いていなかったので直した。
+
+   ----
+
+    Changes to be committed:
+      modified:   Manifest
+      deleted:    mozc-2.16.1924.102.ebuild
+      deleted:    mozc-2.16.2014.102.ebuild
+      modified:   mozc-2.16.2068.102.ebuild
+      added:              mozc-2.17.2077.102.ebuild
+
+  25 Feb 2015; wjn <wjn@aol.jp> metadata.xml, mozc-2.16.2068.102.ebuild:
+  fix ver 2.16.2068.102 to avoid segfault.
+
+   Finally, mozc-2.16.2068.102.ebuild still use gcc instead of clang
+  (though official Mozc has become to use clang).
+
+   Building Mozc with clang, built binaries fall segmentation fault.
+  Probably it is specific problem on Gentoo systems.
+  GCC is recommended.
+
+*mozc-2.16.2068.102 (17 Feb 2015)
+
+  17 Feb 2015; wjn <wjn@aol.jp> +mozc-2.16.2068.102.ebuild:
+  add ver 2.16.2068.102.
+
+  - Protobuf
+   Mozc's protobuf dependency was reverted from ver 2.6.1 to r512.
+  See Mozc r482; https://code.google.com/p/mozc/source/detail?r=482
+  Therefore this ebuild file calls protobuf ver 2.5.0.
+
+  - Clang
+   Mozc became to depend on Clang.
+  See Mozc r506; https://code.google.com/p/mozc/source/detail?r=506
+
+  - Removed "build_mozc.py build_tools"
+   "build_mozc.py build_tools" was removed.
+  See Mozc r507; https://code.google.com/p/mozc/source/detail?r=507
+
+          new file:   mozc-2.16.2068.102.ebuild
+
+  10 Feb 2015; wjn <wjn@aol.jp> metadata.xml, mozc-2.16.1924.102.ebuild,
+  mozc-2.16.2014.102.ebuild:
+  Inherit python-single-r1.eclass. Fix metadata.xml.
+
+          - Inherit python-single-r1.eclass instead of python.eclass
+                   python.eclass is deprecated.
+
+          - Fix metadata.xml
+                   For the Quarity Assurance.
+
+          - other some fixes
+
+          modified:   metadata.xml
+          modified:   mozc-2.16.1924.102.ebuild
+          modified:   mozc-2.16.2014.102.ebuild
+
+  10 Feb 2015; wjn <wjn@aol.jp> mozc-2.16.1924.102.ebuild,
+  mozc-2.16.2014.102.ebuild:
+  ut: Omit deprecated python.eclass. Add correct licenses.
+
+  - Updated to use python-single-r1.eclass
+           python.eclass is deprecated.
+           We should call python-r1(*).eclass instead of python.eclass.
+
+  - Fixed licenses
+           Japanese WordNet(EJDIC) has a derivative license of
+  "Princeton"(WordNet).
+           The licenses of "Hatena Keywords" and "Nico Nico Pedia" is not
+  clear,
+          so *they can be "all-rights-reserved"* .
+          Please edit your /etc/portage/package.license to install.
+           See http://www.geocities.jp/ep3797/mozc_01.html
+
+  - Fixed metadata.xml
+           For the Quality Assurance.
+
+          modified:   metadata.xml
+          modified:   mozc-ut-2.16.2014.102.20150114.ebuild
+          new file:   /licenses/wn-ja
+          new file:   /profiles/license_groups
+
+*mozc-2.16.2014.102 (27 Jan 2015)
+*mozc-2.16.1924.102 (27 Jan 2015)
+
+  27 Jan 2015; wjn <wjn@aol.jp> +files/50mozc-gentoo.el,
+  +files/mozc-1.10.1390.102-drop-Werror.patch, +files/mozc-ibus-1.5.4.patch,
+  +metadata.xml, +mozc-2.16.1924.102.ebuild, +mozc-2.16.2014.102.ebuild:
+  Commit for initializing, Move from GitHub
+

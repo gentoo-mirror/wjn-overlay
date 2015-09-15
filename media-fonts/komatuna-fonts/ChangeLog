@@ -1,0 +1,21 @@
+# ChangeLog for media-fonts/komatuna-fonts
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  09 Sep 2015; wjn <wjn@aol.jp> komatuna-fonts-20101113.ebuild:
+  Update ebuild file format from "# $Header: $" to "# $Id"
+
+   Since Gentoo changes the VCS from CVS to git, ebuild header is changed.
+
+  04 Jun 2015; wjn <wjn@aol.jp> metadata.xml:
+  media-fonts/*: Fix typo in metadata.xml
+
+*komatuna-fonts-20101113 (03 Jun 2015)
+
+  03 Jun 2015; wjn <wjn@aol.jp> +komatuna-fonts-20101113.ebuild,
+  +metadata.xml:
+  media-fonts/komatuna: Add newly.
+
+   "Komatuna fonts are modified Konatu and M+ fonts for Japanese."
+   http://www.geocities.jp/ep3797/modified_fonts_01.html
+

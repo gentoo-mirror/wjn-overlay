@@ -1,0 +1,26 @@
+# ChangeLog for media-fonts/sawarabi-fonts-otf
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  09 Sep 2015; wjn <wjn@aol.jp> sawarabi-fonts-otf-20150515b.ebuild:
+  Update ebuild file format from "# $Header: $" to "# $Id"
+
+   Since Gentoo changes the VCS from CVS to git, ebuild header is changed.
+
+  04 Jun 2015; wjn <wjn@aol.jp> metadata.xml:
+  media-fonts/*: Fix typo in metadata.xml
+
+*sawarabi-fonts-otf-20150515b (04 Jun 2015)
+
+  04 Jun 2015; wjn <wjn@aol.jp> +metadata.xml,
+  +sawarabi-fonts-otf-20150515b.ebuild:
+  Add newly.
+
+    Sawarabi-fonts is an original font family of gothic and mincho.
+   Its license is CC-BY-3.0.
+    http://osdn.jp/projects/sawarabi-fonts/
+
+    For ref.
+    - http://www.forest.impress.co.jp/docs/review/20150331_695350.html
+    - https://ja.wikipedia.org/wiki/さわらびフォント
+

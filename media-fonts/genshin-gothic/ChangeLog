@@ -1,0 +1,33 @@
+# ChangeLog for media-fonts/genshin-gothic
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  09 Sep 2015; wjn <wjn@aol.jp> metadata.xml:
+  Fix metadata.xml(s)
+
+  09 Sep 2015; wjn <wjn@aol.jp> genshin-gothic-1.002.20150607.ebuild:
+  Update ebuild file format from "# $Header: $" to "# $Id"
+
+   Since Gentoo changes the VCS from CVS to git, ebuild header is changed.
+
+*genshin-gothic-1.002.20150607 (08 Jun 2015)
+
+  08 Jun 2015; wjn <wjn@aol.jp> +genshin-gothic-1.002.20150607.ebuild,
+  -genshin-gothic-20150116.ebuild:
+  Update to version 1.002.20150607.
+
+  30 May 2015; wjn <wjn@aol.jp> genshin-gothic-20150116.ebuild:
+  Update to EAPI=5 and git-r3.eclass
+
+*genshin-gothic-20150116 (12 May 2015)
+
+  12 May 2015; wjn <wjn@aol.jp> -genshin-gothic-20140828.ebuild,
+  +genshin-gothic-20150116.ebuild:
+  Add version 20150116, remove old version 20140828.
+
+*genshin-gothic-20140828 (27 Jan 2015)
+
+  27 Jan 2015; wjn <wjn@aol.jp> +genshin-gothic-20140828.ebuild,
+  +metadata.xml:
+  Commit for initializing, Move from GitHub
+

@@ -1,0 +1,153 @@
+# ChangeLog for www-apps/nikola
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  09 Sep 2015; wjn <wjn@aol.jp> metadata.xml:
+  Update metadata.xml(s) and IUSE(s).
+
+  09 Sep 2015; wjn <wjn@aol.jp> nikola-7.6.4.ebuild, nikola-7.7.0.ebuild:
+  Trivial fixes for QA.
+
+  09 Sep 2015; wjn <wjn@aol.jp> nikola-7.6.4.ebuild, nikola-7.7.0.ebuild:
+  Update ebuild file format from "# $Header: $" to "# $Id"
+
+   Since Gentoo changes the VCS from CVS to git, ebuild header is changed.
+
+*nikola-7.7.0 (04 Sep 2015)
+
+  04 Sep 2015; wjn <wjn@aol.jp> +nikola-7.7.0.ebuild:
+  Add version 7.7.0.
+
+  22 Aug 2015; wjn <wjn@aol.jp> nikola-7.6.4.ebuild:
+  Fix to add a necessary dep sys-libs/gdbm.
+
+   Nikola use GNU dbm through Python.
+  So Added PYTHON_REQ_USE="gdbm".
+
+*nikola-7.6.4 (22 Aug 2015)
+
+  22 Aug 2015; wjn <wjn@aol.jp> -nikola-7.5.1.ebuild, -nikola-7.6.0.ebuild,
+  -nikola-7.6.1.ebuild, -nikola-7.6.2.ebuild, -nikola-7.6.3.ebuild,
+  +nikola-7.6.4.ebuild:
+  Add version 7.6.4, Delete old versions 7.5.1, 7.6.{0..3}.
+
+*nikola-7.6.3 (10 Aug 2015)
+
+  10 Aug 2015; wjn <wjn@aol.jp> +nikola-7.6.3.ebuild:
+  Add version 7.6.3.
+
+*nikola-7.6.2 (30 Jul 2015)
+
+  30 Jul 2015; wjn <wjn@aol.jp> +nikola-7.6.2.ebuild:
+  Add version 7.6.2
+
+*nikola-7.6.1 (17 Jul 2015)
+
+  17 Jul 2015; wjn <wjn@aol.jp> +nikola-7.6.1.ebuild:
+  Add version 7.6.1.
+
+*nikola-7.6.0 (03 Jul 2015)
+
+  03 Jul 2015; wjn <wjn@aol.jp> +nikola-7.6.0.ebuild:
+  Add version 7.6.0.
+
+  17 Jun 2015; wjn <wjn@aol.jp> nikola-7.5.1.ebuild:
+  Fix RDEPEND.
+
+  17 Jun 2015; wjn <wjn@aol.jp> -nikola-7.4.1.ebuild, -nikola-7.5.0.ebuild:
+  Delete old version 7.4.1 and 7.5.0.
+
+  17 Jun 2015; wjn <wjn@aol.jp> nikola-7.5.1.ebuild:
+  Correct LICENSE (MIT is correct).
+
+    Nikola is licensed under MIT, not MIT-advertising.
+     - https://www.getnikola.com/handbook.html#license
+     - https://github.com/getnikola/nikola/blob/master/LICENSE.txt
+     - https://pypi.python.org/pypi/Nikola/7.5.1
+
+    One of sample texts is derived from Project Gutenberg
+     data/samplesite/stories/a-study-in-scarlet.txt ,
+   its license is the "Project Gutenberg License",
+   see http://www.gutenberg.org/license .
+
+*nikola-7.5.1 (13 Jun 2015)
+
+  13 Jun 2015; wjn <wjn@aol.jp> +nikola-7.5.1.ebuild:
+  Add version 7.5.1.
+
+    Nikola version 7.5.1 has been released.
+   CHANGES is at https://github.com/getnikola/nikola/blob/v7.5.1/CHANGES.txt
+
+  13 Jun 2015; wjn <wjn@aol.jp> nikola-7.4.1.ebuild, nikola-7.5.0.ebuild:
+  Use https:// instead of git:// for live build.
+
+  11 Jun 2015; wjn <wjn@aol.jp> nikola-7.5.0.ebuild:
+  7.5.0: Remove USE="livereload".
+
+    ** livereload is obsolete now, use websocket (ws4py). **
+
+  11 Jun 2015; wjn <wjn@aol.jp> nikola-7.4.1.ebuild:
+  7.4.1: Specify the yapsy version 1.10.423 dependency.
+
+  11 Jun 2015; wjn <wjn@aol.jp> nikola-7.4.1.ebuild:
+  7.4.1: Remove deps for testing use.
+
+  11 Jun 2015; wjn <wjn@aol.jp> -nikola-7.3.1.ebuild, -nikola-7.4.0.ebuild:
+  Delete old versions 7.3.1 and 7.4.0.
+
+*nikola-7.5.0 (10 Jun 2015)
+
+  10 Jun 2015; wjn <wjn@aol.jp> +nikola-7.5.0.ebuild:
+  Add version 7.5.0.
+
+   FYI: https://github.com/getnikola/nikola/releases/tag/v7.5.0
+
+  13 May 2015; wjn <wjn@aol.jp> nikola-7.4.1.ebuild:
+  Fix dependency version of doit.
+
+  10 May 2015; wjn <wjn@aol.jp> nikola-7.3.1.ebuild, nikola-7.4.0.ebuild:
+  Use https for nikola's URL.
+
+*nikola-7.4.1 (10 May 2015)
+
+  10 May 2015; wjn <wjn@aol.jp> +nikola-7.4.1.ebuild:
+  Add version 7.4.1.
+
+*nikola-7.4.0 (07 May 2015)
+
+  07 May 2015; wjn <wjn@aol.jp> -nikola-7.2.0.ebuild, -nikola-7.3.0.ebuild,
+  +nikola-7.4.0.ebuild:
+  Add version 7.4.0, drop 7.2.0 and 7.3.0.
+
+          modified:   Manifest
+          new file:   nikola-7.4.0.ebuild
+          deleted:    nikola-7.2.0.ebuild
+          deleted:    nikola-7.3.0.ebuild
+
+  07 May 2015; wjn <wjn@aol.jp> nikola-7.3.1.ebuild:
+  fix dependencies' version.
+          modified:   nikola-7.3.1.ebuild
+
+  28 Apr 2015; wjn <wjn@aol.jp> nikola-7.3.1.ebuild:
+  python-dateutil-2.4.1 (not ">=") is required.
+          modified:   nikola-7.3.1.ebuild
+
+*nikola-7.3.1 (08 Mar 2015)
+
+  08 Mar 2015; wjn <wjn@aol.jp> metadata.xml, nikola-7.2.0.ebuild,
+  nikola-7.3.0.ebuild, +nikola-7.3.1.ebuild:
+  Add version 7.3.1.
+
+   Version bump.
+   See https://github.com/getnikola/nikola/releases/tag/v7.3.1
+
+   nikola-7.3.1 depends on dev-python/python-dateutil-2.4.1
+  dev-python/python-dateutil-2.4.1 will be newly added to this repository.
+
+*nikola-7.3.0 (27 Jan 2015)
+*nikola-7.2.0 (27 Jan 2015)
+
+  27 Jan 2015; wjn <wjn@aol.jp> +metadata.xml, +nikola-7.2.0.ebuild,
+  +nikola-7.3.0.ebuild:
+  Commit for initializing, Move from GitHub
+

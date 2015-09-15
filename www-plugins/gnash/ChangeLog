@@ -1,0 +1,45 @@
+# ChangeLog for www-plugins/gnash
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  09 Sep 2015; wjn <wjn@aol.jp> gnash-0.8.10_p20150326.ebuild:
+  Trivial fixes for QA.
+
+  09 Sep 2015; wjn <wjn@aol.jp> gnash-0.8.10_p20150326.ebuild:
+  Update ebuild file format from "# $Header: $" to "# $Id"
+
+   Since Gentoo changes the VCS from CVS to git, ebuild header is changed.
+
+  30 May 2015; wjn <wjn@aol.jp> gnash-0.8.10_p20150326.ebuild:
+  Update to EAPI=5 and git-r3.eclass
+
+*gnash-0.8.10_p20150326 (12 May 2015)
+
+  12 May 2015; wjn <wjn@aol.jp> +files/gnash-0.8.10-amf-include.patch,
+  +files/gnash-0.8.10-boost-1.50.patch,
+  +files/gnash-0.8.10-gettext-macro.patch,
+  +files/gnash-0.8.10-npapi-sdk.patch,
+  +files/gnash-0.8.10_p20120903-bytesfmt.patch,
+  +files/gnash-0.8.10_p20120903-ffmpeg1.patch,
+  +files/gnash-0.8.10_p20120903-libav9.patch,
+  +files/gnash-0.8.10_p20150326-diff-20150316.patch,
+  +files/gnash-0.8.10_p20150326-libav10.patch,
+  +files/gnash-0.8.11-gettext-macro.patch,
+  +files/gnash-0.8.9-external-dejagnu.patch,
+  +files/gnash-0.8.9-kde4-libdir.patch, +files/gnash-0.8.9-klash.patch,
+  +gnash-0.8.10_p20150326.ebuild, +metadata.xml:
+  Add newly, including patches to 20150326.
+
+    Gnash.
+    Including patches from 2015-03-16 to 2015-03-26.
+
+    Also supports >=libav-10.
+    (CODEC_ID is obsolete. AV_CODEC_ID must used instead.)
+
+    But there is still the bug of
+     > gtk/gtk_glue_agg_vaapi.cpp:308:37:
+     >  error: use of deleted function ‘std::unique_ptr
+    See http://savannah.gnu.org/bugs/?44636 for more detail.
+
+    Use -vaapi is recommended.
+

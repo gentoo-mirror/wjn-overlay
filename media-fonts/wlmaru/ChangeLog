@@ -1,0 +1,23 @@
+# ChangeLog for media-fonts/wlmaru
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  09 Sep 2015; wjn <wjn@aol.jp> wlmaru-4.3.6.0.ebuild:
+  Trivial fixes for QA.
+
+  09 Sep 2015; wjn <wjn@aol.jp> wlmaru-4.3.6.0.ebuild:
+  Fix trivials such as redundant new lines etc.
+
+  09 Sep 2015; wjn <wjn@aol.jp> wlmaru-4.3.6.0.ebuild:
+  Update ebuild file format from "# $Header: $" to "# $Id"
+
+   Since Gentoo changes the VCS from CVS to git, ebuild header is changed.
+
+  05 Jun 2015; wjn <wjn@aol.jp> wlmaru-4.3.6.0.ebuild:
+  media-fonts/*: Tidy up nkf parse.
+
+*wlmaru-4.3.6.0 (04 Jun 2015)
+
+  04 Jun 2015; wjn <wjn@aol.jp> +metadata.xml, +wlmaru-4.3.6.0.ebuild:
+  Add newly.
+

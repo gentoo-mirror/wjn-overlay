@@ -1,0 +1,51 @@
+# ChangeLog for x11-misc/mate-tweak
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  09 Sep 2015; wjn <wjn@aol.jp> +metadata.xml:
+  Add minimal metadata.xml(s) for QA.
+
+  09 Sep 2015; wjn <wjn@aol.jp> mate-tweak-3.5.2.ebuild:
+  Update ebuild file format from "# $Header: $" to "# $Id"
+
+   Since Gentoo changes the VCS from CVS to git, ebuild header is changed.
+
+*mate-tweak-3.5.2 (29 Aug 2015)
+
+  29 Aug 2015; wjn <wjn@aol.jp> -mate-tweak-3.4.8.ebuild,
+  -mate-tweak-3.4.9.ebuild, -mate-tweak-3.5.0.ebuild,
+  +mate-tweak-3.5.2.ebuild:
+  Add version 3.5.2, delete older vers.
+
+*mate-tweak-3.5.0 (27 Jul 2015)
+
+  27 Jul 2015; wjn <wjn@aol.jp> +mate-tweak-3.5.0.ebuild:
+  Add version 3.5.0.
+
+  31 May 2015; wjn <wjn@aol.jp> mate-tweak-3.4.9.ebuild:
+  Fix typo of missing whitespace.
+
+  30 May 2015; wjn <wjn@aol.jp> mate-tweak-3.4.8.ebuild,
+  mate-tweak-3.4.9.ebuild:
+  Add "nls" to ${IUSE}.
+
+  30 May 2015; wjn <wjn@aol.jp> mate-tweak-3.4.8.ebuild,
+  mate-tweak-3.4.9.ebuild:
+  Fix dependencies.
+
+*mate-tweak-3.4.9 (30 May 2015)
+
+  30 May 2015; wjn <wjn@aol.jp> +mate-tweak-3.4.9.ebuild:
+  Add version 3.4.9.
+
+  14 May 2015; wjn <wjn@aol.jp> mate-tweak-3.4.8.ebuild:
+  Remove needless inherit flag-o-matic.
+
+*mate-tweak-3.4.8 (13 May 2015)
+
+  13 May 2015; wjn <wjn@aol.jp> +mate-tweak-3.4.8.ebuild:
+  Add newly. version 3.4.8.
+
+   MATE Tweak Tool from Ubuntu MATE.
+  See https://launchpad.net/ubuntu/+source/mate-tweak
+

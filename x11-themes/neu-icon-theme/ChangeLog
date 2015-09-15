@@ -1,10 +1,23 @@
-# ChangeLog for x11-themes/nuovo-icon-theme
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-themes/nuovo-icon-theme/ChangeLog,v 1.1 2010/11/10 17:07:16 ssuominen Exp $
+# ChangeLog for x11-themes/neu-icon-theme
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
 
-*nuovo-icon-theme-0.5 (10 Nov 2010)
+  09 Sep 2015; wjn <wjn@aol.jp> neu-icon-theme-0.6.ebuild:
+  Update ebuild file format from "# $Header: $" to "# $Id"
 
-  10 Nov 2010; Samuli Suominen <ssuominen@gentoo.org>
-  +nuovo-icon-theme-0.5.ebuild:
-  Initial commit.
+   Since Gentoo changes the VCS from CVS to git, ebuild header is changed.
+
+  08 Feb 2015; wjn <wjn@aol.jp> metadata.xml, neu-icon-theme-0.6.ebuild:
+  x11-themes/*: Tidy up ebuilds and metadatas.
+
+          modified:   faience-icon-theme/faience-icon-theme-0.5.1.ebuild
+          modified:   gion-icon-theme/gion-icon-theme-0.1.2.ebuild
+          modified:   gion-icon-theme/metadata.xml
+          modified:   neu-icon-theme/metadata.xml
+          modified:   neu-icon-theme/neu-icon-theme-0.6.ebuild
+
+*neu-icon-theme-0.6 (27 Jan 2015)
+
+  27 Jan 2015; wjn <wjn@aol.jp> +metadata.xml, +neu-icon-theme-0.6.ebuild:
+  Commit for initializing, Move from GitHub
 

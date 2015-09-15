@@ -1,0 +1,192 @@
+# ChangeLog for app-i18n/mozc-ut
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  09 Sep 2015; wjn <wjn@aol.jp> mozc-ut-2.17.2111.102.20150822.ebuild:
+  Trivial fixes for QA.
+
+  09 Sep 2015; wjn <wjn@aol.jp> mozc-ut-2.17.2111.102.20150822.ebuild:
+  Update ebuild file format from "# $Header: $" to "# $Id"
+
+   Since Gentoo changes the VCS from CVS to git, ebuild header is changed.
+
+*mozc-ut-2.17.2111.102.20150822 (23 Aug 2015)
+
+  23 Aug 2015; wjn <wjn@aol.jp> -mozc-ut-2.17.2106.102.20150715.ebuild,
+  +mozc-ut-2.17.2111.102.20150822.ebuild:
+  Add version 20150822, delete 20150715.
+
+*mozc-ut-2.17.2106.102.20150715 (16 Jul 2015)
+
+  16 Jul 2015; wjn <wjn@aol.jp> -mozc-ut-2.17.2097.102.20150529.ebuild,
+  +mozc-ut-2.17.2106.102.20150715.ebuild:
+  Add version 2.17.2106.102.20150715, delete old.
+
+  04 Jun 2015; wjn <wjn@aol.jp> mozc-ut-2.17.2097.102.20150529.ebuild:
+  app-i18n/mozc*: Improve to stricter replacing for variable.
+
+  30 May 2015; wjn <wjn@aol.jp> mozc-ut-2.17.2097.102.20150529.ebuild:
+  trivial code tidying up.
+
+*mozc-ut-2.17.2097.102.20150529 (29 May 2015)
+
+  29 May 2015; wjn <wjn@aol.jp> -mozc-ut-2.16.2072.102.20150405.ebuild,
+  +mozc-ut-2.17.2097.102.20150529.ebuild:
+  Update to newest version 2.17.2097.102.20150529, delete old.
+
+   - upstream has done (almost) monthly update, deleted the older version.
+      > ・人名を追加。
+      > ・はてなキーワードを更新。
+      > ・EDICTを更新。
+      > ・ニコニコ大百科IME辞書を更新。
+
+   - ( also please remind zipcodes data is updated monthly by japanpost. )
+
+    re-install to update is recommended because of above reasons.
+
+   - fixed ebuild about "dodoc" docs of dictionaries.
+
+  29 May 2015; wjn <wjn@aol.jp> mozc-ut-2.16.2072.102.20150405.ebuild:
+  Modify filenames of zip-code archives for monthly updates.
+
+    郵便番号のデータは毎月最終営業日に更新がされており、
+   ファイル名は同じでも内容が替わってしまう。
+   そうすると HASH 値も変わるので、対処する必要が有る。
+
+  28 May 2015; wjn <wjn@aol.jp> mozc-ut-2.16.2072.102.20150405.ebuild:
+  Fix dodoc.
+
+  27 May 2015; wjn <wjn@aol.jp> +files/mozc-kill-line.diff,
+  mozc-ut-2.16.2072.102.20150405.ebuild:
+  Import the generate-mozc-ut script from original.
+
+    Now generates "Mozc UT" by a function in the ebuild
+   instead of generate-mozc-ut.rb.
+
+   This causes a improvement, makes faster preparing.
+
+  25 May 2015; wjn <wjn@aol.jp> metadata.xml,
+  mozc-ut-2.16.2072.102.20150405.ebuild:
+  Modify 2.16.2072.102.20150405.
+
+   - Use git-r3.eclass instead of git clone
+   - Support Clang build
+   - Use JsonCpp from system-global instead of cloning repo.
+   - Remove FontTools because it is only needed for Android build
+   - Fix ${LICENSE}
+   - ... and more trivial tidying up.
+
+  25 May 2015; wjn <wjn@aol.jp> mozc-ut-2.16.2072.102.20150405.ebuild:
+  Update to follow upstream's commit hash change.
+
+  02 May 2015; wjn <wjn@aol.jp> mozc-ut-2.16.2072.102.20150405.ebuild:
+  Update because of Mozc's moving to GitHub.
+
+   Now, Mozc has moved from "Google Code" to "GitHub".
+  See https://code.google.com/p/mozc/ and https://github.com/google/mozc
+
+   This commit is not version bump.
+  Still wait for updating mozc-ut (upstream) by UTUMI.
+
+   You do not have to re-build this yet.
+
+  ----
+
+  御存知の通り、Google Code は来年に廃止される。
+  そのため、 Mozc も GitHub に引っ越した。
+
+  これにより、 Subversion ではなく Git で、
+  GitHub から clone を行う必要がある。
+
+  よって、 ebuild ファイルの更新を行って対応させた。
+
+  Subversion は、 gmock と gtest が使用している。
+  TEST を行わなければ Subversion は不要になった。
+
+  ----
+
+  また、RDEPEND に app-i18n/tegaki-zinnia-japanese を入れていなかったため
+  いままで 手書き認識が動いていなかったので直した。
+
+  ----
+
+   Changes to be committed:
+          modified:   mozc-ut-2.16.2072.102.20150405.ebuild
+
+*mozc-ut-2.16.2072.102.20150405 (07 Apr 2015)
+
+  07 Apr 2015; wjn <wjn@aol.jp> -mozc-ut-2.16.2061.102.20150214.ebuild,
+  +mozc-ut-2.16.2072.102.20150405.ebuild:
+  Add version 2.16.2072.102.20150405, drop old.
+
+  25 Feb 2015; wjn <wjn@aol.jp> -mozc-ut-2.16.2014.102.20150114.ebuild:
+  Drop old version 2.16.2014.102.20150114.
+
+          deleted:    mozc-ut-2.16.2014.102.20150114.ebuild
+
+  25 Feb 2015; wjn <wjn@aol.jp> metadata.xml,
+  mozc-ut-2.16.2061.102.20150214.ebuild:
+  fix ver 2.16.2068.102.20150214 to avoid segfault.
+
+   Finally, mozc-ut-2.16.2068.102.20150214.ebuild still use gcc instead of
+  clang
+  (though official Mozc has become to use clang).
+
+   Building Mozc with clang, built binaries fall in segmentation fault.
+  Probably it is specific problem on Gentoo systems.
+  GCC is recommended.
+
+*mozc-ut-2.16.2061.102.20150214 (17 Feb 2015)
+
+  17 Feb 2015; wjn <wjn@aol.jp> +mozc-ut-2.16.2061.102.20150214.ebuild:
+  add ver 2.16.2061.102.20150214.
+
+  - Protobuf
+    Mozc's protobuf dependency was reverted from ver 2.6.1 to r512.
+   See Mozc r482; https://code.google.com/p/mozc/source/detail?r=482
+   Therefore this ebuild file calls protobuf ver 2.5.0.
+
+   - Clang
+    Mozc became to depend on Clang.
+   See Mozc r506; https://code.google.com/p/mozc/source/detail?r=506
+
+   - Removed "build_mozc.py build_tools"
+    "build_mozc.py build_tools" was removed.
+   See Mozc r507; https://code.google.com/p/mozc/source/detail?r=507
+
+          new file:mozc-ut-2.16.2061.102.20150214.ebuild
+
+  10 Feb 2015; wjn <wjn@aol.jp> metadata.xml,
+  mozc-ut-2.16.2014.102.20150114.ebuild:
+  Omit deprecated python.eclass. Add correct licenses.
+
+  - Updated to use python-single-r1.eclass
+           python.eclass is deprecated.
+           We should call python-r1(*).eclass instead of python.eclass.
+
+  - Fixed licenses
+           Japanese WordNet(EJDIC) has a derivative license of
+  "Princeton"(WordNet).
+           The licenses of "Hatena Keywords" and "Nico Nico Pedia" is not
+  clear,
+          so *they can be "all-rights-reserved"* .
+          Please edit your /etc/portage/package.license to install.
+           See http://www.geocities.jp/ep3797/mozc_01.html
+
+  - Fixed metadata.xml
+           For the Quality Assurance.
+
+          modified:   metadata.xml
+          modified:   mozc-ut-2.16.2014.102.20150114.ebuild
+          new file:   /licenses/wn-ja
+          new file:   /profiles/license_groups
+
+  07 Feb 2015; wjn <wjn@aol.jp> mozc-ut-2.16.2014.102.20150114.ebuild:
+  Remove protobuf dependency.
+
+*mozc-ut-2.16.2014.102.20150114 (27 Jan 2015)
+
+  27 Jan 2015; wjn <wjn@aol.jp> +files/50mozc-gentoo.el, +metadata.xml,
+  +mozc-ut-2.16.2014.102.20150114.ebuild:
+  Commit for initializing, Move from GitHub
+

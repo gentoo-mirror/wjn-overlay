@@ -1,0 +1,17 @@
+# ChangeLog for app-i18n/libkkc-data
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  09 Sep 2015; wjn <wjn@aol.jp> +metadata.xml:
+  Add minimal metadata.xml(s) for QA.
+
+  09 Sep 2015; wjn <wjn@aol.jp> libkkc-data-0.2.7.ebuild:
+  Update ebuild file format from "# $Header: $" to "# $Id"
+
+   Since Gentoo changes the VCS from CVS to git, ebuild header is changed.
+
+*libkkc-data-0.2.7 (16 May 2015)
+
+  16 May 2015; wjn <wjn@aol.jp> +libkkc-data-0.2.7.ebuild:
+  Add newly.
+

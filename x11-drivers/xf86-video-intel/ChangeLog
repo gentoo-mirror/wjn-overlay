@@ -1,0 +1,28 @@
+# ChangeLog for x11-drivers/xf86-video-intel
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  09 Sep 2015; wjn <wjn@aol.jp> metadata.xml:
+  Trivial fixes for QA.
+
+  09 Sep 2015; wjn <wjn@aol.jp> xf86-video-intel-2.99.917-r2.ebuild:
+  Update ebuild file format from "# $Header: $" to "# $Id"
+
+   Since Gentoo changes the VCS from CVS to git, ebuild header is changed.
+
+*xf86-video-intel-2.99.917-r2 (11 Jul 2015)
+
+  11 Jul 2015; wjn <wjn@aol.jp> +files/xf86-video-intel-2.21.15-handle-updates
+  -to-DamageUnregister-API.patch,
+  +files/xf86-video-intel-2.99.905-fix-randr.patch,
+  +files/xf86-video-intel-2.99.906-server-crash.patch,
+  +files/xf86-video-intel-2.99.907-invalidation.patch,
+  +files/xf86-video-intel-2.99.911-sna-pixmap-migration.patch,
+  +files/xf86-video-intel-2.99.912-disable-dri3.patch,
+  +files/xf86-video-intel-2.99.917-build-with-gcc-5.patch,
+  +files/xf86-video-intel-2.99.917-libdrm-kernel-4_0-crash.patch,
+  +files/xf86-video-intel-2.99.917-sna-udev-fstat.patch,
+  +files/xf86-video-intel-2.99.917-uxa-udev-fstat.patch, +metadata.xml,
+  +xf86-video-intel-2.99.917-r2.ebuild:
+  Add for enable DRI3.
+

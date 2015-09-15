@@ -1,0 +1,25 @@
+# ChangeLog for media-fonts/monapo
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  09 Sep 2015; wjn <wjn@aol.jp> monapo-20090423.ebuild:
+  Update ebuild file format from "# $Header: $" to "# $Id"
+
+   Since Gentoo changes the VCS from CVS to git, ebuild header is changed.
+
+  04 Jun 2015; wjn <wjn@aol.jp> metadata.xml:
+  media-fonts/*: Fix typo in metadata.xml
+
+*monapo-20090423 (03 Jun 2015)
+
+  03 Jun 2015; wjn <wjn@aol.jp> +metadata.xml, +monapo-20090423.ebuild:
+  Add newly.
+
+    "Most Japanese websites are designed for "MS P Gothic" font.
+    'Monapo' font is a combined font that uses ipagp.otf (April 2009
+  Ver.003.01)
+   and mona.ttf.
+    It has almost same width as MS P Gothic,
+   so it can show Japanese Ascii Art properly."
+    http://www.geocities.jp/ep3797/modified_fonts_01.html
+

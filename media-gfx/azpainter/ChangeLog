@@ -1,0 +1,51 @@
+# ChangeLog for media-gfx/azpainter
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  09 Sep 2015; wjn <wjn@aol.jp> +metadata.xml:
+  Add minimal metadata.xml(s) for QA.
+
+  09 Sep 2015; wjn <wjn@aol.jp> azpainter-1.0.5-r1.ebuild:
+  Trivial fixes for QA.
+
+  09 Sep 2015; wjn <wjn@aol.jp> azpainter-1.0.5-r1.ebuild,
+  azpainter-1.0.6.ebuild:
+  Fix trivials such as redundant new lines etc.
+
+  09 Sep 2015; wjn <wjn@aol.jp> azpainter-1.0.5-r1.ebuild,
+  azpainter-1.0.6.ebuild:
+  Update ebuild file format from "# $Header: $" to "# $Id"
+
+   Since Gentoo changes the VCS from CVS to git, ebuild header is changed.
+
+  03 Jul 2015; wjn <wjn@aol.jp> azpainter-1.0.6.ebuild,
+  +files/azpainter-makefile.patch:
+  1.0.6: Fix to update icon-cache.
+
+    Original Makefile executes gtk-update-icon-cache.
+    But it sould be remove for Gentoo ebuild system,
+   because ebuild system has own gnome2_icon_cache_update in
+  gnome2-utils.eclass.
+    So patched to Makefile.
+
+*azpainter-1.0.6 (03 Jul 2015)
+
+  03 Jul 2015; wjn <wjn@aol.jp> +azpainter-1.0.6.ebuild:
+  Add version 1.0.6.
+
+  17 Jun 2015; wjn <wjn@aol.jp> -azpainter-1.0.4.ebuild,
+  -azpainter-1.0.5.ebuild:
+  Delete old version 1.0.4 and 1.0.5.
+
+  17 Jun 2015; wjn <wjn@aol.jp> azpainter-1.0.5-r1.ebuild:
+  1.0.5-r1: Tidy up, remove needless (implicit) deps.
+
+*azpainter-1.0.5-r1 (27 Jan 2015)
+*azpainter-1.0.5 (27 Jan 2015)
+*azpainter-1.0.4 (27 Jan 2015)
+
+  27 Jan 2015; wjn <wjn@aol.jp> +azpainter-1.0.4.ebuild,
+  +azpainter-1.0.5.ebuild, +azpainter-1.0.5-r1.ebuild,
+  +files/azpainter-1.0.5-rulepos.patch:
+  Commit for initializing, Move from GitHub
+

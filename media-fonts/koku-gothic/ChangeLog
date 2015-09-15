@@ -1,0 +1,27 @@
+# ChangeLog for media-fonts/koku-gothic
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  09 Sep 2015; wjn <wjn@aol.jp> koku-gothic-20140906.ebuild:
+  Update ebuild file format from "# $Header: $" to "# $Id"
+
+   Since Gentoo changes the VCS from CVS to git, ebuild header is changed.
+
+  05 Jun 2015; wjn <wjn@aol.jp> koku-gothic-20140906.ebuild:
+  media-fonts/*: Tidy up nkf parse.
+
+*koku-gothic-20140906 (05 Jun 2015)
+
+  05 Jun 2015; wjn <wjn@aol.jp> +koku-gothic-20140906.ebuild, +metadata.xml:
+  Add newly.
+
+    Koku Gothic (刻ゴシック) is a JA gothic (san-serif) TTF based on
+   M+ and Source-Han-Sans.
+    But its kana letters are smaller than usual,
+   because it aims different designing between kanji and kana.
+
+    "「刻」シリーズは、漢字に比べてひらがな・カタカナを幅ごと小さく
+   デザインしたフォントです。 何行にもわたって組まれた文字列を眺めると、
+   統一感のある美しさに気づかされます。"
+    http://freefonts.jp/
+

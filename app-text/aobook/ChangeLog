@@ -1,0 +1,23 @@
+# ChangeLog for app-text/aobook
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  09 Sep 2015; wjn <wjn@aol.jp> +metadata.xml:
+  Add minimal metadata.xml(s) for QA.
+
+  09 Sep 2015; wjn <wjn@aol.jp> aobook-1.0.1.ebuild:
+  Trivial fixes for QA.
+
+  09 Sep 2015; wjn <wjn@aol.jp> aobook-1.0.1.ebuild:
+  Update ebuild file format from "# $Header: $" to "# $Id"
+
+   Since Gentoo changes the VCS from CVS to git, ebuild header is changed.
+
+  30 May 2015; wjn <wjn@aol.jp> aobook-1.0.1.ebuild:
+  Update to EAPI=5 and git-r3.eclass
+
+*aobook-1.0.1 (27 Jan 2015)
+
+  27 Jan 2015; wjn <wjn@aol.jp> +aobook-1.0.1.ebuild:
+  Commit for initializing, Move from GitHub
+

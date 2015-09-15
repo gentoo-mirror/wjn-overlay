@@ -1,0 +1,40 @@
+# ChangeLog for media-fonts/source-han-sans
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  09 Sep 2015; wjn <wjn@aol.jp> +metadata.xml:
+  Add metadata.xml(s) for QA.
+
+  09 Sep 2015; wjn <wjn@aol.jp> source-han-sans-1.004.ebuild:
+  Update ebuild file format from "# $Header: $" to "# $Id"
+
+   Since Gentoo changes the VCS from CVS to git, ebuild header is changed.
+
+  20 Jun 2015; wjn <wjn@aol.jp> source-han-sans-1.004.ebuild:
+  media-fonts/{noto*,source-han-sans*}: Modify ${DOCs} to list from array.
+
+    font.eclass supports space-delimited listed ${DOCS} only,
+   though EAPI(>=4) can treat arrayed ${DOCS}.
+    Therefore, space-delimited list (not array) makes codes shorter,
+   because src_install can be left as default spec of font.eclass.
+
+  20 Jun 2015; wjn <wjn@aol.jp> source-han-sans-1.004.ebuild:
+  dodoc by for-loop.
+
+  20 Jun 2015; wjn <wjn@aol.jp> source-han-sans-1.004.ebuild:
+  Trivial code tidy up.
+
+*source-han-sans-1.004 (20 Jun 2015)
+
+  20 Jun 2015; wjn <wjn@aol.jp> -source-han-sans-1.002r.ebuild,
+  +source-han-sans-1.004.ebuild:
+  Add version 1.004, delete old 1.002r.
+
+  12 May 2015; wjn <wjn@aol.jp> source-han-sans-1.002r.ebuild:
+  Declare ${MY_PN} instead of raw string.
+
+*source-han-sans-1.002r (12 May 2015)
+
+  12 May 2015; wjn <wjn@aol.jp> +source-han-sans-1.002r.ebuild:
+  Rename ${PN} to fix typo.
+

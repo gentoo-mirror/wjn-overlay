@@ -1,0 +1,19 @@
+# ChangeLog for dev-python/husl
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  09 Sep 2015; wjn <wjn@aol.jp> +metadata.xml:
+  Add minimal metadata.xml(s) for QA.
+
+  09 Sep 2015; wjn <wjn@aol.jp> husl-4.0.2.ebuild:
+  Update ebuild file format from "# $Header: $" to "# $Id"
+
+   Since Gentoo changes the VCS from CVS to git, ebuild header is changed.
+
+*husl-4.0.2 (04 Sep 2015)
+
+  04 Sep 2015; wjn <wjn@aol.jp> +husl-4.0.2.ebuild:
+  Add version 4.0.2.
+
+   =www-client/nikola-7.7.0 depends on >=dev-python/husl-4.0.2
+

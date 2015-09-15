@@ -1,0 +1,23 @@
+# ChangeLog for media-fonts/pixel-mplus
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  09 Sep 2015; wjn <wjn@aol.jp> pixel-mplus-20130602.ebuild:
+  Trivial fixes for QA.
+
+  09 Sep 2015; wjn <wjn@aol.jp> metadata.xml:
+  Fix metadata.xml(s)
+
+  09 Sep 2015; wjn <wjn@aol.jp> pixel-mplus-20130602.ebuild:
+  Update ebuild file format from "# $Header: $" to "# $Id"
+
+   Since Gentoo changes the VCS from CVS to git, ebuild header is changed.
+
+  30 May 2015; wjn <wjn@aol.jp> pixel-mplus-20130602.ebuild:
+  Update to EAPI=5 and git-r3.eclass
+
+*pixel-mplus-20130602 (27 Jan 2015)
+
+  27 Jan 2015; wjn <wjn@aol.jp> +metadata.xml, +pixel-mplus-20130602.ebuild:
+  Commit for initializing, Move from GitHub
+

@@ -1,0 +1,25 @@
+# ChangeLog for x11-libs/gdk-pixbuf
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*gdk-pixbuf-2.31.7 (09 Sep 2015)
+
+  09 Sep 2015; wjn <wjn@aol.jp> +gdk-pixbuf-2.31.7.ebuild:
+  Add version 2.31.7.
+
+  09 Sep 2015; wjn <wjn@aol.jp> gdk-pixbuf-2.31.5.ebuild:
+  Update ebuild file format from "# $Header: $" to "# $Id"
+
+   Since Gentoo changes the VCS from CVS to git, ebuild header is changed.
+
+*gdk-pixbuf-2.31.5 (19 Aug 2015)
+
+  19 Aug 2015; wjn <wjn@aol.jp> -gdk-pixbuf-2.31.4.ebuild,
+  +gdk-pixbuf-2.31.5.ebuild:
+  Add version 2.31.5, delete vulnerable 2.31.4.
+
+*gdk-pixbuf-2.31.4 (11 Jul 2015)
+
+  11 Jul 2015; wjn <wjn@aol.jp> +gdk-pixbuf-2.31.4.ebuild, +metadata.xml:
+  Add version 2.31.4 temporarily.
+
