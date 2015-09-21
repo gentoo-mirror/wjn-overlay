@@ -19,7 +19,7 @@ UT_VER=$(get_version_component_range $(get_version_component_count))
 UT_DIR="8/8903"
 
 # ZIP codes are revised monthly.
-ZIPCODE_REV="201507"
+ZIPCODE_REV="201508"
 
 MOZC_VER=$(get_version_component_range 1-$(get_last_version_component_index))
 MOZC_REV="0605d8b"
