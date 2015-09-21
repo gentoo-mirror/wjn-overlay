@@ -174,26 +174,27 @@ src_prepare() {
 
 src_configure() {
 	if use clang ; then
-		local GYP_DEFINES="compiler_target=clang compiler_host=clang"
+		export GYP_DEFINES="compiler_target=clang compiler_host=clang"
 	else
-		local GYP_DEFINES="compiler_target=gcc compiler_host=gcc"
+		export GYP_DEFINES="compiler_target=gcc compiler_host=gcc"
 	fi
 
 	local myconf="--server_dir=/usr/$(get_libdir)/mozc"
 
-	use ibus && GYP_DEFINES="${GYP_DEFINES} \
-		ibus_mozc_path=/usr/libexec/ibus-engine-mozc \
+	use ibus && export GYP_DEFINES="${GYP_DEFINES}
+		ibus_mozc_path=/usr/libexec/ibus-engine-mozc
 		ibus_mozc_icon_path=/usr/share/ibus-mozc/product_icon.png"
 
 	if ! use qt4 ; then
 		myconf="${myconf} --noqt"
-		GYP_DEFINES="${GYP_DEFINES} use_libzinnia=0 \
+		export GYP_DEFINES="${GYP_DEFINES} use_libzinnia=0
 		zinnia_model_file=/usr/share/tegaki/models/zinnia/handwriting-ja.model"
 	fi
 
-	use renderer || GYP_DEFINES="${GYP_DEFINES} enable_gtk_renderer=0"
+	use renderer || export GYP_DEFINES="${GYP_DEFINES} enable_gtk_renderer=0"
 
 	use clang || tc-export CC CXX AR AS RANLIB LD NM
+
 	"${PYTHON}" build_mozc.py gyp --target_platform=Linux "${myconf}" || die
 }
 
