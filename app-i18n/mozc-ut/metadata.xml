@@ -23,7 +23,8 @@
 	<flag name='fcitx'>Enable support for <pkg>app-i18n/fcitx</pkg></flag>
 	<flag name='ibus'>Enable support for <pkg>app-i18n/ibus</pkg></flag>
 	<flag name='nicodic'>Add "Nico Nico Pedia" dictionary (NICODIC)</flag>
-	<flag name='qt4'>Enable <pkg>app-i18n/zinnia</pkg> functionality</flag>
+	<flag name='qt4'>Build with <pkg>dev-qt/qtgui:4</pkg>. Recommended.
+ 		Unless this flag is enabled, no configuration tool cannot run. </flag>
 	<flag name='renderer'>Enable native candidate window</flag>
 	<flag name='test'>Enable src_test phase for runtests</flag>
 	<flag name='uim'>Enable support for <pkg>app-i18n/uim</pkg></flag>
