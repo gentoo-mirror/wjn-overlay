@@ -25,7 +25,8 @@ CDEPEND="x11-libs/gtk+:2
 	oniguruma? ( dev-libs/oniguruma )
 	pda? ( app-pda/jpilot )
 	spell? ( app-text/gtkspell:2 )
-	ssl? ( dev-libs/openssl:0 )"
+	ssl? ( || ( dev-libs/openssl:0
+		dev-libs/libressl ) )"
 RDEPEND="${CDEPEND}
 	app-misc/mime-types
 	net-misc/curl"
