@@ -54,7 +54,8 @@ COMMON_DEPEND="!dev-scheme/sigscheme
 	qt5? ( dev-qt/qtgui:5 )
 	skk? ( app-i18n/skk-jisyo )
 	sqlite? ( dev-db/sqlite:3 )
-	ssl? ( dev-libs/openssl:* )"
+	ssl? ( || ( dev-libs/openssl:*
+		dev-libs/libressl ) )"
 DEPEND="${COMMON_DEPEND}
 	>=sys-devel/gettext-0.15
 	virtual/pkgconfig
