@@ -9,50 +9,30 @@ PYTHON_COMPAT=( python2_7 )
 
 inherit elisp-common eutils git-r3 multilib multiprocessing python-single-r1 \
 	toolchain-funcs versionator
-use test && inherit subversion
 
 DESCRIPTION="Mozc Japanese Input Method with Additional Japanese dictionary"
 HOMEPAGE="http://www.geocities.jp/ep3797/mozc_01.html
 	https://github.com/google/mozc"
 
 UT_VER=$(get_version_component_range $(get_version_component_count))
-UT_DIR="8/8903"
+UT_DIR="9/9229"
 
 # ZIP codes are revised monthly.
-ZIPCODE_REV="201508"
+ZIPCODE_REV="201509"
 
 MOZC_VER=$(get_version_component_range 1-$(get_last_version_component_index))
-MOZC_REV="0605d8b"
+MOZC_REV="dd3b337"
 USAGEDIC_REV="HEAD"
-GYP_REV="cdf037c"
-
-# The dependency on protobuf version is near 2.5.0 (172019c).
-# See Mozc commit 444f8a7 https://github.com/google/mozc/commit/444f8a7
-PROTOBUF_REV="172019c"
-
-# Use JsonCpp in the system-global's.
-# JSONCPP_REV="11086dd"
-
-GMOCK_REV="501"
-GTEST_REV="700"
 FCITX_PATCH_VER="2.17.2102.102.1"
 UIM_PATCH_REV="0562676"
 
 UT_URI="mirror://sourceforge.jp/users/${UT_DIR}/mozcdic-ut-${UT_VER}.tar.bz2"
 
-# We must clone Mozc by git to manage its versions.
 MOZC_URI="https://github.com/google/mozc.git"
-
 USAGEDIC_URI="https://github.com/hiroyuki-komatsu/japanese-usage-dictionary.git"
 ZIP1_URI="http://www.post.japanpost.jp/zipcode/dl/kogaki/zip/ken_all.zip"
 ZIP2_URI="http://www.post.japanpost.jp/zipcode/dl/jigyosyo/zip/jigyosyo.zip"
 EDICT_URI="http://ftp.monash.edu.au/pub/nihongo/edict.gz"
-
-GYP_URI="https://chromium.googlesource.com/external/gyp.git"
-PROTOBUF_URI="https://github.com/google/protobuf.git"
-# JSONCPP_URI="https://github.com/open-source-parsers/jsoncpp.git"
-GMOCK_URI="https://googlemock.googlecode.com/svn/trunk"
-GTEST_URI="https://googletest.googlecode.com/svn/trunk"
 FCITX_PATCH_URI="http://download.fcitx-im.org/fcitx-mozc/fcitx-mozc-${FCITX_PATCH_VER}.patch"
 UIM_PATCH_URI="https://github.com/e-kato/macuim.git"
 
@@ -73,15 +53,12 @@ LICENSE="BSD BSD-2 CC-BY-SA-3.0 GPL-2 all-rights-reserved ipadic public-domain
 	unicode ejdic? ( wn-ja )  test? ( Boost-1.0 )"
 SLOT="0"
 KEYWORDS=""
-IUSE="clang ejdic emacs fcitx ibus -nicodic +qt4 renderer -test uim"
+IUSE="clang ejdic emacs fcitx ibus -nicodic +qt4 renderer -test tomoe uim"
 REQUIRED_USE="|| ( emacs fcitx ibus uim )"
 
-# NOTE: Here isn't protobuf.
-#	    We should use specific revision for protobuf.
 COMMON_DEPEND="${PYTHON_DEPS}
 	!app-i18n/mozc
 	dev-libs/glib:2
-	>=dev-libs/jsoncpp-0.7.0
 	x11-libs/libXfixes
 	x11-libs/libxcb
 	emacs? ( virtual/emacs )
@@ -97,13 +74,14 @@ DEPEND="${COMMON_DEPEND}
 	dev-util/ninja
 	dev-vcs/git
 	virtual/pkgconfig
-	clang? ( >=sys-devel/clang-3.4 )
-	test? ( dev-vcs/subversion )"
+	clang? ( >=sys-devel/clang-3.4 )"
 RDEPEND="${COMMON_DEPEND}
-	qt4? ( app-i18n/tegaki-zinnia-japanese )"
+	qt4? ( !tomoe? ( app-i18n/tegaki-zinnia-japanese )
+		tomoe? ( app-i18n/zinnia-tomoe ) )"
 
 S="${WORKDIR}/${P}/src"
 UT_SRC="${WORKDIR}/mozcdic-ut-${UT_VER}"
+
 use test || RESTRICT="test"
 
 BUILDTYPE=${BUILDTYPE:-Release}
@@ -128,22 +106,6 @@ src_unpack() {
 	git-r3_fetch ${USAGEDIC_URI} ${USAGEDIC_REV} usagedic
 	git-r3_checkout ${USAGEDIC_URI} \
 		"${S}/third_party/japanese_usage_dictionary" usagedic
-
-	git-r3_fetch ${GYP_URI} ${GYP_REV} gyp
-	git-r3_checkout ${GYP_URI} "${S}/third_party/gyp" gyp
-
-	git-r3_fetch ${PROTOBUF_URI} ${PROTOBUF_REV} protobuf
-	git-r3_checkout ${PROTOBUF_URI} "${S}/third_party/protobuf" protobuf
-
-	# git-r3_fetch ${JSONCPP_URI} ${JSONCPP_REV} jsoncpp
-	# git-r3_checkout ${JSONCPP_URI} "${S}/third_party/jsoncpp" jsoncpp
-
-	if use test ; then
-		subversion_fetch ${GMOCK_URI}@${GMOCK_REV} \
-			"${S}/third_party/gmock"
-		subversion_fetch ${GTEST_URI}@${GTEST_REV} \
-			"${S}/third_party/gtest"
-	fi
 
 	if use uim ; then
 		git-r3_fetch ${UIM_PATCH_URI} ${UIM_PATCH_REV} macuim
@@ -187,7 +149,11 @@ src_configure() {
 
 	if ! use qt4 ; then
 		myconf="${myconf} --noqt"
-		export GYP_DEFINES="${GYP_DEFINES} use_libzinnia=0
+	elif use tomoe ; then
+		export GYP_DEFINES="${GYP_DEFINES}
+		zinnia_model_file=/usr/$(get_libdir)/zinnia/model/tomoe/handwriting-ja.model"
+	else
+		export GYP_DEFINES="${GYP_DEFINES}
 		zinnia_model_file=/usr/share/tegaki/models/zinnia/handwriting-ja.model"
 	fi
 
