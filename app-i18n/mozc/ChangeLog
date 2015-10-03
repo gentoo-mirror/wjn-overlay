@@ -2,6 +2,23 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  21 Sep 2015; wjn <wjn@aol.jp> -mozc-2.17.2097.102.ebuild:
+  Delete old version 2.17.2097.102.
+
+*mozc-2.17.2123.102 (21 Sep 2015)
+
+  21 Sep 2015; wjn <wjn@aol.jp> metadata.xml, +mozc-2.17.2123.102.ebuild:
+  Add version 2.17.2123.102.
+
+   GYP_DEFINES="use_libzinnia=0" became a default behavior in upstream.
+  Installing app-i18n/zinnia to system-global isn't necessary.
+   (But using app-i18n/zinnia-tomoe instead of app-i18n/tegaki-zinnia-
+  japanese,
+  app-i18n/zinnia-tomoe is depends on app-i18n/zinnia.)
+
+   Now upstream goes Git fully, all submodules are cloned and checked out.
+  It reduces deps, build time will be slower but simple.
+
   09 Sep 2015; wjn <wjn@aol.jp> mozc-2.17.2097.102.ebuild:
   Update ebuild file format from "# $Header: $" to "# $Id"
 

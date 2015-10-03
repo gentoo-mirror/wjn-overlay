@@ -2,6 +2,15 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  21 Sep 2015; wjn <wjn@aol.jp> mozc-ut-2.17.2111.102.20150822.ebuild:
+  2.17.2111.102.20150822.ebuild: yusei zipcode is 201508 rev now
+
+  21 Sep 2015; wjn <wjn@aol.jp> metadata.xml:
+  Correct the description of qt4 USE flag.
+
+  21 Sep 2015; wjn <wjn@aol.jp> mozc-ut-2.17.2111.102.20150822.ebuild:
+  2.17.2111.102.20150822: Fix to "export GYP_DEFINES"
+
   09 Sep 2015; wjn <wjn@aol.jp> mozc-ut-2.17.2111.102.20150822.ebuild:
   Trivial fixes for QA.
 
