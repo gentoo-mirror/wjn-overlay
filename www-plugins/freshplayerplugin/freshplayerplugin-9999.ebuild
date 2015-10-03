@@ -24,7 +24,8 @@ HWDEC_DEPEND="x11-libs/libva
 COMMON_DEPEND="dev-libs/glib:2=
 	dev-libs/libconfig:=
 	dev-libs/libevent:=[threads]
-	dev-libs/openssl:0=
+	|| ( dev-libs/openssl:0=
+		dev-libs/libressl:= )
 	media-libs/alsa-lib:=
 	media-libs/freetype:2=
 	media-libs/libv4l:0=

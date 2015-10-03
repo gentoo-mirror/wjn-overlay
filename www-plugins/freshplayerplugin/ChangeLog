@@ -2,6 +2,9 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  03 Oct 2015; wjn <wjn@aol.jp> freshplayerplugin-9999.ebuild:
+  Add libressl support.
+
 *freshplayerplugin-9999 (03 Oct 2015)
 
   03 Oct 2015; wjn <wjn@aol.jp> +files/0.2.4-cmake.patch,
