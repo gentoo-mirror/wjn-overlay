@@ -2,6 +2,9 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  03 Oct 2015; wjn <wjn@aol.jp> atril-9999.ebuild:
+  atril,mate-system-monitor,eom: Remove ~x11-themes/mate-icon-theme-9999 dep.
+
   14 Sep 2015; wjn <wjn@aol.jp> atril-9999.ebuild:
   MATE Desktop Environment: Add gtk+:3 build
 
