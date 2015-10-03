@@ -13,14 +13,11 @@ inherit elisp-common eutils git-r3 multilib multiprocessing python-single-r1 \
 DESCRIPTION="Mozc - Japanese Input Method"
 HOMEPAGE="https://github.com/google/mozc"
 
-MOZC_REV="e398317"
-
+MOZC_REV="dd3b337"
 FCITX_PATCH_VER="2.17.2102.102.1"
-UIM_PATCH_REV="2b3eff9"
+UIM_PATCH_REV="0562676"
 
-# We must clone Mozc by git to manage its versions.
 MOZC_URI="https://github.com/google/mozc.git"
-
 FCITX_PATCH_URI="http://download.fcitx-im.org/fcitx-mozc/fcitx-mozc-${FCITX_PATCH_VER}.patch"
 UIM_PATCH_URI="https://github.com/e-kato/macuim.git"
 
