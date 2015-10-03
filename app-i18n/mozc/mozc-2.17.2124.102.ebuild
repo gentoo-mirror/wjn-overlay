@@ -52,7 +52,9 @@ DEPEND="${COMMON_DEPEND}
 	>=sys-libs/zlib-1.2.8
 	virtual/pkgconfig
 	clang? ( >=sys-devel/clang-3.4 )"
-RDEPEND=${COMMON_DEPEND}
+RDEPEND="${COMMON_DEPEND}
+	qt4? ( !tomoe? ( app-i18n/tegaki-zinnia-japanese )
+		tomoe? ( app-i18n/zinnia-tomoe ) )"
 
 S="${WORKDIR}/${P}/src"
 

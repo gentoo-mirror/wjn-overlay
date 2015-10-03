@@ -2,6 +2,9 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  03 Oct 2015; wjn <wjn@aol.jp> mozc-2.17.2124.102.ebuild:
+  Fix RDEPEND to add a zinnia model.
+
 *mozc-2.17.2124.102 (03 Oct 2015)
 
   03 Oct 2015; wjn <wjn@aol.jp> -mozc-2.17.2123.102.ebuild,
