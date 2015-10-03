@@ -32,7 +32,6 @@ COMMON_DEPEND="dev-libs/atk:0[introspection?]
 	>=x11-libs/gdk-pixbuf-2.4.0:2[introspection?,jpeg?,tiff?]
 	x11-libs/libX11:0
 	>=x11-misc/shared-mime-info-0.20:0
-	~x11-themes/mate-icon-theme-9999:0
 	virtual/libintl:0
 	dbus? ( >=dev-libs/dbus-glib-0.71:0 )
 	exif? ( >=media-libs/libexif-0.6.14:0

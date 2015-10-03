@@ -29,7 +29,6 @@ COMMON_DEPEND="app-text/rarian:0
 	>=sys-apps/dbus-0.7:0
 	x11-libs/cairo:0
 	x11-libs/gdk-pixbuf:2
-	~x11-themes/mate-icon-theme-9999:0
 	virtual/libintl:0
 	!gtk3? ( >=dev-cpp/gtkmm-2.22:2.4
 		>=x11-libs/gtk+-2.20.0:2
