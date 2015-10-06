@@ -39,7 +39,6 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	x11-libs/libX11:0
 	>=x11-libs/libxklavier-4:0
 	x11-libs/pango:0
-	~x11-themes/mate-icon-theme-9999:0
 	virtual/libintl:0
 	!gtk3? ( >=x11-libs/gtk+-2.24.0:2
 			>=x11-libs/libwnck-2.30.0:1 )
