@@ -2,6 +2,13 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  06 Oct 2015; wjn <wjn@aol.jp> mate-terminal-9999.ebuild:
+  x11-term/mate-terminal: Remove doing sed, because upstream fixed the bug.
+
+   During long time, now upstream fixed the bug.
+  See https://github.com/mate-desktop/mate-terminal/commit/6800c0c
+   So, doing sed became needless. Removed it.
+
   14 Sep 2015; wjn <wjn@aol.jp> mate-terminal-9999.ebuild:
   MATE Desktop Environment: Add gtk+:3 build
 

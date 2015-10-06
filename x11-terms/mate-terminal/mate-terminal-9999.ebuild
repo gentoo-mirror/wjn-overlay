@@ -47,7 +47,6 @@ src_unpack() {
 }
 
 src_prepare() {
-	sed -i 's/g_variant_get (parameters, "(@ay@ay@ay@ay@i@ay)",/g_variant_get (parameters, "(@ay@ay@ay@ayi@ay)",/' src/terminal.c
 	eautoreconf
 	gnome2_src_prepare
 }
