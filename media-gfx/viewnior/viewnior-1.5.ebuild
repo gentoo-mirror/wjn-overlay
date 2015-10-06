@@ -17,7 +17,7 @@ SLOT="0"
 KEYWORDS=""
 
 DEPEND=">=dev-libs/glib-2.32:2
-	>=media-gfx/exiv2-0.21
+	>=media-gfx/exiv2-0.21:=
 	>=x11-libs/gtk+-2.20:2
 	>=x11-misc/shared-mime-info-0.20"
 RDEPEND="${DEPEND}

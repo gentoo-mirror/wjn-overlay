@@ -2,6 +2,9 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  06 Oct 2015; wjn <wjn@aol.jp> viewnior-1.5.ebuild:
+  Fix exif2 dependency to be rebuilt.
+
   09 Sep 2015; wjn <wjn@aol.jp> viewnior-1.5.ebuild:
   Update ebuild file format from "# $Header: $" to "# $Id"
 
