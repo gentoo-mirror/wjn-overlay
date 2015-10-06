@@ -2,6 +2,10 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  06 Oct 2015; wjn <wjn@aol.jp> -audacious-plugins-3.6.ebuild,
+  -audacious-plugins-3.6.1.ebuild:
+  media-*/audacious*: Delete old version 3.6 and 3.6.1.
+
   09 Sep 2015; wjn <wjn@aol.jp> audacious-plugins-3.6.ebuild,
   audacious-plugins-3.6.1.ebuild, audacious-plugins-3.6.2.ebuild,
   audacious-plugins-9999.ebuild, metadata.xml:
