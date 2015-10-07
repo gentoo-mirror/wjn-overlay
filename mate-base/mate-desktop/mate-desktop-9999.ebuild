@@ -37,7 +37,6 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	gtk3? ( >=x11-libs/gtk+-3.0.0:3[introspection?] )"
 DEPEND="${COMMON_DEPEND}
 	app-text/docbook-xml-dtd:4.1.2
-	app-text/yelp-tools:0
 	>=dev-util/intltool-0.50.1:0
 	>=gnome-base/dconf-0.10:0
 	sys-devel/gettext:0
