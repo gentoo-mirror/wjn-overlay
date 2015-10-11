@@ -2,6 +2,13 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  11 Oct 2015; wjn <wjn@aol.jp> freshplayerplugin-9999.ebuild:
+  Install the configuration file to /etc/
+
+   Installing the sample configuration file as freshwrapper.conf to /etc/,
+  not installing freshwrapper.conf.example as a document file.
+   Edit /etc/freshwrapper.conf (or copy it to ~/.config/ and edit).
+
   03 Oct 2015; wjn <wjn@aol.jp> freshplayerplugin-9999.ebuild:
   Add libressl support.
 

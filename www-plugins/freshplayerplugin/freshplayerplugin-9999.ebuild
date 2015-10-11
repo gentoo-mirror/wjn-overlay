@@ -6,7 +6,7 @@ EAPI=5
 
 CMAKE_MIN_VERSION="2.8.8"
 
-inherit cmake-utils git-r3 multilib
+inherit cmake-utils eutils git-r3 multilib
 
 DESCRIPTION="PPAPI-host NPAPI-plugin adapter for flashplayer in npapi based browsers"
 HOMEPAGE="https://github.com/i-rinat/freshplayerplugin"
@@ -49,6 +49,7 @@ RDEPEND="${COMMON_DEPEND}
 		www-client/google-chrome-beta
 		www-client/google-chrome-unstable )"
 
+DOCS=( ChangeLog README.md )
 PATCHES=( "${FILESDIR}/0.2.4-cmake.patch" )
 
 src_configure() {
@@ -67,7 +68,10 @@ src_configure() {
 }
 
 src_install() {
-	dodoc ChangeLog data/freshwrapper.conf.example README.md
 	exeinto /usr/$(get_libdir)/nsbrowser/plugins
 	doexe "${BUILD_DIR}/libfreshwrapper-flashplayer.so"
+	insinto /etc/
+	mv data/freshwrapper.conf.example freshwrapper.conf
+	doins freshwrapper.conf
+	einstalldocs
 }
