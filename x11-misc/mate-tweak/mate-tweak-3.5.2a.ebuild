@@ -3,7 +3,9 @@
 # $Id$
 
 EAPI=5
-PYTHON_COMPAT=( python3_{3,4,5} )
+# setuptools[python_targets_python3_5] is not available now.
+#PYTHON_COMPAT=( python3_{3,4,5} )
+PYTHON_COMPAT=( python3_{3,4} )
 
 inherit distutils-r1
 
