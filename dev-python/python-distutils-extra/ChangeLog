@@ -1,0 +1,10 @@
+# ChangeLog for dev-python/python-distutils-extra
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*python-distutils-extra-2.38-r1 (22 Oct 2015)
+
+  22 Oct 2015; wjn <wjn@aol.jp> +metadata.xml,
+  +python-distutils-extra-2.38-r1.ebuild:
+  Newly add for Python 3.5 support.
+
