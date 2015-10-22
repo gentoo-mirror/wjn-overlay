@@ -2,6 +2,9 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  22 Oct 2015; wjn <wjn@aol.jp> onboard-1.1.2.ebuild:
+  Add Python 3.5 support.
+
 *onboard-1.1.2 (21 Oct 2015)
 
   21 Oct 2015; wjn <wjn@aol.jp> +onboard-1.1.2.ebuild:

@@ -4,7 +4,7 @@
 
 EAPI=5
 
-PYTHON_COMPAT=( python{3_3,3_4} )
+PYTHON_COMPAT=( python3_{3,4,5} )
 
 inherit distutils-r1 gnome2-utils versionator
 
@@ -18,14 +18,17 @@ KEYWORDS=""
 
 DOCS=( AUTHORS NEWS README )
 
-RDEPEND="gnome-extra/mousetweaks
-	sys-apps/dbus"
-DEPEND="${RDEPEND}
+COMMON_DEPEND="dev-libs/dbus-glib
 	dev-python/dbus-python[${PYTHON_USEDEP}]
 	dev-python/pycairo[${PYTHON_USEDEP}]
 	dev-python/pygobject:3[${PYTHON_USEDEP}]
 	dev-python/python-distutils-extra[${PYTHON_USEDEP}]
+	dev-util/intltool
+	gnome-base/dconf
 	gnome-base/gsettings-desktop-schemas
+	gnome-base/librsvg
+	media-libs/libcanberra
+	sys-apps/dbus
 	x11-libs/gdk-pixbuf
 	x11-libs/gtk+:3[introspection]
 	x11-libs/libX11
@@ -33,6 +36,10 @@ DEPEND="${RDEPEND}
 	x11-libs/libXtst
 	x11-libs/libwnck:3
 	x11-libs/pango"
+RDEPEND="${COMMON_DEPEND}
+	app-text/hunspell
+	app-text/iso-codes
+	gnome-extra/mousetweaks"
 
 pkg_preinst() {
 	gnome2_schemas_savelist
