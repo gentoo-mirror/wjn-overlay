@@ -6,7 +6,8 @@ EAPI=5
 inherit cmake-utils
 
 DESCRIPTION="Fcitx support for Qt5"
-HOMEPAGE="http://code.google.com/p/fcitx/"
+HOMEPAGE="https://fcitx-im.org/
+	https://github.com/fcitx"
 
 if [[ ${PV} = *9999* ]]; then
 	inherit git-r3

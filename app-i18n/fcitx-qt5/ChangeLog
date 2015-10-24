@@ -2,6 +2,13 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  24 Oct 2015; wjn <wjn@aol.jp> fcitx-qt5-9999.ebuild:
+  Update ${HOMEPAGE}.
+
+   The pages in Google Code are deprecated.
+  https://fcitx-im.org/ is offcial,
+  https://github.com/fcitx is its repositories.
+
   09 Sep 2015; wjn <wjn@aol.jp> fcitx-qt5-9999.ebuild:
   Trivial fixes for QA.
 
