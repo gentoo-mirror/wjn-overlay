@@ -2,6 +2,25 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  25 Oct 2015; wjn <wjn@aol.jp>
+  +files/mate-power-manager-9999-remove-unset-flags-toplevel.patch,
+  mate-power-manager-9999.ebuild:
+  Remove UNSET_FLAGS from brightness-applet.c.
+
+   It is unable to unset GTK_TOPLEVEL, but
+
+   > GTK_WIDGET_UNSET_FLAGS (applet->popup, GTK_TOPLEVEL);
+
+  is in applets/brightness/brightness-applet.c (L690).
+
+  https://developer.gnome.org/gtk2/stable/GtkWidget.html#GtkWidgetFlags
+  > GTK_TOPLEVEL
+  >
+  >  widgets without a real parent,
+  > as there are GtkWindows and GtkMenus have this flag set
+  > throughout their lifetime.
+  >  Toplevel widgets always contain their own GdkWindow.
+
   14 Sep 2015; wjn <wjn@aol.jp> mate-power-manager-9999.ebuild:
   MATE Desktop Environment: Add gtk+:3 build
 

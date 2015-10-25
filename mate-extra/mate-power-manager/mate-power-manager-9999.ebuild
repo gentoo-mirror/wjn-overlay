@@ -60,6 +60,8 @@ src_unpack() {
 }
 
 src_prepare() {
+	use !gtk3 && epatch "${FILESDIR}/${P}-remove-unset-flags-toplevel.patch"
+
 	eautoreconf
 	gnome2_src_prepare
 

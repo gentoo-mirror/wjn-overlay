@@ -1,0 +1,12 @@
+--- applets/brightness/brightness-applet.c.orig	2015-10-26 01:15:05.035039045 +0900
++++ applets/brightness/brightness-applet.c	2015-10-26 01:12:52.956037794 +0900
+@@ -686,9 +686,6 @@
+ 
+ 	/* window */
+ 	applet->popup = gtk_window_new (GTK_WINDOW_POPUP);
+-#if !GTK_CHECK_VERSION (3, 0, 0)
+-	GTK_WIDGET_UNSET_FLAGS (applet->popup, GTK_TOPLEVEL);
+-#endif
+ 	gtk_window_set_type_hint (GTK_WINDOW(applet->popup), GDK_WINDOW_TYPE_HINT_UTILITY);
+ #if !GTK_CHECK_VERSION (3, 0, 0)
+ 	gtk_widget_set_parent (applet->popup, GTK_WIDGET(applet));
