@@ -6,7 +6,7 @@ EAPI=5
 
 GCONF_DEBUG="no"
 
-inherit autotools git-r3 gnome2
+inherit autotools git-r3
 
 DESCRIPTION="A theme set for MATE Desktop Environment"
 HOMEPAGE="http://mate-desktop.org/"
@@ -38,9 +38,4 @@ src_unpack() {
 
 src_prepare() {
 	eautoreconf
-	gnome2_src_prepare
-}
-
-src_configure() {
-	gnome2_src_configure
 }

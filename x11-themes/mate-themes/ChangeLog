@@ -2,6 +2,12 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  29 Oct 2015; wjn <wjn@aol.jp> mate-themes-9999.ebuild:
+  Remove needless inherit gnome2.
+
+   mate-themes supports GTK+:3 as well as GTK+:2,
+  gnome2.eclass isn't needed.
+
   13 Sep 2015; wjn <wjn@aol.jp> mate-themes-9999.ebuild:
   Add gtk+:3 as choice dependency
 
