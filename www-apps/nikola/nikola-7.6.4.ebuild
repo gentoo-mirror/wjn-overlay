@@ -22,8 +22,8 @@ LICENSE="Gutenberg MIT"
 SLOT="0"
 KEYWORDS=""
 
-IUSE="+assets bbcode charts -extras gh-pages hyphenation ipython jinja +markdown micawber php typogrify websocket"
-REQUIRED_USE="extras? ( assets bbcode charts gh-pages hyphenation ipython jinja markdown micawber php typogrify websocket )"
+IUSE="+assets bbcode charts -extras ghpages hyphenation ipython jinja +markdown micawber php typogrify websocket"
+REQUIRED_USE="extras? ( assets bbcode charts ghpages hyphenation ipython jinja markdown micawber php typogrify websocket )"
 # mock, coverage, pytest, pytest-cov, freezegun, python-coveralls and colorama
 # are necessary for test.
 RESTRICT="test"
@@ -49,7 +49,7 @@ RDEPEND="${DEPEND}
 	assets? ( >=dev-python/webassets-0.10.1[${PYTHON_USEDEP}] )
 	bbcode? ( dev-python/bbcode[${PYTHON_USEDEP}] )
 	charts? ( ~dev-python/pygal-2.0.1[${PYTHON_USEDEP}] )
-	gh-pages? ( >=dev-python/ghp-import-0.4.1[${PYTHON_USEDEP}] )
+	ghpages? ( >=dev-python/ghp-import-0.4.1[${PYTHON_USEDEP}] )
 	hyphenation? ( >=dev-python/pyphen-0.9.1[${PYTHON_USEDEP}] )
 	ipython? ( >=dev-python/ipython-2.0.0[${PYTHON_USEDEP},notebook] )
 	jinja? ( >=dev-python/jinja-2.7.2[${PYTHON_USEDEP}] )

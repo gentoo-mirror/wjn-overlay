@@ -13,7 +13,7 @@
 	  Support chart generation through <pkg>dev-python/pygal</pkg>
 	</flag>
 	<flag name='extras'>Add all functionalities</flag>
-	<flag name='gh-pages'>Support GitHub Page</flag>
+	<flag name='ghpages'>Support GitHub Page</flag>
 	<flag name='hyphenation'>
 	  Add hyphenation support through <pkg>dev-python/pyphen</pkg>
 	</flag>
