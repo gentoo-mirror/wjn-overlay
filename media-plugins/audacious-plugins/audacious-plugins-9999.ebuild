@@ -11,7 +11,7 @@ PLOCALE_BACKUP="en_GB"
 
 inherit autotools git-r3 l10n multilib
 
-DESCRIPTION="Audacious Player - Your music, your way, no exceptions"
+DESCRIPTION="Plugins for Audacious music player"
 HOMEPAGE="http://audacious-media-player.org/"
 EGIT_REPO_URI="https://github.com/audacious-media-player/${PN}.git"
 use gtk3 && EGIT_BRANCH="gtk3"
@@ -23,7 +23,8 @@ KEYWORDS=""
 IUSE="aac adplug alsa bs2b cdda cue ffmpeg +filewriter flac gnome +gtk -gtk3
 	http jack lame libav libnotify libsamplerate lirc midi mms modplug mp3
 	pulseaudio qt5 scrobbler sdl sid sndfile soxr spectrum vorbis wavpack"
-REQUIRED_USE="gtk3? ( gtk )"
+REQUIRED_USE="|| ( gtk qt5 )
+	gtk3? ( gtk )"
 
 COMMON_DEPEND=">=dev-libs/dbus-glib-0.60
 	dev-libs/libxml2:2
@@ -136,7 +137,7 @@ src_configure() {
 		$(use_enable sndfile) \
 		$(use_enable soxr) \
 		${spectrum_conf} \
-		--enable-statusicon
+		--enable-statusicon \
 		$(use_enable vorbis) \
 		$(use_enable wavpack)
 }
