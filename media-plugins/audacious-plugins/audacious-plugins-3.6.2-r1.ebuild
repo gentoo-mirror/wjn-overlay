@@ -21,9 +21,11 @@ LICENSE="BSD filewriter? ( GPL-2+ ) libnotify? ( GPL-3+ ) pulseaudio? ( GPL-2+ )
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="aac adplug alsa bs2b cdda cue ffmpeg +filewriter flac gnome +gtk -gtk3
-	jack lame libav libnotify libsamplerate lirc midi mms modplug mp3 neon
+	http jack lame libav libnotify libsamplerate lirc midi mms modplug mp3
 	pulseaudio qt5 scrobbler sdl sid sndfile soxr spectrum vorbis wavpack"
-REQUIRED_USE="gtk3? ( gtk )"
+REQUIRED_USE="	|| ( gtk qt5 )
+	gtk3? ( gtk )"
+
 
 COMMON_DEPEND=">=dev-libs/dbus-glib-0.60
 	dev-libs/libxml2:2
@@ -44,6 +46,7 @@ COMMON_DEPEND=">=dev-libs/dbus-glib-0.60
 		>=media-libs/flac-1.2.1-r1 )
 	gtk? ( !gtk3? ( x11-libs/gtk+:2 ) )
 	gtk3? ( x11-libs/gtk+:3 )
+	http? ( >=net-libs/neon-0.27 )
 	jack? ( >=media-libs/bio2jack-0.4
 		>=media-sound/jack-audio-connection-kit-0.120.1 )
 	lame? ( media-sound/lame )
@@ -54,7 +57,6 @@ COMMON_DEPEND=">=dev-libs/dbus-glib-0.60
 	mms? ( >=media-libs/libmms-0.3 )
 	modplug? ( media-libs/libmodplug )
 	mp3? ( >=media-sound/mpg123-1.12.1 )
-	neon? ( >=net-libs/neon-0.27 )
 	pulseaudio? ( >=media-sound/pulseaudio-0.9.5 )
 	qt5? ( dev-qt/qtcore:5
 		dev-qt/qtgui:5
@@ -126,7 +128,7 @@ src_configure() {
 		$(use_enable modplug) \
 		$(use_enable mp3) \
 		$(use_enable midi amidiplug) \
-		$(use_enable neon) \
+		$(use_enable http neon) \
 		$(use_enable pulseaudio pulse) \
 		$(use_enable qt5 qt) \
 		$(use_enable qt5 qtaudio) \
@@ -136,6 +138,7 @@ src_configure() {
 		$(use_enable sndfile) \
 		$(use_enable soxr) \
 		${spectrum_conf} \
+		--enable-statusicon \
 		$(use_enable vorbis) \
 		$(use_enable wavpack)
 }
