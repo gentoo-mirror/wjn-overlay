@@ -11,7 +11,7 @@ PLOCALE_BACKUP="en_GB"
 
 inherit autotools git-r3 l10n multilib
 
-DESCRIPTION="Audacious Player - Your music, your way, no exceptions"
+DESCRIPTION="A lightweight and versatile audio player"
 HOMEPAGE="http://audacious-media-player.org/"
 EGIT_REPO_URI="https://github.com/audacious-media-player/${PN}.git"
 use gtk3 && EGIT_BRANCH="gtk3"
@@ -21,7 +21,8 @@ LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS=""
 IUSE="+gtk -gtk3 qt5"
-REQUIRED_USE="gtk3? ( gtk )"
+REQUIRED_USE="|| ( gtk qt5 )
+	gtk3? ( gtk )"
 
 COMMON_DEPEND=">=dev-libs/glib-2.28
 	dev-libs/libxml2
