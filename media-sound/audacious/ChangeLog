@@ -2,6 +2,11 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  31 Oct 2015; wjn <wjn@aol.jp> audacious-3.6.2.ebuild:
+  Fix version 9999.
+
+   - require gtk or qt5
+
   31 Oct 2015; wjn <wjn@aol.jp> audacious-9999.ebuild:
   Fix version 9999.
 

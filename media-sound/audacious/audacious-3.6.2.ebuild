@@ -21,7 +21,8 @@ LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="chardet +gtk -gtk3 qt5"
-REQUIRED_USE="gtk3? ( gtk )"
+REQUIRED_USE="|| ( gtk qt5 )
+	gtk3? ( gtk )"
 
 COMMON_DEPEND=">=dev-libs/glib-2.28
 	dev-libs/libxml2
