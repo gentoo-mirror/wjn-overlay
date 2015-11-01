@@ -1,0 +1,42 @@
+# ChangeLog for app-editors/cutemarked
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*cutemarked-0.11.1 (01 Nov 2015)
+
+  01 Nov 2015; wjn <wjn@aol.jp> +cutemarked-0.11.1.ebuild,
+  +files/cutemarked-0.11.1-respect-destdir.patch, +metadata.xml:
+  Comes back due to a bug in gentoo repository.
+
+   - Gentoo repository's ebuild is incorrect.
+     Cutemarked sould be in the category app-editors, not app-text.
+   - There are missing dependencies such as dev-qt/qtwebkit:5.
+
+  10 Jul 2015; wjn <wjn@aol.jp> -cutemarked-0.10.1.ebuild,
+  -cutemarked-0.10.2.ebuild, -cutemarked-0.11.0.ebuild,
+  -cutemarked-9999.ebuild, -metadata.xml:
+  Delete. Use gentoo repository.
+
+    Now cutemarked is in the gentoo repository.
+   Please use that instead of my ebuilds.
+
+    But that's in the app-text category... It seems wrong.
+   You know, cutemarked is an editor, not a text parser.
+   It must be in app-editors, I think.
+    See https://packages.gentoo.org/package/app-text/cutemarked
+
+*cutemarked-0.11.0 (10 May 2015)
+*cutemarked-0.10.2 (10 May 2015)
+
+  10 May 2015; wjn <wjn@aol.jp> cutemarked-0.10.1.ebuild,
+  +cutemarked-0.10.2.ebuild, +cutemarked-0.11.0.ebuild,
+  cutemarked-9999.ebuild, metadata.xml:
+  www-editors/cutemarked: Add version 0.10.2 and 0.11.0.
+
+*cutemarked-9999 (27 Jan 2015)
+*cutemarked-0.10.1 (27 Jan 2015)
+
+  27 Jan 2015; wjn <wjn@aol.jp> +cutemarked-0.10.1.ebuild,
+  +cutemarked-9999.ebuild, +metadata.xml:
+  Commit for initializing, Move from GitHub
+
