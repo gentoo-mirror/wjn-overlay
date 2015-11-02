@@ -1,0 +1,14 @@
+# ChangeLog for gnome-extra/cinnamon-control-center
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*cinnamon-control-center-2.6.0-r1 (02 Nov 2015)
+
+  02 Nov 2015; wjn <wjn@aol.jp> +cinnamon-control-center-2.6.0-r1.ebuild,
+  +files/cinnamon-control-center-2.6.0-optional.patch, +metadata.xml:
+  Add newly for disabling NetworkManager.
+
+   cinnamon-control-center can be built without NetworkManager (and nm-
+  applet).
+  NetworkManager has too poor functionality to be forced to install.
+
