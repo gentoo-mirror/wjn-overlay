@@ -26,6 +26,7 @@ COMMON_DEPEND=">=app-text/poppler-0.16.0:0=[cairo]
 	dev-libs/atk:0
 	>=dev-libs/glib-2.36.0:2
 	>=dev-libs/libxml2-2.5.0:2
+	dev-libs/mathjax
 	~mate-base/mate-desktop-9999:0[gtk3?]
 	sys-libs/zlib:0
 	x11-libs/gdk-pixbuf:2[introspection?]
