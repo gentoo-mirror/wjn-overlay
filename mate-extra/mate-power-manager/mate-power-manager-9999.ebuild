@@ -27,12 +27,12 @@ COMMON_DEPEND="app-text/rarian:0
 	>=sys-apps/dbus-1:0
 	|| ( >=sys-power/upower-0.9.23:=
 		>=sys-power/upower-pm-utils-0.9.23:= )
-	>=x11-apps/xrandr-1.2:0
+	>=x11-apps/xrandr-1.3.0:0
 	>=x11-libs/cairo-1:0
 	>=x11-libs/gdk-pixbuf-2.11:2
 	x11-libs/libX11:0
 	x11-libs/libXext:0
-	x11-libs/libXrandr:0
+	>=x11-libs/libXrandr-1.3.0:0
 	>=x11-libs/libnotify-0.7:0
 	x11-libs/pango:0
 	applet? ( ~mate-base/mate-panel-9999:0[gtk3?] )

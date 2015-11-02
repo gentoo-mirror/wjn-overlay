@@ -2,6 +2,11 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  02 Nov 2015; wjn <wjn@aol.jp> mate-power-manager-9999.ebuild:
+  Depends on libXrandr version 1.3.0 or higher.
+
+   See https://github.com/mate-desktop/mate-power-manager/commit/74f1af8
+
   25 Oct 2015; wjn <wjn@aol.jp>
   +files/mate-power-manager-9999-remove-unset-flags-toplevel.patch,
   mate-power-manager-9999.ebuild:
