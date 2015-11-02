@@ -2,6 +2,9 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  03 Nov 2015; wjn <wjn@aol.jp> cinnamon-control-center-2.6.0-r1.ebuild:
+  Fix to drop nm-applet dep when -networkmanager.
+
 *cinnamon-control-center-2.6.0-r1 (02 Nov 2015)
 
   02 Nov 2015; wjn <wjn@aol.jp> +cinnamon-control-center-2.6.0-r1.ebuild,

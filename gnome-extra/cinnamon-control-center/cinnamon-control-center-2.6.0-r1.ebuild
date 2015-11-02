@@ -31,7 +31,6 @@ COMMON_DEPEND="
 	>=gnome-extra/cinnamon-desktop-1.0:0=
 	>=gnome-extra/cinnamon-menus-1.0:0=
 	>=gnome-extra/cinnamon-settings-daemon-1.0:0=
-	>=gnome-extra/nm-applet-0.9.8
 	media-libs/fontconfig
 	>=media-libs/libcanberra-0.13[gtk3]
 	>=media-sound/pulseaudio-1.1[glib]
@@ -48,6 +47,7 @@ COMMON_DEPEND="
 		>=x11-libs/gtk+-3.8:3
 		>=x11-libs/libXi-1.2 )
 	networkmanager? (
+	>=gnome-extra/nm-applet-0.9.8
 	>=net-misc/modemmanager-0.7
 	>=net-misc/networkmanager-0.9.8[modemmanager]
 	)
