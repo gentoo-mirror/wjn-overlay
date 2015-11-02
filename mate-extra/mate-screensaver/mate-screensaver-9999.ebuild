@@ -51,7 +51,7 @@ COMMON_DEPEND=">=dev-libs/dbus-glib-0.71:0
 	systemd? ( sys-apps/systemd:0= )
 	!!<gnome-extra/gnome-screensaver-3:*"
 DEPEND="${COMMON_DEPEND}
-	>=dev-util/intltool-0.35:0
+	>=dev-util/intltool-0.50.1:0
 	~mate-base/mate-common-9999
 	sys-devel/gettext:0
 	x11-proto/randrproto:0
