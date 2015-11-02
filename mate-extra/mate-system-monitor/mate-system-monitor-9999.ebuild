@@ -20,13 +20,11 @@ IUSE="-gtk3 systemd"
 
 COMMON_DEPEND="app-text/rarian:0
 	>=dev-cpp/glibmm-2.16:2
-	>=dev-libs/dbus-glib-0.70:0
 	>=dev-libs/glib-2.36:2
 	dev-libs/libsigc++:2
 	>=dev-libs/libxml2-2:2
 	>=gnome-base/libgtop-2.23.1:2=
 	>=gnome-base/librsvg-2.12:2
-	>=sys-apps/dbus-0.7:0
 	x11-libs/cairo:0
 	x11-libs/gdk-pixbuf:2
 	virtual/libintl:0

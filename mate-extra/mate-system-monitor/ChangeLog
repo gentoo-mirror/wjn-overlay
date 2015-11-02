@@ -3,6 +3,11 @@
 # $Header: $
 
   02 Nov 2015; wjn <wjn@aol.jp> mate-system-monitor-9999.ebuild:
+  Drop dbus and dbus-glib dependencies.
+
+   See https://github.com/mate-desktop/mate-system-monitor/commit/e616d51
+
+  02 Nov 2015; wjn <wjn@aol.jp> mate-system-monitor-9999.ebuild:
   Add IUSE="systemd"
 
    mate-system-monitor supports libsystemd.
