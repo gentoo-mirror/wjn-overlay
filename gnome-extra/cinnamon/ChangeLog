@@ -1,0 +1,21 @@
+# ChangeLog for gnome-extra/cinnamon
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*cinnamon-2.6.13 (03 Nov 2015)
+
+  03 Nov 2015; wjn <wjn@aol.jp> +cinnamon-2.6.13.ebuild,
+  +files/cinnamon-2.2.6-automagic-gnome-bluetooth.patch,
+  +files/cinnamon-2.4.5-background.patch,
+  +files/cinnamon-2.4.5-gnome-3.14.patch,
+  +files/cinnamon-2.6.13-test-recorder-includes.patch,
+  +files/cinnamon-2.6.7-optional-networkmanager.patch,
+  +files/cinnamon-2.6.7-set-wheel.patch, +files/cinnamon-screensaver.desktop,
+  +files/cinnamon2d-screensaver.desktop,
+  +files/polkit-cinnamon-authentication-agent-1.desktop, +metadata.xml:
+  Add for removing nm-applet from *.session when -networkmanager.
+
+   nm-applet should be removed from RequiredComponents in cinnamon*.session,
+  because nm-applet is not required when USE="-networkmanager".
+  Maybe most users prefering USE="-networkmanager" don't install nm-applet.
+
