@@ -2,6 +2,11 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*husl-4.0.3 (03 Nov 2015)
+
+  03 Nov 2015; wjn <wjn@aol.jp> +husl-4.0.3.ebuild:
+  Add version 4.0.3 that is support Python 3.5.
+
   09 Sep 2015; wjn <wjn@aol.jp> +metadata.xml:
   Add minimal metadata.xml(s) for QA.
 
