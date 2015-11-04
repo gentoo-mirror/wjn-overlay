@@ -4,10 +4,12 @@
 
 EAPI=5
 
-# setuptools[python_targets_python3_5] is not available now.
+# Some dependended pakages still don't have [python_targets_python3_5],
+# I'm waiting for their update.
 # PYTHON_COMPAT=( python{2_7,3_3,3_4,3_5} )
 PYTHON_COMPAT=( python{2_7,3_3,3_4} )
 PYTHON_REQ_USE="gdbm"
+
 inherit distutils-r1 python-r1
 
 DESCRIPTION="A static website and blog generator"

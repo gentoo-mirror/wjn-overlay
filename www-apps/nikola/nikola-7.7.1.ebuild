@@ -3,8 +3,10 @@
 # $Id$
 
 EAPI=5
+
 PYTHON_COMPAT=( python{2_7,3_3,3_4} )
 PYTHON_REQ_USE="gdbm"
+
 inherit distutils-r1 python-r1
 
 DESCRIPTION="A static website and blog generator"
