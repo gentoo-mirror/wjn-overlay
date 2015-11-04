@@ -86,7 +86,7 @@ e.g.
 
 ### etc.
 
-some fix (for >=freetype-2.5.1) of tuxonice-userui
+
 
 ## License
 

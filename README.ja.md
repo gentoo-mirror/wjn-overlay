@@ -127,9 +127,6 @@ Gentoo GNU/Linux 向けの overlay です。
 
 ### その他
 
-- tuxonice-userui  
-FreeType Ver.2.5.1 以降では include/freetype が include/freetype2 にリネームされているため、それに対応
-
 - lightdm (Qt5対応)
 
 ほか
