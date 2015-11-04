@@ -2,6 +2,11 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  04 Nov 2015; wjn <wjn@aol.jp> phpserialize-1.3.ebuild:
+  Add python3_5 to $PYTHON_COMPAT.
+
+   Added Python 3.5 build, but this isn't fully tested.
+
   09 Sep 2015; wjn <wjn@aol.jp> metadata.xml:
   Fix metadata.xml(s)
 
