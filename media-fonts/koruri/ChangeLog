@@ -1,6 +1,11 @@
 # ChangeLog for media-fonts/koruri
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
+# (auto-generated from git log)
+
+*koruri-20151021 (08 Nov 2015)
+
+  08 Nov 2015; wjn <wjn@aol.jp> +koruri-20151021.ebuild:
+  Add version 20151021
 
   09 Sep 2015; wjn <wjn@aol.jp> +metadata.xml:
   Add metadata.xml(s) for QA.
