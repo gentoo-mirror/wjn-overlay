@@ -127,10 +127,6 @@ Gentoo GNU/Linux 向けの overlay です。
 
 ### その他
 
-- lightdm (Qt5対応)
-
-ほか
-
 ----
 ### ライセンス
 
