@@ -44,10 +44,6 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND=${COMMON_DEPEND}
 PDEPEND="~media-plugins/audacious-plugins-9999[gtk=,gtk3=,qt5=]"
 
-pkg_setup() {
-	use qt5 && export PATH="/usr/$(get_libdir)/qt5/bin:${PATH}"
-}
-
 src_unpack() {
 	git-r3_src_unpack
 	default
