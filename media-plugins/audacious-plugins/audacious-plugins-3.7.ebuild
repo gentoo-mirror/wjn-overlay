@@ -25,10 +25,10 @@ IUSE="aac alsa bs2b cdda cue ffmpeg +filewriter flac gnome +gtk -gtk3 http
 	pulseaudio qt5 scrobbler sdl sid sndfile soxr spectrum vorbis wavpack"
 REQUIRED_USE="	|| ( gtk qt5 )
 	filewriter? ( gtk )
+	gtk3? ( gtk )
 	libnotify? ( gtk )
 	scrobbler? ( gtk )
-	spectrum? ( || ( gtk qt5 ) )
-	gtk3? ( gtk )"
+	spectrum? ( || ( gtk qt5 ) )"
 
 COMMON_DEPEND=">=dev-libs/dbus-glib-0.60
 	dev-libs/libxml2:2
