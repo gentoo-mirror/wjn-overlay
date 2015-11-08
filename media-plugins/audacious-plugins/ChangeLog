@@ -1,13 +1,19 @@
 # ChangeLog for media-plugins/audacious-plugins
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
+# (auto-generated from git log)
+
+*audacious-plugins-3.7 (08 Nov 2015)
+
+  08 Nov 2015; wjn <wjn@aol.jp> +audacious-plugins-3.7.ebuild,
+  +files/audacious-plugins-3.7-gl-spectrum-qt-include-glu.patch:
+  Add version 3.7
 
   31 Oct 2015; wjn <wjn@aol.jp> audacious-plugins-9999.ebuild:
   Fix version 9999.
 
    - require gtk or qt5
    - add a missing backslash
-   - Update DESCRIPTION to more reasonable one
+   - update DESCRIPTION to more reasonable one
 
 *audacious-plugins-3.6.2-r1 (31 Oct 2015)
 
