@@ -2,6 +2,9 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  08 Nov 2015; wjn <wjn@aol.jp> audacious-plugins-9999.ebuild:
+  9999: Add a patch for building with qtopengl
+
   08 Nov 2015; wjn <wjn@aol.jp> audacious-plugins-3.7.ebuild,
   audacious-plugins-9999.ebuild:
   BSD (2-clause) license is right

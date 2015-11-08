@@ -9,7 +9,7 @@ PLOCALES="be bg ca cmn cs da de el en_GB es_AR es_MX es et eu fa_IR fi fr gl
 	ta tr uk zh_CN zh_TW"
 PLOCALE_BACKUP="en_GB"
 
-inherit autotools git-r3 l10n multilib
+inherit autotools eutils git-r3 l10n multilib
 
 DESCRIPTION="Plugins for Audacious music player"
 HOMEPAGE="http://audacious-media-player.org/"
@@ -89,6 +89,7 @@ pkg_setup() {
 }
 
 src_prepare() {
+	epatch "${FILESDIR}/${PN}-3.7-gl-spectrum-qt-include-glu.patch"
 	eautoreconf
 	l10n_for_each_disabled_locale_do remove_locales
 }
