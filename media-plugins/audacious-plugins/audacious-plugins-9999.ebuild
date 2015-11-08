@@ -16,7 +16,7 @@ HOMEPAGE="http://audacious-media-player.org/"
 EGIT_REPO_URI="https://github.com/audacious-media-player/${PN}.git"
 use gtk3 && EGIT_BRANCH="gtk3"
 
-LICENSE="BSD filewriter? ( GPL-2+ ) libnotify? ( GPL-3+ ) pulseaudio? ( GPL-2+ )
+LICENSE="BSD-2 filewriter? ( GPL-2+ ) libnotify? ( GPL-3+ ) pulseaudio? ( GPL-2+ )
 	sndfile? ( GPL-2+ ) spectrum? ( GPL-2+ )"
 SLOT="0"
 KEYWORDS=""
