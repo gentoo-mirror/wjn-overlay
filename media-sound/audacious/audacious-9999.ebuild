@@ -17,7 +17,8 @@ EGIT_REPO_URI="https://github.com/audacious-media-player/${PN}.git"
 use gtk3 && EGIT_BRANCH="gtk3"
 SRC_URI="mirror://gentoo/gentoo_ice-xmms-0.2.tar.bz2"
 
-LICENSE="BSD-2"
+# bandeled libguess is BSD (3-clause)
+LICENSE="BSD-2 BSD"
 SLOT="0"
 KEYWORDS=""
 IUSE="+gtk -gtk3 qt5"
