@@ -16,11 +16,11 @@ S_DIR_X="8/8638"
 DESCRIPTION=\
 "Japanese TrueType rounded fonts based on Source Hans Sans (GennoKakuGothic)"
 HOMEPAGE="http://jikasei.me/font/genjyuu/"
-SRC_URI="mirror://sourceforge.jp/users/${S_DIR}/${MY_PN}-${MY_PV}.7z
+SRC_URI="mirror://osdn/users/${S_DIR}/${MY_PN}-${MY_PV}.7z
 	rounded-l? (
-		mirror://sourceforge.jp/users/${S_DIR_L}/${MY_PN}-l-${MY_PV}.7z )
+		mirror://osdn/users/${S_DIR_L}/${MY_PN}-l-${MY_PV}.7z )
 	rounded-x? (
-		mirror://sourceforge.jp/users/${S_DIR_X}/${MY_PN}-x-${MY_PV}.7z )"
+		mirror://osdn/users/${S_DIR_X}/${MY_PN}-x-${MY_PV}.7z )"
 
 LICENSE="OFL-1.1"
 SLOT="0"

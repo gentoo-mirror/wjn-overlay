@@ -1,6 +1,9 @@
 # ChangeLog for app-text/aobook
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
+# (auto-generated from git log)
+
+  08 Nov 2015; wjn <wjn@aol.jp> aobook-1.0.1.ebuild:
+  Update $SRC_URIs and $HOMEPAGEs from sourceforge.jp to osdn.jp
 
   09 Sep 2015; wjn <wjn@aol.jp> +metadata.xml:
   Add minimal metadata.xml(s) for QA.

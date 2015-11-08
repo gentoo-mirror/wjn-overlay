@@ -1,6 +1,9 @@
 # ChangeLog for app-i18n/mozc-ut
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
+# (auto-generated from git log)
+
+  08 Nov 2015; wjn <wjn@aol.jp> mozc-ut-2.17.2124.102.20151002.ebuild:
+  Update $SRC_URIs and $HOMEPAGEs from sourceforge.jp to osdn.jp
 
   01 Nov 2015; wjn <wjn@aol.jp> mozc-ut-2.17.2124.102.20151002.ebuild:
   Yusei ZipCode is now 2015-10-30 revision.

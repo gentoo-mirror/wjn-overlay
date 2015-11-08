@@ -1,6 +1,9 @@
 # ChangeLog for media-fonts/genshin-gothic
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
+# (auto-generated from git log)
+
+  08 Nov 2015; wjn <wjn@aol.jp> genshin-gothic-1.002.20150607.ebuild:
+  Update $SRC_URIs and $HOMEPAGEs from sourceforge.jp to osdn.jp
 
   09 Sep 2015; wjn <wjn@aol.jp> metadata.xml:
   Fix metadata.xml(s)

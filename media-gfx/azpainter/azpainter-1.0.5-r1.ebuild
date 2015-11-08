@@ -8,7 +8,7 @@ inherit eutils
 
 DESCRIPTION="A full-color painting software"
 HOMEPAGE="http://azsky2.html.xdomain.jp/linux/azpainter/"
-SRC_URI="mirror://sourceforge.jp/${PN}/62214/${P}-src.tar.bz2"
+SRC_URI="mirror://osdn/${PN}/62214/${P}-src.tar.bz2"
 
 LICENSE="GPL-3 LGPL-3"
 SLOT="0"

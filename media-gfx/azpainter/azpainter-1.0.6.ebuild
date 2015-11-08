@@ -10,7 +10,7 @@ SF_DIR="63501"
 
 DESCRIPTION="A full-color painting software"
 HOMEPAGE="http://azsky2.html.xdomain.jp/linux/azpainter/"
-SRC_URI="mirror://sourceforge.jp/${PN}/${SF_DIR}/${P}.tar.bz2"
+SRC_URI="mirror://osdn/${PN}/${SF_DIR}/${P}.tar.bz2"
 
 LICENSE="GPL-3 LGPL-3"
 SLOT="0"

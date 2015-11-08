@@ -9,8 +9,8 @@ inherit eutils gnome2-utils
 SF_DIR="63500"
 
 DESCRIPTION="A painting software by drawing"
-HOMEPAGE="http://sourceforge.jp/projects/azdrawing/"
-SRC_URI="mirror://sourceforge.jp/${PN}/${SF_DIR}/${P}.tar.bz2"
+HOMEPAGE="http://osdn.jp/projects/azdrawing/"
+SRC_URI="mirror://osdn/${PN}/${SF_DIR}/${P}.tar.bz2"
 
 LICENSE="GPL-3 LGPL-3"
 SLOT="0"

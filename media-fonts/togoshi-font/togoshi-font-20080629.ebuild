@@ -14,10 +14,10 @@ MONO_VER="20080629"
 DESCRIPTION="Togoshi-font is a font family based on Kochi-alternative"
 HOMEPAGE="http://togoshi-font.osdn.jp/"
 SRC_URI="
-	mirror://sourceforge.jp/${PN}/31792/${MY_PN}-gothic-${GOTHIC_VER}.tar.gz
-	mirror://sourceforge.jp/${PN}/30983/${MY_PN}-mincho-${MINCHO_VER}.tar.gz
-	mirror://sourceforge.jp/${PN}/31795/${MY_PN}-monago-${MONAGO_VER}.tar.gz
-	mirror://sourceforge.jp/${PN}/31796/${MY_PN}-mono-${MONO_VER}.tar.gz"
+	mirror://osdn/${PN}/31792/${MY_PN}-gothic-${GOTHIC_VER}.tar.gz
+	mirror://osdn/${PN}/30983/${MY_PN}-mincho-${MINCHO_VER}.tar.gz
+	mirror://osdn/${PN}/31795/${MY_PN}-monago-${MONAGO_VER}.tar.gz
+	mirror://osdn/${PN}/31796/${MY_PN}-mono-${MONO_VER}.tar.gz"
 
 LICENSE="BSD wadalab-font"
 SLOT="0"

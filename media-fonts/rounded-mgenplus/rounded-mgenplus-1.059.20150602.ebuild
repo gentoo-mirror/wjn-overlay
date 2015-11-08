@@ -14,11 +14,11 @@ S_DIR_X="8/8599"
 
 DESCRIPTION="Japanese TrueType rounded font based on Source Hans Sans and M+"
 HOMEPAGE="http://jikasei.me/font/rounded-mgenplus/"
-SRC_URI="mirror://sourceforge.jp/users/${S_DIR}/${PN}-${MY_PV}.7z
+SRC_URI="mirror://osdn/users/${S_DIR}/${PN}-${MY_PV}.7z
 	rounded-l? (
-		mirror://sourceforge.jp/users/${S_DIR_L}/${PN/d-m/d-l-m}-${MY_PV}.7z )
+		mirror://osdn/users/${S_DIR_L}/${PN/d-m/d-l-m}-${MY_PV}.7z )
 	rounded-x? (
-		mirror://sourceforge.jp/users/${S_DIR_X}/${PN/d-m/d-x-m}-${MY_PV}.7z )"
+		mirror://osdn/users/${S_DIR_X}/${PN/d-m/d-x-m}-${MY_PV}.7z )"
 
 LICENSE="OFL-1.1"
 SLOT="0"

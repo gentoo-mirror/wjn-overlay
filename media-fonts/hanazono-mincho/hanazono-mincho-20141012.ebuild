@@ -10,7 +10,7 @@ S_DIR="62072"
 
 DESCRIPTION="Hanazono font is a Japanese mincho font based on GlyphWiki"
 HOMEPAGE="http://fonts.jp/hanazono/"
-SRC_URI="mirror://sourceforge.jp/${MY_PN}-font/${S_DIR}/${MY_PN}-${PV}.zip"
+SRC_URI="mirror://osdn/${MY_PN}-font/${S_DIR}/${MY_PN}-${PV}.zip"
 
 LICENSE="|| ( OFL-1.1 hanazono-font )"
 SLOT="0"

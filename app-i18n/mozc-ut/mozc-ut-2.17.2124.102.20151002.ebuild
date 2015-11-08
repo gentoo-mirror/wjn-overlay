@@ -26,7 +26,7 @@ USAGEDIC_REV="HEAD"
 FCITX_PATCH_VER="2.17.2102.102.1"
 UIM_PATCH_REV="0562676"
 
-UT_URI="mirror://sourceforge.jp/users/${UT_DIR}/mozcdic-ut-${UT_VER}.tar.bz2"
+UT_URI="mirror://osdn/users/${UT_DIR}/mozcdic-ut-${UT_VER}.tar.bz2"
 
 MOZC_URI="https://github.com/google/mozc.git"
 USAGEDIC_URI="https://github.com/hiroyuki-komatsu/japanese-usage-dictionary.git"

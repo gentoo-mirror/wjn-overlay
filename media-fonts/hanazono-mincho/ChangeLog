@@ -1,6 +1,9 @@
 # ChangeLog for media-fonts/hanazono-mincho
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
+# (auto-generated from git log)
+
+  08 Nov 2015; wjn <wjn@aol.jp> hanazono-mincho-20141012.ebuild:
+  Update $SRC_URIs and $HOMEPAGEs from sourceforge.jp to osdn.jp
 
   09 Sep 2015; wjn <wjn@aol.jp> hanazono-mincho-20141012.ebuild:
   Update ebuild file format from "# $Header: $" to "# $Id"

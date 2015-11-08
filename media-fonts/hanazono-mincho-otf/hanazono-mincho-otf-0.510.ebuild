@@ -10,7 +10,7 @@ S_DIR="55143"
 
 DESCRIPTION="HanaMinOT is a Japanese mincho OpenType font based on GryphWiki"
 HOMEPAGE="http://shiromoji.net/font/HanaMinOT/"
-SRC_URI="mirror://sourceforge.jp/${MY_PN,,}/${S_DIR}/${MY_PN}-${PV}.zip"
+SRC_URI="mirror://osdn/${MY_PN,,}/${S_DIR}/${MY_PN}-${PV}.zip"
 
 LICENSE="|| ( OFL-1.1 hanazono-font )"
 SLOT="0"

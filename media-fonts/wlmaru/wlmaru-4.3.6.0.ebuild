@@ -13,10 +13,10 @@ SCP_DIR="62899"
 
 DESCRIPTION="a Japanese rounded gothic TrueType fonts based on Wadalab font"
 HOMEPAGE="http://osdn.jp/projects/jis2004/"
-SRC_URI="mirror://sourceforge.jp/jis2004/${S_DIR}/${MY_PN}${PV//./}.lzh
-	mirror://sourceforge.jp/jis2004/${SP_DIR}/${MY_PN}p${PV//./}.lzh
-	mirror://sourceforge.jp/jis2004/${SC_DIR}/${MY_PN/wlm/wlcm}${PV//./}.lzh
-	mirror://sourceforge.jp/jis2004/${SCP_DIR}/${MY_PN/wlm/wlcm}p${PV//./}.lzh"
+SRC_URI="mirror://osdn/jis2004/${S_DIR}/${MY_PN}${PV//./}.lzh
+	mirror://osdn/jis2004/${SP_DIR}/${MY_PN}p${PV//./}.lzh
+	mirror://osdn/jis2004/${SC_DIR}/${MY_PN/wlm/wlcm}${PV//./}.lzh
+	mirror://osdn/jis2004/${SCP_DIR}/${MY_PN/wlm/wlcm}p${PV//./}.lzh"
 
 LICENSE="freedist"
 SLOT="0"

@@ -13,7 +13,7 @@ S_DIR="8/8634"
 
 DESCRIPTION="Japanese TrueType font based on Source Hans Sans (GennoKakuGothic)"
 HOMEPAGE="http://jikasei.me/font/genshin/"
-SRC_URI="mirror://sourceforge.jp/users/${S_DIR}/${MY_PN}-${MY_PV}.7z"
+SRC_URI="mirror://osdn/users/${S_DIR}/${MY_PN}-${MY_PV}.7z"
 
 LICENSE="OFL-1.1"
 SLOT="0"

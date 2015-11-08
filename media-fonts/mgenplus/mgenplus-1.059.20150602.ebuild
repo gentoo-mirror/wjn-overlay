@@ -12,7 +12,7 @@ S_DIR="8/8597"
 
 DESCRIPTION="Japanese TrueType font based on Source Hans Sans and M+"
 HOMEPAGE="http://jikasei.me/font/mgenplus/"
-SRC_URI="mirror://sourceforge.jp/users/${S_DIR}/${PN}-${MY_PV}.7z"
+SRC_URI="mirror://osdn/users/${S_DIR}/${PN}-${MY_PV}.7z"
 
 LICENSE="OFL-1.1"
 SLOT="0"

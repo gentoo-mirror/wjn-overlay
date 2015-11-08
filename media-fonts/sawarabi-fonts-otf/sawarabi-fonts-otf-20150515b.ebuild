@@ -18,8 +18,8 @@ MINCHO_DIR="63262"
 DESCRIPTION="Sawarabi-fonts is a Japanese OTF font family"
 HOMEPAGE="http://osdn.jp/projects/sawarabi-fonts/"
 SRC_URI="
-	mirror://sourceforge.jp/${MY_PN}/${GOTHIC_DIR}/${P_GOTHIC}.tar.xz
-	mirror://sourceforge.jp/${MY_PN}/${MINCHO_DIR}/${P_MINCHO}.tar.xz"
+	mirror://osdn/${MY_PN}/${GOTHIC_DIR}/${P_GOTHIC}.tar.xz
+	mirror://osdn/${MY_PN}/${MINCHO_DIR}/${P_MINCHO}.tar.xz"
 
 LICENSE="CC-BY-3.0"
 SLOT="0"

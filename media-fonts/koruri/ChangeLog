@@ -2,6 +2,12 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  08 Nov 2015; wjn <wjn@aol.jp> koruri-20151021.ebuild:
+  Update $SRC_URIs and $HOMEPAGEs from sourceforge.jp to osdn.jp
+
+  08 Nov 2015; wjn <wjn@aol.jp> -koruri-20141224.ebuild:
+  Delete version 20141224
+
 *koruri-20151021 (08 Nov 2015)
 
   08 Nov 2015; wjn <wjn@aol.jp> +koruri-20151021.ebuild:

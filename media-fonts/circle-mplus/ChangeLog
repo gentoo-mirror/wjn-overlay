@@ -1,6 +1,9 @@
 # ChangeLog for media-fonts/circle-mplus
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
+# (auto-generated from git log)
+
+  08 Nov 2015; wjn <wjn@aol.jp> circle-mplus-20130617.ebuild:
+  Update $SRC_URIs and $HOMEPAGEs from sourceforge.jp to osdn.jp
 
   09 Sep 2015; wjn <wjn@aol.jp> circle-mplus-20130617.ebuild:
   Trivial fixes for QA.
