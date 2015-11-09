@@ -1,6 +1,14 @@
 # ChangeLog for gnome-extra/cinnamon-control-center
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
+# (auto-generated from git log)
+
+  09 Nov 2015; wjn <wjn@aol.jp> cinnamon-control-center-2.6.0-r1.ebuild,
+  +files/cinnamon-control-center-disable-pulseaudio.patch:
+  Add IUSE="pulseaudio"
+
+   cinnamon-control-center[-pulseaudio] results to omit the sound panel.
+
+   And gnome-extra/cinnamon depends on cinnamon-control-center[pulseaudio=].
 
   03 Nov 2015; wjn <wjn@aol.jp> cinnamon-control-center-2.6.0-r1.ebuild:
   Fix to drop nm-applet dep when -networkmanager.

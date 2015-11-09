@@ -15,7 +15,7 @@ SRC_URI="https://github.com/linuxmint/cinnamon-control-center/archive/${PV}.tar.
 
 LICENSE="GPL-2+"
 SLOT="0"
-IUSE="+colord +cups input_devices_wacom networkmanager"
+IUSE="+colord +cups input_devices_wacom networkmanager pulseaudio"
 KEYWORDS="amd64 x86"
 
 # False positives caused by nested configure scripts
@@ -33,7 +33,6 @@ COMMON_DEPEND="
 	>=gnome-extra/cinnamon-settings-daemon-1.0:0=
 	media-libs/fontconfig
 	>=media-libs/libcanberra-0.13[gtk3]
-	>=media-sound/pulseaudio-1.1[glib]
 	>=sys-auth/polkit-0.103
 	>=x11-libs/gdk-pixbuf-2.23.0:2
 	>=x11-libs/gtk+-3.4.1:3
@@ -51,7 +50,7 @@ COMMON_DEPEND="
 	>=net-misc/modemmanager-0.7
 	>=net-misc/networkmanager-0.9.8[modemmanager]
 	)
-"
+	pulseaudio? ( >=media-sound/pulseaudio-1.1[glib] )"
 # <gnome-color-manager-3.1.2 has file collisions with g-c-c-3.1.x
 # libgnomekbd needed only for gkbd-keyboard-display tool
 RDEPEND="${COMMON_DEPEND}
@@ -90,6 +89,8 @@ src_prepare() {
 	# North Korea causes build failure
 	cp "${WORKDIR}"/${PN}-2.6.0-pyongyang/*.png panels/datetime/data/ || die
 	epatch "${WORKDIR}"/${PN}-2.6.0-pyongyang/*.patch
+
+	use pulseaudio || epatch "${FILESDIR}/${PN}-disable-pulseaudio.patch"
 
 	epatch_user
 

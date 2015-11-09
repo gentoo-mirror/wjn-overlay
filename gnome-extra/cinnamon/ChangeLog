@@ -2,6 +2,13 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  09 Nov 2015; wjn <wjn@aol.jp> cinnamon-2.6.13.ebuild:
+  control-center: Add IUSE="pulseaudio"
+
+   cinnamon-control-center[-pulseaudio] results to omit the sound panel.
+
+   And gnome-extra/cinnamon depends on cinnamon-control-center[pulseaudio=].
+
   09 Nov 2015; wjn <wjn@aol.jp> cinnamon-2.6.13.ebuild,
   +files/cinnamon-disable-pulseaudio.patch:
   Add IUSE="pulseaudio" for drop depending on PulseAudio
