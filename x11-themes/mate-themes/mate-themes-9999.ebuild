@@ -16,9 +16,10 @@ SLOT="0"
 KEYWORDS=""
 
 COMMON_DEPEND=">=x11-libs/gdk-pixbuf-2.0.0:2
-	|| ( >=x11-libs/gtk+-2.0.0:2 >=x11-libs/gtk+-3.16.0:3 )
-	>=x11-themes/gtk-engines-2.15.3:2
-	x11-themes/murrine-themes:0"
+	|| ( ( >=x11-libs/gtk+-2.0.0:2
+			>=x11-themes/gtk-engines-2.15.3:2
+			x11-themes/murrine-themes:0 )
+		>=x11-libs/gtk+-3.16.0:3 )"
 DEPEND="${COMMON_DEPEND}
 	>=dev-util/intltool-0.35:0
 	sys-devel/gettext:0
