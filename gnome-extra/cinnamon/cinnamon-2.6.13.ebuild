@@ -22,7 +22,7 @@ LICENSE="GPL-2+"
 SLOT="0"
 
 # bluetooth support dropped due bug #511648
-IUSE="+nls +networkmanager" #+bluetooth
+IUSE="+nls +networkmanager +pulseaudio" #+bluetooth
 
 # We need *both* python 2.7 and 3.x
 REQUIRED_USE="${PYTHON_REQUIRED_USE}
@@ -51,7 +51,6 @@ COMMON_DEPEND="
 	>=gnome-base/gsettings-desktop-schemas-2.91.91
 	media-libs/gstreamer:1.0
 	media-libs/gst-plugins-base:1.0
-	media-sound/pulseaudio:0=[glib]
 	net-libs/libsoup:2.4[introspection]
 	>=sys-auth/polkit-0.100[introspection]
 	x11-libs/gdk-pixbuf:2[introspection]
@@ -65,7 +64,7 @@ COMMON_DEPEND="
 	networkmanager? (
 		gnome-base/libgnome-keyring
 		>=net-misc/networkmanager-0.8.999[introspection] )
-"
+	pulseaudio? ( media-sound/pulseaudio:0=[glib] )"
 #bluetooth? ( >=net-wireless/gnome-bluetooth-3.1:=[introspection] )
 
 # Runtime-only deps are probably incomplete and approximate.
@@ -189,6 +188,8 @@ src_prepare() {
 		sed -i 's_nm-applet;__' \
 			files/usr/share/cinnamon-session/sessions/cinnamon*.session
 	fi
+
+	use pulseaudio || epatch ${FILESDIR}/cinnamon-disable-pulseaudio.patch
 
 	epatch_user
 
