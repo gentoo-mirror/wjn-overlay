@@ -1,6 +1,13 @@
 # ChangeLog for gnome-extra/cinnamon
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
+# (auto-generated from git log)
+
+  09 Nov 2015; wjn <wjn@aol.jp> cinnamon-2.6.13.ebuild:
+  Depends on cinnamon-control-center[networkmanager=]
+
+   When -networkmanager,
+  cinnamon-control-center[-networkmanager] is also needed.
+  Vice versa when +networkmanager.
 
 *cinnamon-2.6.13 (03 Nov 2015)
 

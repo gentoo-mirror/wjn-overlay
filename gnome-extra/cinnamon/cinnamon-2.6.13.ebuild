@@ -111,7 +111,7 @@ RDEPEND="${COMMON_DEPEND}
 	x11-themes/gnome-icon-theme-symbolic
 
 	>=gnome-extra/nemo-2.4
-	>=gnome-extra/cinnamon-control-center-2.4
+	>=gnome-extra/cinnamon-control-center-2.4[networkmanager=]
 	>=gnome-extra/cinnamon-screensaver-2.4
 
 	gnome-extra/polkit-gnome
