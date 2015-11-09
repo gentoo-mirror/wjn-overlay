@@ -2,6 +2,14 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  09 Nov 2015; wjn <wjn@aol.jp> cinnamon-control-center-2.6.0-r1.ebuild:
+  gnome-extra/cinnamon-settings-daemon: Add newly for add IUSE="pulseaudio"
+
+   Change pulseaudio to optional in cinnamon-settings-daemon.
+
+   And also,
+  cinnamon[pulseaudio=] and cinnamon-control-center[pulseaudio=] are needed.
+
   09 Nov 2015; wjn <wjn@aol.jp> cinnamon-control-center-2.6.0-r1.ebuild,
   +files/cinnamon-control-center-disable-pulseaudio.patch:
   Add IUSE="pulseaudio"

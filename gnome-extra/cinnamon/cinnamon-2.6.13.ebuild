@@ -88,7 +88,7 @@ RDEPEND="${COMMON_DEPEND}
 	|| ( sys-power/upower[introspection] sys-power/upower-pm-utils[introspection] )
 
 	>=gnome-extra/cinnamon-session-2.4
-	>=gnome-extra/cinnamon-settings-daemon-2.4
+	>=gnome-extra/cinnamon-settings-daemon-2.4[pulseaudio=]
 
 	>=sys-apps/accountsservice-0.6.14[introspection]
 

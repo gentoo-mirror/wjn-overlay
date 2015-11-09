@@ -30,7 +30,7 @@ COMMON_DEPEND="
 	>=gnome-base/libgnomekbd-2.91.91:0=
 	>=gnome-extra/cinnamon-desktop-1.0:0=
 	>=gnome-extra/cinnamon-menus-1.0:0=
-	>=gnome-extra/cinnamon-settings-daemon-1.0:0=
+	>=gnome-extra/cinnamon-settings-daemon-1.0:0=[pulseaudio=]
 	media-libs/fontconfig
 	>=media-libs/libcanberra-0.13[gtk3]
 	>=sys-auth/polkit-0.103
