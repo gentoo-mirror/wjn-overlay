@@ -18,9 +18,10 @@ KEYWORDS=""
 
 FOR_GTK=$(get_version_component_range 1-2)
 COMMON_DEPEND=">=x11-libs/gdk-pixbuf-2.0.0:2
-	|| ( >=x11-libs/gtk+-2.0.0:2
-		>=x11-libs/gtk+-${FOR_GTK}.0:3 )
-	>=x11-themes/gtk-engines-2.15.3:2"
+	|| ( >=x11-libs/gtk+-${FOR_GTK}.0:3
+		( >=x11-libs/gtk+-2.0.0:2
+			>=x11-themes/gtk-engines-2.15.3:2 
+			x11-themes/murrine-themes:0 ) )"
 DEPEND=${COMMON_DEPEND}
 # adwaita: DeLorean*, GnomishBeige
 # dmz: DeLorean*
