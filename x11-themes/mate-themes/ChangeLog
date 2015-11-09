@@ -3,6 +3,12 @@
 # (auto-generated from git log)
 
   09 Nov 2015; wjn <wjn@aol.jp> mate-themes-9999.ebuild:
+  Remove needless explecit src_unpack.
+
+   Explecit src_unpack is needed if inherit git-r3.eclass and gnome2.eclass.
+  But mate-themes is not inherit gnome2.eclass.
+
+  09 Nov 2015; wjn <wjn@aol.jp> mate-themes-9999.ebuild:
   gtk-engines and murrine-themes are only for gtk2
 
   09 Nov 2015; wjn <wjn@aol.jp> mate-themes-9999.ebuild:

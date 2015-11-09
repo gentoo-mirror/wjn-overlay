@@ -31,10 +31,6 @@ RESTRICT="binchecks strip"
 
 DOCS=( AUTHORS NEWS README )
 
-src_unpack() {
-	git-r3_src_unpack
-}
-
 src_prepare() {
 	eautoreconf
 }
