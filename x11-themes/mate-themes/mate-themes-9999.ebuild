@@ -4,8 +4,6 @@
 
 EAPI=5
 
-GCONF_DEBUG="no"
-
 inherit autotools git-r3
 
 DESCRIPTION="A theme set for MATE Desktop Environment"
