@@ -1,0 +1,9 @@
+# ChangeLog for x11-themes/smooth-themes
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# (auto-generated from git log)
+
+*smooth-themes-0.5.8 (09 Nov 2015)
+
+  09 Nov 2015; wjn <wjn@aol.jp> +metadata.xml, +smooth-themes-0.5.8.ebuild:
+  Add newly
+
