@@ -1,6 +1,15 @@
 # ChangeLog for gnome-extra/cinnamon
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
-# (auto-generated from git log)
+# $Header: $
+
+*cinnamon-2.6.13-r1 (11 Nov 2015)
+
+  11 Nov 2015; wjn <wjn@aol.jp> -cinnamon-2.6.13.ebuild,
+  +cinnamon-2.6.13-r1.ebuild:
+  RDEP virtual/python-imaging to dev-python/pillow
+
+   virtual/python-imaging is obsolete.
+  dev-python/pillow should be depended on.
 
   09 Nov 2015; wjn <wjn@aol.jp> cinnamon-2.6.13.ebuild:
   settings-daemon: Add newly for add IUSE="pulseaudio"

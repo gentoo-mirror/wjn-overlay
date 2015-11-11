@@ -100,11 +100,11 @@ RDEPEND="${COMMON_DEPEND}
 	dev-python/gconf-python:2[python_targets_python2_7]
 	dev-python/lxml[python_targets_python2_7]
 	dev-python/pexpect[python_targets_python2_7]
+	dev-python/pillow[python_targets_python2_7]
 	dev-python/pycairo[python_targets_python2_7]
 	dev-python/pygobject:3[${PYTHON_USEDEP}]
 	dev-python/pyinotify[python_targets_python2_7]
 	dev-python/pypam[python_targets_python2_7]
-	virtual/python-imaging[python_targets_python2_7]
 
 	x11-themes/gnome-themes-standard[gtk]
 	x11-themes/gnome-icon-theme-symbolic
