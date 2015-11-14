@@ -38,8 +38,7 @@ src_compile() {
 
 src_install() {
 	einstall datadir="${ED}/usr/share/${PN}"
-	dodoc NEWS README
-	dohtml manual/*
+	dodoc -r NEWS README manual
 }
 
 pkg_preinst() {
