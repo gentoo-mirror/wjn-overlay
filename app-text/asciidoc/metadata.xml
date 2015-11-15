@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer>
+		<email>wjn@aol.jp</email>
+	</maintainer>
+	<use>
+		<flag name="dvi">Install <pkg>app-text/dblatex</pkg> for translating dvi format</flag>
+		<flag name="epub">Install <pkg>app-text/epubcheck</pkg> for translating EPUB format</flag>
+		<flag name="highlight">Enable source code highlighting</flag>
+		<flag name="latex">Install <pkg>app-text/dblatex</pkg> for translating LaTeX format</flag>
+		<flag name="pdf">Install <pkg>app-text/dblatex</pkg> or <pkg>dev-java/fop</pkg> for translating PDF format</flag>
+		<flag name="ps">Install <pkg>app-text/dblatex</pkg> for translating PostScript format</flag>
+		<flag name="dvi">Install <pkg>www-client/w3m</pkg> or <pkg>www-client/lynx</pkg> for text generation</flag>
+	</use>
+	<upstream>
+		<remote-id type="sourceforge">asciidoc</remote-id>
+	</upstream>
+</pkgmetadata>
