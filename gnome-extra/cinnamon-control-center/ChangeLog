@@ -2,6 +2,12 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*cinnamon-control-center-2.8.1 (17 Nov 2015)
+
+  17 Nov 2015; wjn <wjn@aol.jp> -cinnamon-control-center-2.8.0.ebuild,
+  +cinnamon-control-center-2.8.1.ebuild:
+  Update version 2.8.0 to 2.8.1.
+
 *cinnamon-control-center-2.8.0 (17 Nov 2015)
 
   17 Nov 2015; wjn <wjn@aol.jp> +cinnamon-control-center-2.8.0.ebuild,
