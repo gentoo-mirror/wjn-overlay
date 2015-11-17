@@ -23,7 +23,7 @@ RDEPEND="
 	>=dev-libs/glib-2.38:2
 	>=gnome-base/libgnomekbd-3.6
 	>=gnome-base/librsvg-2.36.2
-	>=gnome-extra/cinnamon-desktop-2.6.3:0=
+	>=gnome-extra/cinnamon-desktop-2.8:0=
 	media-libs/fontconfig
 	>=media-libs/lcms-2.2:2
 	media-libs/libcanberra:0=[gtk3]

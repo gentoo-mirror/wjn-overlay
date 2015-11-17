@@ -43,9 +43,9 @@ COMMON_DEPEND="
 	dev-libs/libxml2:2
 	gnome-base/gconf:2[introspection]
 	gnome-base/librsvg
-	>=gnome-extra/cinnamon-desktop-2.4:0=[introspection]
-	gnome-extra/cinnamon-menus[introspection]
-	>=gnome-extra/cjs-2.4
+	>=gnome-extra/cinnamon-desktop-2.8:0=[introspection]
+	>=gnome-extra/cinnamon-menus-2.8[introspection]
+	>=gnome-extra/cjs-2.8
 	>=media-libs/clutter-1.10:1.0[introspection]
 	media-libs/cogl:1.0=[introspection]
 	>=gnome-base/gsettings-desktop-schemas-2.91.91
@@ -59,7 +59,7 @@ COMMON_DEPEND="
 	>=x11-libs/startup-notification-0.11
 	x11-libs/libX11
 	>=x11-libs/libXfixes-5.0
-	>=x11-wm/muffin-2.5[introspection]
+	>=x11-wm/muffin-2.8[introspection]
 	${PYTHON_DEPS}
 	networkmanager? (
 		gnome-base/libgnome-keyring
@@ -87,8 +87,8 @@ RDEPEND="${COMMON_DEPEND}
 	>=gnome-base/libgnomekbd-2.91.4[introspection]
 	|| ( sys-power/upower[introspection] sys-power/upower-pm-utils[introspection] )
 
-	>=gnome-extra/cinnamon-session-2.4
-	>=gnome-extra/cinnamon-settings-daemon-2.4[pulseaudio=]
+	>=gnome-extra/cinnamon-session-2.8
+	>=gnome-extra/cinnamon-settings-daemon-2.8[pulseaudio=]
 
 	>=sys-apps/accountsservice-0.6.14[introspection]
 
@@ -109,9 +109,9 @@ RDEPEND="${COMMON_DEPEND}
 	x11-themes/gnome-themes-standard[gtk]
 	x11-themes/gnome-icon-theme-symbolic
 
-	>=gnome-extra/nemo-2.4
-	>=gnome-extra/cinnamon-control-center-2.4[networkmanager=,pulseaudio=]
-	>=gnome-extra/cinnamon-screensaver-2.4
+	>=gnome-extra/nemo-2.8
+	>=gnome-extra/cinnamon-control-center-2.8[networkmanager=,pulseaudio=]
+	>=gnome-extra/cinnamon-screensaver-2.8
 
 	gnome-extra/polkit-gnome
 
@@ -119,7 +119,7 @@ RDEPEND="${COMMON_DEPEND}
 		gnome-extra/nm-applet
 		net-misc/mobile-broadband-provider-info
 		sys-libs/timezone-data )
-	nls? ( >=gnome-extra/cinnamon-translations-2.4 )
+	nls? ( >=gnome-extra/cinnamon-translations-2.8 )
 "
 #bluetooth? ( net-wireless/cinnamon-bluetooth )
 
