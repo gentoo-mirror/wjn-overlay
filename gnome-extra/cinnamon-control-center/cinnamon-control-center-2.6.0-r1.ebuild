@@ -16,7 +16,7 @@ SRC_URI="https://github.com/linuxmint/cinnamon-control-center/archive/${PV}.tar.
 LICENSE="GPL-2+"
 SLOT="0"
 IUSE="+colord +cups input_devices_wacom networkmanager pulseaudio"
-KEYWORDS="amd64 x86"
+KEYWORDS=""
 
 # False positives caused by nested configure scripts
 QA_CONFIGURE_OPTIONS=".*"
