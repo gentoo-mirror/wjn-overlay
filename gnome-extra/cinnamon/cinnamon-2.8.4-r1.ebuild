@@ -159,6 +159,10 @@ src_prepare() {
 	# https://github.com/linuxmint/Cinnamon/issues/3577
 	epatch "${FILESDIR}"/${PN}-2.8.3-gnome-3.14.patch
 
+	# /usr/lib can be symlink on Gentoo
+	# https://github.com/linuxmint/Cinnamon/issues/4767
+	epatch "${FILESDIR}/${PN}-2.8.4-path-is-symlink.patch"
+
 	# Use pkexec instead of gksu (from Arch)
 	# https://github.com/linuxmint/Cinnamon/issues/3565
 	sed -i 's/gksu/pkexec/' files/usr/bin/cinnamon-settings-users || die

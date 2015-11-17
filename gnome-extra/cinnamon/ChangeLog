@@ -2,6 +2,16 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*cinnamon-2.8.4-r1 (17 Nov 2015)
+
+  17 Nov 2015; wjn <wjn@aol.jp> -cinnamon-2.8.4.ebuild,
+  +cinnamon-2.8.4-r1.ebuild, +files/cinnamon-2.8.4-path-is-symlink.patch:
+  2.8.4: Support /usr/lib symlink
+
+   /usr/lib can be a symlink on Gentoo systems.
+  This commit fixes to support /usr/lib symlink.
+   See https://github.com/linuxmint/Cinnamon/issues/4767
+
   17 Nov 2015; wjn <wjn@aol.jp> cinnamon-2.8.4.ebuild:
   Update cinnamon components version to 2.8
 
