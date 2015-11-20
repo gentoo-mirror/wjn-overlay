@@ -2,6 +2,11 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*cinnamon-settings-daemon-2.8.2 (20 Nov 2015)
+
+  20 Nov 2015; wjn <wjn@aol.jp> +cinnamon-settings-daemon-2.8.2.ebuild:
+  Add version 2.8.2
+
   17 Nov 2015; wjn <wjn@aol.jp> cinnamon-settings-daemon-2.8.1.ebuild:
   gnome-extra/cinnamon*: Update cinnamon components version to 2.8
 
