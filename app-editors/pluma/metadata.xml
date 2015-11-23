@@ -6,6 +6,7 @@
 	</maintainer>
 	<use>
 		<flag name="debug">Enable gconf debug</flag>
+		<flag name="mate">Build with <pkg>mate-base/mate-desktop</pkg></flag>
 		<flag name="python">Enable Python plugins</flag>
 		<flag name="spell">Enable spell checker with <pkg>app-text/enchant</pkg></flag>
 	</use>

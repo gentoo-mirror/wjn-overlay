@@ -2,6 +2,12 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  23 Nov 2015; wjn <wjn@aol.jp> metadata.xml, pluma-9999.ebuild:
+  Add IUSE="+mate"
+
+   mate-base/mate-desktop became a selectable dependency.
+  See https://github.com/mate-desktop/pluma/commit/b40b78a
+
   14 Sep 2015; wjn <wjn@aol.jp> pluma-9999.ebuild:
   MATE Desktop Environment: Add gtk+:3 build
 
