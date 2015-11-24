@@ -19,7 +19,8 @@ RDEPEND="media-libs/fontconfig
 	sys-libs/zlib
 	x11-libs/libX11
 	x11-libs/libXext"
-
 DEPEND=${RDEPEND}
+
+RESTRICT="mirror"
 
 DOCS=( AUTHORS ChangeLog NEWS README manual.html )
