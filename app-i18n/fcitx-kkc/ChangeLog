@@ -2,8 +2,11 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  24 Nov 2015; wjn <wjn@aol.jp> fcitx-kkc-9999.ebuild:
+  9999: Tidy up variables
+
   24 Nov 2015; wjn <wjn@aol.jp> -files/fcitx-kkc-0.1.1-add-dicts.patch:
-  delete a needless patch file
+  Delete a needless patch file
 
   24 Nov 2015; wjn <wjn@aol.jp> fcitx-kkc-0.1.2.ebuild:
   Correct patch file names
