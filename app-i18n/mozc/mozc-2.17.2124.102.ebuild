@@ -58,7 +58,8 @@ RDEPEND="${COMMON_DEPEND}
 
 S="${WORKDIR}/${P}/src"
 
-use test || RESTRICT="test"
+RESTRICT="mirror"
+use test || RESTRICT="${RESTRICT} test"
 
 BUILDTYPE=${BUILDTYPE:-Release}
 
