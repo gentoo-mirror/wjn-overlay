@@ -4,7 +4,7 @@
 
 EAPI=5
 
-DESCRIPTION="a terminal-based Text Editor with extensive Unicode and CJK support"
+DESCRIPTION="Terminal-based Text Editor with extensive Unicode and CJK support"
 HOMEPAGE="http://towo.net/mined/"
 SRC_URI="mirror://sourceforge/mined/${P}.tar.gz"
 
@@ -12,5 +12,8 @@ LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS=""
 
+# Really it has no deps?
 DEPEND=""
 RDEPEND=""
+
+RESTRICT="mirror"
