@@ -30,6 +30,8 @@ DEPEND="${COMMON_DEPEND}
 	sys-devel/gettext"
 RDEPEND=${COMMON_DEPEND}
 
+RESTRICT="mirror"
+
 DOCS=( README NEWS )
 
 src_configure() {

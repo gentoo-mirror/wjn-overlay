@@ -2,6 +2,11 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  24 Nov 2015; wjn <wjn@aol.jp> florence-0.6.3.ebuild:
+  Add RESTRICT="mirror"
+
+   Florence isn't in GENTOO_MIRRORS.
+
   09 Sep 2015; wjn <wjn@aol.jp> +metadata.xml:
   Add minimal metadata.xml(s) for QA.
 
