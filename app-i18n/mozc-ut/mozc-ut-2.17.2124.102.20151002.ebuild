@@ -82,7 +82,8 @@ RDEPEND="${COMMON_DEPEND}
 S="${WORKDIR}/${P}/src"
 UT_SRC="${WORKDIR}/mozcdic-ut-${UT_VER}"
 
-use test || RESTRICT="test"
+RESTRICT="mirror"
+use test || RESTRICT="${RESTRICT} test"
 
 BUILDTYPE=${BUILDTYPE:-Release}
 

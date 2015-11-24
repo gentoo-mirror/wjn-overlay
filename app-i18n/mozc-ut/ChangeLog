@@ -1,6 +1,11 @@
 # ChangeLog for app-i18n/mozc-ut
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
-# (auto-generated from git log)
+# $Header: $
+
+  24 Nov 2015; wjn <wjn@aol.jp> mozc-ut-2.17.2124.102.20151002.ebuild:
+  Add RESTRICT="mirror"
+
+   Additional files isn't in GENTOO_MIRRORS.
 
   08 Nov 2015; wjn <wjn@aol.jp> mozc-ut-2.17.2124.102.20151002.ebuild:
   Update $SRC_URIs and $HOMEPAGEs from sourceforge.jp to osdn.jp
