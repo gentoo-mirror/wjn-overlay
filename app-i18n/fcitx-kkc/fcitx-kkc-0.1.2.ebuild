@@ -14,14 +14,14 @@ HOMEPAGE="https://github.com/fcitx/fcitx-kkc"
 if [[ ${PV} = *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/fcitx/${PN}.git"
-	KEYWORDS=""
+	EGIT_BRANCH="master"
 else
 	SRC_URI="http://download.fcitx-im.org/${PN}/${P}.tar.xz"
-	KEYWORDS=""
 fi
 
 LICENSE="GPL-3+"
 SLOT="0"
+KEYWORDS=""
 IUSE="qt4"
 
 COMMON_DEPEND=">=app-i18n/fcitx-4.2.8[qt4?]
@@ -39,9 +39,11 @@ RDEPEND="${COMMON_DEPEND}
 	app-i18n/libkkc-data
 	app-i18n/skk-jisyo"
 
+RESTRICT="mirror"
+
 src_prepare() {
-	epatch "${FILESDIR}/${P}-add-direct-input.patch"
-	epatch "${FILESDIR}/${P}-fix-keymap-conflict.patch"
+	epatch "${FILESDIR}/${PN}-0.1.1-add-direct-input.patch"
+	epatch "${FILESDIR}/${PN}-0.1.1-fix-keymap-conflict.patch"
 
 	disable_locale() {
 		sed -i "s/ ${1}//" po/CMakeLists.txt
