@@ -6,17 +6,18 @@ EAPI=5
 
 PYTHON_COMPAT=( python2_7 )
 
-inherit autotools git-r3 python-single-r1 vala
+inherit autotools python-single-r1 vala
 
 DESCRIPTION="Japanese Kana Kanji conversion library"
 HOMEPAGE="https://github.com/ueno/libkkc
 	https://bitbucket.org/libkkc/libkkc"
-EGIT_REPO_URI="https://github.com/ueno/libkkc.git"
 
 if [[ ${PV} = *9999* ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/ueno/libkkc.git"
 	EGIT_BRANCH="master"
 else
-	EGIT_BRANCH="v${PV}"
+	SRC_URI="https://github.com/ueno/${PN}/releases/download/v${PV}/${P}.tar.gz"
 fi
 
 LICENSE="GPL-3+"
@@ -38,6 +39,8 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}"
 PDEPEND="app-i18n/libkkc-data
 	app-i18n/skk-jisyo"
+
+RESTRICT="mirror"
 
 DOCS=( README.md )
 

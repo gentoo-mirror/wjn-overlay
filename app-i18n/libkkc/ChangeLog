@@ -2,6 +2,11 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  24 Nov 2015; wjn <wjn@aol.jp> libkkc-0.3.5.ebuild, libkkc-9999.ebuild:
+  libkkc/libkkc: Add RESTRICT="mirror"
+
+   libkkc* isn't in GENTOO_MIRRORS.
+
   09 Sep 2015; wjn <wjn@aol.jp> +metadata.xml:
   Add minimal metadata.xml(s) for QA.
 
