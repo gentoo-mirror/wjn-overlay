@@ -8,15 +8,13 @@ PYTHON_COMPAT=( python3_{3,4,5} )
 
 inherit distutils-r1 gnome2-utils versionator
 
-DESCRIPTION="An onscreen keyboard useful for tablet PC users and for mobility impaired users"
+DESCRIPTION="Onscreen keyboard for tablet PC users and mobility impaired users"
 HOMEPAGE="https://launchpad.net/onboard"
-SRC_URI="https://launchpad.net/onboard/$(get_version_component_range 1-2)/${PV}/+download/${P}.tar.gz"
+SRC_URI="https://launchpad.net/${PN}/$(get_version_component_range 1-2)/${PV}/+download/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
-
-DOCS=( AUTHORS NEWS README )
 
 COMMON_DEPEND="dev-libs/dbus-glib
 	dev-python/dbus-python[${PYTHON_USEDEP}]
@@ -37,18 +35,42 @@ COMMON_DEPEND="dev-libs/dbus-glib
 	x11-libs/libwnck:3
 	x11-libs/pango"
 RDEPEND="${COMMON_DEPEND}
+	app-accessibility/at-spi2-core
 	app-text/hunspell
 	app-text/iso-codes
-	gnome-extra/mousetweaks"
+	gnome-extra/mousetweaks
+	x11-libs/libxkbfile"
+
+RESTRICT="mirror"
+
+# These are using a functionality of distutils-r1.eclass
+DOCS=( AUTHORS CHANGELOG NEWS README
+	onboard-defaults.conf.example onboard-defaults.conf.example.nexus7 )
+HTML_DOCS=( docs/. )
+PATCHES=( "${FILESDIR}/${PN}-remove-duplicated-docs.patch" )
+
+src_prepare() {
+	distutils-r1_src_prepare
+}
+
+src_install() {
+	distutils-r1_src_install
+
+	# Delete duplicated docs installed by original dustutils
+	rm "${D}"/usr/share/doc/onboard/*
+}
 
 pkg_preinst() {
+	gnome2_icon_savelist
 	gnome2_schemas_savelist
 }
 
 pkg_postinst() {
+	gnome2_icon_cache_update
 	gnome2_schemas_update
 }
 
 pkg_postrm() {
+	gnome2_icon_cache_update
 	gnome2_schemas_update
 }

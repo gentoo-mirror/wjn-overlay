@@ -2,6 +2,17 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  24 Nov 2015; wjn <wjn@aol.jp> +files/onboard-remove-duplicated-docs.patch,
+  onboard-1.1.2.ebuild:
+  Improve to remove duplicated docs and fix some
+
+  Changes
+   - Duplicated documents installd by setup.py are removed
+   - Icon cache is refreshed by gnome_icon_* functions
+   - ${DESCRIPTION} is shortened
+   - RESTRICT="mirror" because Onboard isn't in GENTOO_MIRRORS
+   - x11-libs/libxkbfile is added to ${RDEPEND}
+
   22 Oct 2015; wjn <wjn@aol.jp> -onboard-1.0.1.ebuild, -onboard-1.1.1.ebuild:
   Delete old version 1.0.1 and 1.1.1.
 
