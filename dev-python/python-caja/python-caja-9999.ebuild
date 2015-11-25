@@ -56,11 +56,4 @@ src_install() {
 
 	# Keep the directory for systemwide extensions.
 	keepdir /usr/share/python-caja/extensions/
-
-	# The HTML documentation generation is broken and commented out by upstream.
-	#
-	#if use doc ; then
-	#	insinto /usr/share/gtk-doc/html/nautilus-python # for dev-util/devhelp
-	#	doins -r docs/html/*
-	#fi
 }
