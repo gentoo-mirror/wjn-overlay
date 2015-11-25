@@ -16,7 +16,7 @@ SRC_URI="http://yozvox.web.fc2.com/${MY_P}.7z"
 LICENSE="IPAfont"
 SLOT="0"
 KEYWORDS=""
-RESTRICT="binchecks strip"
+RESTRICT="binchecks mirror strip"
 
 DEPEND="app-arch/p7zip"
 RDEPEND=""

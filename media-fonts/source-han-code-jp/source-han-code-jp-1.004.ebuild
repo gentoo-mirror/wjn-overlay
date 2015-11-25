@@ -20,7 +20,7 @@ DEPEND="app-arch/unzip"
 RDEPEND=""
 
 S="${WORKDIR}/${PN}-${MY_PV}"
-RESTRICT="binchecks strip"
+RESTRICT="binchecks mirror strip"
 
 DOCS=( "README.md" "relnotes.txt" )
 

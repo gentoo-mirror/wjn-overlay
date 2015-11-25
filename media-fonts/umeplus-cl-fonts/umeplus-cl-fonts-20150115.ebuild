@@ -16,7 +16,7 @@ KEYWORDS=""
 DEPEND="app-arch/xz-utils"
 RDEPEND=""
 
-RESTRICT="binchecks strip"
+RESTRICT="binchecks mirror strip"
 
 FONT_SUFFIX="ttf"
 FONT_S=${S}

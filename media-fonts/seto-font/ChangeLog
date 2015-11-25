@@ -1,6 +1,11 @@
 # ChangeLog for media-fonts/seto-font
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
-# (auto-generated from git log)
+# $Header: $
+
+  25 Nov 2015; wjn <wjn@aol.jp> seto-font-6.20.ebuild:
+  media-fonts/*: Add "mirror" to ${RESTRICT}
+
+   Because they are not uploaded in GENTOO_MIRRORS.
 
   08 Nov 2015; wjn <wjn@aol.jp> seto-font-6.20.ebuild:
   Update $SRC_URIs and $HOMEPAGEs from sourceforge.jp to osdn.jp

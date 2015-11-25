@@ -42,7 +42,7 @@ S="${WORKDIR}"
 FONT_SUFFIX="ttf"
 FONT_S="${S}"
 
-RESTRICT="strip binchecks"
+RESTRICT="binchecks mirror strip"
 
 src_prepare() {
 	cp "${DISTDIR}/migu.pe" "${S}"

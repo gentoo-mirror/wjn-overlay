@@ -27,7 +27,7 @@ DEPEND=""
 RDEPEND=""
 
 S=${WORKDIR}
-RESTRICT="binchecks strip"
+RESTRICT="binchecks mirror strip"
 
 FONT_SUFFIX="ttf"
 FONT_S=${S}

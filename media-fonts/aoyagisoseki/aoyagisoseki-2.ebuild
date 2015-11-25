@@ -16,7 +16,7 @@ SRC_URI="http://opentype.jp/bin/${MY_PN}.zip"
 LICENSE="public-domain"
 SLOT="0"
 KEYWORDS=""
-RESTRICT="binchecks strip"
+RESTRICT="binchecks mirror strip"
 
 DEPEND="app-arch/unzip"
 RDEPEND=""

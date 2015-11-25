@@ -25,7 +25,7 @@ SLOT="0"
 KEYWORDS=""
 IUSE="rounded-l rounded-x"
 
-RESTRICT="binchecks strip"
+RESTRICT="binchecks mirror strip"
 
 S=${WORKDIR}
 

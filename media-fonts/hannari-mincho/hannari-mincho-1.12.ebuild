@@ -20,7 +20,7 @@ DEPEND="app-arch/unzip
 RDEPEND=""
 
 S=${WORKDIR}
-RESTRICT="binchecks fetch strip"
+RESTRICT="binchecks fetch mirror strip"
 
 FONT_SUFFIX="otf"
 FONT_S=${S}

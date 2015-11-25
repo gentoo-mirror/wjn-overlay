@@ -21,7 +21,7 @@ DEPEND="app-arch/unzip
 RDEPEND=""
 
 S="${WORKDIR}/${MY_PN}-${PV}"
-RESTRICT="binchecks strip"
+RESTRICT="binchecks mirror strip"
 
 FONT_SUFFIX="otf"
 FONT_S=${S}

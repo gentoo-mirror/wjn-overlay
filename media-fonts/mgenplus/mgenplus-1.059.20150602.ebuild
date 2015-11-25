@@ -17,7 +17,7 @@ SRC_URI="mirror://osdn/users/${S_DIR}/${PN}-${MY_PV}.7z"
 LICENSE="OFL-1.1"
 SLOT="0"
 KEYWORDS=""
-RESTRICT="binchecks strip"
+RESTRICT="binchecks mirror strip"
 
 S=${WORKDIR}
 

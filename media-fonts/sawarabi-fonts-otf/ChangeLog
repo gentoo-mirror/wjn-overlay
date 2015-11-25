@@ -1,6 +1,11 @@
 # ChangeLog for media-fonts/sawarabi-fonts-otf
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
-# (auto-generated from git log)
+# $Header: $
+
+  25 Nov 2015; wjn <wjn@aol.jp> sawarabi-fonts-otf-20150515b.ebuild:
+  media-fonts/*: Add "mirror" to ${RESTRICT}
+
+   Because they are not uploaded in GENTOO_MIRRORS.
 
   08 Nov 2015; wjn <wjn@aol.jp> sawarabi-fonts-otf-20150515b.ebuild:
   Update $SRC_URIs and $HOMEPAGEs from sourceforge.jp to osdn.jp

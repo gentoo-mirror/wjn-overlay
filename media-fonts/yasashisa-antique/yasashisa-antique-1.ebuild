@@ -15,7 +15,7 @@ SRC_URI="http://flop.sakura.ne.jp/font/fontna-op/${MY_P}.zip"
 LICENSE="IPAfont mplus-fonts"
 SLOT="0"
 KEYWORDS=""
-RESTRICT="binchecks strip"
+RESTRICT="binchecks mirror strip"
 
 DEPEND="app-arch/unzip"
 RDEPEND=""

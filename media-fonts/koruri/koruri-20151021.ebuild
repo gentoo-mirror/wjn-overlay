@@ -15,7 +15,7 @@ SRC_URI="mirror://osdn/koruri/63935/${MY_P}.tar.xz"
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS=""
-RESTRICT="binchecks strip"
+RESTRICT="binchecks mirror strip"
 
 DEPEND=""
 RDEPEND=""

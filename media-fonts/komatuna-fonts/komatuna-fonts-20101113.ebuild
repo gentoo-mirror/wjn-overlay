@@ -19,7 +19,7 @@ DEPEND="app-arch/xz-utils
 	app-i18n/nkf"
 RDEPEND=""
 
-RESTRICT="binchecks strip"
+RESTRICT="binchecks mirror strip"
 
 FONT_SUFFIX="ttf"
 FONT_S=${S}

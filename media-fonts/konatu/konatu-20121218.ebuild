@@ -14,7 +14,7 @@ SRC_URI="http://www.masuseki.com/be/${PN}/${MY_P}.zip"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS=""
-RESTRICT="binchecks strip"
+RESTRICT="binchecks mirror strip"
 
 S="${WORKDIR}/${MY_P}"
 
