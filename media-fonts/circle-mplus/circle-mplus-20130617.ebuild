@@ -19,13 +19,14 @@ LICENSE="mplus-fonts"
 SLOT="0"
 KEYWORDS=""
 
+DEPEND="app-arch/unzip"
+RDEPEND=""
+
 S=${WORKDIR}
+RESTRICT="binchecks mirror strip"
 
 FONT_SUFFIX="ttf"
 FONT_S=${S}
-
-DEPEND="app-arch/unzip"
-RDEPEND=""
 
 src_prepare() {
 	mv "${S}"/*/*.${FONT_SUFFIX} "${S}"

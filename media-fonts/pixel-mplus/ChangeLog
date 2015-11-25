@@ -1,6 +1,9 @@
 # ChangeLog for media-fonts/pixel-mplus
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
-# (auto-generated from git log)
+# $Header: $
+
+  25 Nov 2015; wjn <wjn@aol.jp> pixel-mplus-20130602.ebuild:
+  media-fonts/{circle,pixel}-mplus: Add RESTRICT="binchecks mirror strip"
 
   08 Nov 2015; wjn <wjn@aol.jp> pixel-mplus-20130602.ebuild:
   Update $SRC_URIs and $HOMEPAGEs from sourceforge.jp to osdn.jp
