@@ -27,6 +27,8 @@ COMMON_DEPEND="media-libs/fontconfig
 DEPEND=${COMMON_DEPEND}
 RDEPEND=${COMMON_DEPEND}
 
+RESTRICT="mirror"
+
 src_prepare() {
 	epatch "${FILESDIR}/${PN}-makefile.patch"
 }

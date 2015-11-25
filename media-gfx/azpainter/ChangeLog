@@ -3,6 +3,9 @@
 # $Header: $
 
   25 Nov 2015; wjn <wjn@aol.jp> azpainter-1.0.6.ebuild:
+  media-gfx/az{drawing,painter}: Add RESTRICT="mirror"
+
+  25 Nov 2015; wjn <wjn@aol.jp> azpainter-1.0.6.ebuild:
   media-gfx/az{drawing,painter}: Rename ${SF_DIR} to ${OSDN_DIR}
 
   25 Nov 2015; wjn <wjn@aol.jp> -azpainter-1.0.5-r1.ebuild:
