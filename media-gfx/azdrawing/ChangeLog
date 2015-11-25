@@ -2,6 +2,9 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  25 Nov 2015; wjn <wjn@aol.jp> azdrawing-1.5.ebuild:
+  media-gfx/az{drawing,painter}: Rename ${SF_DIR} to ${OSDN_DIR}
+
   25 Nov 2015; wjn <wjn@aol.jp> -azdrawing-1.4.ebuild:
   Delete version 1.4
 

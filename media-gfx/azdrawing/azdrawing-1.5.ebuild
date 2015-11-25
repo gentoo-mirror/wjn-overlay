@@ -6,11 +6,11 @@ EAPI=5
 
 inherit eutils gnome2-utils
 
-SF_DIR="63500"
+OSDN_DIR="63500"
 
 DESCRIPTION="A painting software by drawing"
 HOMEPAGE="http://osdn.jp/projects/azdrawing/"
-SRC_URI="mirror://osdn/${PN}/${SF_DIR}/${P}.tar.bz2"
+SRC_URI="mirror://osdn/${PN}/${OSDN_DIR}/${P}.tar.bz2"
 
 LICENSE="GPL-3 LGPL-3"
 SLOT="0"
