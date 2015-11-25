@@ -20,3 +20,5 @@ KEYWORDS=""
 DEPEND="${PYTHON_DEPS}
 	dev-python/setuptools[${PYTHON_USEDEP}]"
 RDEPEND=${PYTHON_DEPS}
+
+RESTRICT="mirror"

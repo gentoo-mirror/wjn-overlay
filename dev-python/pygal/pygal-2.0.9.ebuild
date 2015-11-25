@@ -22,3 +22,5 @@ DEPEND="${PYTHON_DEPS}
 RDEPEND="${PYTHON_DEPS}
 	dev-python/lxml[${PYTHON_USEDEP}]
 	media-gfx/cairosvg[${PYTHON_USEDEP}]"
+
+RESTRICT="mirror"

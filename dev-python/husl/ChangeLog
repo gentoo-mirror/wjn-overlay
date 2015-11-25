@@ -3,6 +3,9 @@
 # $Header: $
 
   25 Nov 2015; wjn <wjn@aol.jp> husl-4.0.3.ebuild:
+  dev-python/*: Add RESTRICT="mirror"
+
+  25 Nov 2015; wjn <wjn@aol.jp> husl-4.0.3.ebuild:
   dev-python/*: Add ${PYTHON_DEPS} to dependencies
 
   25 Nov 2015; wjn <wjn@aol.jp> -husl-4.0.2.ebuild:
