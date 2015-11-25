@@ -3,6 +3,7 @@
 # $Id$
 
 EAPI=5
+
 inherit cmake-utils git-r3
 
 DESCRIPTION="VDPAU driver with OpenGL/VAAPI backend"
@@ -19,6 +20,8 @@ DEPEND="x11-libs/libvdpau
 		>=dev-libs/glib-2.0
 		media-libs/mesa"
 RDEPEND="${DEPEND}"
+
+RESTRICT="mirror"
 
 src_install() {
 	cmake-utils_src_install

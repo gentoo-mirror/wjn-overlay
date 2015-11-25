@@ -2,6 +2,10 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  25 Nov 2015; wjn <wjn@aol.jp> gdk-pixbuf-psd-0.1.0.ebuild,
+  gdk-pixbuf-psd-9999.ebuild:
+  x11-libs/*: Add RESTRICT="mirror"
+
   09 Sep 2015; wjn <wjn@aol.jp> metadata.xml:
   Trivial fixes for QA.
 

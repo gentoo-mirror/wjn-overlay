@@ -20,6 +20,8 @@ DEPEND="${COMMON_DEPEND}
 	>=dev-libs/glib-2.0"
 RDEPEND="${COMMON_DEPEND}"
 
+RESTRICT="mirror"
+
 DOCS=( README )
 
 src_prepare() {
