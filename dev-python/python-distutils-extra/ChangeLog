@@ -3,6 +3,9 @@
 # $Header: $
 
   25 Nov 2015; wjn <wjn@aol.jp> python-distutils-extra-2.38-r1.ebuild:
+  Tidy up variables
+
+  25 Nov 2015; wjn <wjn@aol.jp> python-distutils-extra-2.38-r1.ebuild:
   dev-python/*: Add ${PYTHON_DEPS} to dependencies
 
 *python-distutils-extra-2.38-r1 (22 Oct 2015)
