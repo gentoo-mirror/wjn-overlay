@@ -4,4 +4,8 @@
 <maintainer>
 	<email>wjn@aol.jp</email>
 </maintainer>
+<use>
+	<flag name='pluma'>Install plugins for <pkg>app-editors/pluma</pkg></flag>
+	<flag name='webkit'>Install preview plugin powered by <pkg>dev-python/pywebkitgtk</pkg></flag>
+</use>
 </pkgmetadata>
