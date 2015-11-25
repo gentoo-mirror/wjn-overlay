@@ -2,6 +2,9 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  25 Nov 2015; wjn <wjn@aol.jp> pygal-2.0.6.ebuild, pygal-2.0.9.ebuild:
+  dev-python/*: Add ${PYTHON_DEPS} to dependencies
+
 *pygal-2.0.9 (03 Nov 2015)
 
   03 Nov 2015; wjn <wjn@aol.jp> +pygal-2.0.9.ebuild:

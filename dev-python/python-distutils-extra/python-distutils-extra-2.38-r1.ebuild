@@ -17,7 +17,8 @@ SLOT="0"
 KEYWORDS="amd64 ppc x86"
 IUSE=""
 
-DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
+DEPEND="${PYTHON_DEPS}
+	dev-python/setuptools[${PYTHON_USEDEP}]"
 RDEPEND="${DEPEND}"
 
 DOCS=( doc/{FAQ,README,setup.cfg.example,setup.py.example} )

@@ -17,5 +17,6 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS=""
 
-DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
-RDEPEND=""
+DEPEND="${PYTHON_DEPS}
+	dev-python/setuptools[${PYTHON_USEDEP}]"
+RDEPEND=${PYTHON_DEPS}

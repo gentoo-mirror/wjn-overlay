@@ -17,7 +17,8 @@ LICENSE="LGPL-3+"
 SLOT="0"
 KEYWORDS=""
 
-DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
-RDEPEND="
+DEPEND="${PYTHON_DEPS}
+	dev-python/setuptools[${PYTHON_USEDEP}]"
+RDEPEND="${PYTHON_DEPS}
 	dev-python/lxml[${PYTHON_USEDEP}]
 	media-gfx/cairosvg[${PYTHON_USEDEP}]"
