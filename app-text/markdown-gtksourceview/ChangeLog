@@ -2,6 +2,11 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  25 Nov 2015; wjn <wjn@aol.jp>
+  +files/markdown-gtksourceview-3.2.9999-gedit-3.12.patch,
+  markdown-gtksourceview-3.2.9999.ebuild:
+  3.0: Fix for >=gedit-3.12
+
 *markdown-gtksourceview-3.2.9999 (25 Nov 2015)
 
   25 Nov 2015; wjn <wjn@aol.jp> +markdown-gtksourceview-3.2.9999.ebuild,

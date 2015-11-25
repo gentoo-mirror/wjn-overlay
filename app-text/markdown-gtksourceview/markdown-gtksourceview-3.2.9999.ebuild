@@ -6,7 +6,7 @@ EAPI=5
 
 PYTHON_COMPAT=( python3_{3,4} )
 
-inherit multilib python-r1
+inherit eutils multilib python-r1
 
 MY_PN="gedit-markdown"
 
@@ -32,6 +32,8 @@ S="${WORKDIR}/${MY_PN}-master"
 RESTRICT="mirror"
 
 src_prepare() {
+	epatch "${FILESDIR}/${P}-gedit-3.12.patch"
+
 	if use webkit ; then
 		sed -e 's_#!/usr/bin/python_#!/usr/bin/python3_' \
 			-i plugins/markdown-preview/markdown-preview/__init__.py || die
