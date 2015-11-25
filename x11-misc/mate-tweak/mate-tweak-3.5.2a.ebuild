@@ -3,17 +3,17 @@
 # $Id$
 
 EAPI=5
+
 # setuptools[python_targets_python3_5] is not available now.
 #PYTHON_COMPAT=( python3_{3,4,5} )
 PYTHON_COMPAT=( python3_{3,4} )
 
 inherit distutils-r1
 
+REV="8df794d91ecf"
 DESCRIPTION="MATE desktop tweak tool"
 HOMEPAGE="https://launchpad.net/ubuntu/+source/mate-tweak"
 SRC_URI="https://launchpad.net/ubuntu/+archive/primary/+files/${PN}_${PV}.orig.tar.gz"
-
-REV="8df794d91ecf"
 
 LICENSE="GPL-2"
 KEYWORDS=""
@@ -22,7 +22,6 @@ IUSE="nls"
 
 DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
 	nls? ( sys-devel/gettext ) "
-
 RDEPEND="dev-libs/glib:2
 	gnome-base/dconf
 	mate-base/caja
@@ -33,3 +32,4 @@ RDEPEND="dev-libs/glib:2
 	x11-libs/gtk+:2"
 
 S="${WORKDIR}/ubuntu-mate-${PN}-${REV}"
+RESTRICT="mirror"
