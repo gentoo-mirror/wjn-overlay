@@ -1,6 +1,10 @@
 # ChangeLog for x11-themes/mate-themes-extras
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
-# (auto-generated from git log)
+# $Header: $
+
+  25 Nov 2015; wjn <wjn@aol.jp> mate-themes-extras-3.14.7.ebuild,
+  mate-themes-extras-3.16.3.ebuild:
+  x11-themes/* (only in wjn-overlay): Add "mirror" to ${RESTRICT}
 
   09 Nov 2015; wjn <wjn@aol.jp> mate-themes-extras-3.14.7.ebuild,
   mate-themes-extras-3.16.3.ebuild:

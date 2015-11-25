@@ -33,7 +33,7 @@ RDEPEND="${COMMON_DEPEND}
 	x11-themes/mate-themes
 	x11-themes/mate-icon-theme"
 
-RESTRICT="binchecks strip"
+RESTRICT="binchecks mirror strip"
 
 DOCS=( AUTHORS ChangeLog NEWS README )
 

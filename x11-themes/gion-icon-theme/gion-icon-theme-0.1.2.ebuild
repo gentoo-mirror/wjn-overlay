@@ -18,9 +18,8 @@ IUSE="minimal"
 DEPEND=""
 RDEPEND="!minimal? ( x11-themes/gnome-icon-theme )"
 
-RESTRICT="binchecks strip"
-
 S="${WORKDIR}"
+RESTRICT="binchecks mirror strip"
 
 src_install() {
 	dodoc Gion/{AUTHORS,README}

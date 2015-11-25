@@ -3,27 +3,29 @@
 # $Id$
 
 EAPI=5
+
 inherit gnome2-utils
 
 MY_P=${PN}_${PV}
 
 DESCRIPTION="A scalable icon theme called Faience"
 HOMEPAGE="http://tiheum.deviantart.com/art/Faience-icon-theme-255099649"
+
 # Use Ubuntu repo which has a proper faience-icon-theme tarball
 #SRC_URI="http://${PN}.googlecode.com/files/${PN}_${PV}.tar.gz"
 SRC_URI="http://ppa.launchpad.net/tiheum/equinox/ubuntu/pool/main/${PN:0:1}/${PN}/${MY_P}.tar.gz"
-
-RESTRICT="binchecks strip"
 
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~x86"
 IUSE="minimal"
 
+DEPEND=""
 RDEPEND="!minimal? ( x11-themes/gnome-icon-theme )
 	x11-themes/hicolor-icon-theme"
 
 S=${WORKDIR}/${PN}-${PV%.*}
+RESTRICT="binchecks mirror strip"
 
 src_prepare() {
 #	local res x
@@ -42,12 +44,16 @@ src_prepare() {
 src_install() {
 	insinto /usr/share/icons
 	doins -r Faience{,-Azur,-Ocre,-Claire}
-
-	# TODO: Install to directories where the apps can find them
-	# insinto ${somewhere}
-	# doins -r emesene dockmanager rhythmbox
 }
 
-pkg_preinst() { gnome2_icon_savelist; }
-pkg_postinst() { gnome2_icon_cache_update; }
-pkg_postrm() { gnome2_icon_cache_update; }
+pkg_preinst() {
+	gnome2_icon_savelist
+}
+
+pkg_postinst() {
+	gnome2_icon_cache_update
+}
+
+pkg_postrm() {
+	gnome2_icon_cache_update
+}

@@ -2,6 +2,9 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  25 Nov 2015; wjn <wjn@aol.jp> neu-icon-theme-0.6.ebuild:
+  x11-themes/* (only in wjn-overlay): Add "mirror" to ${RESTRICT}
+
   09 Sep 2015; wjn <wjn@aol.jp> neu-icon-theme-0.6.ebuild:
   Update ebuild file format from "# $Header: $" to "# $Id"
 

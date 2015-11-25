@@ -23,7 +23,7 @@ DEPEND="${COMMON_DEPEND}
 	virtual/pkgconfig:0"
 RDEPEND="${COMMON_DEPEND}"
 
-RESTRICT="binchecks strip"
+RESTRICT="binchecks mirror strip"
 
 DOCS=( AUTHORS ChangeLog NEWS README )
 

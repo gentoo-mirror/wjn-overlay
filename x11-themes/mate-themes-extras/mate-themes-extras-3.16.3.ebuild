@@ -31,7 +31,7 @@ RDEPEND="${COMMON_DEPEND}
 	x11-themes/mate-icon-theme
 	x11-themes/vanilla-dmz-aa-xcursors"
 
-RESTRICT="binchecks strip"
+RESTRICT="binchecks mirrorstrip"
 
 DOCS=( AUTHORS ChangeLog NEWS README )
 
