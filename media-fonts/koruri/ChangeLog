@@ -2,6 +2,9 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  26 Nov 2015; wjn <wjn@aol.jp> koruri-20151021.ebuild:
+  Tidy up variables
+
   25 Nov 2015; wjn <wjn@aol.jp> koruri-20151021.ebuild:
   media-fonts/*: Add "mirror" to ${RESTRICT}
 
