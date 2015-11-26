@@ -22,7 +22,7 @@ RDEPEND="${DEPEND}
 	x11-libs/gtksourceview:${SLOT}"
 
 S="${WORKDIR}"
-RESTRICT="mirror"
+RESTRICT="binchecks mirror strip"
 
 src_install() {
 	insinto /usr/share/gtksourceview-${SLOT}/language-specs
