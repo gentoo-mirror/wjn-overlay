@@ -2,6 +2,11 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  26 Nov 2015; wjn <wjn@aol.jp> migu-vbd-20130617.ebuild:
+  Add "bindist" to ${RESTRICT}
+
+   This package builds fonts locally, bindist is banned due to the license.
+
   25 Nov 2015; wjn <wjn@aol.jp> migu-vbd-20130617.ebuild:
   media-fonts/*: Add "mirror" to ${RESTRICT}
 
