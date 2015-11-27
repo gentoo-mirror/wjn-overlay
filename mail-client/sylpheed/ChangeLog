@@ -2,6 +2,15 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*sylpheed-3.5.0_rc (27 Nov 2015)
+
+  27 Nov 2015; wjn <wjn@aol.jp> -sylpheed-3.5.0_beta3.ebuild,
+  +sylpheed-3.5.0_rc.ebuild:
+  Add version 3.5.0_rc, delete 3.5.0_beta3
+
+   Release candidate of Sylpheed 3.5.0 is released,
+  distributing 3.5.0 beta is ended.
+
   03 Oct 2015; wjn <wjn@aol.jp> sylpheed-3.5.0_beta3.ebuild:
   Add libressl support.
 

@@ -2,16 +2,17 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI="5"
+EAPI=5
 
 inherit eutils
 
 MY_PV=${PV/_/}
 MY_P="${PN}-${MY_PV}"
+OSDN_DIR="64101"
 
 DESCRIPTION="A lightweight email client and newsreader"
 HOMEPAGE="http://sylpheed.sraoss.jp/"
-SRC_URI="http://${PN}.sraoss.jp/${PN}/v${MY_PV%.*}beta/${MY_P}.tar.bz2"
+SRC_URI="mirror://osdn/${PN}/${OSDN_DIR}/${MY_P}.tar.bz2"
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
@@ -34,7 +35,8 @@ DEPEND="${CDEPEND}
 	virtual/pkgconfig
 	xface? ( media-libs/compface )"
 
-S="${WORKDIR}/${MY_P}"
+S="${WORKDIR}/${MY_P%rc}"
+RESTRICT="mirror"
 
 src_configure() {
 	local htmldir=/usr/share/doc/${PF}/html
