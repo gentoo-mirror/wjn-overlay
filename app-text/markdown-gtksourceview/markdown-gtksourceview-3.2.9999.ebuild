@@ -32,6 +32,8 @@ S="${WORKDIR}/${MY_PN}-master"
 RESTRICT="mirror"
 
 src_prepare() {
+	# This patch is originally written by Niels Mueller.
+	# https://github.com/jpfleury/gedit-markdown/compare/master...nielsmde:master
 	epatch "${FILESDIR}/${P}-gedit-3.12.patch"
 
 	if use webkit ; then

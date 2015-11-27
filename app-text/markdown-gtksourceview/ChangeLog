@@ -2,6 +2,13 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  27 Nov 2015; wjn <wjn@aol.jp> markdown-gtksourceview-3.2.9999.ebuild:
+  3.2.9999: Comment about the patch for Gedit
+
+   The patch file for >=gedit-3.12 is originally written by Niels Müller.
+  See https://github.com/jpfleury/gedit-
+  markdown/compare/master...nielsmde:master
+
   25 Nov 2015; wjn <wjn@aol.jp>
   +files/markdown-gtksourceview-3.2.9999-gedit-3.12.patch,
   markdown-gtksourceview-3.2.9999.ebuild:
