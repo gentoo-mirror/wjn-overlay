@@ -2,6 +2,11 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  27 Nov 2015; wjn <wjn@aol.jp> python-distutils-extra-2.38-r1.ebuild:
+  Update Copyright year to 2015.
+
+   Copyright year should be updated "1999-2014" to "1999-2015".
+
   25 Nov 2015; wjn <wjn@aol.jp> python-distutils-extra-2.38-r1.ebuild:
   Tidy up variables
 
