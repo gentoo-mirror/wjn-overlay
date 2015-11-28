@@ -2,6 +2,9 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  28 Nov 2015; wjn <wjn@aol.jp> -source-han-code-jp-1.004.ebuild:
+  Delete version 1.004
+
 *source-han-code-jp-2.000 (28 Nov 2015)
 
   28 Nov 2015; wjn <wjn@aol.jp> +source-han-code-jp-2.000.ebuild:
