@@ -2,6 +2,13 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  28 Nov 2015; wjn <wjn@aol.jp> sylpheed-3.5.0_rc.ebuild:
+  Avoid installing unwanted files
+
+   - Only install documents in selected language and English
+   - Convert Japanese documents from EUC-JP to UTF-8
+   - Drop installing needless *.la files
+
 *sylpheed-3.5.0_rc (27 Nov 2015)
 
   27 Nov 2015; wjn <wjn@aol.jp> -sylpheed-3.5.0_beta3.ebuild,

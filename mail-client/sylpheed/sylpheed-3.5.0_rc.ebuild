@@ -4,7 +4,11 @@
 
 EAPI=5
 
-inherit eutils
+PLOCALES="be bg cs da de el en es et eu fi fr gl he hr hu it ja ko lt nl pl
+	pt_BR ro ru sk sl sr sv tr uk vi zh_CN zh_TW"
+PLOCALE_BACKUP="en"
+
+inherit eutils l10n
 
 MY_PV=${PV/_/}
 MY_P="${PN}-${MY_PV}"
@@ -19,7 +23,7 @@ SLOT="0"
 KEYWORDS=""
 IUSE="crypt ipv6 ldap nls oniguruma pda spell ssl xface"
 
-CDEPEND="x11-libs/gtk+:2
+COMMON_DEPEND="x11-libs/gtk+:2
 	crypt? ( app-crypt/gpgme )
 	ldap? ( net-nds/openldap )
 	nls? ( sys-devel/gettext )
@@ -28,19 +32,25 @@ CDEPEND="x11-libs/gtk+:2
 	spell? ( app-text/gtkspell:2 )
 	ssl? ( || ( dev-libs/openssl:0
 		dev-libs/libressl ) )"
-RDEPEND="${CDEPEND}
-	app-misc/mime-types
-	net-misc/curl"
-DEPEND="${CDEPEND}
+DEPEND="${COMMON_DEPEND}
+	app-i18n/nkf
 	virtual/pkgconfig
 	xface? ( media-libs/compface )"
+RDEPEND="${COMMON_DEPEND}
+	app-misc/mime-types
+	net-misc/curl"
 
 S="${WORKDIR}/${MY_P%rc}"
 RESTRICT="mirror"
 
+DOCS=( AUTHORS ChangeLog* NEWS* README* TODO* )
+
 src_configure() {
-	local htmldir=/usr/share/doc/${PF}/html
 	econf \
+		--disable-updatecheck \
+		--disable-updatecheckplugin \
+		--without-manualdir \
+		--without-faqdir \
 		$(use_enable crypt gpgme) \
 		$(use_enable ipv6) \
 		$(use_enable ldap) \
@@ -48,21 +58,56 @@ src_configure() {
 		$(use_enable pda jpilot) \
 		$(use_enable spell gtkspell) \
 		$(use_enable ssl) \
-		$(use_enable xface compface) \
-		--with-manualdir=${htmldir}/manual \
-		--with-faqdir=${htmldir}/faq \
-		--disable-updatecheck
+		$(use_enable xface compface)
 }
 
 src_install() {
-	emake DESTDIR="${D}" install
-	dodoc AUTHORS ChangeLog* NEWS* PLUGIN* README* TODO*
+	einstall
 
-	doicon *.png
-	domenu *.desktop
+	use linguas_es || rm *.es*
 
-	cd plugin/attachment_tool
-	docinto plugin/attachment_tool
-	emake DESTDIR="${D}" install-plugin
-	dodoc README
+	if use linguas_ja ; then
+		# documents in Japanese are in EUC-JP, should be converted to UTF-8
+		for fn in *.ja* manual/ja/* ; do
+			nkf -w ${fn} > ${fn}.tmp
+			mv ${fn}.tmp ${fn}
+		done
+	else
+		rm *.ja*
+	fi
+
+	dodoc ${DOCS[@]}
+
+	#  In the tarball, "PLUGIN.txt" is named for case-insensitive systems,
+	# because "PLUGIN" will conflict with "plugin" directory.
+	#  Therefore, let's rename "PLUGIN.txt" to "PLUGIN".
+	for fn in PLUGIN*.txt ; do
+		newdoc ${fn} ${fn%.txt}
+	done
+
+	docompress -x /usr/share/doc/${PF}/faq /usr/share/doc/${PF}/manual
+	for dn in faq manual ; do
+		cd "${S}/${dn}"
+		for lang in $(find * -type d) ; do
+			if [ x"${lang}" = x"en" ] \
+				|| grep -q "${lang}" <(echo $(l10n_get_locales)) ; then
+				rm "${lang}"/Makefile*
+				docinto "${dn}"
+				dodoc -r "${lang}"
+			fi
+		done
+	done
+
+	cd "${S}/plugin/attachment_tool"
+	emake DESTDIR="${ED}" install-plugin
+	docinto ""
+	newdoc README PLUGIN-ATTACHMENT_TOOL
+
+	prune_libtool_files --modules
+}
+
+pkg_postinst() {
+	elog "Note:"
+	elog "  Though ${MY_PV%rc} is shown as the version number,"
+	elog " this is a Release Candidate of ${MY_PV%rc} ."
 }
