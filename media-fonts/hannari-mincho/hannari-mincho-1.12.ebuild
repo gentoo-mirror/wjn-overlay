@@ -25,7 +25,7 @@ RESTRICT="binchecks fetch mirror strip"
 FONT_SUFFIX="otf"
 FONT_S=${S}
 
-DOCS=("read_me.txt")
+DOCS="read_me.txt"
 
 pkg_nofetch() {
 	einfo " This author forbids downloading directly."

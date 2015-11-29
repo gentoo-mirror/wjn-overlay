@@ -27,7 +27,7 @@ RESTRICT="binchecks mirror strip"
 FONT_SUFFIX="ttf"
 FONT_S=${S}
 
-DOCS=("readme.txt")
+DOCS="readme.txt"
 
 src_prepare() {
 	for fn in *.txt; do

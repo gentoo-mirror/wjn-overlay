@@ -23,7 +23,7 @@ RDEPEND=""
 S="${WORKDIR}/${MY_P}"
 RESTRICT="binchecks mirror strip"
 
-DOCS=( README.md README_E.mplus README_J.mplus README_ja.md )
+DOCS="README.md README_E.mplus README_J.mplus README_ja.md"
 
 FONT_SUFFIX="ttf"
 FONT_S=${S}

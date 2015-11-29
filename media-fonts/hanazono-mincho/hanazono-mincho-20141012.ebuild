@@ -25,4 +25,4 @@ RESTRICT="binchecks mirror strip"
 FONT_SUFFIX="ttf"
 FONT_S=${S}
 
-DOCS=("THANKS.txt" "README.txt")
+DOCS="THANKS.txt README.txt"

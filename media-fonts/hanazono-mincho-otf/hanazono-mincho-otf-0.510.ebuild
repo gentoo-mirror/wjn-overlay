@@ -26,4 +26,4 @@ RESTRICT="binchecks mirror strip"
 FONT_SUFFIX="otf"
 FONT_S=${S}
 
-DOCS=("readme.txt")
+DOCS="readme.txt"

@@ -23,7 +23,7 @@ RDEPEND=""
 S="${WORKDIR}/${PN}-${MY_PV}"
 RESTRICT="binchecks mirror strip"
 
-DOCS=( "README.md" "relnotes.txt" )
+DOCS="README.md relnotes.txt"
 
 FONT_SUFFIX="otf"
 FONT_S="${S}/OTF"

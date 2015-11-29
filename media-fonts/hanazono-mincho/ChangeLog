@@ -2,6 +2,14 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  29 Nov 2015; wjn <wjn@aol.jp> hanazono-mincho-20141012.ebuild:
+  media-fonts/*: fix ${DOCS} to change array to list
+
+   Because font.eclass doesn't support ${DOCS} as array,
+  they are fixed to space delimited lists.
+
+   FYI: https://devmanual.gentoo.org/eclass-reference/font.eclass/index.html
+
   25 Nov 2015; wjn <wjn@aol.jp> hanazono-mincho-20141012.ebuild:
   media-fonts/*: Add "mirror" to ${RESTRICT}
 
