@@ -3,7 +3,7 @@
 
 Gentoo GNU/Linux 向けの overlay です。
 
-追加や最新の情報は、 Wikiに書いていきます。
+追加や最新の情報は、 [Wiki](https://bitbucket.org/wjn/wjn-overlay/wiki/) に書いています。
 
 ----
 
