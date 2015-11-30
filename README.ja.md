@@ -9,7 +9,9 @@ Gentoo GNU/Linux 向けの overlay です。
 
 ## 内容
 
-例えば以下の ebuild が入っています。
+入っているパッケージの完全なリストは、 [PACKAGE-LIST.md](PACKAGE-LIST.md) にあります。
+
+具体的な例を挙げると、以下の ebuild も入っています。
 
 ### IM
     
@@ -50,9 +52,6 @@ Gentoo GNU/Linux 向けの overlay です。
     
 - [libvdpau-va-gl](https://github.com/i-rinat/libvdpau-va-gl)  
     (VDPAU の OpenGL/VAAPI バックエンドライブラリ)  
-    
-- [libguess](http://atheme.org/projects/libguess.html)  
-    (Git 版。最新の Audacious のキャラコードセット自動判別機能で必要)
 
 ### テーマ
 

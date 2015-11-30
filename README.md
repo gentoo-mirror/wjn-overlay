@@ -5,9 +5,9 @@ wjn's user overlay for Gentoo GNU/Linux.
 
 ## contents
 
-ebuilds for ...
+There is the complete package list in [PACKAGE-LIST.md](PACKAGE-LIST.md).
 
-e.g.
+but in short, below is some examples,
 
 ### DE
 
@@ -83,10 +83,6 @@ e.g.
 
 - [libguess](http://atheme.org/projects/libguess.html)  
     (Development ver., for newer Audacious's chardet functionality)
-
-### etc.
-
-
 
 ## License
 
