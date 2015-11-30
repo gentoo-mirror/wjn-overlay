@@ -2,6 +2,10 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  30 Nov 2015; wjn <wjn@aol.jp> cinnamon-2.6.13-r1.ebuild,
+  cinnamon-2.8.4-r1.ebuild, cinnamon-2.8.5.ebuild, cinnamon-2.8.6.ebuild:
+  gnome-extral/cinnamon: Add newlines to tidy up
+
 *cinnamon-2.8.6 (27 Nov 2015)
 
   27 Nov 2015; wjn <wjn@aol.jp> +cinnamon-2.8.6.ebuild:

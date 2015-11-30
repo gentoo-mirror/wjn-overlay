@@ -3,8 +3,10 @@
 # $Id$
 
 EAPI="5"
+
 GCONF_DEBUG="no"
 GNOME2_LA_PUNT="yes"
+
 PYTHON_COMPAT=( python2_7 python3_3 python3_4 )
 PYTHON_REQ_USE="xml"
 
