@@ -2,6 +2,10 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  30 Nov 2015; wjn <wjn@aol.jp> cinnamon-control-center-2.6.0-r1.ebuild,
+  cinnamon-control-center-2.8.1.ebuild:
+  Fix typo of ${DESCRIPTION}
+
   17 Nov 2015; wjn <wjn@aol.jp> cinnamon-control-center-2.8.1.ebuild:
   gnome-extra/cinnamon*: Update cinnamon components version to 2.8
 

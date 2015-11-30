@@ -3,12 +3,13 @@
 # $Id$
 
 EAPI="5"
+
 GCONF_DEBUG="yes"
 GNOME2_LA_PUNT="yes" # gmodule is used, which uses dlopen
 
 inherit autotools eutils gnome2
 
-DESCRIPTION="Cinnamons's main interface to configure various aspects of the desktop"
+DESCRIPTION="Cinnamon's main interface to configure various aspects of the desktop"
 HOMEPAGE="http://cinnamon.linuxmint.com/"
 SRC_URI="https://github.com/linuxmint/cinnamon-control-center/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
