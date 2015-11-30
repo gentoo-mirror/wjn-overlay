@@ -1,7 +1,9 @@
 wjn-overlay
 ==============
 
-wjn's user overlay for Gentoo GNU/Linux.
+wjn's user overlay for Gentoo GNU/Linux. 
+
+(JA version of README is [README.ja.md](README.ja.md) .)
 
 ## contents
 
