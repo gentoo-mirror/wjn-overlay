@@ -2,6 +2,9 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  30 Nov 2015; wjn <wjn@aol.jp> mate-icon-theme-faenza-9999.ebuild:
+  Fix to add slash after domain of ${HOMEPAGE}
+
   09 Sep 2015; wjn <wjn@aol.jp> +metadata.xml:
   Add metadata.xml(s) for QA.
 

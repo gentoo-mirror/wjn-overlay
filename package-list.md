@@ -133,7 +133,7 @@
 | x11-themes/gion-icon-theme | A scalable icon theme called Gion | <http://www.silvestre.com.ar/> | o | |
 | x11-themes/mate-backgrounds | A set of backgrounds packaged with the MATE desktop | <http://mate-desktop.org/> | - | |
 | x11-themes/mate-icon-theme | MATE default icon themes | <http://mate-desktop.org/> | - | |
-| x11-themes/mate-icon-theme-faenza | Faenza icon theme, that was adapted for MATE desktop | <http://mate-desktop.org> | - | |
+| x11-themes/mate-icon-theme-faenza | Faenza icon theme, that was adapted for MATE desktop | <http://mate-desktop.org/> | - | |
 | x11-themes/mate-themes | A theme set for MATE Desktop Environment | <http://mate-desktop.org/> | - | |
 | x11-themes/mate-themes-extras | GTK2/3 desktop themes for MATE | <https://github.com/raveit65/mate-themes-extras> | o | |
 | x11-themes/neu-icon-theme | A scalable icon theme called Neu | <http://www.silvestre.com.ar/> | o | |
