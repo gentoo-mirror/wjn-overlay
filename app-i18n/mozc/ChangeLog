@@ -2,6 +2,9 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  01 Dec 2015; wjn <wjn@aol.jp> -mozc-2.17.2124.102.ebuild:
+  Delete version 2.17.2124.102
+
 *mozc-2.17.2243.102 (01 Dec 2015)
 
   01 Dec 2015; wjn <wjn@aol.jp> +mozc-2.17.2243.102.ebuild:
