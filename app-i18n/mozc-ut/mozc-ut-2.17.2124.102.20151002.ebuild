@@ -95,7 +95,6 @@ pkg_pretend(){
 		ewarn "The author of Mozc UT recommends disabling its NICODIC feature,"
 		ewarn "because the license of NICODIC isn't clear."
 		ewarn "Are you sure to enable NICODIC feature?"
-		epause 5
 	fi
 }
 
