@@ -2,6 +2,31 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*mozc-ut-2.17.2243.102.20151130 (01 Dec 2015)
+
+  01 Dec 2015; wjn <wjn@aol.jp> +mozc-ut-2.17.2243.102.20151130.ebuild:
+  Add version 2.17.2243.102.20151130
+
+   In this version, I fixed to
+          - install documents
+          - add sys-devel/gettext to ${DEPEND} when USE="fcitx"
+          - add "sleep 5" after ewarn about the license of nicodic
+
+   Note:
+           Mozc changed parallel building (multi-jobs) to use
+          automatic detection of Ninja.
+          ${MAKEOPT} in make.conf doesn't effect any longer.
+          See https://github.com/google/mozc/commit/b393fbd
+
+  01 Dec 2015; wjn <wjn@aol.jp> mozc-ut-2.17.2124.102.20151002.ebuild:
+  Revert "app-i18n/mozc-ut: Add epause after ewarn"
+
+   Because EAPI=5 doesn't support epause.
+   This reverts commit 45a81a24b0743c150e602954b8e001319dd35cf5.
+
+  30 Nov 2015; wjn <wjn@aol.jp> mozc-ut-2.17.2124.102.20151002.ebuild:
+  Add epause after ewarn
+
   24 Nov 2015; wjn <wjn@aol.jp> mozc-ut-2.17.2124.102.20151002.ebuild:
   Add RESTRICT="mirror"
 
