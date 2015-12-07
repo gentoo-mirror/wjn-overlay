@@ -1,0 +1,13 @@
+# ChangeLog for app-misc/grc
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# (auto-generated from git log)
+
+*grc-9999 (07 Dec 2015)
+*grc-1.9 (07 Dec 2015)
+
+  07 Dec 2015; wjn <wjn@aol.jp> +files/1.0.6-support-more-files.patch,
+  +files/conf.configure, +files/grc-1.4-ipv6.patch,
+  +files/grc-1.4-support-more-files.patch, +grc-1.9.ebuild, +grc-9999.ebuild,
+  +metadata.xml:
+  Add newly, version 1.9 and 9999
+

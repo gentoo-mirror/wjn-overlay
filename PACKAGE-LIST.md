@@ -18,6 +18,7 @@
 | app-i18n/mozc | Mozc - Japanese Input Method | <https://github.com/google/mozc> | - | newer rev., supports app-i18n/uim |
 | app-i18n/mozc-ut | Mozc Japanese Input Method with Additional Japanese dictionary | <http://www.geocities.jp/ep3797/mozc_01.html> | o | |
 | app-i18n/uim | Simple, secure and flexible input method library | <http://code.google.com/p/uim/> | - | dev ver., supports Qt5 |
+| app-misc/grc |  Generic Colouriser beautifies your logfiles or output of commands | <https://github.com/garabik/grc> | - | newer and dev ver. |
 | app-text/aobook | Viewer for Aozora Bunko (Japanese electric library) | <http://azsky2.html.xdomain.jp/linux/aobook/index.html> | o | |
 | app-text/asciidoc | translates AsciiDoc format to other presentation formats | <http://asciidoc.org/> | - | avoid installing unwanted pkg. |
 | app-text/asciidoc-gtksourceview | AsciiDoc bindings for gtksourceview | <https://launchpad.net/asciidoc-gtk-highlight> | o | |
