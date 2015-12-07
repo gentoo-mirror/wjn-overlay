@@ -1,6 +1,15 @@
 # ChangeLog for app-i18n/mozc
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
+# (auto-generated from git log)
+
+  07 Dec 2015; wjn <wjn@aol.jp> +files/mozc-macuim-rename-initgoogle.patch,
+  mozc-2.17.2243.102.ebuild:
+  Fix build for uim
+
+   Since Mozc changed InitGoogle to mozc::InitMozc,
+  the patch for UIM must be updated.
+
+   See https://github.com/google/mozc/pull/320
 
   01 Dec 2015; wjn <wjn@aol.jp> -mozc-2.17.2124.102.ebuild:
   Delete version 2.17.2124.102
