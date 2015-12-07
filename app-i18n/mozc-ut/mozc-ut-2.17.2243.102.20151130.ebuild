@@ -136,6 +136,7 @@ src_prepare() {
 	if use uim ; then
 		rm -rf unix/uim/
 		cp -r "${WORKDIR}/macuim/Mozc/uim" "${S}/unix/"
+		epatch "${FILESDIR}/${PN}-macuim-rename-initgoogle.patch"
 		epatch "${FILESDIR}/mozc-kill-line.diff"
 	fi
 
