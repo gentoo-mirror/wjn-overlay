@@ -5,6 +5,7 @@
 EAPI=5
 
 ELTCONF="--portage"
+
 GCONF_DEBUG="yes"
 GNOME2_LA_PUNT="yes"
 
@@ -18,15 +19,13 @@ EGIT_REPO_URI="git://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="caja dbus debug djvu doc dvi -gtk3 +introspection gnome-keyring +ps
-	t1lib tiff xps"
+IUSE="caja dbus debug djvu doc dvi epub -gtk3 +introspection gnome-keyring +pdf
+	+ps -test t1lib tiff xps"
 
-COMMON_DEPEND=">=app-text/poppler-0.16.0:0=[cairo]
-	app-text/rarian:0
+COMMON_DEPEND="app-text/rarian:0
 	dev-libs/atk:0
 	>=dev-libs/glib-2.36.0:2
 	>=dev-libs/libxml2-2.5.0:2
-	dev-libs/mathjax
 	~mate-base/mate-desktop-9999:0[gtk3?]
 	sys-libs/zlib:0
 	x11-libs/gdk-pixbuf:2[introspection?]
@@ -39,10 +38,15 @@ COMMON_DEPEND=">=app-text/poppler-0.16.0:0=[cairo]
 	djvu? ( >=app-text/djvu-3.5.17:0 )
 	dvi? ( virtual/tex-base:0
 		t1lib? ( >=media-libs/t1lib-5:5 ) )
+	epub? ( dev-libs/mathjax
+		!gtk3? ( net-libs/webkit-gtk:2 )
+		gtk3? ( || ( net-libs/webkit-gtk:4
+				net-libs/webkit-gtk:3 ) ) )
 	gnome-keyring? ( >=app-crypt/libsecret-0.5:0 )
 	!gtk3? ( >=x11-libs/gtk+-2.24.0:2[introspection?] )
 	gtk3? ( >=x11-libs/gtk+-3.0.0:3[introspection?] )
 	introspection? ( >=dev-libs/gobject-introspection-0.6:0 )
+	pdf? ( >=app-text/poppler-0.16.0:0=[cairo] )
 	ps? ( >=app-text/libspectre-0.2.0:0 )
 	tiff? ( >=media-libs/tiff-3.6:0 )
 	xps? ( >=app-text/libgxps-0.2.0:0 )
@@ -54,10 +58,12 @@ DEPEND="${COMMON_DEPEND}
 	>=dev-util/intltool-0.50.1:0
 	virtual/pkgconfig:0
 	sys-devel/gettext:0
-	doc? ( >=dev-util/gtk-doc-1.13:0 )"
+	doc? ( >=dev-util/gtk-doc-1.13:0 )
+	test? ( dev-util/dogtail
+		dev-python/pyatspi )"
 RDEPEND="${COMMON_DEPEND}"
 
-RESTRICT="test"
+use test || RESTRICT="test"
 
 DOCS=( AUTHORS NEWS NEWS.gnome README TODO )
 
@@ -76,21 +82,27 @@ src_configure() {
 	gnome2_src_configure \
 		--disable-tests \
 		--enable-comics \
-		--enable-pdf \
 		--enable-pixbuf \
 		--enable-thumbnailer \
 		--with-smclient=xsmp \
 		--with-platform=mate \
+		$(use_enable caja) \
 		$(use_enable dbus) \
 		$(use_enable djvu) \
 		$(use_enable doc gtk-doc) \
 		$(use_enable dvi) \
+		$(use_enable epub) \
 		$(use_with gnome-keyring keyring) \
 		--with-gtk=$(usex gtk3 '3.0' '2.0') \
 		$(use_enable introspection) \
-		$(use_enable caja) \
+		$(use_enable pdf) \
 		$(use_enable ps) \
 		$(use_enable t1lib) \
 		$(use_enable tiff) \
 		$(use_enable xps)
+}
+
+pkg_postinst() {
+	elog "For viewing comic books (CBR files),"
+	elog "Please note uncompressors such as app-arch/unrar may be needed."
 }

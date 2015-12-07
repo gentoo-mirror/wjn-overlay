@@ -1,6 +1,15 @@
 # ChangeLog for app-text/atril
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
+# (auto-generated from git log)
+
+  07 Dec 2015; wjn <wjn@aol.jp> atril-9999.ebuild:
+  Add "epub", "+pdf" and "-test" to ${IUSE}
+
+   Dependencies of app-text/poppler, dev-libs/mathjax are changed to
+  selective.
+  If enable test, dev-util/dogtail and dev-python/pyatspi are needed.
+
+   Note: pdf is still recommended, test is still restricted.
 
   02 Nov 2015; wjn <wjn@aol.jp> atril-9999.ebuild:
   Add mathjax dependency
