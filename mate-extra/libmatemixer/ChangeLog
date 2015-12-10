@@ -1,6 +1,11 @@
 # ChangeLog for mate-extra/libmatemixer
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
+# (auto-generated from git log)
+
+  10 Dec 2015; wjn <wjn@aol.jp> libmatemixer-9999.ebuild:
+  Depend on >=pulseaudio-2.0
+
+   See https://github.com/mate-desktop/libmatemixer/commit/fd7bf59
 
   14 Sep 2015; wjn <wjn@aol.jp> libmatemixer-9999.ebuild:
   MATE Desktop Environment: Add gtk+:3 build
