@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst postrm prepare setup
+DEPEND=app-arch/unzip app-i18n/nkf X? ( x11-apps/mkfontdir media-fonts/encodings )
+DESCRIPTION=Japanese hand-written TTF includes much more kanji chars
+EAPI=5
+HOMEPAGE=http://nonty.net/sorry/
+IUSE=X
+LICENSE=OFL-1.1
+RESTRICT=binchecks mirror strip
+SLOT=0
+SRC_URI=mirror://osdn/setofont/61995/setofont_v_6_20.zip
+_eclass_exported_funcs=pkg_postrm:font pkg_postinst:font pkg_setup:font src_prepare:- src_install:font
+_eclasses_=eutils	d9bd2ddd85a58e470b49ca997e255a4c	font	cd7790315ca5b8c505e1e0513df6acce	multilib	3972ca401cf7dbb430df9995f5d8d580	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85
+_md5_=dc0e920c2f1584b51e6545aff4025490

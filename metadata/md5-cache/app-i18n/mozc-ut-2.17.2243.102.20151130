@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile configure install postinst postrm prepare pretend setup test unpack
+DEPEND=>=dev-lang/python-2.7.5-r2:2.7 >=dev-lang/python-exec-2:=[python_targets_python2_7(-)?,-python_single_target_python3_3(-),-python_single_target_python3_4(-),-python_single_target_python3_5(-),-python_single_target_pypy(-),-python_single_target_pypy3(-),-python_single_target_jython2_7(-),python_single_target_python2_7(+)] !app-i18n/mozc dev-libs/glib:2 x11-libs/libXfixes x11-libs/libxcb emacs? ( virtual/emacs ) fcitx? ( app-i18n/fcitx ) ibus? ( >=app-i18n/ibus-1.4.1 ) renderer? ( x11-libs/gtk+:2 ) qt4? ( dev-qt/qtgui:4 app-i18n/zinnia ) uim? ( app-i18n/uim ) app-arch/unzip >=dev-lang/ruby-2.0 dev-util/ninja dev-vcs/git virtual/pkgconfig clang? ( >=sys-devel/clang-3.4 ) fcitx? ( sys-devel/gettext ) >=dev-vcs/git-1.8.2.1
+DESCRIPTION=Mozc Japanese Input Method with Additional Japanese dictionary
+EAPI=5
+HOMEPAGE=http://www.geocities.jp/ep3797/mozc_01.html https://github.com/google/mozc
+IUSE=clang ejdic emacs fcitx ibus -nicodic +qt4 renderer -test tomoe uim python_targets_python2_7
+LICENSE=BSD BSD-2 CC-BY-SA-3.0 GPL-2 all-rights-reserved ipadic public-domain unicode ejdic? ( wn-ja ) test? ( Boost-1.0 )
+RDEPEND=>=dev-lang/python-2.7.5-r2:2.7 >=dev-lang/python-exec-2:=[python_targets_python2_7(-)?,-python_single_target_python3_3(-),-python_single_target_python3_4(-),-python_single_target_python3_5(-),-python_single_target_pypy(-),-python_single_target_pypy3(-),-python_single_target_jython2_7(-),python_single_target_python2_7(+)] !app-i18n/mozc dev-libs/glib:2 x11-libs/libXfixes x11-libs/libxcb emacs? ( virtual/emacs ) fcitx? ( app-i18n/fcitx ) ibus? ( >=app-i18n/ibus-1.4.1 ) renderer? ( x11-libs/gtk+:2 ) qt4? ( dev-qt/qtgui:4 app-i18n/zinnia ) uim? ( app-i18n/uim ) qt4? ( !tomoe? ( app-i18n/tegaki-zinnia-japanese ) tomoe? ( app-i18n/zinnia-tomoe ) )
+REQUIRED_USE=|| ( emacs fcitx ibus uim )
+RESTRICT=mirror test
+SLOT=0
+SRC_URI=mirror://osdn/users/9/9619/mozcdic-ut-20151130.tar.bz2 http://www.post.japanpost.jp/zipcode/dl/kogaki/zip/ken_all.zip -> jp-zipcode201511-1.zip http://www.post.japanpost.jp/zipcode/dl/jigyosyo/zip/jigyosyo.zip -> jp-zipcode201511-2.zip http://ftp.monash.edu.au/pub/nihongo/edict.gz -> monash-nihongo-edict.gz fcitx? ( http://download.fcitx-im.org/fcitx-mozc/fcitx-mozc-2.17.2102.102.1.patch )
+_eclass_exported_funcs=pkg_pretend:- pkg_postrm:- pkg_postinst:- pkg_setup:python-single-r1 src_unpack:- src_prepare:- src_configure:- src_compile:- src_test:- src_install:-
+_eclasses_=elisp-common	73c48c11ad6a6494eda0d0cca848c8fa	eutils	d9bd2ddd85a58e470b49ca997e255a4c	git-r3	0961ca04f93a7ae0e4c4a0b2b8c3be99	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	python-single-r1	caecf590709cc0fcf0b6582bdc49150f	python-utils-r1	832cb17726d498a182de6b9ee2adc0dc	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_md5_=2d7bc5ffc2e284bc46493a4be77e5bcf

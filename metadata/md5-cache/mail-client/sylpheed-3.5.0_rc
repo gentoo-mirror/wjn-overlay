@@ -1,0 +1,14 @@
+DEFINED_PHASES=configure install postinst
+DEPEND=x11-libs/gtk+:2 crypt? ( app-crypt/gpgme ) ldap? ( net-nds/openldap ) nls? ( sys-devel/gettext ) oniguruma? ( dev-libs/oniguruma ) pda? ( app-pda/jpilot ) spell? ( app-text/gtkspell:2 ) ssl? ( || ( dev-libs/openssl:0 dev-libs/libressl ) ) app-i18n/nkf virtual/pkgconfig xface? ( media-libs/compface )
+DESCRIPTION=A lightweight email client and newsreader
+EAPI=5
+HOMEPAGE=http://sylpheed.sraoss.jp/
+IUSE=crypt ipv6 ldap nls oniguruma pda spell ssl xface linguas_be linguas_bg linguas_cs linguas_da linguas_de linguas_el linguas_en linguas_es linguas_et linguas_eu linguas_fi linguas_fr linguas_gl linguas_he linguas_hr linguas_hu linguas_it linguas_ja linguas_ko linguas_lt linguas_nl linguas_pl linguas_pt_BR linguas_ro linguas_ru linguas_sk linguas_sl linguas_sr linguas_sv linguas_tr linguas_uk linguas_vi linguas_zh_CN linguas_zh_TW
+LICENSE=GPL-2 LGPL-2.1
+RDEPEND=x11-libs/gtk+:2 crypt? ( app-crypt/gpgme ) ldap? ( net-nds/openldap ) nls? ( sys-devel/gettext ) oniguruma? ( dev-libs/oniguruma ) pda? ( app-pda/jpilot ) spell? ( app-text/gtkspell:2 ) ssl? ( || ( dev-libs/openssl:0 dev-libs/libressl ) ) app-misc/mime-types net-misc/curl
+RESTRICT=mirror
+SLOT=0
+SRC_URI=mirror://osdn/sylpheed/64101/sylpheed-3.5.0rc.tar.bz2
+_eclass_exported_funcs=pkg_postinst:- src_configure:- src_install:-
+_eclasses_=eutils	d9bd2ddd85a58e470b49ca997e255a4c	l10n	714aaf78929eade946da5eaff7d2001a	multilib	3972ca401cf7dbb430df9995f5d8d580	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85
+_md5_=94ab10bf63d3accd1716d1783af01e73

@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst postrm prepare setup
+DEPEND=app-arch/unzip app-i18n/nkf X? ( x11-apps/mkfontdir media-fonts/encodings )
+DESCRIPTION=a Japanese mincho OpenType font with IPAmincho kanji chars
+EAPI=5
+HOMEPAGE=http://typingart.net/?p=46
+IUSE=X
+LICENSE=IPAfont
+RESTRICT=binchecks fetch mirror strip
+SLOT=0
+SRC_URI=http://typingart.net/fontdata/kokoro.zip
+_eclass_exported_funcs=pkg_postrm:font pkg_postinst:font pkg_setup:font src_prepare:- src_install:font
+_eclasses_=eutils	d9bd2ddd85a58e470b49ca997e255a4c	font	cd7790315ca5b8c505e1e0513df6acce	multilib	3972ca401cf7dbb430df9995f5d8d580	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85
+_md5_=967a27cf8263444773cad806c239e597

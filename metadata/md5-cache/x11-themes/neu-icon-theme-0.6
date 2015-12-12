@@ -1,0 +1,15 @@
+DEFINED_PHASES=install postinst postrm preinst
+DEPEND=>=sys-apps/sed-4
+DESCRIPTION=A scalable icon theme called Neu
+EAPI=5
+HOMEPAGE=http://www.silvestre.com.ar/
+IUSE=minimal
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=!minimal? ( x11-themes/gnome-icon-theme )
+RESTRICT=binchecks mirror strip
+SLOT=0
+SRC_URI=http://www.silvestre.com.ar/icons/Neu-0.6-PR3.tar.bz2
+_eclass_exported_funcs=pkg_preinst:- pkg_postrm:- pkg_postinst:- src_install:-
+_eclasses_=eutils	d9bd2ddd85a58e470b49ca997e255a4c	gnome2-utils	968e31c6fcd13eb2eaf6852e88dfdd36	multilib	3972ca401cf7dbb430df9995f5d8d580	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	xdg-utils	e2b2bd56125ce8cf59ce30c642b59d48
+_md5_=8c252bf092bbcce3a51272704039715c

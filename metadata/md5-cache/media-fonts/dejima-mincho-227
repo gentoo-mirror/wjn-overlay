@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst postrm setup
+DEPEND=X? ( x11-apps/mkfontdir media-fonts/encodings )
+DESCRIPTION=Japanese TrueType mincho font derived from Tsukiji Mincho
+EAPI=5
+HOMEPAGE=https://code.google.com/p/dejima-fonts/
+IUSE=X
+LICENSE=MIT
+RESTRICT=binchecks mirror strip
+SLOT=0
+SRC_URI=https://dejima-fonts.googlecode.com/files/dejima-mincho-r227.ttf -> dejima-mincho-r227.ttf https://dejima-fonts.googlecode.com/hg/README -> dejima-mincho-README
+_eclass_exported_funcs=pkg_postrm:font pkg_postinst:font pkg_setup:font src_install:font
+_eclasses_=eutils	d9bd2ddd85a58e470b49ca997e255a4c	font	cd7790315ca5b8c505e1e0513df6acce	multilib	3972ca401cf7dbb430df9995f5d8d580	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85
+_md5_=43955080c5c509b76fd94920e482ccb0

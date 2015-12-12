@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst postrm setup
+DEPEND=app-arch/p7zip X? ( x11-apps/mkfontdir media-fonts/encodings )
+DESCRIPTION=Japanese TrueType rounded fonts based on Source Hans Sans (GennoKakuGothic)
+EAPI=5
+HOMEPAGE=http://jikasei.me/font/genjyuu/
+IUSE=rounded-l rounded-x X
+LICENSE=OFL-1.1
+RESTRICT=binchecks mirror strip
+SLOT=0
+SRC_URI=mirror://osdn/users/8/8636/genjyuugothic-20150607.7z rounded-l? ( mirror://osdn/users/8/8635/genjyuugothic-l-20150607.7z ) rounded-x? ( mirror://osdn/users/8/8638/genjyuugothic-x-20150607.7z )
+_eclass_exported_funcs=pkg_postrm:font pkg_postinst:font pkg_setup:font src_install:-
+_eclasses_=eutils	d9bd2ddd85a58e470b49ca997e255a4c	font	cd7790315ca5b8c505e1e0513df6acce	multilib	3972ca401cf7dbb430df9995f5d8d580	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_md5_=80ff42c384d343e1341bd8686efbf5e2

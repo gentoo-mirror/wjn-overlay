@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst postrm prepare setup
+DEPEND=app-arch/unzip app-i18n/nkf X? ( x11-apps/mkfontdir media-fonts/encodings )
+DESCRIPTION=Japanese gothic TTF based on M+ and SourceHanSans, has smaller kana
+EAPI=5
+HOMEPAGE=http://freefonts.jp/font-koku-go.html
+IUSE=X
+LICENSE=Apache-2.0 mplus-fonts
+RESTRICT=binchecks mirror strip
+SLOT=0
+SRC_URI=http://freefonts.jp/dl_3qa5ju5a45/ki_kokugo.zip
+_eclass_exported_funcs=pkg_postrm:font pkg_postinst:font pkg_setup:font src_prepare:- src_install:-
+_eclasses_=eutils	d9bd2ddd85a58e470b49ca997e255a4c	font	cd7790315ca5b8c505e1e0513df6acce	multilib	3972ca401cf7dbb430df9995f5d8d580	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85
+_md5_=abf40ba8f0d02debb1b5ae8b8ab05e76

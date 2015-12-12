@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst postrm setup
+DEPEND=app-arch/unzip X? ( x11-apps/mkfontdir media-fonts/encodings )
+DESCRIPTION=HZMaruGothic is a Japanese rounded gothic font based on GlyphWiki
+EAPI=5
+HOMEPAGE=http://www.mars.dti.ne.jp/glyph/fonts.html
+IUSE=X
+LICENSE=|| ( OFL-1.1 hanazono-font )
+RESTRICT=binchecks mirror strip
+SLOT=0
+SRC_URI=http://www.mars.dti.ne.jp/glyph/HZMaruGothic.zip
+_eclass_exported_funcs=pkg_postrm:font pkg_postinst:font pkg_setup:font src_install:font
+_eclasses_=eutils	d9bd2ddd85a58e470b49ca997e255a4c	font	cd7790315ca5b8c505e1e0513df6acce	multilib	3972ca401cf7dbb430df9995f5d8d580	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85
+_md5_=3ec44469b00b067ef99b30eba5358a1f

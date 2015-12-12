@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst postrm setup unpack
+DEPEND=app-arch/unzip X? ( x11-apps/mkfontdir media-fonts/encodings )
+DESCRIPTION=Noto Fonts serif, sans and UI. an English font family by Google
+EAPI=5
+HOMEPAGE=http://www.google.com/get/noto/
+IUSE=X
+LICENSE=Apache-2.0
+RESTRICT=binchecks mirror strip
+SLOT=0
+SRC_URI=http://www.google.com/get/noto/pkgs/NotoSans-hinted.zip http://www.google.com/get/noto/pkgs/NotoSerif-hinted.zip https://noto.googlecode.com/git/fonts/individual/hinted/NotoSansUI-Regular.ttf https://noto.googlecode.com/git/fonts/individual/hinted/NotoSansUI-Italic.ttf https://noto.googlecode.com/git/fonts/individual/hinted/NotoSansUI-Bold.ttf https://noto.googlecode.com/git/fonts/individual/hinted/NotoSansUI-BoldItalic.ttf
+_eclass_exported_funcs=pkg_postrm:font pkg_postinst:font pkg_setup:font src_unpack:- src_install:font
+_eclasses_=eutils	d9bd2ddd85a58e470b49ca997e255a4c	font	cd7790315ca5b8c505e1e0513df6acce	multilib	3972ca401cf7dbb430df9995f5d8d580	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85
+_md5_=0ccffda551db6ca674a9cd9807c9dfe6
