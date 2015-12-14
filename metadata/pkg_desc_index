@@ -83,7 +83,7 @@ media-fonts/mgenplus 1.059.20150602: Japanese TrueType font based on Source Hans
 media-fonts/migu-vbd 20130617: Japanse fonts mixed mplus, IPA-font and also DejaVu, Bitter or Droid.
 media-fonts/mmcedar 20101113a: MMCedar are combined fonts that use Motoya L Cedar and M+ fonts
 media-fonts/monapo 20090423: combined font of ja-ipafonts (GothicP) and monafont
-media-fonts/noto-en 9999: Noto Fonts serif, sans and UI. an English font family by Google
+media-fonts/noto-en 2015.09: Only English fonts package from Noto Fonts by Google
 media-fonts/noto-sans-cjk-jp 9999: a Japanese OpenType font family by Google
 media-fonts/pixel-mplus 20130602: Japanese TrueType monospace fonts looks like bitmap fonts, based on mplus-fonts.
 media-fonts/rounded-mgenplus 1.059.20150602: Japanese TrueType rounded font based on Source Hans Sans and M+
