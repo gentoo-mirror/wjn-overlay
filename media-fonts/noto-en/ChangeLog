@@ -1,6 +1,17 @@
 # ChangeLog for media-fonts/noto-en
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
+# (auto-generated from git log)
+
+*noto-en-2015.09 (14 Dec 2015)
+
+  14 Dec 2015; wjn <wjn@aol.jp> +noto-en-2015.09.ebuild, -noto-en-9999.ebuild:
+  media-fonts/noto: Add version 2015.09, delete version 9999
+
+   This package is picking files from the repository, because it's too large.
+  Therefore it is better to change strict versioning for avoiding digests
+  fails.
+   Not so much changes are made for English fonts files, side-effects are
+  small.
 
   25 Nov 2015; wjn <wjn@aol.jp> noto-en-9999.ebuild:
   media-fonts/*: Add "mirror" to ${RESTRICT}
