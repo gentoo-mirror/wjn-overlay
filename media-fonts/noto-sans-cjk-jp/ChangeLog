@@ -1,6 +1,16 @@
 # ChangeLog for media-fonts/noto-sans-cjk-jp
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
+# (auto-generated from git log)
+
+*noto-sans-cjk-jp-1.004 (14 Dec 2015)
+
+  14 Dec 2015; wjn <wjn@aol.jp> +noto-sans-cjk-jp-1.004.ebuild,
+  -noto-sans-cjk-jp-9999.ebuild:
+  Add version 1.004, delete version 9999
+
+   This package is picking files from the repository, because it's too large.
+  Therefore it is better to change strict versioning for avoiding digests
+  fails.
 
   25 Nov 2015; wjn <wjn@aol.jp> noto-sans-cjk-jp-9999.ebuild:
   media-fonts/*: Add "mirror" to ${RESTRICT}
