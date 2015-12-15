@@ -2,10 +2,19 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
-*noto-en-2015.09 (14 Dec 2015)
+  15 Dec 2015; wjn <wjn@aol.jp> noto-en-2015.09.ebuild:
+  Fix to avoid conflicting filenames
 
-  14 Dec 2015; wjn <wjn@aol.jp> +noto-en-2015.09.ebuild, -noto-en-9999.ebuild:
-  media-fonts/noto: Add version 2015.09, delete version 9999
+   - To make selective hinted or unhinted,
+    files should renamed temporarily.
+
+   - To avoid conflicting later versions that will be added to DISTDIR,
+    version number should be added to file names.
+
+*noto-en-2015.09 (15 Dec 2015)
+
+  15 Dec 2015; wjn <wjn@aol.jp> +noto-en-2015.09.ebuild, -noto-en-9999.ebuild:
+  Add version 2015.09, delete version 9999
 
    This package is picking files from the repository, because it's too large.
   Therefore it is better to change strict versioning for avoiding digests
