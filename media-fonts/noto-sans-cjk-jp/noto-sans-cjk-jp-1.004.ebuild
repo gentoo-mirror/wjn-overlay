@@ -30,7 +30,7 @@ KEYWORDS=""
 
 # media-fonts/noto includes this fonts
 DEPEND="!!media-fonts/noto"
-RDEPEND=""
+RDEPEND=${DEPEND}
 
 S=${WORKDIR}
 RESTRICT="binchecks mirror strip"

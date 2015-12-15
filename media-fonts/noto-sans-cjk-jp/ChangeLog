@@ -3,14 +3,17 @@
 # (auto-generated from git log)
 
   15 Dec 2015; wjn <wjn@aol.jp> noto-sans-cjk-jp-1.004.ebuild:
+  Fix to add media-fonts/noto to ${RDEPEND}
+
+  15 Dec 2015; wjn <wjn@aol.jp> noto-sans-cjk-jp-1.004.ebuild:
   Fix to add blocker for media-fonts/noto
 
    Since media-fonts/noto also has this fonts,
   blocker should be added to avoid duplicated install.
 
-*noto-sans-cjk-jp-1.004 (14 Dec 2015)
+*noto-sans-cjk-jp-1.004 (15 Dec 2015)
 
-  14 Dec 2015; wjn <wjn@aol.jp> +noto-sans-cjk-jp-1.004.ebuild,
+  15 Dec 2015; wjn <wjn@aol.jp> +noto-sans-cjk-jp-1.004.ebuild,
   -noto-sans-cjk-jp-9999.ebuild:
   Add version 1.004, delete version 9999
 
