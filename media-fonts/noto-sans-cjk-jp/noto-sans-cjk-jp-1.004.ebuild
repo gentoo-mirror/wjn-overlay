@@ -28,7 +28,8 @@ LICENSE="OFL-1.1"
 SLOT="0"
 KEYWORDS=""
 
-DEPEND=""
+# media-fonts/noto includes this fonts
+DEPEND="!!media-fonts/noto"
 RDEPEND=""
 
 S=${WORKDIR}
