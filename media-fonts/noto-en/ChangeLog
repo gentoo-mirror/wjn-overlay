@@ -3,6 +3,9 @@
 # (auto-generated from git log)
 
   15 Dec 2015; wjn <wjn@aol.jp> noto-en-2015.09.ebuild:
+  Fix to add media-fonts/noto to ${RDEPEND}
+
+  15 Dec 2015; wjn <wjn@aol.jp> noto-en-2015.09.ebuild:
   Fix to avoid conflicting filenames
 
    - To make selective hinted or unhinted,
