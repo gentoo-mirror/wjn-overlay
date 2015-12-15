@@ -1,0 +1,9 @@
+# ChangeLog for media-fonts/noto-emoji
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# (auto-generated from git log)
+
+*noto-emoji-2015.09 (15 Dec 2015)
+
+  15 Dec 2015; wjn <wjn@aol.jp> +metadata.xml, +noto-emoji-2015.09.ebuild:
+  Add newly, version 2015.09
+
