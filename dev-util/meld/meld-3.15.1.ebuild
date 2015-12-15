@@ -32,10 +32,6 @@ DEPEND="${COMMON_DEPEND}
 	sys-devel/gettext"
 RDEPEND=${COMMON_DEPEND}
 
-src_prepare() {
-	epatch "${FILESDIR}/${P}-gtk-errors.patch"
-}
-
 python_compile_all() {
 	mydistutilsargs=( --no-update-icon-cache --no-compile-schemas )
 }
