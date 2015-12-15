@@ -1,6 +1,34 @@
 # ChangeLog for mate-base/mate-applets
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
+# (auto-generated from git log)
+
+  15 Dec 2015; wjn <wjn@aol.jp>
+  -files/mate-applets-1.6.2-r1-replace-cpufreq-by-cpupower.patch,
+  mate-applets-9999.ebuild:
+  Move mate-netspeed into, update deps and ${IUSE}
+
+   cpufreq, mateweather:
+     they are changed to be selective. USE flags take effect.
+
+   cpufreq:
+     --enable-cpufreq has a bug.
+    Do not --enable-cpufreq, automatic detecting goes right.
+
+   netspeed:
+     Upstream moved net-analyzer/mate-netspeed into mate-base/mate-applets.
+    See https://github.com/mate-desktop/mate-applets/commit/8aabf4f
+
+   timerapplet:
+      Upstream removed "src" dirctory and Python codes,
+     python_fix_shebang must not be done.
+
+   battstat:
+      battstat can't be built because of the lack of libapm (libapm is
+  obsolete),
+     battest is disabled now.
+
+   configure:
+      Upstream removed --enable-networkmanager and --disable-hal.
 
   06 Oct 2015; wjn <wjn@aol.jp> mate-applets-9999.ebuild:
   Remove dependency on mate-icon-theme.
