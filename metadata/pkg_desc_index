@@ -108,7 +108,7 @@ media-fonts/yozfontkm 7.01: Japanese OpenType brush fonts made by Y.Oz
 media-gfx/azdrawing 1.5: A painting software by drawing
 media-gfx/azpainter 1.0.6: A full-color painting software
 media-gfx/eom 9999: The MATE image viewer
-media-gfx/viewnior 1.5: Fast and simple image viewer
+media-gfx/viewnior 1.5 1.6: Fast and simple image viewer
 media-plugins/audacious-plugins 3.7 9999: Plugins for Audacious music player
 media-sound/audacious 3.7 9999: A lightweight and versatile audio player
 media-sound/jack-audio-connection-kit 1.9.10: Jackdmp jack implemention for multi-processor machine
