@@ -1,6 +1,14 @@
 # ChangeLog for media-gfx/viewnior
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
+# (auto-generated from git log)
+
+*viewnior-1.6 (18 Dec 2015)
+
+  18 Dec 2015; wjn <wjn@aol.jp> +viewnior-1.6.ebuild:
+  Add version 1.6
+
+   Upstream's release note is at
+  http://siyanpanayotov.com/project/viewnior/news/
 
   06 Oct 2015; wjn <wjn@aol.jp> viewnior-1.5.ebuild:
   Fix exif2 dependency to be rebuilt.
