@@ -1,6 +1,14 @@
 # ChangeLog for x11-libs/gdk-pixbuf-psd
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
+# (auto-generated from git log)
+
+  19 Dec 2015; wjn <wjn@aol.jp> gdk-pixbuf-psd-0.1.0.ebuild,
+  gdk-pixbuf-psd-9999.ebuild:
+  Improve to support multilib environment
+
+   Now multilib (multi ABI) is supported.
+  64 bit library and 32 bit library are able to be installed.
+   Be sure it depends on the same ABI installs of gdk-pixbuf and glib.
 
   25 Nov 2015; wjn <wjn@aol.jp> gdk-pixbuf-psd-0.1.0.ebuild,
   gdk-pixbuf-psd-9999.ebuild:

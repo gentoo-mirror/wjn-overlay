@@ -4,21 +4,20 @@
 
 EAPI=5
 
-inherit autotools gnome2-utils
+GCONF_DEBUG="no"
+GNOME2_LA_PUNT="yes"
+
+inherit autotools gnome2 multilib multilib-minimal
 
 DESCRIPTION="A GdkPixbuf loader for Adobe Photoshop images"
 HOMEPAGE="http://cgit.sukimashita.com/gdk-pixbuf-psd.git/"
 
 if [[ ${PV} = *9999* ]]; then
 	inherit git-r3
+	SRC_URI=""
 	EGIT_REPO_URI="http://git.sukimashita.com/${PN}.git"
-	KEYWORDS=""
 else
 	SRC_URI="http://cgit.sukimashita.com/${PN}.git/snapshot/${P}.tar.bz2"
-	KEYWORDS="~alpha amd64 ~arm hppa ia64 ~mips ppc ppc64 ~s390 ~sh ~sparc x86
-		~amd64-fbsd ~x86-fbsd ~x86-freebsd ~x86-interix ~amd64-linux ~arm-linux
-		~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris
-		~sparc64-solaris ~x64-solaris ~x86-solaris"
 fi
 
 LICENSE="LGPL-2.1"
@@ -26,27 +25,24 @@ SLOT="0"
 KEYWORDS=""
 IUSE="-static"
 
-COMMON_DEPEND=">=x11-libs/gdk-pixbuf-2.0"
-DEPEND="${COMMON_DEPEND}
-	>=dev-libs/glib-2.0"
-RDEPEND="${COMMON_DEPEND}"
+COMMON_DEPEND=">=dev-libs/glib-2.0[${MULTILIB_USEDEP}]
+	>=x11-libs/gdk-pixbuf-2.0[${MULTILIB_USEDEP}]"
+DEPEND=${COMMON_DEPEND}
+RDEPEND=${COMMON_DEPEND}
 
 RESTRICT="mirror"
-
-DOCS=( README )
 
 src_prepare() {
 	eautoreconf
 }
 
-src_configure() {
-	econf $(use_enable static)
+multilib_src_configure() {
+	ECONF_SOURCE="${S}" gnome2_src_configure \
+		$(use_enable static)
 }
 
-src_install() {
-	default
-	# Get rid of the .la files.
-	find "${D}" -name '*.la' -delete
+multilib_src_install() {
+	gnome2_src_install
 }
 
 pkg_preinst() {
