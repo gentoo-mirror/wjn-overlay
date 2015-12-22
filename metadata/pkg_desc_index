@@ -115,7 +115,7 @@ media-sound/jack-audio-connection-kit 1.9.10: Jackdmp jack implemention for mult
 media-sound/yoshimi 1.3.7.1: A software synthesizer based on ZynAddSubFX
 media-video/libav 11.4: Complete solution to record, convert and stream audio and video
 sci-calculators/galculator 2.1.4: GTK+ based algebraic and RPN calculator
-www-apps/nikola 7.6.4 7.7.0 7.7.1 7.7.2 7.7.3: A static website and blog generator
+www-apps/nikola 7.6.4 7.7.0 7.7.1 7.7.2 7.7.3 7.7.4: A static website and blog generator
 www-plugins/freshplayerplugin 9999: PPAPI-host NPAPI-plugin adapter for flashplayer in npapi based browsers
 www-plugins/gnash 0.8.10_p20150326: GNU Flash movie player that supports many SWF v7,8,9 features
 x11-drivers/xf86-video-intel 2.99.917-r2: X.Org driver for Intel cards
