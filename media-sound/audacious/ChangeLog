@@ -1,6 +1,11 @@
 # ChangeLog for media-sound/audacious
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
-# (auto-generated from git log)
+# $Header: $
+
+*audacious-3.7.1 (29 Dec 2015)
+
+  29 Dec 2015; wjn <wjn@aol.jp> +audacious-3.7.1.ebuild:
+  Add version 3.7.1
 
   08 Nov 2015; wjn <wjn@aol.jp> audacious-9999.ebuild:
   9999: Remove exporting for Qt5
