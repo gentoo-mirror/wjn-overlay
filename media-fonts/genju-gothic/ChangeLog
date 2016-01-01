@@ -1,6 +1,9 @@
 # ChangeLog for media-fonts/genju-gothic
-# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
+# Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
+# (auto-generated from git log)
+
+  01 Jan 2016; wjn <wjn@aol.jp> genju-gothic-1.002.20150607.ebuild:
+  **/*.ebuild: Change 2015 to 2016 in the GPLv2 copyright expressions
 
   25 Nov 2015; wjn <wjn@aol.jp> genju-gothic-1.002.20150607.ebuild:
   media-fonts/*: Add "mirror" to ${RESTRICT}

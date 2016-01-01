@@ -1,9 +1,12 @@
 # ChangeLog for app-i18n/libkkc-data
-# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
+# Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
+# (auto-generated from git log)
+
+  01 Jan 2016; wjn <wjn@aol.jp> libkkc-data-0.2.7.ebuild:
+  **/*.ebuild: Change 2015 to 2016 in the GPLv2 copyright expressions
 
   24 Nov 2015; wjn <wjn@aol.jp> libkkc-data-0.2.7.ebuild:
-  libkkc-data/libkkc-data: Add RESTRICT="mirror"
+  Add RESTRICT="mirror"
 
    libkkc* isn't in GENTOO_MIRRORS.
 

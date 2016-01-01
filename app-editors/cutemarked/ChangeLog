@@ -1,6 +1,9 @@
 # ChangeLog for app-editors/cutemarked
-# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
+# Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
+# (auto-generated from git log)
+
+  01 Jan 2016; wjn <wjn@aol.jp> cutemarked-0.11.1.ebuild:
+  **/*.ebuild: Change 2015 to 2016 in the GPLv2 copyright expressions
 
   01 Nov 2015; wjn <wjn@aol.jp> cutemarked-0.11.1.ebuild:
   Improve $DESCRIPTION and $HOMEPAGE to more appropriate

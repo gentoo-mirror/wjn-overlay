@@ -1,6 +1,9 @@
 # ChangeLog for app-i18n/fcitx-qt5
-# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
+# Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
+# (auto-generated from git log)
+
+  01 Jan 2016; wjn <wjn@aol.jp> fcitx-qt5-1.0.4.ebuild, fcitx-qt5-9999.ebuild:
+  **/*.ebuild: Change 2015 to 2016 in the GPLv2 copyright expressions
 
 *fcitx-qt5-1.0.4 (24 Oct 2015)
 
