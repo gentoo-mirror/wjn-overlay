@@ -10,4 +10,4 @@ SLOT=0
 SRC_URI=http://yozvox.web.fc2.com/MoboMoga-001.02.12b.7z
 _eclass_exported_funcs=pkg_postrm:font pkg_postinst:font pkg_setup:font src_install:font
 _eclasses_=eutils	d9bd2ddd85a58e470b49ca997e255a4c	font	cd7790315ca5b8c505e1e0513df6acce	multilib	3972ca401cf7dbb430df9995f5d8d580	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85
-_md5_=3f190ff61ef48cb797420319cc7c690b
+_md5_=88aa54258567d5b853f846a0da1f19f3

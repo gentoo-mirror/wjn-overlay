@@ -7,4 +7,4 @@ RESTRICT=mirror
 SLOT=0
 SRC_URI=mirror://sourceforge/mined/mined-2015.25.tar.gz
 _eclass_exported_funcs=-
-_md5_=754b8bfeda63fe9ef42d253f55e57d2c
+_md5_=ba960af2e9134a549926f4904c751d1a

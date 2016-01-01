@@ -10,4 +10,4 @@ SLOT=0
 SRC_URI=http://freefonts.jp/dl_3qa5ju5a45/ki_kokugo.zip
 _eclass_exported_funcs=pkg_postrm:font pkg_postinst:font pkg_setup:font src_prepare:- src_install:-
 _eclasses_=eutils	d9bd2ddd85a58e470b49ca997e255a4c	font	cd7790315ca5b8c505e1e0513df6acce	multilib	3972ca401cf7dbb430df9995f5d8d580	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85
-_md5_=abf40ba8f0d02debb1b5ae8b8ab05e76
+_md5_=b9daf22e6dcbe88b7a54650cf14dc8e3
