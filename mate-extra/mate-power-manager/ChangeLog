@@ -1,6 +1,9 @@
 # ChangeLog for mate-extra/mate-power-manager
-# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
+# Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
+# (auto-generated from git log)
+
+  01 Jan 2016; wjn <wjn@aol.jp> mate-power-manager-9999.ebuild:
+  **/*.ebuild: Change 2015 to 2016 in the GPLv2 copyright expressions
 
   02 Nov 2015; wjn <wjn@aol.jp> mate-power-manager-9999.ebuild:
   Depends on libXrandr version 1.3.0 or higher.

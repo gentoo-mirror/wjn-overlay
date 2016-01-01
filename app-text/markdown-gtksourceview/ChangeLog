@@ -1,6 +1,10 @@
 # ChangeLog for app-text/markdown-gtksourceview
-# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
+# Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
+# (auto-generated from git log)
+
+  01 Jan 2016; wjn <wjn@aol.jp> markdown-gtksourceview-2.1.9999.ebuild,
+  markdown-gtksourceview-3.2.9999.ebuild:
+  **/*.ebuild: Change 2015 to 2016 in the GPLv2 copyright expressions
 
   27 Nov 2015; wjn <wjn@aol.jp> markdown-gtksourceview-3.2.9999.ebuild:
   3.2.9999: Comment about the patch for Gedit
