@@ -12,7 +12,7 @@ inherit eutils l10n
 
 MY_PV=${PV/_/}
 MY_P="${PN}-${MY_PV}"
-OSDN_DIR="64101"
+OSDN_DIR="64220"
 
 DESCRIPTION="A lightweight email client and newsreader"
 HOMEPAGE="http://sylpheed.sraoss.jp/"
@@ -40,7 +40,7 @@ RDEPEND="${COMMON_DEPEND}
 	app-misc/mime-types
 	net-misc/curl"
 
-S="${WORKDIR}/${MY_P%rc}"
+S="${WORKDIR}/${MY_P%rc2}"
 RESTRICT="mirror"
 
 DOCS=( AUTHORS ChangeLog* NEWS* README* TODO* )
@@ -108,6 +108,6 @@ src_install() {
 
 pkg_postinst() {
 	elog "Note:"
-	elog "  Though ${MY_PV%rc} is shown as the version number,"
+	elog "  Though ${MY_PV%rc2} is shown as the version number,"
 	elog " this is a Release Candidate of ${MY_PV%rc} ."
 }
