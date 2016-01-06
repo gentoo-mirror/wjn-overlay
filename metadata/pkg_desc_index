@@ -34,7 +34,7 @@ dev-util/meld 3.15.1: A graphical diff and merge tool
 gnome-extra/cinnamon 2.6.13-r1 2.8.4-r1 2.8.5 2.8.6: A fork of GNOME Shell with layout similar to GNOME 2
 gnome-extra/cinnamon-control-center 2.6.0-r1 2.8.1: Cinnamon's main interface to configure various aspects of the desktop
 gnome-extra/cinnamon-settings-daemon 2.6.3 2.8.1 2.8.2 2.8.3: Cinnamon's settings daemon
-mail-client/sylpheed 3.5.0_rc: A lightweight email client and newsreader
+mail-client/sylpheed 3.5.0_rc2: A lightweight email client and newsreader
 mate-base/caja 9999: Caja file manager for the MATE desktop
 mate-base/libmatekbd 9999: MATE keyboard configuration library
 mate-base/mate 9999: Meta ebuild for MATE, a traditional desktop environment
