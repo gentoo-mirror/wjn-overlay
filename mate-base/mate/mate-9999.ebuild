@@ -37,7 +37,7 @@ RDEPEND="~mate-base/mate-desktop-9999:0[gtk3?]
 		~app-text/atril-9999:0[gtk3?]
 		~mate-extra/mate-power-manager-9999:0[gtk3?]
 		~mate-extra/mate-screensaver-9999:0[gtk3?]
-		~mate-extra/mate-system-monitor-9999:0[gtk3?]
+		~mate-extra/mate-system-monitor-9999:0
 		~mate-extra/mate-utils-9999:0[gtk3?]
 		~media-gfx/eom-9999:0[gtk3?] )"
 PDEPEND="virtual/notification-daemon:0"

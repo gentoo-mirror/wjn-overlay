@@ -2,6 +2,15 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  13 Jan 2016; wjn <wjn@aol.jp> mate-9999.ebuild:
+  Drop [gtk3?] from mate-system-monitor dependency
+
+   GTK+:2 support was dropped from mate-system-monitor. see the commit 093453a
+
+   Because mate-system-monitor depends on GTK+:3,
+  now this mate metapackage also depends on GTK+:3 when USE="extras".
+  But you can drop USE="extras" and install other extra packages explicitly.
+
   01 Jan 2016; wjn <wjn@aol.jp> mate-9999.ebuild:
   **/*.ebuild: Change 2015 to 2016 in the GPLv2 copyright expressions
 

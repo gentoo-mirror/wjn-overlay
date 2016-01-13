@@ -16,10 +16,11 @@ EGIT_REPO_URI="git://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="-gtk3 systemd"
+IUSE="systemd"
 
 COMMON_DEPEND="app-text/rarian:0
 	>=dev-cpp/glibmm-2.16:2
+	>=dev-cpp/gtkmm-3.14.0:3.0
 	>=dev-libs/glib-2.36:2
 	dev-libs/libsigc++:2
 	>=dev-libs/libxml2-2:2
@@ -27,13 +28,9 @@ COMMON_DEPEND="app-text/rarian:0
 	>=gnome-base/librsvg-2.12:2
 	x11-libs/cairo:0
 	x11-libs/gdk-pixbuf:2
+	>=x11-libs/gtk+-3.14.0:3
+	>=x11-libs/libwnck-3.4.0:3
 	virtual/libintl:0
-	!gtk3? ( >=dev-cpp/gtkmm-2.22:2.4
-		>=x11-libs/gtk+-2.20.0:2
-		>=x11-libs/libwnck-2.5.0:1 )
-	gtk3? ( >=dev-cpp/gtkmm-2.22:3.0
-		>=x11-libs/gtk+-3.0.0:3
-		>=x11-libs/libwnck-3.4.0:3 )
 	systemd? ( >=sys-apps/systemd-44 )"
 DEPEND="${COMMON_DEPEND}
 	>=app-text/scrollkeeper-dtd-1:1.0
@@ -56,6 +53,5 @@ src_prepare() {
 
 src_configure() {
 	gnome2_src_configure \
-		--with-gtk=$(usex gtk3 '3.0' '2.0') \
 		$(use_enable systemd)
 }
