@@ -60,7 +60,6 @@ src_prepare() {
 src_configure() {
 	gnome2_src_configure \
 		--enable-mate-about \
-		--enable-mate-conf-import \
 		$(use_with X x) \
 		$(use_enable doc gtk-doc) \
 		--with-gtk=$(usex gtk3 '3.0' '2.0') \
@@ -70,8 +69,6 @@ src_configure() {
 
 src_install() {
 	gnome2_src_install
-
-	python_replicate_script "${ED}"/usr/bin/mate-conf-import
 
 	# Remove installed files that cause collissions.
 	rm -rf "${ED}"/usr/share/help/C/{lgpl,gpl,fdl}
