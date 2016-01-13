@@ -126,7 +126,7 @@ x11-libs/libvdpau-va-gl 9999: VDPAU driver with OpenGL/VAAPI backend
 x11-misc/lightdm 1.17.2 1.17.3: A lightweight display manager
 x11-misc/lightdm-gtk-greeter-settings 1.1.0 1.2.0: LightDM Gtk+ Greeter settings editor
 x11-misc/mate-notification-daemon 9999: MATE Notification daemon
-x11-misc/mate-tweak 3.5.2a: MATE desktop tweak tool
+x11-misc/mate-tweak 3.5.2a 3.5.3: MATE desktop tweak tool
 x11-misc/mozo 9999: Menu editor for MATE using the freedesktop.org menu specification
 x11-terms/mate-terminal 9999: The MATE Terminal Emulator
 x11-themes/faience-icon-theme 0.5.1: A scalable icon theme called Faience
