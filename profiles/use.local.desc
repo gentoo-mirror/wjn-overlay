@@ -187,8 +187,3 @@ www-plugins/gnash:ssl - Enable directly using OpenSSL in libnet (not needed for 
 x11-drivers/xf86-video-intel:sna - Enable SandyBridge's New Acceleration (useful on all chipsets, not just SandyBridge)
 x11-drivers/xf86-video-intel:uxa - Enable UMA Acceleration Architecture
 x11-drivers/xf86-video-intel:xvmc - Enables X-Video Motion Compensation support
-x11-misc/lightdm:gtk - Pull in the gtk+ greeter
-x11-misc/lightdm:introspection - Use dev-libs/gobject-introspection for introspection
-x11-misc/lightdm:kde - Pull in the kde greeter
-x11-misc/lightdm:qt4 - Support Qt4
-x11-misc/lightdm:qt5 - Support Qt5
