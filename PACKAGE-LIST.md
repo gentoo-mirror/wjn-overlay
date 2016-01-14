@@ -1,10 +1,15 @@
+wjn-overlay packages list
+========
+
+- Updated on 2016-01-13
+
 | Package Name | Description | Upstream Website | This Overlay Only | Note |
 |----|----|----|----|----|
 | app-accessibility/florence | an extensible scalable virtual keyboard for X11 | <http://florence.sourceforge.net/> | o | |
 | app-accessibility/onboard | Onscreen keyboard for tablet PC users and mobility impaired users | <https://launchpad.net/onboard> | o | |
-| app-accessibility/xvkbd | Virtual Keyboard for X Window System | <http://homepage3.nifty.com/tsato/xvkbd/> | o | gentoo repo. includes this in **x11-misc** |
+| app-accessibility/xvkbd | Virtual Keyboard for X Window System | <http://homepage3.nifty.com/tsato/xvkbd/> | o | gentoo repo includes this in **x11-misc** |
 | app-arch/engrampa | Engrampa archive manager for MATE | <http://mate-desktop.org/> | - | dev ver. |
-| app-editors/cutemarked | Qt5-based Markdown editor with live HTML preview | <http://cloose.github.io/CuteMarkEd/> | o | gentoo repo. includes this in **app-text** |
+| app-editors/cutemarked | Qt5-based Markdown editor with live HTML preview | <http://cloose.github.io/CuteMarkEd/> | o | Fix deps. gentoo repo includes this in **app-text** |
 | app-editors/mined | Terminal-based Text Editor with extensive Unicode and CJK support | <http://towo.net/mined/> | o | |
 | app-editors/pluma | A powerful text editor for MATE | <http://mate-desktop.org/> | - | dev ver. |
 | app-i18n/fcitx | Flexible Contect-aware Input Tool with eXtension support | <http://fcitx-im.org/> | - | newer ver. |
@@ -73,6 +78,7 @@
 | media-fonts/hannari-mincho | a Japanese mincho OpenType font with IPAmincho kanji chars | <http://typingart.net/?p=44> | o | |
 | media-fonts/honoka-mincho | a Japanese mincho OpenType font with IPAexmincho kanji chars | <http://font.gloomy.jp/honoka-mincho-dl.html> | o | |
 | media-fonts/k-font | 'K-Font!', Japanese TrueType font like TV anime 'K-ON!' | <http://font.sumomo.ne.jp/index.html> | o | |
+| media-fonts/kazesawa | Kazesawa Font: M+ with Source Sans Pro | <https://kazesawa.github.io/> | o | |
 | media-fonts/kiloji | A Japanese hand-written TrueType font family | <http://www.ez0.net/distribution/font/kiloji/> | o | |
 | media-fonts/kokoro-mincho | a Japanese mincho OpenType font with IPAmincho kanji chars | <http://typingart.net/?p=46> | o | |
 | media-fonts/koku-gothic | Japanese gothic TTF based on M+ and SourceHanSans, has smaller kana | <http://freefonts.jp/font-koku-go.html> | o | |
@@ -115,16 +121,15 @@
 | media-sound/jack-audio-connection-kit | Jackdmp jack implemention for multi-processor machine | <http://jackaudio.org/> | - | [JACK2](https://github.com/jackaudio/jackaudio.github.com/wiki/Q_difference_jack1_jack2) |
 | media-sound/yoshimi | A software synthesizer based on ZynAddSubFX | <http://yoshimi.sourceforge.net/> | - | fix to build |
 | media-video/libav | Complete solution to record, convert and stream audio and video | <https://libav.org/> | - | newer ver. |
-| net-analyzer/mate-netspeed | Applet showing network traffic for MATE | <http://mate-desktop.org/> | - | dev ver. |
 | sci-calculators/galculator | GTK+ based algebraic and RPN calculator | <http://galculator.mnim.org/> | - | USE="gtk2" |
 | www-apps/nikola | A static website and blog generator | <https://getnikola.com/> | - | newer ver. |
 | www-plugins/freshplayerplugin | PPAPI-host NPAPI-plugin adapter for flashplayer in npapi based browsers | <https://github.com/i-rinat/freshplayerplugin> | - | dev ver. |
 | www-plugins/gnash | GNU Flash movie player that supports many SWF v7,8,9 features | <http://www.gnu.org/software/gnash/> | - | newer patched |
 | x11-drivers/xf86-video-intel | X.Org driver for Intel cards | <http://xorg.freedesktop.org/> | - | enables DRI3 |
 | x11-libs/gdk-pixbuf-psd | A GdkPixbuf loader for Adobe Photoshop images | <http://cgit.sukimashita.com/gdk-pixbuf-psd.git/> | o | **UPSTEAM does NOT seem to MAINTAIN**  |
-| x11-libs/gdk-pixbuf-xcf | A gdk-pixbuf loader for xcf (The Gimp) files | <https://gitorious.org/xcf-pixbuf-loader/> | o | **UPSTREAM does NOT LIVE** |
+| x11-libs/gdk-pixbuf-xcf | A gdk-pixbuf loader for xcf (The Gimp) files | <https://gitorious.org/xcf-pixbuf-loader/> | o | **UPSTREAM is NOT ALIVE** |
 | x11-libs/libvdpau-va-gl | VDPAU driver with OpenGL/VAAPI backend | <https://github.com/i-rinat/libvdpau-va-gl> | o | |
-| x11-misc/lightdm | A lightweight display manager | <http://www.freedesktop.org/wiki/Software/LightDM> | - | newer ver. |
+| x11-misc/lightdm | A lightweight display manager | <http://www.freedesktop.org/wiki/Software/LightDM> | - | newer ver., *if none, this is removed* |
 | x11-misc/lightdm-gtk-greeter-settings | LightDM Gtk+ Greeter settings editor | <https://launchpad.net/lightdm-gtk-greeter-settings> | o | |
 | x11-misc/mate-notification-daemon | MATE Notification daemon | <http://mate-desktop.org/> | - | dev ver. |
 | x11-misc/mate-tweak | MATE desktop tweak tool | <https://launchpad.net/ubuntu/+source/mate-tweak> | o | |
@@ -141,3 +146,5 @@
 | x11-themes/smooth-themes | Themes for Smooth GTK1/GTK2 Theme Engine | <http://sourceforge.net/projects/smooth-engine/> | o | |
 | x11-wm/marco | MATE default window manager | <http://mate-desktop.org/> | - | dev ver. |
 
+----
+wjn
