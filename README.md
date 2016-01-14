@@ -1,28 +1,32 @@
 wjn-overlay
 ==============
 
-wjn's user overlay for Gentoo GNU/Linux. 
+wjn's user overlay for Gentoo GNU/Linux.
 
-(JA version of README is [README.ja.md](README.ja.md) .)
+(JA version of README is [README.ja.md](README.ja.md) )
+
+- Updated on 2016-01-13
 
 ## contents
 
 There is the complete package list in [PACKAGE-LIST.md](PACKAGE-LIST.md).
-
-but in short, below is some examples,
+but in short, below is some examples
 
 ### DE
 
 - [mate](https://github.com/mate-desktop)  
 	(Development version)
 
+- [cinnamon](http://cinnamon.linuxmint.com/)  
+  (USE="-networkmanager -pulseaudio")
+
 ### text
 
 - [nikola](http://getnikola.com/)  
-    (7.0.0 and newer. A static website generator based on python)
+    (7.6.4 and newer. A static website generator based on python)
 
 - [cutemarked](http://cloose.github.io/CuteMarkEd/)  
-    (a Qt5-based markdown text editor)
+    (Fixes deps and category in gentoo repo. a Qt5-based markdown text editor)
 
 - [mined](http://towo.net/mined/)  
     (a terminal-based Text Editor with extensive Unicode and CJK support)
@@ -30,23 +34,23 @@ but in short, below is some examples,
 - asciidoc-gtksourceview
 
 - markdown-gtksourceview
+    (can also *preview in Gedit or Pluma* by webkit-gtk)
 
 ### graphic
 
 - AzPainter
-
 - AzDrawing
 
 ### media
 
 - [Audacious](http://audacious-media-player.org/)  
-    (development version)  
+    (development version)
 
 - [gdk-pixbuf-psd](http://cgit.sukimashita.com/gdk-pixbuf-psd.git/)  
-    (gdk-pixbuf loader for PSD files)  
+    (gdk-pixbuf loader for PSD files)
 
 - [gdk-pixbuf-xcf (io-xcf)](https://gitorious.org/xcf-pixbuf-loader)  
-    (gdk-pixbuf loader for XCF files)  
+    (gdk-pixbuf loader for XCF files)
     
 - [libvdpau-va-gl](https://github.com/i-rinat/libvdpau-va-gl)  
     (VDPAU OpenGL/VAAPI backend library)
@@ -68,14 +72,14 @@ but in short, below is some examples,
 
 - xvkbd
 
-### multilingualization software (mainly JA)
+### softwares for multilingualization (mainly JA)
 
 - [Mozc](https://code.google.com/p/mozc/)  
-    (Japanese input server patched for input method [Fcitx](http://fcitx-im.org/) and [uim](https://code.google.com/p/uim/))
+    (Japanese input server patched for input method for [uim](https://code.google.com/p/uim/))
  
 - [Mozc UT Dictionary](http://www.geocities.jp/ep3797/mozc_01.html)  
     (Japanese input server with additional dictionary "UT", patched for Fcitx an uim)  
-    <small>The each dictionary's license of "hatena" and "nicodic" is unknown. Specifically "nicodic" feature is not recommended to use. My ebuild's default is "-nicodic".</small>
+    <small>The each dictionary's license of "hatena" and "nicodic" is unknown. Specifically "nicodic" feature is not recommended to use. My ebuild's default is "-nicodic"</small>
 
 - [fcitx-qt5](http://fcitx-im.org/)  
     (Development ver.)
@@ -83,8 +87,7 @@ but in short, below is some examples,
 - [uim](http://code.google.com/p/uim/)  
     (Development ver.)
 
-- [libguess](http://atheme.org/projects/libguess.html)  
-    (Development ver., for newer Audacious's chardet functionality)
+and many JA fonts
 
 ## License
 
@@ -93,8 +96,7 @@ GPL v2
 ## Disclaimer
 
 This repository has completely **NO WARRANTY**.
+DO NOT USE this if you don't know what means to use "overlay" (additional repository)
 
-Using this repository, you should know what you are doing.
-
----
+----
 wjn
