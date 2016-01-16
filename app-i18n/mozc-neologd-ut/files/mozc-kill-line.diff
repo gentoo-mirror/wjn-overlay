@@ -1,0 +1,181 @@
+diff --git a/src/composer/composer.cc b/src/composer/composer.cc
+index 1b3430c..547771f 100644
+--- a/src/composer/composer.cc
++++ b/src/composer/composer.cc
+@@ -575,6 +575,16 @@ void Composer::DeleteRange(size_t pos, size_t length) {
+   typing_corrector_.Invalidate();
+ }
+ 
++void Composer::KillLineAt(size_t pos) {
++  position_ = composition_->KillLineAt(pos);
++  UpdateInputMode();
++}
++
++void Composer::KillLine() {
++  position_ = composition_->KillLineAt(position_);
++  UpdateInputMode();
++}
++
+ void Composer::EditErase() {
+   composition_->Erase();
+   position_ = 0;
+diff --git a/src/composer/composer.h b/src/composer/composer.h
+index 897ce85..5fb9d2f 100644
+--- a/src/composer/composer.h
++++ b/src/composer/composer.h
+@@ -133,6 +133,7 @@ class Composer {
+ 
+   // Deletes a character at specified position.
+   void DeleteAt(size_t pos);
++  void KillLineAt(size_t pos);
+   // Delete multiple characters beginning at specified position.
+   void DeleteRange(size_t pos, size_t length);
+ 
+@@ -152,6 +153,7 @@ class Composer {
+   bool InsertCharacterKeyEvent(const commands::KeyEvent &key);
+   void InsertCommandCharacter(const InternalCommand internal_command);
+   void Delete();
++  void KillLine();
+   void Backspace();
+ 
+   // void Undo();
+diff --git a/src/composer/composition_interface.h b/src/composer/composition_interface.h
+index 779eddc..277da3d 100644
+--- a/src/composer/composition_interface.h
++++ b/src/composer/composition_interface.h
+@@ -50,6 +50,7 @@ class CompositionInterface {
+  public:
+   virtual ~CompositionInterface() {}
+   virtual size_t DeleteAt(size_t position) = 0;
++  virtual size_t KillLineAt(size_t position) = 0;
+   virtual size_t InsertAt(size_t position, const string &input) = 0;
+   virtual size_t InsertKeyAndPreeditAt(size_t pos,
+                                        const string &key,
+diff --git a/src/composer/internal/composition.cc b/src/composer/internal/composition.cc
+index 22c951d..623f95a 100644
+--- a/src/composer/internal/composition.cc
++++ b/src/composer/internal/composition.cc
+@@ -128,6 +128,19 @@ size_t Composition::DeleteAt(const size_t position) {
+   return new_position;
+ }
+ 
++// Deletes right-hand characters of the composition.
++size_t Composition::KillLineAt(const size_t position) {
++  CharChunkList::iterator chunk_it;
++  MaybeSplitChunkAt(position, &chunk_it);
++  const size_t new_position = GetPosition(Transliterators::LOCAL, chunk_it);
++  if (chunk_it == chunks_.end()) {
++    return new_position;
++  }
++  chunks_.erase(chunk_it, chunks_.end());
++
++  return new_position;
++}
++
+ size_t Composition::ConvertPosition(
+     const size_t position_from,
+     Transliterators::Transliterator transliterator_from,
+diff --git a/src/composer/internal/composition.h b/src/composer/internal/composition.h
+index 86cbd03..468e50d 100644
+--- a/src/composer/internal/composition.h
++++ b/src/composer/internal/composition.h
+@@ -53,6 +53,7 @@ class Composition : public CompositionInterface {
+   virtual ~Composition();
+ 
+   virtual size_t DeleteAt(size_t position);
++  virtual size_t KillLineAt(size_t position);
+   virtual size_t InsertAt(size_t position, const string &input);
+   virtual size_t InsertKeyAndPreeditAt(size_t position,
+                                        const string &key,
+diff --git a/src/gui/config_dialog/keymap_en.ts b/src/gui/config_dialog/keymap_en.ts
+index fe98cf0..0698496 100644
+--- a/src/gui/config_dialog/keymap_en.ts
++++ b/src/gui/config_dialog/keymap_en.ts
+@@ -108,6 +108,10 @@
+         <translation>Delete (erase character after cursor)</translation>
+     </message>
+     <message>
++        <source>KillLine</source>
++        <translation>Kill line (erase characters after cursor)</translation>
++    </message>
++    <message>
+         <source>DisplayAsFullAlphanumeric</source>
+         <translation>Display as full-width alphanumeric</translation>
+     </message>
+diff --git a/src/session/internal/keymap.cc b/src/session/internal/keymap.cc
+index 7046c33..78f0ab1 100644
+--- a/src/session/internal/keymap.cc
++++ b/src/session/internal/keymap.cc
+@@ -522,6 +522,8 @@ void KeyMapManager::InitCommandData() {
+                              CompositionState::TRANSLATE_HALF_ASCII);
+   RegisterCompositionCommand("ToggleAlphanumericMode",
+                              CompositionState::TOGGLE_ALPHANUMERIC_MODE);
++  RegisterCompositionCommand("KillLine",
++                             CompositionState::KILL_LINE);
+   if (kInputModeXCommandSupported) {
+     RegisterCompositionCommand("InputModeHiragana",
+                                CompositionState::INPUT_MODE_HIRAGANA);
+diff --git a/src/session/internal/keymap_interface.h b/src/session/internal/keymap_interface.h
+index 4260f2a..2f8a40b 100644
+--- a/src/session/internal/keymap_interface.h
++++ b/src/session/internal/keymap_interface.h
+@@ -136,6 +136,7 @@ enum Commands {
+   INPUT_MODE_HALF_KATAKANA,
+   INPUT_MODE_FULL_ALPHANUMERIC,
+   INPUT_MODE_HALF_ALPHANUMERIC,
++  KILL_LINE,
+ };
+ };
+ 
+diff --git a/src/session/session.cc b/src/session/session.cc
+index d2f3759..f81b91d 100644
+--- a/src/session/session.cc
++++ b/src/session/session.cc
+@@ -679,6 +679,9 @@ bool Session::SendKeyCompositionState(commands::Command *command) {
+     case keymap::CompositionState::DEL:
+       return Delete(command);
+ 
++    case keymap::CompositionState::KILL_LINE:
++      return KillLine(command);
++
+     case keymap::CompositionState::BACKSPACE:
+       return Backspace(command);
+ 
+@@ -2501,6 +2504,25 @@ bool Session::Delete(commands::Command *command) {
+   return true;
+ }
+ 
++bool Session::KillLine(commands::Command *command) {
++  command->mutable_output()->set_consumed(true);
++  ClearUndoContext();
++  context_->mutable_composer()->KillLine();
++  if (context_->mutable_composer()->Empty()) {
++    // Input/output modes remain.	  
++    context_->mutable_composer()->EditErase();
++    SetSessionState(ImeContext::PRECOMPOSITION, context_.get());
++    OutputMode(command);
++  } else if (context_->mutable_converter()->Suggest(context_->composer())) {
++    DCHECK(context_->converter().IsActive());
++    Output(command);
++    return true;
++  } else {
++    OutputComposition(command);
++  }
++  return true;
++}
++
+ bool Session::Backspace(commands::Command *command) {
+   command->mutable_output()->set_consumed(true);
+   context_->mutable_composer()->Backspace();
+diff --git a/src/session/session.h b/src/session/session.h
+index dbbac7b..ea7fc07 100644
+--- a/src/session/session.h
++++ b/src/session/session.h
+@@ -140,6 +140,7 @@ class Session : public SessionInterface {
+   bool InsertSpaceFullWidth(mozc::commands::Command *command);
+   bool InsertCharacter(mozc::commands::Command *command);
+   bool Delete(mozc::commands::Command *command);
++  bool KillLine(mozc::commands::Command *command);
+   bool Backspace(mozc::commands::Command *command);
+   bool EditCancel(mozc::commands::Command *command);
+   bool EditCancelAndIMEOff(mozc::commands::Command *command);
