@@ -24,6 +24,14 @@ app-i18n/mozc:qt4 - Build with dev-qt/qtgui:4. Recommended. Unless this flag is 
 app-i18n/mozc:renderer - Enable native candidate window
 app-i18n/mozc:test - Enable src_test phase for runtests
 app-i18n/mozc:uim - Enable support for app-i18n/uim
+app-i18n/mozc-neologd-ut:clang - Use sys-devel/clang for building
+app-i18n/mozc-neologd-ut:emacs - Enable support for virtual/emacs
+app-i18n/mozc-neologd-ut:fcitx - Enable support for app-i18n/fcitx
+app-i18n/mozc-neologd-ut:ibus - Enable support for app-i18n/ibus
+app-i18n/mozc-neologd-ut:qt4 - Build with dev-qt/qtgui:4. Recommended. Unless this flag is enabled, no configuration tool cannot run.
+app-i18n/mozc-neologd-ut:renderer - Enable native candidate window
+app-i18n/mozc-neologd-ut:test - Enable src_test phase for runtests
+app-i18n/mozc-neologd-ut:uim - Enable support for app-i18n/uim
 app-i18n/mozc-ut:clang - Use sys-devel/clang for building
 app-i18n/mozc-ut:ejdic - Add English-Japanese dictionary
 app-i18n/mozc-ut:emacs - Enable support for virtual/emacs

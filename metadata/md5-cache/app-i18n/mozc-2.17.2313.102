@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
+DEPEND=>=dev-lang/python-2.7.5-r2:2.7 >=dev-lang/python-exec-2:=[python_targets_python2_7(-)?,-python_single_target_python3_3(-),-python_single_target_python3_4(-),-python_single_target_python3_5(-),-python_single_target_pypy(-),-python_single_target_pypy3(-),-python_single_target_jython2_7(-),python_single_target_python2_7(+)] !!app-i18n/mozc-ut !!app-i18n/mozc-neologd-ut dev-libs/glib:2 x11-libs/libXfixes x11-libs/libxcb emacs? ( virtual/emacs ) fcitx? ( app-i18n/fcitx ) ibus? ( >=app-i18n/ibus-1.4.1 ) qt4? ( dev-qt/qtgui:4 ) renderer? ( x11-libs/gtk+:2 ) uim? ( app-i18n/uim ) dev-util/ninja dev-vcs/git >=sys-libs/zlib-1.2.8 virtual/pkgconfig clang? ( >=sys-devel/clang-3.4 ) fcitx? ( sys-devel/gettext ) >=dev-vcs/git-1.8.2.1
+DESCRIPTION=Mozc - a Japanese Input Method Editor designed for multi-platform
+EAPI=5
+HOMEPAGE=https://github.com/google/mozc
+IUSE=clang emacs fcitx ibus +qt4 renderer -test tomoe uim python_targets_python2_7
+LICENSE=BSD BSD-2 ipadic public-domain unicode test? ( Boost-1.0 )
+RDEPEND=>=dev-lang/python-2.7.5-r2:2.7 >=dev-lang/python-exec-2:=[python_targets_python2_7(-)?,-python_single_target_python3_3(-),-python_single_target_python3_4(-),-python_single_target_python3_5(-),-python_single_target_pypy(-),-python_single_target_pypy3(-),-python_single_target_jython2_7(-),python_single_target_python2_7(+)] !!app-i18n/mozc-ut !!app-i18n/mozc-neologd-ut dev-libs/glib:2 x11-libs/libXfixes x11-libs/libxcb emacs? ( virtual/emacs ) fcitx? ( app-i18n/fcitx ) ibus? ( >=app-i18n/ibus-1.4.1 ) qt4? ( dev-qt/qtgui:4 ) renderer? ( x11-libs/gtk+:2 ) uim? ( app-i18n/uim ) qt4? ( !tomoe? ( app-i18n/tegaki-zinnia-japanese ) tomoe? ( app-i18n/zinnia-tomoe ) )
+REQUIRED_USE=|| ( emacs fcitx ibus uim ) tomoe? ( qt4 )
+RESTRICT=mirror test
+SLOT=0
+SRC_URI=fcitx? ( http://download.fcitx-im.org/fcitx-mozc/fcitx-mozc-2.17.2313.102.1.patch )
+_eclass_exported_funcs=pkg_postrm:- pkg_postinst:- pkg_setup:python-single-r1 src_unpack:- src_prepare:- src_configure:- src_compile:- src_test:- src_install:-
+_eclasses_=elisp-common	73c48c11ad6a6494eda0d0cca848c8fa	eutils	d9bd2ddd85a58e470b49ca997e255a4c	git-r3	018b3baa1d2b738e5bc146a0e807494e	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	python-single-r1	2ebea8fbab356d63110245129a67a6dd	python-utils-r1	30887c5e8630bbf27b5cf0fd74564323	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85
+_md5_=47f0dd8fdb8f7bf7bb71c1a0851aef7e
