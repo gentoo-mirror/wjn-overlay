@@ -14,7 +14,6 @@
 		<name>UTUMI Hirosi</name>
 	</maintainer>
 	<doc>http://www.geocities.jp/ep3797/mozc_01.html</doc>
-	<remote-id type="sourceforge">mdk-ut</remote-id>
 </upstream>
 <use>
 	<flag name='clang'>Use <pkg>sys-devel/clang</pkg> for building</flag>

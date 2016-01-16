@@ -8,7 +8,7 @@ EAPI=5
 PYTHON_COMPAT=( python2_7 )
 
 inherit elisp-common eutils git-r3 multilib multiprocessing python-single-r1 \
-	toolchain-funcs versionator
+	python-utils-r1 toolchain-funcs versionator
 
 DESCRIPTION="Mozc Japanese Input Method with Additional Japanese dictionary"
 HOMEPAGE="http://www.geocities.jp/ep3797/mozc_01.html
@@ -57,7 +57,8 @@ IUSE="clang ejdic emacs fcitx ibus -nicodic +qt4 renderer -test tomoe uim"
 REQUIRED_USE="|| ( emacs fcitx ibus uim )"
 
 COMMON_DEPEND="${PYTHON_DEPS}
-	!app-i18n/mozc
+	!!app-i18n/mozc
+	!!app-i18n/mozc-neologd-ut
 	dev-libs/glib:2
 	x11-libs/libXfixes
 	x11-libs/libxcb
@@ -345,7 +346,7 @@ generate-mozc-ut() {
 		cp "${WORKDIR}"/*.CSV ./
 		cp "${S}/dictionary/gen_zip_code_seed.py" ./
 		ruby modify-zipcode.rb KEN_ALL.CSV
-		python gen_zip_code_seed.py --zip_code=KEN_ALL.CSV.r \
+		"${PYTHON}" gen_zip_code_seed.py --zip_code=KEN_ALL.CSV.r \
 			--jigyosyo=JIGYOSYO.CSV \
 			>> "${S}/data/dictionary_oss/dictionary09.txt"
 		eend
