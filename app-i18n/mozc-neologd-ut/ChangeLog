@@ -2,6 +2,37 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  18 Jan 2016; wjn <wjn@aol.jp>
+  -mozc-neologd-ut-2.17.2315.102.20160118.2.ebuild:
+  Revert "app-i18n/mozc-neologd-ut: Add version 2.17.2315.102.20160118.2"
+
+   Since upstream released,
+  revert 2.17.2315.102.20160118.2 to enable newer 2.17.2315.102.20160118.1
+
+  This reverts commit 0433f5fbca79d0d64187dbfe0e57dd2ecb1454e0.
+
+*mozc-neologd-ut-2.17.2315.102.20160118.1 (18 Jan 2016)
+
+  18 Jan 2016; wjn <wjn@aol.jp> +files/mozc-neologd-ut-change-branding.patch,
+  +mozc-neologd-ut-2.17.2315.102.20160118.1.ebuild:
+  Add version 2.17.2315.102.20160118.1
+
+  This version is...
+   - Mozc:
+          Version 2.17.2315.102 means major=2, minor=17, build=2315 and
+  revision=102
+          https://github.com/google/mozc/commit/80c7fb81
+   - mecab-ipadic-neologd: updates every Monday and Thursday
+          Release 20160118
+          https://github.com/neologd/mecab-ipadic-neologd/commit/6dd67e0
+   - mozc-neologd-ut:
+          Revision 1
+          http://www.geocities.jp/ep3797/mozc_01.html
+
+  18 Jan 2016; wjn <wjn@aol.jp>
+  -mozc-neologd-ut-2.17.2313.102.20160114.2.ebuild:
+  Delete old version 2.17.2313.102.20160114.2
+
 *mozc-neologd-ut-2.17.2315.102.20160118.2 (18 Jan 2016)
 
   18 Jan 2016; wjn <wjn@aol.jp>

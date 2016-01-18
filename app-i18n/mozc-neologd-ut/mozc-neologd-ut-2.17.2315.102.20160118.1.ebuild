@@ -18,16 +18,16 @@ HOMEPAGE="http://www.geocities.jp/ep3797/mozc_01.html
 	https://github.com/google/mozc"
 
 DIC_VER="$(get_version_component_range $(get_last_version_component_index))"
-UT_VER="20160114"
+UT_VER="20160118"
 UT_REV="$(get_version_component_range $(get_version_component_count))"
-UT_DIR="9/9766"
+UT_DIR="9/9809"
 
 # ZIP codes are revised monthly.
 ZIPCODE_REV="201512"
 
 MOZC_VER="$(get_version_component_range 1-$(get_last_version_component_index))"
 MOZC_REV="80c7fb8"
-NEOLOGD_REV=" 6dd67e0"
+NEOLOGD_REV="6dd67e0"
 USAGEDIC_REV="HEAD"
 FCITX_PATCH_VER="2.17.2313.102.1"
 UIM_PATCH_REV="3ea28b1"
@@ -336,6 +336,19 @@ pkg_postrm() {
 }
 
 generate-mozc-neologd-ut() {
+	# change mozc branding
+	epatch ${FILESDIR}/${PN}-change-branding.patch
+	sed -i -e "s/NErUTr/NEologd rel: ${DIC_VER}, UT rev: ${UT_REV}/g" \
+		"${S}/gui/about_dialog/about_dialog.ui" \
+		"${S}/gui/about_dialog/about_dialog_en.ts" \
+		"${S}/gui/about_dialog/about_dialog_ja.ts" || die "Failed to add info"
+	if use qt4 ; then
+		/usr/$(get_libdir)/qt4/bin/lrelease \
+			"${S}/gui/about_dialog/about_dialog_en.ts"
+		/usr/$(get_libdir)/qt4/bin/lrelease \
+			"${S}/gui/about_dialog/about_dialog_ja.ts"
+	fi
+
 	cd "${UT_SRC}"
 
 	rm mecab-ipadic-neologd/mecab-user-dict-seed.${UT_VER}.csv.xz
@@ -382,9 +395,6 @@ generate-mozc-neologd-ut() {
 		--jigyosyo=JIGYOSYO.CSV \
 		>> "${S}/data/dictionary_oss/dictionary09.txt"
 	eend
-
-	# change mozc branding
-	sed -i 's/"Mozc"/"Mozc-NEologd-UT"/g' "${S}/base/const.h"
 
 	cd "${S}"
 }
