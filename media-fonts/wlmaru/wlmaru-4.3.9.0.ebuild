@@ -37,7 +37,6 @@ DOCS="*.txt"
 
 src_prepare() {
 	for fn in *.txt; do
-		cp $fn ${fn%.txt}
-		nkf -S -w ${fn%.txt} > $fn
+		nkf -S -w --overwrite ${fn}
 	done
 }
