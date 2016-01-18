@@ -3,6 +3,12 @@
 # $Header: $
 
   18 Jan 2016; wjn <wjn@aol.jp> mmcedar-20101113a.ebuild:
+  Tidy up installing document files
+
+   - run nkf with "--overwrite" option
+   - avoid installing documents to same directory
+
+  18 Jan 2016; wjn <wjn@aol.jp> mmcedar-20101113a.ebuild:
   media-fonts/komatuna-fonts,meguri-fonts,mmcedar: Update SRC_URI
 
    Because their archives have moved from sourceforge to osdn.jp.
