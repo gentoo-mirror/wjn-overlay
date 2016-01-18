@@ -99,7 +99,7 @@ media-fonts/source-han-sans-jp 1.004: Subset OTF of GennoKakuGothic, a Japanese 
 media-fonts/togoshi-font 20080629: Togoshi-font is a font family based on Kochi-alternative
 media-fonts/ttedit-half 1: Japanese TrueType half-width mincho and gothic fonts based on IPA fonts.
 media-fonts/ttedit-twobythree 1: Japanese TrueType two-thirds-width mincho and gothic fonts based on IPA fonts.
-media-fonts/umeplus-cl-fonts 20150115: UmePlus CL fonts are modified Ume CL and M+ fonts for Japanese
+media-fonts/umeplus-cl-fonts 20150917: UmePlus CL fonts are modified Ume CL and M+ fonts for Japanese
 media-fonts/wlmaru 4.3.6.0: a Japanese rounded gothic TrueType fonts based on Wadalab font
 media-fonts/yasashisa-antique 1: Japanese OpenType serif sans-serif mixed font
 media-fonts/yasashisa-gothic 1: Japanese OpenType serif sans-serif mixed font
