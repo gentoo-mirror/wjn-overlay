@@ -26,12 +26,14 @@ FONT_S=${S}
 
 src_prepare() {
 	# convert from EUC-JP to UTF-8
-	nkf -E -w "${S}"/doc-mplus/README_J > "${S}"/mplus-ja.txt
+	nkf -E -w --overwrite "${S}"/doc-mplus/README_J
 }
 
 src_install() {
 	font_src_install
-	dodoc ChangeLog README mplus-ja.txt
-	newdoc doc-MTLc3m/README.txt motoya.txt
-	newdoc doc-mplus/README_E mplus-en.txt
+	dodoc ChangeLog README
+	docinto doc-MTLc3m
+	dodoc README* 
+	docinto doc-mplus
+	dodoc doc-mplus/README*
 }

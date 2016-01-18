@@ -28,14 +28,17 @@ FONT_S=${S}
 
 src_prepare() {
 	# convert from Shift_JIS to UTF-8
-	nkf -S -w "${S}"/docs-ipa/Readme_IPAfont00302.txt > "${S}"/ipafont.txt
+	nkf -S -w --overwrite "${S}"/docs-ipa/Readme_IPAfont00302.txt
 
 	# convert from EUC-JP to UTF-8
-	nkf -E -w "${S}"/docs-mplus/README_J > "${S}"/mplus-ja.txt
+	nkf -E -w --overwrite "${S}"/docs-mplus/README_J
 }
 
 src_install() {
 	font_src_install
-	dodoc ChangeLog README ipafont.txt mplus-ja.txt
-	newdoc docs-mplus/README_E mplus-en.txt
+	dodoc ChangeLog README
+	docinto docs-ipa
+	dodoc docs-ipa/Readme_IPAfont00302.txt
+	docinto docs-mplus
+	dodoc docs-mplus/README*
 }
