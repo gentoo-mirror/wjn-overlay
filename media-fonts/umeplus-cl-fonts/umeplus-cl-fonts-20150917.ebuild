@@ -5,15 +5,18 @@
 EAPI=5
 inherit font
 
+OSDN_DIR="9/9097"
+
 DESCRIPTION="UmePlus CL fonts are modified Ume CL and M+ fonts for Japanese"
 HOMEPAGE="http://www.geocities.jp/ep3797/modified_fonts_01.html"
-SRC_URI="mirror://sourceforge/mdk-ut/${P}.tar.lzma"
+SRC_URI="mirror://osdn/users/${OSDN_DIR}/${P}.tar.xz"
 
-LICENSE="mplus-fonts public-domain"
+# mplus-fonts license is applied to M+ FONTS as well as UmeFont
+LICENSE="mplus-fonts"
 SLOT="0"
 KEYWORDS=""
 
-DEPEND="app-arch/xz-utils"
+DEPEND=""
 RDEPEND=""
 
 RESTRICT="binchecks mirror strip"
@@ -21,10 +24,11 @@ RESTRICT="binchecks mirror strip"
 FONT_SUFFIX="ttf"
 FONT_S=${S}
 
-src_install() {
+src_install(){
 	font_src_install
 	dodoc ChangeLog README
-	newdoc docs-mplus/README_E mplus-en.txt
-	newdoc docs-mplus/README_J mplus-ja.txt
-	newdoc docs-ume/license.html ume.html
+	docinto docs-mplus
+	dodoc docs-mplus/README*
+	docinto docs-ume
+	dodoc docs-ume/license.html
 }
