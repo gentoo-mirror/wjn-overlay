@@ -16,15 +16,15 @@ SRC_URI="http://yozvox.web.fc2.com/${MY_P}.7z"
 LICENSE="OFL-1.1"
 SLOT="0"
 KEYWORDS=""
-RESTRICT="binchecks mirror strip"
 
 DEPEND="app-arch/p7zip"
 RDEPEND=""
+
 S="${WORKDIR}/${MY_PN}"
+RESTRICT="binchecks mirror strip"
 
 FONT_SUFFIX="ttc"
 FONT_S=${S}
-#FONT_CONF=( "${FILESDIR}"/66-${PN}.conf )
 
 DOCS="Readme.txt Readme_E.txt"
 
