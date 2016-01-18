@@ -21,6 +21,7 @@ wjn-overlay packages list
 | app-i18n/libkkc | Japanese Kana Kanji conversion library | <https://github.com/ueno/libkkc> | o | |
 | app-i18n/libkkc-data | Japanese Kana Kanji conversion dictionary for libkkc | <https://github.com/ueno/libkkc> | o | |
 | app-i18n/mozc | Mozc - Japanese Input Method | <https://github.com/google/mozc> | - | newer rev., supports app-i18n/uim |
+| app-i18n/mozc-neologd-ut | Mozc Japanese Input Method with mecab-ipadic-NEologd | <http://www.geocities.jp/ep3797/mozc_01.html> | o | |
 | app-i18n/mozc-ut | Mozc Japanese Input Method with Additional Japanese dictionary | <http://www.geocities.jp/ep3797/mozc_01.html> | o | |
 | app-i18n/uim | Simple, secure and flexible input method library | <http://code.google.com/p/uim/> | - | dev ver., supports Qt5 |
 | app-misc/grc |  Generic Colouriser beautifies your logfiles or output of commands | <https://github.com/garabik/grc> | - | newer and dev ver. |
