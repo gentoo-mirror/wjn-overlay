@@ -5,11 +5,15 @@
 EAPI=5
 inherit font
 
+OSDN_DIR="8/8848"
+
 DESCRIPTION="Meguri fonts are modified IPA and M+ fonts for Japanese"
 HOMEPAGE="http://www.geocities.jp/ep3797/modified_fonts_01.html"
-SRC_URI="mirror://sourceforge/mdk-ut/${P}.tar.lzma"
+SRC_URI="mirror://osdn/users/${OSDN_DIR}/${P}.tar.lzma"
 
-LICENSE="IPAfont mplus-fonts"
+# IPAfont license because IPAfont is stricter than mplus-fonts
+# FYI: http://d.hatena.ne.jp/itouhiro/20120607
+LICENSE="IPAfont"
 SLOT="0"
 KEYWORDS=""
 

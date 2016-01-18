@@ -5,9 +5,11 @@
 EAPI=5
 inherit font
 
+OSDN_DIR="8/8846"
+
 DESCRIPTION="Komatuna fonts are modified Konatu and M+ fonts for Japanese"
 HOMEPAGE="http://www.geocities.jp/ep3797/modified_fonts_01.html"
-SRC_URI="mirror://sourceforge/mdk-ut/${P}.tar.lzma"
+SRC_URI="mirror://osdn/users/${OSDN_DIR}/${P}.tar.lzma"
 
 # Konatu has MIT license after 2012-12-18.
 # See http://www.masuseki.com/?u=be/konatu.htm#license
