@@ -1,6 +1,17 @@
 # ChangeLog for app-i18n/uim
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
-# (auto-generated from git log)
+# $Header: $
+
+  18 Jan 2016; wjn <wjn@aol.jp> +files/uim-9999-include-qdatastream.patch,
+  uim-9999.ebuild:
+  Fix Qt supported build
+
+   - point correct qmake4/5 path
+   - include necessary QtCore/qdatastream.h
+   - Install qt5/immodule plugin to sandbox, avoiding access violation
+   - Update to depend on dev-qt/qtx11extras:5
+     upstream: https://github.com/uim/uim/commit/04f8f9c
+   - Drop inherit base.eclass, that's deprecated
 
   01 Jan 2016; wjn <wjn@aol.jp> uim-9999.ebuild:
   **/*.ebuild: Change 2015 to 2016 in the GPLv2 copyright expressions

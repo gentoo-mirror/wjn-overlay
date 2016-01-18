@@ -3,7 +3,7 @@
 # $Id$
 
 EAPI=5
-inherit autotools base eutils multilib elisp-common gnome2-utils qmake-utils
+inherit autotools eutils multilib elisp-common gnome2-utils qmake-utils
 
 DESCRIPTION="Simple, secure and flexible input method library"
 HOMEPAGE="http://code.google.com/p/uim/"
@@ -22,6 +22,9 @@ KEYWORDS=""
 IUSE="X +anthy canna curl eb emacs expat gtk gtk3 kde libedit libffi libnotify
 	m17n-lib ncurses nls qt3support qt4 qt5 skk sqlite ssl static-libs
 	unicode xft"
+# REQUIRED_USE="gtk? ( X ) qt4? ( X ) ?? ( qt4 qt5 )"
+REQUIRED_USE="gtk? ( X ) qt4? ( X )"
+
 
 RESTRICT="test"
 
@@ -51,12 +54,14 @@ COMMON_DEPEND="!dev-scheme/sigscheme
 	nls? ( virtual/libintl )
 	qt3support? ( dev-qt/qtgui:4[qt3support] )
 	qt4? ( dev-qt/qtgui:4 )
-	qt5? ( dev-qt/qtgui:5 )
+	qt5? ( dev-qt/qtgui:5
+		dev-qt/qtx11extras:5 )
 	skk? ( app-i18n/skk-jisyo )
 	sqlite? ( dev-db/sqlite:3 )
 	ssl? ( || ( dev-libs/openssl:*
 		dev-libs/libressl ) )"
 DEPEND="${COMMON_DEPEND}
+	dev-util/intltool
 	>=sys-devel/gettext-0.15
 	virtual/pkgconfig
 	X? ( x11-proto/xextproto
@@ -85,10 +90,14 @@ src_prepare() {
 	# bug 275420
 	sed -i -e "s:\$libedit_path/lib:/$(get_libdir):g" configure.ac || die "sed failed!"
 
-	# run autogen.sh instead of make-wc.sh
+	# QtCore/qdatastream.h must be included
+	epatch ${FILESDIR}/${P}-include-qdatastream.patch
+
 	if [[ ${PV} = *9999* ]]; then
 		( cd sigscheme/libgcroots && ./autogen.sh )
 		( cd sigscheme && ./autogen.sh )
+		AT_NO_RECURSIVE=1 eautoreconf
+	else
 		AT_NO_RECURSIVE=1 eautoreconf
 	fi
 }
@@ -117,6 +126,9 @@ src_configure() {
 	else
 		myconf="${myconf} --without-anthy"
 	fi
+
+	use qt4 && export QMAKE4="$(qt4_get_bindir)/qmake"
+	use qt5 && export QMAKE5="$(qt5_get_bindir)/qmake"
 
 	econf --disable-gnome-applet \
 		--disable-gnome3-applet \
@@ -155,10 +167,14 @@ src_configure() {
 		$(use_enable ssl openssl) \
 		$(use_enable static-libs static) \
 		$(use_with xft)
+
+	# plugin file must be installed to sandbox
+	use qt5 && sed -i -e 's_/usr/plugins_'"${D}/$(qt5_get_plugindir)"'_g' \
+		qt5/immodule/Makefile*
 }
 
 src_compile() {
-	base_src_compile "$@"
+	default
 
 	if use emacs; then
 		( cd emacs && elisp-compile *.el ) || die "elisp-compile failed!"
@@ -166,7 +182,7 @@ src_compile() {
 }
 
 src_install() {
-	base_src_install -j1 INSTALL_ROOT="${D}" "$@"
+	emake -j1 INSTALL_ROOT="${D}" DESTDIR="${D}" install
 
 	dodoc AUTHORS ChangeLog* NEWS README RELNOTE
 	if use emacs; then
