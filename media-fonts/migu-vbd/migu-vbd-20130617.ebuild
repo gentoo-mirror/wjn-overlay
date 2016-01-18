@@ -28,7 +28,9 @@ SRC_URI="
 	http://osdn.jp/cvs/view/mix-mplus-ipa/mixfont-mplus-ipa/mplus_outline_fonts/mig.d/release/migu-2ds-README.txt?view=co -> migu-2ds-README.txt
 	"
 
-LICENSE="IPAfont mplus-fonts public-domain"
+# IPAfont license because IPAfont is stricter than mplus-fonts
+# FYI: http://d.hatena.ne.jp/itouhiro/20120607
+LICENSE="IPAfont"
 SLOT="0"
 KEYWORDS=""
 

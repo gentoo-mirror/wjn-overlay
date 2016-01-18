@@ -12,14 +12,17 @@ DESCRIPTION="Japanese OpenType serif sans-serif mixed font"
 HOMEPAGE="http://www.fontna.com/blog/1122/"
 SRC_URI="http://flop.sakura.ne.jp/font/fontna-op/${MY_P}.zip"
 
-LICENSE="IPAfont mplus-fonts"
+# IPAfont license because IPAfont is stricter than mplus-fonts
+# FYI: http://d.hatena.ne.jp/itouhiro/20120607
+LICENSE="IPAfont"
 SLOT="0"
 KEYWORDS=""
-RESTRICT="binchecks mirror strip"
 
 DEPEND="app-arch/unzip"
 RDEPEND=""
+
 S="${WORKDIR}/${MY_P}"
+RESTRICT="binchecks mirror strip"
 
 FONT_SUFFIX="otf"
 FONT_S="${S}"

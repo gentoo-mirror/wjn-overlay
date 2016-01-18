@@ -9,7 +9,9 @@ DESCRIPTION="combined font of ja-ipafonts (GothicP) and monafont"
 HOMEPAGE="http://www.geocities.jp/ep3797/modified_fonts_01.html"
 SRC_URI="http://www.geocities.jp/ep3797/snapshot/modified_fonts/${P}.tar.bz2"
 
-LICENSE="IPAfont public-domain"
+# IPAfont license because IPAfont is stricter than mplus-fonts
+# FYI: http://d.hatena.ne.jp/itouhiro/20120607
+LICENSE="IPAfont"
 SLOT="0"
 KEYWORDS=""
 
