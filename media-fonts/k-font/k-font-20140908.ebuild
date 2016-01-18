@@ -21,3 +21,15 @@ FONT_S="${S}"
 
 DEPEND="app-arch/unzip"
 RDEPEND=""
+
+src_prepare(){
+	rm *"Apache License 2.0.txt"
+	nkf -S -w *.txt > README
+}
+
+src_install(){
+	font_src_install
+	dodoc README
+	docinto mplus-TESTFLIGHT-058
+	dodoc mplus-TESTFLIGHT-058/README*
+}
