@@ -21,6 +21,7 @@ wjn-overlay packages list
 | app-i18n/libkkc | Japanese Kana Kanji conversion library | <https://github.com/ueno/libkkc> | o | |
 | app-i18n/libkkc-data | Japanese Kana Kanji conversion dictionary for libkkc | <https://github.com/ueno/libkkc> | o | |
 | app-i18n/mozc | Mozc - Japanese Input Method | <https://github.com/google/mozc> | - | newer rev., supports app-i18n/uim |
+| app-i18n/mozc-neologd-ut | Mozc Japanese Input Method with mecab-ipadic-NEologd | <http://www.geocities.jp/ep3797/mozc_01.html> | o | |
 | app-i18n/mozc-ut | Mozc Japanese Input Method with Additional Japanese dictionary | <http://www.geocities.jp/ep3797/mozc_01.html> | o | |
 | app-i18n/uim | Simple, secure and flexible input method library | <http://code.google.com/p/uim/> | - | dev ver., supports Qt5 |
 | app-misc/grc |  Generic Colouriser beautifies your logfiles or output of commands | <https://github.com/garabik/grc> | - | newer and dev ver. |
@@ -105,7 +106,7 @@ wjn-overlay packages list
 | media-fonts/ttedit-half | Japanese TrueType half-width mincho and gothic fonts based on IPA fonts. | <http://opentype.jp/hankakufont.htm> | o | |
 | media-fonts/ttedit-twobythree | Japanese TrueType two-thirds-width mincho and gothic fonts based on IPA fonts. | <http://opentype.jp/twobythreefont.htm> | o | |
 | media-fonts/umeplus-cl-fonts | UmePlus CL fonts are modified Ume CL and M+ fonts for Japanese | <http://www.geocities.jp/ep3797/modified_fonts_01.html> | o | |
-| media-fonts/wlmaru | a Japanese rounded gothic TrueType fonts based on Wadalab font | <http://osdn.jp/projects/jis2004/> | o | |
+| media-fonts/wlmaru | Japanese rounded TTF includes emoji, based on Wadalab Font | <http://osdn.jp/projects/jis2004/> | o | |
 | media-fonts/yasashisa-antique | Japanese OpenType serif sans-serif mixed font | <http://www.fontna.com/blog/1122/> | o | |
 | media-fonts/yasashisa-gothic | Japanese OpenType serif sans-serif mixed font | <http://www.fontna.com/blog/1122/> | o | |
 | media-fonts/yoz-mobomoga | Japanese TrueType fonts based on mplus-fonts and ja-ipafonts. | <http://yozvox.web.fc2.com/> | o | |
