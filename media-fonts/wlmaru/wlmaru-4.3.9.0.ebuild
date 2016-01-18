@@ -12,7 +12,7 @@ SP_DIR="64147"
 SC_DIR="64148"
 SCP_DIR="64149"
 
-DESCRIPTION="a Japanese rounded gothic TrueType fonts based on Wadalab font"
+DESCRIPTION="Japanese rounded TTF includes emoji, based on Wadalab Font"
 HOMEPAGE="http://osdn.jp/projects/jis2004/"
 SRC_URI="mirror://osdn/jis2004/${S_DIR}/${MY_PN}${PV//./}.lzh
 	mirror://osdn/jis2004/${SP_DIR}/${MY_PN}p${PV//./}.lzh

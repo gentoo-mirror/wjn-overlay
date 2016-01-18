@@ -105,7 +105,7 @@ wjn-overlay packages list
 | media-fonts/ttedit-half | Japanese TrueType half-width mincho and gothic fonts based on IPA fonts. | <http://opentype.jp/hankakufont.htm> | o | |
 | media-fonts/ttedit-twobythree | Japanese TrueType two-thirds-width mincho and gothic fonts based on IPA fonts. | <http://opentype.jp/twobythreefont.htm> | o | |
 | media-fonts/umeplus-cl-fonts | UmePlus CL fonts are modified Ume CL and M+ fonts for Japanese | <http://www.geocities.jp/ep3797/modified_fonts_01.html> | o | |
-| media-fonts/wlmaru | a Japanese rounded gothic TrueType fonts based on Wadalab font | <http://osdn.jp/projects/jis2004/> | o | |
+| media-fonts/wlmaru | Japanese rounded TTF includes emoji, based on Wadalab Font | <http://osdn.jp/projects/jis2004/> | o | |
 | media-fonts/yasashisa-antique | Japanese OpenType serif sans-serif mixed font | <http://www.fontna.com/blog/1122/> | o | |
 | media-fonts/yasashisa-gothic | Japanese OpenType serif sans-serif mixed font | <http://www.fontna.com/blog/1122/> | o | |
 | media-fonts/yoz-mobomoga | Japanese TrueType fonts based on mplus-fonts and ja-ipafonts. | <http://yozvox.web.fc2.com/> | o | |
