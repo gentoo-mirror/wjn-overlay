@@ -1,6 +1,18 @@
 # ChangeLog for media-fonts/k-font
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
-# (auto-generated from git log)
+# $Header: $
+
+  18 Jan 2016; wjn <wjn@aol.jp> k-font-20140908.ebuild:
+  Install document files
+
+   This package's archive includes Shift_JIS (CP932) encoded files.
+     - 【源真ゴシック・源ノ角ゴシック】Apache License 2.0.txt
+     - 利用前にお読みください.txt
+
+   1. Delete needless this license document
+   2. Rename "利用前にお読みください.txt" to "README"
+   3. Convert content of this file from Shift_JIS to UTF-8
+   4. Install documents
 
   01 Jan 2016; wjn <wjn@aol.jp> k-font-20140908.ebuild:
   **/*.ebuild: Change 2015 to 2016 in the GPLv2 copyright expressions
