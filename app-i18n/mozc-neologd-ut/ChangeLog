@@ -2,6 +2,24 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*mozc-neologd-ut-2.17.2315.102.20160118.2 (18 Jan 2016)
+
+  18 Jan 2016; wjn <wjn@aol.jp>
+  +mozc-neologd-ut-2.17.2315.102.20160118.2.ebuild:
+  Add version 2.17.2315.102.20160118.2
+
+  This version is...
+   - Mozc:
+          Version 2.17.2315.102 means major=2, minor=17, build=2315 and
+  revision=102
+          https://github.com/google/mozc/commit/80c7fb81
+   - mecab-ipadic-neologd: updates every Monday and Thursday
+          Release 20160118
+          https://github.com/neologd/mecab-ipadic-neologd/commit/6dd67e0
+   - mozc-neologd-ut:
+          Revision 2
+          http://www.geocities.jp/ep3797/mozc_01.html
+
 *mozc-neologd-ut-2.17.2313.102.20160114.2 (16 Jan 2016)
 
   16 Jan 2016; wjn <wjn@aol.jp> +files/50mozc-gentoo.el,
