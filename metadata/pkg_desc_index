@@ -103,9 +103,9 @@ media-fonts/umeplus-cl-fonts 20150917: UmePlus CL fonts are modified Ume CL and 
 media-fonts/wlmaru 4.3.9.0: Japanese rounded TTF includes emoji, based on Wadalab Font
 media-fonts/yasashisa-antique 1: Japanese OpenType serif sans-serif mixed font
 media-fonts/yasashisa-gothic 1: Japanese OpenType serif sans-serif mixed font
-media-fonts/yoz-mobomoga 001.02.12b: Japanese TrueType fonts based on mplus-fonts and ja-ipafonts.
+media-fonts/yoz-mobomoga 001.02.14: Japanese TrueType fonts based on mplus-fonts and ja-ipafonts.
 media-fonts/yozeng 1.40: Latin OpenType fonts like old typewriter and digital display, made by Y.Oz
-media-fonts/yozfont 13.09: Japanese OpenType pen writing fonts made by Y.Oz
+media-fonts/yozfont 13.11: Japanese OpenType pen writing fonts made by Y.Oz
 media-fonts/yozfontkm 7.01: Japanese OpenType brush fonts made by Y.Oz
 media-gfx/azdrawing 1.5: A painting software by drawing
 media-gfx/azpainter 1.0.6: A full-color painting software
