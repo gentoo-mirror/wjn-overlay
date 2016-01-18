@@ -2,6 +2,15 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  18 Jan 2016; wjn <wjn@aol.jp>
+  -mozc-neologd-ut-2.17.2315.102.20160118.2.ebuild:
+  Revert "app-i18n/mozc-neologd-ut: Add version 2.17.2315.102.20160118.2"
+
+   Since upstream released,
+  revert 2.17.2315.102.20160118.2 to enable newer 2.17.2315.102.20160118.1
+
+  This reverts commit 0433f5fbca79d0d64187dbfe0e57dd2ecb1454e0.
+
 *mozc-neologd-ut-2.17.2315.102.20160118.1 (18 Jan 2016)
 
   18 Jan 2016; wjn <wjn@aol.jp> +files/mozc-neologd-ut-change-branding.patch,
