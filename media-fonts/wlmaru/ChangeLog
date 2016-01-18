@@ -2,6 +2,9 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  18 Jan 2016; wjn <wjn@aol.jp> -wlmaru-4.3.6.0.ebuild:
+  Delete version 4.3.6.0
+
   18 Jan 2016; wjn <wjn@aol.jp> wlmaru-4.3.9.0.ebuild:
   Add version 4.3.9.0
 
