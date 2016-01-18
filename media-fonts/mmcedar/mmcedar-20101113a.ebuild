@@ -5,9 +5,11 @@
 EAPI=5
 inherit font
 
+OSDN_DIR="8/8844"
+
 DESCRIPTION="MMCedar are combined fonts that use Motoya L Cedar and M+ fonts"
 HOMEPAGE="http://www.geocities.jp/ep3797/modified_fonts_01.html"
-SRC_URI="mirror://sourceforge/mdk-ut/${P}.tar.lzma"
+SRC_URI="mirror://osdn/users/${OSDN_DIR}/${P}.tar.lzma"
 
 LICENSE="Apache-2.0 mplus-fonts"
 SLOT="0"

@@ -3,6 +3,11 @@
 # $Header: $
 
   18 Jan 2016; wjn <wjn@aol.jp> meguri-fonts-20101113a.ebuild:
+  media-fonts/komatuna-fonts,meguri-fonts,mmcedar: Update SRC_URI
+
+   Because their archives have moved from sourceforge to osdn.jp.
+
+  18 Jan 2016; wjn <wjn@aol.jp> meguri-fonts-20101113a.ebuild:
   migu-vbd,monapo,yasashisa-{antique,gothic}: Fix license
    IPAfont license is applied to them.
   IPAfont doesn't allow dual-license and stricter than mplus-fonts.
