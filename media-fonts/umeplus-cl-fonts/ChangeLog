@@ -1,6 +1,15 @@
 # ChangeLog for media-fonts/umeplus-cl-fonts
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
-# (auto-generated from git log)
+# $Header: $
+
+*umeplus-cl-fonts-20150917 (18 Jan 2016)
+
+  18 Jan 2016; wjn <wjn@aol.jp> +umeplus-cl-fonts-20150917.ebuild:
+  Add version 20150917
+
+   Upstream
+          - update M+ fonts (TESTFLIGHT-060)
+          - update Ume fonts (umefont-540)
 
   01 Jan 2016; wjn <wjn@aol.jp> umeplus-cl-fonts-20150115.ebuild:
   **/*.ebuild: Change 2015 to 2016 in the GPLv2 copyright expressions
