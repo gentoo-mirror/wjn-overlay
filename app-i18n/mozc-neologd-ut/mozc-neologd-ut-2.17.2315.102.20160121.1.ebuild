@@ -7,8 +7,8 @@ EAPI=5
 # Mozc doesn't support Python 3 yet.
 PYTHON_COMPAT=( python2_7 )
 
-inherit elisp-common eutils git-r3 multilib multiprocessing python-single-r1 \
-	python-utils-r1 toolchain-funcs versionator
+inherit elisp-common eutils git-r3 multilib python-single-r1 python-utils-r1 \
+	toolchain-funcs versionator
 
 MY_PN=${PN/mozc/mozcdic}
 
@@ -17,39 +17,63 @@ HOMEPAGE="http://www.geocities.jp/ep3797/mozc_01.html
 	https://github.com/neologd/mecab-ipadic-neologd
 	https://github.com/google/mozc"
 
-DIC_VER="$(get_version_component_range $(get_last_version_component_index))"
-UT_VER="20160118"
-UT_REV="$(get_version_component_range $(get_version_component_count))"
-UT_DIR="9/9809"
-
-# ZIP codes are revised monthly.
-ZIPCODE_REV="201512"
-
-MOZC_VER="$(get_version_component_range 1-$(get_last_version_component_index))"
+# Assign version variables #####
+MOZC_VER="$(get_version_component_range 1-4)"
 MOZC_REV="80c7fb8"
-NEOLOGD_REV="6dd67e0"
-USAGEDIC_REV="HEAD"
 FCITX_PATCH_VER="2.17.2313.102.1"
 UIM_PATCH_REV="3ea28b1"
 
-UT_URI="mirror://osdn/users/${UT_DIR}/${MY_PN}-${UT_VER}.${UT_REV}.tar.bz2"
+DIC_VER="$(get_version_component_range 5)"
+NEOLOGD_REV="fc48ab8"
 
+# Zip code data are revised on the last of every month
+ZIPCODE_REV="201512"
+
+# In case of replacing NEologd's seed, assign ${UT_REL} as well as ${DIC_VER}
+# In such a case, ${PV} can be ${MOZC_VER}.${DIC_VER}.0.${UT_REV}
+# On the other case, ${PV} is ${MOZC_VER}.${DIC_VER}.${UT_REV}
+# Therefore, ${UT_REV} is the last number of ${PV}
+UT_REL="20160121"
+UT_REV="$(get_version_component_range $(get_version_component_count))"
+UT_DIR="9/9824"
+#######################
+
+# Assign URI variables #########
 MOZC_URI="https://github.com/google/mozc.git"
-NEOLOGD_URI="https://github.com/neologd/mecab-ipadic-neologd.git"
-USAGEDIC_URI="https://github.com/hiroyuki-komatsu/japanese-usage-dictionary.git"
-ZIP1_URI="http://www.post.japanpost.jp/zipcode/dl/kogaki/zip/ken_all.zip"
-ZIP2_URI="http://www.post.japanpost.jp/zipcode/dl/jigyosyo/zip/jigyosyo.zip"
 FCITX_PATCH_URI="http://download.fcitx-im.org/fcitx-mozc/fcitx-mozc-${FCITX_PATCH_VER}.patch"
 UIM_PATCH_URI="https://github.com/e-kato/macuim.git"
 
-EGIT_REPO_URI=${MOZC_URI}
-EGIT_COMMIT=${MOZC_REV}
+# mozcdic-neologd-ut*.tar.bz2 has same release date's mecab-user-dict-seed
+# Do not download if unneeded
+if [ ${DIC_VER} -eq ${UT_REL} ] ; then
+	NEOLOGD_URI=""
+else
+	NEOLOGD_URI="https://raw.githubusercontent.com/neologd/mecab-ipadic-neologd/${NEOLOGD_REV}/seed/mecab-user-dict-seed.${DIC_VER}.csv.xz
+	https://raw.githubusercontent.com/neologd/mecab-ipadic-neologd/${NEOLOGD_REV}/COPYING
+	-> mecab-ipadic-neologd-${DIC_VER}-COPYING
+	https://raw.githubusercontent.com/neologd/mecab-ipadic-neologd/${NEOLOGD_REV}/ChangeLog
+	-> mecab-ipadic-neologd-${DIC_VER}-ChangeLog
+	https://raw.githubusercontent.com/neologd/mecab-ipadic-neologd/${NEOLOGD_REV}/README.ja.md
+	-> mecab-ipadic-neologd-${DIC_VER}-README.ja.md
+	https://raw.githubusercontent.com/neologd/mecab-ipadic-neologd/${NEOLOGD_REV}/README.md
+	-> mecab-ipadic-neologd-${DIC_VER}-README.md"
+fi
+
+ZIP1_URI="http://www.post.japanpost.jp/zipcode/dl/kogaki/zip/ken_all.zip"
+ZIP2_URI="http://www.post.japanpost.jp/zipcode/dl/jigyosyo/zip/jigyosyo.zip"
+
+UT_URI="mirror://osdn/users/${UT_DIR}/${MY_PN}-${UT_REL}.${UT_REV}.tar.bz2"
+#######################
 
 SRC_URI="${UT_URI}
+	${NEOLOGD_URI}
 	${ZIP1_URI} -> jp-zipcode${ZIPCODE_REV}-1.zip
 	${ZIP2_URI} -> jp-zipcode${ZIPCODE_REV}-2.zip
 	fcitx? ( ${FCITX_PATCH_URI} )"
+EGIT_REPO_URI=${MOZC_URI}
+EGIT_COMMIT=${MOZC_REV}
 
+# LICENSES
 # - Mozc
 #   + Mozc: BSD
 #   + dictionary_oss: ipadic and public-domain
@@ -59,13 +83,13 @@ SRC_URI="${UT_URI}
 #   + GYP: BSD
 #   + GMOCK: Boost-1.0
 #   + GTEST: BSD
-#   + IPAfont is in repo, but not used.
+#   + IPAfont is in repo, but not used
 # - mecab-ipadic-neologd: Apache-2.0
 # - Hatena: all-rights-reserved
 #   http://developer.hatena.ne.jp/ja/documents/keyword/misc/catalog
 # - Zipcode: public-domain http://www.post.japanpost.jp/zipcode/dl/readme.html
 # - Station names: public-domain
-#   http://www5a.biglobe.ne.jp/~harako/data/station.htm 
+#   http://www5a.biglobe.ne.jp/~harako/data/station.htm
 # - biographical dictionary: derived from Mozc
 # - Mozc Fcitx: BSD
 # - MacUIM: BSD
@@ -85,15 +109,15 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	emacs? ( virtual/emacs )
 	fcitx? ( app-i18n/fcitx )
 	ibus? ( >=app-i18n/ibus-1.4.1 )
-	renderer? ( x11-libs/gtk+:2 )
-	qt4? ( dev-qt/qtgui:4
+	qt4? ( dev-qt/qtcore:4
+		dev-qt/qtgui:4
 		app-i18n/zinnia	)
+	renderer? ( x11-libs/gtk+:2 )
 	uim? ( app-i18n/uim )"
 DEPEND="${COMMON_DEPEND}
 	app-arch/unzip
 	>=dev-lang/ruby-2.0
 	dev-util/ninja
-	dev-vcs/git
 	virtual/pkgconfig
 	clang? ( >=sys-devel/clang-3.4 )
 	fcitx? ( sys-devel/gettext )"
@@ -102,7 +126,7 @@ RDEPEND="${COMMON_DEPEND}
 		tomoe? ( app-i18n/zinnia-tomoe ) )"
 
 S="${WORKDIR}/${P}/src"
-UT_SRC="${WORKDIR}/${MY_PN}-${UT_VER}.${UT_REV}"
+UT_SRC="${WORKDIR}/${MY_PN}-${UT_REL}.${UT_REV}"
 NEOLOGD_SRC="${WORKDIR}/mecab-ipadic-neologd"
 
 RESTRICT="mirror"
@@ -126,15 +150,25 @@ NEOLOGD_DOCS=( "${NEOLOGD_SRC}/COPYING" "${NEOLOGD_SRC}/ChangeLog"
 src_unpack() {
 	unpack ${A}
 
+	if [ ${DIC_VER} -eq ${UT_REL} ] ; then
+		einfo "Unpacking mecab-user-dict-seed.${UT_REL}.csv.xz"
+		(
+			cp -R "${UT_SRC}/mecab-ipadic-neologd" "${WORKDIR}/"
+			cd "${NEOLOGD_SRC}"
+			unxz "mecab-user-dict-seed.${UT_REL}.csv.xz" || die
+		)
+	else
+		einfo "Placing mecab-user-dict-seed.${UT_REL}.csv.xz"
+		mkdir -p "${NEOLOGD_SRC}"
+		cp mecab-user-dict-seed.${DIC_VER}.csv "${NEOLOGD_SRC}/" || die
+		for f_n in COPYING ChangeLog README.ja.md README.md ; do
+			cp "${DISTDIR}/mecab-ipadic-neologd-${DIC_VER}-${f_n}" \
+				"${NEOLOGD_SRC}/${f_n}" || die
+		done
+	fi
+
 	git-r3_fetch ${MOZC_URI} ${MOZC_REV} mozc
 	git-r3_checkout ${MOZC_URI} "${S%/src}" mozc
-
-	git-r3_fetch ${NEOLOGD_URI} ${NEOLOGD_REV} neologd
-	git-r3_checkout ${NEOLOGD_URI} ${NEOLOGD_SRC} neologd
-
-	git-r3_fetch ${USAGEDIC_URI} ${USAGEDIC_REV} usagedic
-	git-r3_checkout ${USAGEDIC_URI} \
-		"${S}/third_party/japanese_usage_dictionary" usagedic
 
 	if use uim ; then
 		git-r3_fetch ${UIM_PATCH_URI} ${UIM_PATCH_REV} macuim
@@ -143,6 +177,7 @@ src_unpack() {
 }
 
 src_prepare() {
+	# This function is declared at the last of this file
 	generate-mozc-neologd-ut
 
 	if use fcitx ; then
@@ -168,14 +203,14 @@ src_configure() {
 		export GYP_DEFINES="compiler_target=clang compiler_host=clang"
 	else
 		export GYP_DEFINES="compiler_target=gcc compiler_host=gcc"
+		tc-export CC CXX AR AS RANLIB LD NM
 	fi
-
-	local myconf="--server_dir=/usr/$(get_libdir)/mozc"
 
 	use ibus && export GYP_DEFINES="${GYP_DEFINES}
 		ibus_mozc_path=/usr/libexec/ibus-engine-mozc
 		ibus_mozc_icon_path=/usr/share/ibus-mozc/product_icon.png"
 
+	local myconf
 	if ! use qt4 ; then
 		myconf="${myconf} --noqt"
 	elif use tomoe ; then
@@ -188,9 +223,9 @@ src_configure() {
 
 	use renderer || export GYP_DEFINES="${GYP_DEFINES} enable_gtk_renderer=0"
 
-	use clang || tc-export CC CXX AR AS RANLIB LD NM
-
-	"${PYTHON}" build_mozc.py gyp --target_platform=Linux "${myconf}" || die
+	"${PYTHON}" build_mozc.py gyp --target_platform=Linux \
+		--server_dir="/usr/$(get_libdir)/mozc" "${myconf}" \
+		|| die 'Failed to execute "build_mozc.py gyp"'
 }
 
 src_compile() {
@@ -206,7 +241,8 @@ src_compile() {
 	use uim && mytarget="${mytarget} unix/uim/uim.gyp:uim-mozc"
 
 	use clang || tc-export CC CXX AR AS RANLIB LD
-	"${PYTHON}" build_mozc.py build -c "${BUILDTYPE}" ${mytarget} || die
+	"${PYTHON}" build_mozc.py build -c "${BUILDTYPE}" ${mytarget} \
+		|| die 'Failed to execute "build_mozc.py build"'
 
 	use emacs && elisp-compile unix/emacs/*.el
 }
@@ -327,74 +363,78 @@ pkg_postinst() {
 		elog " Having the above settings, just type C-\\ which is bound to"
 		elog "\`toggle-input-method' by default."
 	fi
+
 	use uim && uim-module-manager --register mozc
 }
 
 pkg_postrm() {
 	use emacs && elisp-site-regen
+
 	use uim && uim-module-manager --unregister mozc
 }
 
 generate-mozc-neologd-ut() {
-	# change mozc branding
-	epatch ${FILESDIR}/${PN}-change-branding.patch
-	sed -i -e "s/NErUTr/NEologd rel: ${DIC_VER}, UT rev: ${UT_REV}/g" \
-		"${S}/gui/about_dialog/about_dialog.ui" \
-		"${S}/gui/about_dialog/about_dialog_en.ts" \
-		"${S}/gui/about_dialog/about_dialog_ja.ts" || die "Failed to add info"
+	einfo "Adding neologd-ut version information"
+	epatch "${FILESDIR}/${PN}-add-ut-info.patch"
+	# Converting "ba-jonn", NEologd release and UT revision are also outputted
+	sed -i -e 's/\(GetMozcVersion()\);/\1 + ".'"${DIC_VER}.${UT_REV}"'";/g' \
+		rewriter/version_rewriter.cc \
+		|| die "Failed to add neologd-ut info to Mozc version_rewriter"
+
 	if use qt4 ; then
-		/usr/$(get_libdir)/qt4/bin/lrelease \
+		# Add NEologd UT information to Mozc's about_dialog
+		# e.g. when you execute "/usr/lib/mozc/mozc_tool -mode about_dialog"
+		sed -i -e \
+			"s/NErUTr/NEologd rel: ${DIC_VER}, UT rel.rev: ${UT_REL}\.${UT_REV}/g" \
+			"${S}/gui/about_dialog/about_dialog.ui" \
+			"${S}/gui/about_dialog/about_dialog_en.ts" \
+			"${S}/gui/about_dialog/about_dialog_ja.ts" \
+			|| die "Failed to add neologd-ut info to Mozc about_dialog"
+		"/usr/$(get_libdir)/qt4/bin/lrelease" -silent \
 			"${S}/gui/about_dialog/about_dialog_en.ts"
-		/usr/$(get_libdir)/qt4/bin/lrelease \
-			"${S}/gui/about_dialog/about_dialog_ja.ts"
+		"/usr/$(get_libdir)/qt4/bin/lrelease" -silent \
+			"${S}/gui/about_dialog/about_dialog_ja.ts" \
+			|| die "Failed to recompile translation file"
 	fi
 
+	# For running UT scripts ############
 	cd "${UT_SRC}"
 
-	rm mecab-ipadic-neologd/mecab-user-dict-seed.${UT_VER}.csv.xz
-	cp "${WORKDIR}"/mecab-ipadic-neologd/seed/mecab-user-dict-seed.${DIC_VER}.csv.xz \
-		mecab-ipadic-neologd/
-
-	# get official mozcdic
+	ebegin "Getting mozcdic costlist"
 	cat "${S}"/data/dictionary_oss/dictionary*.txt > mozcdic.txt
-
-	# get mozcdic costlist
-	ebegin "getting costlist"
-	ruby 01-* mozcdic.txt
+	ruby 01-* mozcdic.txt || die "Failed to get mozcdic costlist"
 	eend
 
-	# get hinsi ID
-	cp "${S}/data/dictionary_oss/id.def" id.def
+	einfo "Copying hinshi ID"
+	cp "${S}/data/dictionary_oss/id.def" id.def \
+		|| die "Failed to copy hinshi ID"
 
-	# generate mozcdic-neologd-ut
-	cp "mecab-ipadic-neologd/mecab-user-dict-seed.${DIC_VER}.csv.xz" ./
-
-	ebegin "extracting mecab-user-dict-seed.${DIC_VER}.csv.xz"
-	xz -d "mecab-user-dict-seed.${DIC_VER}.csv.xz"
+	ebegin "Generating neologd.txt"
+	cp "${NEOLOGD_SRC}/mecab-user-dict-seed.${DIC_VER}.csv" ./
+	ruby 03-* "mecab-user-dict-seed.${DIC_VER}.csv" \
+		|| die "Failed to generate neologd.txt"
 	eend
 
-	ebegin "generating neologd.txt"
-	ruby 03-* "mecab-user-dict-seed.${DIC_VER}.csv"
+	ebegin "Generating mozcdic-neologd-ut.txt"
+	ruby 05-* || die "Failed to generate mozcdic-neologd-ut.txt"
 	eend
 
-	ebegin "generating mozcdic-neologd-ut.txt"
-	ruby 05-*
-	eend
-
-	# install mozcdic-neologd-ut
+	einfo "Copying dictionary files"
 	cat mozcdic-neologd-ut.txt "${S}/data/dictionary_oss/dictionary00.txt" \
 		> dictionary00.txt
-	mv dictionary00.txt "${S}/data/dictionary_oss/dictionary00.txt"
+	mv dictionary00.txt "${S}/data/dictionary_oss/dictionary00.txt" \
+		|| die "Failed to copy dictionary files"
 
-	# generate zip code dic
-	ebegin "generate zip code dic"
+	ebegin "Generating zip code dictionary"
 	cp "${S}/dictionary/gen_zip_code_seed.py" ./
 	cp "${WORKDIR}"/*.CSV ./
 	ruby 07-* KEN_ALL.CSV
 	"${PYTHON}" gen_zip_code_seed.py --zip_code=KEN_ALL.CSV.r \
 		--jigyosyo=JIGYOSYO.CSV \
-		>> "${S}/data/dictionary_oss/dictionary09.txt"
+		>> "${S}/data/dictionary_oss/dictionary09.txt" \
+		|| die "Failed to generate zip code dictionary"
 	eend
 
+	# Go back to the default directory ##
 	cd "${S}"
 }
