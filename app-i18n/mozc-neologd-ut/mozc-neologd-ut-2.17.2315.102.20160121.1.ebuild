@@ -23,15 +23,15 @@ MOZC_REV="80c7fb8"
 FCITX_PATCH_VER="2.17.2313.102.1"
 UIM_PATCH_REV="3ea28b1"
 
-DIC_VER="$(get_version_component_range 5)"
+DIC_REL="$(get_version_component_range 5)"
 NEOLOGD_REV="fc48ab8"
 
 # Zip code data are revised on the last of every month
 ZIPCODE_REV="201512"
 
-# In case of replacing NEologd's seed, assign ${UT_REL} as well as ${DIC_VER}
-# In such a case, ${PV} can be ${MOZC_VER}.${DIC_VER}.0.${UT_REV}
-# On the other case, ${PV} is ${MOZC_VER}.${DIC_VER}.${UT_REV}
+# In case of replacing NEologd's seed, assign ${UT_REL} as well as ${DIC_REL}
+# In such a case, ${PV} can be ${MOZC_VER}.${DIC_REL}.0.${UT_REV}
+# On the other case, ${PV} is ${MOZC_VER}.${DIC_REL}.${UT_REV}
 # Therefore, ${UT_REV} is the last number of ${PV}
 UT_REL="20160121"
 UT_REV="$(get_version_component_range $(get_version_component_count))"
@@ -45,18 +45,18 @@ UIM_PATCH_URI="https://github.com/e-kato/macuim.git"
 
 # mozcdic-neologd-ut*.tar.bz2 has same release date's mecab-user-dict-seed
 # Do not download if unneeded
-if [ ${DIC_VER} -eq ${UT_REL} ] ; then
+if [ ${DIC_REL} -eq ${UT_REL} ] ; then
 	NEOLOGD_URI=""
 else
-	NEOLOGD_URI="https://raw.githubusercontent.com/neologd/mecab-ipadic-neologd/${NEOLOGD_REV}/seed/mecab-user-dict-seed.${DIC_VER}.csv.xz
+	NEOLOGD_URI="https://raw.githubusercontent.com/neologd/mecab-ipadic-neologd/${NEOLOGD_REV}/seed/mecab-user-dict-seed.${DIC_REL}.csv.xz
 	https://raw.githubusercontent.com/neologd/mecab-ipadic-neologd/${NEOLOGD_REV}/COPYING
-	-> mecab-ipadic-neologd-${DIC_VER}-COPYING
+	-> mecab-ipadic-neologd-${DIC_REL}-COPYING
 	https://raw.githubusercontent.com/neologd/mecab-ipadic-neologd/${NEOLOGD_REV}/ChangeLog
-	-> mecab-ipadic-neologd-${DIC_VER}-ChangeLog
+	-> mecab-ipadic-neologd-${DIC_REL}-ChangeLog
 	https://raw.githubusercontent.com/neologd/mecab-ipadic-neologd/${NEOLOGD_REV}/README.ja.md
-	-> mecab-ipadic-neologd-${DIC_VER}-README.ja.md
+	-> mecab-ipadic-neologd-${DIC_REL}-README.ja.md
 	https://raw.githubusercontent.com/neologd/mecab-ipadic-neologd/${NEOLOGD_REV}/README.md
-	-> mecab-ipadic-neologd-${DIC_VER}-README.md"
+	-> mecab-ipadic-neologd-${DIC_REL}-README.md"
 fi
 
 ZIP1_URI="http://www.post.japanpost.jp/zipcode/dl/kogaki/zip/ken_all.zip"
@@ -150,7 +150,7 @@ NEOLOGD_DOCS=( "${NEOLOGD_SRC}/COPYING" "${NEOLOGD_SRC}/ChangeLog"
 src_unpack() {
 	unpack ${A}
 
-	if [ ${DIC_VER} -eq ${UT_REL} ] ; then
+	if [ ${DIC_REL} -eq ${UT_REL} ] ; then
 		einfo "Unpacking mecab-user-dict-seed.${UT_REL}.csv.xz"
 		(
 			cp -R "${UT_SRC}/mecab-ipadic-neologd" "${WORKDIR}/"
@@ -160,9 +160,9 @@ src_unpack() {
 	else
 		einfo "Placing mecab-user-dict-seed.${UT_REL}.csv.xz"
 		mkdir -p "${NEOLOGD_SRC}"
-		cp mecab-user-dict-seed.${DIC_VER}.csv "${NEOLOGD_SRC}/" || die
+		cp mecab-user-dict-seed.${DIC_REL}.csv "${NEOLOGD_SRC}/" || die
 		for f_n in COPYING ChangeLog README.ja.md README.md ; do
-			cp "${DISTDIR}/mecab-ipadic-neologd-${DIC_VER}-${f_n}" \
+			cp "${DISTDIR}/mecab-ipadic-neologd-${DIC_REL}-${f_n}" \
 				"${NEOLOGD_SRC}/${f_n}" || die
 		done
 	fi
@@ -377,7 +377,7 @@ generate-mozc-neologd-ut() {
 	einfo "Adding neologd-ut version information"
 	epatch "${FILESDIR}/${PN}-add-ut-info.patch"
 	# Converting "ba-jonn", NEologd release and UT revision are also outputted
-	sed -i -e 's/\(GetMozcVersion()\);/\1 + ".'"${DIC_VER}.${UT_REV}"'";/g' \
+	sed -i -e 's/\(GetMozcVersion()\);/\1 + ".'"${DIC_REL}.${UT_REV}"'";/g' \
 		rewriter/version_rewriter.cc \
 		|| die "Failed to add neologd-ut info to Mozc version_rewriter"
 
@@ -385,7 +385,7 @@ generate-mozc-neologd-ut() {
 		# Add NEologd UT information to Mozc's about_dialog
 		# e.g. when you execute "/usr/lib/mozc/mozc_tool -mode about_dialog"
 		sed -i -e \
-			"s/NErUTr/NEologd rel: ${DIC_VER}, UT rel.rev: ${UT_REL}\.${UT_REV}/g" \
+			"s_NErUTr_ / NEologd release date: ${DIC_REL}&lt;br&gt;UT release date: ${UT_REL}, revision: ${UT_REV}_g" \
 			"${S}/gui/about_dialog/about_dialog.ui" \
 			"${S}/gui/about_dialog/about_dialog_en.ts" \
 			"${S}/gui/about_dialog/about_dialog_ja.ts" \
@@ -410,8 +410,8 @@ generate-mozc-neologd-ut() {
 		|| die "Failed to copy hinshi ID"
 
 	ebegin "Generating neologd.txt"
-	cp "${NEOLOGD_SRC}/mecab-user-dict-seed.${DIC_VER}.csv" ./
-	ruby 03-* "mecab-user-dict-seed.${DIC_VER}.csv" \
+	cp "${NEOLOGD_SRC}/mecab-user-dict-seed.${DIC_REL}.csv" ./
+	ruby 03-* "mecab-user-dict-seed.${DIC_REL}.csv" \
 		|| die "Failed to generate neologd.txt"
 	eend
 
