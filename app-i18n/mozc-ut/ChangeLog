@@ -1,6 +1,22 @@
 # ChangeLog for app-i18n/mozc-ut
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
-# (auto-generated from git log)
+# $Header: $
+
+*mozc-ut-2.17.2315.102.20160121 (21 Jan 2016)
+
+  21 Jan 2016; wjn <wjn@aol.jp> +files/mozc-ut-add-ut-info.patch,
+  -mozc-ut-2.17.2243.102.20151130.ebuild,
+  +mozc-ut-2.17.2315.102.20160121.ebuild:
+  Add version 2.17.2315.102.20160121, Delete old
+
+   - Added:       2.17.2315.102.20160121
+   - Deleted:     2.17.2243.102.20151130
+   - Added UT information to Mozc's about_dialog and "ba-jonn" converting
+   - Some tidy up
+
+  16 Jan 2016; wjn <wjn@aol.jp> metadata.xml,
+  mozc-ut-2.17.2243.102.20151130.ebuild:
+  Add brocker for mozc-ut-neologd
 
   03 Jan 2016; wjn <wjn@aol.jp> mozc-ut-2.17.2243.102.20151130.ebuild:
   Update Manifest for zip codes archives to 201512 revision

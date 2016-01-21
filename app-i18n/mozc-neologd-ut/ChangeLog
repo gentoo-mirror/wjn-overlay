@@ -2,6 +2,21 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*mozc-neologd-ut-2.17.2315.102.20160121.1 (21 Jan 2016)
+
+  21 Jan 2016; wjn <wjn@aol.jp> +files/mozc-neologd-ut-add-ut-info.patch,
+  -files/mozc-neologd-ut-change-branding.patch,
+  -mozc-neologd-ut-2.17.2315.102.20160118.1.ebuild,
+  +mozc-neologd-ut-2.17.2315.102.20160121.1.ebuild:
+  Add version 2.17.2315.102.20160121.1, delete old
+
+   - Added:       2.17.2315.102.20160121.1
+   - Deleted:     2.17.2315.102.20160118.1
+   - Improved adding NEologd UT version information
+   - Avoided duplicated downloading NEologed
+   - Renamed a patch file
+   - Tidied up codes
+
   18 Jan 2016; wjn <wjn@aol.jp>
   -mozc-neologd-ut-2.17.2315.102.20160118.2.ebuild:
   Revert "app-i18n/mozc-neologd-ut: Add version 2.17.2315.102.20160118.2"

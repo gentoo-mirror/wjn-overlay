@@ -7,50 +7,79 @@ EAPI=5
 # Mozc doesn't support Python 3 yet.
 PYTHON_COMPAT=( python2_7 )
 
-inherit elisp-common eutils git-r3 multilib multiprocessing python-single-r1 \
-	python-utils-r1 toolchain-funcs versionator
+inherit elisp-common eutils git-r3 multilib python-single-r1 python-utils-r1 \
+	toolchain-funcs versionator
+
+MY_PN=${PN/mozc/mozcdic}
 
 DESCRIPTION="Mozc Japanese Input Method with Additional Japanese dictionary"
 HOMEPAGE="http://www.geocities.jp/ep3797/mozc_01.html
 	https://github.com/google/mozc"
 
-UT_VER=$(get_version_component_range $(get_version_component_count))
-UT_DIR="9/9619"
+# Assign version variables #####
+MOZC_VER="$(get_version_component_range 1-4)"
+MOZC_REV="80c7fb8"
+FCITX_PATCH_VER="2.17.2313.102.1"
+UIM_PATCH_REV="3ea28b1"
 
-# ZIP codes are revised monthly.
+# Zip code data are revised on the last of every month
 ZIPCODE_REV="201512"
 
-MOZC_VER=$(get_version_component_range 1-$(get_last_version_component_index))
-MOZC_REV="24662ba"
-USAGEDIC_REV="HEAD"
-FCITX_PATCH_VER="2.17.2102.102.1"
-UIM_PATCH_REV="0562676"
+UT_REL=$(get_version_component_range $(get_version_component_count))
+UT_DIR="9/9822"
+#######################
 
-UT_URI="mirror://osdn/users/${UT_DIR}/mozcdic-ut-${UT_VER}.tar.bz2"
-
+# Assign URI variables #########
 MOZC_URI="https://github.com/google/mozc.git"
-USAGEDIC_URI="https://github.com/hiroyuki-komatsu/japanese-usage-dictionary.git"
-ZIP1_URI="http://www.post.japanpost.jp/zipcode/dl/kogaki/zip/ken_all.zip"
-ZIP2_URI="http://www.post.japanpost.jp/zipcode/dl/jigyosyo/zip/jigyosyo.zip"
-EDICT_URI="http://ftp.monash.edu.au/pub/nihongo/edict.gz"
 FCITX_PATCH_URI="http://download.fcitx-im.org/fcitx-mozc/fcitx-mozc-${FCITX_PATCH_VER}.patch"
 UIM_PATCH_URI="https://github.com/e-kato/macuim.git"
 
-EGIT_REPO_URI=${MOZC_URI}
-EGIT_COMMIT=${MOZC_REV}
-EGIT_CHECKOUT_DIR="${WORKDIR}/mozcdic-ut-${UT_VER}/mozc_src"
+ZIP1_URI="http://www.post.japanpost.jp/zipcode/dl/kogaki/zip/ken_all.zip"
+ZIP2_URI="http://www.post.japanpost.jp/zipcode/dl/jigyosyo/zip/jigyosyo.zip"
+EDICT_URI="http://ftp.monash.edu.au/pub/nihongo/edict.gz"
+
+UT_URI="mirror://osdn/users/${UT_DIR}/mozcdic-ut-${UT_REL}.tar.bz2"
+#######################
 
 SRC_URI="${UT_URI}
 	${ZIP1_URI} -> jp-zipcode${ZIPCODE_REV}-1.zip
 	${ZIP2_URI} -> jp-zipcode${ZIPCODE_REV}-2.zip
 	${EDICT_URI} -> monash-nihongo-edict.gz
 	fcitx? ( ${FCITX_PATCH_URI} )"
+EGIT_REPO_URI=${MOZC_URI}
+EGIT_COMMIT=${MOZC_REV}
 
-# MAKE SURE:
-# 	The licenses of nicodic as well as hatena-keyword are unknown.
-# 	Therefore they can be all-rights-reserved.
-LICENSE="BSD BSD-2 CC-BY-SA-3.0 GPL-2 all-rights-reserved ipadic public-domain
-	unicode ejdic? ( wn-ja )  test? ( Boost-1.0 )"
+# CAUTION:
+# 	The license of nicodic is NOT CLEAR -> nicodic is not recommended
+#
+# LICENSES
+# - Mozc
+#   + Mozc: BSD
+#   + dictionary_oss: ipadic and public-domain
+#   + unicode: unicode
+#   + zinnia: BSD
+#   + usagedic: BSD-2
+#   + GYP: BSD
+#   + GMOCK: Boost-1.0
+#   + GTEST: BSD
+#   + IPAfont is in repo, but not used
+# - alt-cannadic: GPL-2+
+# - biographical dictionary: GPL-2+
+# - SKK-JISYO.L: GPL-2+
+# - Hatena: all-rights-reserved
+#   http://developer.hatena.ne.jp/ja/documents/keyword/misc/catalog
+# - EDICT: CC-BY-SA-3.0
+# 	http://www.edrdg.org/jmdict/edict.html
+# - Zipcode: public-domain http://www.post.japanpost.jp/zipcode/dl/readme.html
+# - Station names: public-domain
+#   http://www5a.biglobe.ne.jp/~harako/data/station.htm
+# - Japanese WordNet: wn-ja
+# 	http://nlpwww.nict.go.jp/wn-ja/license.txt
+# - niconico: ** NOT CLEAR **
+# - Mozc Fcitx: BSD
+# - MacUIM: BSD
+LICENSE="BSD BSD-2 CC-BY-SA-3.0 GPL-2+ all-rights-reserved ipadic public-domain
+	unicode ejdic? ( wn-ja ) test? ( Boost-1.0 )"
 SLOT="0"
 KEYWORDS=""
 IUSE="clang ejdic emacs fcitx ibus -nicodic +qt4 renderer -test tomoe uim"
@@ -65,15 +94,16 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	emacs? ( virtual/emacs )
 	fcitx? ( app-i18n/fcitx )
 	ibus? ( >=app-i18n/ibus-1.4.1 )
-	renderer? ( x11-libs/gtk+:2 )
-	qt4? ( dev-qt/qtgui:4
+	qt4? ( dev-qt/qtcore:4
+		dev-qt/qtgui:4
 		app-i18n/zinnia	)
+	renderer? ( x11-libs/gtk+:2 )
 	uim? ( app-i18n/uim )"
 DEPEND="${COMMON_DEPEND}
 	app-arch/unzip
+	app-i18n/nkf
 	>=dev-lang/ruby-2.0
 	dev-util/ninja
-	dev-vcs/git
 	virtual/pkgconfig
 	clang? ( >=sys-devel/clang-3.4 )
 	fcitx? ( sys-devel/gettext )"
@@ -82,7 +112,7 @@ RDEPEND="${COMMON_DEPEND}
 		tomoe? ( app-i18n/zinnia-tomoe ) )"
 
 S="${WORKDIR}/${P}/src"
-UT_SRC="${WORKDIR}/mozcdic-ut-${UT_VER}"
+UT_SRC="${WORKDIR}/${MY_PN}-${UT_REL}"
 
 RESTRICT="mirror"
 use test || RESTRICT="${RESTRICT} test"
@@ -94,11 +124,10 @@ SITEFILE="50${PN%-ut}-gentoo.el"
 DOCS=( "${UT_SRC}/AUTHORS" "${UT_SRC}/ChangeLog" "${UT_SRC}/COPYING"
 	"${UT_SRC}/README" )
 
-MOZC_DOCS=( "${WORKDIR}/${P}/AUTHORS" "${WORKDIR}/${P}/CONTRIBUTING.md"
-	"${WORKDIR}/${P}/CONTRIBUTORS" "${WORKDIR}/${P}/README.md"
-	"${WORKDIR}/${P}/doc/about_branding.md"
-	"${WORKDIR}/${P}/doc/release_history.md"
-	"${WORKDIR}/${P}/doc/design_doc" )
+MOZC_DOCS=( "${S%/src}/AUTHORS" "${S%/src}/CONTRIBUTING.md"
+	"${S%/src}/CONTRIBUTORS" "${S%/src}/README.md"
+	"${S%/src}/doc/about_branding.md" "${S%/src}/doc/release_history.md"
+	"${S%/src}/doc/design_doc" )
 
 pkg_pretend(){
 	if use nicodic ; then
@@ -106,7 +135,12 @@ pkg_pretend(){
 		ewarn "The author of Mozc UT recommends disabling its NICODIC feature,"
 		ewarn "because the license of NICODIC isn't clear."
 		ewarn "Are you sure to enable NICODIC feature?"
-		sleep 5
+		echo -n "   "
+		for num in 5 4 3 2 1 ; do
+			echo -n "${num} "
+			sleep 1
+		done
+		echo
 	fi
 }
 
@@ -116,10 +150,6 @@ src_unpack() {
 	git-r3_fetch ${MOZC_URI} ${MOZC_REV} mozc
 	git-r3_checkout ${MOZC_URI} "${S%/src}" mozc
 
-	git-r3_fetch ${USAGEDIC_URI} ${USAGEDIC_REV} usagedic
-	git-r3_checkout ${USAGEDIC_URI} \
-		"${S}/third_party/japanese_usage_dictionary" usagedic
-
 	if use uim ; then
 		git-r3_fetch ${UIM_PATCH_URI} ${UIM_PATCH_REV} macuim
 		git-r3_checkout ${UIM_PATCH_URI} "${WORKDIR}/macuim" macuim
@@ -127,6 +157,12 @@ src_unpack() {
 }
 
 src_prepare() {
+	# Document files of altcanna are EUC-JP encoded, should be converted to UTF-8
+	for f_n in "${UT_SRC}"/altcanna/doc/* ; do
+		nkf -E -w --overwrite ${f_n}
+	done
+
+	# This function is declared at the last of this file
 	generate-mozc-ut
 
 	if use fcitx ; then
@@ -137,7 +173,6 @@ src_prepare() {
 	if use uim ; then
 		rm -rf unix/uim/
 		cp -r "${WORKDIR}/macuim/Mozc/uim" "${S}/unix/"
-		epatch "${FILESDIR}/${PN}-macuim-rename-initgoogle.patch"
 		epatch "${FILESDIR}/mozc-kill-line.diff"
 	fi
 
@@ -153,14 +188,14 @@ src_configure() {
 		export GYP_DEFINES="compiler_target=clang compiler_host=clang"
 	else
 		export GYP_DEFINES="compiler_target=gcc compiler_host=gcc"
+		tc-export CC CXX AR AS RANLIB LD NM
 	fi
-
-	local myconf="--server_dir=/usr/$(get_libdir)/mozc"
 
 	use ibus && export GYP_DEFINES="${GYP_DEFINES}
 		ibus_mozc_path=/usr/libexec/ibus-engine-mozc
 		ibus_mozc_icon_path=/usr/share/ibus-mozc/product_icon.png"
 
+	local myconf
 	if ! use qt4 ; then
 		myconf="${myconf} --noqt"
 	elif use tomoe ; then
@@ -173,9 +208,9 @@ src_configure() {
 
 	use renderer || export GYP_DEFINES="${GYP_DEFINES} enable_gtk_renderer=0"
 
-	use clang || tc-export CC CXX AR AS RANLIB LD NM
-
-	"${PYTHON}" build_mozc.py gyp --target_platform=Linux "${myconf}" || die
+	"${PYTHON}" build_mozc.py gyp --target_platform=Linux \
+		--server_dir="/usr/$(get_libdir)/mozc" "${myconf}" \
+		|| die 'Failed to execute "build_mozc.py gyp"'
 }
 
 src_compile() {
@@ -191,7 +226,8 @@ src_compile() {
 	use uim && mytarget="${mytarget} unix/uim/uim.gyp:uim-mozc"
 
 	use clang || tc-export CC CXX AR AS RANLIB LD
-	"${PYTHON}" build_mozc.py build -c "${BUILDTYPE}" ${mytarget} || die
+	"${PYTHON}" build_mozc.py build -c "${BUILDTYPE}" ${mytarget} \
+		|| die 'Failed to execute "build_mozc.py build"'
 
 	use emacs && elisp-compile unix/emacs/*.el
 }
@@ -215,12 +251,13 @@ src_install() {
 	docinto mozc
 	dodoc -r ${MOZC_DOCS[@]}
 
-	local dics=( "altcanna" "chimei" "edict" "ekimei" "hatena" "jinmei" "skk" )
-	use ejdic && dics=( ${dics[@]} "wordnet-ejdic" )
-	use nicodic && dics=( ${dics[@]} "niconico" )
-	for dn in ${dics[@]} ; do
-		docinto ${dn}
-		dodoc "${UT_SRC}"/${dn}/doc/*
+	local dic_names=( "altcanna" "chimei" "edict" "ekimei" "hatena" "jinmei"
+		"skk" )
+	use ejdic && dic_names=( ${dic_names[@]} "wordnet-ejdic" )
+	use nicodic && dic_names=( ${dic_names[@]} "niconico" )
+	for dic_name in ${dic_names[@]} ; do
+		docinto ${dic_name}
+		dodoc "${UT_SRC}"/${dic_name}/doc/*
 	done
 
 	if use emacs ; then
@@ -318,110 +355,133 @@ pkg_postinst() {
 		elog " Having the above settings, just type C-\\ which is bound to"
 		elog "\`toggle-input-method' by default."
 	fi
+
 	use uim && uim-module-manager --register mozc
 }
 
 pkg_postrm() {
 	use emacs && elisp-site-regen
+
 	use uim && uim-module-manager --unregister mozc
 }
 
 generate-mozc-ut() {
+	einfo "Adding mozc-ut version information"
+	epatch "${FILESDIR}/${PN}-add-ut-info.patch"
+	# Converting "ba-jonn", NEologd release and UT revision are also outputted
+	sed -i -e 's/\(GetMozcVersion()\);/\1 + ".'"${UT_REL}"'";/g' \
+		rewriter/version_rewriter.cc \
+		|| die "Failed to add neologd-ut info to Mozc version_rewriter"
+
+	if use qt4 ; then
+		# Add UT information to Mozc's about_dialog
+		# e.g. when you execute "/usr/lib/mozc/mozc_tool -mode about_dialog"
+		sed -i -e \
+			"s_UTr_/ release date: ${UT_REL}_g" \
+			"${S}/gui/about_dialog/about_dialog.ui" \
+			"${S}/gui/about_dialog/about_dialog_en.ts" \
+			"${S}/gui/about_dialog/about_dialog_ja.ts" \
+			|| die "Failed to add neologd-ut info to Mozc about_dialog"
+		"/usr/$(get_libdir)/qt4/bin/lrelease" -silent \
+			"${S}/gui/about_dialog/about_dialog_en.ts"
+		"/usr/$(get_libdir)/qt4/bin/lrelease" -silent \
+			"${S}/gui/about_dialog/about_dialog_ja.ts" \
+			|| die "Failed to recompile translation file"
+	fi
+
+	# For running UT scripts ############
 	cd "${UT_SRC}"
 
-	# get official mozcdic
+	ebegin "Getting mozcdic costlist"
 	cat "${S}"/data/dictionary_oss/dictionary*.txt > mozcdic_all.txt
+	ruby 01-* mozcdic_all.txt || die "Failed to get mozcdic costlist"
+	eend
 
-	# get mozcdic costlist
-	ruby 32-* mozcdic_all.txt
-	mv mozcdic_all.txt.cost costlist
-
-	# get hinsi ID
-	cp "${S}/data/dictionary_oss/id.def" id.def
+	einfo "Copying hinshi ID"
+	cp "${S}/data/dictionary_oss/id.def" id.def \
+		|| die "Failed to copy hinshi ID"
 
 	(
-		# generate zip code dic
-		ebegin "generate zip code dic"
+		ebegin "Generating zip code dictionary"
 		cd chimei/
 		cp "${WORKDIR}"/*.CSV ./
 		cp "${S}/dictionary/gen_zip_code_seed.py" ./
-		ruby modify-zipcode.rb KEN_ALL.CSV
+		ruby modify-zipcode.rb KEN_ALL.CSV || die
 		"${PYTHON}" gen_zip_code_seed.py --zip_code=KEN_ALL.CSV.r \
 			--jigyosyo=JIGYOSYO.CSV \
-			>> "${S}/data/dictionary_oss/dictionary09.txt"
+			>> "${S}/data/dictionary_oss/dictionary09.txt" \
+				|| die "Failed to generate zip code dictionary"
 		eend
 
-		# generate chimei.txt
-		ebegin "generate chimei.txt"
-		ruby get-entries.rb KEN_ALL.CSV.r
+		ebegin "Generating chimei.txt"
+		ruby get-entries.rb KEN_ALL.CSV.r \
+			|| die "Failed to generate chimei.txt"
 		eend
 	)
 
-	# check major ut dictionaries
-	ebegin "check major ut dictionaries"
-	# ruby 12-* dicfile min_hits
-	ruby 12-* altcanna/altcanna.txt 300
-	ruby 12-* jinmei/jinmei.txt 20
-	ruby 12-* ekimei/ekimei.txt 0
-	ruby 12-* chimei/chimei.txt 0
+	ebegin "Checking major ut dictionaries"
+	# ruby 03-* dicfile min_hits || die
+	ruby 03-* altcanna/altcanna.txt 300 || die "Failed to tune altcanna.txt"
+	ruby 03-* jinmei/jinmei.txt 20 || die "Failed to tune jinmei.txt"
+	ruby 03-* ekimei/ekimei.txt 0 || die "Failed to tune ekimei.txt"
+	ruby 03-* chimei/chimei.txt 0 || die "Failed to tune chimei.txt"
 	cat altcanna/altcanna.txt.r jinmei/jinmei.txt.r ekimei/ekimei.txt.r \
 		chimei/chimei.txt.r > ut-dic1.txt
 	if use ejdic ; then
-		ruby 12-* wordnet-ejdic/wordnet-ejdic.txt 0
+		ruby 03-* wordnet-ejdic/wordnet-ejdic.txt 0 \
+			|| die  "Failed to tune wordnet-ejdic.txt"
 		cat wordnet-ejdic/wordnet-ejdic.txt.r ut-dic1.txt > ut-dic1.txt.new
 		mv ut-dic1.txt.new ut-dic1.txt
 	fi
-	ruby 44-* mozcdic_all.txt ut-dic1.txt
-	ruby 36-* ut-dic1.txt.yomihyouki
+	ruby 05-* mozcdic_all.txt ut-dic1.txt || die "Failed to remove duplicates"
+	ruby 11-* ut-dic1.txt.yomihyouki || die "Failed to apply cost and hinshi"
 	cat ut-dic1.txt.yomihyouki.cost mozcdic_all.txt > mozcdic_all.txt.utmajor
 	eend
 
-	# check minor ut dictionaries
-	ebegin "check minor ut dictionaries"
-	ruby 12-* skk/skk.txt 300
-	ruby 12-* edict/edict.txt 300
-	ruby 12-* hatena/hatena.txt 300
+	ebegin "Checking minor ut dictionaries"
+	ruby 03-* skk/skk.txt 300 || die "Failed to tune skk.txt"
+	ruby 03-* edict/edict.txt 300 || die "Failed to tune edict.txt"
+	ruby 03-* hatena/hatena.txt 300 || die "Failed to tune hatena.txt"
 	cat skk/skk.txt.r edict/edict.txt.r hatena/hatena.txt.r > ut-dic2.txt
 	if use nicodic ; then
-		ruby 12-* niconico/niconico.txt 300
+		ruby 03-* niconico/niconico.txt 300 \
+			|| die "Failed to tune niconico.txt"
 		cat niconico/niconico.txt.r ut-dic2.txt > ut-dic2.txt.new
 		mv ut-dic2.txt.new ut-dic2.txt
 	fi
-	ruby 42-* mozcdic_all.txt.utmajor ut-dic2.txt
-	ruby 40-* mozcdic_all.txt.utmajor ut-dic2.txt.yomi
-	ruby 36-* ut-dic2.txt.yomi.hyouki
+	ruby 07-* mozcdic_all.txt.utmajor ut-dic2.txt \
+		|| die "Failed to remove duplicates of yomi"
+	ruby 09-* mozcdic_all.txt.utmajor ut-dic2.txt.yomi \
+		|| die "Failed to remove duplicates of hyouki"
+	ruby 11-* ut-dic2.txt.yomi.hyouki \
+		|| die "Failed to apply cost and hinshi"
 	eend
 
 	(
-		# generate katakana-eigo entries
-		ebegin "generate katakana-eigo entries"
+		ebegin "Generating katakana-eigo entries"
 		cd edict-katakanago
 		cp "${WORKDIR}/monash-nihongo-edict" ./edict
-		ruby 01-* edict
-		ruby 02-* edict.utf8
-		ruby remove-duplicates.rb edict.utf8.kata
+		ruby 01-* edict || die "Failed to convert edict to UTF-8"
+		ruby 02-* edict.utf8 || die " Failed to generate entries"
+		ruby remove-duplicates-mozc-format.rb edict.utf8.kata \
+			|| die "Failed to remove duplicates"
 		cat ../mozcdic_all.txt ../*.cost ./edict.utf8.kata.r > ./edict.kata
-		ruby 03-* edict.kata
+		ruby 03-* edict.kata || die "Failed to apply cost"
 		eend
 	)
 
-	# add yomigana ba
-	ebegin "generate babibubebo from vavivuvevo"
+	ebegin "Generating babibubebo from vavivuvevo"
 	cat *.cost mozcdic_all.txt edict-katakanago/edict.kata.cost \
 		> ut-check-va.txt
-	ruby 60-* ut-check-va.txt
-	ruby 62-* ut-check-va.txt.va
+	ruby 60-* ut-check-va.txt || die 'Failed to generate "babibubebo" entries'
 	eend
 
-	# install mozcdic-ut
-	cat *.cost edict-katakanago/edict.kata.cost *.va.to_ba > dictionary-ut.txt
-
-	cat dictionary-ut.txt \
+	einfo "Installing mozcdic-ut"
+	cat *.cost edict-katakanago/edict.kata.cost *.to_ba > mozcdic-ut.txt
+	cat mozcdic-ut.txt \
 		"${S}/data/dictionary_oss/dictionary00.txt" > dictionary00.txt
 	mv dictionary00.txt "${S}/data/dictionary_oss/"
 
-	# change mozc branding
-	sed -i 's/"Mozc"/"Mozc-UT"/g' "${S}/base/const.h"
-
+	# Go back to the default directory ##
 	cd "${S}"
 }
