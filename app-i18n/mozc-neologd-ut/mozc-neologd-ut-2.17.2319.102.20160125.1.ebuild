@@ -135,7 +135,7 @@ use test || RESTRICT="${RESTRICT} test"
 
 BUILDTYPE=${BUILDTYPE:-Release}
 
-SITEFILE="50${PN%-ut}-gentoo.el"
+SITEFILE="50${PN%-neologd-ut}-gentoo.el"
 
 DOCS=( "${UT_SRC}/AUTHORS" "${UT_SRC}/ChangeLog" "${UT_SRC}/COPYING"
 	"${UT_SRC}/README" )
