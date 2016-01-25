@@ -2,6 +2,16 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*xf86-video-intel-2.99.917_p20160122 (25 Jan 2016)
+
+  25 Jan 2016; wjn <wjn@aol.jp> -xf86-video-intel-2.99.917-r2.ebuild,
+  +xf86-video-intel-2.99.917_p20160122.ebuild:
+  Add version 2.99.917_p20160122, delete old
+
+   - To enable dri3,
+     + uxa should be disabled to Avoid freezing
+     + dri2 must be disabled
+
   01 Jan 2016; wjn <wjn@aol.jp> xf86-video-intel-2.99.917-r2.ebuild:
   **/*.ebuild: Change 2015 to 2016 in the GPLv2 copyright expressions
 

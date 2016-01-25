@@ -5,56 +5,51 @@
 EAPI=5
 
 XORG_DRI=dri
-inherit linux-info xorg-2 flag-o-matic
+inherit linux-info xorg-2
 
+COMMIT_ID="b48d4a7917ab793526be47559becc64aacd347ae"
 DESCRIPTION="X.Org driver for Intel cards"
+SRC_URI="http://cgit.freedesktop.org/xorg/driver/xf86-video-intel/snapshot/${COMMIT_ID}.tar.xz -> ${P}.tar.xz"
 
-KEYWORDS="~amd64 ~x86 ~amd64-fbsd -x86-fbsd"
-IUSE="debug +sna +udev uxa xvmc"
+KEYWORDS="~amd64"
+IUSE="debug -dri3 +sna +udev uxa xvmc"
+# dri3 will freeze under uxa
+REQUIRED_USE=" || ( sna uxa )
+	dri3? ( dri sna !uxa )"
 
-REQUIRED_USE="
-	|| ( sna uxa )
-"
-
-RDEPEND="x11-libs/libXext
-	x11-libs/libXfixes
-	>=x11-libs/pixman-0.27.1
-	>=x11-libs/libdrm-2.4.29[video_cards_intel]
-	sna? (
-		>=x11-base/xorg-server-1.10
-	)
-	udev? (
-		virtual/udev
-	)
-	xvmc? (
-		x11-libs/libXvMC
-		>=x11-libs/libxcb-1.5
-		x11-libs/xcb-util
-	)
-"
-DEPEND="${RDEPEND}
-	>=x11-proto/dri2proto-2.6
+COMMON_DEPEND=">=x11-proto/dri2proto-2.6
 	x11-proto/dri3proto
 	x11-proto/presentproto
 	x11-proto/resourceproto"
+DEPEND=${COMMON_DEPEND}
+RDEPEND="${COMMON_DEPEND}
+	x11-libs/libXext
+	x11-libs/libXfixes
+	>=x11-libs/libdrm-2.4.29[video_cards_intel]
+	>=x11-libs/pixman-0.27.1
+	sna? ( >=x11-base/xorg-server-1.10 )
+	udev? ( virtual/udev )
+	xvmc? ( x11-libs/libXvMC
+		>=x11-libs/libxcb-1.5
+		x11-libs/xcb-util )"
 
-PATCHES=(
-	"${FILESDIR}"/${P}-sna-udev-fstat.patch
-	"${FILESDIR}"/${P}-uxa-udev-fstat.patch
-	"${FILESDIR}"/${P}-libdrm-kernel-4_0-crash.patch
-)
+S=${WORKDIR}/${COMMIT_ID}
+
+src_prepare() {
+	eautoreconf
+}
 
 src_configure() {
-	[[ $(gcc-major-version) -ge 5 ]] && append-flags -O0
+	# For enabling dri3, dri2 must be disabled
 	XORG_CONFIGURE_OPTIONS=(
 		$(use_enable debug)
 		$(use_enable dri)
-		$(use_enable dri dri3)
+		$(use_enable dri3)
+		$(usex dri3 --disable-dri2 --enable-dri2 "" "")
 		$(use_enable sna)
 		$(use_enable uxa)
 		$(use_enable udev)
 		$(use_enable xvmc)
-		# --disable-dri3
 	)
 	xorg-2_src_configure
 }
