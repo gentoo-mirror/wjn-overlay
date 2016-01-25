@@ -19,12 +19,12 @@ HOMEPAGE="http://www.geocities.jp/ep3797/mozc_01.html
 
 # Assign version variables #####
 MOZC_VER="$(get_version_component_range 1-4)"
-MOZC_REV="80c7fb8"
+MOZC_REV="070bf2a"
 FCITX_PATCH_VER="2.17.2313.102.1"
 UIM_PATCH_REV="3ea28b1"
 
 DIC_REL="$(get_version_component_range 5)"
-NEOLOGD_REV="fc48ab8"
+NEOLOGD_REV="18be199"
 
 # Zip code data are revised on the last of every month
 ZIPCODE_REV="201512"
@@ -33,9 +33,10 @@ ZIPCODE_REV="201512"
 # In such a case, ${PV} can be ${MOZC_VER}.${DIC_REL}.0.${UT_REV}
 # On the other case, ${PV} is ${MOZC_VER}.${DIC_REL}.${UT_REV}
 # Therefore, ${UT_REV} is the last number of ${PV}
-UT_REL="20160121"
+UT_REL="20160125"
 UT_REV="$(get_version_component_range $(get_version_component_count))"
-UT_DIR="9/9824"
+# FYI: https://osdn.jp/users/utuhiro/pf/utuhiro/wiki/FrontPage
+UT_DIR="9/9845"
 #######################
 
 # Assign URI variables #########
@@ -417,6 +418,8 @@ generate-mozc-neologd-ut() {
 
 	ebegin "Generating mozcdic-neologd-ut.txt"
 	ruby 05-* || die "Failed to generate mozcdic-neologd-ut.txt"
+	ruby 07-* mozcdic-neologd-ut.txt
+	mv mozcdic-neologd-ut.txt.jinmei mozcdic-neologd-ut.txt
 	eend
 
 	einfo "Copying dictionary files"
@@ -428,7 +431,7 @@ generate-mozc-neologd-ut() {
 	ebegin "Generating zip code dictionary"
 	cp "${S}/dictionary/gen_zip_code_seed.py" ./
 	cp "${WORKDIR}"/*.CSV ./
-	ruby 07-* KEN_ALL.CSV
+	ruby modify-zipcode.rb KEN_ALL.CSV
 	"${PYTHON}" gen_zip_code_seed.py --zip_code=KEN_ALL.CSV.r \
 		--jigyosyo=JIGYOSYO.CSV \
 		>> "${S}/data/dictionary_oss/dictionary09.txt" \

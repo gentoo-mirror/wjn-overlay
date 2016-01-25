@@ -1,6 +1,17 @@
 # ChangeLog for app-i18n/mozc-neologd-ut
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
+# (auto-generated from git log)
+
+*mozc-neologd-ut-2.17.2319.102.20160125.1 (25 Jan 2016)
+
+  25 Jan 2016; wjn <wjn@aol.jp>
+  -mozc-neologd-ut-2.17.2315.102.20160121.1.ebuild,
+  +mozc-neologd-ut-2.17.2319.102.20160125.1.ebuild:
+  Add version 2.17.2319.102.20160125.1, delete old
+
+  21 Jan 2016; wjn <wjn@aol.jp>
+  mozc-neologd-ut-2.17.2315.102.20160121.1.ebuild:
+  Change ${DIC_VER} to ${DIC_REL}, improve about_dialog
 
 *mozc-neologd-ut-2.17.2315.102.20160121.1 (21 Jan 2016)
 
