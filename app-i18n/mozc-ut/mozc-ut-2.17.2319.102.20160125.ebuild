@@ -18,7 +18,7 @@ HOMEPAGE="http://www.geocities.jp/ep3797/mozc_01.html
 
 # Assign version variables #####
 MOZC_VER="$(get_version_component_range 1-4)"
-MOZC_REV="80c7fb8"
+MOZC_REV="070bf2a"
 FCITX_PATCH_VER="2.17.2313.102.1"
 UIM_PATCH_REV="3ea28b1"
 
@@ -26,7 +26,7 @@ UIM_PATCH_REV="3ea28b1"
 ZIPCODE_REV="201512"
 
 UT_REL=$(get_version_component_range $(get_version_component_count))
-UT_DIR="9/9822"
+UT_DIR="9/9843"
 #######################
 
 # Assign URI variables #########
@@ -368,10 +368,10 @@ pkg_postrm() {
 generate-mozc-ut() {
 	einfo "Adding mozc-ut version information"
 	epatch "${FILESDIR}/${PN}-add-ut-info.patch"
-	# Converting "ba-jonn", NEologd release and UT revision are also outputted
+	# Converting "ba-jonn", UT release date is also printed
 	sed -i -e 's/\(GetMozcVersion()\);/\1 + ".'"${UT_REL}"'";/g' \
 		rewriter/version_rewriter.cc \
-		|| die "Failed to add neologd-ut info to Mozc version_rewriter"
+		|| die "Failed to add ut info to Mozc version_rewriter"
 
 	if use qt4 ; then
 		# Add UT information to Mozc's about_dialog
@@ -381,7 +381,7 @@ generate-mozc-ut() {
 			"${S}/gui/about_dialog/about_dialog.ui" \
 			"${S}/gui/about_dialog/about_dialog_en.ts" \
 			"${S}/gui/about_dialog/about_dialog_ja.ts" \
-			|| die "Failed to add neologd-ut info to Mozc about_dialog"
+			|| die "Failed to add ut info to Mozc about_dialog"
 		"/usr/$(get_libdir)/qt4/bin/lrelease" -silent \
 			"${S}/gui/about_dialog/about_dialog_en.ts"
 		"/usr/$(get_libdir)/qt4/bin/lrelease" -silent \
