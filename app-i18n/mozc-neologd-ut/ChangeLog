@@ -4,6 +4,10 @@
 
   25 Jan 2016; wjn <wjn@aol.jp>
   mozc-neologd-ut-2.17.2319.102.20160125.1.ebuild:
+  Fix sed script to insert version information
+
+  25 Jan 2016; wjn <wjn@aol.jp>
+  mozc-neologd-ut-2.17.2319.102.20160125.1.ebuild:
   Fix ${SITEFILE} name for Emacs
 
 *mozc-neologd-ut-2.17.2319.102.20160125.1 (25 Jan 2016)
