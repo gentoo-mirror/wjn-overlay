@@ -386,7 +386,7 @@ generate-mozc-neologd-ut() {
 		# Add NEologd UT information to Mozc's about_dialog
 		# e.g. when you execute "/usr/lib/mozc/mozc_tool -mode about_dialog"
 		sed -i -e \
-			"s_NErUTr_ / NEologd release date: ${DIC_REL}&lt;br&gt;UT release date: ${UT_REL}, revision: ${UT_REV}_g" \
+			"s%NErUTr% / NEologd release date: ${DIC_REL}\&lt;br\&gt;UT release date: ${UT_REL}, revision: ${UT_REV}%g" \
 			"${S}/gui/about_dialog/about_dialog.ui" \
 			"${S}/gui/about_dialog/about_dialog_en.ts" \
 			"${S}/gui/about_dialog/about_dialog_ja.ts" \
