@@ -7,7 +7,7 @@ wjn's user overlay for Gentoo GNU/Linux.
 There is Wiki documents at <https://bitbucket.org/wjn/wjn-overlay/wiki/>  
 It contains more guidances and information
 
-- Updated on 2016-01-28
+- This file is updated on 2016-01-28
 
 ## contents
 
