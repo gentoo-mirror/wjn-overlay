@@ -2,6 +2,20 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  28 Jan 2016; wjn <wjn@aol.jp> -sylpheed-3.5.0_rc2.ebuild:
+  Delete version 3.5.0_rc2
+
+   Please update to 3.5.0 (release version)
+
+*sylpheed-3.5.0 (28 Jan 2016)
+
+  28 Jan 2016; wjn <wjn@aol.jp> +sylpheed-3.5.0.ebuild:
+  Add version 3.5.0
+
+   Upstream's NEWS:
+          http://sylpheed.sraoss.jp/en/news.html
+          http://sylpheed.sraoss.jp/ja/news.html
+
   06 Jan 2016; wjn <wjn@aol.jp> -sylpheed-3.5.0_rc.ebuild:
   Delete version 3.5.0_rc
 

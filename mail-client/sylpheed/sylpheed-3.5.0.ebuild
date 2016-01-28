@@ -10,9 +10,11 @@ PLOCALE_BACKUP="en"
 
 inherit eutils l10n
 
+# these are needed for RC versions
 MY_PV=${PV/_/}
 MY_P="${PN}-${MY_PV}"
-OSDN_DIR="64220"
+
+OSDN_DIR="64372"
 
 DESCRIPTION="A lightweight email client and newsreader"
 HOMEPAGE="http://sylpheed.sraoss.jp/"
@@ -40,7 +42,8 @@ RDEPEND="${COMMON_DEPEND}
 	app-misc/mime-types
 	net-misc/curl"
 
-S="${WORKDIR}/${MY_P%rc2}"
+# for RC versions
+S="${WORKDIR}/${MY_P%rc*}"
 RESTRICT="mirror"
 
 DOCS=( AUTHORS ChangeLog* NEWS* README* TODO* )
@@ -62,6 +65,7 @@ src_configure() {
 }
 
 src_install() {
+	# note for the future: einstall is deprecated in EAPI 6
 	einstall
 
 	use linguas_es || rm *.es*
@@ -69,8 +73,7 @@ src_install() {
 	if use linguas_ja ; then
 		# documents in Japanese are in EUC-JP, should be converted to UTF-8
 		for fn in *.ja* manual/ja/* ; do
-			nkf -w ${fn} > ${fn}.tmp
-			mv ${fn}.tmp ${fn}
+			nkf -w --overwrite ${fn}
 		done
 	else
 		rm *.ja*
@@ -86,13 +89,14 @@ src_install() {
 	done
 
 	docompress -x /usr/share/doc/${PF}/faq /usr/share/doc/${PF}/manual
-	for dn in faq manual ; do
-		cd "${S}/${dn}"
+	for dir_name in faq manual ; do
+		cd "${S}/${dir_name}"
 		for lang in $(find * -type d) ; do
 			if [ x"${lang}" = x"en" ] \
 				|| grep -q "${lang}" <(echo $(l10n_get_locales)) ; then
 				rm "${lang}"/Makefile*
-				docinto "${dn}"
+				rm -rf "${lang}"/no
+				docinto "${dir_name}"
 				dodoc -r "${lang}"
 			fi
 		done
@@ -107,7 +111,9 @@ src_install() {
 }
 
 pkg_postinst() {
-	elog "Note:"
-	elog "  Though ${MY_PV%rc2} is shown as the version number,"
-	elog " this is a Release Candidate of ${MY_PV%rc} ."
+	if [ ${PV} == *rc* ] ; then
+		elog "Note:"
+		elog "  Though ${MY_PV%rc*} is shown as the version number,"
+		elog " this is a Release Candidate of ${MY_PV%rc} ."
+	fi
 }
