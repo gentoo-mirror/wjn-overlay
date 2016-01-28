@@ -1,11 +1,13 @@
 wjn-overlay
 ==============
 
-wjn's user overlay for Gentoo GNU/Linux.
-
+wjn's user overlay for Gentoo GNU/Linux.  
 (JA version of README is [README.ja.md](README.ja.md) )
 
-- Updated on 2016-01-13
+There is Wiki documents at <https://bitbucket.org/wjn/wjn-overlay/wiki/>  
+It contains more guidances and information
+
+- Updated on 2016-01-28
 
 ## contents
 
@@ -78,8 +80,11 @@ but in short, below is some examples
     (Japanese input server patched for input method for [uim](https://code.google.com/p/uim/))
  
 - [Mozc UT Dictionary](http://www.geocities.jp/ep3797/mozc_01.html)  
-    (Japanese input server with additional dictionary "UT", patched for Fcitx an uim)  
+    (Japanese converting server with additional dictionary "UT", patched for Fcitx an uim)  
     <small>The each dictionary's license of "hatena" and "nicodic" is unknown. Specifically "nicodic" feature is not recommended to use. My ebuild's default is "-nicodic"</small>
+
+- [Mozc NEologd UT Dictionary](http://www.geocities.jp/ep3797/mozc_01.html)  
+    (Japanese converting server with additional dictionary generated from [mecab-ipadic-NEologd](https://github.com/neologd/mecab-ipadic-neologd), patched for Fcitx an uim)  
 
 - [fcitx-qt5](http://fcitx-im.org/)  
     (Development ver.)
