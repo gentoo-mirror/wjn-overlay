@@ -2,13 +2,13 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 # Mozc doesn't support Python 3 yet.
 PYTHON_COMPAT=( python2_7 )
 
-inherit elisp-common eutils git-r3 multilib python-single-r1 python-utils-r1 \
-	toolchain-funcs versionator
+inherit elisp-common git-r3 python-single-r1 python-utils-r1 toolchain-funcs \
+	versionator
 
 MY_PN=${PN/mozc/mozcdic}
 
@@ -82,7 +82,7 @@ EGIT_COMMIT=${MOZC_REV}
 #   + zinnia: BSD
 #   + usagedic: BSD-2
 #   + GYP: BSD
-#   + GMOCK: Boost-1.0
+#   + GMOCK: BSD
 #   + GTEST: BSD
 #   + IPAfont is in repo, but not used
 # - mecab-ipadic-neologd: Apache-2.0
@@ -94,11 +94,10 @@ EGIT_COMMIT=${MOZC_REV}
 # - biographical dictionary: derived from Mozc
 # - Mozc Fcitx: BSD
 # - MacUIM: BSD
-LICENSE="Apache-2.0 BSD BSD-2 all-rights-reserved ipadic public-domain unicode
-	test? ( Boost-1.0 )"
+LICENSE="Apache-2.0 BSD BSD-2 all-rights-reserved ipadic public-domain unicode"
 SLOT="0"
 KEYWORDS=""
-IUSE="clang emacs fcitx ibus +qt4 renderer -test tomoe uim"
+IUSE="clang emacs fcitx ibus +qt4 renderer tomoe uim"
 REQUIRED_USE="|| ( emacs fcitx ibus uim )"
 
 COMMON_DEPEND="${PYTHON_DEPS}
@@ -127,26 +126,25 @@ RDEPEND="${COMMON_DEPEND}
 		tomoe? ( app-i18n/zinnia-tomoe ) )"
 
 S="${WORKDIR}/${P}/src"
-UT_SRC="${WORKDIR}/${MY_PN}-${UT_REL}.${UT_REV}"
-NEOLOGD_SRC="${WORKDIR}/mecab-ipadic-neologd"
+UT_S="${WORKDIR}/${MY_PN}-${UT_REL}.${UT_REV}"
+NEOLOGD_S="${WORKDIR}/mecab-ipadic-neologd"
 
-RESTRICT="mirror"
-use test || RESTRICT="${RESTRICT} test"
+RESTRICT="mirror test"
 
 BUILDTYPE=${BUILDTYPE:-Release}
 
 SITEFILE="50${PN%-neologd-ut}-gentoo.el"
 
-DOCS=( "${UT_SRC}/AUTHORS" "${UT_SRC}/ChangeLog" "${UT_SRC}/COPYING"
-	"${UT_SRC}/README" )
+DOCS=( "${UT_S}/AUTHORS" "${UT_S}/ChangeLog" "${UT_S}/COPYING"
+	"${UT_S}/README" )
 
 MOZC_DOCS=( "${S%/src}/AUTHORS" "${S%/src}/CONTRIBUTING.md"
 	"${S%/src}/CONTRIBUTORS" "${S%/src}/README.md"
 	"${S%/src}/doc/about_branding.md" "${S%/src}/doc/release_history.md"
 	"${S%/src}/doc/design_doc" )
 
-NEOLOGD_DOCS=( "${NEOLOGD_SRC}/COPYING" "${NEOLOGD_SRC}/ChangeLog"
-	"${NEOLOGD_SRC}/README.md" "${NEOLOGD_SRC}/README.ja.md" )
+NEOLOGD_DOCS=( "${NEOLOGD_S}/COPYING" "${NEOLOGD_S}/ChangeLog"
+	"${NEOLOGD_S}/README.md" "${NEOLOGD_S}/README.ja.md" )
 
 src_unpack() {
 	unpack ${A}
@@ -154,17 +152,17 @@ src_unpack() {
 	if [ ${DIC_REL} -eq ${UT_REL} ] ; then
 		einfo "Unpacking mecab-user-dict-seed.${UT_REL}.csv.xz"
 		(
-			cp -R "${UT_SRC}/mecab-ipadic-neologd" "${WORKDIR}/"
-			cd "${NEOLOGD_SRC}"
+			cp -R "${UT_S}/mecab-ipadic-neologd" "${WORKDIR}/"
+			cd "${NEOLOGD_S}"
 			unxz "mecab-user-dict-seed.${UT_REL}.csv.xz" || die
 		)
 	else
 		einfo "Placing mecab-user-dict-seed.${UT_REL}.csv.xz"
-		mkdir -p "${NEOLOGD_SRC}"
-		cp mecab-user-dict-seed.${DIC_REL}.csv "${NEOLOGD_SRC}/" || die
+		mkdir -p "${NEOLOGD_S}"
+		cp mecab-user-dict-seed.${DIC_REL}.csv "${NEOLOGD_S}/" || die
 		for f_n in COPYING ChangeLog README.ja.md README.md ; do
 			cp "${DISTDIR}/mecab-ipadic-neologd-${DIC_REL}-${f_n}" \
-				"${NEOLOGD_SRC}/${f_n}" || die
+				"${NEOLOGD_S}/${f_n}" || die
 		done
 	fi
 
@@ -183,13 +181,13 @@ src_prepare() {
 
 	if use fcitx ; then
 		rm -rf unix/fcitx/
-		EPATCH_OPTS="-p2" epatch "${DISTDIR}/$(basename ${FCITX_PATCH_URI})"
+		eapply -p2 "${DISTDIR}/$(basename ${FCITX_PATCH_URI})"
 	fi
 
 	if use uim ; then
 		rm -rf unix/uim/
 		cp -r "${WORKDIR}/macuim/Mozc/uim" "${S}/unix/"
-		epatch "${FILESDIR}/mozc-kill-line.diff"
+		eapply -p0 "${WORKDIR}/macuim/Mozc/mozc-kill-line.diff"
 	fi
 
 	if ! use clang ; then
@@ -197,6 +195,8 @@ src_prepare() {
 			-e "s/<!(which clang++)/$(tc-getCXX)/" \
 			gyp/common.gypi || die
 	fi
+
+	eapply_user
 }
 
 src_configure() {
@@ -376,7 +376,7 @@ pkg_postrm() {
 
 generate-mozc-neologd-ut() {
 	einfo "Adding neologd-ut version information"
-	epatch "${FILESDIR}/${PN}-add-ut-info.patch"
+	eapply "${FILESDIR}/${PN}-add-ut-info.patch"
 	# Converting "ba-jonn", NEologd release and UT revision are also outputted
 	sed -i -e 's/\(GetMozcVersion()\);/\1 + ".'"${DIC_REL}.${UT_REV}"'";/g' \
 		rewriter/version_rewriter.cc \
@@ -399,7 +399,7 @@ generate-mozc-neologd-ut() {
 	fi
 
 	# For running UT scripts ############
-	cd "${UT_SRC}"
+	cd "${UT_S}"
 
 	ebegin "Getting mozcdic costlist"
 	cat "${S}"/data/dictionary_oss/dictionary*.txt > mozcdic.txt
@@ -411,7 +411,7 @@ generate-mozc-neologd-ut() {
 		|| die "Failed to copy hinshi ID"
 
 	ebegin "Generating neologd.txt"
-	cp "${NEOLOGD_SRC}/mecab-user-dict-seed.${DIC_REL}.csv" ./
+	cp "${NEOLOGD_S}/mecab-user-dict-seed.${DIC_REL}.csv" ./
 	ruby 03-* "mecab-user-dict-seed.${DIC_REL}.csv" \
 		|| die "Failed to generate neologd.txt"
 	eend

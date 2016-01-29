@@ -2,6 +2,15 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  29 Jan 2016; wjn <wjn@aol.jp> -files/mozc-kill-line.diff,
+  mozc-neologd-ut-2.17.2319.102.20160125.1.ebuild:
+  app-i18n/mozc-neologd--ut: Change to EAPI 6
+
+   - Changed to EAPI 6
+   - Update mozc-kill-line.diff to MacUIM's up-to-date one
+   - GMOCK's license is BSD (3-clause; new BSD) only now
+   - some internal variable changes (${UT_SRC} and ${NEOLOGD_SRC})
+
   29 Jan 2016; wjn <wjn@aol.jp>
   mozc-neologd-ut-2.17.2319.102.20160125.1.ebuild:
   Update Manifest for zipcode archives of 201601
