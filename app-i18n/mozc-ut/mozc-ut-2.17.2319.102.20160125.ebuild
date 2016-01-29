@@ -2,13 +2,13 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 # Mozc doesn't support Python 3 yet.
 PYTHON_COMPAT=( python2_7 )
 
-inherit elisp-common eutils git-r3 multilib python-single-r1 python-utils-r1 \
-	toolchain-funcs versionator
+inherit elisp-common git-r3 python-single-r1 python-utils-r1 toolchain-funcs \
+	versionator
 
 MY_PN=${PN/mozc/mozcdic}
 
@@ -60,7 +60,7 @@ EGIT_COMMIT=${MOZC_REV}
 #   + zinnia: BSD
 #   + usagedic: BSD-2
 #   + GYP: BSD
-#   + GMOCK: Boost-1.0
+#   + GMOCK: BSD
 #   + GTEST: BSD
 #   + IPAfont is in repo, but not used
 # - alt-cannadic: GPL-2+
@@ -112,17 +112,16 @@ RDEPEND="${COMMON_DEPEND}
 		tomoe? ( app-i18n/zinnia-tomoe ) )"
 
 S="${WORKDIR}/${P}/src"
-UT_SRC="${WORKDIR}/${MY_PN}-${UT_REL}"
+UT_S="${WORKDIR}/${MY_PN}-${UT_REL}"
 
-RESTRICT="mirror"
-use test || RESTRICT="${RESTRICT} test"
+RESTRICT="mirror test"
 
 BUILDTYPE=${BUILDTYPE:-Release}
 
 SITEFILE="50${PN%-ut}-gentoo.el"
 
-DOCS=( "${UT_SRC}/AUTHORS" "${UT_SRC}/ChangeLog" "${UT_SRC}/COPYING"
-	"${UT_SRC}/README" )
+DOCS=( "${UT_S}/AUTHORS" "${UT_S}/ChangeLog" "${UT_S}/COPYING"
+	"${UT_S}/README" )
 
 MOZC_DOCS=( "${S%/src}/AUTHORS" "${S%/src}/CONTRIBUTING.md"
 	"${S%/src}/CONTRIBUTORS" "${S%/src}/README.md"
@@ -158,7 +157,7 @@ src_unpack() {
 
 src_prepare() {
 	# Document files of altcanna are EUC-JP encoded, should be converted to UTF-8
-	for f_n in "${UT_SRC}"/altcanna/doc/* ; do
+	for f_n in "${UT_S}"/altcanna/doc/* ; do
 		nkf -E -w --overwrite ${f_n}
 	done
 
@@ -167,13 +166,13 @@ src_prepare() {
 
 	if use fcitx ; then
 		rm -rf unix/fcitx/
-		EPATCH_OPTS="-p2" epatch "${DISTDIR}/$(basename ${FCITX_PATCH_URI})"
+		eapply -p2 "${DISTDIR}/$(basename ${FCITX_PATCH_URI})"
 	fi
 
 	if use uim ; then
 		rm -rf unix/uim/
 		cp -r "${WORKDIR}/macuim/Mozc/uim" "${S}/unix/"
-		epatch "${FILESDIR}/mozc-kill-line.diff"
+		eapply -p0 "${WORKDIR}/macuim/Mozc/mozc-kill-line.diff"
 	fi
 
 	if ! use clang ; then
@@ -181,6 +180,8 @@ src_prepare() {
 			-e "s/<!(which clang++)/$(tc-getCXX)/" \
 			gyp/common.gypi || die
 	fi
+
+	eapply_user
 }
 
 src_configure() {
@@ -257,7 +258,7 @@ src_install() {
 	use nicodic && dic_names=( ${dic_names[@]} "niconico" )
 	for dic_name in ${dic_names[@]} ; do
 		docinto ${dic_name}
-		dodoc "${UT_SRC}"/${dic_name}/doc/*
+		dodoc "${UT_S}"/${dic_name}/doc/*
 	done
 
 	if use emacs ; then
@@ -367,7 +368,8 @@ pkg_postrm() {
 
 generate-mozc-ut() {
 	einfo "Adding mozc-ut version information"
-	epatch "${FILESDIR}/${PN}-add-ut-info.patch"
+	eapply "${FILESDIR}/${PN}-add-ut-info.patch"
+
 	# Converting "ba-jonn", UT release date is also printed
 	sed -i -e 's/\(GetMozcVersion()\);/\1 + ".'"${UT_REL}"'";/g' \
 		rewriter/version_rewriter.cc \
@@ -390,7 +392,7 @@ generate-mozc-ut() {
 	fi
 
 	# For running UT scripts ############
-	cd "${UT_SRC}"
+	cd "${UT_S}"
 
 	ebegin "Getting mozcdic costlist"
 	cat "${S}"/data/dictionary_oss/dictionary*.txt > mozcdic_all.txt
