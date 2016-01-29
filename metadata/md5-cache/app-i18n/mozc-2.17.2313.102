@@ -11,5 +11,5 @@ RESTRICT=mirror test
 SLOT=0
 SRC_URI=fcitx? ( http://download.fcitx-im.org/fcitx-mozc/fcitx-mozc-2.17.2313.102.1.patch )
 _eclass_exported_funcs=pkg_postrm:- pkg_postinst:- pkg_setup:python-single-r1 src_unpack:- src_prepare:- src_configure:- src_compile:- src_test:- src_install:-
-_eclasses_=elisp-common	9f56c4e9bf1282dbfc2a5a09e1124e74	eutils	8982475656ba7ade9b3201397efbd612	git-r3	018b3baa1d2b738e5bc146a0e807494e	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	python-single-r1	2ebea8fbab356d63110245129a67a6dd	python-utils-r1	30887c5e8630bbf27b5cf0fd74564323	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85
+_eclasses_=elisp-common	9f56c4e9bf1282dbfc2a5a09e1124e74	eutils	28fb3e5852485af1c348d446b0b98389	git-r3	018b3baa1d2b738e5bc146a0e807494e	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	python-single-r1	2ebea8fbab356d63110245129a67a6dd	python-utils-r1	30887c5e8630bbf27b5cf0fd74564323	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85
 _md5_=47f0dd8fdb8f7bf7bb71c1a0851aef7e
