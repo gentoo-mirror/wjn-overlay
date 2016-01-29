@@ -2,9 +2,18 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*mozc-neologd-ut-2.17.2319.102.20160128.0.1 (29 Jan 2016)
+
+  29 Jan 2016; wjn <wjn@aol.jp>
+  +mozc-neologd-ut-2.17.2319.102.20160128.0.1.ebuild:
+  Add temporary version 2.17.2319.102.20160128.0.1
+
+   - NEologd release date is 20160128
+   - UT release date is 20160125 and revision is 1
+
   29 Jan 2016; wjn <wjn@aol.jp> -files/mozc-kill-line.diff,
   mozc-neologd-ut-2.17.2319.102.20160125.1.ebuild:
-  app-i18n/mozc-neologd--ut: Change to EAPI 6
+  app-i18n/mozc-neologd-ut: Change to EAPI 6
 
    - Changed to EAPI 6
    - Update mozc-kill-line.diff to MacUIM's up-to-date one
