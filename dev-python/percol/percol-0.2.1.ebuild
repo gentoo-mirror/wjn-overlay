@@ -28,7 +28,7 @@ DEPEND=${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	>=dev-python/six-1.7.3[${PYTHON_USEDEP}]
 	sys-libs/ncurses:*
-	migemo? ( >=app-text/cmigemo-0.1.5[${PYTHON_USEDEP},unicode] )"
+	migemo? ( >=app-text/cmigemo-0.1.5[unicode] )"
 #	pinyin? ( dev-python/pinyin-0.2.5 )
 
 RESTRICT="mirror"
