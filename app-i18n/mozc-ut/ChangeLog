@@ -3,6 +3,14 @@
 # (auto-generated from git log)
 
   29 Jan 2016; wjn <wjn@aol.jp> mozc-ut-2.17.2319.102.20160125.ebuild:
+  Change to EAPI 6
+
+   - Changed to EAPI 6
+   - Update mozc-kill-line.diff to MacUIM's up-to-date one
+   - GMOCK's license is BSD (3-clause; new BSD) only now
+   - some internal variable changes (${UT_SRC} to ${UT_S})
+
+  29 Jan 2016; wjn <wjn@aol.jp> mozc-ut-2.17.2319.102.20160125.ebuild:
   Update Manifest for zipcode archives of 201601
 
 *mozc-ut-2.17.2319.102.20160125 (25 Jan 2016)
