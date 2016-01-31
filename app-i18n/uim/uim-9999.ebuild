@@ -22,9 +22,9 @@ KEYWORDS=""
 IUSE="X +anthy canna curl eb emacs expat gtk gtk3 kde libedit libffi libnotify
 	m17n-lib ncurses nls qt3support qt4 qt5 skk sqlite ssl static-libs
 	unicode xft"
-# REQUIRED_USE="gtk? ( X ) qt4? ( X ) ?? ( qt4 qt5 )"
-REQUIRED_USE="gtk? ( X ) qt4? ( X )"
-
+REQUIRED_USE="gtk? ( X )
+	qt4? ( X )
+	qt5? ( X )"
 
 RESTRICT="test"
 
