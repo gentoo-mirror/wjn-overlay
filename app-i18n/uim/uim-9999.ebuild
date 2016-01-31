@@ -212,7 +212,7 @@ pkg_postinst() {
 	elog "to your ~/.uim."
 	elog
 	elog "All input methods can be found by running uim-im-switcher-gtk, "
-	elog "uim-im-switcher-gtk3 or uim-im-switcher-qt4."
+	elog "uim-im-switcher-gtk3, uim-im-switcher-qt4 or uim-im-switcher-qt5."
 	elog
 	elog "If you upgrade from a version of uim older than 1.4.0,"
 	elog "you should run revdep-rebuild."
