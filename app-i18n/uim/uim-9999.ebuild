@@ -22,9 +22,9 @@ KEYWORDS=""
 IUSE="X +anthy canna curl eb emacs expat gtk gtk3 kde libedit libffi libnotify
 	m17n-lib ncurses nls qt3support qt4 qt5 skk sqlite ssl static-libs
 	unicode xft"
-# REQUIRED_USE="gtk? ( X ) qt4? ( X ) ?? ( qt4 qt5 )"
-REQUIRED_USE="gtk? ( X ) qt4? ( X )"
-
+REQUIRED_USE="gtk? ( X )
+	qt4? ( X )
+	qt5? ( X )"
 
 RESTRICT="test"
 
@@ -212,7 +212,7 @@ pkg_postinst() {
 	elog "to your ~/.uim."
 	elog
 	elog "All input methods can be found by running uim-im-switcher-gtk, "
-	elog "uim-im-switcher-gtk3 or uim-im-switcher-qt4."
+	elog "uim-im-switcher-gtk3, uim-im-switcher-qt4 or uim-im-switcher-qt5."
 	elog
 	elog "If you upgrade from a version of uim older than 1.4.0,"
 	elog "you should run revdep-rebuild."
