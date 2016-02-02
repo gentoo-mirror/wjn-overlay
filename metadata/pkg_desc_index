@@ -125,6 +125,7 @@ x11-drivers/xf86-video-intel 2.99.917_p20160122: X.Org driver for Intel cards
 x11-libs/gdk-pixbuf-psd 0.1.0 9999: A GdkPixbuf loader for Adobe Photoshop images
 x11-libs/gdk-pixbuf-xcf 2012.05: A gdk-pixbuf loader for xcf (The Gimp) files
 x11-libs/libvdpau-va-gl 9999: VDPAU driver with OpenGL/VAAPI backend
+x11-misc/lightdm 1.17.4: A lightweight display manager
 x11-misc/lightdm-gtk-greeter-settings 1.1.0 1.2.0: LightDM Gtk+ Greeter settings editor
 x11-misc/mate-notification-daemon 9999: MATE Notification daemon
 x11-misc/mate-tweak 3.5.2a 3.5.3: MATE desktop tweak tool
