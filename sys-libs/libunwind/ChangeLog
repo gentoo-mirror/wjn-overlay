@@ -1,0 +1,15 @@
+# ChangeLog for sys-libs/libunwind
+# Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
+# (auto-generated from git log)
+
+*libunwind-1.1 (02 Feb 2016)
+
+  02 Feb 2016; wjn <wjn@aol.jp> +files/libunwind-0.99-disable-setjmp.patch,
+  +files/libunwind-0.99-implicit-declaration.patch,
+  +files/libunwind-1.0.1-disable-setjmp.patch,
+  +files/libunwind-1.0.1-ia64.patch, +files/libunwind-1.1-lzma.patch,
+  +libunwind-1.1.ebuild, +metadata.xml:
+  Add version 1.1 to add "--enable-dependency-tracking"
+
+   Without "econf --enable-dependency-tracking", its build process fails
+
