@@ -167,6 +167,8 @@ media-video/libav:twolame - Enable MP2 encoding via media-sound/twolame as an al
 media-video/libav:vpx - Enable vp8 encoding support using libvpx.
 media-video/libav:webp - Enable WebP encoding with media-libs/libwebp.
 media-video/libav:x265 - Enable HEVC encoding with media-libs/x265.
+sys-libs/libunwind:debug-frame - Adds support for DWARF .debug_frame section: Use the information from this section if available
+sys-libs/libunwind:libatomic - Use libatomic instead of builtin atomic operations
 www-apps/nikola:assets - Support web asset management through dev-python/assets
 www-apps/nikola:bbcode - Support bbcode format
 www-apps/nikola:charts - Support chart generation through dev-python/pygal
