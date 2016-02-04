@@ -1,0 +1,16 @@
+# ChangeLog for app-editors/focuswriter
+# Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
+# (auto-generated from git log)
+
+*focuswriter-9999 (04 Feb 2016)
+
+  04 Feb 2016; wjn <wjn@aol.jp>
+  +files/focuswriter-1.5.2-unbundle-qtsingleapplication.patch,
+  +focuswriter-9999.ebuild, +metadata.xml:
+  Add newly, development version
+
+   FocusWriter was Qt4-based as of version 1.5.5,
+  but now developing to port to Qt5
+
+   See https://github.com/gottcode/focuswriter/commit/2c1a127
+
