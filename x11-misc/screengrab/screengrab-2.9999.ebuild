@@ -33,6 +33,9 @@ DEPEND="${COMMON_DEPEND}
 	>sys-devel/gcc-4.5"
 RDEPEND="${COMMON_DEPEND}"
 
+DOCS=( AUTHORS CHANGELOG README.md  )
+HTML_DOCS=( docs/html )
+
 src_prepare() {
 	# QTXDG_USE_FILE is obsolete, Qt5Xdg should be linked dynamically
 	# https://github.com/lxde/libqtxdg/commit/d1ba4bc
@@ -67,4 +70,11 @@ src_configure() {
 	fi
 
 	cmake-utils_src_configure
+}
+
+src_install() {
+	cmake-utils_src_install
+	einstalldocs
+	insinto /usr/share/icons/hicolor/32x32/apps
+	doins img/screengrab.png
 }
