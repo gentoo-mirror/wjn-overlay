@@ -12,7 +12,6 @@
 		<remote-id type="github">DOOMer/screengrab</remote-id>
 	</upstream>
 	<use>
-		<flag name='qxt'>Use system-global <pkg>x11-libs/libqxt</pkg></flag>
 		<flag name='xdg'>Place config files into $XDG_CONFIG_HOME</flag>
 	</use>
 </pkgmetadata>

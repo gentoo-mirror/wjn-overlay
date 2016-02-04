@@ -13,7 +13,7 @@ EGIT_REPO_URI="https://github.com/DOOMer/screengrab.git"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="dbus qxt +xdg"
+IUSE="dbus +xdg"
 
 COMMON_DEPEND="dev-libs/libqtxdg
 	>=dev-qt/linguist-tools-5.2:5
@@ -27,8 +27,7 @@ COMMON_DEPEND="dev-libs/libqtxdg
 	x11-libs/libX11
 	x11-libs/libXext
 	x11-libs/libXfixes
-	x11-libs/libxcb
-	qxt? ( >x11-libs/libqxt-0.6 )"
+	x11-libs/libxcb"
 DEPEND="${COMMON_DEPEND}
 	>=dev-util/cmake-2.8.11
 	>sys-devel/gcc-4.5"
@@ -39,8 +38,7 @@ src_prepare() {
 	# https://github.com/lxde/libqtxdg/commit/d1ba4bc
 	if has_version '>=dev-libs/libqtxdg-1.3.0' ; then
 		sed -e '/include(\${QTXDG_USE_FILE})/d' \
-			-i CMakeLists.txt || die
-		sed -e 's/\(target_link_libraries(screengrab extedit)\)/\1\ntarget_link_libraries(screengrab Qt5Xdg)/' \
+			-e 's/\(target_link_libraries(screengrab extedit)\)/\1\ntarget_link_libraries(screengrab Qt5Xdg)/' \
 			-i CMakeLists.txt || die
 	fi
 
@@ -49,19 +47,17 @@ src_prepare() {
 }
 
 src_configure() {
-	# To be fixed: "-DSG_GLOBALSHORTCUTS=ON" makes builds fail
-	local mycmakeargs=( -DSG_DOCDIR=${PF} -DSG_GLOBALSHORTCUTS=OFF )
+	#  Though "-DSG_USE_SYSTEM_QXT" remains in upstream, it's broken
+	# because x11-libs/libqxt doesn't support modern Qt libraries.
+	# LIBQXT IS NO LONGER MAINTAINED ( https://bitbucket.org/libqxt/libqxt ).
+	#  "-DSG_GLOBALSHORTCUTS" doesn't work without "-DSG_USE_SYSTEM_QXT".
+	local mycmakeargs=( -DSG_DOCDIR=${PF}
+		-DSG_USE_SYSTEM_QXT=OFF -DSG_GLOBALSHORTCUTS=OFF )
 
 	if use dbus	; then
 		mycmakeargs=( ${mycmakeargs[@]} -DSG_DBUS_NOTIFY=ON )
 	else
 		mycmakeargs=( ${mycmakeargs[@]} -DSG_DBUS_NOTIFY=OFF )
-	fi
-
-	if use qxt ; then
-		mycmakeargs=( ${mycmakeargs[@]} -DSG_USE_SYSTEM_QXT=ON )
-	else
-		mycmakeargs=( ${mycmakeargs[@]} -DSG_USE_SYSTEM_QXT=OFF )
 	fi
 
 	if use xdg ; then

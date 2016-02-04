@@ -2,6 +2,23 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  04 Feb 2016; wjn <wjn@aol.jp> metadata.xml, screengrab-2.9999.ebuild:
+  Drop IUSE="qxt"
+
+   Though "-DSG_USE_SYSTEM_QXT" remains in upstream, it's broken
+  because x11-libs/libqxt doesn't support modern Qt libraries.
+  It should not be used.
+   'LIBQXT IS NO LONGER MAINTAINED' ( https://bitbucket.org/libqxt/libqxt ).
+
+   And "-DSG_GLOBALSHORTCUTS" doesn't work without "-DSG_USE_SYSTEM_QXT".
+  It depends on "#include <QxtCore/qxtglobal.h>".
+
+   Thus, these upstream's features don't work.
+    - DSG_GLOBALSHORTCUTS
+      + Enable global shortcuts for main actions to create screenshots.
+    - DSG_USE_SYSTEM_QXT
+      + Use system version Qxt Library for global shortcuts.
+
 *screengrab-2.9999 (04 Feb 2016)
 
   04 Feb 2016; wjn <wjn@aol.jp> +files/screengrab-1.0-detect-lib64.patch,
