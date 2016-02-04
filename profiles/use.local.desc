@@ -202,5 +202,4 @@ x11-misc/lightdm:introspection - Use dev-libs/gobject-introspection for introspe
 x11-misc/lightdm:kde - Pull in the kde greeter
 x11-misc/lightdm:qt4 - Support Qt4
 x11-misc/lightdm:qt5 - Support Qt5
-x11-misc/screengrab:qxt - Use system-global x11-libs/libqxt
 x11-misc/screengrab:xdg - Place config files into $XDG_CONFIG_HOME
