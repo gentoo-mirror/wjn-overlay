@@ -131,6 +131,7 @@ x11-misc/lightdm-gtk-greeter-settings 1.1.0 1.2.0: LightDM Gtk+ Greeter settings
 x11-misc/mate-notification-daemon 9999: MATE Notification daemon
 x11-misc/mate-tweak 3.5.5: MATE desktop tweak tool
 x11-misc/mozo 9999: Menu editor for MATE using the freedesktop.org menu specification
+x11-misc/screengrab 2.9999: Qt-based program for fast creating screenshots
 x11-terms/mate-terminal 9999: The MATE Terminal Emulator
 x11-themes/faience-icon-theme 0.5.1: A scalable icon theme called Faience
 x11-themes/gion-icon-theme 0.1.2: A scalable icon theme called Gion
