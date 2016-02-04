@@ -3,6 +3,9 @@
 # (auto-generated from git log)
 
   04 Feb 2016; wjn <wjn@aol.jp> screengrab-2.9999.ebuild:
+  Add gnome2_icon_cache_update
+
+  04 Feb 2016; wjn <wjn@aol.jp> screengrab-2.9999.ebuild:
   Install html-docs and an icon
 
   04 Feb 2016; wjn <wjn@aol.jp> metadata.xml, screengrab-2.9999.ebuild:
