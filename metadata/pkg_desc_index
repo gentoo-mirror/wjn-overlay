@@ -2,7 +2,7 @@ app-accessibility/florence 0.6.3: an extensible scalable virtual keyboard for X1
 app-accessibility/onboard 1.1.2: Onscreen keyboard for tablet PC users and mobility impaired users
 app-accessibility/xvkbd 3.7: Virtual Keyboard for X Window System
 app-arch/engrampa 9999: Engrampa archive manager for MATE
-app-editors/cutemarked 0.11.1: Qt5-based Markdown editor with live HTML preview
+app-editors/cutemarked 0.11.1 0.11.2: Qt5-based Markdown editor with live HTML preview
 app-editors/mined 2015.25: Terminal-based Text Editor with extensive Unicode and CJK support
 app-editors/pluma 9999: A powerful text editor for MATE
 app-i18n/fcitx 4.2.9: Flexible Contect-aware Input Tool with eXtension support
