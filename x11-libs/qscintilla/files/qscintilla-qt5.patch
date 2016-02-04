@@ -1,0 +1,38 @@
+diff -ur --unidirectional-new-file -ur QScintilla-gpl-2.9.1.orig/Qt4Qt5/features/qscintilla2.prf QScintilla-gpl-2.9.1/Qt4Qt5/features/qscintilla2.prf
+--- QScintilla-gpl-2.9.1.orig/Qt4Qt5/features/qscintilla2.prf	2016-02-04 13:47:34.619933626 +0000
++++ QScintilla-gpl-2.9.1/Qt4Qt5/features/qscintilla2.prf	2016-02-04 13:50:32.187928909 +0000
+@@ -17,9 +17,9 @@
+         win32: {
+             LIBS += -lqscintilla2d
+         } else {
+-            LIBS += -lqscintilla2
++            LIBS += -lqt5scintilla2
+         }
+     }
+ } else {
+-    LIBS += -lqscintilla2
++    LIBS += -lqt5scintilla2
+ }
+diff -ur --unidirectional-new-file -ur QScintilla-gpl-2.9.1.orig/Qt4Qt5/qscintilla.pro QScintilla-gpl-2.9.1/Qt4Qt5/qscintilla.pro
+--- QScintilla-gpl-2.9.1.orig/Qt4Qt5/qscintilla.pro	2016-02-04 13:47:34.625933626 +0000
++++ QScintilla-gpl-2.9.1/Qt4Qt5/qscintilla.pro	2016-02-04 13:51:18.128927689 +0000
+@@ -34,6 +34,7 @@
+ 
+ greaterThan(QT_MAJOR_VERSION, 4) {
+ 	QT += widgets printsupport
++	TARGET = qt5scintilla2
+ 
+     greaterThan(QT_MINOR_VERSION, 1) {
+ 	    macx:QT += macextras
+diff -ur --unidirectional-new-file -ur QScintilla-gpl-2.9.1.orig/designer-Qt4Qt5/designer.pro QScintilla-gpl-2.9.1/designer-Qt4Qt5/designer.pro
+--- QScintilla-gpl-2.9.1.orig/designer-Qt4Qt5/designer.pro	2016-02-04 13:47:34.599933626 +0000
++++ QScintilla-gpl-2.9.1/designer-Qt4Qt5/designer.pro	2016-02-04 13:52:04.877926447 +0000
+@@ -8,6 +8,8 @@
+ 
+ greaterThan(QT_MAJOR_VERSION, 4) {
+     QT += designer
++	TARGET = qt5scintillaplugin
++	LIBS += -lqt5scintilla2
+ 
+     # Work around QTBUG-39300.
+     CONFIG -= android_install
