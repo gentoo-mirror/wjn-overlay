@@ -1,0 +1,22 @@
+# ChangeLog for x11-libs/qscintilla
+# Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
+# (auto-generated from git log)
+
+*qscintilla-2.9.1-r200 (04 Feb 2016)
+
+  04 Feb 2016; wjn <wjn@aol.jp> +files/qscintilla-qt5.patch, +metadata.xml,
+  +qscintilla-2.9.1-r200.ebuild:
+  Add newly, version 2.9.1-r200:5 for Qt5
+
+   QScintilla can build for Qt5 as well as Qt4.
+
+   Now app-editors/juffed is going to port to Qt5,
+  and it depends on Qt5-based QScintilla.
+   See https://github.com/Mezomish/juffed/blob/master/CMakeLists.txt
+
+   But gentoo repository doesn't support Qscintilla based on Qt5.
+
+   This ebuild file makes Qt5-based build.
+  To avoid conflicts, libraries for Qt5 are renamed
+  (libraries for Qt4 are as-is).
+

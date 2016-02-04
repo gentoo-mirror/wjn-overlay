@@ -4,7 +4,7 @@
 
 EAPI=6
 
-inherit cmake-utils git-r3
+inherit cmake-utils git-r3 gnome2-utils
 
 DESCRIPTION="Qt-based program for fast creating screenshots"
 HOMEPAGE="https://github.com/DOOMer/screengrab"
@@ -77,4 +77,16 @@ src_install() {
 	einstalldocs
 	insinto /usr/share/icons/hicolor/32x32/apps
 	doins img/screengrab.png
+}
+
+pkg_preinst() {
+	gnome2_icon_savelist
+}
+
+pkg_postinst() {
+	gnome2_icon_cache_update
+}
+
+pkg_postrm() {
+	gnome2_icon_cache_update
 }
