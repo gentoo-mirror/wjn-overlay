@@ -111,7 +111,7 @@ media-fonts/yozeng 1.40: Latin OpenType fonts like old typewriter and digital di
 media-fonts/yozfont 13.11: Japanese OpenType pen writing fonts made by Y.Oz
 media-fonts/yozfontkm 7.01: Japanese OpenType brush fonts made by Y.Oz
 media-gfx/azdrawing 1.5: A painting software by drawing
-media-gfx/azpainter 1.0.6: A full-color painting software
+media-gfx/azpainter 1.0.6 1.0.7: A full-color painting software
 media-gfx/eom 9999: The MATE image viewer
 media-gfx/viewnior 1.5 1.6: Fast and simple image viewer
 media-plugins/audacious-plugins 3.7 3.7.1 9999: Plugins for Audacious music player
