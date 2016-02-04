@@ -3,6 +3,8 @@ app-accessibility/onboard 1.1.2: Onscreen keyboard for tablet PC users and mobil
 app-accessibility/xvkbd 3.7: Virtual Keyboard for X Window System
 app-arch/engrampa 9999: Engrampa archive manager for MATE
 app-editors/cutemarked 0.11.1 0.11.2: Qt5-based Markdown editor with live HTML preview
+app-editors/focuswriter 9999: A fullscreen and distraction-free word processor
+app-editors/juffed 9999: QScintilla-based tabbed text editor with syntax highlighting
 app-editors/mined 2015.25: Terminal-based Text Editor with extensive Unicode and CJK support
 app-editors/pluma 9999: A powerful text editor for MATE
 app-i18n/fcitx 4.2.9: Flexible Contect-aware Input Tool with eXtension support
@@ -14,7 +16,7 @@ app-i18n/im-chooser 1.6.4: Desktop Input Method configuration tool
 app-i18n/libkkc 0.3.5 9999: Japanese Kana Kanji conversion library
 app-i18n/libkkc-data 0.2.7: Japanese Kana Kanji conversion dictionary for libkkc
 app-i18n/mozc 2.17.2243.102 2.17.2287.102 2.17.2313.102: Mozc - a Japanese Input Method Editor designed for multi-platform
-app-i18n/mozc-neologd-ut 2.17.2319.102.20160125.1 2.17.2319.102.20160128.0.1 2.17.2319.102.20160201.0.1: Mozc Japanese Input Method with mecab-ipadic-NEologd
+app-i18n/mozc-neologd-ut 2.17.2319.102.20160125.1 2.17.2319.102.20160204.0.1: Mozc Japanese Input Method with mecab-ipadic-NEologd
 app-i18n/mozc-ut 2.17.2319.102.20160125: Mozc Japanese Input Method with Additional Japanese dictionary
 app-i18n/uim 9999: Simple, secure and flexible input method library
 app-misc/grc 1.9 9999: Generic Colouriser beautifies your logfiles or output of commands
@@ -126,6 +128,7 @@ x11-drivers/xf86-video-intel 2.99.917_p20160122: X.Org driver for Intel cards
 x11-libs/gdk-pixbuf-psd 0.1.0 9999: A GdkPixbuf loader for Adobe Photoshop images
 x11-libs/gdk-pixbuf-xcf 2012.05: A gdk-pixbuf loader for xcf (The Gimp) files
 x11-libs/libvdpau-va-gl 9999: VDPAU driver with OpenGL/VAAPI backend
+x11-libs/qscintilla 2.9.1-r200: A Qt port of Neil Hodgson's Scintilla C++ editor class
 x11-misc/lightdm 1.17.4: A lightweight display manager
 x11-misc/lightdm-gtk-greeter-settings 1.1.0 1.2.0: LightDM Gtk+ Greeter settings editor
 x11-misc/mate-notification-daemon 9999: MATE Notification daemon

@@ -1,0 +1,12 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=app-i18n/enca !qt5? ( >=dev-qt/qtcore-4.2:4 >=dev-qt/qtgui-4.2:4 dev-qt/qtsingleapplication[X,qt4] >=x11-libs/qscintilla-2.1:0= ) qt5? ( dev-qt/linguist-tools:5 dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtprintsupport:5 dev-qt/qtsingleapplication[X,qt5] dev-qt/qtwidgets:5 dev-qt/qtxml:5 >=x11-libs/qscintilla-2.1:5= ) sys-devel/make >=dev-util/cmake-2.8.12 userland_GNU? ( >=sys-apps/findutils-4.4.0 ) >=dev-vcs/git-1.8.2.1
+DESCRIPTION=QScintilla-based tabbed text editor with syntax highlighting
+EAPI=6
+HOMEPAGE=http://juffed.com/ https://github.com/Mezomish/juffed
+IUSE=debug qt5
+LICENSE=GPL-2
+RDEPEND=app-i18n/enca !qt5? ( >=dev-qt/qtcore-4.2:4 >=dev-qt/qtgui-4.2:4 dev-qt/qtsingleapplication[X,qt4] >=x11-libs/qscintilla-2.1:0= ) qt5? ( dev-qt/linguist-tools:5 dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtprintsupport:5 dev-qt/qtsingleapplication[X,qt5] dev-qt/qtwidgets:5 dev-qt/qtxml:5 >=x11-libs/qscintilla-2.1:5= )
+SLOT=0
+_eclass_exported_funcs=src_unpack:git-r3 src_prepare:- src_configure:- src_compile:cmake-utils src_test:cmake-utils src_install:cmake-utils
+_eclasses_=cmake-utils	3443785f3176b7cfdf7bd1f2c403bd9f	eutils	28fb3e5852485af1c348d446b0b98389	flag-o-matic	d270fa247153df66074f795fa42dba3e	git-r3	018b3baa1d2b738e5bc146a0e807494e	multilib	3972ca401cf7dbb430df9995f5d8d580	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_md5_=c2e844bdb9e6722254249c95b5736eda
