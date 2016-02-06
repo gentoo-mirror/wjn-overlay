@@ -1,16 +1,18 @@
 wjn-overlay packages list
 ========
 
-- This file is updated on 2016-02-02
+- This file is updated on 2016-02-06
 
 | Package Name | Description | Upstream Website | This Overlay Only | Note |
-|----|----|----|----|----|
+| ---- | ---- | ---- | ---- | ---- |
 | app-accessibility/florence | an extensible scalable virtual keyboard for X11 | <http://florence.sourceforge.net/> | o | |
 | app-accessibility/onboard | Onscreen keyboard for tablet PC users and mobility impaired users | <https://launchpad.net/onboard> | o | |
 | app-accessibility/xvkbd | Virtual Keyboard for X Window System | <http://homepage3.nifty.com/tsato/xvkbd/> | o | gentoo repo includes this in **x11-misc** |
 | app-arch/engrampa | Engrampa archive manager for MATE | <http://mate-desktop.org/> | - | dev ver. |
 | app-editors/cutemarked | Qt5-based Markdown editor with live HTML preview | <http://cloose.github.io/CuteMarkEd/> | o | Fix deps. gentoo repo includes this in **app-text** |
+| app-editors/focuswriter | A fullscreen and distraction-free word processor | <http://gottcode.org/focuswriter/> | - | dev ver. with Qt5 support |
 | app-editors/mined | Terminal-based Text Editor with extensive Unicode and CJK support | <http://towo.net/mined/> | o | |
+| app-editors/juffed |  QScintilla-based tabbed text editor with syntax highlighting | <http://juffed.com/> | - | dev ver. with Qt5 support |
 | app-editors/pluma | A powerful text editor for MATE | <http://mate-desktop.org/> | - | dev ver. |
 | app-i18n/fcitx | Flexible Contect-aware Input Tool with eXtension support | <http://fcitx-im.org/> | - | newer ver. |
 | app-i18n/fcitx-anthy | Japanese Anthy module for Fcitx | <http://fcitx-im.org/> | - | newer ver. |
@@ -129,14 +131,16 @@ wjn-overlay packages list
 | www-plugins/freshplayerplugin | PPAPI-host NPAPI-plugin adapter for flashplayer in npapi based browsers | <https://github.com/i-rinat/freshplayerplugin> | - | dev ver. |
 | www-plugins/gnash | GNU Flash movie player that supports many SWF v7,8,9 features | <http://www.gnu.org/software/gnash/> | - | newer patched |
 | x11-drivers/xf86-video-intel | X.Org driver for Intel cards | <http://xorg.freedesktop.org/> | - | enables DRI3 |
-| x11-libs/gdk-pixbuf-psd | A GdkPixbuf loader for Adobe Photoshop images | <http://cgit.sukimashita.com/gdk-pixbuf-psd.git/> | o | **UPSTEAM does NOT seem to MAINTAIN**  |
+| x11-libs/gdk-pixbuf-psd | A GdkPixbuf loader for Adobe Photoshop images | <http://cgit.sukimashita.com/gdk-pixbuf-psd.git/> | o | **UPSTEAM seems to be UNMAINTAINED**  |
 | x11-libs/gdk-pixbuf-xcf | A gdk-pixbuf loader for xcf (The Gimp) files | <https://gitorious.org/xcf-pixbuf-loader/> | o | **UPSTREAM is NOT ALIVE** |
 | x11-libs/libvdpau-va-gl | VDPAU driver with OpenGL/VAAPI backend | <https://github.com/i-rinat/libvdpau-va-gl> | o | |
+| x11-libs/qscintilla | A Qt port of Neil Hodgson's Scintilla C++ editor class | <http://www.riverbankcomputing.com/software/qscintilla/intro> | - | New slot to build for Qt5 |
 | x11-misc/lightdm | A lightweight display manager | <http://www.freedesktop.org/wiki/Software/LightDM> | - | newer ver., *if none, this is removed* |
 | x11-misc/lightdm-gtk-greeter-settings | LightDM Gtk+ Greeter settings editor | <https://launchpad.net/lightdm-gtk-greeter-settings> | o | |
 | x11-misc/mate-notification-daemon | MATE Notification daemon | <http://mate-desktop.org/> | - | dev ver. |
 | x11-misc/mate-tweak | MATE desktop tweak tool | <https://launchpad.net/ubuntu/+source/mate-tweak> | o | |
 | x11-misc/mozo | Menu editor for MATE using the freedesktop.org menu specification | <http://mate-desktop.org/> | - | dev ver. |
+| x11-misc/screengrab | Qt-based program for fast creating screenshots | <https://github.com/DOOMer/screengrab> | - | dev ver. with Qt5 support |
 | x11-terms/mate-terminal | The MATE Terminal Emulator | <http://mate-desktop.org/> | - | dev ver. |
 | x11-themes/faience-icon-theme | A scalable icon theme called Faience | <http://tiheum.deviantart.com/art/Faience-icon-theme-255099649> | o | |
 | x11-themes/gion-icon-theme | A scalable icon theme called Gion | <http://www.silvestre.com.ar/> | o | |
