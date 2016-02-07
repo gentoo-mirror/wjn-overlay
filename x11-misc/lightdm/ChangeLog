@@ -2,6 +2,12 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*lightdm-1.17.5 (07 Feb 2016)
+
+  07 Feb 2016; wjn <wjn@aol.jp> -lightdm-1.17.4.ebuild,
+  +lightdm-1.17.5.ebuild:
+  Add version 1.17.5, delete old 1.17.4
+
 *lightdm-1.17.4 (02 Feb 2016)
 
   02 Feb 2016; wjn <wjn@aol.jp> +lightdm-1.17.4.ebuild:

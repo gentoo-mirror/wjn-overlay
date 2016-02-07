@@ -48,7 +48,7 @@ PDEPEND="gtk? ( x11-misc/lightdm-gtk-greeter )
 	kde? ( x11-misc/lightdm-kde )"
 
 DOCS=( NEWS )
-RESTRICT="test"
+RESTRICT="mirror test"
 
 src_prepare() {
 	sed -i -e 's:getgroups:lightdm_&:' tests/src/libsystem.c || die #412369
