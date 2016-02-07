@@ -7,7 +7,7 @@ EAPI=5
 XORG_DRI=dri
 inherit linux-info xorg-2
 
-COMMIT_ID="b48d4a7917ab793526be47559becc64aacd347ae"
+COMMIT_ID="8b8c9a36828e90e46ad0755c6861df85f5307fb5"
 DESCRIPTION="X.Org driver for Intel cards"
 SRC_URI="http://cgit.freedesktop.org/xorg/driver/xf86-video-intel/snapshot/${COMMIT_ID}.tar.xz -> ${P}.tar.xz"
 
