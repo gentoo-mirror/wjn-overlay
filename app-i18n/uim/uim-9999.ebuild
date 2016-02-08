@@ -130,6 +130,8 @@ src_configure() {
 	use qt4 && export QMAKE4="$(qt4_get_bindir)/qmake"
 	use qt5 && export QMAKE5="$(qt5_get_bindir)/qmake"
 
+	export X11_LIBS="-lX11 -lX11-xcb"
+
 	econf --disable-gnome-applet \
 		--disable-gnome3-applet \
 		--disable-kde-applet \
