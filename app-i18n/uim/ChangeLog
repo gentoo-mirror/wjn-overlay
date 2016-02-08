@@ -1,6 +1,26 @@
 # ChangeLog for app-i18n/uim
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
+# (auto-generated from git log)
+
+  08 Feb 2016; wjn <wjn@aol.jp> uim-9999.ebuild:
+  Update to EAPI 6
+
+   - Updated to EAPI 6
+   - Made workarounds more proper
+
+  08 Feb 2016; wjn <wjn@aol.jp> uim-9999.ebuild:
+  Add a correct workaround when dev-util/pkgconf is used
+
+   When dev-util/pkgconf[pkg-config] is used instead of dev-util/pkgconfig,
+  'export PKG_CONFIG="/usr/bin/pkgconf"' is needed for the configure script
+
+  08 Feb 2016; wjn <wjn@aol.jp> uim-9999.ebuild:
+  Revert "app-i18n/uim: Fix linking "libX11" error"
+
+  This reverts commit c46811ec7e279ea80a251ea4a6df3f6244989a7c.
+
+  08 Feb 2016; wjn <wjn@aol.jp> uim-9999.ebuild:
+  Fix linking "libX11" error
 
   31 Jan 2016; wjn <wjn@aol.jp> uim-9999.ebuild:
   Add "qt5? ( X )" to ${REQUIRED_USE}

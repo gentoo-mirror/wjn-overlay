@@ -2,8 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
-inherit autotools eutils multilib elisp-common gnome2-utils qmake-utils
+EAPI=6
+
+inherit autotools elisp-common gnome2-utils qmake-utils
 
 DESCRIPTION="Simple, secure and flexible input method library"
 HOMEPAGE="http://code.google.com/p/uim/"
@@ -80,26 +81,60 @@ if [[ ${PV} = *9999* ]]; then
 fi
 RDEPEND=${COMMON_DEPEND}
 
+DOCS=( AUTHORS ChangeLog.old ChangeLog.old.2 NEWS README RELNOTE )
+
 SITEFILE=50${PN}-gentoo.el
 
 src_prepare() {
-	epatch \
+	eapply \
 		"${FILESDIR}"/${PN}-1.6.0-gentoo.patch \
 		"${FILESDIR}"/${PN}-1.5.4-zhTW.patch
 
 	# bug 275420
-	sed -i -e "s:\$libedit_path/lib:/$(get_libdir):g" configure.ac || die "sed failed!"
+	sed -i -e "s:\$libedit_path/lib:/$(get_libdir):g" configure.ac \
+		|| die 'sed configure.ac failed!'
 
 	# QtCore/qdatastream.h must be included
-	epatch ${FILESDIR}/${P}-include-qdatastream.patch
+	eapply ${FILESDIR}/${P}-include-qdatastream.patch
+
+	# plugin file must be installed to sandbox
+	use qt4 && sed -i \
+		-e 's_target.path.*/_target.path += '"/$(qt4_get_plugindir)"'/_g' \
+		qt4/immodule/quiminputcontextplugin.pro.in \
+		|| die 'sed qt4/immodule/ failed!'
+
+	# plugin file must be installed to sandbox
+	use qt5 && sed -i \
+		-e 's_target.path.*/_target.path += '"/$(qt5_get_plugindir)"'/_g' \
+		qt5/immodule/quimplatforminputcontextplugin.pro.in \
+		|| die 'sed qt5/immodule/ failed!'
 
 	if [[ ${PV} = *9999* ]]; then
-		( cd sigscheme/libgcroots && ./autogen.sh )
-		( cd sigscheme && ./autogen.sh )
-		AT_NO_RECURSIVE=1 eautoreconf
+		( cd sigscheme/libgcroots 
+			_elibtoolize --force --copy
+			eaclocal -I m4
+			eautomake
+			eautoconf
+		 )
+		( cd sigscheme
+			eaclocal -I m4
+			_elibtoolize --force --copy
+			eautoheader
+			eautomake
+			eautoconf
+		)
+		eaclocal -I m4
+		_elibtoolize --force --copy
+		eautoheader
+		eautomake
+		eautoconf
+		intltoolize --copy --force --automake
+		sed -i -e "s/^DISTFILES/# Makevars gets inserted here. (Don't remove this line!)\n\nDISTFILES/" \
+			po/Makefile.in.in || die 'sed Makefile.in.in failed!'
 	else
 		AT_NO_RECURSIVE=1 eautoreconf
 	fi
+	eapply_user
 }
 
 src_configure() {
@@ -125,6 +160,16 @@ src_configure() {
 		fi
 	else
 		myconf="${myconf} --without-anthy"
+	fi
+
+	if use gtk3 ; then
+		myconf="${myconf} --enable-default-toolkit=gtk3"
+	elif use qt5 ; then
+		myconf="${myconf} --enable-default-toolkit=qt5"
+	elif use qt4 ; then
+		myconf="${myconf} --enable-default-toolkit=qt4"
+	elif use gtk ; then
+		myconf="${myconf} --enable-default-toolkit=gtk"
 	fi
 
 	use qt4 && export QMAKE4="$(qt4_get_bindir)/qmake"
@@ -172,10 +217,6 @@ src_configure() {
 		$(use_enable ssl openssl) \
 		$(use_enable static-libs static) \
 		$(use_with xft)
-
-	# plugin file must be installed to sandbox
-	use qt5 && sed -i -e 's_/usr/plugins_'"${D}/$(qt5_get_plugindir)"'_g' \
-		qt5/immodule/Makefile*
 }
 
 src_compile() {
@@ -189,7 +230,8 @@ src_compile() {
 src_install() {
 	emake -j1 INSTALL_ROOT="${D}" DESTDIR="${D}" install
 
-	dodoc AUTHORS ChangeLog* NEWS README RELNOTE
+	einstalldocs
+
 	if use emacs; then
 		elisp-install uim-el emacs/*.elc || die "elisp-install failed!"
 		elisp-site-file-install "${FILESDIR}/${SITEFILE}" uim-el \
@@ -199,7 +241,8 @@ src_install() {
 	find "${ED}/usr/$(get_libdir)/uim" -name '*.la' -exec rm {} +
 	use static-libs || find "${ED}" -name '*.la' -exec rm {} +
 
-	sed -e "s:@EPREFIX@:${EPREFIX}:" "${FILESDIR}/xinput-uim" > "${T}/uim.conf" || die "sed failed!"
+	sed -e "s:@EPREFIX@:${EPREFIX}:" "${FILESDIR}/xinput-uim" >"${T}/uim.conf" \
+		|| die "sed uim.conf failed!"
 	insinto /etc/X11/xinit/xinput.d
 	doins "${T}/uim.conf"
 }
@@ -224,6 +267,7 @@ pkg_postinst() {
 
 	use gtk && gnome2_query_immodules_gtk2
 	use gtk3 && gnome2_query_immodules_gtk3
+
 	if use emacs; then
 		elisp-site-regen
 		echo
