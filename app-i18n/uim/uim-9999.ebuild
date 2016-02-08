@@ -130,6 +130,11 @@ src_configure() {
 	use qt4 && export QMAKE4="$(qt4_get_bindir)/qmake"
 	use qt5 && export QMAKE5="$(qt5_get_bindir)/qmake"
 
+	# This is neccessary to run "PKG_CHECK_MODULES" correctly around econf
+	if has_version dev-util/pkgconf[pkg-config] ; then
+		export PKG_CONFIG="/usr/bin/pkgconf"
+	fi
+
 	econf --disable-gnome-applet \
 		--disable-gnome3-applet \
 		--disable-kde-applet \
