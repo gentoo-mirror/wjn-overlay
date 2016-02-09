@@ -4,10 +4,10 @@ DESCRIPTION=Japanese libkkc module for Fcitx
 EAPI=5
 HOMEPAGE=https://github.com/fcitx/fcitx-kkc
 IUSE=qt4 linguas_de linguas_ja linguas_zh_CN linguas_zh_TW
-LICENSE=GPL-3+
+LICENSE=GPL-3
 RDEPEND=>=app-i18n/fcitx-4.2.8[qt4?] >=app-i18n/libkkc-0.2.3 qt4? ( >=dev-qt/qtcore-4.8:4 >=dev-qt/qtdbus-4.8:4 >=dev-qt/qtgui-4.8:4 ) app-i18n/libkkc-data app-i18n/skk-jisyo
 RESTRICT=mirror
 SLOT=0
 _eclass_exported_funcs=src_unpack:git-r3 src_prepare:- src_configure:- src_compile:cmake-utils src_test:cmake-utils src_install:cmake-utils
 _eclasses_=cmake-utils	3443785f3176b7cfdf7bd1f2c403bd9f	eutils	28fb3e5852485af1c348d446b0b98389	flag-o-matic	d270fa247153df66074f795fa42dba3e	git-r3	018b3baa1d2b738e5bc146a0e807494e	l10n	714aaf78929eade946da5eaff7d2001a	multilib	3972ca401cf7dbb430df9995f5d8d580	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
-_md5_=470ce7ddef674f455dcb1266c39dbd06
+_md5_=415eb3d87bdf2f127bfc1eda3b2f1562

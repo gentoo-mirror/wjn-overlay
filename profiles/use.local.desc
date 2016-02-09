@@ -15,6 +15,7 @@ app-i18n/fcitx:introspection - Enable GObject Introspection
 app-i18n/fcitx:opencc - Enable OpenCC for Chinese Transform
 app-i18n/fcitx:pango - Enable support for x11-libs/pango
 app-i18n/fcitx:qt4 - Install Qt4 IM module
+app-i18n/fcitx:qt5 - Install Qt5 IM module(app-i18n/fcitx-qt5)
 app-i18n/fcitx:table - Enable Table IM
 app-i18n/mozc:clang - Use sys-devel/clang for building
 app-i18n/mozc:emacs - Enable support for virtual/emacs

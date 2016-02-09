@@ -7,10 +7,10 @@ app-editors/focuswriter 9999: A fullscreen and distraction-free word processor
 app-editors/juffed 9999: QScintilla-based tabbed text editor with syntax highlighting
 app-editors/mined 2015.25: Terminal-based Text Editor with extensive Unicode and CJK support
 app-editors/pluma 9999: A powerful text editor for MATE
-app-i18n/fcitx 4.2.9: Flexible Contect-aware Input Tool with eXtension support
+app-i18n/fcitx 4.2.9.1: Flexible Contect-aware Input Tool with eXtension support
 app-i18n/fcitx-anthy 0.2.2: Japanese Anthy module for Fcitx
 app-i18n/fcitx-kkc 0.1.2 9999: Japanese libkkc module for Fcitx
-app-i18n/fcitx-qt5 1.0.4 9999: Fcitx support for Qt5
+app-i18n/fcitx-qt5 1.0.5 9999: Qt5 input module for Fcitx
 app-i18n/ibus-kkc 1.5.22 9999: Japanese Kana Kanji input engine for IBus
 app-i18n/im-chooser 1.6.4: Desktop Input Method configuration tool
 app-i18n/libkkc 0.3.5 9999: Japanese Kana Kanji conversion library
