@@ -19,7 +19,7 @@ else
 	SRC_URI="http://download.fcitx-im.org/${PN}/${P}.tar.xz"
 fi
 
-LICENSE="GPL-3+"
+LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
 IUSE="qt4"
