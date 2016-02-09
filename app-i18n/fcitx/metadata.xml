@@ -13,6 +13,7 @@
     <flag name='opencc'>Enable OpenCC for Chinese Transform</flag>
     <flag name='pango'>Enable support for <pkg>x11-libs/pango</pkg></flag>
     <flag name='qt4'>Install Qt4 IM module</flag>
+    <flag name='qt5'>Install Qt5 IM module(<pkg>app-i18n/fcitx-qt5</pkg>)</flag>
     <flag name='table'>Enable Table IM</flag>
   </use>
 </pkgmetadata>
