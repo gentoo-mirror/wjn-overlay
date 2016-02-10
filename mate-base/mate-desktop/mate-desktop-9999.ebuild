@@ -9,7 +9,7 @@ GNOME2_LA_PUNT="yes"
 
 PYTHON_COMPAT=( python2_7 )
 
-inherit autotools git-r3 gnome2 multilib python-r1
+inherit autotools git-r3 gnome2 python-r1
 
 DESCRIPTION="Libraries for the MATE desktop that are not part of the UI"
 HOMEPAGE="http://mate-desktop.org/

@@ -3,6 +3,9 @@
 # (auto-generated from git log)
 
   10 Feb 2016; wjn <wjn@aol.jp> mate-desktop-9999.ebuild:
+  Remove needless "inherit multilib"
+
+  10 Feb 2016; wjn <wjn@aol.jp> mate-desktop-9999.ebuild:
   MATE Desktop: Improve ${HOMEPAGE} and ${EGIT_REPO_URI}
 
    - Add github repositories to ${HOMEPAGE}
