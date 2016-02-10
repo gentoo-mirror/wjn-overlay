@@ -98,16 +98,20 @@ src_prepare() {
 	eapply ${FILESDIR}/${P}-include-qdatastream.patch
 
 	# plugin file must be installed to sandbox
-	use qt4 && sed -i \
-		-e 's_target.path.*/_target.path += '"/$(qt4_get_plugindir)"'/_g' \
-		qt4/immodule/quiminputcontextplugin.pro.in \
-		|| die 'sed qt4/immodule/ failed!'
+	if use qt4 ; then
+		sed -i \
+			-e 's_target.path.*/_target.path += '"/$(qt4_get_plugindir)"'/_g' \
+			qt4/immodule/quiminputcontextplugin.pro.in \
+			|| die 'sed qt4/immodule/ failed!'
+	fi
 
 	# plugin file must be installed to sandbox
-	use qt5 && sed -i \
-		-e 's_target.path.*/_target.path += '"/$(qt5_get_plugindir)"'/_g' \
-		qt5/immodule/quimplatforminputcontextplugin.pro.in \
-		|| die 'sed qt5/immodule/ failed!'
+	if use qt5 ; then
+		sed -i \
+			-e 's_target.path.*/_target.path += '"/$(qt5_get_plugindir)"'/_g' \
+			qt5/immodule/quimplatforminputcontextplugin.pro.in \
+			|| die 'sed qt5/immodule/ failed!'
+	fi
 
 	if [[ ${PV} = *9999* ]]; then
 		( cd sigscheme/libgcroots 
