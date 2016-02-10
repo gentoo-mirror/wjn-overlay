@@ -102,8 +102,8 @@ src_install() {
 
 	# Omit battstat
 	local APPLETS="accessx-status charpick command drivemount geyes
-			invest-applet multiload netspeed null_applet stickynotes
-			timerapplet trashapplet"
+			invest-applet multiload netspeed stickynotes timerapplet
+			trashapplet"
 	use cpufreq && APPLETS="${APPLETS} cpufreq"
 	use weather && APPLETS="${APPLETS} mateweather"
 
