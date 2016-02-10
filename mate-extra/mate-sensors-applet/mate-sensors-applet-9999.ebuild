@@ -22,7 +22,7 @@ IUSE="+dbus -gtk3 hddtemp libnotify lm_sensors
 	video_cards_fglrx video_cards_nvidia"
 
 COMMON_DEPEND="app-text/rarian:0
-	>=dev-libs/glib-2.36:2
+	dev-libs/glib:2
 	~mate-base/mate-panel-9999:0[gtk3?]
 	>=x11-libs/cairo-1.0.4:0
 	x11-libs/gdk-pixbuf:2

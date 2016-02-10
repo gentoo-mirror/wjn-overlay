@@ -23,7 +23,7 @@ IUSE="appindicator -gtk3"
 COMMON_DEPEND="app-text/rarian:0
 	dev-libs/atk:0
 	>=dev-libs/dbus-glib-0.73:0
-	>=dev-libs/glib-2.36:2
+	dev-libs/glib:2
 	>=dev-libs/libunique-1:1
 	dev-libs/libxml2:2
 	>=gnome-base/dconf-0.13.4:0

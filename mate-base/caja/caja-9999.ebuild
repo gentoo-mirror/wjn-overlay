@@ -21,7 +21,7 @@ KEYWORDS=""
 IUSE="doc extensions dropbox -gtk3 +mate +introspection python +unique xmp"
 
 COMMON_DEPEND="dev-libs/atk:0[introspection?]
-	>=dev-libs/glib-2.36.0:2
+	dev-libs/glib:2
 	>=dev-libs/libxml2-2.4.7:2
 	gnome-base/dconf:0
 	>=gnome-base/gvfs-1.10.1:0[udisks]
