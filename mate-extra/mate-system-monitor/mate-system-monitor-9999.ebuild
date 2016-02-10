@@ -21,7 +21,7 @@ IUSE="systemd"
 
 COMMON_DEPEND="app-text/rarian:0
 	>=dev-cpp/glibmm-2.16:2
-	>=dev-cpp/gtkmm-3.14.0:3.0
+	>=dev-cpp/gtkmm-3.8.1:3.0
 	>=dev-libs/glib-2.36:2
 	dev-libs/libsigc++:2
 	>=dev-libs/libxml2-2:2
