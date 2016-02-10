@@ -12,7 +12,7 @@ HOMEPAGE="https://fcitx-im.org/
 
 if [[ ${PV} = *9999* ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="git://github.com/fcitx/${PN}.git"
+	EGIT_REPO_URI="https://github.com/fcitx/${PN}.git"
 else
 	SRC_URI="http://download.fcitx-im.org/fcitx-qt5/${P}.tar.xz"
 fi
