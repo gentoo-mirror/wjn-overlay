@@ -9,7 +9,7 @@ inherit autotools git-r3 versionator
 DESCRIPTION="GTK2/3 desktop themes for MATE"
 HOMEPAGE="https://github.com/raveit65/mate-themes-extras"
 SRC_URI=""
-EGIT_REPO_URI="git://github.com/raveit65/${PN}.git"
+EGIT_REPO_URI="https://github.com/raveit65/${PN}.git"
 EGIT_COMMIT="v${PV}"
 
 LICENSE="GPL-3 LGPL-2.1"

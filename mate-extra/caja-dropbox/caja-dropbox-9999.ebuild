@@ -11,9 +11,10 @@ PYTHON_COMPAT=( python2_7 )
 inherit autotools eutils gnome2 python-single-r1 linux-info user
 
 DESCRIPTION="Dropbox extension for Caja file manager"
-HOMEPAGE="http://mate-desktop.org/"
+HOMEPAGE="http://mate-desktop.org/
+	https://github.com/mate-desktop/${PN}"
 SRC_URI=""
-EGIT_REPO_URI="git://github.com/mate-desktop/${PN}.git"
+EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 
 LICENSE="GPL-3"
 SLOT="0"

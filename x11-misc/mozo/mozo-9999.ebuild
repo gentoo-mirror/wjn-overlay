@@ -13,9 +13,10 @@ PYTHON_REQ_USE="xml"
 inherit autotools git-r3 gnome2 python-r1
 
 DESCRIPTION="Menu editor for MATE using the freedesktop.org menu specification"
-HOMEPAGE="http://mate-desktop.org/"
+HOMEPAGE="http://mate-desktop.org/
+	https://github.com/mate-desktop/${PN}"
 SRC_URI=""
-EGIT_REPO_URI="git://github.com/mate-desktop/${PN}.git"
+EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 
 LICENSE="LGPL-2.1"
 SLOT="0"

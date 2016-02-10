@@ -10,9 +10,10 @@ GNOME2_LA_PUNT="yes"
 inherit autotools git-r3 gnome2
 
 DESCRIPTION="Applet to display information from applications in the panel"
-HOMEPAGE="http://mate-desktop.org/"
+HOMEPAGE="http://mate-desktop.org/
+	https://github.com/mate-desktop/${PN}"
 SRC_URI=""
-EGIT_REPO_URI="git://github.com/mate-desktop/${PN}.git"
+EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 
 LICENSE="GPL-3 LGPL-2.1"
 SLOT="0"

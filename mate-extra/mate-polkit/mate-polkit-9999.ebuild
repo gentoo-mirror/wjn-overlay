@@ -9,9 +9,10 @@ GCONF_DEBUG="no"
 inherit autotools git-r3 gnome2
 
 DESCRIPTION="A MATE specific DBUS session bus service that is used to bring up authentication dialogs"
-HOMEPAGE="http://mate-desktop.org/"
+HOMEPAGE="http://mate-desktop.org/
+	https://github.com/mate-desktop/${PN}"
 SRC_URI=""
-EGIT_REPO_URI="git://github.com/mate-desktop/${PN}.git"
+EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 
 LICENSE="LGPL-2"
 SLOT="0"

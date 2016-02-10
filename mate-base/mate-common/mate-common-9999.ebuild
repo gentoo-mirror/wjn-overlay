@@ -7,8 +7,9 @@ EAPI=5
 inherit autotools git-r3
 
 DESCRIPTION="Common files for development of MATE packages"
-HOMEPAGE="http://mate-desktop.org/"
-EGIT_REPO_URI="git://github.com/mate-desktop/${PN}.git"
+HOMEPAGE="http://mate-desktop.org/
+	https://github.com/mate-desktop/${PN}"
+EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 
 LICENSE="GPL-3"
 SLOT="0"

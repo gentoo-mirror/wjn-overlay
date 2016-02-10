@@ -12,9 +12,10 @@ PYTHON_COMPAT=( python2_7 )
 inherit autotools git-r3 gnome2 python-r1
 
 DESCRIPTION="MATE menu system, implementing the F.D.O cross-desktop spec"
-HOMEPAGE="http://mate-desktop.org/"
+HOMEPAGE="http://mate-desktop.org/
+	https://github.com/mate-desktop/${PN}"
 SRC_URI=""
-EGIT_REPO_URI="git://github.com/mate-desktop/${PN}.git"
+EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 
 LICENSE="GPL-2 LGPL-2"
 SLOT="0"

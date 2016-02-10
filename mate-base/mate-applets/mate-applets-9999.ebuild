@@ -12,9 +12,10 @@ PYTHON_COMPAT=( python2_7 )
 inherit autotools eutils git-r3 gnome2 python-single-r1
 
 DESCRIPTION="Applets for the MATE Desktop and Panel"
-HOMEPAGE="http://mate-desktop.org/"
+HOMEPAGE="http://mate-desktop.org/
+	https://github.com/mate-desktop/${PN}"
 SRC_URI=""
-EGIT_REPO_URI="git://github.com/mate-desktop/${PN}.git"
+EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 
 LICENSE="GPL-2 FDL-1.1 LGPL-2"
 SLOT="0"

@@ -10,9 +10,10 @@ GNOME2_LA_PUNT="yes"
 inherit autotools git-r3 gnome2
 
 DESCRIPTION="The MATE Desktop configuration tool"
-HOMEPAGE="http://mate-desktop.org/"
+HOMEPAGE="http://mate-desktop.org/
+	https://github.com/mate-desktop/${PN}"
 SRC_URI=""
-EGIT_REPO_URI="git://github.com/mate-desktop/${PN}.git"
+EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 
 LICENSE="GPL-2"
 SLOT="0"
