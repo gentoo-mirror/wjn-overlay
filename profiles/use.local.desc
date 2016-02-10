@@ -4,8 +4,9 @@
 
 app-arch/engrampa:caja - Enable engrampa to integrate with mate-base/caja by providing entries in its context menu
 app-editors/pluma:debug - Enable gconf debug
+app-editors/pluma:gtk3 - Build for gtk+:3 instead of gtk:2. EXPERIMENTAL
 app-editors/pluma:mate - Build with mate-base/mate-desktop
-app-editors/pluma:python - Enable Python plugins
+app-editors/pluma:python - Enable plugins depend on python:2.7
 app-editors/pluma:spell - Enable spell checker with app-text/enchant
 app-i18n/fcitx:autostart - Enable xdg-compatible autostart of fcitx
 app-i18n/fcitx:enchant - Use app-text/enchant for text prediction
@@ -75,7 +76,12 @@ mate-base/caja:mate - Install x11-themes/mate-icon-theme which is needed when th
 mate-base/caja:unique - Enable single instance support using dev-libs/libunique.
 mate-base/mate:base - Install base MATE Desktop applications that are recommended for the most common usage; for example, this installs the file manager. Disable this and other USE flags if you want a more minimal MATE Desktop.
 mate-base/mate:extras - Install additional MATE Desktop applications that are recommended for extended usage of the MATE Desktop as upstream sees it; for example, this installs MATE Desktop's office related applications. Disable this if you plan to use your own non-MATE Desktop alternatives or a custom mixture of MATE and non-MATE packages.
+mate-base/mate:gtk3 - EXPERIMENTAL: Build MATE Desktop based on GTK+ 3
+mate-base/mate:netbook - Install mate-extra/mate-netbook
 mate-base/mate:themes - Install MATE Desktop's themes; if you use other themes, you can disable this to spare some space and time.
+mate-base/mate:user-guide - Install mate-extra/mate-user-guide
+mate-base/mate-applets-meta:appindicator - Pull in mate-extra/mate-indicator-applet for AppIndicator applet
+mate-base/mate-applets-meta:sensors - Pull in mate-extra/mate-sensors-applet for hw sensors applet
 mate-base/mate-control-center:appindicator - Support dev-libs/libappindicator
 mate-extra/caja-extensions:cdr - Add extension to support sendto by burning media
 mate-extra/caja-extensions:debug - Enable gconf debug

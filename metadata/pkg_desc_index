@@ -43,6 +43,7 @@ mate-base/caja 9999: Caja file manager for the MATE desktop
 mate-base/libmatekbd 9999: MATE keyboard configuration library
 mate-base/mate 9999: Meta ebuild for MATE, a traditional desktop environment
 mate-base/mate-applets 9999: Applets for the MATE Desktop and Panel
+mate-base/mate-applets-meta 9999: Meta package for MATE panel applets
 mate-base/mate-common 9999: Common files for development of MATE packages
 mate-base/mate-control-center 9999: The MATE Desktop configuration tool
 mate-base/mate-desktop 9999: Libraries for the MATE desktop that are not part of the UI
@@ -52,9 +53,9 @@ mate-base/mate-session-manager 9999: MATE session manager
 mate-base/mate-settings-daemon 9999: MATE Settings Daemon
 mate-extra/caja-dropbox 9999: Dropbox extension for Caja file manager
 mate-extra/caja-extensions 9999: Several extensions for Caja file manager
-mate-extra/libmatemixer 9999: Mixer library for MATE Desktop
 mate-extra/mate-indicator-applet 9999: Applet to display information from applications in the panel
 mate-extra/mate-media 9999: Multimedia related programs for the MATE desktop
+mate-extra/mate-netbook 9999: MATE utilities for netbooks
 mate-extra/mate-polkit 9999: A MATE specific DBUS session bus service that is used to bring up authentication dialogs
 mate-extra/mate-power-manager 9999: A session daemon for MATE that makes it easy to manage your laptop or desktop system
 mate-extra/mate-screensaver 9999: Replaces xscreensaver, integrating with the MATE desktop
@@ -114,6 +115,7 @@ media-gfx/azdrawing 1.5: A painting software by drawing
 media-gfx/azpainter 1.0.6 1.0.7: A full-color painting software
 media-gfx/eom 9999: The MATE image viewer
 media-gfx/viewnior 1.5 1.6: Fast and simple image viewer
+media-libs/libmatemixer 9999: Mixer library for MATE Desktop
 media-plugins/audacious-plugins 3.7 3.7.1 9999: Plugins for Audacious music player
 media-sound/alsa-tools 1.1.0: Advanced Linux Sound Architecture tools
 media-sound/audacious 3.7 3.7.1 9999: A lightweight and versatile audio player
