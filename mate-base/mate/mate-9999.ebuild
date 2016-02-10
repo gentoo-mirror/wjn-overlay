@@ -29,13 +29,14 @@ RDEPEND="~mate-base/mate-desktop-9999:0[gtk3=]
 		~x11-terms/mate-terminal-9999:0[gtk3=] )
 	bluetooth? ( net-wireless/blueman:0 )
 	extras? ( ~app-arch/engrampa-9999:0[gtk3=]
-		~app-editors/pluma-9999:0[gtk3=,mate]
 		~app-text/atril-9999:0[gtk3=]
 		~mate-extra/mate-power-manager-9999:0[gtk3=]
 		~mate-extra/mate-screensaver-9999:0[gtk3=]
 		~mate-extra/mate-system-monitor-9999:0
 		~mate-extra/mate-utils-9999:0[gtk3=]
-		~media-gfx/eom-9999:0[gtk3=] )
+		~media-gfx/eom-9999:0[gtk3=]
+		|| ( ~app-editors/pluma-9999:0[gtk3=,mate]
+			~app-editors/pluma-9999:0[-mate] ) )
 	netbook? ( ~mate-extra/mate-netbook-9999:0[gtk3=] )
 	themes? ( ~x11-themes/mate-backgrounds-9999:0
 		~x11-themes/mate-icon-theme-9999:0
