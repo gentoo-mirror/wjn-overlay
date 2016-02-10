@@ -9,9 +9,10 @@ GCONF_DEBUG="no"
 inherit autotools git-r3 gnome2
 
 DESCRIPTION="The MATE Terminal Emulator"
-HOMEPAGE="http://mate-desktop.org/"
+HOMEPAGE="http://mate-desktop.org/
+	https://github.com/mate-desktop/${PN}"
 SRC_URI=""
-EGIT_REPO_URI="git://github.com/mate-desktop/${PN}.git"
+EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 
 LICENSE="GPL-3"
 SLOT="0"

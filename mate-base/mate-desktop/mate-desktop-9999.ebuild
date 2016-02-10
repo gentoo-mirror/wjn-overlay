@@ -9,12 +9,13 @@ GNOME2_LA_PUNT="yes"
 
 PYTHON_COMPAT=( python2_7 )
 
-inherit autotools git-r3 gnome2 multilib python-r1
+inherit autotools git-r3 gnome2 python-r1
 
 DESCRIPTION="Libraries for the MATE desktop that are not part of the UI"
-HOMEPAGE="http://mate-desktop.org/"
+HOMEPAGE="http://mate-desktop.org/
+	https://github.com/mate-desktop/${PN}"
 SRC_URI=""
-EGIT_REPO_URI="git://github.com/mate-desktop/${PN}.git"
+EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 
 LICENSE="GPL-2 FDL-1.1 LGPL-2"
 SLOT="0"

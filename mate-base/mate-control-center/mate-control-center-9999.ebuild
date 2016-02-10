@@ -10,9 +10,10 @@ GNOME2_LA_PUNT="yes"
 inherit autotools git-r3 gnome2
 
 DESCRIPTION="The MATE Desktop configuration tool"
-HOMEPAGE="http://mate-desktop.org/"
+HOMEPAGE="http://mate-desktop.org/
+	https://github.com/mate-desktop/${PN}"
 SRC_URI=""
-EGIT_REPO_URI="git://github.com/mate-desktop/${PN}.git"
+EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -22,7 +23,7 @@ IUSE="appindicator -gtk3"
 COMMON_DEPEND="app-text/rarian:0
 	dev-libs/atk:0
 	>=dev-libs/dbus-glib-0.73:0
-	>=dev-libs/glib-2.36:2
+	dev-libs/glib:2
 	>=dev-libs/libunique-1:1
 	dev-libs/libxml2:2
 	>=gnome-base/dconf-0.13.4:0

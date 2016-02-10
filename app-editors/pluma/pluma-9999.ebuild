@@ -9,12 +9,13 @@ GNOME2_LA_PUNT="yes"
 
 PYTHON_COMPAT=( python2_7 )
 
-inherit autotools git-r3 gnome2 multilib python-single-r1
+inherit autotools git-r3 gnome2 python-single-r1
 
 DESCRIPTION="A powerful text editor for MATE"
-HOMEPAGE="http://mate-desktop.org/"
+HOMEPAGE="http://mate-desktop.org/
+	https://github.com/mate-desktop/${PN}"
 SRC_URI=""
-EGIT_REPO_URI="git://github.com/mate-desktop/${PN}.git"
+EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -71,13 +72,13 @@ src_unpack() {
 }
 
 src_prepare() {
+	epatch_user
 	eautoreconf
 	gnome2_src_prepare
 }
 
 src_configure() {
 	gnome2_src_configure \
-		--disable-updater \
 		--with-gtk=$(usex gtk3 '3.0' '2.0') \
 		$(use_with mate matedesktop) \
 		$(use_enable python) \

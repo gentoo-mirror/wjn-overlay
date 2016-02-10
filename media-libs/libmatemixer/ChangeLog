@@ -1,0 +1,18 @@
+# ChangeLog for media-libs/libmatemixer
+# Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
+# (auto-generated from git log)
+
+  10 Feb 2016; wjn <wjn@aol.jp> libmatemixer-9999.ebuild:
+  MATE Desktop: Improve ${HOMEPAGE} and ${EGIT_REPO_URI}
+
+   - Add github repositories to ${HOMEPAGE}
+   - Change git:// to https:// in ${EGIT_REPO_URI}
+
+*libmatemixer-9999 (10 Feb 2016)
+
+  10 Feb 2016; wjn <wjn@aol.jp> +libmatemixer-9999.ebuild, +metadata.xml:
+  mate-extra/libmatemixer: Move to media-libs/
+
+   The offcial gentoo repository added this to the category of media-libs
+  https://gitweb.gentoo.org/repo/gentoo.git/commit/?id=3359a44
+

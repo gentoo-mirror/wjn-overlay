@@ -2,6 +2,18 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  10 Feb 2016; wjn <wjn@aol.jp> mate-system-monitor-9999.ebuild:
+  Update gtkmm dependency
+
+   dev-cpp/gtkmm dependency was changed.
+  See https://github.com/mate-desktop/mate-system-monitor/commit/317e7b8
+
+  10 Feb 2016; wjn <wjn@aol.jp> mate-system-monitor-9999.ebuild:
+  MATE Desktop: Improve ${HOMEPAGE} and ${EGIT_REPO_URI}
+
+   - Add github repositories to ${HOMEPAGE}
+   - Change git:// to https:// in ${EGIT_REPO_URI}
+
   13 Jan 2016; wjn <wjn@aol.jp> mate-system-monitor-9999.ebuild:
   Drop GTK+:2 support
 

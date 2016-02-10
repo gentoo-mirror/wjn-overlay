@@ -2,6 +2,20 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  10 Feb 2016; wjn <wjn@aol.jp> pluma-9999.ebuild:
+  Remove needless codes
+
+  10 Feb 2016; wjn <wjn@aol.jp> metadata.xml:
+  Improve USE="python" mention in metadata.xml
+
+   Its python plugins is depends on Python:2.7, Python:3.* are not supported
+
+  10 Feb 2016; wjn <wjn@aol.jp> pluma-9999.ebuild:
+  MATE Desktop: Improve ${HOMEPAGE} and ${EGIT_REPO_URI}
+
+   - Add github repositories to ${HOMEPAGE}
+   - Change git:// to https:// in ${EGIT_REPO_URI}
+
   01 Jan 2016; wjn <wjn@aol.jp> pluma-9999.ebuild:
   **/*.ebuild: Change 2015 to 2016 in the GPLv2 copyright expressions
 

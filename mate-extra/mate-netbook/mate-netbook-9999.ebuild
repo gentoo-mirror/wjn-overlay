@@ -4,37 +4,42 @@
 
 EAPI=5
 
-GCONF_DEBUG="no"
+GCONF_DEBUG="yes"
 GNOME2_LA_PUNT="yes"
 
 inherit autotools git-r3 gnome2
 
-DESCRIPTION="Applet to display information from applications in the panel"
+DESCRIPTION="MATE utilities for netbooks"
 HOMEPAGE="http://mate-desktop.org/
 	https://github.com/mate-desktop/${PN}"
 SRC_URI=""
 EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 
-LICENSE="GPL-3 LGPL-2.1"
+LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
-IUSE="-gtk3"
+IUSE="gtk3"
 
-COMMON_DEPEND=">=dev-libs/glib-2.2.0:2
-	>=dev-libs/libindicator-0.4:0
-	~mate-base/mate-panel-9999[gtk3?]
+COMMON_DEPEND=">=dev-libs/glib-2.36:2
+	dev-libs/libunique:1
+	~mate-base/mate-desktop-9999:0[gtk3=]
+	~mate-base/mate-panel-9999:0[gtk3=]
+	x11-libs/cairo:0
+	x11-libs/libwnck:1
+	x11-libs/libfakekey:0
+	x11-libs/libXtst:0
+	x11-libs/libX11:0
 	virtual/libintl:0
-	!gtk3? ( >=x11-libs/gtk+-2.24.0:2
-		>=dev-libs/libindicator-0.4:0 )
-	gtk3? ( >=x11-libs/gtk+-3.0.0:3
-		>=dev-libs/libindicator-0.4:3 )"
+	!gtk3? ( x11-libs/gtk+:2 )
+	gtk3? (	x11-libs/gtk+:3 )"
 DEPEND="${COMMON_DEPEND}
-	>=dev-util/intltool-0.35.0:0
-	sys-devel/gettext:0
-	virtual/pkgconfig:0"
-RDEPEND="${COMMON_DEPEND}"
+	>=dev-util/intltool-0.34:*
+	sys-devel/gettext:*
+	virtual/pkgconfig:*
+	x11-proto/xproto:0"
+RDEPEND=${COMMON_DEPEND}
 
-DOCS=( AUTHORS NEWS README )
+DOCS=( AUTHORS ChangeLog NEWS README )
 
 src_unpack() {
 	git-r3_src_unpack
@@ -47,6 +52,5 @@ src_prepare() {
 
 src_configure() {
 	gnome2_src_configure \
-		--disable-static \
 		--with-gtk=$(usex gtk3 '3.0' '2.0')
 }

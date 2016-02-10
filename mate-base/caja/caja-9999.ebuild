@@ -10,17 +10,18 @@ GNOME2_LA_PUNT="yes"
 inherit autotools git-r3 gnome2
 
 DESCRIPTION="Caja file manager for the MATE desktop"
-HOMEPAGE="http://mate-desktop.org/"
+HOMEPAGE="http://mate-desktop.org/
+	https://github.com/mate-desktop/${PN}"
 SRC_URI=""
-EGIT_REPO_URI="git://github.com/mate-desktop/${PN}.git"
+EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 
 LICENSE="GPL-2 LGPL-2 FDL-1.1"
 SLOT="0"
 KEYWORDS=""
-IUSE="doc -gtk3 +mate +introspection +unique xmp"
+IUSE="doc extensions dropbox -gtk3 +mate +introspection python +unique xmp"
 
 COMMON_DEPEND="dev-libs/atk:0[introspection?]
-	>=dev-libs/glib-2.36.0:2
+	dev-libs/glib:2
 	>=dev-libs/libxml2-2.4.7:2
 	gnome-base/dconf:0
 	>=gnome-base/gvfs-1.10.1:0[udisks]
@@ -52,7 +53,10 @@ DEPEND="${COMMON_DEPEND}
 	doc? ( >=dev-util/gtk-doc-1.4:0 )
 	!!mate-base/mate-file-manager:*"
 RDEPEND="${COMMON_DEPEND}"
-PDEPEND="mate? ( ~x11-themes/mate-icon-theme-9999:0 )"
+PDEPEND="extensions? ( ~mate-extra/caja-extensions-9999:0 )
+	dropbox? ( ~mate-extra/caja-dropbox-9999:0 )
+	mate? ( ~x11-themes/mate-icon-theme-9999:0 )
+	python? ( ~dev-python/python-caja-9999:0 )"
 
 RESTRICT="test"
 

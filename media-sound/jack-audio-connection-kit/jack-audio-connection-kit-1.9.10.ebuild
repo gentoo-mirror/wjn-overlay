@@ -14,7 +14,7 @@ HOMEPAGE="http://jackaudio.org/"
 
 RESTRICT="mirror"
 if [[ "${PV}" = "2.9999" ]]; then
-	EGIT_REPO_URI="git://github.com/jackaudio/jack2.git"
+	EGIT_REPO_URI="https://github.com/jackaudio/jack2.git"
 	KEYWORDS=""
 else
 	SRC_URI="https://dl.dropbox.com/u/28869550/jack-${PV}.tar.bz2"

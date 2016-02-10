@@ -9,9 +9,10 @@ GCONF_DEBUG="yes"
 inherit autotools git-r3 gnome2
 
 DESCRIPTION="Multimedia related programs for the MATE desktop"
-HOMEPAGE="http://mate-desktop.org/"
+HOMEPAGE="http://mate-desktop.org/
+	https://github.com/mate-desktop/${PN}"
 SRC_URI=""
-EGIT_REPO_URI="git://github.com/mate-desktop/${PN}.git"
+EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 
 LICENSE="LGPL-2 GPL-2 FDL-1.1"
 SLOT="0"
@@ -25,8 +26,8 @@ COMMON_DEPEND="app-text/rarian:0
 	~mate-base/mate-applets-9999[gtk3?]
 	~mate-base/mate-panel-9999:0[gtk3?]
 	~mate-base/mate-desktop-9999:0[gtk3?]
-	~mate-extra/libmatemixer-9999:0
 	>=media-libs/libcanberra-0.13:0[gtk,gtk3?]
+	~media-libs/libmatemixer-9999:0
 	>=dev-libs/libunique-1:1
 	x11-libs/cairo:0
 	x11-libs/pango:0

@@ -2,6 +2,23 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  10 Feb 2016; wjn <wjn@aol.jp> mate-9999.ebuild:
+  Add a choice dependency for app-editors/pluma
+
+   app-editors/pluma[-mate] is build without mate-base/mate-desktop.
+  So can be built app-editors/pluma[gtk3] and mate-base/mate[-gtk3], vice
+  versa
+
+  10 Feb 2016; wjn <wjn@aol.jp> mate-9999.ebuild, metadata.xml:
+  applets-meta: Add newly
+
+   - The official gentoo repository added this
+    https://gitweb.gentoo.org/repo/gentoo.git/commit/?id=81bcdc7
+
+   also modified mate-base/mate to update this dependency
+   - Add some flags to IUSE
+   - Fixed dependencies' USE flags
+
   13 Jan 2016; wjn <wjn@aol.jp> mate-9999.ebuild:
   Drop [gtk3?] from mate-system-monitor dependency
 

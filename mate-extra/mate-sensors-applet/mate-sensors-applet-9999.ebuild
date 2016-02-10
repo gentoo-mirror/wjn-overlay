@@ -10,9 +10,10 @@ GNOME2_LA_PUNT="yes"
 inherit autotools git-r3 gnome2
 
 DESCRIPTION="MATE panel applet to display readings from hardware sensors"
-HOMEPAGE="http://mate-desktop.org/"
+HOMEPAGE="http://mate-desktop.org/
+	https://github.com/mate-desktop/${PN}"
 SRC_URI=""
-EGIT_REPO_URI="git://github.com/mate-desktop/${PN}.git"
+EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -21,7 +22,7 @@ IUSE="+dbus -gtk3 hddtemp libnotify lm_sensors
 	video_cards_fglrx video_cards_nvidia"
 
 COMMON_DEPEND="app-text/rarian:0
-	>=dev-libs/glib-2.36:2
+	dev-libs/glib:2
 	~mate-base/mate-panel-9999:0[gtk3?]
 	>=x11-libs/cairo-1.0.4:0
 	x11-libs/gdk-pixbuf:2
