@@ -2,6 +2,21 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  10 Feb 2016; wjn <wjn@aol.jp> mate-sensors-applet-9999.ebuild:
+  mate-base/{caja,mate-control-center},mate-extra/mate-sensors-applet: Remove
+  glib ver dep
+
+   See
+   - https://github.com/mate-desktop/caja/commit/8187e18
+   - https://github.com/mate-desktop/mate-control-center/commit/06a1cfd
+   - https://github.com/mate-desktop/mate-sensors-applet/commit/5839d8a
+
+  10 Feb 2016; wjn <wjn@aol.jp> mate-sensors-applet-9999.ebuild:
+  MATE Desktop: Improve ${HOMEPAGE} and ${EGIT_REPO_URI}
+
+   - Add github repositories to ${HOMEPAGE}
+   - Change git:// to https:// in ${EGIT_REPO_URI}
+
   01 Jan 2016; wjn <wjn@aol.jp> mate-sensors-applet-9999.ebuild:
   **/*.ebuild: Change 2015 to 2016 in the GPLv2 copyright expressions
 
