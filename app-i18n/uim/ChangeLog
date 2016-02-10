@@ -2,6 +2,11 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  10 Feb 2016; wjn <wjn@aol.jp> uim-9999.ebuild:
+  Fix "use && sed || die"
+
+   "use && sed || die" is incorrect because it always "die" if "use" is false
+
   08 Feb 2016; wjn <wjn@aol.jp> uim-9999.ebuild:
   Update to EAPI 6
 
