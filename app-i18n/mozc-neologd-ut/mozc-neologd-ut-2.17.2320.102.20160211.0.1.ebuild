@@ -19,12 +19,12 @@ HOMEPAGE="http://www.geocities.jp/ep3797/mozc_01.html
 
 # Assign version variables #####
 MOZC_VER="$(get_version_component_range 1-4)"
-MOZC_REV="070bf2a"
+MOZC_REV="5711076"
 FCITX_PATCH_VER="2.17.2313.102.1"
 UIM_PATCH_REV="3ea28b1"
 
 DIC_REL="$(get_version_component_range 5)"
-NEOLOGD_REV="decf1c2"
+NEOLOGD_REV="e49bfea"
 
 # Zip code data are revised on the last of every month
 ZIPCODE_REV="201601"
@@ -75,6 +75,7 @@ EGIT_REPO_URI=${MOZC_URI}
 EGIT_COMMIT=${MOZC_REV}
 
 # LICENSES
+# - UT ruby/shell scripts: Apache-2.0
 # - Mozc
 #   + Mozc: BSD
 #   + dictionary_oss: ipadic and public-domain
@@ -85,16 +86,16 @@ EGIT_COMMIT=${MOZC_REV}
 #   + GMOCK: BSD
 #   + GTEST: BSD
 #   + IPAfont is in repo, but not used
-# - mecab-ipadic-neologd: Apache-2.0
-# - Hatena: all-rights-reserved
+# - mecab-ipadic-NEologd: Apache-2.0
+# - Hatena: free-noncomm (This means free price, not freedom)
 #   http://developer.hatena.ne.jp/ja/documents/keyword/misc/catalog
 # - Zipcode: public-domain http://www.post.japanpost.jp/zipcode/dl/readme.html
 # - Station names: public-domain
 #   http://www5a.biglobe.ne.jp/~harako/data/station.htm
-# - biographical dictionary: derived from Mozc
+# - biographical dictionary: derived from Mozc (ipadic and public-domain)
 # - Mozc Fcitx: BSD
 # - MacUIM: BSD
-LICENSE="Apache-2.0 BSD BSD-2 all-rights-reserved ipadic public-domain unicode"
+LICENSE="Apache-2.0 BSD BSD-2 free-noncomm ipadic public-domain unicode"
 SLOT="0"
 KEYWORDS=""
 IUSE="clang emacs fcitx ibus +qt4 renderer tomoe uim"
