@@ -2,6 +2,18 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  11 Feb 2016; wjn <wjn@aol.jp> cinnamon-settings-daemon-2.6.3.ebuild,
+  cinnamon-settings-daemon-2.8.1.ebuild,
+  cinnamon-settings-daemon-2.8.2.ebuild,
+  cinnamon-settings-daemon-2.8.3.ebuild:
+  Correct ${LICENSE}
+
+   Its libraries has LGPLv2.1 or later (LGPL-2.1+).
+  The upstream selected LGPL-2.1+, Though forked original codes has LGPL-2+.
+  See https://github.com/linuxmint/cinnamon-settings-
+  daemon/blob/master/COPYING.LIB
+   Thus, 'LICENSE="GPL-2+ LGPL-2.1+"' is correct
+
   01 Jan 2016; wjn <wjn@aol.jp> cinnamon-settings-daemon-2.6.3.ebuild,
   cinnamon-settings-daemon-2.8.1.ebuild,
   cinnamon-settings-daemon-2.8.2.ebuild,
