@@ -2,6 +2,19 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*mozc-neologd-ut-2.17.2320.102.20160211.0.1 (12 Feb 2016)
+
+  12 Feb 2016; wjn <wjn@aol.jp>
+  mozc-neologd-ut-2.17.2319.102.20160125.1.ebuild,
+  -mozc-neologd-ut-2.17.2319.102.20160204.0.1.ebuild,
+  -mozc-neologd-ut-2.17.2320.102.20160208.0.1.ebuild,
+  +mozc-neologd-ut-2.17.2320.102.20160211.0.1.ebuild:
+  Add NEologd 20160211, delete olds, correct $LICENSE
+
+   - Added 20160211
+   - Deleted 20160204 and 20160208
+   - LICENSE: free-noncomm is more appropriate desc about Hatena-kw-dict
+
 *mozc-neologd-ut-2.17.2320.102.20160208.0.1 (08 Feb 2016)
 
   08 Feb 2016; wjn <wjn@aol.jp>

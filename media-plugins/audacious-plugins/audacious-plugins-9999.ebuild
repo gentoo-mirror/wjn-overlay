@@ -2,26 +2,25 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 PLOCALES="be bg ca cmn cs da de el en_GB es_AR es_MX es et eu fa_IR fi fr gl
 	hu id_ID it ja ko ky lt lv ml_IN ms nl pl pt_BR pt_PT ru si sk sr sr_RS sv
 	ta tr uk zh_CN zh_TW"
 PLOCALE_BACKUP="en_GB"
 
-inherit autotools eutils git-r3 l10n multilib
+inherit autotools git-r3 l10n
 
 DESCRIPTION="Plugins for Audacious music player"
 HOMEPAGE="http://audacious-media-player.org/"
 EGIT_REPO_URI="https://github.com/audacious-media-player/${PN}.git"
-use gtk3 && EGIT_BRANCH="gtk3"
 
-LICENSE="BSD-2 filewriter? ( GPL-2+ ) libnotify? ( GPL-3+ ) pulseaudio? ( GPL-2+ )
-	sndfile? ( GPL-2+ ) spectrum? ( GPL-2+ )"
+# Generally BSD-2. but GTK+/Qt5 skins: GPL-3, mostly: GPL-2+, some: LGPL-2.1+
+LICENSE="BSD-2 GPL-2+ GPL-3 LGPL-2.1+ libnotify? ( GPL-3+ )"
 SLOT="0"
 KEYWORDS=""
-IUSE="aac alsa bs2b cdda cue ffmpeg +filewriter flac gnome +gtk -gtk3 http
-	jack lame libav libnotify libsamplerate lirc midi mms modplug mp3
+IUSE="aac adplug alsa bs2b cdda cue ffmpeg +filewriter flac gnome +gtk -gtk3
+	http jack lame libav libnotify libsamplerate lirc midi mms modplug mp3
 	pulseaudio qt5 scrobbler sdl sid sndfile soxr spectrum vorbis wavpack"
 REQUIRED_USE="	|| ( gtk qt5 )
 	filewriter? ( gtk )
@@ -38,6 +37,7 @@ COMMON_DEPEND=">=dev-libs/dbus-glib-0.60
 	x11-libs/libXcomposite
 	x11-libs/libXrender
 	aac? ( >=media-libs/faad2-2.7 )
+	adplug? ( media-libs/adplug )
 	alsa? ( >=media-libs/alsa-lib-1.0.16 )
 	bs2b? ( >=media-libs/libbs2b-3.0.0 )
 	cdda? ( >=media-libs/libcddb-1.2.1
@@ -90,10 +90,15 @@ pkg_pretend() {
 		"MP3 support is optional. Are you sure to disable mp3 USE flag?"
 }
 
+pkg_setup(){
+	use gtk3 && EGIT_BRANCH="master-gtk3"
+}
+
 src_prepare() {
-	epatch "${FILESDIR}/${PN}-3.7-gl-spectrum-qt-include-glu.patch"
+	eapply "${FILESDIR}/${PN}-3.7-gl-spectrum-qt-include-glu.patch"
 	eautoreconf
 	l10n_for_each_disabled_locale_do remove_locales
+	eapply_user
 }
 
 src_configure() {
@@ -112,6 +117,7 @@ src_configure() {
 		--disable-coreaudio \
 		--disable-mac-media-keys \
 		$(use_enable aac) \
+		$(use_enable adplug) \
 		$(use_enable alsa) \
 		$(use_enable bs2b) \
 		$(use_enable cdda cdaudio) \
