@@ -2,14 +2,14 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 PLOCALES="ast be bg ca cmn cs da de el en_GB eo es_AR es_MX es et eu fa_IR fi
 	fr gl he hu id_ID it ja ko ky lt lv ml_IN ms nl pl pt_BR pt_PT ro ru si sk
 	sq sr@latin sr sr_RS sv ta tr uk vi zh_CN zh_TW"
 PLOCALE_BACKUP="en_GB"
 
-inherit l10n multilib
+inherit l10n
 
 DESCRIPTION="A lightweight and versatile audio player"
 HOMEPAGE="http://audacious-media-player.org/"
@@ -44,11 +44,15 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND=${COMMON_DEPEND}
 PDEPEND="~media-plugins/audacious-plugins-3.7[gtk=,gtk3=,qt5=]"
 
-use gtk3 && S="${WORKDIR}/${P}-gtk3"
 RESTRICT="mirror"
+
+pkg_setup() {
+	use gtk3 && S="${WORKDIR}/${P}-gtk3"
+}
 
 src_prepare() {
 	l10n_for_each_disabled_locale_do remove_locales
+	eapply_user
 }
 
 src_configure() {

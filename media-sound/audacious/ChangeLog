@@ -2,6 +2,10 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  12 Feb 2016; wjn <wjn@aol.jp> -audacious-3.7.ebuild, audacious-3.7.1.ebuild,
+  audacious-9999.ebuild:
+  Delete old version 3.7, move to EAPI 6
+
   01 Jan 2016; wjn <wjn@aol.jp> audacious-3.7.ebuild, audacious-3.7.1.ebuild,
   audacious-9999.ebuild:
   **/*.ebuild: Change 2015 to 2016 in the GPLv2 copyright expressions
