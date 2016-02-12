@@ -19,8 +19,8 @@ EGIT_REPO_URI="https://github.com/audacious-media-player/${PN}.git"
 LICENSE="BSD-2 GPL-2+ GPL-3 LGPL-2.1+ libnotify? ( GPL-3+ )"
 SLOT="0"
 KEYWORDS=""
-IUSE="aac adplug alsa bs2b cdda cue ffmpeg +filewriter flac gnome +gtk -gtk3
-	http jack lame libav libnotify libsamplerate lirc midi mms modplug mp3
+IUSE="aac alsa bs2b cdda cue ffmpeg +filewriter flac gnome +gtk -gtk3 http
+	jack lame libav libnotify libsamplerate lirc midi mms modplug mp3
 	pulseaudio qt5 scrobbler sdl sid sndfile soxr spectrum vorbis wavpack"
 REQUIRED_USE="	|| ( gtk qt5 )
 	filewriter? ( gtk )
@@ -37,7 +37,6 @@ COMMON_DEPEND=">=dev-libs/dbus-glib-0.60
 	x11-libs/libXcomposite
 	x11-libs/libXrender
 	aac? ( >=media-libs/faad2-2.7 )
-	adplug? ( media-libs/adplug )
 	alsa? ( >=media-libs/alsa-lib-1.0.16 )
 	bs2b? ( >=media-libs/libbs2b-3.0.0 )
 	cdda? ( >=media-libs/libcddb-1.2.1
@@ -117,7 +116,6 @@ src_configure() {
 		--disable-coreaudio \
 		--disable-mac-media-keys \
 		$(use_enable aac) \
-		$(use_enable adplug) \
 		$(use_enable alsa) \
 		$(use_enable bs2b) \
 		$(use_enable cdda cdaudio) \
