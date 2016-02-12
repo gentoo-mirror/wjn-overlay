@@ -4,7 +4,7 @@ DESCRIPTION=Mozc Japanese Input Method with Additional Japanese dictionary
 EAPI=6
 HOMEPAGE=http://www.geocities.jp/ep3797/mozc_01.html https://github.com/google/mozc
 IUSE=clang ejdic emacs fcitx ibus -nicodic +qt4 renderer -test tomoe uim python_targets_python2_7
-LICENSE=BSD BSD-2 CC-BY-SA-3.0 GPL-2+ all-rights-reserved ipadic public-domain unicode ejdic? ( wn-ja ) test? ( Boost-1.0 )
+LICENSE=BSD BSD-2 CC-BY-SA-3.0 GPL-2+ GPL-3+ all-rights-reserved free-noncomm ipadic public-domain unicode ejdic? ( wn-ja )
 RDEPEND=>=dev-lang/python-2.7.5-r2:2.7 >=dev-lang/python-exec-2:=[python_targets_python2_7(-)?,-python_single_target_jython2_7(-),-python_single_target_pypy(-),-python_single_target_pypy3(-),-python_single_target_python3_3(-),-python_single_target_python3_4(-),-python_single_target_python3_5(-),python_single_target_python2_7(+)] !!app-i18n/mozc !!app-i18n/mozc-neologd-ut dev-libs/glib:2 x11-libs/libXfixes x11-libs/libxcb emacs? ( virtual/emacs ) fcitx? ( app-i18n/fcitx ) ibus? ( >=app-i18n/ibus-1.4.1 ) qt4? ( dev-qt/qtcore:4 dev-qt/qtgui:4 app-i18n/zinnia ) renderer? ( x11-libs/gtk+:2 ) uim? ( app-i18n/uim ) qt4? ( !tomoe? ( app-i18n/tegaki-zinnia-japanese ) tomoe? ( app-i18n/zinnia-tomoe ) )
 REQUIRED_USE=|| ( emacs fcitx ibus uim )
 RESTRICT=mirror test
@@ -12,4 +12,4 @@ SLOT=0
 SRC_URI=mirror://osdn/users/9/9843/mozcdic-ut-20160125.tar.bz2 http://www.post.japanpost.jp/zipcode/dl/kogaki/zip/ken_all.zip -> jp-zipcode201601-1.zip http://www.post.japanpost.jp/zipcode/dl/jigyosyo/zip/jigyosyo.zip -> jp-zipcode201601-2.zip http://ftp.monash.edu.au/pub/nihongo/edict.gz -> monash-nihongo-edict.gz fcitx? ( http://download.fcitx-im.org/fcitx-mozc/fcitx-mozc-2.17.2313.102.1.patch )
 _eclass_exported_funcs=pkg_pretend:- pkg_postrm:- pkg_postinst:- pkg_setup:python-single-r1 src_unpack:- src_prepare:- src_configure:- src_compile:- src_test:- src_install:-
 _eclasses_=elisp-common	9f56c4e9bf1282dbfc2a5a09e1124e74	eutils	28fb3e5852485af1c348d446b0b98389	git-r3	018b3baa1d2b738e5bc146a0e807494e	multilib	3972ca401cf7dbb430df9995f5d8d580	python-single-r1	2ebea8fbab356d63110245129a67a6dd	python-utils-r1	2e6826f6a93ad2acf904eecf5b5fb6d2	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
-_md5_=301bac715757440eae071c221c8ef9c1
+_md5_=ea45773f0bba78448052c33773daf4ca
