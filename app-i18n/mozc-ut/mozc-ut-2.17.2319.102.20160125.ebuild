@@ -53,6 +53,7 @@ EGIT_COMMIT=${MOZC_REV}
 # 	The license of nicodic is NOT CLEAR -> nicodic is not recommended
 #
 # LICENSES
+# - UT ruby/shell scripts: GPL
 # - Mozc
 #   + Mozc: BSD
 #   + dictionary_oss: ipadic and public-domain
@@ -64,9 +65,9 @@ EGIT_COMMIT=${MOZC_REV}
 #   + GTEST: BSD
 #   + IPAfont is in repo, but not used
 # - alt-cannadic: GPL-2+
-# - biographical dictionary: GPL-2+
+# - biographical dictionary: GPL-3+
 # - SKK-JISYO.L: GPL-2+
-# - Hatena: all-rights-reserved
+# - Hatena: free-noncomm
 #   http://developer.hatena.ne.jp/ja/documents/keyword/misc/catalog
 # - EDICT: CC-BY-SA-3.0
 # 	http://www.edrdg.org/jmdict/edict.html
@@ -75,11 +76,12 @@ EGIT_COMMIT=${MOZC_REV}
 #   http://www5a.biglobe.ne.jp/~harako/data/station.htm
 # - Japanese WordNet: wn-ja
 # 	http://nlpwww.nict.go.jp/wn-ja/license.txt
-# - niconico: ** NOT CLEAR **
+# - niconico: ** NOT CLEAR ** (This may mean all-rights-reserved)
+#   http://tkido.com/blog/1019.html
 # - Mozc Fcitx: BSD
 # - MacUIM: BSD
-LICENSE="BSD BSD-2 CC-BY-SA-3.0 GPL-2+ all-rights-reserved ipadic public-domain
-	unicode ejdic? ( wn-ja ) test? ( Boost-1.0 )"
+LICENSE="BSD BSD-2 CC-BY-SA-3.0 GPL-2+ GPL-3+ all-rights-reserved
+	free-noncomm ipadic public-domain unicode ejdic? ( wn-ja )"
 SLOT="0"
 KEYWORDS=""
 IUSE="clang ejdic emacs fcitx ibus -nicodic +qt4 renderer -test tomoe uim"
@@ -130,11 +132,12 @@ MOZC_DOCS=( "${S%/src}/AUTHORS" "${S%/src}/CONTRIBUTING.md"
 
 pkg_pretend(){
 	if use nicodic ; then
-		ewarn "WARNING:"
-		ewarn "The author of Mozc UT recommends disabling its NICODIC feature,"
-		ewarn "because the license of NICODIC isn't clear."
-		ewarn "Are you sure to enable NICODIC feature?"
-		echo -n "   "
+		ewarn 'WARNING:'
+		ewarn 'The author of Mozc UT recommends disabling its NICODIC feature,'
+		ewarn 'because NICODIC is all-rights-reserved.'
+		ewarn 'See also: http://tkido.com/blog/1019.html'
+		ewarn 'Are you sure to enable NICODIC feature?'
+		echo -n '   '
 		for num in 5 4 3 2 1 ; do
 			echo -n "${num} "
 			sleep 1
