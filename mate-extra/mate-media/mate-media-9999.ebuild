@@ -41,7 +41,8 @@ DEPEND="${COMMON_DEPEND}
 	>=dev-util/intltool-0.35.0:0
 	sys-devel/gettext:0
 	virtual/pkgconfig:0"
-RDEPEND="${COMMON_DEPEND}"
+RDEPEND="${COMMON_DEPEND}
+	x11-themes/sound-theme-freedesktop"
 
 DOCS=( AUTHORS NEWS README )
 

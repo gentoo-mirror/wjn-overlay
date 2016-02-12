@@ -2,6 +2,11 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  12 Feb 2016; wjn <wjn@aol.jp> mate-media-9999.ebuild:
+  Add x11-themes/sound-theme-freedesktop to ${RDEPEND}
+
+   This fixes runtime error by /usr/bin/mate-volume-control
+
   10 Feb 2016; wjn <wjn@aol.jp> mate-media-9999.ebuild:
   MATE Desktop: Improve ${HOMEPAGE} and ${EGIT_REPO_URI}
 
