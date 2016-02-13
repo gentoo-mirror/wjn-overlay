@@ -24,7 +24,6 @@ COMMON_DEPEND="app-text/rarian:0
 	dev-libs/atk:0
 	>=dev-libs/glib-2.36:2
 	>=gnome-base/libgtop-2.12:2=
-	>=media-libs/libcanberra-0.4:0[gtk,gtk3=]
 	sys-libs/zlib:0
 	x11-libs/cairo:0
 	x11-libs/gdk-pixbuf:2
@@ -34,8 +33,10 @@ COMMON_DEPEND="app-text/rarian:0
 	x11-libs/libXext:0
 	x11-libs/pango:0
 	applet? ( ~mate-base/mate-panel-9999:0 )
-	!gtk3? ( >=x11-libs/gtk+-2.24.0:2 )
-	gtk3? ( >=x11-libs/gtk+-3.0.0:3 )"
+	!gtk3? ( >=media-libs/libcanberra-0.4:0[gtk]
+		>=x11-libs/gtk+-2.24.0:2 )
+	gtk3? ( >=media-libs/libcanberra-0.4:0[gtk3]
+		>=x11-libs/gtk+-3.0.0:3 )"
 DEPEND="${COMMON_DEPEND}
 	>=app-text/scrollkeeper-dtd-1:1.0
 	app-text/yelp-tools:0

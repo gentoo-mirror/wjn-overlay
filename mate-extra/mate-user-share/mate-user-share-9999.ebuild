@@ -28,7 +28,6 @@ COMMON_DEPEND=">=app-mobilephone/obex-data-server-0.4:0
 	>=dev-libs/glib-2.15.2:2
 	>=dev-libs/libunique-1:1
 	~mate-base/caja-9999:0[gtk3?]
-	media-libs/libcanberra:0[gtk,gtk3=]
 	>=x11-libs/gdk-pixbuf-2:2
 	x11-libs/libX11:0
 	x11-libs/pango:0
@@ -36,8 +35,10 @@ COMMON_DEPEND=">=app-mobilephone/obex-data-server-0.4:0
 	>=www-apache/mod_dnssd-0.6:0
 	>=www-servers/apache-2.2:2[apache2_modules_dav,apache2_modules_dav_fs,apache2_modules_authn_file,apache2_modules_auth_digest,apache2_modules_authz_groupfile]
 	virtual/libintl:0
-	!gtk3? ( >=x11-libs/gtk+-2.24.0:2 )
-	gtk3? ( >=x11-libs/gtk+-3.0.0:3 )"
+	!gtk3? ( media-libs/libcanberra:0[gtk]
+		>=x11-libs/gtk+-2.24.0:2 )
+	gtk3? (  media-libs/libcanberra:0[gtk3]
+		>=x11-libs/gtk+-3.0.0:3 )"
 #	bluetooth? ( >=net-wireless/mate-bluetooth-1.6:0
 #		>=net-wireless/bluez-4.18:0= )
 DEPEND="${COMMON_DEPEND}

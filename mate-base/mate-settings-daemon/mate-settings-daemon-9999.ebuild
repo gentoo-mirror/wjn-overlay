@@ -40,8 +40,9 @@ COMMON_DEPEND=">=dev-libs/dbus-glib-0.74:0
 	policykit? ( >=dev-libs/dbus-glib-0.71:0
 		>=sys-apps/dbus-1.1.2:0
 		>=sys-auth/polkit-0.97:0 )
-	pulseaudio? ( media-libs/libcanberra:0[gtk,gtk3=]
-		>=media-sound/pulseaudio-0.9.15:0 )
+	pulseaudio? ( >=media-sound/pulseaudio-0.9.15:0
+		!gtk3? ( media-libs/libcanberra:0[gtk] )
+		gtk3? ( media-libs/libcanberra:0[gtk3] ) )
 	!pulseaudio? ( >=media-libs/gstreamer-0.10.1.2:0.10
 		>=media-libs/gst-plugins-base-0.10.1.2:0.10 )
 	smartcard? ( >=dev-libs/nss-3.11.2:0 )"

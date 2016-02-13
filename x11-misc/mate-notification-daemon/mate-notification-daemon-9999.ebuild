@@ -23,16 +23,17 @@ COMMON_DEPEND="dev-libs/atk:0
 	>=dev-libs/dbus-glib-0.78:0
 	>=dev-libs/glib-2.36.0:2
 	gnome-base/gsettings-desktop-schemas:0
-	>=media-libs/libcanberra-0.4:0[gtk,gtk3=]
 	>=sys-apps/dbus-0.78:0
 	x11-libs/cairo:0
 	>=x11-libs/gdk-pixbuf-2.22.0:2
 	>=x11-libs/libnotify-0.7:0
 	x11-libs/libX11:0
 	virtual/libintl:0
-	!gtk3? ( >=x11-libs/gtk+-2.24.0:2
+	!gtk3? ( >=media-libs/libcanberra-0.4:0[gtk]
+		>=x11-libs/gtk+-2.24.0:2
 		>=x11-libs/libwnck-2.0.0:1 )
-	gtk3? ( >=x11-libs/gtk+-3.0.0:3
+	gtk3? ( >=media-libs/libcanberra-0.4:0[gtk3]
+		>=x11-libs/gtk+-3.0.0:3
 		>=x11-libs/libwnck-3.0.0:3 )
 	!x11-misc/notify-osd:*
 	!x11-misc/qtnotifydaemon:*

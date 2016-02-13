@@ -29,7 +29,6 @@ COMMON_DEPEND="dev-libs/atk:0[introspection?]
 	gnome-base/librsvg:2
 	~mate-base/mate-desktop-9999:0[gtk3=,introspection?]
 	~mate-base/mate-menus-9999:0
-	>=media-libs/libcanberra-0.23:0[gtk,gtk3=]
 	>=sys-apps/dbus-1.1.2:0
 	>=x11-libs/cairo-1:0
 	>=x11-libs/gdk-pixbuf-2.7.1:2[introspection?]
@@ -40,9 +39,11 @@ COMMON_DEPEND="dev-libs/atk:0[introspection?]
 	x11-libs/libXau:0
 	>=x11-libs/libXrandr-1.3.0:0
 	virtual/libintl:0
-	!gtk3? ( >=x11-libs/gtk+-2.24.0:2[introspection?]
+	!gtk3? ( >=media-libs/libcanberra-0.23:0[gtk]
+		>=x11-libs/gtk+-2.24.0:2[introspection?]
 		>=x11-libs/libwnck-2.30.0:1[introspection?] )
-	gtk3? ( >=x11-libs/gtk+-3.0.0:3[introspection?]
+	gtk3? ( >=media-libs/libcanberra-0.23:0[gtk3]
+		>=x11-libs/gtk+-3.0.0:3[introspection?]
 		>=x11-libs/libwnck-3.4.0:3[introspection?] )
 	introspection? ( >=dev-libs/gobject-introspection-0.6.7:0 )"
 DEPEND="${COMMON_DEPEND}
