@@ -25,7 +25,7 @@ COMMON_DEPEND="dev-libs/atk:0[introspection?]
 	>=dev-libs/libxml2-2.4.7:2
 	gnome-base/dconf:0
 	>=gnome-base/gvfs-1.10.1:0[udisks]
-	~mate-base/mate-desktop-9999:0[gtk3?]
+	~mate-base/mate-desktop-9999:0[gtk3=]
 	>=media-libs/libexif-0.6.14:0
 	x11-libs/cairo:0
 	x11-libs/gdk-pixbuf:2

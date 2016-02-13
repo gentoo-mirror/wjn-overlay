@@ -41,7 +41,7 @@ COMMON_DEPEND="app-text/rarian:0
 		>=x11-libs/gtksourceview-2.9.7:2.0 )
 	gtk3? ( >=x11-libs/gtk+-3.0.0:3
 		>=x11-libs/gtksourceview-3.0.0:3.0 )
-	mate? ( ~mate-base/mate-desktop-9999:0[gtk3?] )
+	mate? ( ~mate-base/mate-desktop-9999:0[gtk3=] )
 	python? ( ${PYTHON_DEPS}
 		>=dev-python/pygobject-2.15.4:2[${PYTHON_USEDEP}]
 		>=dev-python/pygtk-2.12:2[${PYTHON_USEDEP}]

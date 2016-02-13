@@ -27,7 +27,7 @@ COMMON_DEPEND="app-text/rarian:0
 	dev-libs/atk:0
 	>=dev-libs/glib-2.36.0:2
 	>=dev-libs/libxml2-2.5.0:2
-	~mate-base/mate-desktop-9999:0[gtk3?]
+	~mate-base/mate-desktop-9999:0[gtk3=]
 	sys-libs/zlib:0
 	x11-libs/gdk-pixbuf:2[introspection?]
 	x11-libs/libICE:0

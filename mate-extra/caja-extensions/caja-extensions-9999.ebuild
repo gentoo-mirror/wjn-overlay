@@ -32,7 +32,7 @@ COMMON_DEPEND=">=dev-libs/glib-2.36.0:2
 		>=sys-apps/dbus-1.0:0 )
 	!gtk3? ( >=x11-libs/gtk+-2.24.0:2 )
 	gtk3? ( >=x11-libs/gtk+-3.0.0:3 )
-	open-terminal? ( ~mate-base/mate-desktop-9999:0[gtk3?] )
+	open-terminal? ( ~mate-base/mate-desktop-9999:0[gtk3=] )
 	pidgin? ( >=dev-libs/dbus-glib-0.60:0 )
 	upnp? ( >=net-libs/gupnp-0.13:0= )"
 DEPEND="${COMMON_DEPEND}

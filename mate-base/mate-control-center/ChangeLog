@@ -3,6 +3,9 @@
 # (auto-generated from git log)
 
   13 Feb 2016; wjn <wjn@aol.jp> mate-control-center-9999.ebuild:
+  MATE Desktop Environment: Fix mate-desktop[gtk3=] dependency
+
+  13 Feb 2016; wjn <wjn@aol.jp> mate-control-center-9999.ebuild:
   Fix libunique dependency for USE="gtk3"
 
   10 Feb 2016; wjn <wjn@aol.jp> mate-control-center-9999.ebuild:
