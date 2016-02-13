@@ -27,11 +27,11 @@ COMMON_DEPEND="app-text/rarian:0
 	dev-libs/libxml2:2
 	>=gnome-base/dconf-0.13.4:0
 	>=gnome-base/librsvg-2.0:2
-	~mate-base/libmatekbd-9999:0[gtk3?]
+	~mate-base/libmatekbd-9999:0[gtk3=]
 	~mate-base/mate-desktop-9999:0[gtk3=]
-	~mate-base/caja-9999:0[gtk3?]
+	~mate-base/caja-9999:0[gtk3=]
 	~mate-base/mate-menus-9999:0
-	~mate-base/mate-settings-daemon-9999:0[gtk3?]
+	~mate-base/mate-settings-daemon-9999:0[gtk3=]
 	>=media-libs/fontconfig-1:1.0
 	media-libs/freetype:2
 	>=sys-apps/dbus-1:0

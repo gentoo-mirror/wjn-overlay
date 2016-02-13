@@ -11,7 +11,7 @@ GNOME2_LA_PUNT="yes"
 
 inherit autotools git-r3 gnome2
 
-DESCRIPTION="Atril document viewer for MATE"
+DESCRIPTION="Atril document viewer for MATE desktop environment"
 HOMEPAGE="http://mate-desktop.org/
 	https://github.com/mate-desktop/${PN}"
 SRC_URI=""
@@ -35,7 +35,7 @@ COMMON_DEPEND="app-text/rarian:0
 	x11-libs/libX11:0
 	>=x11-libs/cairo-1.9.10:0
 	x11-libs/pango:0
-	caja? ( ~mate-base/caja-9999[gtk3?,introspection?] )
+	caja? ( ~mate-base/caja-9999[introspection?] )
 	djvu? ( >=app-text/djvu-3.5.17:0 )
 	dvi? ( virtual/tex-base:0
 		t1lib? ( >=media-libs/t1lib-5:5 ) )

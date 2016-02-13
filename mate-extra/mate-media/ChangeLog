@@ -3,6 +3,13 @@
 # (auto-generated from git log)
 
   14 Feb 2016; wjn <wjn@aol.jp> mate-media-9999.ebuild:
+  MATE Desktop Environment: Correct [gtk3?] constraint to [gtk3=] or none
+
+   Note:
+     caja-extentions doesn't need any [gtk3] probably.
+    To others, [gtk3=] is added
+
+  14 Feb 2016; wjn <wjn@aol.jp> mate-media-9999.ebuild:
   MATE Desktop Environment: Remove gtk3? ( libcanberra[gtk] ) constraint
 
    It's enough with libcanberra[gtk=] and libcanberra[gtk3=],
