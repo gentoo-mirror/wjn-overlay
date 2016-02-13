@@ -40,7 +40,8 @@ COMMON_DEPEND="dev-libs/atk:0[introspection?]
 	!gtk3? ( >=x11-libs/gtk+-2.24.0:2[introspection?] )
 	gtk3? ( >=x11-libs/gtk+-3.0.0:3[introspection?] )
 	introspection? ( >=dev-libs/gobject-introspection-0.6.4:0 )
-	unique? ( >=dev-libs/libunique-1:1 )
+	unique? ( !gtk3? ( >=dev-libs/libunique-1:1 )
+		gtk3? ( >=dev-libs/libunique-3.0:3 ) )
 	xmp? ( >=media-libs/exempi-1.99.5:2 )"
 DEPEND="${COMMON_DEPEND}
 	>=dev-lang/perl-5:0=
