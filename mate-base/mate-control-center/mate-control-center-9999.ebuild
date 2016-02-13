@@ -24,7 +24,6 @@ COMMON_DEPEND="app-text/rarian:0
 	dev-libs/atk:0
 	>=dev-libs/dbus-glib-0.73:0
 	dev-libs/glib:2
-	>=dev-libs/libunique-1:1
 	dev-libs/libxml2:2
 	>=gnome-base/dconf-0.13.4:0
 	>=gnome-base/librsvg-2.0:2
@@ -54,7 +53,9 @@ COMMON_DEPEND="app-text/rarian:0
 	~x11-wm/marco-9999[gtk3?]
 	virtual/libintl:0
 	appindicator? ( !gtk3? ( >=dev-libs/libappindicator-0.0.7:2 )
-		gtk3? ( >=dev-libs/libappindicator-0.0.7:3 ) )"
+		gtk3? ( >=dev-libs/libappindicator-0.0.7:3 ) )
+	!gtk3? ( >=dev-libs/libunique-1.0:1 )
+	gtk3? ( >=dev-libs/libunique-3.0:3 )"
 DEPEND="${COMMON_DEPEND}
 	>=app-text/scrollkeeper-dtd-1:1.0
 	app-text/yelp-tools:0
