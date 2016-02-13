@@ -31,7 +31,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	>=dev-libs/libxml2-2.5:2
 	dev-python/pygobject:3
 	>=gnome-base/libgtop-2.11.92:2=
-	~mate-base/mate-desktop-9999:0[gtk3?]
+	~mate-base/mate-desktop-9999:0[gtk3=]
 	~mate-base/mate-panel-9999:0[gtk3?]
 	~mate-base/mate-settings-daemon-9999:0[gtk3?]
 	!!net-analyzer/mate-netspeed

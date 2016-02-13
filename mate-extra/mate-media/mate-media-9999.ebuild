@@ -22,18 +22,18 @@ IUSE="-gtk3"
 COMMON_DEPEND="app-text/rarian:0
 	dev-libs/libxml2:2
 	>=dev-libs/glib-2.36.0:2
-	dev-libs/libunique:1
 	~mate-base/mate-applets-9999[gtk3?]
 	~mate-base/mate-panel-9999:0[gtk3?]
-	~mate-base/mate-desktop-9999:0[gtk3?]
+	~mate-base/mate-desktop-9999:0[gtk3=]
 	>=media-libs/libcanberra-0.13:0[gtk,gtk3?]
 	~media-libs/libmatemixer-9999:0
-	>=dev-libs/libunique-1:1
 	x11-libs/cairo:0
 	x11-libs/pango:0
 	virtual/libintl:0
-	!gtk3? ( >=x11-libs/gtk+-2.24.0:2 )
-	gtk3? ( >=x11-libs/gtk+-3.0.0:3 )"
+	!gtk3? ( >=dev-libs/libunique-1.0:1
+		>=x11-libs/gtk+-2.24.0:2[introspection?] )
+	gtk3? ( >=x11-libs/gtk+-3.0.0:3[introspection?]
+		>=dev-libs/libunique-3.0:3 )"
 DEPEND="${COMMON_DEPEND}
 	app-text/docbook-xml-dtd:4.1.2
 	app-text/yelp-tools:0

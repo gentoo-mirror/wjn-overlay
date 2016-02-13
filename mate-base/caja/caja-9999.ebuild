@@ -25,7 +25,7 @@ COMMON_DEPEND="dev-libs/atk:0[introspection?]
 	>=dev-libs/libxml2-2.4.7:2
 	gnome-base/dconf:0
 	>=gnome-base/gvfs-1.10.1:0[udisks]
-	~mate-base/mate-desktop-9999:0[gtk3?]
+	~mate-base/mate-desktop-9999:0[gtk3=]
 	>=media-libs/libexif-0.6.14:0
 	x11-libs/cairo:0
 	x11-libs/gdk-pixbuf:2
@@ -40,7 +40,8 @@ COMMON_DEPEND="dev-libs/atk:0[introspection?]
 	!gtk3? ( >=x11-libs/gtk+-2.24.0:2[introspection?] )
 	gtk3? ( >=x11-libs/gtk+-3.0.0:3[introspection?] )
 	introspection? ( >=dev-libs/gobject-introspection-0.6.4:0 )
-	unique? ( >=dev-libs/libunique-1:1 )
+	unique? ( !gtk3? ( >=dev-libs/libunique-1:1 )
+		gtk3? ( >=dev-libs/libunique-3.0:3 ) )
 	xmp? ( >=media-libs/exempi-1.99.5:2 )"
 DEPEND="${COMMON_DEPEND}
 	>=dev-lang/perl-5:0=

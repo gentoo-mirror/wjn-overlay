@@ -23,7 +23,7 @@ COMMON_DEPEND="app-text/rarian:0
 	dev-libs/atk:0
 	>=dev-libs/glib-2.36:2
 	>=gnome-base/dconf-0.10:0
-	~mate-base/mate-desktop-9999:0[gtk3?]
+	~mate-base/mate-desktop-9999:0[gtk3=]
 	x11-libs/gdk-pixbuf:2
 	x11-libs/libICE:0
 	x11-libs/libSM:0

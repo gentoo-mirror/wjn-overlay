@@ -28,7 +28,7 @@ COMMON_DEPEND=">=dev-libs/dbus-glib-0.71:0
 	>=dev-libs/glib-2.36:2
 	gnome-base/dconf:0
 	~mate-base/libmatekbd-9999:0[gtk3?]
-	~mate-base/mate-desktop-9999:0[gtk3?]
+	~mate-base/mate-desktop-9999:0[gtk3=]
 	~mate-base/mate-menus-9999:0
 	>=sys-apps/dbus-0.30:0
 	>=x11-libs/gdk-pixbuf-2.14:2
