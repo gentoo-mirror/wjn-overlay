@@ -24,7 +24,7 @@ COMMON_DEPEND="dev-libs/atk:0
 	>=dev-libs/glib-2.32.0:2
 	>=gnome-base/libgtop-2.0:2=
 	gnome-extra/zenity:0
-	media-libs/libcanberra:0[gtk,gtk3?]
+	media-libs/libcanberra:0[gtk,gtk3=]
 	x11-libs/cairo:0
 	x11-libs/gdk-pixbuf:2
 	x11-libs/libICE:0

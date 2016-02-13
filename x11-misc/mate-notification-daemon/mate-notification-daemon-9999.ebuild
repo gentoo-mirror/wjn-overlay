@@ -23,7 +23,7 @@ COMMON_DEPEND="dev-libs/atk:0
 	>=dev-libs/dbus-glib-0.78:0
 	>=dev-libs/glib-2.36.0:2
 	gnome-base/gsettings-desktop-schemas:0
-	>=media-libs/libcanberra-0.4:0[gtk,gtk3?]
+	>=media-libs/libcanberra-0.4:0[gtk,gtk3=]
 	>=sys-apps/dbus-0.78:0
 	x11-libs/cairo:0
 	>=x11-libs/gdk-pixbuf-2.22.0:2
