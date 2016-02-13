@@ -25,7 +25,6 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 COMMON_DEPEND="${PYTHON_DEPS}
 	>=dev-libs/glib-2.36:2
-	>=dev-libs/libunique-1:1
 	>=gnome-base/dconf-0.13.4:0
 	x11-libs/cairo:0
 	>=x11-libs/gdk-pixbuf-2.4:2[introspection?]
@@ -34,8 +33,10 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	virtual/libintl:0
 	introspection? ( >=dev-libs/gobject-introspection-0.9.7:0 )
 	startup-notification? ( >=x11-libs/startup-notification-0.5:0 )
-	!gtk3? ( >=x11-libs/gtk+-2.24.0:2[introspection?] )
-	gtk3? ( >=x11-libs/gtk+-3.0.0:3[introspection?] )"
+	!gtk3? ( >=dev-libs/libunique-1.0:1
+		>=x11-libs/gtk+-2.24.0:2[introspection?] )
+	gtk3? ( >=x11-libs/gtk+-3.0.0:3[introspection?]
+		>=dev-libs/libunique-3.0:3 )"
 DEPEND="${COMMON_DEPEND}
 	app-text/docbook-xml-dtd:4.1.2
 	>=dev-util/intltool-0.50.1:0
