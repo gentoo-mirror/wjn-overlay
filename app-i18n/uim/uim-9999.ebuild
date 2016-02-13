@@ -94,9 +94,6 @@ src_prepare() {
 	sed -i -e "s:\$libedit_path/lib:/$(get_libdir):g" configure.ac \
 		|| die 'sed configure.ac failed!'
 
-	# QtCore/qdatastream.h must be included
-	eapply ${FILESDIR}/${P}-include-qdatastream.patch
-
 	# plugin file must be installed to sandbox
 	if use qt4 ; then
 		sed -i \
