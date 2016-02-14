@@ -9,7 +9,7 @@ GNOME2_LA_PUNT="yes"
 
 inherit autotools git-r3 gnome2 multilib
 
-DESCRIPTION="Personal file sharing for the MATE desktop"
+DESCRIPTION="Package for user-level file sharing in MATE desktop environment"
 HOMEPAGE="http://mate-desktop.org/
 	https://github.com/mate-desktop/${PN}"
 SRC_URI=""
@@ -24,7 +24,7 @@ COMMON_DEPEND=">=app-mobilephone/obex-data-server-0.4:0
 	>=dev-libs/dbus-glib-0.70:0
 	>=dev-libs/glib-2.15.2:2
 	>=dev-libs/libunique-1:1
-	~mate-base/caja-9999:0[gtk3?]
+	~mate-base/caja-9999:0[gtk3=]
 	>=x11-libs/gdk-pixbuf-2:2
 	x11-libs/libX11:0
 	x11-libs/pango:0
@@ -57,9 +57,9 @@ src_prepare() {
 
 src_configure() {
 	gnome2_src_configure \
+		--disable-bluetooth \
 		--with-httpd=apache2 \
 		--with-modules-path=/usr/$(get_libdir)/apache2/modules/ \
 		$(use_with X x) \
 		--with-gtk=$(usex gtk3 '3.0' '2.0')
-		# $(use_enable bluetooth)
 }

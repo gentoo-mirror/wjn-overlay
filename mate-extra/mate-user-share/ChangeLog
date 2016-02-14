@@ -3,6 +3,9 @@
 # (auto-generated from git log)
 
   14 Feb 2016; wjn <wjn@aol.jp> mate-user-share-9999.ebuild:
+  Correct dependency of caja[gtk3?] to [gtk3=]
+
+  14 Feb 2016; wjn <wjn@aol.jp> mate-user-share-9999.ebuild:
   Remove obsolete IUSE="bluetooth" comment
 
    mate-bluetooth isn't maintained
