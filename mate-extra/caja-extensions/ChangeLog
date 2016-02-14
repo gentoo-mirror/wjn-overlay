@@ -2,6 +2,13 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  14 Feb 2016; wjn <wjn@aol.jp> caja-extensions-9999.ebuild:
+  MATE Desktop Environment: Correct [gtk3?] constraint to [gtk3=] or none
+
+   Note:
+     caja-extentions doesn't need any [gtk3] probably.
+    To others, [gtk3=] is added
+
   13 Feb 2016; wjn <wjn@aol.jp> caja-extensions-9999.ebuild:
   MATE Desktop Environment: Fix mate-desktop[gtk3=] dependency
 

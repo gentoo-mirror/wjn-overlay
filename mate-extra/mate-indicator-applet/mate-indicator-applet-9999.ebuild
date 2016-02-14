@@ -22,7 +22,7 @@ IUSE="-gtk3"
 
 COMMON_DEPEND=">=dev-libs/glib-2.2.0:2
 	>=dev-libs/libindicator-0.4:0
-	~mate-base/mate-panel-9999[gtk3?]
+	~mate-base/mate-panel-9999[gtk3=]
 	virtual/libintl:0
 	!gtk3? ( >=x11-libs/gtk+-2.24.0:2
 		>=dev-libs/libindicator-0.4:0 )

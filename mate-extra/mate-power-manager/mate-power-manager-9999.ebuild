@@ -24,7 +24,6 @@ RESTRICT="test"
 COMMON_DEPEND="app-text/rarian:0
 	>=dev-libs/dbus-glib-0.70:0
 	>=dev-libs/glib-2.36.0:2
-	>=media-libs/libcanberra-0.10:0[gtk,gtk3=]
 	>=sys-apps/dbus-1:0
 	|| ( >=sys-power/upower-0.9.23:=
 		>=sys-power/upower-pm-utils-0.9.23:= )
@@ -36,10 +35,14 @@ COMMON_DEPEND="app-text/rarian:0
 	>=x11-libs/libXrandr-1.3.0:0
 	>=x11-libs/libnotify-0.7:0
 	x11-libs/pango:0
-	applet? ( ~mate-base/mate-panel-9999:0[gtk3?] )
+	applet? ( ~mate-base/mate-panel-9999:0[gtk3=] )
 	gnome-keyring? ( >=gnome-base/libgnome-keyring-3:0 )
-	!gtk3? ( >=x11-libs/gtk+-2.24.0:2 )
-	gtk3? ( >=x11-libs/gtk+-3.0.0:3 )"
+	!gtk3? ( >=dev-libs/libunique-1.0:1
+		>=media-libs/libcanberra-0.10:0[gtk]
+		>=x11-libs/gtk+-2.24.0:2 )
+	gtk3? ( >=dev-libs/libunique-3.0:3
+		>=media-libs/libcanberra-0.10:0[gtk3]
+		>=x11-libs/gtk+-3.0.0:3 )"
 DEPEND="${COMMON_DEPEND}
 	app-text/docbook-xml-dtd:4.3
 	>=app-text/scrollkeeper-dtd-1:1.0
@@ -52,7 +55,7 @@ DEPEND="${COMMON_DEPEND}
 	man? ( app-text/docbook-sgml-utils:0
 		app-text/docbook-sgml-dtd:4.3 )"
 RDEPEND="${COMMON_DEPEND}
-	policykit? ( ~mate-extra/mate-polkit-9999[gtk3?] )"
+	policykit? ( ~mate-extra/mate-polkit-9999[gtk3=] )"
 
 DOCS=( AUTHORS HACKING NEWS NEWS.GNOME README )
 

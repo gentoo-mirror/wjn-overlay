@@ -3,6 +3,12 @@
 # (auto-generated from git log)
 
   14 Feb 2016; wjn <wjn@aol.jp> mate-utils-9999.ebuild:
+  MATE Desktop Environment: Remove gtk3? ( libcanberra[gtk] ) constraint
+
+   It's enough with libcanberra[gtk=] and libcanberra[gtk3=],
+  libcanberra[gtk,gtk3=] is not needed
+
+  14 Feb 2016; wjn <wjn@aol.jp> mate-utils-9999.ebuild:
   MATE Desktop Environment: Fix libcanberra[gtk3=] dependency
 
   10 Feb 2016; wjn <wjn@aol.jp> mate-utils-9999.ebuild:

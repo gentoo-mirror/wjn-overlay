@@ -7,6 +7,8 @@
 EAPI=5
 
 GCONF_DEBUG="no"
+GNOME2_LA_PUNT="yes"
+
 PYTHON_COMPAT=( python2_7 )
 
 inherit autotools eutils git-r3 gnome2 python-single-r1
@@ -32,8 +34,8 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	dev-python/pygobject:3
 	>=gnome-base/libgtop-2.11.92:2=
 	~mate-base/mate-desktop-9999:0[gtk3=]
-	~mate-base/mate-panel-9999:0[gtk3?]
-	~mate-base/mate-settings-daemon-9999:0[gtk3?]
+	~mate-base/mate-panel-9999:0[gtk3=]
+	~mate-base/mate-settings-daemon-9999:0[gtk3=]
 	!!net-analyzer/mate-netspeed
 	>=sys-apps/dbus-1.1.2:0
 	x11-libs/gdk-pixbuf:2
@@ -51,7 +53,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	policykit? ( >=sys-auth/polkit-0.92:0 )
 	upower? ( || ( >=sys-power/upower-0.9.4:0
 		>=sys-power/upower-pm-utils-0.9.4:0 ) )
-	weather? ( 	~dev-libs/libmateweather-9999:0[gtk3?] )
+	weather? ( 	~dev-libs/libmateweather-9999:0[gtk3=] )
 	wifi? ( net-wireless/wireless-tools )"
 DEPEND="${COMMON_DEPEND}
 	app-text/docbook-xml-dtd:4.3

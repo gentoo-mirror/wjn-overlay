@@ -27,14 +27,13 @@ COMMON_DEPEND="app-text/rarian:0
 	dev-libs/libxml2:2
 	>=gnome-base/dconf-0.13.4:0
 	>=gnome-base/librsvg-2.0:2
-	~mate-base/libmatekbd-9999:0[gtk3?]
+	~mate-base/libmatekbd-9999:0[gtk3=]
 	~mate-base/mate-desktop-9999:0[gtk3=]
-	~mate-base/caja-9999:0[gtk3?]
+	~mate-base/caja-9999:0[gtk3=]
 	~mate-base/mate-menus-9999:0
-	~mate-base/mate-settings-daemon-9999:0[gtk3?]
+	~mate-base/mate-settings-daemon-9999:0[gtk3=]
 	>=media-libs/fontconfig-1:1.0
 	media-libs/freetype:2
-	media-libs/libcanberra:0[gtk,gtk3=]
 	>=sys-apps/dbus-1:0
 	x11-apps/xmodmap:0
 	x11-libs/cairo:0
@@ -54,8 +53,10 @@ COMMON_DEPEND="app-text/rarian:0
 	virtual/libintl:0
 	appindicator? ( !gtk3? ( >=dev-libs/libappindicator-0.0.7:2 )
 		gtk3? ( >=dev-libs/libappindicator-0.0.7:3 ) )
-	!gtk3? ( >=dev-libs/libunique-1.0:1 )
-	gtk3? ( >=dev-libs/libunique-3.0:3 )"
+	!gtk3? ( >=dev-libs/libunique-1.0:1
+		media-libs/libcanberra:0[gtk] )
+	gtk3? ( >=dev-libs/libunique-3.0:3
+		media-libs/libcanberra:0[gtk3] )"
 DEPEND="${COMMON_DEPEND}
 	>=app-text/scrollkeeper-dtd-1:1.0
 	app-text/yelp-tools:0
