@@ -36,7 +36,7 @@ COMMON_DEPEND="app-text/rarian:0
 	>=x11-libs/libXrandr-1.3.0:0
 	>=x11-libs/libnotify-0.7:0
 	x11-libs/pango:0
-	applet? ( ~mate-base/mate-panel-9999:0[gtk3?] )
+	applet? ( ~mate-base/mate-panel-9999:0[gtk3=] )
 	gnome-keyring? ( >=gnome-base/libgnome-keyring-3:0 )
 	!gtk3? ( >=dev-libs/libunique-1.0:1
 		>=x11-libs/gtk+-2.24.0:2 )
@@ -54,7 +54,7 @@ DEPEND="${COMMON_DEPEND}
 	man? ( app-text/docbook-sgml-utils:0
 		app-text/docbook-sgml-dtd:4.3 )"
 RDEPEND="${COMMON_DEPEND}
-	policykit? ( ~mate-extra/mate-polkit-9999[gtk3?] )"
+	policykit? ( ~mate-extra/mate-polkit-9999[gtk3=] )"
 
 DOCS=( AUTHORS HACKING NEWS NEWS.GNOME README )
 
