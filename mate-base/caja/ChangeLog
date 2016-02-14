@@ -2,6 +2,15 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  14 Feb 2016; wjn <wjn@aol.jp> caja-9999.ebuild:
+  Add [gtk3?] to caja-extensions dependency
+
+   Almost all might prefer caja-extensions[gtk3] when caja[gtk3]
+
+   On the other hand,
+  some will prefer caja-extensions[gtk3] and caja[-gtk3],
+  because of caja depends on mate-desktop[gtk3=], caja-extensions does not
+
   13 Feb 2016; wjn <wjn@aol.jp> caja-9999.ebuild:
   MATE Desktop Environment: Fix mate-desktop[gtk3=] dependency
 
