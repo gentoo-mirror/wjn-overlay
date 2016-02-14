@@ -30,10 +30,10 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	|| ( x11-libs/gtk+:2
 		x11-libs/gtk+:3 )"
 DEPEND="${RDEPEND}
-	>=dev-util/gtk-doc-1.9:0
 	>=dev-util/intltool-0.35.0:0
 	virtual/pkgconfig:0
-	doc? ( dev-libs/libxslt:0 )"
+	doc? ( dev-libs/libxslt:0
+		>=dev-util/gtk-doc-1.9:0 )"
 RDEPEND="${COMMON_DEPEND}"
 
 DOCS="AUTHORS ChangeLog NEWS README"
