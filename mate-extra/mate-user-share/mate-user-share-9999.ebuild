@@ -18,9 +18,6 @@ EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-
-# mate-bluetooth is deprecated.
-# IUSE="X -bluetooth"
 IUSE="X -gtk3"
 
 COMMON_DEPEND=">=app-mobilephone/obex-data-server-0.4:0
@@ -39,8 +36,6 @@ COMMON_DEPEND=">=app-mobilephone/obex-data-server-0.4:0
 		>=x11-libs/gtk+-2.24.0:2 )
 	gtk3? (  media-libs/libcanberra:0[gtk3]
 		>=x11-libs/gtk+-3.0.0:3 )"
-#	bluetooth? ( >=net-wireless/mate-bluetooth-1.6:0
-#		>=net-wireless/bluez-4.18:0= )
 DEPEND="${COMMON_DEPEND}
 	app-text/docbook-xml-dtd:4.1.2
 	app-text/yelp-tools:0
