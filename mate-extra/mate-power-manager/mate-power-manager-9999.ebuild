@@ -38,8 +38,10 @@ COMMON_DEPEND="app-text/rarian:0
 	x11-libs/pango:0
 	applet? ( ~mate-base/mate-panel-9999:0[gtk3?] )
 	gnome-keyring? ( >=gnome-base/libgnome-keyring-3:0 )
-	!gtk3? ( >=x11-libs/gtk+-2.24.0:2 )
-	gtk3? ( >=x11-libs/gtk+-3.0.0:3 )"
+	!gtk3? ( >=dev-libs/libunique-1.0:1
+		>=x11-libs/gtk+-2.24.0:2 )
+	gtk3? ( >=dev-libs/libunique-3.0:3
+		>=x11-libs/gtk+-3.0.0:3 )"
 DEPEND="${COMMON_DEPEND}
 	app-text/docbook-xml-dtd:4.3
 	>=app-text/scrollkeeper-dtd-1:1.0

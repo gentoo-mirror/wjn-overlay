@@ -3,6 +3,9 @@
 # (auto-generated from git log)
 
   14 Feb 2016; wjn <wjn@aol.jp> mate-power-manager-9999.ebuild:
+  Fix to add libunique dependency
+
+  14 Feb 2016; wjn <wjn@aol.jp> mate-power-manager-9999.ebuild:
   MATE Desktop Environment: Fix libcanberra[gtk3=] dependency
 
   10 Feb 2016; wjn <wjn@aol.jp> mate-power-manager-9999.ebuild:
