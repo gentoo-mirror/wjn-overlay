@@ -28,7 +28,7 @@ COMMON_DEPEND=">=app-mobilephone/obex-data-server-0.4:0
 	>=dev-libs/glib-2.15.2:2
 	>=dev-libs/libunique-1:1
 	~mate-base/caja-9999:0[gtk3?]
-	media-libs/libcanberra:0[gtk,gtk3?]
+	media-libs/libcanberra:0[gtk,gtk3=]
 	>=x11-libs/gdk-pixbuf-2:2
 	x11-libs/libX11:0
 	x11-libs/pango:0

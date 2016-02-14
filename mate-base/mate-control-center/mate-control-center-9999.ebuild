@@ -34,7 +34,7 @@ COMMON_DEPEND="app-text/rarian:0
 	~mate-base/mate-settings-daemon-9999:0[gtk3?]
 	>=media-libs/fontconfig-1:1.0
 	media-libs/freetype:2
-	media-libs/libcanberra:0[gtk,gtk3?]
+	media-libs/libcanberra:0[gtk,gtk3=]
 	>=sys-apps/dbus-1:0
 	x11-apps/xmodmap:0
 	x11-libs/cairo:0

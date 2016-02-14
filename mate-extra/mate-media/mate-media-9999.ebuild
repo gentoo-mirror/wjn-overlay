@@ -25,7 +25,7 @@ COMMON_DEPEND="app-text/rarian:0
 	~mate-base/mate-applets-9999[gtk3?]
 	~mate-base/mate-panel-9999:0[gtk3?]
 	~mate-base/mate-desktop-9999:0[gtk3=]
-	>=media-libs/libcanberra-0.13:0[gtk,gtk3?]
+	>=media-libs/libcanberra-0.13:0[gtk,gtk3=]
 	~media-libs/libmatemixer-9999:0
 	x11-libs/cairo:0
 	x11-libs/pango:0

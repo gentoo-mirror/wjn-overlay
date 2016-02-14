@@ -29,7 +29,7 @@ COMMON_DEPEND="dev-libs/atk:0[introspection?]
 	gnome-base/librsvg:2
 	~mate-base/mate-desktop-9999:0[gtk3=,introspection?]
 	~mate-base/mate-menus-9999:0
-	>=media-libs/libcanberra-0.23:0[gtk,gtk3?]
+	>=media-libs/libcanberra-0.23:0[gtk,gtk3=]
 	>=sys-apps/dbus-1.1.2:0
 	>=x11-libs/cairo-1:0
 	>=x11-libs/gdk-pixbuf-2.7.1:2[introspection?]

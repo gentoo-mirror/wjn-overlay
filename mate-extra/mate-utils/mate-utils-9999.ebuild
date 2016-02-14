@@ -24,7 +24,7 @@ COMMON_DEPEND="app-text/rarian:0
 	dev-libs/atk:0
 	>=dev-libs/glib-2.36:2
 	>=gnome-base/libgtop-2.12:2=
-	>=media-libs/libcanberra-0.4:0[gtk,gtk3?]
+	>=media-libs/libcanberra-0.4:0[gtk,gtk3=]
 	sys-libs/zlib:0
 	x11-libs/cairo:0
 	x11-libs/gdk-pixbuf:2

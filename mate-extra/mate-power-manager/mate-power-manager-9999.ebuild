@@ -24,7 +24,7 @@ RESTRICT="test"
 COMMON_DEPEND="app-text/rarian:0
 	>=dev-libs/dbus-glib-0.70:0
 	>=dev-libs/glib-2.36.0:2
-	>=media-libs/libcanberra-0.10:0[gtk,gtk3?]
+	>=media-libs/libcanberra-0.10:0[gtk,gtk3=]
 	>=sys-apps/dbus-1:0
 	|| ( >=sys-power/upower-0.9.23:=
 		>=sys-power/upower-pm-utils-0.9.23:= )
