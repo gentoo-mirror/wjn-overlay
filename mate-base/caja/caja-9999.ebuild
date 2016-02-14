@@ -54,7 +54,7 @@ DEPEND="${COMMON_DEPEND}
 	doc? ( >=dev-util/gtk-doc-1.4:0 )
 	!!mate-base/mate-file-manager:*"
 RDEPEND="${COMMON_DEPEND}"
-PDEPEND="extensions? ( ~mate-extra/caja-extensions-9999:0 )
+PDEPEND="extensions? ( ~mate-extra/caja-extensions-9999:0[gtk3?] )
 	dropbox? ( ~mate-extra/caja-dropbox-9999:0 )
 	mate? ( ~x11-themes/mate-icon-theme-9999:0 )
 	python? ( ~dev-python/python-caja-9999:0 )"
