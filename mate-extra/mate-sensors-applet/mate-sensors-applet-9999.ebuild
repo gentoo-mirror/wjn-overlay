@@ -23,7 +23,7 @@ IUSE="+dbus -gtk3 hddtemp libnotify lm_sensors
 
 COMMON_DEPEND="app-text/rarian:0
 	dev-libs/glib:2
-	~mate-base/mate-panel-9999:0[gtk3?]
+	~mate-base/mate-panel-9999:0[gtk3=]
 	>=x11-libs/cairo-1.0.4:0
 	x11-libs/gdk-pixbuf:2
 	virtual/libintl:0
