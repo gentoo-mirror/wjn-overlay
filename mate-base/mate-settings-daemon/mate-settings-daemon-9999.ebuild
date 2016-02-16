@@ -25,6 +25,7 @@ COMMON_DEPEND=">=dev-libs/dbus-glib-0.74:0
 	~mate-base/libmatekbd-9999:0[gtk3=]
 	~mate-base/mate-desktop-9999:0[gtk3=]
 	media-libs/fontconfig:1.0
+	~media-libs/libmatemixer-9999:0
 	>=gnome-base/dconf-0.13.4:0
 	x11-libs/cairo:0
 	x11-libs/gdk-pixbuf:2
@@ -34,17 +35,15 @@ COMMON_DEPEND=">=dev-libs/dbus-glib-0.74:0
 	x11-libs/libXxf86misc:0
 	>=x11-libs/libxklavier-5:0
 	virtual/libintl:0
-	!gtk3? ( >=x11-libs/gtk+-2.24.0:2 )
-	gtk3? ( >=x11-libs/gtk+-3.0.0:3 )
+	!gtk3? ( >=x11-libs/gtk+-2.24.0:2
+		media-libs/libcanberra:0[gtk] )
+	gtk3? ( >=x11-libs/gtk+-3.0.0:3
+		media-libs/libcanberra:0[gtk3] )
 	libnotify? ( >=x11-libs/libnotify-0.7:0 )
 	policykit? ( >=dev-libs/dbus-glib-0.71:0
 		>=sys-apps/dbus-1.1.2:0
 		>=sys-auth/polkit-0.97:0 )
-	pulseaudio? ( >=media-sound/pulseaudio-0.9.15:0
-		!gtk3? ( media-libs/libcanberra:0[gtk] )
-		gtk3? ( media-libs/libcanberra:0[gtk3] ) )
-	!pulseaudio? ( >=media-libs/gstreamer-0.10.1.2:0.10
-		>=media-libs/gst-plugins-base-0.10.1.2:0.10 )
+	pulseaudio? ( >=media-sound/pulseaudio-0.9.15:0 )
 	smartcard? ( >=dev-libs/nss-3.11.2:0 )"
 DEPEND="${COMMON_DEPEND}
 	>=dev-util/intltool-0.37.1:0
@@ -72,6 +71,6 @@ src_configure() {
 		--with-gtk=$(usex gtk3 '3.0' '2.0') \
 		$(use_with libnotify) \
 		$(use_enable policykit polkit) \
-		--enable-$(usex pulseaudio pulse gstreamer) \
+		$(use_enable pulseaudio pulse) \
 		$(use_enable smartcard smartcard-support)
 }
