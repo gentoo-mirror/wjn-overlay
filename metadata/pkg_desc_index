@@ -117,6 +117,7 @@ media-gfx/eom 9999: The MATE image viewer
 media-gfx/viewnior 1.5 1.6: Fast and simple image viewer
 media-libs/libmatemixer 9999: Mixer library for MATE Desktop
 media-plugins/audacious-plugins 3.7.1 9999: Plugins for Audacious music player
+media-plugins/gst-plugins-libav 1.6.3: FFmpeg based gstreamer plugin
 media-sound/alsa-tools 1.1.0: Advanced Linux Sound Architecture tools
 media-sound/audacious 3.7.1 9999: A lightweight and versatile audio player
 media-sound/jack-audio-connection-kit 1.9.10: Jackdmp jack implemention for multi-processor machine
