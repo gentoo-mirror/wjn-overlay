@@ -1,7 +1,7 @@
 wjn-overlay packages list
 ========
 
-- This file is updated on 2016-02-06
+- This list is updated on 2016-02-17
 
 | Package Name | Description | Upstream Website | This Overlay Only | Note |
 | ---- | ---- | ---- | ---- | ---- |
@@ -35,7 +35,6 @@ wjn-overlay packages list
 | dev-libs/libmateweather | MATE library to access weather information from online services | <http://mate-desktop.org/> | - | dev ver. |
 | dev-python/bbcode | A pure python bbcode parser and formatter | <https://github.com/dcwatson/bbcode> | o | improves www-apps/nikola |
 | dev-python/percol | percol adds flavor of interactive selection to pipe | <https://github.com/mooz/percol> | o | |
-| dev-python/husl | A Python implementation of Human-friendly HSL | <http://www.husl-colors.org/> | o | needed by newer www-apps/nikola |
 | dev-python/phpserialize | A small library for extracting rich content from urls | <http://github.com/mitsuhiko/phpserialize> | o | improves www-apps/nikola |
 | dev-python/pygal | A python SVG charts generator | <http://pygal.org/> | - | newer ver. |
 | dev-python/python-caja | Python bindings for Caja file manager | <http://www.mate-desktop.org> | - | dev ver. |
@@ -122,7 +121,7 @@ wjn-overlay packages list
 | media-gfx/viewnior | Fast and simple image viewer | <http://xsisqox.github.com/Viewnior/index.html> | - | newer ver. |
 | media-plugins/audacious-plugins | Plugins for Audacious music player | <http://audacious-media-player.org/> | - | newer and dev ver., supports media-libs/soxr |
 | media-sound/audacious | A lightweight and versatile audio player | <http://audacious-media-player.org/> | - | newer and dev ver. |
-| media-sound/jack-audio-connection-kit | Jackdmp jack implemention for multi-processor machine | <http://jackaudio.org/> | - | [JACK2](https://github.com/jackaudio/jackaudio.github.com/wiki/Q_difference_jack1_jack2) |
+| media-sound/jack-audio-connection-kit | Jackdmp jack implemention for multi-processor machine | <http://jackaudio.org/> | - | This is a temporary pkg for [JACK2](https://github.com/jackaudio/jackaudio.github.com/wiki/Q_difference_jack1_jack2). It's compatible with JACK1. But gentoo repo names it as media-sound/jack2. Therefore, depender pkgs should depend on virtual/jack, but not fully updated |
 | media-sound/yoshimi | A software synthesizer based on ZynAddSubFX | <http://yoshimi.sourceforge.net/> | - | fix to build |
 | media-video/libav | Complete solution to record, convert and stream audio and video | <https://libav.org/> | - | newer ver. |
 | sci-calculators/galculator | GTK+ based algebraic and RPN calculator | <http://galculator.mnim.org/> | - | USE="gtk2" |
