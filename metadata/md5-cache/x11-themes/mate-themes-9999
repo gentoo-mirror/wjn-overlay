@@ -1,12 +1,12 @@
-DEFINED_PHASES=prepare unpack
-DEPEND=>=x11-libs/gdk-pixbuf-2.0.0:2 || ( ( >=x11-libs/gtk+-2.0.0:2 >=x11-themes/gtk-engines-2.15.3:2 x11-themes/murrine-themes:0 ) >=x11-libs/gtk+-3.16.0:3 ) >=dev-util/intltool-0.35:0 sys-devel/gettext:0 >=x11-misc/icon-naming-utils-0.8.7:0 virtual/pkgconfig:0 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.15:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 >=dev-vcs/git-1.8.2.1
+DEFINED_PHASES=prepare setup unpack
+DEPEND=>=x11-libs/gdk-pixbuf-2.0.0:2 || ( ( >=x11-libs/gtk+-2.0.0:2 >=x11-themes/gtk-engines-2.15.3:2 x11-themes/murrine-themes:0 ) >=x11-libs/gtk+-3.16.0:3= ) >=dev-util/intltool-0.35:0 sys-devel/gettext:0 >=x11-misc/icon-naming-utils-0.8.7:0 virtual/pkgconfig:0 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.15:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 >=dev-vcs/git-1.8.2.1
 DESCRIPTION=A theme set for MATE Desktop Environment
-EAPI=5
+EAPI=6
 HOMEPAGE=http://mate-desktop.org/ https://github.com/mate-desktop/mate-themes
-LICENSE=LGPL-2.1
-RDEPEND=>=x11-libs/gdk-pixbuf-2.0.0:2 || ( ( >=x11-libs/gtk+-2.0.0:2 >=x11-themes/gtk-engines-2.15.3:2 x11-themes/murrine-themes:0 ) >=x11-libs/gtk+-3.16.0:3 )
+LICENSE=LGPL-2.1 LGPL-2.1+ GPL-3
+RDEPEND=>=x11-libs/gdk-pixbuf-2.0.0:2 || ( ( >=x11-libs/gtk+-2.0.0:2 >=x11-themes/gtk-engines-2.15.3:2 x11-themes/murrine-themes:0 ) >=x11-libs/gtk+-3.16.0:3= )
 RESTRICT=binchecks strip
 SLOT=0
-_eclass_exported_funcs=src_unpack:git-r3 src_prepare:-
+_eclass_exported_funcs=pkg_setup:- src_unpack:git-r3 src_prepare:-
 _eclasses_=autotools	07e71b3b5690738ef7e8bc097077e00c	eutils	9d81603248f2ba3ec59124320d123e5e	git-r3	018b3baa1d2b738e5bc146a0e807494e	libtool	b75230758539a7da029e24afdb693960	multilib	3972ca401cf7dbb430df9995f5d8d580	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85
-_md5_=e3415fe297816eac86573f0f83609d8c
+_md5_=1f117a2f18dfbbbcad62294c46334360
