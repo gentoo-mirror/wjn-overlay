@@ -2,6 +2,12 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  19 Feb 2016; wjn <wjn@aol.jp> audacious-plugins-3.7.1.ebuild, metadata.xml:
+  Correct for quality assurance
+
+  19 Feb 2016; wjn <wjn@aol.jp> metadata.xml:
+  **/metadata.xml: Update and tidy up
+
   12 Feb 2016; wjn <wjn@aol.jp> audacious-plugins-3.7.1.ebuild,
   audacious-plugins-9999.ebuild:
   Remove IUSE="adplug"

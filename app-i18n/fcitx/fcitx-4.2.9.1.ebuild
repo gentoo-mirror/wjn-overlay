@@ -59,11 +59,11 @@ HTML_DOCS=( doc/wb_fh.htm )
 src_prepare() {
 	if use autostart ; then
 		cat <<EOF >"${S}/README.gentoo"
- You have enabled the "autostart" USE flag,
+You have enabled the "autostart" USE flag,
 which will let 'fcitx' start automatically on XDG compatible desktop
 environments, such as GNOME, KDE, LXDE, LXQt and Xfce.
 
- If you use '~/.xinitrc' to configure your desktop,
+If you use '~/.xinitrc' to configure your desktop,
 make sure to include the 'fcitx' command to start it.
 EOF
 	fi

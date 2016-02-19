@@ -1,6 +1,16 @@
 # ChangeLog for app-i18n/mozc
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
+# (auto-generated from git log)
+
+  19 Feb 2016; wjn <wjn@aol.jp> mozc-2.17.2243.102.ebuild,
+  mozc-2.17.2287.102.ebuild, mozc-2.17.2313.102.ebuild:
+  Correct for quality assurance
+
+  19 Feb 2016; wjn <wjn@aol.jp> metadata.xml:
+  metadata.xml: Add a description for USE="tomoe"
+
+  19 Feb 2016; wjn <wjn@aol.jp> metadata.xml:
+  **/metadata.xml: Update and tidy up
 
 *mozc-2.17.2313.102 (15 Jan 2016)
 

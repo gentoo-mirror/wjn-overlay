@@ -2,6 +2,9 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  19 Feb 2016; wjn <wjn@aol.jp> metadata.xml:
+  metadata.xml: Fix flag name "text"
+
   19 Feb 2016; wjn <wjn@aol.jp> asciidoc-8.6.9-r2.ebuild, metadata.xml:
   Correct for quality assurance
 

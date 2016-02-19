@@ -5,6 +5,11 @@
 		<email>wjn@aol.jp</email>
 	</maintainer>
 	<use>
+		<flag name="dropbox">Install <pkg>mate-extra/caja-dropbox</pkg></flag>
+		<flag name="extensions">Install <pkg>mate-extra/caja-extensions</pkg>
+			</flag>
+		<flag name="gtk3">Build for gtk+:3 instead of gtk+:2.
+			EXPERIMENTAL</flag>
 		<flag name="mate">Install <pkg>x11-themes/mate-icon-theme</pkg>
 			which is needed when this package is used in the
 			MATE desktop environment</flag>
