@@ -5,6 +5,8 @@
 EAPI=5
 
 XORG_DRI=dri
+XORG_EAUTORECONF=yes
+
 inherit linux-info xorg-2
 
 COMMIT_ID="636b52913cac10e691834a699cff10fb94d395fa"
@@ -19,8 +21,7 @@ REQUIRED_USE="|| ( sna uxa )
 DEPEND=">=x11-proto/dri2proto-2.6
 	x11-proto/dri3proto
 	x11-proto/presentproto
-	x11-proto/resourceproto
-	x11-misc/util-macros"
+	x11-proto/resourceproto"
 RDEPEND="x11-libs/libXext
 	x11-libs/libXfixes
 	>=x11-libs/libdrm-2.4.29[video_cards_intel]
@@ -33,10 +34,6 @@ RDEPEND="x11-libs/libXext
 		x11-libs/xcb-util )"
 
 S=${WORKDIR}/${COMMIT_ID}
-
-src_prepare() {
-	eautoreconf
-}
 
 src_configure() {
 	# For enabling dri3, dri2 must be disabled
