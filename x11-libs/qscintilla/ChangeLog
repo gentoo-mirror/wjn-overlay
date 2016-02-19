@@ -2,6 +2,12 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  19 Feb 2016; wjn <wjn@aol.jp> qscintilla-2.9.1-r200.ebuild:
+  Correct for quality assurance
+
+  19 Feb 2016; wjn <wjn@aol.jp> metadata.xml:
+  **/metadata.xml: Update and tidy up
+
 *qscintilla-2.9.1-r200 (04 Feb 2016)
 
   04 Feb 2016; wjn <wjn@aol.jp> +files/qscintilla-qt5.patch, +metadata.xml,

@@ -13,7 +13,7 @@ SRC_URI="http://www.mars.dti.ne.jp/glyph/${MY_PN}.zip"
 
 LICENSE="|| ( OFL-1.1 hanazono-font )"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 
 DEPEND="app-arch/unzip"
 RDEPEND=""

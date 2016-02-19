@@ -2,13 +2,13 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 # Some dependended pakages still don't have [python_targets_python3_5],
 # I'm waiting for their update.
 # PYTHON_COMPAT=( python{2_7,3_3,3_4,3_5} )
 PYTHON_COMPAT=( python{2_7,3_3,3_4} )
-PYTHON_REQ_USE="gdbm"
+# PYTHON_REQ_USE="gdbm"
 
 inherit distutils-r1 python-r1
 
@@ -24,15 +24,17 @@ else
 		-> ${P}.zip"
 fi
 
+# Gutenberg: nikola/data/samplesite/stories/dr-nikolas-vendetta.rst
 LICENSE="Gutenberg MIT"
 SLOT="0"
 KEYWORDS=""
 IUSE="+assets bbcode charts -extras ghpages hyphenation ipython jinja +markdown micawber php typogrify websocket"
 REQUIRED_USE="extras? ( assets bbcode charts ghpages hyphenation ipython jinja markdown micawber php typogrify websocket )"
-# mock, coverage, pytest, pytest-cov, freezegun, python-coveralls and colorama
-# are necessary for test.
-RESTRICT="test"
 
+# Upstream makes the constraint <=dev-python/doit-0.29.0,
+# but it's for Python 2 compatibility.
+# Gentoo users can install Nikola based on Python 3.
+# https://github.com/getnikola/nikola/commit/07962cb7
 DEPEND=">=dev-python/docutils-0.12[${PYTHON_USEDEP}]"
 RDEPEND="${DEPEND}
 	>=dev-python/blinker-1.3[${PYTHON_USEDEP}]
@@ -45,7 +47,7 @@ RDEPEND="${DEPEND}
 	>=dev-python/pillow-2.4.0[${PYTHON_USEDEP}]
 	>=dev-python/pygments-1.6[${PYTHON_USEDEP}]
 	>=dev-python/PyRSS2Gen-1.1[${PYTHON_USEDEP}]
-	~dev-python/python-dateutil-2.4.2[${PYTHON_USEDEP}]
+	>=dev-python/python-dateutil-2.4.0[${PYTHON_USEDEP}]
 	>=dev-python/pytz-2013d[${PYTHON_USEDEP}]
 	>=dev-python/requests-2.2.0[${PYTHON_USEDEP}]
 	>=dev-python/setuptools-5.4.1[${PYTHON_USEDEP}]
@@ -55,15 +57,22 @@ RDEPEND="${DEPEND}
 	assets? ( >=dev-python/webassets-0.10.1[${PYTHON_USEDEP}] )
 	bbcode? ( dev-python/bbcode[${PYTHON_USEDEP}] )
 	charts? ( >=dev-python/pygal-2.0.0[${PYTHON_USEDEP}] )
-	ghpages? ( >=dev-python/ghp-import-0.4.1[${PYTHON_USEDEP}] )
+	ghpages? ( || ( >=dev-python/ghp-import-0.4.1[${PYTHON_USEDEP}]
+		>=dev-python/ghp-import2-1.0.0[${PYTHON_USEDEP}] ) )
 	hyphenation? ( >=dev-python/pyphen-0.9.1[${PYTHON_USEDEP}] )
-	ipython? ( >=dev-python/ipython-2.0.0[${PYTHON_USEDEP},notebook] )
+	ipython? ( >=dev-python/ipykernel-4.0.0[${PYTHON_USEDEP}]
+		>=dev-python/notebook-4.0.0[${PYTHON_USEDEP}] )
 	jinja? ( >=dev-python/jinja-2.7.2[${PYTHON_USEDEP}] )
 	markdown? ( >=dev-python/markdown-2.4.0[${PYTHON_USEDEP}] )
 	micawber? ( >=dev-python/micawber-0.3.0[${PYTHON_USEDEP}] )
 	php? ( >=dev-python/phpserialize-1.3[${PYTHON_USEDEP}] )
 	typogrify? ( >=dev-python/typogrify-2.0.4[${PYTHON_USEDEP}] )
 	websocket? ( ~dev-python/ws4py-0.3.4 )"
+
+# mock, coverage, pytest, pytest-cov, freezegun, python-coveralls and colorama
+# are necessary for test.
+# https://github.com/getnikola/nikola/blob/v7.7.5/requirements-tests.txt
+RESTRICT="mirror test"
 
 src_install() {
 	distutils-r1_src_install

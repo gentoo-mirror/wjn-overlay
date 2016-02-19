@@ -13,7 +13,7 @@ SRC_URI="mirror://osdn/users/${OSDN_DIR}/${P}.tar.lzma"
 
 LICENSE="Apache-2.0 mplus-fonts"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 
 DEPEND="app-arch/xz-utils
 	app-i18n/nkf"

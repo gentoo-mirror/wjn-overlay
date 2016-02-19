@@ -14,7 +14,7 @@ SRC_URI="mirror://osdn/users/${OSDN_DIR}/${P}.tar.xz"
 # mplus-fonts license is applied to M+ FONTS as well as UmeFont
 LICENSE="mplus-fonts"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 
 DEPEND=""
 RDEPEND=""

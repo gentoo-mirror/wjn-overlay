@@ -1,7 +1,7 @@
 wjn-overlay packages list
 ========
 
-- This list is updated on 2016-02-17
+- This list is updated on 2016-02-19 16:14 UTC
 
 | Package Name | Description | Upstream Website | This Overlay Only | Note |
 | ---- | ---- | ---- | ---- | ---- |
@@ -37,7 +37,6 @@ wjn-overlay packages list
 | dev-python/ghp-import2 | Easily import docs to your gh-pages branch | <https://github.com/ionelmc/python-ghp-import> | o | |
 | dev-python/percol | percol adds flavor of interactive selection to pipe | <https://github.com/mooz/percol> | o | |
 | dev-python/phpserialize | A small library for extracting rich content from urls | <http://github.com/mitsuhiko/phpserialize> | o | improves www-apps/nikola |
-| dev-python/pygal | A python SVG charts generator | <http://pygal.org/> | - | newer ver. |
 | dev-python/python-caja | Python bindings for Caja file manager | <http://www.mate-desktop.org> | - | dev ver. |
 | dev-python/python-distutils-extra | Gettext support, themed icons and scrollkeeper-based documentation in distutils | <https://launchpad.net/python-distutils-extra> | - | needed by app-accessibility/onboard |
 | dev-python/typogrify | Filters to enhance web typography, often used with Jinja or Django | <https://github.com/mintchaos/typogrify> | o | improves www-apps/nikola |

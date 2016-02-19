@@ -15,7 +15,7 @@ SRC_URI="mirror://osdn/${MY_PN}/${S_DIR}/${MY_P}.zip"
 
 LICENSE="OFL-1.1"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 
 DEPEND="app-arch/unzip
 	app-i18n/nkf"

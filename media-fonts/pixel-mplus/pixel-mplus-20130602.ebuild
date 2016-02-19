@@ -13,7 +13,7 @@ SRC_URI="mirror://osdn/mix-mplus-ipa/58930/${MY_P}.zip"
 
 LICENSE="mplus-fonts"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 
 DEPEND="app-arch/unzip"
 RDEPEND=""

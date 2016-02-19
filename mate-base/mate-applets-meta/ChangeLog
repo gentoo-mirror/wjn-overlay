@@ -2,6 +2,12 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  19 Feb 2016; wjn <wjn@aol.jp> metadata.xml:
+  Correct more for quality assurance
+
+  19 Feb 2016; wjn <wjn@aol.jp> metadata.xml:
+  **/metadata.xml: Update and tidy up
+
 *mate-applets-meta-9999 (10 Feb 2016)
 
   10 Feb 2016; wjn <wjn@aol.jp> +mate-applets-meta-9999.ebuild, +metadata.xml:
@@ -10,7 +16,7 @@
    - The official gentoo repository added this
     https://gitweb.gentoo.org/repo/gentoo.git/commit/?id=81bcdc7
 
-   also
+   also modified mate-base/mate to update this dependency
    - Add some flags to IUSE
    - Fixed dependencies' USE flags
 

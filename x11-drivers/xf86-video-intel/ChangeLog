@@ -2,6 +2,9 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  19 Feb 2016; wjn <wjn@aol.jp> metadata.xml:
+  **/metadata.xml: Update and tidy up
+
 *xf86-video-intel-2.99.917_p20160218 (19 Feb 2016)
 
   19 Feb 2016; wjn <wjn@aol.jp> -xf86-video-intel-2.99.917_p20160203.ebuild,

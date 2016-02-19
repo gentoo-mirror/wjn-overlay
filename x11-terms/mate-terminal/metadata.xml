@@ -4,11 +4,15 @@
 	<longdescription lang="en">
 		MATE terminal is a fork of GNOME terminal. mate-terminal is
 		only the shell (menubar, prefs dialog); the terminal emulation ("stuff
-		in the middle") comes from the VTE widget.
+		in the middle") comes from the VTE widget
 	</longdescription>
 	<maintainer type="person">
 		<email>wjn@aol.jp</email>
 	</maintainer>
+	<use>
+		<flag name="gtk3">Build for gtk+:3 instead of gtk+:2.
+			EXPERIMENTAL</flag>
+	</use>
 	<upstream>
 		<remote-id type="github">mate-desktop/mate-terminal</remote-id>
 	</upstream>

@@ -24,7 +24,7 @@ SRC_URI="
 
 LICENSE="OFL-1.1"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 RESTRICT="binchecks mirror strip"
 
 DEPEND="app-arch/unzip"

@@ -17,7 +17,7 @@ SRC_URI="
 
 LICENSE="mplus-fonts"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 
 DEPEND="app-arch/unzip"
 RDEPEND=""

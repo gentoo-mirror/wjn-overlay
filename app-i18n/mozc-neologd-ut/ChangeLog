@@ -2,6 +2,15 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  19 Feb 2016; wjn <wjn@aol.jp> metadata.xml:
+  Correct for quality assurance
+
+  19 Feb 2016; wjn <wjn@aol.jp> metadata.xml:
+  app-i18n/mozc*/metadata.xml: Add a description for USE="tomoe"
+
+  19 Feb 2016; wjn <wjn@aol.jp> metadata.xml:
+  **/metadata.xml: Update and tidy up
+
 *mozc-neologd-ut-2.17.2320.102.20160215.0.1 (15 Feb 2016)
 
   15 Feb 2016; wjn <wjn@aol.jp>

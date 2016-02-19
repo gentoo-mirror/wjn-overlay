@@ -24,7 +24,7 @@ SRC_URI="mirror://osdn/users/${S_DIR}/${MY_PN}-${MY_PV}.7z
 
 LICENSE="OFL-1.1"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="rounded-l rounded-x"
 
 RESTRICT="binchecks mirror strip"

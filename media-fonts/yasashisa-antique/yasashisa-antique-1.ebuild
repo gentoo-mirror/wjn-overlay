@@ -16,7 +16,7 @@ SRC_URI="http://flop.sakura.ne.jp/font/fontna-op/${MY_P}.zip"
 # FYI: http://d.hatena.ne.jp/itouhiro/20120607
 LICENSE="IPAfont"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 
 DEPEND="app-arch/unzip"
 RDEPEND=""

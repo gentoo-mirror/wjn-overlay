@@ -1,6 +1,14 @@
 # ChangeLog for media-fonts/migu-vbd
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
+# (auto-generated from git log)
+
+  19 Feb 2016; wjn <wjn@aol.jp> migu-vbd-20130617.ebuild:
+  media-fonts/*: Keyword "~amd64 ~x86"
+
+   Fonts may work on X86_{64,32}. Keyword them as unstable but works
+
+  19 Feb 2016; wjn <wjn@aol.jp> metadata.xml:
+  **/metadata.xml: Update and tidy up
 
   18 Jan 2016; wjn <wjn@aol.jp> migu-vbd-20130617.ebuild:
   media-fonts/meguri-fonts,migu-vbd,monapo,yasashisa-{antique,gothic}: Fix

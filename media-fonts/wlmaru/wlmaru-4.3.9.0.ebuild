@@ -21,7 +21,7 @@ SRC_URI="mirror://osdn/jis2004/${S_DIR}/${MY_PN}${PV//./}.lzh
 
 LICENSE="freedist"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 
 DEPEND="app-arch/lha
 	app-i18n/nkf"

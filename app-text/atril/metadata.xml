@@ -8,6 +8,10 @@
 		<flag name="caja">Enable property page extension in
 			<pkg>mate-base/caja</pkg></flag>
 		<flag name="dvi">Enable build-in DVI viewer</flag>
+		<flag name="epub">Enable EPUB viewer depending on
+			<pkg>dev-libs/mathjax</pkg></flag>
+		<flag name="gtk3">Build for gtk+:3 instead of gtk+:2.
+			EXPERIMENTAL</flag>
 		<flag name="ps">Enable build-in postscript viewer</flag>
 		<flag name="t1lib">Enable the Type-1 fonts for the build-in DVI viewer
 			(<pkg>media-libs/t1lib</pkg>)</flag>

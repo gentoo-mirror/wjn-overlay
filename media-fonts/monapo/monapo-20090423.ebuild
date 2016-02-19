@@ -13,7 +13,7 @@ SRC_URI="http://www.geocities.jp/ep3797/snapshot/modified_fonts/${P}.tar.bz2"
 # FYI: http://d.hatena.ne.jp/itouhiro/20120607
 LICENSE="IPAfont"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 
 DEPEND="app-i18n/nkf"
 RDEPEND=""

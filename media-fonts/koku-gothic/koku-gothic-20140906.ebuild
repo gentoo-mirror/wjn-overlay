@@ -13,7 +13,7 @@ SRC_URI="http://freefonts.jp/dl_3qa5ju5a45/${MY_PN}.zip"
 
 LICENSE="Apache-2.0 mplus-fonts"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 
 DEPEND="app-arch/unzip
 	app-i18n/nkf"
