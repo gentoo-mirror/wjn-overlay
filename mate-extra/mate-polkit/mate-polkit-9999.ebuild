@@ -8,7 +8,7 @@ GCONF_DEBUG="no"
 
 inherit autotools git-r3 gnome2
 
-DESCRIPTION="A MATE specific DBUS session bus service that is used to bring up authentication dialogs"
+DESCRIPTION="Authentication Agent for PolicyKit that integrates well with MATE"
 HOMEPAGE="http://mate-desktop.org/
 	https://github.com/mate-desktop/${PN}"
 SRC_URI=""

@@ -31,9 +31,8 @@ FONT_S=${S}
 src_install() {
 	font_src_install
 	dodoc "${DOCS}"
-	docinto mplus 
+	docinto mplus
 	dodoc mplus/README*
 	docinto source-sans-pro
 	dodoc source-sans-pro/README.md
 }
-

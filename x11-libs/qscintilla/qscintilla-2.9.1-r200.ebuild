@@ -1,4 +1,4 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -52,7 +52,7 @@ src_configure() {
 		cd Qt4Qt5
 		eqmake5
 	)
-	
+
 	if use designer ; then
 		# prevent building against system version (bug 466120)
 		append-cxxflags -I../Qt4Qt5
@@ -70,7 +70,7 @@ src_compile() {
 		cd Qt4Qt5
 		emake
 	)
-	
+
 	if use designer; then
 		(
 			cd designer-Qt4Qt5
@@ -81,7 +81,7 @@ src_compile() {
 
 src_install() {
 	(
-		cd Qt4Qt5 
+		cd Qt4Qt5
 		emake INSTALL_ROOT="${D}" install
 	)
 

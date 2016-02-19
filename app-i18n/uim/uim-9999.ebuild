@@ -111,7 +111,7 @@ src_prepare() {
 	fi
 
 	if [[ ${PV} = *9999* ]]; then
-		( cd sigscheme/libgcroots 
+		( cd sigscheme/libgcroots
 			_elibtoolize --force --copy
 			eaclocal -I m4
 			eautomake

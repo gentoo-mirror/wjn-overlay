@@ -1,11 +1,10 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 EAPI=6
 
-# depended dev-python/pyalsa has these only
-PYTHON_COMPAT=( pypy python2_7 )
+PYTHON_COMPAT=( python2_7 )
 
 inherit autotools flag-o-matic python-r1
 
@@ -25,8 +24,8 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	>=media-libs/alsa-lib-${PV}
 	>=dev-python/pyalsa-1.0.26[${PYTHON_USEDEP}]
 	fltk? ( >=x11-libs/fltk-1.3.0:1 )
-	gtk? ( dev-python/pygobject[${PYTHON_USEDEP}]
-		>=dev-python/pygtk-2[${PYTHON_USEDEP}]
+	gtk? ( dev-python/pygobject:2[${PYTHON_USEDEP}]
+		>=dev-python/pygtk-2:2[${PYTHON_USEDEP}]
 		x11-libs/gtk+:2
 		x11-libs/gtk+:3 )"
 DEPEND="${COMMON_DEPEND}

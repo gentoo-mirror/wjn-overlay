@@ -214,7 +214,7 @@ src_install() {
 			done
 		)
 	fi
-	
+
 	if use qt4 ; then
 		exeinto "/usr/$(get_libdir)/mozc"
 		doexe "out_linux/${BUILDTYPE}/mozc_tool"

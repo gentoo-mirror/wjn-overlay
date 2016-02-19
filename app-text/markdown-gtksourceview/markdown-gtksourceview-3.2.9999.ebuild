@@ -63,7 +63,7 @@ src_install() {
 		doexe tools/export-to-html
 	fi
 
-	if use webkit ; then 
+	if use webkit ; then
 		newdoc config/gedit-markdown.ini gedit-markdown.ini.sample
 		insinto /usr/$(get_libdir)/gedit/plugins
 		doins plugins/markdown-preview/markdown-preview.plugin

@@ -32,7 +32,7 @@ REQUIRED_USE="	|| ( gtk qt5 )
 
 COMMON_DEPEND=">=dev-libs/dbus-glib-0.60
 	dev-libs/libxml2:2
-	~media-sound/audacious-3.7[gtk=,gtk3=,qt5=]
+	~media-sound/audacious-3.7.1[gtk=,gtk3=,qt5=]
 	>=sys-apps/dbus-0.6.0
 	>=sys-devel/gcc-4.7.0:*
 	x11-libs/libXcomposite
