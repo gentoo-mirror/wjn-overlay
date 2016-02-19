@@ -14,7 +14,7 @@
 			<pkg>dev-java/fop</pkg> for translating PDF format</flag>
 		<flag name="ps">Install <pkg>app-text/dblatex</pkg>
 			for translating PostScript format</flag>
-		<flag name="dvi">Install <pkg>www-client/w3m</pkg> or
+		<flag name="text">Install <pkg>www-client/w3m</pkg> or
 			<pkg>www-client/lynx</pkg> for text generation</flag>
 	</use>
 	<upstream>
