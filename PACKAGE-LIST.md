@@ -34,6 +34,7 @@ wjn-overlay packages list
 | app-text/markdown-gtksourceview | Support for Markdown in GtkSourceView and Pluma | <https://github.com/jpfleury/gedit-markdown> | o | |
 | dev-libs/libmateweather | MATE library to access weather information from online services | <http://mate-desktop.org/> | - | dev ver. |
 | dev-python/bbcode | A pure python bbcode parser and formatter | <https://github.com/dcwatson/bbcode> | o | improves www-apps/nikola |
+| dev-python/ghp-import2 | Easily import docs to your gh-pages branch | <https://github.com/ionelmc/python-ghp-import> | o | |
 | dev-python/percol | percol adds flavor of interactive selection to pipe | <https://github.com/mooz/percol> | o | |
 | dev-python/phpserialize | A small library for extracting rich content from urls | <http://github.com/mitsuhiko/phpserialize> | o | improves www-apps/nikola |
 | dev-python/pygal | A python SVG charts generator | <http://pygal.org/> | - | newer ver. |
