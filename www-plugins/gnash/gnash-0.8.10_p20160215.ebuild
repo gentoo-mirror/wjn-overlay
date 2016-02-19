@@ -3,21 +3,23 @@
 # $Id$
 
 EAPI=5
+
 CMAKE_REQUIRED="never"
 KDE_REQUIRED="optional"
 AT_M4DIR="cygnal"
 # won't build with python-3, bug #392969
 PYTHON_COMPAT=( python2_7 )
 
-inherit autotools eutils kde4-base multilib nsplugins python-any-r1 flag-o-matic
+inherit autotools eutils kde4-base multilib nsplugins python-any-r1 \
+	flag-o-matic
 
 DESCRIPTION="GNU Flash movie player that supports many SWF v7,8,9 features"
 HOMEPAGE="http://www.gnu.org/software/gnash/"
 
 if [[ ${PV} = 9999* ]]; then
+	inherit git-r3
 	SRC_URI=""
 	EGIT_REPO_URI="git://git.savannah.gnu.org/gnash.git"
-	inherit git-r3
 else
 # Release tarball is b0rked, upstream #35612
 #	SRC_URI="mirror://gnu/${PN}/${PV}/${P}.tar.bz2"
@@ -60,7 +62,8 @@ RDEPEND=">=dev-libs/boost-1.41.0:0=
 		app-text/docbook-sgml-utils )
 	egl? ( media-libs/mesa[egl] )
 	fbcon? ( x11-libs/tslib )
-	ffmpeg? ( >=virtual/ffmpeg-9[vaapi?] )
+	ffmpeg? ( <media-video/ffmpeg-3
+		>=virtual/ffmpeg-9[vaapi?] )
 	gconf? ( gnome-base/gconf )
 	gstreamer? ( media-plugins/gst-plugins-ffmpeg:0.10
 		media-plugins/gst-plugins-mad:0.10
@@ -124,11 +127,12 @@ src_prepare() {
 	# Patch from 20150316 to 20150326
 	epatch "${FILESDIR}"/${PN}-0.8.10_p20150326-diff-20150316.patch
 
-	# Fix for >=libav-10
-	use vaapi && epatch "${FILESDIR}"/${PN}-0.8.10_p20150326-libav10.patch
+	# Patch from 20150326 to 20160215
+	epatch "${FILESDIR}"/${PN}-0.8.10_p20160215-diff-20150326.patch
 
 	eautoreconf
 }
+
 src_configure() {
 	local device gui input media myconf myext renderers
 
@@ -218,6 +222,7 @@ src_configure() {
 		--enable-media=${media} \
 		${myconf}
 }
+
 src_test() {
 	local log=testsuite-results.txt
 	cd testsuite
@@ -225,6 +230,7 @@ src_test() {
 	./anaylse-results.sh > $log || die "results analyze failed"
 	cat $log
 }
+
 src_install() {
 	emake DESTDIR="${D}" install || die "emake install failed"
 
@@ -249,6 +255,7 @@ src_install() {
 
 	dodoc AUTHORS ChangeLog NEWS README || die "dodoc failed"
 }
+
 pkg_postinst() {
 	if use !gnome || use !gstreamer && use !ffmpeg ; then
 		ewarn ""
