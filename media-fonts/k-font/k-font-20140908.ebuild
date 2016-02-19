@@ -11,7 +11,7 @@ SRC_URI="http://font.sumomo.ne.jp/fontdata/k-font.zip"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 RESTRICT="binchecks mirror strip"
 
 S="${WORKDIR}"

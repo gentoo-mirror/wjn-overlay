@@ -26,7 +26,7 @@ SRC_URI="${GITHUB_URI}/NotoSansCJKjp-Black.otf	-> ${P}-Black.otf
 
 LICENSE="OFL-1.1"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 
 # media-fonts/noto includes this fonts
 DEPEND="!!media-fonts/noto"

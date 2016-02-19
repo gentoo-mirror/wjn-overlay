@@ -21,7 +21,7 @@ SRC_URI="
 
 LICENSE="BSD wadalab-font"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 
 DEPEND=""
 RDEPEND=""

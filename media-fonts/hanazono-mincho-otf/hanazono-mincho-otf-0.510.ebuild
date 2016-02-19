@@ -14,7 +14,7 @@ SRC_URI="mirror://osdn/${MY_PN,,}/${S_DIR}/${MY_PN}-${PV}.zip"
 
 LICENSE="|| ( OFL-1.1 hanazono-font )"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 
 DEPEND="app-arch/unzip
 	>=app-shells/bash-4"

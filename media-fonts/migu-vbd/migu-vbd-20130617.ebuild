@@ -32,7 +32,7 @@ SRC_URI="
 # FYI: http://d.hatena.ne.jp/itouhiro/20120607
 LICENSE="IPAfont"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 
 DEPEND="media-gfx/fontforge
 		app-arch/unzip

@@ -24,7 +24,7 @@ SRC_URI="
 # https://github.com/googlei18n/noto-emoji/releases/tag/v2015-09-29-license-apache
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 
 # As of 2015.04, media-fonts/noto doesn't include this fonts
 # DEPEND="!!>=media-fonts/noto-2015.05"

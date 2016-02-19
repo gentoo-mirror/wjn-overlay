@@ -2,6 +2,11 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  19 Feb 2016; wjn <wjn@aol.jp> komatuna-fonts-20101113.ebuild:
+  media-fonts/*: Keyword "~amd64 ~x86"
+
+   Fonts may work on X86_{64,32}. Keyword them as unstable but works
+
   19 Feb 2016; wjn <wjn@aol.jp> metadata.xml:
   **/metadata.xml: Update and tidy up
 

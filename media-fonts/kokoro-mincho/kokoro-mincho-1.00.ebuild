@@ -13,7 +13,7 @@ SRC_URI="http://typingart.net/fontdata/${MY_PN}.zip"
 
 LICENSE="IPAfont"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 
 DEPEND="app-arch/unzip
 	app-i18n/nkf"

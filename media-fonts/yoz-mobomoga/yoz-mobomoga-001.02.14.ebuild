@@ -17,7 +17,7 @@ SRC_URI="http://yozvox.web.fc2.com/${MY_P}.7z"
 # FYI: http://d.hatena.ne.jp/itouhiro/20120607
 LICENSE="IPAfont"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 
 DEPEND="app-arch/p7zip
 	app-i18n/nkf"

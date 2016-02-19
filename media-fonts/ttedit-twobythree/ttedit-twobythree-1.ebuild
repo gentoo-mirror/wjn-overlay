@@ -15,7 +15,7 @@ SRC_URI="http://opentype.jp/bin/${MY_PN}.zip"
 
 LICENSE="IPAfont"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 RESTRICT="binchecks mirror strip"
 
 DEPEND="app-arch/unzip"

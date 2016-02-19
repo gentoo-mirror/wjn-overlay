@@ -67,7 +67,7 @@ SRC_URI="!unhinted? ( ${GITHUB_URI}/hinted/NotoSans-Bold.ttf
 # https://github.com/googlei18n/noto-fonts/releases/tag/v2015-09-29-license-adobe
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="-unhinted"
 
 # media-fonts/noto includes this fonts

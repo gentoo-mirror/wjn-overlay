@@ -22,7 +22,7 @@ SRC_URI="mirror://osdn/users/${S_DIR}/${PN}-${MY_PV}.7z
 
 LICENSE="mplus-fonts"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="rounded-l rounded-x"
 
 RESTRICT="binchecks mirror strip"
