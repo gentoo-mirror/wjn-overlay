@@ -5,7 +5,6 @@
 		<email>wjn@aol.jp</email>
 	</maintainer>
 	<use>
-		<!-- crypt ipv6 ldap nls pda spell ssl xface	-->
 		<flag name="oniguruma">Use <pkg>dev-libs/oniguruma</pkg> for
 			regular expression</flag>
 	</use>
