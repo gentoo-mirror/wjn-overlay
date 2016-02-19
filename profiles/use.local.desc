@@ -4,7 +4,7 @@
 
 app-arch/engrampa:caja - Enable engrampa to integrate with mate-base/caja by providing entries in its context menu
 app-editors/pluma:debug - Enable gconf debug
-app-editors/pluma:gtk3 - Build for gtk+:3 instead of gtk:2. EXPERIMENTAL
+app-editors/pluma:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
 app-editors/pluma:mate - Build with mate-base/mate-desktop
 app-editors/pluma:python - Enable plugins depend on python:2.7
 app-editors/pluma:spell - Enable spell checker with app-text/enchant
@@ -16,33 +16,36 @@ app-i18n/fcitx:introspection - Enable GObject Introspection
 app-i18n/fcitx:opencc - Enable OpenCC for Chinese Transform
 app-i18n/fcitx:pango - Enable support for x11-libs/pango
 app-i18n/fcitx:qt4 - Install Qt4 IM module
-app-i18n/fcitx:qt5 - Install Qt5 IM module(app-i18n/fcitx-qt5)
+app-i18n/fcitx:qt5 - Install Qt5 IM module (app-i18n/fcitx-qt5)
 app-i18n/fcitx:table - Enable Table IM
-app-i18n/mozc:clang - Use sys-devel/clang for building
+app-i18n/mozc:clang - Use sys-devel/clang to compile
 app-i18n/mozc:emacs - Enable support for virtual/emacs
 app-i18n/mozc:fcitx - Enable support for app-i18n/fcitx
 app-i18n/mozc:ibus - Enable support for app-i18n/ibus
-app-i18n/mozc:qt4 - Build with dev-qt/qtgui:4. Recommended. Unless this flag is enabled, no configuration tool cannot run.
+app-i18n/mozc:qt4 - Build with dev-qt/qtgui:4. Recommended. Without this flag, no configuration tools are available
 app-i18n/mozc:renderer - Enable native candidate window
 app-i18n/mozc:test - Enable src_test phase for runtests
+app-i18n/mozc:tomoe - Use app-i18n/zinnia-tomoe instead of app-i18n/tegaki-zinnia-japanese for handwriting recognition
 app-i18n/mozc:uim - Enable support for app-i18n/uim
-app-i18n/mozc-neologd-ut:clang - Use sys-devel/clang for building
+app-i18n/mozc-neologd-ut:clang - Use sys-devel/clang to compile
 app-i18n/mozc-neologd-ut:emacs - Enable support for virtual/emacs
 app-i18n/mozc-neologd-ut:fcitx - Enable support for app-i18n/fcitx
 app-i18n/mozc-neologd-ut:ibus - Enable support for app-i18n/ibus
-app-i18n/mozc-neologd-ut:qt4 - Build with dev-qt/qtgui:4. Recommended. Unless this flag is enabled, no configuration tool cannot run.
+app-i18n/mozc-neologd-ut:qt4 - Build with dev-qt/qtgui:4. Recommended. Without this flag, no configuration tools are available
 app-i18n/mozc-neologd-ut:renderer - Enable native candidate window
 app-i18n/mozc-neologd-ut:test - Enable src_test phase for runtests
+app-i18n/mozc-neologd-ut:tomoe - Use app-i18n/zinnia-tomoe instead of app-i18n/tegaki-zinnia-japanese for handwriting recognition
 app-i18n/mozc-neologd-ut:uim - Enable support for app-i18n/uim
-app-i18n/mozc-ut:clang - Use sys-devel/clang for building
+app-i18n/mozc-ut:clang - Use sys-devel/clang to compile
 app-i18n/mozc-ut:ejdic - Add English-Japanese dictionary
 app-i18n/mozc-ut:emacs - Enable support for virtual/emacs
 app-i18n/mozc-ut:fcitx - Enable support for app-i18n/fcitx
 app-i18n/mozc-ut:ibus - Enable support for app-i18n/ibus
 app-i18n/mozc-ut:nicodic - Add "Nico Nico Pedia" dictionary (NICODIC)
-app-i18n/mozc-ut:qt4 - Build with dev-qt/qtgui:4. Recommended. Unless this flag is enabled, no configuration tool cannot run.
+app-i18n/mozc-ut:qt4 - Build with dev-qt/qtgui:4. Recommended. Without this flag, no configuration tools are available
 app-i18n/mozc-ut:renderer - Enable native candidate window
 app-i18n/mozc-ut:test - Enable src_test phase for runtests
+app-i18n/mozc-ut:tomoe - Use app-i18n/zinnia-tomoe instead of app-i18n/tegaki-zinnia-japanese for handwriting recognition
 app-i18n/mozc-ut:uim - Enable support for app-i18n/uim
 app-i18n/uim:anthy - Enable support for app-i18n/anthy
 app-i18n/uim:canna - Enable support for app-i18n/canna
@@ -72,13 +75,13 @@ app-text/markdown-gtksourceview:webkit - Install preview plugin powered by net-l
 gnome-extra/cinnamon-control-center:colord - Support color management using x11-misc/colord
 gnome-extra/cinnamon-settings-daemon:colord - Support color management using x11-misc/colord
 mail-client/sylpheed:oniguruma - Use dev-libs/oniguruma for regular expression
-mate-base/caja:mate - Install x11-themes/mate-icon-theme which is needed when this package is used in the MATE desktop environment.
-mate-base/caja:unique - Enable single instance support using dev-libs/libunique.
-mate-base/mate:base - Install base MATE Desktop applications that are recommended for the most common usage; for example, this installs the file manager. Disable this and other USE flags if you want a more minimal MATE Desktop.
-mate-base/mate:extras - Install additional MATE Desktop applications that are recommended for extended usage of the MATE Desktop as upstream sees it; for example, this installs MATE Desktop's office related applications. Disable this if you plan to use your own non-MATE Desktop alternatives or a custom mixture of MATE and non-MATE packages.
+mate-base/caja:mate - Install x11-themes/mate-icon-theme which is needed when this package is used in the MATE desktop environment
+mate-base/caja:unique - Enable single instance support using dev-libs/libunique
+mate-base/mate:base - Install base MATE Desktop applications that are recommended for the most common usage; for example, this installs the file manager. Disable this and other USE flags if you want a more minimal MATE Desktop
+mate-base/mate:extras - Install additional MATE Desktop applications that are recommended for extended usage of the MATE Desktop as upstream sees it; for example, this installs MATE Desktop's office related applications. Disable this if you plan to use your own non-MATE Desktop alternatives or a custom mixture of MATE and non-MATE packages
 mate-base/mate:gtk3 - EXPERIMENTAL: Build MATE Desktop based on GTK+ 3
 mate-base/mate:netbook - Install mate-extra/mate-netbook
-mate-base/mate:themes - Install MATE Desktop's themes; if you use other themes, you can disable this to spare some space and time.
+mate-base/mate:themes - Install MATE Desktop's themes; if you use other themes, you can disable this to spare some space and time
 mate-base/mate:user-guide - Install mate-extra/mate-user-guide
 mate-base/mate-applets-meta:appindicator - Pull in mate-extra/mate-indicator-applet for AppIndicator applet
 mate-base/mate-applets-meta:sensors - Pull in mate-extra/mate-sensors-applet for hw sensors applet
@@ -96,9 +99,9 @@ mate-extra/caja-extensions:share - Add extension to share files
 mate-extra/caja-extensions:upnp - Add extension to support sendto by upnp
 mate-extra/caja-extensions:wallpaper - Add extension to set wallpapers
 mate-extra/mate-media:debug - Enable gconf debug
-mate-extra/mate-power-manager:applet - Enable building of the MATE applet.
-mate-extra/mate-power-manager:man - Build power manager's man page.
-mate-extra/mate-screensaver:consolekit - Enable support for sys-auth/consolkekit
+mate-extra/mate-power-manager:applet - Enable building of the MATE applet
+mate-extra/mate-power-manager:man - Build power manager's man page
+mate-extra/mate-screensaver:consolekit - Enable support for sys-auth/consolekit
 mate-extra/mate-utils:applet - Enable the mate dictionary applet
 media-fonts/genju-gothic:rounded-l - Install "Genju Gothic L" as well as "Genju Gothic"
 media-fonts/genju-gothic:rounded-x - Install "Genju Gothic X" as well as "Genju Gothic"
@@ -135,11 +138,10 @@ media-plugins/audacious-plugins:scrobbler - Enable scrobbler/LastFM submission s
 media-plugins/audacious-plugins:sdl - Support Simple Direct Media Layer
 media-plugins/audacious-plugins:sid - Support SID (Commodore 64 Audio)
 media-plugins/audacious-plugins:sndfile - Enable media-libs/libsndfile
-media-plugins/audacious-plugins:soxr - Enable SOX Resampler library
+media-plugins/audacious-plugins:soxr - Enable SoX Resampler library
 media-plugins/audacious-plugins:spectrum - Enable OpenGL spectram analizer
 media-plugins/audacious-plugins:vorbis - Support Volbis decode
 media-plugins/audacious-plugins:wavpack - Support wavpack decode
-media-sound/audacious:chardet - Try to handle non-UTF8 CJK ID3 tags (app-i18n/libguess)
 media-sound/audacious:gtk - Enable GTK+ User Interface (x11-libs/gtk+)
 media-sound/audacious:gtk3 - Link against version 3 of the GIMP Toolkit instead of version 2 (x11-libs/gtk+)
 media-sound/audacious:qt5 - Enable Qt5 UI and output (dev-qt/qtgui:5, dev-qt/qtmultimedia:5)
@@ -154,26 +156,26 @@ media-video/libav:armv6 - Enable optimizations for armv6 processors
 media-video/libav:armv6t2 - Enable optimizations for armv6t2 processors
 media-video/libav:armvfp - Enable VFP optimizations for ARM processors
 media-video/libav:bs2b - Enable media-libs/libbs2b based Bauer stereo-to-binaural audio filter
-media-video/libav:cdio - Enable audio CD grabbing with dev-libs/libcdio.
-media-video/libav:cpudetection - Enables runtime CPU detection (useful for bindist, compatibility on other CPUs).
+media-video/libav:cdio - Enable audio CD grabbing with dev-libs/libcdio
+media-video/libav:cpudetection - Enables runtime CPU detection (useful for bindist, compatibility on other CPUs)
 media-video/libav:faac - Use external faac library for AAC encoding
 media-video/libav:fdk - Use external fdk-aac library for AAC encoding and decoding
 media-video/libav:frei0r - Enable frei0r wrapping in libavfilter
-media-video/libav:gpl - Build all GPL licensed code. Without this flag set the package is build under LGPL license.
-media-video/libav:hardcoded-tables - Use pre-calculated tables rather than calculating them on the fly.
-media-video/libav:network - Enable network streaming support.
-media-video/libav:openssl - Prefer dev-libs/openssl over net-libs/gnutls to provide SSL/TLS support (notice: the resulting binaries are unredistributable).
-media-video/libav:opus - Use the external opus library for encoding and decoding.
-media-video/libav:pic - Force shared libraries to be built as PIC (this is slower).
-media-video/libav:pulseaudio - Enable pulseaudio input support.
-media-video/libav:rtmp - Enable Real Time Messaging Protocol using librtmp instead the native implementation.
-media-video/libav:schroedinger - Enable Dirac video support (an advanced royalty-free video compression format) via libschroedinger (high-speed implementation in C of the Dirac codec).
-media-video/libav:ssl - Enable SSL/TLS support using dev-libs/openssl or dev-libs/gnutls.
-media-video/libav:tools - Build and install small tools like aviocat, cws2fws, graph2dot, ismindex, qt-faststart.
+media-video/libav:gpl - Build all GPL licensed code. Without this flag set the package is build under LGPL license
+media-video/libav:hardcoded-tables - Use pre-calculated tables rather than calculating them on the fly
+media-video/libav:network - Enable network streaming support
+media-video/libav:openssl - Prefer dev-libs/openssl over net-libs/gnutls to provide SSL/TLS support (notice: the resulting binaries are unredistributable)
+media-video/libav:opus - Use the external opus library for encoding and decoding
+media-video/libav:pic - Force shared libraries to be built as PIC (this is slower)
+media-video/libav:pulseaudio - Enable pulseaudio input support
+media-video/libav:rtmp - Enable Real Time Messaging Protocol using librtmp instead the native implementation
+media-video/libav:schroedinger - Enable Dirac video support (an advanced royalty-free video compression format) via libschroedinger (high-speed implementation in C of the Dirac codec)
+media-video/libav:ssl - Enable SSL/TLS support using dev-libs/openssl or dev-libs/gnutls
+media-video/libav:tools - Build and install small tools like aviocat, cws2fws, graph2dot, ismindex, qt-faststart
 media-video/libav:twolame - Enable MP2 encoding via media-sound/twolame as an alternative to the internal encoder
-media-video/libav:vpx - Enable vp8 encoding support using libvpx.
-media-video/libav:webp - Enable WebP encoding with media-libs/libwebp.
-media-video/libav:x265 - Enable HEVC encoding with media-libs/x265.
+media-video/libav:vpx - Enable vp8 encoding support using media-libs/libvpx
+media-video/libav:webp - Enable WebP encoding with media-libs/libwebp
+media-video/libav:x265 - Enable HEVC encoding with media-libs/x265
 sys-libs/libunwind:debug-frame - Adds support for DWARF .debug_frame section: Use the information from this section if available
 sys-libs/libunwind:libatomic - Use libatomic instead of builtin atomic operations
 www-apps/nikola:assets - Support web asset management through dev-python/assets
@@ -201,6 +203,7 @@ www-plugins/gnash:openvg - Rendering based on the OpenVG graphics acceleration A
 www-plugins/gnash:sdl-sound - Enable SDL audio output for the standalone player
 www-plugins/gnash:ssh - Enable using SSH for network authentication in libnet
 www-plugins/gnash:ssl - Enable directly using OpenSSL in libnet (not needed for nsplugin ssl support)
+x11-drivers/xf86-video-intel:dri3 - **EXPERIMENTAL** Enable DRI3 instead of DRI2
 x11-drivers/xf86-video-intel:sna - Enable SandyBridge's New Acceleration (useful on all chipsets, not just SandyBridge)
 x11-drivers/xf86-video-intel:uxa - Enable UMA Acceleration Architecture
 x11-drivers/xf86-video-intel:xvmc - Enables X-Video Motion Compensation support
