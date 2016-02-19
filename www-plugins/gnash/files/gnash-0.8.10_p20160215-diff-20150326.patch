@@ -1,0 +1,3009 @@
+diff --git a/NEWS b/NEWS
+index 1ae2c00..c66277e 100644
+--- a/NEWS
++++ b/NEWS
+@@ -2,6 +2,7 @@ Gnash 0.8.11
+ YYYY/MM/DD
+ 
+ Caveats:
++
+ * The in-tree copy of jemalloc has been removed in preference to linking
+   the system-installed jemalloc library.
+ * The minimum required version of FFMPEG/libavcodec (if available) is
+@@ -11,6 +12,10 @@ Caveats:
+ 
+ Improvements since 0.8.10 release are:
+ 
++ * Avoid initialization of SDL audio when using dump-gnash
++ * Fix screeches and crashes playing PCM audio (#45722)
++ * Fix corrupted WAV file on --audio-dump (#45887)
++ * Fix callback registration issue in ExternalInterface (#37223)
+  * Fix possible out-of-bound read in parser (#43865)
+  * Fix opening of external URL with Gnash Standalone (#31833)
+  * Stability fixes in image handling, (CVE-2012-1175, #39388, #37629).
+@@ -21,7 +26,6 @@ Improvements since 0.8.10 release are:
+  * Add support for IPv6 [TODO: affects Socket/XML, and what else?].
+  * Fix build against recent Boost, FFMPEG and libav.
+  * Fix support for GIFLIB-5.0 (#39482) and GIFLIB-5.1 (#42574)
+- * Fix regression in dynamic sound loading (#33760).
+  * Fix infinite loop in GC mark phase for XML object (#40440)
+  * Fix segfault on exit when using XML (#40439)
+  * Incremental decoding of embedded sounds (#24638, #25456)
+@@ -29,7 +33,7 @@ Improvements since 0.8.10 release are:
+  * Add support for RTMP streaming (patch #8086).
+  * Portability fixes for Debian GNU/kOpenSolaris and ARM.
+  * TextFormat.getTextExtent has been much improved.
+- * Fix playback of some dynamic sounds (#33760).
++ * Fix regression in dynamic sound loading (#33760).
+ 
+ Gnash 0.8.10
+ 2012/02/04
+diff --git a/configure.ac b/configure.ac
+index c47280d..5aed1f4 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -3767,7 +3767,7 @@ else
+   PKG_REC([If you install the Speex DSP library, Gnash will be able to resample Speex encoded audio in FLV files.])
+   PKG_SUGGEST([Install libspeexdsp from http://speex.org])
+   DEB_INSTALL([libspeexdsp-dev])
+-  RPM_INSTALL([speex-devel])
++  RPM_INSTALL([speexdsp-devel])
+ fi
+ 
+ if test x"$ext_dbus" = xyes; then
+@@ -3973,11 +3973,10 @@ if test x"$testsuite" = x"yes"; then
+   if test x"$CSOUND" != x; then
+     echo "        CSOUND is $CSOUND"
+   else
+-    echo "        WARNING: You need to have csound installed" >&4
+-    echo "                 to have real fun." >&4
+-    echo "                 Install it from http://www.csounds.com/" >&4
+-    echo "                 or .deb users: apt-get install csound" >&4
+-    echo "                 or .rpm users: yum install csound" >&4
++    PKG_WAR([You need to have csound installed to (re)generate some sound-related test files in Gnash testsuite.])
++    PKG_SUGGEST([Install it from http://www.csounds.com/])
++    DEB_INSTALL([csound])
++    RPM_INSTALL([csound])
+   fi
+ fi
+ 
+diff --git a/doc/C/gnash.man-xml b/doc/C/gnash.man-xml
+index 02cc158..150196d 100644
+--- a/doc/C/gnash.man-xml
++++ b/doc/C/gnash.man-xml
+@@ -125,6 +125,7 @@ gnash [option]... [URL]
+ 
+   <varlistentry>
+     <term>-A file</term>
++    <term>--audio-dump file</term>
+     <listitem>
+       <para>
+         Audio dump file (wave format).
+diff --git a/doc/C/gnashref.xml b/doc/C/gnashref.xml
+index f583594..ae7bdfc 100644
+--- a/doc/C/gnashref.xml
++++ b/doc/C/gnashref.xml
+@@ -12,6 +12,7 @@
+     <!ENTITY fdl-app          SYSTEM "fdl-appendix.xml"> 
+     <!ENTITY programmers      SYSTEM "app_authors.xml">
+     <!ENTITY introduction     SYSTEM "introduction.xml">
++    <!ENTITY audience         SYSTEM "refmanual/audience.xml">
+     <!ENTITY bugreport        SYSTEM "bugreport.xml">
+ 
+     <!ENTITY amf              SYSTEM "refmanual/amf.xml">
+@@ -103,6 +104,7 @@
+ <!-- This chapter includes all the other sections used to document the
+      internals of how Gnash works. -->
+   &internals;
++  &newasclass;
+   &bugreport;
+   &extensions;
+ 
+diff --git a/doc/C/gnashuser.xml b/doc/C/gnashuser.xml
+index a556c45..3ce4dae 100644
+--- a/doc/C/gnashuser.xml
++++ b/doc/C/gnashuser.xml
+@@ -12,6 +12,7 @@
+     <!ENTITY fdl-app          SYSTEM "fdl-appendix.xml"> 
+     <!ENTITY programmers      SYSTEM "app_authors.xml">
+     <!ENTITY introduction     SYSTEM "introduction.xml">
++    <!ENTITY audience         SYSTEM "usermanual/audience.xml">
+     <!ENTITY security         SYSTEM "security.xml">
+     <!ENTITY bugreport        SYSTEM "bugreport.xml">
+ 
+diff --git a/doc/C/introduction.xml b/doc/C/introduction.xml
+index 3e1f4b3..e5058ff 100644
+--- a/doc/C/introduction.xml
++++ b/doc/C/introduction.xml
+@@ -18,18 +18,8 @@
+     player much like Perl or Python does.
+   </para>
+ 
+-  <sect1 id="audience">
+-    <title>Audience</title>
+-    
+-    <para>
+-      This manual is primarily focused on users interested in how to
+-      get Gnash installed from a package, and basic usage as a web
+-      browser plugin. For more technical details, please refer to the
+-      Gnash Reference manual.
+-    </para>
+-    
+-  </sect1>    
+-  
++  &audience;
++
+   <sect1 id="runs-on">
+     <title>What Is Supported?</title>
+     
+diff --git a/doc/C/refmanual/audience.xml b/doc/C/refmanual/audience.xml
+new file mode 100644
+index 0000000..8c45100
+--- /dev/null
++++ b/doc/C/refmanual/audience.xml
+@@ -0,0 +1,12 @@
++<sect1 id="audience">
++  <title>Audience</title>
++
++  <para>
++    This manual is focused on users interested in more technical
++    details, such as Gnash Extensions. It's also a good starting point
++    for developers that feel like contributing to the project. For
++    installation instructions from a package and basic usage, please
++    refer to the Gnash User Manual.
++  </para>
++
++</sect1>
+diff --git a/doc/C/refmanual/internals.xml b/doc/C/refmanual/internals.xml
+index 5c878f0..fae1f07 100644
+--- a/doc/C/refmanual/internals.xml
++++ b/doc/C/refmanual/internals.xml
+@@ -977,7 +977,6 @@
+     </sect2>
+   </sect1>
+   
+-  &newasclass;
+     
+ </chapter>
+ 
+diff --git a/doc/C/usermanual/audience.xml b/doc/C/usermanual/audience.xml
+new file mode 100644
+index 0000000..691feea
+--- /dev/null
++++ b/doc/C/usermanual/audience.xml
+@@ -0,0 +1,11 @@
++<sect1 id="audience">
++  <title>Audience</title>
++  
++  <para>
++    This manual is primarily focused on users interested in how to get
++    Gnash installed from a package, and basic usage as a web browser
++    plugin. For more technical details, please refer to the Gnash
++    Reference manual.
++  </para>
++  
++</sect1>    
+diff --git a/doc/C/usermanual/usage.xml b/doc/C/usermanual/usage.xml
+index 6278b60..c243e94 100644
+--- a/doc/C/usermanual/usage.xml
++++ b/doc/C/usermanual/usage.xml
+@@ -143,7 +143,7 @@
+ 	  </row>
+ 	  <row>
+ 	    <entry>
+-	      <option>-A</option> <replaceable>&lt;file&gt;</replaceable>
++	      <option>-A, --audio-dump</option> <replaceable>&lt;file&gt;</replaceable>
+ 	    </entry>
+ 	    <entry>
+               Write the audio output to a wave format file.
+diff --git a/gui/Player.cpp b/gui/Player.cpp
+index 8934598..617b0fa 100644
+--- a/gui/Player.cpp
++++ b/gui/Player.cpp
+@@ -240,7 +240,10 @@ Player::init_logfile()
+ 
+     dbglogfile.setLogFilename(rcfile.getDebugLog());
+ 
+-    if (rcfile.verbosityLevel() > 0) {
++    // If logging verbosity was already assigned (from command line) to a
++    // non-zero level, leave it intact. Otherwise, use verbosity level from
++    // configuration file (or default one).
++    if (dbglogfile.getVerbosity() == 0) {
+         dbglogfile.setVerbosity(rcfile.verbosityLevel());
+     }
+     
+@@ -272,6 +275,7 @@ void
+ Player::init_sound()
+ {
+ 
++#ifndef GUI_DUMP
+     if (_doSound) {
+         try {
+ #ifdef SOUND_SDL
+@@ -293,6 +297,7 @@ Player::init_sound()
+                 " Will continue without sound."), ex.what());
+         }
+     }
++#endif
+ }
+ 
+ void
+diff --git a/gui/fb/fb.cpp b/gui/fb/fb.cpp
+index 5e9a155..37948c7 100644
+--- a/gui/fb/fb.cpp
++++ b/gui/fb/fb.cpp
+@@ -153,7 +153,6 @@ terminate_signal(int /*signo*/) {
+ 
+ FBGui::FBGui(unsigned long xid, float scale, bool loop, RunResources& r)
+     : Gui(xid, scale, loop, r),
+-      _fd(-1),
+       _original_vt(-1),
+       _original_kd(-1),
+       _own_vt(-1),
+@@ -174,11 +173,7 @@ FBGui::~FBGui()
+ {  
+     // GNASH_REPORT_FUNCTION;
+     
+-    if (_fd > 0) {
+-        disable_terminal();
+-        // log_debug("Closing framebuffer device");
+-        close(_fd);
+-    }
++    enable_terminal();
+ }
+ 
+ bool
+@@ -517,6 +512,12 @@ FBGui::setInvalidatedRegions(const InvalidatedRanges& ranges)
+      _glue->setInvalidatedRegions(ranges);
+ }
+ 
++void
++FBGui::quitUI()
++{
++    terminate_request = true;
++}
++
+ char *
+ FBGui::find_accessible_tty(int no)
+ {
+@@ -582,8 +583,6 @@ FBGui::disable_terminal()
+     struct vt_stat vts;
+     if (ioctl(fd, VT_GETSTATE, &vts) == -1) {
+         log_error(_("Could not get current VT state"));
+-        close(_fd);
+-        _fd = -1;
+         close(fd);
+         return false;
+     }
+@@ -612,7 +611,7 @@ FBGui::disable_terminal()
+         return false;
+     }
+   
+-    _fd = open(tty, O_RDWR);
++    fd = open(tty, O_RDWR);
+     if (fd < 0) {
+         log_error(_("Could not open %s"), tty);
+         return false;
+@@ -708,8 +707,6 @@ FBGui::enable_terminal()
+ 
+     if (ioctl(fd, VT_ACTIVATE, _original_vt)) {
+         log_error(_("Could not activate VT number %d"), _original_vt);
+-        close(_fd);
+-        _fd = -1;
+         close(fd);
+         return false;
+     }
+diff --git a/gui/fb/fbsup.h b/gui/fb/fbsup.h
+index 23f409b..063b0b5 100644
+--- a/gui/fb/fbsup.h
++++ b/gui/fb/fbsup.h
+@@ -119,6 +119,9 @@ public:
+     /// Start main rendering loop.
+     bool run();
+ 
++    /// Stop main rendering loop.
++    void quitUI();
++
+     // Resize the viewing area within the total framebuffer display
+     bool resize_view(int width, int height);
+     
+@@ -184,7 +187,6 @@ private:
+     /// reverts disable_terminal() changes
+     bool enable_terminal();
+     
+-    int         _fd;
+     int         _original_vt;   // virtual terminal that was active at startup
+     int         _original_kd;   // keyboard mode at startup
+     int         _own_vt;        // virtual terminal we are running in   
+diff --git a/gui/gtk/gtk.cpp b/gui/gtk/gtk.cpp
+index 6f6d828..7fc22c8 100644
+--- a/gui/gtk/gtk.cpp
++++ b/gui/gtk/gtk.cpp
+@@ -144,6 +144,7 @@ GtkGui::GtkGui(unsigned long xid, float scale, bool loop, RunResources& r)
+     ,_popup_menu_alt(0)
+     ,_menubar(0)
+     ,_vbox(0)
++    ,_exiting(false)
+     ,_advanceSourceTimer(0)
+ {
+ }
+@@ -255,7 +256,11 @@ GtkGui::run()
+     // Kick-start before setting the interval timeout
+     advance_movie(this);
+ 
+-    gtk_main();
++    if (!_exiting)
++    {
++        gtk_main();
++    }
++    gtk_widget_destroy(_window);
+     return true;
+ }
+ 
+@@ -589,8 +594,12 @@ GtkGui::quitUI()
+     // Unregister the callback registered by setTimeout, if any. This also
+     // removes other callbacks, but we're about to go away anyway.
+     while (g_source_remove_by_user_data(this)) {}
+-    gtk_widget_destroy(_window);
+-    gtk_main_quit();
++
++    _exiting = true;
++    if (gtk_main_level() > 0)
++    {
++        gtk_main_quit();
++    }
+ }
+ 
+ /*private*/
+diff --git a/gui/gtk/gtk_glue_agg_vaapi.cpp b/gui/gtk/gtk_glue_agg_vaapi.cpp
+index 1eda283..6209e89 100644
+--- a/gui/gtk/gtk_glue_agg_vaapi.cpp
++++ b/gui/gtk/gtk_glue_agg_vaapi.cpp
+@@ -301,11 +301,9 @@ GtkAggVaapiGlue::getVideoWindow(std::shared_ptr<VaapiSurface> surface,
+         return NULL;
+ 
+     if (!context->getData()) {
+-        std::unique_ptr<VaapiContextData> contextData;
+-        contextData.reset(new VaapiVideoWindow(parent_window, rect));
+-        if (!contextData.get())
+-            return NULL;
+-        context->setData(contextData);
++        context->setData(
++            std::unique_ptr<VaapiContextData>(
++                new VaapiVideoWindow(parent_window, rect)));
+     }
+     return dynamic_cast<VaapiVideoWindow *>(context->getData());
+ }
+diff --git a/gui/gtk/gtksup.h b/gui/gtk/gtksup.h
+index 1cefe35..7250a00 100644
+--- a/gui/gtk/gtksup.h
++++ b/gui/gtk/gtksup.h
+@@ -144,6 +144,9 @@ private:
+     GtkWidget* _menubar;
+     GtkWidget* _vbox;
+ 
++    /// Exit flag, set by quitUI() to prevent entering gtk_main() if Gnash
++    /// terminated in first frame.
++    bool _exiting;
+ 
+     /// Add key press events to the toplevel window.
+     //
+diff --git a/libbase/GnashImageJpeg.h b/libbase/GnashImageJpeg.h
+index 846ce8a..65c2153 100644
+--- a/libbase/GnashImageJpeg.h
++++ b/libbase/GnashImageJpeg.h
+@@ -46,7 +46,7 @@ namespace image {
+ /// Class for reading JPEG image data. 
+ //
+ /// This uses the IJG jpeglib to implement the Input interface.
+-class JpegInput : public Input
++class DSOEXPORT JpegInput : public Input
+ {
+ 
+ private:
+diff --git a/libbase/SimpleBuffer.h b/libbase/SimpleBuffer.h
+index 2757a5e..c0a411b 100644
+--- a/libbase/SimpleBuffer.h
++++ b/libbase/SimpleBuffer.h
+@@ -57,17 +57,6 @@ public:
+ 		}
+ 	}
+ 
+-        /// Construct a SimpleBuffer by taking ownership of an existing buffer.
+-        //
+-        /// @param size the size of the buffer.
+-        /// @param buffer a pointer a a new[]-allocated buffer.
+-        SimpleBuffer(size_t size, std::uint8_t* buffer)
+-            : _size(size),
+-              _capacity(size),
+-              _data(buffer)
+-        {
+-        }
+-
+         /// Move constructor.
+         SimpleBuffer(SimpleBuffer&&) = default;
+ 
+diff --git a/libcore/ExternalInterface.cpp b/libcore/ExternalInterface.cpp
+index 55c5461..8801696 100644
+--- a/libcore/ExternalInterface.cpp
++++ b/libcore/ExternalInterface.cpp
+@@ -1,7 +1,7 @@
+ // ExternalInterface.cpp:  ActionScript "ExternalInterface" support
+ //
+-//   Copyright (C) 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012
+-//   Free Software Foundation, Inc
++//   Copyright (C) 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014,
++//   2015, 2016 Free Software Foundation, Inc
+ //
+ // This program is free software; you can redistribute it and/or modify
+ // it under the terms of the GNU General Public License as published by
+@@ -115,7 +115,7 @@ ExternalInterface::_toXML(const as_value &val)
+     } else if (val.is_number()) {
+         ss << "<number>" << val.to_string() << "</number>";
+     } else if (val.is_undefined()) {
+-        ss << "<undefined/>";
++        ss << "<void/>";
+     } else if (val.is_null()) {
+         ss << "<null/>";
+         // Exception isn't listed in any docs, but we'll use it for
+@@ -336,13 +336,32 @@ std::string
+ ExternalInterface::readBrowser(int fd)
+ {
+     std::string empty;
+-    // Wait for some data from the player
++    fd_set fdset;
++    struct timeval timeout;
++    int fdstatus;
+     int bytes = 0;
+ 
+-    ioctlSocket(fd, FIONREAD, &bytes);
++    // Wait for some data from the player
++    FD_ZERO(&fdset);
++    FD_SET(fd, &fdset);
++    timeout.tv_sec = 10;
++    timeout.tv_usec = 0;
++    fdstatus = select(fd + 1, &fdset, nullptr, nullptr, &timeout);
++    if (fdstatus == 0) {
++        // Timed out, return no data
++        log_error("Host container communication timed out\n");
++        return empty;
++    } else if(fdstatus < 0) {
++        // select() failed, return no data
++        log_error("select failed on host container communication: %s",
++                  std::strerror(errno));
++        return empty;
++    }
+ 
+-    // No data yet
++    // Check for the size of available data
++    ioctlSocket(fd, FIONREAD, &bytes);
+     if (bytes == 0) {
++        // No more data to read (end of stream, or stream error)
+         return empty;
+     }
+ 
+diff --git a/libcore/as_object.h b/libcore/as_object.h
+index 00db6cd..c83dac6 100644
+--- a/libcore/as_object.h
++++ b/libcore/as_object.h
+@@ -158,7 +158,7 @@ private:
+ /// Functions (as_function), Super objects (as_super) and AS3 Class types
+ /// (as_class) have a static type, that is, they are not convertible to each
+ /// other once created.
+-class as_object : public GcResource, boost::noncopyable
++class DSOEXPORT as_object : public GcResource, boost::noncopyable
+ {
+ 
+ public:
+diff --git a/libcore/asobj/MovieClip_as.cpp b/libcore/asobj/MovieClip_as.cpp
+index 391f037..5b3eb3e 100644
+--- a/libcore/asobj/MovieClip_as.cpp
++++ b/libcore/asobj/MovieClip_as.cpp
+@@ -1494,7 +1494,7 @@ movieclip_lineStyle(const fn_call& fn)
+ {
+     MovieClip* movieclip = ensure<IsDisplayObject<MovieClip> >(fn);
+ 
+-    if (!fn.nargs) {
++    if (!fn.nargs || fn.arg(0).is_undefined()) {
+         movieclip->graphics().resetLineStyle();
+         return as_value();
+     }
+diff --git a/libcore/asobj/TextField_as.cpp b/libcore/asobj/TextField_as.cpp
+index 58aded3..18e4717 100644
+--- a/libcore/asobj/TextField_as.cpp
++++ b/libcore/asobj/TextField_as.cpp
+@@ -591,12 +591,12 @@ textfield_getDepth(const fn_call& fn)
+ as_value
+ textfield_getFontList(const fn_call& fn)
+ {
+-    TextField* text = ensure<IsDisplayObject<TextField> >(fn);
+-    UNUSED(text);
+-
+     LOG_ONCE(log_unimpl(_("TextField.getFontList()")));
+ 
+-    return as_value();
++    Global_as& gl = getGlobal(fn);
++    as_object* fontlist = gl.createArray();
++
++    return as_value(fontlist);
+ }
+ 
+ as_value
+diff --git a/libcore/asobj/flash/external/ExternalInterface_as.cpp b/libcore/asobj/flash/external/ExternalInterface_as.cpp
+index a72fd4a..9bf2564 100644
+--- a/libcore/asobj/flash/external/ExternalInterface_as.cpp
++++ b/libcore/asobj/flash/external/ExternalInterface_as.cpp
+@@ -1,7 +1,7 @@
+ // ExternalInterface_as.cpp:  ActionScript "ExternalInterface" class, for Gnash.
+ //
+-//   Copyright (C) 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012
+-//   Free Software Foundation, Inc
++//   Copyright (C) 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014,
++//   2015, 2016 Free Software Foundation, Inc
+ //
+ // This program is free software; you can redistribute it and/or modify
+ // it under the terms of the GNU General Public License as published by
+@@ -239,8 +239,6 @@ attachExternalInterfaceStaticInterface(as_object& o)
+ }
+ 
+ /// This adds a function that can be called from javascript.
+-//
+-/// TODO: addCallback takes three arguments; only two are handled here.
+ as_value
+ externalinterface_addCallback(const fn_call& fn)
+ {
+@@ -251,18 +249,28 @@ externalinterface_addCallback(const fn_call& fn)
+         return as_value(false);
+     }
+ 
+-    if (fn.nargs > 1) {
++    if (fn.nargs >= 3) {
+         const as_value& name_as = fn.arg(0);
++        const as_value& instance_as = fn.arg(1);
++        const as_value& method_as = fn.arg(2);
+         std::string name = name_as.to_string();
+-        if (fn.arg(1).is_object()) {
+-            log_debug("adding callback %s", name);
+-            as_object* asCallback = toObject(fn.arg(1), getVM(fn));
+-            mr.addExternalCallback(name, asCallback);
++
++        if (method_as.is_undefined() || method_as.is_null()) {
++            // Adding callback without function specified is not allowed
++            return as_value(false);
+         }
++
++        log_debug("adding callback %s", name);
++        as_object* asInstance = toObject(instance_as, getVM(fn));
++        as_object* asCallback = toObject(method_as, getVM(fn));
++        mr.addExternalCallback(name, asCallback, asInstance);
++    } else {
++        // Invalid addCallback call
++        return as_value(false);
+     }
+ 
+-    // Returns true unless unavailable (which we checked above)
+-    return as_value(true);    
++    // Returns true unless unavailable or invalid (which we checked above)
++    return as_value(true);
+ }
+ 
+ // This calls a Javascript function in the browser.
+@@ -278,7 +286,7 @@ externalinterface_call(const fn_call& fn)
+         return val;
+     }
+ 
+-    if (fn.nargs > 1) {
++    if (fn.nargs >= 1) {
+         const as_value& methodName_as = fn.arg(0);
+         const std::string methodName = methodName_as.to_string();
+         const std::vector<as_value>& args = fn.getArgs();
+@@ -286,13 +294,7 @@ externalinterface_call(const fn_call& fn)
+         std::string result = mr.callExternalJavascript(methodName, args);
+         if (!result.empty()) {
+             val = ExternalInterface::parseXML(result);
+-            // There was an error trying to Invoke the callback
+-            if (result == ExternalInterface::makeString("Error")
+-                || (result == ExternalInterface::makeString("SecurityError"))) {
+-                log_trace(_("VAL: %s"), val);
+-                val.set_undefined();
+-            }
+-        } 
++        }
+     }
+     
+     return val;
+diff --git a/libcore/movie_root.cpp b/libcore/movie_root.cpp
+index 952e063..5faff86 100644
+--- a/libcore/movie_root.cpp
++++ b/libcore/movie_root.cpp
+@@ -1596,11 +1596,23 @@ movie_root::processInvoke(ExternalInterface::invoke_t *invoke)
+         MovieClip *mc = getLevel(0);
+         as_object *obj = getObject(mc);
+         VM &vm = getVM();
++        as_environment timeline = mc->get_environment();
++        as_environment::ScopeStack scope;
++        as_object *container = NULL;
+         std::string var = invoke->args[0].to_string();
+-        as_value val;
+-        obj->get_member(getURI(vm, var), &val);
+-        // GetVariable sends the value of the variable
+-        ss << ExternalInterface::toXML(val);
++        scope.push_back(obj);
++        as_value val = getVariable(timeline, var, scope, &container);
++        if (container != NULL) {
++            // If the variable exists, GetVariable returns a string
++            // representation of its value. Variable with undefined
++            // or null value counts as exist too.
++            ss << ExternalInterface::toXML(val.to_string(vm.getSWFVersion()));
++            ss << std::endl;
++        } else {
++            // If the variable does not exist, GetVariable sends null value
++            ss << ExternalInterface::toXML(as_value((as_object*)NULL));
++            ss << std::endl;
++        }
+     } else if (invoke->name == "GotoFrame") {
+         log_unimpl(_("ExternalInterface::GotoFrame()"));
+         // GotoFrame doesn't send a response
+@@ -1608,7 +1620,8 @@ movie_root::processInvoke(ExternalInterface::invoke_t *invoke)
+         const bool result = 
+             callInterface<bool>(HostMessage(HostMessage::EXTERNALINTERFACE_ISPLAYING));
+         as_value val(result);
+-        ss << ExternalInterface::toXML(val);    
++        ss << ExternalInterface::toXML(val);
++        ss << std::endl;
+     } else if (invoke->name == "LoadMovie") {
+     log_unimpl(_("ExternalInterface::LoadMovie()"));
+     // LoadMovie doesn't send a response
+@@ -1632,7 +1645,8 @@ movie_root::processInvoke(ExternalInterface::invoke_t *invoke)
+         }
+         as_value val(percent);
+         // PercentLoaded sends the percentage
+-        ss << ExternalInterface::toXML(val);    
++        ss << ExternalInterface::toXML(val);
++        ss << std::endl;
+     } else if (invoke->name == "Play") {
+         callInterface(HostMessage(HostMessage::EXTERNALINTERFACE_PLAY));
+     // Play doesn't send a response
+@@ -1661,8 +1675,9 @@ movie_root::processInvoke(ExternalInterface::invoke_t *invoke)
+     } else if (invoke->name == "TotalFrames") {
+         MovieClip *mc = getLevel(0);
+         as_value val(mc->get_loaded_frames());
+-    // TotalFrames sends the number of frames in the movie
++        // TotalFrames sends the number of frames in the movie
+         ss << ExternalInterface::toXML(val);
++        ss << std::endl;
+     } else {
+         std::string result = callExternalCallback(invoke->name, invoke->args);
+         if (result == ExternalInterface::makeString("Error")) {
+@@ -1766,6 +1781,18 @@ movie_root::markReachableResources() const
+     // Mark LoadMovieRequest handlers as reachable
+     _movieLoader.setReachable();
+ 
++    // Mark ExternalInterface callbacks and instances as reachable
++    for (const auto& method : _externalCallbackMethods) {
++        if (method.second) {
++            method.second->setReachable();
++        }
++    }
++    for (const auto& instance : _externalCallbackInstances) {
++        if (instance.second) {
++            instance.second->setReachable();
++        }
++    }
++
+     // Mark resources reachable by queued action code
+     for (size_t lvl = 0; lvl < PRIORITY_SIZE; ++lvl)
+     {
+@@ -1823,12 +1850,22 @@ movie_root::findDropTarget(std::int32_t x, std::int32_t y,
+ }
+ 
+ /// This should store a callback object in movie_root.
+-//
+-/// TODO: currently it doesn't.
+ void
+-movie_root::addExternalCallback(const std::string& name, as_object* callback)
++movie_root::addExternalCallback(const std::string& name, as_object* callback,
++                                as_object* instance)
+ {
+-    UNUSED(callback);
++    // Store registered callback and instance reference for later use
++    // by callExternalCallback()
++    if(_externalCallbackMethods.count(name)>0) {
++        _externalCallbackMethods.erase(name);
++        _externalCallbackInstances.erase(name);
++    }
++    _externalCallbackMethods.insert(
++        std::pair<std::string, as_object*>(name,callback)
++    );
++    _externalCallbackInstances.insert(
++        std::pair<std::string, as_object*>(name,instance)
++    );
+ 
+     // When an external callback is added, we have to notify the plugin
+     // that this method is available.
+@@ -1889,29 +1926,38 @@ std::string
+ movie_root::callExternalCallback(const std::string &name, 
+                  const std::vector<as_value> &fnargs)
+ {
+-    MovieClip *mc = getLevel(0);
+-    as_object *obj = getObject(mc);
+-
+-    const ObjectURI& key = getURI(getVM(), name);
+-    // FIXME: there has got to be a better way of handling the variable
+-    // length arg list
++    ExternalCallbackMethods::iterator method_iterator;
++    ExternalCallbackInstances::iterator instance_iterator;
++    as_object *method;
++    as_object *instance;
++    fn_call::Args args;
+     as_value val;
+-    switch (fnargs.size()) {
+-      case 0:
+-          val = callMethod(obj, key);
+-          break;
+-      case 1:
+-          val = callMethod(obj, key, fnargs[0]);
+-          break;
+-      case 2:
+-          val = callMethod(obj, key, fnargs[0], fnargs[1]);
+-          break;
+-      case 3:
+-          val = callMethod(obj, key, fnargs[0], fnargs[1], fnargs[2]);
+-          break;
+-      default:
+-          val = callMethod(obj, key);
+-          break;
++
++    // Look up for ActionScript function registered as callback
++    method_iterator = _externalCallbackMethods.find(name);
++    if (method_iterator == _externalCallbackMethods.end()) {
++        val.set_undefined();
++    } else {
++        method = method_iterator->second;
++
++        // Look up for Object instance to use as "this" in the callback
++        instance_iterator = _externalCallbackInstances.find(name);
++        if (instance_iterator == _externalCallbackInstances.end()) {
++            instance = as_value((as_object*)NULL).to_object(getVM());
++        }
++        else instance = instance_iterator->second;
++
++        // Populate function call arguments
++        for (std::vector<as_value>::const_iterator args_iterator
++                 = fnargs.begin();
++             args_iterator != fnargs.end();
++             args_iterator ++)
++        {
++            args += *args_iterator;
++        }
++
++        // Call the registered callback
++        val=invoke(as_value(method), as_environment(getVM()), instance, args);
+     }
+ 
+     std::string result;
+@@ -1925,8 +1971,13 @@ movie_root::callExternalCallback(const std::string &name,
+     // If the browser is connected, we send an Invoke message to the
+     // browser.
+     if (_hostfd >= 0) {
+-        const size_t ret = ExternalInterface::writeBrowser(_hostfd, result);
+-        if (ret != result.size()) {
++        std::stringstream ss;
++        size_t ret;
++
++        ss << result;
++        ss << std::endl;
++        ret = ExternalInterface::writeBrowser(_hostfd, ss.str());
++        if (ret != ss.str().size()) {
+             log_error(_("Could not write to browser fd #%d: %s"),
+                       _hostfd, std::strerror(errno));
+         }
+diff --git a/libcore/movie_root.h b/libcore/movie_root.h
+index 743bfeb..ed6ae37 100644
+--- a/libcore/movie_root.h
++++ b/libcore/movie_root.h
+@@ -563,6 +563,8 @@ public:
+     /// - The original root movie (_rootMovie)
+     /// - Mouse entities (m_mouse_button_state)
+     /// - Timer targets (_intervalTimers)
++    /// - ExternalInterace callbacks (_externalCallbackMethods and
++    ///   _externalCallbackInstances)
+     /// - Resources reachable by ActionQueue code (_actionQueue)
+     /// - Any DisplayObject being dragged 
+     void markReachableResources() const;
+@@ -785,8 +787,21 @@ public:
+ 
+     const RunResources& runResources() const { return _runResources; }
+ 
++    typedef std::map<std::string, as_object*> ExternalCallbackMethods;
++    typedef std::map<std::string, as_object*> ExternalCallbackInstances;
++    ExternalCallbackMethods _externalCallbackMethods;
++    ExternalCallbackInstances _externalCallbackInstances;
++
+     /// Add an ExternalInterface callback object with an associated name.
+-    void addExternalCallback(const std::string& name, as_object* callback);
++    //
++    /// @param name     Callback name, exposed to host container.
++    /// @param callback ActionScript function to be invoked if the callback
++    ///                 is called.
++    /// @param instance ActionScript Object to be used as "this" instance
++    ///                 inside the callback. ActionScript null value is
++    ///                 allowed.
++    void addExternalCallback(const std::string& name, as_object* callback,
++                             as_object* instance);
+ 
+     bool processInvoke(ExternalInterface::invoke_t *);
+ 
+diff --git a/libcore/swf/DefinitionTag.h b/libcore/swf/DefinitionTag.h
+index 77556e2..0afd004 100644
+--- a/libcore/swf/DefinitionTag.h
++++ b/libcore/swf/DefinitionTag.h
+@@ -44,7 +44,7 @@ namespace SWF {
+ //
+ /// TODO: rename this class so it's not the same as the SWF spec. It doesn't
+ /// exactly correspond to the DefinitionTag defined there.
+-class DefinitionTag : public ControlTag
++class DSOEXPORT DefinitionTag : public ControlTag
+ {
+ public:
+ 
+diff --git a/libcore/vm/ASHandlers.cpp b/libcore/vm/ASHandlers.cpp
+index 60a3fd7..073bca5 100644
+--- a/libcore/vm/ASHandlers.cpp
++++ b/libcore/vm/ASHandlers.cpp
+@@ -2346,10 +2346,11 @@ ActionVar(ActionExec& thread)
+         declareLocal(vm.currentCall(), name);
+     }
+     else {
+-       IF_VERBOSE_ASCODING_ERRORS(
+-           log_aserror(_("The 'var whatever' syntax in timeline context is a "
+-                   "no-op."));
+-       );
++        // See https://savannah.gnu.org/patch/?8721
++        as_object* this_ptr = thread.getThisPointer();
++        if (!hasOwnProperty(*this_ptr, name)) {
++            this_ptr->set_member(name, as_value());
++        }
+     }
+     env.drop(1);
+ }
+diff --git a/libdevice/events/InputDevice.h b/libdevice/events/InputDevice.h
+index ee5d903..096b734 100644
+--- a/libdevice/events/InputDevice.h
++++ b/libdevice/events/InputDevice.h
+@@ -66,7 +66,7 @@ private:
+ 
+ // This is an InputDevice class to cover the various touchscreens, Mice, or
+ // keyboards supported.
+-class InputDevice
++class DSOEXPORT InputDevice
+ {
+ public:
+     typedef struct {
+diff --git a/libmedia/AudioDecoderSimple.cpp b/libmedia/AudioDecoderSimple.cpp
+index e4d71eb..d410ca7 100644
+--- a/libmedia/AudioDecoderSimple.cpp
++++ b/libmedia/AudioDecoderSimple.cpp
+@@ -387,10 +387,10 @@ AudioDecoderSimple::decode(const std::uint8_t* input, std::uint32_t inputSize,
+ 			memcpy(decodedData, input, inputSize);
+ 			outsize = inputSize;
+ 		} else {
+-			// Convert 8-bit signed to 16-bit range
++			// Convert 8-bit unsigned to 16-bit signed range
+ 			// Allocate as many shorts as there are samples
+ 			u8_expand(decodedData, input, inputSize);
+-			outsize = inputSize * (_stereo ? 4 : 2);
++			outsize = inputSize * 2;
+ 		}
+ 		break;
+ 	case AUDIO_CODEC_UNCOMPRESSED:
+@@ -398,10 +398,10 @@ AudioDecoderSimple::decode(const std::uint8_t* input, std::uint32_t inputSize,
+ 		// Convert to 16-bit host-endian.
+ 		if (!_is16bit)
+ 		{
+-			// Convert 8-bit signed to 16-bit range
++			// Convert 8-bit unsigned to 16-bit signed range
+ 			// Allocate as many shorts as there are 8-bit samples
+ 			u8_expand(decodedData, input, inputSize);
+-			outsize = inputSize * (_stereo ? 4 : 2);
++			outsize = inputSize * 2;
+ 
+ 		} else {
+ 			// Allocate a destination buffer
+diff --git a/libmedia/MediaParser.h b/libmedia/MediaParser.h
+index caaf413..e9f28c1 100644
+--- a/libmedia/MediaParser.h
++++ b/libmedia/MediaParser.h
+@@ -435,7 +435,7 @@ public:
+ ///
+ /// Input is received from a IOChannel object.
+ ///
+-class MediaParser
++class DSOEXPORT MediaParser
+ {
+ public:
+ 
+diff --git a/libmedia/ffmpeg/AudioDecoderFfmpeg.cpp b/libmedia/ffmpeg/AudioDecoderFfmpeg.cpp
+index c98e2d8..2244a6b 100644
+--- a/libmedia/ffmpeg/AudioDecoderFfmpeg.cpp
++++ b/libmedia/ffmpeg/AudioDecoderFfmpeg.cpp
+@@ -181,9 +181,17 @@ void AudioDecoderFfmpeg::setup(const AudioInfo& info)
+             case AUDIO_CODEC_UNCOMPRESSED:
+             case AUDIO_CODEC_RAW:
+                 if (info.sampleSize == 2) {
++                    // Flash's 16-bit UNCOMPRESSED and RAW audio comes as
++                    // a signed PCM format. UNCOMPRESSED audio always use
++                    // little-endian byte order. RAW audio uses encoder's
++                    // native byte order; as majority of encoders run
++                    // on little-endian machine, we use little-endian for it.
+                     codec_id = AV_CODEC_ID_PCM_S16LE;
+                 } else {
+-                    codec_id = AV_CODEC_ID_PCM_S8;
++                    // Flash's 8-bit UNCOMPRESSED and RAW audio comes as an
++                    // unsigned PCM format. No difference between
++                    // UNCOMPRESSED and RAW.
++                    codec_id = AV_CODEC_ID_PCM_U8;
+                 }
+                 break;
+ 
+@@ -274,9 +282,8 @@ void AudioDecoderFfmpeg::setup(const AudioInfo& info)
+             case AV_CODEC_ID_MP3:
+                 break;
+ 
+-            case AV_CODEC_ID_PCM_S8:
+-                // Either FFMPEG or the parser are getting this wrong.
+-                _audioCodecCtx->sample_rate = info.sampleRate / 2;
++            case AV_CODEC_ID_PCM_U8:
++                _audioCodecCtx->sample_rate = info.sampleRate;
+                 _audioCodecCtx->channels = (info.stereo ? 2 : 1);
+                 break;
+             case AV_CODEC_ID_PCM_S16LE:
+@@ -537,13 +544,26 @@ AudioDecoderFfmpeg::decodeFrame(const std::uint8_t* input,
+ 
+         // Compute new size based on frame_size and
+         // resampling configuration
+-        double resampleFactor = (44100.0/_audioCodecCtx->sample_rate) * (2.0/_audioCodecCtx->channels);
+-        bool stereo = _audioCodecCtx->channels > 1 ? true : false;
+-        int inSamples = stereo ? outSize >> 2 : outSize >> 1;
+ 
++        // Find out the needed sample rate scaling
++        double resampleFactor = 44100.0/_audioCodecCtx->sample_rate;
++
++        // Compute total number of input samples
++        int inSamples = outSize;
++        bool stereo = _audioCodecCtx->channels > 1 ? true : false;
++
++        if (stereo) inSamples = inSamples >> 1;
++        if (_audioCodecCtx->sample_fmt == AV_SAMPLE_FMT_S16 ||
++            _audioCodecCtx->sample_fmt == AV_SAMPLE_FMT_S16P) {
++            inSamples = inSamples >> 1;
++        }
++
++        // Compute total number of output samples
+         int expectedMaxOutSamples = std::ceil(inSamples*resampleFactor);
+ 
+-        // *channels *sampleSize 
++        // Compute output buffer size (in bytes); by multiplying
++        // output samples count with output sample format's frame size,
++        // which is number of bytes per sample (2) times channels (2).
+         int resampledFrameSize = expectedMaxOutSamples*2*2;
+ 
+         // Allocate just the required amount of bytes
+diff --git a/libmedia/ffmpeg/AudioResamplerFfmpeg.cpp b/libmedia/ffmpeg/AudioResamplerFfmpeg.cpp
+index 0b0dc6c..87cc558 100644
+--- a/libmedia/ffmpeg/AudioResamplerFfmpeg.cpp
++++ b/libmedia/ffmpeg/AudioResamplerFfmpeg.cpp
+@@ -49,9 +49,7 @@ AudioResamplerFfmpeg::~AudioResamplerFfmpeg() {
+ bool
+ AudioResamplerFfmpeg::init(AVCodecContext* ctx) {
+     if ((ctx->sample_rate != 44100) ||
+-#if defined(HAVE_SWRESAMPLE_H) || defined(HAVE_AVRESAMPLE_H)
+         (ctx->sample_fmt != AV_SAMPLE_FMT_S16) ||
+-#endif
+         (ctx->channels != 2)) {
+         if (! _context) {
+ #ifdef HAVE_SWRESAMPLE_H
+@@ -61,7 +59,7 @@ AudioResamplerFfmpeg::init(AVCodecContext* ctx) {
+ #else
+             _context = av_audio_resample_init(2, ctx->channels,
+                 44100, ctx->sample_rate,
+-                AV_SAMPLE_FMT_S16, AV_SAMPLE_FMT_S16,
++                AV_SAMPLE_FMT_S16, ctx->sample_fmt,
+                 16, 10, 0, 0.8);
+ #endif
+ #if defined(HAVE_SWRESAMPLE_H) || defined(HAVE_AVRESAMPLE_H)
+diff --git a/libmedia/ffmpeg/ffmpegHeaders.h b/libmedia/ffmpeg/ffmpegHeaders.h
+index 53b5b18..2e4944e 100644
+--- a/libmedia/ffmpeg/ffmpegHeaders.h
++++ b/libmedia/ffmpeg/ffmpegHeaders.h
+@@ -107,6 +107,7 @@ extern "C" {
+ #define AV_CODEC_ID_NELLYMOSER CODEC_ID_NELLYMOSER
+ #define AV_CODEC_ID_NONE CODEC_ID_NONE
+ #define AV_CODEC_ID_PCM_S8 CODEC_ID_PCM_S8
++#define AV_CODEC_ID_PCM_U8 CODEC_ID_PCM_U8
+ #define AV_CODEC_ID_PCM_S16LE CODEC_ID_PCM_S16LE
+ #define AV_CODEC_ID_PCM_U16LE CODEC_ID_PCM_U16LE
+ #define AV_CODEC_ID_VP6A CODEC_ID_VP6A
+diff --git a/libsound/EmbedSoundInst.cpp b/libsound/EmbedSoundInst.cpp
+index 9ef4b05..2661794 100644
+--- a/libsound/EmbedSoundInst.cpp
++++ b/libsound/EmbedSoundInst.cpp
+@@ -32,7 +32,8 @@
+ // Debug sound decoding
+ //#define GNASH_DEBUG_SOUNDS_DECODING
+ 
+-//#define GNASH_DEBUG_SOUNDS_MANAGEMENT
++// Debug sound mixing
++//#define GNASH_DEBUG_MIXING
+ 
+ namespace gnash {
+ namespace sound {
+@@ -96,7 +97,11 @@ EmbedSoundInst::decodeNextBlock()
+     // to decode not to bother further streamlining it
+     // See https://savannah.gnu.org/bugs/?25456 for a testcase
+     // showing the benefit of chunked decoding.
+-    const std::uint32_t chunkSize = 65535;
++    //
++    // NOTE: it is reccommended that chunkSize is a multiple
++    //       of 4-byte (16-bit stereo), see
++    //       https://savannah.gnu.org/patch/?8736
++    const std::uint32_t chunkSize = 65536;
+ 
+     std::uint32_t inputSize = _soundDef.size() - decodingPosition;
+     if ( inputSize > chunkSize ) inputSize = chunkSize;
+@@ -123,7 +128,7 @@ EmbedSoundInst::decodeNextBlock()
+ 
+ #ifdef GNASH_DEBUG_MIXING
+     log_debug("  applying volume/envelope to %d bytes (%d samples)"
+-            "of decoded data", decodedDataSize, nSamples);
++              " of decoded data", decodedDataSize, nSamples);
+ #endif
+ 
+     // Adjust volume
+@@ -144,7 +149,7 @@ EmbedSoundInst::decodeNextBlock()
+ 
+ 
+     // decodedData ownership transferred here
+-    appendDecodedData(SimpleBuffer(decodedDataSize, decodedData));
++    appendDecodedData(decodedData, decodedDataSize);
+ }
+ 
+ void
+diff --git a/libsound/LiveSound.cpp b/libsound/LiveSound.cpp
+index 83df3ef..843d719 100644
+--- a/libsound/LiveSound.cpp
++++ b/libsound/LiveSound.cpp
+@@ -33,8 +33,9 @@ namespace sound {
+ LiveSound::LiveSound(media::MediaHandler& mh, const media::SoundInfo& info,
+         size_t inPoint)
+     :
+-    _samplesFetched(0),
+-    _decodedBuffers(inPoint * 4)
++    _inPoint(inPoint * 4),
++    _playbackPosition(_inPoint),
++    _samplesFetched(0)
+ {
+     createDecoder(mh, info);
+ }
+@@ -58,16 +59,26 @@ LiveSound::fetchSamples(std::int16_t* to, unsigned int nSamples)
+         unsigned int availableSamples = decodedSamplesAhead();
+ 
+         if (availableSamples) {
+-            size_t bytesCopied = _decodedBuffers.copy(
+-                reinterpret_cast<std::uint8_t*>(to), nSamples * 2);
+-
+-            fetchedSamples += bytesCopied / 2;
++            const std::int16_t* data = getDecodedData(_playbackPosition);
+ 
+             if (availableSamples >= nSamples) {
++                std::copy(data, data + nSamples, to);
++                fetchedSamples += nSamples;
++
++                // Update playback position (samples are 16bit)
++                _playbackPosition += nSamples * 2;
++
+                 break; // fetched all
+-            } else {
++            }
++            else {
+                 // not enough decoded samples available:
+                 // copy what we have and go on
++                std::copy(data, data + availableSamples, to);
++                fetchedSamples += availableSamples;
++
++                // Update playback position (samples are 16bit)
++                _playbackPosition += availableSamples * 2;
++
+                 to += availableSamples;
+                 nSamples -= availableSamples;
+                 assert(nSamples);
+diff --git a/libsound/LiveSound.h b/libsound/LiveSound.h
+index 1463bab..82df6a5 100644
+--- a/libsound/LiveSound.h
++++ b/libsound/LiveSound.h
+@@ -23,7 +23,6 @@
+ #include <memory>
+ #include <cassert>
+ #include <cstdint> // For C99 int types
+-#include <iostream>
+ 
+ #include "InputStream.h" 
+ #include "AudioDecoder.h" 
+@@ -40,121 +39,6 @@ namespace gnash {
+ namespace gnash {
+ namespace sound {
+ 
+-
+-/// Maintains a collection of SimpleBuffers, providing stateful sequential
+-/// read access to the data contained therein.
+-//
+-// TODO: this shares some functionality with CursoredBuffer, and the two
+-// classes might be merged.
+-class Buffers {
+-public:
+-    Buffers(size_t in_point)
+-    : _buffers(),
+-      _index(0),
+-      _pos(0),
+-      _consumed(0),
+-      _in_point(in_point)
+-    {}
+-
+-    Buffers(const Buffers&) = delete;
+-    Buffers& operator=(const Buffers&) = delete;
+-
+-    /// Append a buffer of data to be read by the consumer later.
+-    void append(SimpleBuffer buf) {
+-        _buffers.push_back(std::move(buf));
+-        consumeInPoint();
+-    }
+-
+-    void restart()
+-    {
+-        _index = 0;
+-        _consumed = 0;
+-        consumeInPoint();
+-    }
+-
+-    /// Copy up to the given number of bytes to the given buffer.
+-    //
+-    /// @to points to a buffer to be written to.
+-    /// @bytes number of bytes to be written.
+-    /// @return number of bytes actually written.
+-    size_t copy(std::uint8_t* to, size_t bytes) {
+-        assert(_consumed >= _in_point);
+-
+-        size_t bytes_remaining = bytes;
+-
+-        for (; _index < _buffers.size(); ++_index) {
+-            const SimpleBuffer& buffer = _buffers[_index];
+-
+-            size_t to_copy = std::min(bytes_remaining, buffer.size() - _pos);
+-
+-            std::copy(buffer.data() + _pos, buffer.data() + _pos + to_copy, to);
+-            to += to_copy;
+-            bytes_remaining -= to_copy;
+-            _pos += to_copy;
+-
+-            if (_pos == buffer.size()) {
+-                ++_index;
+-                _pos = 0;
+-                break;
+-            }
+-
+-            if (bytes_remaining == 0) {
+-                break;
+-            }
+-        }
+-
+-        size_t written = bytes - bytes_remaining;
+-        _consumed += written;
+-        return written;
+-    }
+-
+-    /// @return total number of bytes contained.
+-    std::uint64_t countBytes() const
+-    {
+-        std::uint64_t bytes = 0;
+-        for (const SimpleBuffer& buffer : _buffers) {
+-            bytes += buffer.size();
+-        }
+-        return bytes;
+-    }
+-
+-    /// @return number of bytes previously copied by calls to copy().
+-    std::uint64_t consumed() const
+-    {
+-        return std::max<uint64_t>(_consumed, _in_point);
+-    }
+-
+-private:
+-    void consumeInPoint() {
+-        if (_consumed >= _in_point) {
+-            return;
+-        }
+-        size_t inPoint = _in_point;
+-
+-        for (const SimpleBuffer& buffer : _buffers) {
+-            size_t advance = std::min(inPoint, buffer.size());
+-            if (advance == buffer.size()) {
+-                ++_index;
+-                inPoint -= advance;
+-            } else {
+-                _pos = advance;
+-                break;
+-            }
+-        }
+-        _consumed = _in_point;
+-    }
+-
+-    std::vector<SimpleBuffer> _buffers;
+-    /// Zero-based index of the buffer currently being indicated.
+-    size_t _index;
+-    /// Current position inside the current buffer.
+-    size_t _pos;
+-    /// Total bytes consumed by calls to copy().
+-    std::uint64_t _consumed;
+-    /// Number of bytes to skip from the input.
+-    size_t _in_point;
+-};
+-
+ /// Instance of a defined %sound (LiveSoundData)
+ //
+ /// This class contains a pointer to the LiveSoundData used for playing
+@@ -173,6 +57,13 @@ protected:
+     LiveSound(media::MediaHandler& mh, const media::SoundInfo& info,
+             size_t inPoint);
+ 
++    // Pointer handling and checking functions
++    const std::int16_t* getDecodedData(unsigned long int pos) const {
++        assert(pos < _decodedData.size());
++        return reinterpret_cast<const std::int16_t*>(
++                _decodedData.data() + pos);
++    }
++
+     /// Called when more decoded sound data is required.
+     //
+     /// This will be called whenever no more decoded data is available
+@@ -186,8 +77,8 @@ protected:
+ 
+     /// Start from the beginning again.
+     void restart() {
++        _playbackPosition = _inPoint;
+         _samplesFetched = 0;
+-        _decodedBuffers.restart();
+     }
+ 
+     /// How many samples have been fetched since the beginning
+@@ -197,27 +88,28 @@ protected:
+         return _samplesFetched;
+     }
+ 
+-    std::uint64_t playbackPosition() const {
+-        return _decodedBuffers.consumed();
++    size_t playbackPosition() const {
++        return _playbackPosition;
+     }
+ 
+     media::AudioDecoder& decoder() const {
+         return *_decoder;
+     }
+ 
+-    void appendDecodedData(SimpleBuffer data) {
+-        _decodedBuffers.append(std::move(data));
++    void appendDecodedData(std::uint8_t* data, unsigned int size) {
++        _decodedData.append(data, size);
++        delete [] data;
+     }
+ 
+     /// Return number of already-decoded samples available
+     /// from playback position on
+     unsigned int decodedSamplesAhead() const {
+ 
+-        const unsigned int dds = _decodedBuffers.countBytes();
+-        if (dds <= playbackPosition()) return 0;
++        const unsigned int dds = _decodedData.size();
++        if (dds <= _playbackPosition) return 0; 
+ 
+-        size_t bytesAhead = dds - playbackPosition();
+-        bytesAhead = checkEarlierEnd(bytesAhead, playbackPosition());
++        size_t bytesAhead = dds - _playbackPosition;
++        bytesAhead = checkEarlierEnd(bytesAhead, _playbackPosition);
+ 
+         assert(!(bytesAhead % 2));
+ 
+@@ -243,13 +135,18 @@ private:
+ 
+     virtual bool decodingCompleted() const = 0;
+ 
++    const size_t _inPoint;
++
++    /// Current playback position in the decoded stream
++    size_t _playbackPosition;
++
+     /// Number of samples fetched so far.
+     unsigned long _samplesFetched;
+ 
+     std::unique_ptr<media::AudioDecoder> _decoder;
+ 
+-    /// The decoded buffers
+-    Buffers _decodedBuffers;
++    /// The decoded buffer
++    SimpleBuffer _decodedData;
+ 
+ };
+ 
+diff --git a/libsound/NullSoundHandler.h b/libsound/NullSoundHandler.h
+index ac4d4b2..ed35518 100644
+--- a/libsound/NullSoundHandler.h
++++ b/libsound/NullSoundHandler.h
+@@ -51,9 +51,7 @@ public:
+     {
+         if ( _mixer ) _mixer->mix(outSamples, inSamples, nSamples, volume);
+         else {
+-            // cheating, just copy input to output, which in NO WAY
+-            // can be considered "mixing"
+-            std::copy(outSamples, outSamples+nSamples, inSamples);
++            sound_handler::mix(outSamples, inSamples, nSamples, volume);
+         }
+     }
+ 
+diff --git a/libsound/StreamingSound.cpp b/libsound/StreamingSound.cpp
+index 4b56f5f..1284ac5 100644
+--- a/libsound/StreamingSound.cpp
++++ b/libsound/StreamingSound.cpp
+@@ -99,7 +99,7 @@ StreamingSound::decodeNextBlock()
+         }
+ 
+         // decodedData ownership transferred here
+-        appendDecodedData(SimpleBuffer(decodedDataSize, decodedData));
++        appendDecodedData(decodedData, decodedDataSize);
+     }
+ 
+     // Check if the entire block was consumed.
+diff --git a/libsound/WAVWriter.cpp b/libsound/WAVWriter.cpp
+index 52ac98c..995523b 100644
+--- a/libsound/WAVWriter.cpp
++++ b/libsound/WAVWriter.cpp
+@@ -66,16 +66,30 @@ WAVWriter::WAVWriter(const std::string& wavefile)
+             throw SoundException(fmt.str());
+         } 
+         else {
++            data_size = 0;
+             write_wave_header(file_stream);
+-            std::cout << "# Created 44100 16Mhz stereo wave file:\n" <<
+-                    "AUDIOFILE=" << wavefile << std::endl;
++            log_debug("Created 44100 Hz 16-bit stereo wave file: %s",
++                      wavefile);
+         }
+ }
+ 
+ /* public */
+ WAVWriter::~WAVWriter()
+ {
+-    if (file_stream) file_stream.close();
++    if (file_stream) {
++        // Seeking back to the beginning, in order to rewrite the header with
++        // information accumulated during writing.
++        file_stream.seekp(0);
++        if (file_stream.fail()) {
++            log_error("WAVWriter: Failed to flush audio dump metadata, resulting file would be incomplete");
++        }
++        else {
++            write_wave_header(file_stream);
++        }
++
++        // close the stream
++        file_stream.close();
++    }
+ }
+ 
+ /* public */
+@@ -86,7 +100,7 @@ WAVWriter::pushSamples(std::int16_t* from, unsigned int nSamples)
+         std::uint8_t* stream = reinterpret_cast<std::uint8_t*>(from);
+         unsigned int len = nSamples*2;
+         file_stream.write((char*) stream, len);
+-
++        data_size += len;
+ }
+ 
+ /* private */
+@@ -104,22 +118,23 @@ WAVWriter::write_wave_header(std::ofstream& outfile)
+   std::memcpy(wav.wID, "WAVE", 4);
+   std::memcpy(wav.fId, "fmt ", 4);
+  
++  wav.wFormatTag = 1;
+   wav.nBitsPerSample = 16;
+   wav.nSamplesPerSec = 44100;
+   wav.nAvgBytesPerSec = 44100;
+   wav.nAvgBytesPerSec *= wav.nBitsPerSample / 8;
+   wav.nAvgBytesPerSec *= 2;
+   wav.nChannels = 2;
+-    
+-  wav.pcm_header_len = 16;
+-  wav.wFormatTag = 1;
+-  wav.rLen = sizeof(WAV_HDR) + sizeof(CHUNK_HDR);
+   wav.nBlockAlign = 2 * wav.nBitsPerSample / 8;
+ 
+-  // setup chunk header
++  // setup data chunk header
+   std::memcpy(chk.dId, "data", 4);
+-  chk.dLen = 0;
++  chk.dLen = data_size;
+  
++  // setup wav header's size field
++  wav.pcm_header_len = 16;
++  wav.rLen = sizeof(WAV_HDR) - 8 + sizeof(CHUNK_HDR) + chk.dLen;
++
+   /* write riff/wav header */
+   outfile.write((char *)&wav, sizeof(WAV_HDR));
+  
+diff --git a/libsound/WAVWriter.h b/libsound/WAVWriter.h
+index 80a52a1..bd106e8 100644
+--- a/libsound/WAVWriter.h
++++ b/libsound/WAVWriter.h
+@@ -64,6 +64,9 @@ private:
+     ///
+     std::ofstream file_stream;
+ 
++    /// Current audio data size
++    uint32_t data_size;
++
+     // write a .WAV file header
+     void write_wave_header(std::ofstream& outfile);
+ 
+diff --git a/libsound/aos4/sound_handler_ahi.cpp b/libsound/aos4/sound_handler_ahi.cpp
+index 70e866c..b355202 100644
+--- a/libsound/aos4/sound_handler_ahi.cpp
++++ b/libsound/aos4/sound_handler_ahi.cpp
+@@ -53,11 +53,6 @@
+ // Mixing and decoding debugging
+ //#define GNASH_DEBUG_MIXING
+ 
+-/* The volume ranges from 0 - 128 */
+-#define MIX_MAXVOLUME 128
+-#define ADJUST_VOLUME(s, v)	(s = (s*v)/MIX_MAXVOLUME)
+-#define ADJUST_VOLUME_U8(s, v)	(s = (((s-128)*v)/MIX_MAXVOLUME)+128)
+-
+ int audioTaskID;
+ 
+ static int
+@@ -328,67 +323,12 @@ AOS4_sound_handler::fetchSamples(std::int16_t* to, unsigned int nSamples)
+    	}
+ }
+ 
+-void 
+-AOS4_sound_handler::MixAudio (std::uint8_t *dst, const std::uint8_t *src, std::uint32_t len, int volume)
+-{
+-	std::uint16_t format;
+-
+-	if ( volume == 0 ) 
+-	{
+-		return;
+-	}
+-
+-	format = AHIST_S16S;
+-
+-	/* Actually we have a fixed audio format */
+-	switch (format) 
+-	{
+-		case AHIST_S16S:
+-		{
+-			std::int16_t src1, src2;
+-			int dst_sample;
+-			const int max_audioval = ((1<<(16-1))-1);
+-			const int min_audioval = -(1<<(16-1));
+-
+-			len /= 2;
+-			while ( len-- ) 
+-			{
+-				src1 = ((src[0])<<8|src[1]);
+-				ADJUST_VOLUME(src1, volume);
+-				src2 = ((dst[0])<<8|dst[1]);
+-				src += 2;
+-				dst_sample = src1+src2;
+-				if ( dst_sample > max_audioval ) 
+-				{
+-					dst_sample = max_audioval;
+-				} 
+-				else
+-				if ( dst_sample < min_audioval ) 
+-				{
+-					dst_sample = min_audioval;
+-				}
+-				dst[1] = dst_sample & 0xFF;
+-				dst_sample >>= 8;
+-				dst[0] = dst_sample & 0xFF;
+-				dst += 2;
+-			}
+-		}
+-		break;
+-	}
+-	
+-}
+-
+ void
+ AOS4_sound_handler::mix(std::int16_t* outSamples, std::int16_t* inSamples, unsigned int nSamples, float volume)
+ {
+ 	if (!_closing)
+ 	{
+-	    unsigned int nBytes = nSamples*2;
+-
+-	    std::uint8_t *out = reinterpret_cast<std::uint8_t*>(outSamples);
+-    	std::uint8_t* in = reinterpret_cast<std::uint8_t*>(inSamples);
+-
+-	    MixAudio(out, in, nBytes, static_cast<int>(MIX_MAXVOLUME*volume));
++        sound_handler::mix(outSamples, inSamples, nSamples, volume);
+ 	}
+ }
+ 
+diff --git a/libsound/aos4/sound_handler_ahi.h b/libsound/aos4/sound_handler_ahi.h
+index d6fc079..8d6ec20 100644
+--- a/libsound/aos4/sound_handler_ahi.h
++++ b/libsound/aos4/sound_handler_ahi.h
+@@ -92,8 +92,6 @@ private:
+     void mix(std::int16_t* outSamples, std::int16_t* inSamples,
+                 unsigned int nSamples, float volume);
+ 
+-	void MixAudio (std::uint8_t *dst, const std::uint8_t *src, std::uint32_t len, int volume);
+-
+ public:
+ 
+     AOS4_sound_handler(media::MediaHandler* m);
+diff --git a/libsound/mkit/sound_handler_mkit.cpp b/libsound/mkit/sound_handler_mkit.cpp
+index ff17884..86235ee 100644
+--- a/libsound/mkit/sound_handler_mkit.cpp
++++ b/libsound/mkit/sound_handler_mkit.cpp
+@@ -37,12 +37,6 @@
+ // Mixing and decoding debugging
+ //#define GNASH_DEBUG_MIXING
+ 
+-/* The volume ranges from 0 - 128 */
+-#define MIX_MAXVOLUME 128
+-#define ADJUST_VOLUME(s, v)    (s = (s*v)/MIX_MAXVOLUME)
+-#define ADJUST_VOLUME_U8(s, v)    (s = (((s-128)*v)/MIX_MAXVOLUME)+128)
+-
+-
+ namespace gnash {
+ namespace sound {
+ 
+@@ -228,70 +222,6 @@ Mkit_sound_handler::tell(int soundHandle)
+     return sound_handler::tell(soundHandle);
+ }
+ 
+-void 
+-Mkit_sound_handler::MixAudio (std::uint8_t *dst, const std::uint8_t *src, std::uint32_t len, int volume)
+-{
+-    //std::uint16_t format;
+-
+-    if ( volume == 0 ) 
+-    {
+-        return;
+-    }
+-
+-    //format = AHIST_S16S;
+-
+-    /* Actually we have a fixed audio format */
+-    //switch (format) 
+-    {
+-        //case AHIST_S16S:
+-        {
+-            std::int16_t src1, src2;
+-            int dst_sample;
+-            const int max_audioval = ((1<<(16-1))-1);
+-            const int min_audioval = -(1<<(16-1));
+-
+-            len /= 2;
+-            while ( len-- ) 
+-            {
+-                src1 = ((src[0])<<8|src[1]);
+-                ADJUST_VOLUME(src1, volume);
+-                src2 = ((dst[0])<<8|dst[1]);
+-                src += 2;
+-                dst_sample = src1+src2;
+-                if ( dst_sample > max_audioval ) 
+-                {
+-                    dst_sample = max_audioval;
+-                } 
+-                else
+-                if ( dst_sample < min_audioval ) 
+-                {
+-                    dst_sample = min_audioval;
+-                }
+-                dst[1] = dst_sample & 0xFF;
+-                dst_sample >>= 8;
+-                dst[0] = dst_sample & 0xFF;
+-                dst += 2;
+-            }
+-        }
+-        //break;
+-    }
+-    
+-}
+-
+-void
+-Mkit_sound_handler::mix(std::int16_t* outSamples, std::int16_t* inSamples, unsigned int nSamples, float volume)
+-{
+-    //if (!_closing)
+-    {
+-        unsigned int nBytes = nSamples*2;
+-
+-        std::uint8_t *out = reinterpret_cast<std::uint8_t*>(outSamples);
+-        std::uint8_t* in = reinterpret_cast<std::uint8_t*>(inSamples);
+-
+-        MixAudio(out, in, nBytes, MIX_MAXVOLUME*volume);
+-    }
+-}
+-
+ void
+ Mkit_sound_handler::plugInputStream(std::unique_ptr<InputStream> newStreamer)
+ {
+diff --git a/libsound/mkit/sound_handler_mkit.h b/libsound/mkit/sound_handler_mkit.h
+index f77d844..9cad2ac 100644
+--- a/libsound/mkit/sound_handler_mkit.h
++++ b/libsound/mkit/sound_handler_mkit.h
+@@ -57,12 +57,6 @@ class Mkit_sound_handler : public sound_handler
+     /// Mutex for making sure threads doesn't mess things up
+     std::mutex _mutex;
+ 
+-    // See dox in sound_handler.h
+-    void mix(std::int16_t* outSamples, std::int16_t* inSamples,
+-                unsigned int nSamples, float volume);
+-
+-    void MixAudio (std::uint8_t *dst, const std::uint8_t *src, std::uint32_t len, int volume);
+-
+ public:
+     Mkit_sound_handler(media::MediaHandler* m);
+ 
+diff --git a/libsound/sound_handler.cpp b/libsound/sound_handler.cpp
+index 78ea118..454a03e 100644
+--- a/libsound/sound_handler.cpp
++++ b/libsound/sound_handler.cpp
+@@ -73,6 +73,74 @@ ensurePadding(SimpleBuffer& data, media::MediaHandler* m)
+     }
+ }
+ 
++/* The volume ranges from 0 - 128 */
++#define MIX_MAXVOLUME 128
++#define ADJUST_VOLUME(s, v)	(s = (s*v)/MIX_MAXVOLUME)
++
++void 
++mixAudio(std::uint8_t *dst, const std::uint8_t *src, std::uint32_t len, int volume)
++{
++  if ( volume == 0 ) return;
++
++  union {
++    int16_t i;
++    char c[2];
++  } isbig;
++  isbig.i = 1;
++
++  int lsb = ( isbig.c[0] == 1 );
++
++  std::int16_t src1, src2;
++  int dst_sample;
++  const int max_audioval = ((1<<(16-1))-1);
++  const int min_audioval = -(1<<(16-1));
++
++  if ( lsb )
++  {
++    // AUDIO_S16LSB
++    len /= 2;
++    while ( len-- ) {
++      src1 = ((src[1])<<8|src[0]);
++      ADJUST_VOLUME(src1, volume);
++      src2 = ((dst[1])<<8|dst[0]);
++      src += 2;
++      dst_sample = src1+src2;
++      if ( dst_sample > max_audioval ) {
++        dst_sample = max_audioval;
++      } else
++      if ( dst_sample < min_audioval ) {
++        dst_sample = min_audioval;
++      }
++      dst[0] = dst_sample&0xFF;
++      dst_sample >>= 8;
++      dst[1] = dst_sample&0xFF;
++      dst += 2;
++    }
++  }
++  else
++  {
++    // AUDIO_S16MSB
++    len /= 2;
++    while ( len-- ) {
++      src1 = ((src[0])<<8|src[1]);
++      ADJUST_VOLUME(src1, volume);
++      src2 = ((dst[0])<<8|dst[1]);
++      src += 2;
++      dst_sample = src1+src2;
++      if ( dst_sample > max_audioval ) {
++        dst_sample = max_audioval;
++      } else
++      if ( dst_sample < min_audioval ) {
++        dst_sample = min_audioval;
++      }
++      dst[1] = dst_sample&0xFF;
++      dst_sample >>= 8;
++      dst[0] = dst_sample&0xFF;
++      dst += 2;
++    }
++  }
++}
++
+ } // anonymous namespace
+ 
+ sound_handler::StreamBlockId
+@@ -263,7 +331,7 @@ sound_handler::stopEmbedSoundInstances(StreamingSoundData& def)
+     for (InputStream* stream : playing)
+     {
+ #ifdef GNASH_DEBUG_SOUNDS_MANAGEMENT
+-        log_debug(" unplugging input stream %p from stopEmbedSoundInstances", *i);
++        log_debug(" unplugging input stream %p from stopEmbedSoundInstances", stream);
+ #endif
+ 
+         // Explicitly calling the base class implementation
+@@ -289,7 +357,7 @@ sound_handler::stopEmbedSoundInstances(EmbedSound& def)
+     for (InputStream* stream : playing)
+     {
+ #ifdef GNASH_DEBUG_SOUNDS_MANAGEMENT
+-        log_debug(" unplugging input stream %p from stopEmbedSoundInstances", *i);
++        log_debug(" unplugging input stream %p from stopEmbedSoundInstances", stream);
+ #endif
+ 
+         // Explicitly calling the base class implementation
+@@ -307,7 +375,7 @@ sound_handler::unplugInputStream(InputStream* id)
+     // WARNING: erasing would break any iteration in the set
+     InputStreams::iterator it2=_inputStreams.find(id);
+     if (it2 == _inputStreams.end()) {
+-        log_error(_("SDL_sound_handler::unplugInputStream: "
++        log_error(_("sound_handler::unplugInputStream: "
+                     "Aux streamer %p not found. "),
+                 id);
+         return; // we won't delete it, as it's likely deleted already
+@@ -761,5 +829,16 @@ sound_handler::~sound_handler()
+     unplugAllInputStreams();
+ }
+ 
++void
++sound_handler::mix(std::int16_t* outSamples, std::int16_t* inSamples, unsigned int nSamples, float volume)
++{
++  unsigned int nBytes = nSamples*2;
++
++  std::uint8_t *out = reinterpret_cast<std::uint8_t*>(outSamples);
++  std::uint8_t* in = reinterpret_cast<std::uint8_t*>(inSamples);
++
++  mixAudio(out, in, nBytes, static_cast<int>(MIX_MAXVOLUME*volume));
++}
++
+ } // gnash.sound namespace 
+ } // namespace gnash
+diff --git a/libsound/sound_handler.h b/libsound/sound_handler.h
+index a5dd629..ea993f3 100644
+--- a/libsound/sound_handler.h
++++ b/libsound/sound_handler.h
+@@ -441,7 +441,7 @@ public:
+     ///       with number of channels, at each fetching.
+     ///
+     virtual void mix(std::int16_t* outSamples, std::int16_t* inSamples,
+-                unsigned int nSamples, float volume) = 0;
++                unsigned int nSamples, float volume);
+ 
+     /// Request to dump audio to the given filename
+     //
+diff --git a/plugin/npapi/callbacks.cpp b/plugin/npapi/callbacks.cpp
+index 081c72d..9865018 100644
+--- a/plugin/npapi/callbacks.cpp
++++ b/plugin/npapi/callbacks.cpp
+@@ -1,5 +1,5 @@
+ // 
+-//   Copyright (C) 2010, 2011, 2012 Free Software Foundation, Inc
++//   Copyright (C) 2010, 2011, 2012, 2016 Free Software Foundation, Inc
+ // 
+ // This program is free software; you can redistribute it and/or modify
+ // it under the terms of the GNU General Public License as published by
+@@ -699,19 +699,9 @@ remoteCallback (NPObject *npobj, NPIdentifier name, const NPVariant *args,
+         return false;
+     }
+ 
+-    std::string answer;
+     GnashNPVariant parsed = plugin::ExternalInterface::parseXML(data);
+-    if (!NPVARIANT_IS_NULL(parsed.get())) {
+-        answer = NPStringToString(NPVARIANT_TO_STRING(parsed.get()));
+-    }
+-    if (answer == "Error") {
+-        NULL_TO_NPVARIANT(*result);
+-    } else if (answer == "SecurityError") {
+-        NULL_TO_NPVARIANT(*result);
+-    } else {
+-        parsed.copy(*result);
+-    }
+-    
++    parsed.copy(*result);
++
+     // printNPVariant(&parsed.get());
+ 
+     // Returning false makes Javascript stop executing the script.
+diff --git a/plugin/npapi/plugin.cpp b/plugin/npapi/plugin.cpp
+index 3c6f423..c0d5b2b 100644
+--- a/plugin/npapi/plugin.cpp
++++ b/plugin/npapi/plugin.cpp
+@@ -1,6 +1,6 @@
+ // 
+-//   Copyright (C) 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012
+-//   Free Software Foundation, Inc
++//   Copyright (C) 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014,
++//   2016 Free Software Foundation, Inc
+ // 
+ // This program is free software; you can redistribute it and/or modify
+ // it under the terms of the GNU General Public License as published by
+@@ -949,14 +949,9 @@ nsPluginInstance::processPlayerRequest()
+         }
+         // We got a result from invoking the Javascript method
+         std::stringstream ss;
+-        if (invokeResult) {
+-            ss << plugin::ExternalInterface::convertNPVariant(&result);
+-            NPN_ReleaseVariantValue(&result);
+-        } else {
+-            // Send response
+-            // FIXME: "securityError" also possible, check domain
+-            ss << plugin::ExternalInterface::makeString("Error");
+-        }
++
++        ss << plugin::ExternalInterface::convertNPVariant(&result);
++        NPN_ReleaseVariantValue(&result);
+         size_t ret = _scriptObject->writePlayer(ss.str());
+         if (ret != ss.str().size()) {
+             log_error("Couldn't write the response to Gnash, network problems.");
+diff --git a/plugin/npapi/scriptable-test.html b/plugin/npapi/scriptable-test.html
+index 15a67b7..f6efa65 100644
+--- a/plugin/npapi/scriptable-test.html
++++ b/plugin/npapi/scriptable-test.html
+@@ -4,6 +4,7 @@
+     <style type="text/css" media="screen">
+         body, * {font-family:sans-serif;}
+         h1 {text-align:center;}
++        #extiface_test{background-color:red;}
+         #content {}
+         #test-actions {
+             list-style-type: none;
+@@ -41,25 +42,29 @@
+    web page. But for now, this gives us a resident player that we
+    can bounce XML messages off of.
+ 
+-   To make this work for you, copy testsuite/Dejagnu.swf and
+-   testsuite/actionsctiona.all/EsternalInterfce-v8.swf from your build
+-   tree to your source tree in plugin/npapi/. You can then attach GDB
++   To make this work for you, copy or symlink testsuite/Dejagnu.swf and
++   testsuite/actionscript.all/ExternalInterface-v8.swf from your build
++   tree to your source tree in plugin/npapi/ and add the absolute
++   path of this dir to your 'localSandboxPath' variable in
++   ~/.gnashpluginrc (for example:
++   "append localSandboxPath /usr/src/gnash/b/plugin/npapi).
++
++   You can then attach GDB
+    to the PID of gnash running, letting you debug the processing of
+    XML messages to and from the browser. For this to work the swf
+    files must be in the same directory as the html file.
+    
+-<param name="allowScriptAccess" value="sameDomain" />
+ -->
+ <div>
+-<object>
+-<param name="movie" value="ExternalInterface-v8.swf"
+-<param name="allowScriptAccess" value="always" />
+-<embed
+-src="ExternalInterface-v8.swf"
+-quality="high" wmode="transparent" width="640" height="100"
+-   type="application/x-shockwave-flash"
+-   pluginspage="http://www.getgnash.org">
+-</embed>
++<object id="extiface_test" data="ExternalInterface-v8.swf"
++width="100" height="20" BORDER="1"
++type="application/x-shockwave-flash"
++pluginspage="http://www.getgnash.org"
++>
++<param name="movie" value="ExternalInterface-v8.swf">
++<param name="AllowScriptAccess" value="always">
++</object>
++
+ </div>
+ 
+ <!--
+@@ -90,7 +95,7 @@ quality="high" wmode="transparent" width="640" height="100"
+ 
+       <script type="text/javascript">
+           var val = 0; // used for setVariable
+-          var embed = document.embeds[0];
++          var embed = document.getElementById("extiface_test");
+           function clearLog() {
+               var log = document.getElementById("log");
+               log.innerHTML = '<h2>Log <a href="#" onclick="clearLog(); return false;">Clear</a></h2>';
+diff --git a/testsuite/actionscript.all/Makefile.am b/testsuite/actionscript.all/Makefile.am
+index 5bc4e46..8efaa84 100644
+--- a/testsuite/actionscript.all/Makefile.am
++++ b/testsuite/actionscript.all/Makefile.am
+@@ -28,7 +28,8 @@ AUTOMAKE_OPTIONS = dejagnu -Wno-portability
+ abs_mediadir = $(shell cd $(srcdir)/../media; pwd)
+ swfdir = $(shell cd $(top_builddir)/testsuite/actionscript.all; pwd)
+ 
+-COM_MAKESWF_FLAGS=-DMING_VERSION_CODE=$(MING_VERSION_CODE) -I"$(top_builddir)"
++COM_MAKESWF_FLAGS=-DMING_VERSION_CODE=$(MING_VERSION_CODE) \
++  -I"$(top_builddir)" -c -1
+ DEF_MAKESWF_FLAGS=$(COM_MAKESWF_FLAGS) \
+ 	-DMEDIADIR='\"$(abs_mediadir)\"' \
+ 	-DSWFDIR='\"$(swfdir)\"' 
+diff --git a/testsuite/actionscript.all/TextField.as b/testsuite/actionscript.all/TextField.as
+index f56984f..48dc6f5 100644
+--- a/testsuite/actionscript.all/TextField.as
++++ b/testsuite/actionscript.all/TextField.as
+@@ -113,9 +113,17 @@ xcheck( !TextField.prototype.hasOwnProperty('wordWrap') );
+ 
+ // this is a static method
+ check_equals(typeof(TextField.getFontList), 'function');
+-
+ check_equals(typeof(TextField.prototype.getFontList), 'undefined');
+ 
++tfGetFontList = TextField.getFontList;
++tfGetFontListObj = new Object();
++tfGetFontListObj.f = tfGetFontList;
++check_equals(TextField.getFontList() instanceof Array, true);
++check_equals(tfGetFontList() instanceof Array, true);
++check_equals(tfGetFontListObj.f() instanceof Array, true);
++check_equals(tfGetFontList.call(null) instanceof Array, true);
++check_equals(tfGetFontList.call(undefined) instanceof Array, true);
++
+ check(TextField.prototype.hasOwnProperty('replaceText'));
+ #if OUTPUT_VERSION > 6
+ check_equals(typeof(TextField.prototype.replaceText), 'function');
+@@ -1299,11 +1307,11 @@ o = new CTF();
+ //------------------------------------------------------------
+ 
+ #if OUTPUT_VERSION == 6
+-     check_totals(526);
++     check_totals(531);
+ #elif OUTPUT_VERSION == 7
+- check_totals(550);
++ check_totals(555);
+ #elif OUTPUT_VERSION == 8
+- check_totals(551);
++ check_totals(556);
+ #endif
+ 
+ #endif
+diff --git a/testsuite/actionscript.all/getvariable.as b/testsuite/actionscript.all/getvariable.as
+index 6bab1bb..8471eb7 100644
+--- a/testsuite/actionscript.all/getvariable.as
++++ b/testsuite/actionscript.all/getvariable.as
+@@ -100,6 +100,8 @@ asm {
+ 	getvariable
+         setvariable
+ };
++// WARNING: this fails in all versions from 5 to 8 with LNX 11,2,202,310
++//          it results undefined instead
+ check_equals(checkpoint, 5.4);
+ 
+ //---------------------------------------------------------------------
+@@ -683,6 +685,13 @@ asm {
+ };
+ check_equals(checkpoint, 4);
+ 
++// Check declaration (hasOwnProperty only exists since SWF6)
++// See https://savannah.gnu.org/bugs/?45840
++#if OUTPUT_VERSION > 5
++var undefined_timeline_declared;
++check(this.hasOwnProperty('undefined_timeline_declared'));
++#endif
++
+ //-----------------------------------------------------------------------
+ // TODO: try use of 'with' stack
+ //-----------------------------------------------------------------------
+@@ -690,7 +699,7 @@ check_equals(checkpoint, 4);
+ #if OUTPUT_VERSION < 6
+  check_totals(52); // gnash runs +2 tests ?!
+ #else
+- check_totals(57); // gnash runs +2 tests ?!
++ check_totals(58); // gnash runs +2 tests ?!
+ #endif
+ 
+ #else // ndef MING_SUPPORT_ASM
+diff --git a/testsuite/misc-ming.all/Makefile.am b/testsuite/misc-ming.all/Makefile.am
+index bc1c6f9..d3e2467 100644
+--- a/testsuite/misc-ming.all/Makefile.am
++++ b/testsuite/misc-ming.all/Makefile.am
+@@ -29,7 +29,9 @@ CLEANFILES =  \
+ 	testrun.sum \
+ 	testrun.log
+ 
+-DISTCLEANFILES = XMLSocketTester
++DISTCLEANFILES = XMLSocketTester extgetvariable_testrunner_v5 \
++                 extgetvariable_testrunner_v6 extgetvariable_testrunner_v7 \
++                 extgetvariable_testrunner_v8
+ 
+ SUBDIRS = . loop loading displaylist_depths action_order register_class \
+           init_action
+@@ -50,6 +52,7 @@ EXTRA_DIST = \
+ 	StageConfigTest.as \
+ 	VarAndCharClashTest.as \
+ 	XMLSocketTest.as \
++	extgetvariable.as \
+ 	attachExtImported.as \
+ 	attachImported.as \
+ 	Version4Loader.as \
+@@ -70,7 +73,8 @@ EXTRA_DIST = \
+ 	SharedObjectTestRunner.sh \
+ 	SharedObjectTest.sol/sol1.sol \
+ 	SharedObjectTest.sol/README \
+-	XMLSocketTester.sh
++	XMLSocketTester.sh \
++	extgetvariable_testrunner.sh
+ 
+ AM_CPPFLAGS = \
+ 	-I$(top_srcdir)/libbase \
+@@ -224,6 +228,10 @@ check_SCRIPTS = \
+ 	EmbeddedFontTestRunner \
+ 	TextSnapshotTest-Runner \
+ 	XMLSocketTester \
++	extgetvariable_testrunner_v5 \
++	extgetvariable_testrunner_v6 \
++	extgetvariable_testrunner_v7 \
++	extgetvariable_testrunner_v8 \
+ 	timeline_var_test-Runner \
+ 	place_object_testrunner \
+ 	place_object_test2runner \
+@@ -341,9 +349,9 @@ DefineTextTest_Runner_DEPENDENCIES = \
+ 	$(NULL)
+ 
+ Version4Loader.swf: $(srcdir)/Version4Loader.as 
+-	$(MAKESWF) $(MAKESWF_FLAGS) -o $@ -v4 $(srcdir)/Version4Loader.as
++	$(MAKESWF) $(MAKESWF_FLAGS) -c -1 -o $@ -v4 $(srcdir)/Version4Loader.as
+ Version5Loaded.swf: $(srcdir)/Version5Loaded.as Dejagnu.swf
+-	$(MAKESWF) $(MAKESWF_FLAGS) -o $@ Dejagnu.swf -v5 $(srcdir)/Version5Loaded.as
++	$(MAKESWF) $(MAKESWF_FLAGS) -c -1 -o $@ Dejagnu.swf -v5 $(srcdir)/Version5Loaded.as
+ MixedVersion4And5Runner: Version4Loader.swf Version5Loaded.swf
+ 	sh $(srcdir)/../generic-testrunner.sh $(top_builddir) Version5Loaded.swf > $@
+ 	chmod 755 $@
+@@ -1293,6 +1301,38 @@ XMLSocketTester: XMLSocketTester.sh XMLSocketTest.swf
+ 		XMLSocketTest.swf > $@
+ 	chmod 755 $@
+ 
++extgetvariable_v5.swf: extgetvariable.as
++	$(MAKESWF) $(MAKESWF_FLAGS) -c -1 -r 1 -v 5 -o $@  $(srcdir)/extgetvariable.as
++
++extgetvariable_v6.swf: extgetvariable.as
++	$(MAKESWF) $(MAKESWF_FLAGS) -r 1 -v 6 -o $@  $(srcdir)/extgetvariable.as
++
++extgetvariable_v7.swf: extgetvariable.as
++	$(MAKESWF) $(MAKESWF_FLAGS) -r 1 -v 7 -o $@  $(srcdir)/extgetvariable.as
++
++extgetvariable_v8.swf: extgetvariable.as
++	$(MAKESWF) $(MAKESWF_FLAGS) -r 1 -v 8 -o $@  $(srcdir)/extgetvariable.as
++
++extgetvariable_testrunner_v5: extgetvariable_testrunner.sh extgetvariable_v5.swf
++	sh $(srcdir)/extgetvariable_testrunner.sh $(top_builddir) $(top_srcdir) \
++		5 extgetvariable_v5.swf > $@
++	chmod 755 $@
++
++extgetvariable_testrunner_v6: extgetvariable_testrunner.sh extgetvariable_v6.swf
++	sh $(srcdir)/extgetvariable_testrunner.sh $(top_builddir) $(top_srcdir) \
++		6 extgetvariable_v6.swf > $@
++	chmod 755 $@
++
++extgetvariable_testrunner_v7: extgetvariable_testrunner.sh extgetvariable_v7.swf
++	sh $(srcdir)/extgetvariable_testrunner.sh $(top_builddir) $(top_srcdir) \
++		7 extgetvariable_v7.swf > $@
++	chmod 755 $@
++
++extgetvariable_testrunner_v8: extgetvariable_testrunner.sh extgetvariable_v8.swf
++	sh $(srcdir)/extgetvariable_testrunner.sh $(top_builddir) $(top_srcdir) \
++		8 extgetvariable_v8.swf > $@
++	chmod 755 $@
++
+ GradientFillTest.swf: GradientFillTest.as 
+ 	$(MAKESWF) $(MAKESWF_FLAGS) -v 8 -r 1 -o $@  $(srcdir)/empty.as $(srcdir)/GradientFillTest.as
+ 
+@@ -1556,6 +1596,10 @@ TEST_CASES = \
+ 	consecutive_goto_frame_testrunner \
+ 	multi_doactions_and_goto_frame_testrunner \
+ 	XMLSocketTester \
++	extgetvariable_testrunner_v5 \
++	extgetvariable_testrunner_v6 \
++	extgetvariable_testrunner_v7 \
++	extgetvariable_testrunner_v8 \
+ 	DrawingApiTestRunner \
+ 	TextSnapshotTest-Runner \
+ 	reverse_execute_PlaceObject2_test1runner \
+diff --git a/testsuite/misc-ming.all/extgetvariable.as b/testsuite/misc-ming.all/extgetvariable.as
+new file mode 100644
+index 0000000..9712b43
+--- /dev/null
++++ b/testsuite/misc-ming.all/extgetvariable.as
+@@ -0,0 +1,47 @@
++// extgetvariable.as - Built-in GetVariable() plugin function tests
++//
++//   Copyright (C) 2015 Free Software Foundation, Inc.
++//
++// This program is free software; you can redistribute it and/or modify
++// it under the terms of the GNU General Public License as published by
++// the Free Software Foundation; either version 3 of the License, or
++// (at your option) any later version.
++//
++// This program is distributed in the hope that it will be useful,
++// but WITHOUT ANY WARRANTY; without even the implied warranty of
++// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++// GNU General Public License for more details.
++//
++// You should have received a copy of the GNU General Public License
++// along with this program; if not, write to the Free Software
++// Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301
++//
++//
++// Original author: Nutchanon Wetchasit <Nutchanon.Wetchasit@gmail.com>
++//
++
++// Once this Flash code is run, it stores multiple types of value to variables
++// inside root movie, which could be accessed by plugin's `GetVariable(path)`
++// function.
++
++var string_variable="This is a string";
++var integer_variable=9876;
++var float_variable=9876.5432;
++var infinite_variable=Infinity;
++var neginfinite_variable=-Infinity;
++var nan_variable=NaN;
++var boolean_variable=true;
++var null_variable=null;
++var unassigned_variable;
++var undefined_variable=undefined;
++// `nonexistent_variable` is omitted
++var array_variable=new Array("The","quick","brown","fox","jumps","over","the","lazy","dog");
++var object_variable=new Object();
++var object_variable_customstring=new Object();
++object_variable_customstring.toString=function() {
++	return "This is a custom Object.toString()";
++};
++var function_variable=function() {
++	trace("This code should not run!");
++};
++trace("ENDOFTEST");
+diff --git a/testsuite/misc-ming.all/extgetvariable_testrunner.sh b/testsuite/misc-ming.all/extgetvariable_testrunner.sh
+new file mode 100644
+index 0000000..2380f2b
+--- /dev/null
++++ b/testsuite/misc-ming.all/extgetvariable_testrunner.sh
+@@ -0,0 +1,320 @@
++#!/bin/sh
++
++# 
++# extgetvariable_testrunner.sh, container-emulated, automated
++#     GetVariable plugin function test generator
++# 
++# Copyright (C) 2015 Free Software Foundation, Inc.
++# 
++# This program is free software; you can redistribute it and/or modify
++# it under the terms of the GNU General Public License as published by
++# the Free Software Foundation; either version 3 of the License, or
++# (at your option) any later version.
++# 
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU General Public License for more details.
++# 
++# You should have received a copy of the GNU General Public License
++# along with this program; if not, write to the Free Software
++# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
++# 
++# 
++# Original author: Nutchanon Wetchasit <Nutchanon.Wetchasit@gmail.com>
++# 
++# This test runner checks Gnash for:
++#  * GetVariable() datatype issues (bug #42395)
++#        <https://savannah.gnu.org/bugs/?42395>
++#  * Timeline variable declaration issue (bug #45840) in SWF5 environment
++#        <https://savannah.gnu.org/bugs/?45840>
++# 
++# Usage:
++#     ./extgetvariable_testrunner.sh <builddir> <srcdir> <swfversion> <swf>
++# 
++# Generated test runner's exit codes:
++#     0         if tester ran completely
++#     non-zero  if tester encountered an error
++# 
++# Note:
++#     The generated test file requires a filesystem that supports named pipes.
++# 
++
++# Check for generation parameters
++while getopts "" name
++do
++	case $name in
++		?)
++			echo "Usage: $0 <builddir> <srcdir> <swfversion> <swf>" >&2
++			exit 1;;
++	esac
++done
++shift $(($OPTIND - 1))
++if [ "$#" -ne 4 ]
++then
++	echo "Usage: $0 <builddir> <srcdir> <swfversion> <swf>" >&2
++	exit 1
++fi
++
++# Load generation parameters
++top_builddir=$1
++shift
++top_srcdir=$1
++shift
++swfversion=$1
++shift
++swf=$1
++
++# Generate the test runner
++echo "#!/bin/sh"
++echo
++
++echo "# Environment variables"
++env | grep '^GNASH' | while read reply
++do
++	echo "export \"${reply}\""
++done
++
++cat << EOF
++
++# Filenames and constants
++LOGFILE=${top_builddir}/testoutlog.\$\$
++PIPE2CONTAINER=${top_builddir}/tocontainer.\$\$
++PIPE2PLAYER=${top_builddir}/toplayer.\$\$
++READTIMEOUT=5
++
++# Test counts
++TESTED=0
++FAILED=0
++PASSED=0
++
++# check_equals(\$op1, \$op2, \$msg)
++# Equality checker and counter
++check_equals() {
++	if [ "\$1" = "\$2" ]
++	then
++		echo "PASSED: \$3"
++		PASSED=\`expr "\$PASSED" + 1\`
++	else
++		echo "FAILED: \$3 (\"\$1\" != \"\$2\")"
++		FAILED=\`expr "\$FAILED" + 1\`
++	fi
++	TESTED=\`expr "\$TESTED" + 1\`
++}
++
++# xcheck_equals(\$op1, \$op2, \$msg)
++# Equality checker and counter (for expected failure)
++xcheck_equals() {
++	if [ "\$1" = "\$2" ]
++	then
++		echo "XPASSED: \$3"
++		PASSED=\`expr "\$PASSED" + 1\`
++	else
++		echo "XFAILED: \$3 (\"\$1\" != \"\$2\")"
++		FAILED=\`expr "\$FAILED" + 1\`
++	fi
++	TESTED=\`expr "\$TESTED" + 1\`
++}
++
++# check_totals(\$op, \$msg)
++# Test count checker
++check_totals() {
++	check_equals "\$TESTED" "\$1" "\$2"
++}
++
++# check_error(\$bool, \$msg)
++# Assert \$bool is 0; if not, flag error in the test, and exit
++check_error() {
++	if [ "\$1" -ne 0 ]
++	then
++		echo "ERROR: \$2" >&2
++		exit 1
++	fi
++}
++
++# read_timeout(\$varname, \$timeout)
++# Read one line from standard input, with a specified timeout (in seconds)
++read_timeout() {
++	trap 'trap - USR1; return 142' USR1
++	(sleep "\$2" && kill -USR1 "\$\$" > /dev/null 2>&1) &
++	TIMEOUTPID=\$!
++	read "\$1"
++	READERROR=\$?
++	kill "\$TIMEOUTPID" > /dev/null 2>&1
++	trap - USR1
++	return \$READERROR
++}
++
++# Create required named pipes
++if [ \! -p "\$PIPE2CONTAINER" ]
++then
++	mkfifo "\$PIPE2CONTAINER"
++	check_error "\$?" "Failed to create a named pipe: \$PIPE2CONTAINER"
++fi
++if [ \! -p "\$PIPE2PLAYER" ]
++then
++	mkfifo "\$PIPE2PLAYER"
++	check_error "\$?" "Failed to create a named pipe: \$PIPE2PLAYER"
++fi
++
++# Open player-to-host pipe
++exec 3<> "\$PIPE2CONTAINER"
++check_error \$? "Failed to open a named pipe: \$PIPE2CONTAINER"
++
++# Open host-to-player pipe
++exec 4<> "\$PIPE2PLAYER"
++check_error \$? "Failed to open a named pipe: \$PIPE2PLAYER"
++
++# Start player
++"${top_builddir}/gui/gnash" -r 0 -vv -F 3:4 "${swf}" > "\$LOGFILE" 2>&1 &
++GNASHPID=\$!
++
++# Wait until the SWF code finish running, by loop-checking logfile
++STARTCOUNTDOWN=\$READTIMEOUT
++while [ \$STARTCOUNTDOWN -gt 0 ]
++do
++	if grep "TRACE: ENDOFTEST" "\$LOGFILE" 2>&1 > /dev/null
++	then
++		break
++	fi
++	sleep 1
++	STARTCOUNTDOWN=\`expr \$STARTCOUNTDOWN - 1\`
++done
++
++[ \$STARTCOUNTDOWN -ne 0 ]
++check_equals \$? 0 "Gnash-side ActionScript code should be successfully run"
++
++# Call string-returning GetVariable() on string variable
++echo '<invoke name="GetVariable" returntype="xml"><arguments><string>string_variable</string></arguments></invoke>' >&4
++
++# Read for value statement
++read_timeout LINE \$READTIMEOUT <&3
++check_equals "\$LINE" '<string>This is a string</string>' "Gnash should return a correct value from GetVariable call on string"
++
++# Call string-returning GetVariable() on integer variable
++echo '<invoke name="GetVariable" returntype="xml"><arguments><string>integer_variable</string></arguments></invoke>' >&4
++
++# Read for return value statement
++read_timeout LINE \$READTIMEOUT <&3
++check_equals "\$LINE" '<string>9876</string>' "Gnash should return a correct value from GetVariable call on integer"
++
++# Call string-returning GetVariable() on floating-point variable
++echo '<invoke name="GetVariable" returntype="xml"><arguments><string>float_variable</string></arguments></invoke>' >&4
++
++# Read for return value statement
++read_timeout LINE \$READTIMEOUT <&3
++check_equals "\$LINE" '<string>9876.5432</string>' "Gnash should return a correct value from GetVariable call on floating point"
++
++# Call string-returning GetVariable() on positive infinite
++# floating-point variable
++echo '<invoke name="GetVariable" returntype="xml"><arguments><string>infinite_variable</string></arguments></invoke>' >&4
++
++# Read for return value statement
++read_timeout LINE \$READTIMEOUT <&3
++check_equals "\$LINE" '<string>Infinity</string>' "Gnash should return a correct value from GetVariable call on infinity floating point"
++
++# Call string-returning GetVariable() on negative infinite
++# floating-point variable
++echo '<invoke name="GetVariable" returntype="xml"><arguments><string>neginfinite_variable</string></arguments></invoke>' >&4
++
++# Read for return value statement
++read_timeout LINE \$READTIMEOUT <&3
++check_equals "\$LINE" '<string>-Infinity</string>' "Gnash should return a correct value from GetVariable call on negative infinity floating point"
++
++# Call string-returning GetVariable() on non-number floating-point variable
++echo '<invoke name="GetVariable" returntype="xml"><arguments><string>nan_variable</string></arguments></invoke>' >&4
++
++# Read for return value statement
++read_timeout LINE \$READTIMEOUT <&3
++check_equals "\$LINE" '<string>NaN</string>' "Gnash should return a correct value from GetVariable call on non-number floating point"
++
++# Call string-returning GetVariable() on boolean variable
++echo '<invoke name="GetVariable" returntype="xml"><arguments><string>boolean_variable</string></arguments></invoke>' >&4
++
++# Read for return value statement
++read_timeout LINE \$READTIMEOUT <&3
++check_equals "\$LINE" '<string>true</string>' "Gnash should return a correct value from GetVariable call on boolean"
++
++# Call string-returning GetVariable() on null variable
++echo '<invoke name="GetVariable" returntype="xml"><arguments><string>null_variable</string></arguments></invoke>' >&4
++
++# Read for return value statement
++read_timeout LINE \$READTIMEOUT <&3
++check_equals "\$LINE" '<string>null</string>' "Gnash should return a correct value from GetVariable call on null"
++
++# Call string-returning GetVariable() on unassigned variable
++echo '<invoke name="GetVariable" returntype="xml"><arguments><string>unassigned_variable</string></arguments></invoke>' >&4
++
++# Read for return value statement
++read_timeout LINE \$READTIMEOUT <&3
++if [ "${swfversion}" -gt 6 ]
++then
++	check_equals "\$LINE" '<string>undefined</string>' "Gnash should return a correct value from GetVariable call on unassigned variable"
++else
++	check_equals "\$LINE" '<string></string>' "Gnash should return a correct value from GetVariable call on unassigned variable"
++fi
++
++# Call string-returning GetVariable() on variable with undefined value
++echo '<invoke name="GetVariable" returntype="xml"><arguments><string>undefined_variable</string></arguments></invoke>' >&4
++
++# Read for return value statement
++read_timeout LINE \$READTIMEOUT <&3
++if [ "${swfversion}" -gt 6 ]
++then
++	check_equals "\$LINE" '<string>undefined</string>' "Gnash should return a correct value from GetVariable call on variable with undefined value"
++else
++	check_equals "\$LINE" '<string></string>' "Gnash should return a correct value from GetVariable call on variable with undefined value"
++fi
++
++# Call string-returning GetVariable() on non-existent variable
++echo '<invoke name="GetVariable" returntype="xml"><arguments><string>nonexistent_variable</string></arguments></invoke>' >&4
++
++# Read for return value statement
++read_timeout LINE \$READTIMEOUT <&3
++check_equals "\$LINE" '<null/>' "Gnash should return a correct value from GetVariable call on non-existent variable"
++
++# Call string-returning GetVariable() on string array variable
++echo '<invoke name="GetVariable" returntype="xml"><arguments><string>array_variable</string></arguments></invoke>' >&4
++
++# Read for return value statement
++read_timeout LINE \$READTIMEOUT <&3
++check_equals "\$LINE" '<string>The,quick,brown,fox,jumps,over,the,lazy,dog</string>' "Gnash should return a correct value from GetVariable call on array variable"
++
++# Call string-returning GetVariable() on object variable
++echo '<invoke name="GetVariable" returntype="xml"><arguments><string>object_variable</string></arguments></invoke>' >&4
++
++# Read for return value statement
++read_timeout LINE \$READTIMEOUT <&3
++check_equals "\$LINE" '<string>[object Object]</string>' "Gnash should return a correct value from GetVariable call on object variable"
++
++# Call string-returning GetVariable() on object variable
++# with custom toString() method
++echo '<invoke name="GetVariable" returntype="xml"><arguments><string>object_variable_customstring</string></arguments></invoke>' >&4
++
++# Read for return value statement
++read_timeout LINE \$READTIMEOUT <&3
++check_equals "\$LINE" '<string>This is a custom Object.toString()</string>' "Gnash should return a correct value from GetVariable call on object variable with custom toString()"
++
++# Call string-returning GetVariable() on function variable
++echo '<invoke name="GetVariable" returntype="xml"><arguments><string>function_variable</string></arguments></invoke>' >&4
++
++# Read for return value statement
++read_timeout LINE \$READTIMEOUT <&3
++check_equals "\$LINE" '<string>[type Function]</string>' "Gnash should return a correct value from GetVariable call on function variable"
++
++# Close pipes
++exec 3<&-
++exec 4<&-
++
++# Force Gnash to exit
++kill \$GNASHPID
++wait \$GNASHPID
++
++# Check for total number of test run
++check_totals "16" "There should be 16 tests run"
++
++# Remove temporary files
++rm "\$LOGFILE"
++rm "\$PIPE2CONTAINER"
++rm "\$PIPE2PLAYER"
++EOF
+diff --git a/testsuite/misc-mtasc.all/Makefile.am b/testsuite/misc-mtasc.all/Makefile.am
+index d2bd7f2..39b0db0 100644
+--- a/testsuite/misc-mtasc.all/Makefile.am
++++ b/testsuite/misc-mtasc.all/Makefile.am
+@@ -34,8 +34,12 @@ SANE_ASTESTS = \
+ # These ones are the ones for which consistency check fail 
+ BOGUS_ASTESTS = \
+ 	$(NULL)
++# This one is host container communication (ExternalInterface) test
++EXTCOMM_ASTESTS = \
++	extcomm.as \
++	$(NULL)
+ 
+-ASTESTS = $(SANE_ASTESTS) $(BOGUS_ASTESTS)
++ASTESTS = $(SANE_ASTESTS) $(BOGUS_ASTESTS) $(EXTCOMM_ASTESTS)
+ 
+ 
+ # These will get compiled to SWFs just as above, but will not be executed as a test
+@@ -49,11 +53,13 @@ AUXMOVIES = \
+ EXTRA_DIST = $(ASTESTS) $(AUXMOVIES) TestClass.as Dejagnu.as check.as Derived1.as Base1.as  implementsOp/BExtendingImplementation.as  implementsOp/ImplementationA.as  implementsOp/ImplementationB.as implementsOp/SimpleInterface.as
+ 
+ MTASC_FLAGS = -version 6 -cp $(MTASC_CLASSPATH) -cp $(srcdir) -v -header 800:600:20
++MTASCV8_FLAGS = -version 8 -cp $(MTASC_CLASSPATH) -cp $(srcdir) -v -header 800:600:20
+ MTASC_CPP = $(CPP) -x c -P -I$(srcdir)
+ 
+ SANE_ASTESTS_OUT = $(SANE_ASTESTS:.as=.swf)
+ BOGUS_ASTESTS_OUT = $(BOGUS_ASTESTS:.as=.swf)
+-ASTESTS_OUT = $(SANE_ASTESTS_OUT) $(BOGUS_ASTESTS_OUT)
++EXTCOMM_ASTESTS_OUT = $(EXTCOMM_ASTESTS:.as=.swf)
++ASTESTS_OUT = $(SANE_ASTESTS_OUT) $(BOGUS_ASTESTS_OUT) $(EXTCOMM_ASTESTS_OUT)
+ 
+ AUXMOVIES_OUT = $(AUXMOVIES:.as=.swf)
+ 
+@@ -64,6 +70,7 @@ TEST_DRIVERS = ../simple.exp
+ TEST_CASES = \
+ 	sanetests-runner \
+ 	bogustests-runner \
++	extcommtests-runner \
+ 	$(NULL)
+ 
+ sanetests-runner: $(srcdir)/../generic-testrunner.sh $(SANE_ASTESTS_OUT) $(AUXMOVIES_OUT) Makefile
+@@ -74,6 +81,14 @@ bogustests-runner: $(srcdir)/../generic-testrunner.sh $(BOGUS_ASTESTS_OUT) $(AUX
+ 	sh $(srcdir)/../generic-testrunner.sh -C __END_OF_TEST__ -r 50 $(top_builddir) $(BOGUS_ASTESTS_OUT) > $@
+ 	chmod 755 $@
+ 
++extcommtests-runner: $(srcdir)/extcommtests-runner.sh $(EXTCOMM_ASTESTS_OUT) Makefile
++	sh $(srcdir)/extcommtests-runner.sh $(top_builddir) $(top_srcdir) $(EXTCOMM_ASTESTS_OUT) > $@
++	chmod 755 $@
++
++extcomm.swf: extcomm.as
++	$(MTASC_CPP) $< > $(@:%.swf=pp_%.as)
++	$(MTASC) $(MTASCV8_FLAGS) -swf $@ -main $(@:%.swf=pp_%.as)
++
+ .as.swf: 
+ 	$(MTASC_CPP) $< > $(@:%.swf=pp_%.as) 
+ 	$(MTASC) $(MTASC_FLAGS) -swf $@ -main $(@:%.swf=pp_%.as)
+diff --git a/testsuite/misc-mtasc.all/extcomm.as b/testsuite/misc-mtasc.all/extcomm.as
+new file mode 100644
+index 0000000..dcf7862
+--- /dev/null
++++ b/testsuite/misc-mtasc.all/extcomm.as
+@@ -0,0 +1,157 @@
++// extcomm.as - Host container communication (ExternalInterface) tests
++//
++//   Copyright (C) 2015, 2016 Free Software Foundation, Inc.
++//
++// This program is free software; you can redistribute it and/or modify
++// it under the terms of the GNU General Public License as published by
++// the Free Software Foundation; either version 3 of the License, or
++// (at your option) any later version.
++//
++// This program is distributed in the hope that it will be useful,
++// but WITHOUT ANY WARRANTY; without even the implied warranty of
++// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++// GNU General Public License for more details.
++//
++// You should have received a copy of the GNU General Public License
++// along with this program; if not, write to the Free Software
++// Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301
++//
++//
++// Original author: Nutchanon Wetchasit <Nutchanon.Wetchasit@gmail.com>
++//
++
++import flash.external.*;
++
++#include "check.as"
++
++class ExternalCommTest
++{
++	var testVariable = "Variable in this";
++
++	// Entry point
++	public static function main(mc:MovieClip):Void
++	{
++		var app:ExternalCommTest;
++
++		app = new ExternalCommTest(mc);
++	}
++
++	public function ExternalCommTest(mc:MovieClip)
++	{
++		var obj:Object;
++
++		obj = new Object();
++		obj.testVariable = "Variable in obj";
++		_root.testVariable = "Variable in _root";
++
++		// ExternalInterface should be available
++		check(ExternalInterface.available);
++
++		mc.script_call = function(arg1, arg2):String
++		{
++			// This function should NOT be called
++			check(false);
++			check_equals(arg1, "Hello");
++			check_equals(arg2, "World");
++			return "Too";
++		};
++
++		// Registering callback shouldn't fail
++		check(
++			ExternalInterface.addCallback("script_call", obj,
++				function(arg1, arg2):String
++				{
++					// This function should be called
++					check(true);
++					check_equals(arg1, "Hello");
++					check_equals(arg2, "World");
++
++					// `this` should point to user-specified object
++					check_equals(this.testVariable, "Variable in obj");
++
++					return "Too";
++				}
++			)
++		);
++
++		// Invalid callback registrations should fail
++		check(!ExternalInterface.addCallback("invalid_reg1", mc, null));
++		check(!ExternalInterface.addCallback("invalid_reg2", mc, undefined));
++		check(!ExternalInterface.addCallback("invalid_reg3", null, null));
++		check(!ExternalInterface.addCallback("invalid_reg4", null, undefined));
++		check(!ExternalInterface.addCallback("invalid_reg5", undefined, null));
++		check(!ExternalInterface.addCallback("invalid_reg6", undefined, undefined));
++
++		// Registering callbacks with no `this` instance shouldn't fail
++		check(
++			ExternalInterface.addCallback("script_nothis1", null,
++				function():Void
++				{
++					// `this` should be an "undefined" object like one in
++					// a function called via `function.call(null)`
++					xcheck_equals(typeof(this), "object");
++					check(this == undefined);
++					check(this == null);
++					check(this !== undefined);
++					xcheck(this !== null);
++					xcheck_equals("" + this, "undefined");
++				}
++			)
++		);
++		check(
++			ExternalInterface.addCallback("script_nothis2", undefined,
++				function():Void
++				{
++					// `this` should be an "undefined" object like one in
++					// a function called via `function.call(undefined)`
++					xcheck_equals(typeof(this), "object");
++					check(this == undefined);
++					check(this == null);
++					check(this !== undefined);
++					xcheck(this !== null);
++					xcheck_equals("" + this, "undefined");
++				}
++			)
++		);
++
++		// Registering another ordinary callback shouldn't fail
++		check(
++			ExternalInterface.addCallback("script_longarglist", mc,
++				function(arg1:String, arg2:String, arg3:String,
++				         arg4:String, arg5:String, arg6:String,
++				         arg7:String, arg8:String, arg9:String):String
++				{
++					// Long argument list should be passed correctly
++					check_equals(arg1, "The");
++					check_equals(arg2, "quick");
++					check_equals(arg3, "brown");
++					check_equals(arg4, "fox");
++					check_equals(arg5, "jumps");
++					check_equals(arg6, "over");
++					check_equals(arg7, "the");
++					check_equals(arg8, "lazy");
++					check_equals(arg9, "dog");
++
++					return "Pangram";
++				}
++			)
++		);
++
++		// Calling JavaScript function without any argument should give
++		// a correct return value
++		check_equals(ExternalInterface.call("js_simple"), "Correct");
++
++		// Calling JavaScript function 20 times in row should give all
++		// correct return value
++		var numreadings:Array = new Array(
++			"one", "two", "three", "four", "five", "six", "seven", "eight",
++			"nine", "ten", "eleven", "twelve", "thirteen", "fourteen",
++			"fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty"
++		);
++		var i:Number;
++		for(i = 0; i < numreadings.length; i++) {
++			check_equals(ExternalInterface.call("js_readnumber", i + 1),
++			             numreadings[i]);
++		}
++	}
++}
+diff --git a/testsuite/misc-mtasc.all/extcommtests-runner.sh b/testsuite/misc-mtasc.all/extcommtests-runner.sh
+new file mode 100644
+index 0000000..80cd550
+--- /dev/null
++++ b/testsuite/misc-mtasc.all/extcommtests-runner.sh
+@@ -0,0 +1,290 @@
++#!/bin/sh
++
++# 
++# extcommtests-runner.sh: container-emulated, automated
++#     ExternalInterface test generator
++# 
++# Copyright (C) 2015, 2016 Free Software Foundation, Inc.
++# 
++# This program is free software; you can redistribute it and/or modify
++# it under the terms of the GNU General Public License as published by
++# the Free Software Foundation; either version 3 of the License, or
++# (at your option) any later version.
++# 
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU General Public License for more details.
++# 
++# You should have received a copy of the GNU General Public License
++# along with this program; if not, write to the Free Software
++# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA 
++# 
++# 
++# Original author: Nutchanon Wetchasit <Nutchanon.Wetchasit@gmail.com>
++# 
++# The generated test runner checks Gnash for:
++#  * ExternalInterface.addCallback() issues (bug #37223)
++#        <https://savannah.gnu.org/bugs/?37223>
++#  * ExternalInterface.call()'s delayed return value issue (bug #46131)
++#        <https://savannah.gnu.org/bugs/?46131>
++#  * Single-argument ExternalInterface.call() issue (bug #46878)
++#        <https://savannah.gnu.org/bugs/?46878>
++# 
++# Usage:
++#     ./extcommtests-runner.sh <builddir> <srcdir> <swf>
++# 
++# Exit codes:
++#     0         if tester ran completely
++#     non-zero  if tester encountered an error
++# 
++# Note:
++#     The generated test file requires a filesystem that supports a named pipe.
++# 
++
++# Check for generation parameters
++while getopts "" name
++do
++	case $name in
++		?)
++			echo "Usage: $0 <builddir> <srcdir> <swf>" >&2
++			exit 1;;
++	esac
++done
++shift $(($OPTIND - 1))
++if [ "$#" -ne 3 ]
++then
++	echo "Usage: $0 <builddir> <srcdir> <swf>" >&2
++	exit 1
++fi
++
++# Load generation parameters
++top_builddir=$1
++shift
++top_srcdir=$1
++shift
++swf=$1
++
++# Generate the test runner
++echo "#!/bin/sh"
++echo
++
++echo "# Environment variables"
++env | grep '^GNASH' | while read reply
++do
++	echo "export \"${reply}\""
++done
++
++timeout=10
++
++cat << EOF
++
++# Filenames and constants
++LOGFILE=${top_builddir}/testoutlog.\$\$
++PIPE2CONTAINER=${top_builddir}/tocontainer.\$\$
++PIPE2PLAYER=${top_builddir}/toplayer.\$\$
++READTIMEOUT=5
++
++# Test counts
++TESTED=0
++FAILED=0
++XFAILED=0
++PASSED=0
++XPASSED=0
++
++# check_equals(\$op1, \$op2, \$msg)
++# Equality checker and counter
++check_equals() {
++	if [ "\$1" = "\$2" ]
++	then
++		echo "PASSED: \$3"
++		PASSED=\`expr "\$PASSED" + 1\`
++	else
++		echo "FAILED: \$3 (\"\$1\" != \"\$2\")"
++		FAILED=\`expr "\$FAILED" + 1\`
++	fi
++	TESTED=\`expr "\$TESTED" + 1\`
++}
++
++# check_totals(\$op, \$msg)
++# Test count checker
++check_totals() {
++	check_equals "\$TESTED" "\$1" "\$2"
++}
++
++# check_error(\$bool, \$msg)
++# Assert \$bool is 0; if not, flag error in the test, and exit
++check_error() {
++	if [ "\$1" -ne 0 ]
++	then
++		echo "ERROR: \$2" >&2
++		exit 1
++	fi
++}
++
++# read_timeout(\$varname, \$timeout)
++# Read one line from standard input, with a specified timeout (in seconds)
++read_timeout() {
++	trap 'trap - USR1; return 142' USR1
++	(sleep "\$2" && kill -USR1 "\$\$" > /dev/null 2>&1) &
++	TIMEOUTPID=\$!
++	read "\$1"
++	READERROR=\$?
++	kill "\$TIMEOUTPID" > /dev/null 2>&1
++	trap - USR1
++	return \$READERROR
++}
++
++# Create required named pipes
++if [ \! -p "\$PIPE2CONTAINER" ]
++then
++	mkfifo "\$PIPE2CONTAINER"
++	check_error "\$?" "Failed to create a named pipe: \$PIPE2CONTAINER"
++fi
++if [ \! -p "\$PIPE2PLAYER" ]
++then
++	mkfifo "\$PIPE2PLAYER"
++	check_error "\$?" "Failed to create a named pipe: \$PIPE2PLAYER"
++fi
++
++# Open player-to-host pipe
++exec 3<> "\$PIPE2CONTAINER"
++check_error \$? "Failed to open a named pipe: \$PIPE2CONTAINER"
++
++# Open host-to-player pipe
++exec 4<> "\$PIPE2PLAYER"
++check_error \$? "Failed to open a named pipe: \$PIPE2PLAYER"
++
++# Start player
++"${top_builddir}/gui/gnash" -r 0 -t ${timeout} -vv -F 3:4 "${swf}" > "\$LOGFILE" 2>&1 &
++GNASHPID=\$!
++
++# Read for script_call callback registration statement
++read_timeout LINE \$READTIMEOUT <&3
++check_equals \
++	"\$LINE" \
++	'<invoke name="addMethod" returntype="xml"><arguments><string>script_call</string></arguments></invoke>' \
++	"Gnash should properly register script_call ExternalInterface callback"
++
++# Read for script_nothis1 callback registration statement
++read_timeout LINE \$READTIMEOUT <&3
++check_equals \
++	"\$LINE" \
++	'<invoke name="addMethod" returntype="xml"><arguments><string>script_nothis1</string></arguments></invoke>' \
++	"Gnash should properly register script_nothis1 ExternalInterface callback"
++
++# Read for script_nothis2 callback registration statement
++read_timeout LINE \$READTIMEOUT <&3
++check_equals \
++	"\$LINE" \
++	'<invoke name="addMethod" returntype="xml"><arguments><string>script_nothis2</string></arguments></invoke>' \
++	"Gnash should properly register script_nothis2 ExternalInterface callback"
++
++# Read for script_longarglist callback registration statement
++read_timeout LINE \$READTIMEOUT <&3
++check_equals \
++	"\$LINE" \
++	'<invoke name="addMethod" returntype="xml"><arguments><string>script_longarglist</string></arguments></invoke>' \
++	"Gnash should properly register script_longarglist ExternalInterface callback"
++
++# Read for js_simple JavaScript function invocation statement
++read_timeout LINE \$READTIMEOUT <&3
++check_equals \
++	"\$LINE" \
++	'<invoke name="js_simple" returntype="xml"><arguments><string>js_simple</string></arguments></invoke>' \
++	"Gnash should call JavaScript's js_simple function correctly"
++
++# Return string value from js_simple function
++echo '<string>Correct</string>' >&4
++
++# Test using multiple ExternalInterface.call() in row
++NUMBER=1
++for READING in "one" "two" "three" "four" "five" "six" "seven" "eight" "nine" \
++	"ten" "eleven" "twelve" "thirteen" "fourteen" "fifteen"  "sixteen" \
++	"seventeen" "eighteen" "nineteen" "twenty"
++do
++	# Read for js_readnumber JavaScript function invocation statement
++	read_timeout LINE \$READTIMEOUT <&3
++	check_equals \
++		"\$LINE" \
++		"<invoke name=\"js_readnumber\" returntype=\"xml\"><arguments><string>js_readnumber</string><number>\$NUMBER</number></arguments></invoke>" \
++		"Gnash should call JavaScript's js_readnumber function with parameter \$NUMBER correctly"
++
++	# Return string value from js_readnumber function
++	echo "<string>\$READING</string>" >&4
++
++	NUMBER=\`expr \$NUMBER + 1\`
++done
++
++# Pause a bit, so the next script_call invoke doesn't get mixed up with
++# the previous return value data
++sleep 1
++
++# Call the script_call callback
++echo '<invoke name="script_call" returntype="xml"><arguments><string>Hello</string><string>World</string></arguments></invoke>' >&4
++
++# Read for callback return value statement
++read_timeout LINE \$READTIMEOUT <&3
++check_equals "\$LINE" '<string>Too</string>' "Gnash should return a correct value from script_call ExternalInterface callback"
++
++# Call the script_nothis1 callback
++echo '<invoke name="script_nothis1" returntype="xml"><arguments></arguments></invoke>' >&4
++
++# Read for callback return value statement
++read_timeout LINE \$READTIMEOUT <&3
++check_equals "\$LINE" '<void/>' "Gnash should return a correct value from script_nothis1 ExternalInterface callback"
++
++# Call the script_nothis2 callback
++echo '<invoke name="script_nothis2" returntype="xml"><arguments></arguments></invoke>' >&4
++
++# Read for callback return value statement
++read_timeout LINE \$READTIMEOUT <&3
++check_equals "\$LINE" '<void/>' "Gnash should return a correct value from script_nothis2 ExternalInterface callback"
++
++# Call the script_longarglist callback
++echo '<invoke name="script_longarglist" returntype="xml"><arguments><string>The</string><string>quick</string><string>brown</string><string>fox</string><string>jumps</string><string>over</string><string>the</string><string>lazy</string><string>dog</string></arguments></invoke>' >&4
++
++# Read for callback return value statement
++read_timeout LINE \$READTIMEOUT <&3
++check_equals "\$LINE" '<string>Pangram</string>' "Gnash should return a correct value from script_longarglist ExternalInterface callback"
++
++# Close pipes
++exec 3<&-
++exec 4<&-
++
++# Wait for Gnash to exit
++wait \$GNASHPID
++check_equals "\$?" "0" "Gnash should terminate successfully"
++
++# Show player-side output
++exec 5< "\$LOGFILE"
++cat <&5
++exec 5<&-
++
++# Include total number of tests from player side
++exec 5< "\$LOGFILE"
++PLAYERPASSED=\`grep "TRACE: PASSED:" <&5 | wc -l\`
++exec 5<&-
++exec 5< "\$LOGFILE"
++PLAYERXPASSED=\`grep "TRACE: XPASSED:" <&5 | wc -l\`
++exec 5<&-
++exec 5< "\$LOGFILE"
++PLAYERFAILED=\`grep "TRACE: FAILED:" <&5 | wc -l\`
++exec 5<&-
++exec 5< "\$LOGFILE"
++PLAYERXFAILED=\`grep "TRACE: XFAILED:" <&5 | wc -l\`
++exec 5<&-
++PASSED=\`expr "\$PASSED" + "\$PLAYERPASSED"\`
++XPASSED=\`expr "\$XPASSED" + "\$PLAYERXPASSED"\`
++FAILED=\`expr "\$FAILED" + "\$PLAYERFAILED"\`
++XFAILED=\`expr "\$XFAILED" + "\$PLAYERXFAILED"\`
++TESTED=\`expr "\$TESTED" + "\$PLAYERPASSED" + "\$PLAYERXPASSED" + "\$PLAYERFAILED" + "\$PLAYERXFAILED"\`
++
++# Check for total number of test run
++check_totals "87" "There should be 87 tests run"
++
++# Remove temporary files
++rm "\$LOGFILE"
++rm "\$PIPE2CONTAINER"
++rm "\$PIPE2PLAYER"
++EOF

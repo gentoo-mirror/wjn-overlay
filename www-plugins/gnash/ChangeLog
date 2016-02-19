@@ -2,6 +2,17 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*gnash-0.8.10_p20160215 (19 Feb 2016)
+
+  19 Feb 2016; wjn <wjn@aol.jp>
+  +files/gnash-0.8.10_p20160215-diff-20150326.patch,
+  +gnash-0.8.10_p20160215.ebuild:
+  Add version 0.8.10_p20160215
+
+   Note:
+          - Gnash can't compile on >=media-video/ffmpeg-3.0
+          - Actually, I don't test this version yet
+
   19 Feb 2016; wjn <wjn@aol.jp> metadata.xml:
   **/metadata.xml: Update and tidy up
 
