@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-<longdescription lang="en">
-An onscreen keyboard useful for tablet PC users and for mobility impaired users.
-</longdescription>
-<maintainer>
-	<email>wjn@aol.jp</email>
-</maintainer>
-<upstream>
-	<remote-id type="launchpad">onboard</remote-id>
-</upstream>
+	<maintainer type="person">
+		<email>wjn@aol.jp</email>
+	</maintainer>
+	<upstream>
+		<remote-id type="launchpad">onboard</remote-id>
+	</upstream>
 </pkgmetadata>
 

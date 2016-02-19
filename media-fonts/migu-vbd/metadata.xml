@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-<upstream>
-<maintainer>
-<email>itouhiro@users.sourceforge.jp</email>
-<name>Hiro Itou</name>
-</maintainer>
-<remote-id type="sourceforge-jp">mix-mplus-ipa</remote-id>
-</upstream>
+	<maintainer type="person">
+		<email>wjn@aol.jp</email>
+	</maintainer>
+	<upstream>
+		<maintainer type="person">
+			<email>itouhiro@users.sourceforge.jp</email>
+			<name>Hiro Itou</name>
+		</maintainer>
+		<remote-id type="sourceforge-jp">mix-mplus-ipa</remote-id>
+	</upstream>
 </pkgmetadata>

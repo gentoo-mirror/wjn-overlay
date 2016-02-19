@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer>
+	<maintainer type="person">
 		<email>wjn@aol.jp</email>
 	</maintainer>
 	<use>
 		<flag name="designer">Build plugin for Qt Designer</flag>
 	</use>
 	<upstream>
-		<maintainer status="active">
+		<maintainer type="person" status="active">
 			<email>phil@riverbankcomputing.com</email>
 			<name>Phil Thompson</name>
 		</maintainer>

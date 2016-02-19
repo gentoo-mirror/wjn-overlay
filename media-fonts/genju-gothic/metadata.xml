@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-<use>
-	<flag name="rounded-l">Install "Genju Gothic L" as well as "Genju Gothic"</flag>
-	<flag name="rounded-x">Install "Genju Gothic X" as well as "Genju Gothic"</flag>
-</use>
-<maintainer>
-	<email>wjn@aol.jp</email>
-</maintainer>
-<upstream>
-	<maintainer>
-	<email>mm@jikasei.me</email>
+	<maintainer type="person">
+		<email>wjn@aol.jp</email>
 	</maintainer>
-</upstream>
+	<use>
+		<flag name="rounded-l">Install "Genju Gothic L" as well as
+			"Genju Gothic"</flag>
+		<flag name="rounded-x">Install "Genju Gothic X" as well as
+			"Genju Gothic"</flag>
+	</use>
+	<upstream>
+		<maintainer type="person">
+			<email>mm@jikasei.me</email>
+		</maintainer>
+	</upstream>
 </pkgmetadata>

@@ -1,25 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-<longdescription lang="en">
-Mozc is a Japanese Input Method Editor (IME) designed for multi-platform such as Chromium OS, Windows, Mac and Linux. This open-source project originates from Google Japanese Input.
-</longdescription>
-<maintainer>
-	<email>wjn@aol.jp</email>
-</maintainer>
-<upstream>
-	<remote-id type="github">google/mozc</remote-id>
-	<doc>https://github.com/google/mozc</doc>
-</upstream>
-<use>
-	<flag name='clang'>Use <pkg>sys-devel/clang</pkg> for building</flag>
-	<flag name='emacs'>Enable support for <pkg>virtual/emacs</pkg></flag>
-	<flag name='fcitx'>Enable support for <pkg>app-i18n/fcitx</pkg></flag>
-	<flag name='ibus'>Enable support for <pkg>app-i18n/ibus</pkg></flag>
-	<flag name='qt4'>Build with <pkg>dev-qt/qtgui:4</pkg>. Recommended.
-		Unless this flag is enabled, no configuration tool cannot run. </flag>
-	<flag name='renderer'>Enable native candidate window</flag>
-	<flag name='test'>Enable src_test phase for runtests</flag>
-	<flag name='uim'>Enable support for <pkg>app-i18n/uim</pkg></flag>
-</use>
+	<longdescription lang="en">
+		Mozc is a Japanese Input Method Editor (IME) designed for
+		multi-platform such as Chromium OS, Windows, Mac and Linux.
+		This open-source project originates from Google Japanese Input.
+	</longdescription>
+	<maintainer type="person">
+		<email>wjn@aol.jp</email>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">google/mozc</remote-id>
+		<doc>https://github.com/google/mozc</doc>
+	</upstream>
+	<use>
+		<flag name='clang'>Use <pkg>sys-devel/clang</pkg> for building</flag>
+		<flag name='emacs'>Enable support for <pkg>virtual/emacs</pkg></flag>
+		<flag name='fcitx'>Enable support for <pkg>app-i18n/fcitx</pkg></flag>
+		<flag name='ibus'>Enable support for <pkg>app-i18n/ibus</pkg></flag>
+		<flag name='qt4'>Build with <pkg>dev-qt/qtgui:4</pkg>. Recommended.
+			Without this flag, no configuration tools are available</flag>
+		<flag name='renderer'>Enable native candidate window</flag>
+		<flag name='test'>Enable src_test phase for runtests</flag>
+		<flag name='uim'>Enable support for <pkg>app-i18n/uim</pkg></flag>
+	</use>
 </pkgmetadata>
