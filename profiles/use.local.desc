@@ -33,7 +33,6 @@ app-i18n/mozc-neologd-ut:fcitx - Enable support for app-i18n/fcitx
 app-i18n/mozc-neologd-ut:ibus - Enable support for app-i18n/ibus
 app-i18n/mozc-neologd-ut:qt4 - Build with dev-qt/qtgui:4. Recommended. Without this flag, no configuration tools are available
 app-i18n/mozc-neologd-ut:renderer - Enable native candidate window
-app-i18n/mozc-neologd-ut:test - Enable src_test phase for runtests
 app-i18n/mozc-neologd-ut:tomoe - Use app-i18n/zinnia-tomoe instead of app-i18n/tegaki-zinnia-japanese for handwriting recognition
 app-i18n/mozc-neologd-ut:uim - Enable support for app-i18n/uim
 app-i18n/mozc-ut:clang - Use sys-devel/clang to compile
@@ -59,7 +58,6 @@ app-i18n/uim:kde - Enable support for kde-base/kdelibs
 app-i18n/uim:qt3support - Enable support for dev-qt/qtgui:4[qt3support]
 app-i18n/uim:skk - Enable support for app-i18n/skk-jisyo
 app-text/asciidoc:dvi - Install www-client/w3m or www-client/lynx for text generation
-app-text/asciidoc:epub - Install app-text/epubcheck for translating EPUB format
 app-text/asciidoc:highlight - Enable source code highlighting
 app-text/asciidoc:latex - Install app-text/dblatex for translating LaTeX format
 app-text/asciidoc:pdf - Install app-text/dblatex or dev-java/fop for translating PDF format
@@ -110,7 +108,6 @@ media-fonts/rounded-mgenplus:rounded-x - Install "Rounded-X Mgen+" as well as "R
 media-fonts/rounded-mplus:rounded-l - Install "Rounded-L M+" as well as "Rounded M+"
 media-fonts/rounded-mplus:rounded-x - Install "Rounded-X M+" as well as "Rounded M+"
 media-plugins/audacious-plugins:aac - Support AAC decode
-media-plugins/audacious-plugins:adplug - Support AdPlug (Adlib sound card emulation)
 media-plugins/audacious-plugins:alsa - Support ALSA output
 media-plugins/audacious-plugins:bs2b - Enable Bauer Bauer stereophonic-to-binaural headphone filter
 media-plugins/audacious-plugins:cdda - Support CD-DA input
