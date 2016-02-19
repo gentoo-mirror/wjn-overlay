@@ -26,7 +26,6 @@
 		<flag name='qt4'>Build with <pkg>dev-qt/qtgui:4</pkg>. Recommended.
 			Without this flag, no configuration tools are available</flag>
 		<flag name='renderer'>Enable native candidate window</flag>
-		<flag name='test'>Enable src_test phase for runtests</flag>
 		<flag name='tomoe'>Use <pkg>app-i18n/zinnia-tomoe</pkg> instead of
 			<pkg>app-i18n/tegaki-zinnia-japanese</pkg> for handwriting
 			recognition</flag>

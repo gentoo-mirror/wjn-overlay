@@ -33,7 +33,7 @@ src_install() {
 	font_src_install
 	dodoc ChangeLog README
 	docinto doc-MTLc3m
-	dodoc README* 
+	dodoc README*
 	docinto doc-mplus
 	dodoc doc-mplus/README*
 }

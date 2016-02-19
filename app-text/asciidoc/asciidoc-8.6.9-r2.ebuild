@@ -15,7 +15,7 @@ KEYWORDS="~amd64 ~x86"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="dvi epub examples graphviz highlight latex pdf ps test +text vim-syntax"
+IUSE="dvi examples graphviz highlight latex pdf ps test +text vim-syntax"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
@@ -31,7 +31,6 @@ RDEPEND="${PYTHON_DEPS}
 	>=app-text/docbook-xsl-stylesheets-1.75
 	dev-libs/libxslt
 	dvi? ( app-text/dblatex )
-	epub? ( app-text/epubcheck )
 	graphviz? ( media-gfx/graphviz )
 	highlight? ( || ( app-text/highlight
 		dev-python/pygments[${PYTHON_USEDEP}]

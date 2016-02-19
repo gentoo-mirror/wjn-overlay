@@ -176,7 +176,7 @@ src_prepare() {
 			files/usr/share/cinnamon-session/sessions/cinnamon*.session
 	fi
 
-	use pulseaudio || epatch ${FILESDIR}/cinnamon-disable-pulseaudio.patch
+	use pulseaudio || epatch "${FILESDIR}/cinnamon-disable-pulseaudio.patch"
 
 	epatch_user
 

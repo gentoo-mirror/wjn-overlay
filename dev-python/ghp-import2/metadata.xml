@@ -5,6 +5,7 @@
 		<email>wjn@aol.jp</email>
 	</maintainer>
 	<upstream>
-		<remote-id type="pypi">pygal</remote-id>
+		<remote-id type="pypi">ghp-import2</remote-id>
+		<remote-id type="github">ionelmc/python-ghp-import</remote-id>
 	</upstream>
 </pkgmetadata>

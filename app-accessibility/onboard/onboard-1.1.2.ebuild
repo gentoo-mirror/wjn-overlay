@@ -21,7 +21,6 @@ COMMON_DEPEND="dev-libs/dbus-glib
 	dev-python/pycairo[${PYTHON_USEDEP}]
 	dev-python/pygobject:3[${PYTHON_USEDEP}]
 	dev-python/python-distutils-extra[${PYTHON_USEDEP}]
-	dev-util/intltool
 	gnome-base/dconf
 	gnome-base/gsettings-desktop-schemas
 	gnome-base/librsvg
@@ -34,6 +33,8 @@ COMMON_DEPEND="dev-libs/dbus-glib
 	x11-libs/libXtst
 	x11-libs/libwnck:3
 	x11-libs/pango"
+DEPEND="${COMMON_DEPEND}
+	dev-util/intltool"
 RDEPEND="${COMMON_DEPEND}
 	app-accessibility/at-spi2-core
 	app-text/hunspell

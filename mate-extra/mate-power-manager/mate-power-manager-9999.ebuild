@@ -8,7 +8,7 @@ GCONF_DEBUG="no"
 
 inherit autotools git-r3 gnome2
 
-DESCRIPTION="A session daemon for MATE that makes it easy to manage your laptop or desktop system"
+DESCRIPTION="Session daemon for MATE that acts as a policy agent of UPower"
 HOMEPAGE="http://mate-desktop.org/
 	https://github.com/mate-desktop/${PN}"
 SRC_URI=""

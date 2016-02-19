@@ -18,7 +18,7 @@ EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-2 LGPL-2 FDL-1.1"
 SLOT="0"
 KEYWORDS=""
-IUSE="doc extensions dropbox -gtk3 +mate +introspection python +unique xmp"
+IUSE="doc dropbox extensions -gtk3 +mate +introspection python +unique xmp"
 
 COMMON_DEPEND="dev-libs/atk:0[introspection?]
 	dev-libs/glib:2

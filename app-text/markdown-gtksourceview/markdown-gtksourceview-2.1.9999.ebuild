@@ -68,7 +68,7 @@ src_install() {
 		doexe tools/export-to-html
 	fi
 
-	if use webkit ; then 
+	if use webkit ; then
 		newdoc config/gedit-markdown.ini pluma-markdown.ini.sample
 		insinto /usr/$(get_libdir)/pluma/plugins
 		newins plugins/gedit2/markdown-preview.gedit-plugin \
