@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-<upstream>
-<maintainer>
-<email>font@opentype.jp</email>
-</maintainer>
-</upstream>
+	<maintainer type="person">
+		<email>wjn@aol.jp</email>
+	</maintainer>
+	<upstream>
+		<maintainer type="unknown">
+			<email>font@opentype.jp</email>
+		</maintainer>
+	</upstream>
 </pkgmetadata>

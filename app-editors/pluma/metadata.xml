@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer>
+	<maintainer type="person">
 		<email>wjn@aol.jp</email>
 	</maintainer>
 	<use>
 		<flag name="debug">Enable gconf debug</flag>
-		<flag name="gtk3">Build for gtk+:3 instead of gtk:2. EXPERIMENTAL</flag>
+		<flag name="gtk3">Build for gtk+:3 instead of gtk+:2.
+			EXPERIMENTAL</flag>
 		<flag name="mate">Build with <pkg>mate-base/mate-desktop</pkg></flag>
 		<flag name="python">Enable plugins depend on python:2.7</flag>
-		<flag name="spell">Enable spell checker with <pkg>app-text/enchant</pkg></flag>
+		<flag name="spell">Enable spell checker with
+			<pkg>app-text/enchant</pkg></flag>
 	</use>
-    <upstream>
-        <remote-id type="github">mate-desktop/pluma</remote-id>
-    </upstream>
+	<upstream>
+		<remote-id type="github">mate-desktop/pluma</remote-id>
+	</upstream>
 </pkgmetadata>
