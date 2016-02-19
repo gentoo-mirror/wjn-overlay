@@ -3,6 +3,7 @@
 # * generated automatically using pmaint *
 
 app-arch/engrampa:caja - Enable engrampa to integrate with mate-base/caja by providing entries in its context menu
+app-arch/engrampa:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
 app-editors/pluma:debug - Enable gconf debug
 app-editors/pluma:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
 app-editors/pluma:mate - Build with mate-base/mate-desktop
@@ -57,38 +58,57 @@ app-i18n/uim:gtk3 - Enable support for x11-libs/gtk+:3
 app-i18n/uim:kde - Enable support for kde-base/kdelibs
 app-i18n/uim:qt3support - Enable support for dev-qt/qtgui:4[qt3support]
 app-i18n/uim:skk - Enable support for app-i18n/skk-jisyo
-app-text/asciidoc:dvi - Install www-client/w3m or www-client/lynx for text generation
+app-text/asciidoc:dvi - Install app-text/dblatex for translating dvi format
 app-text/asciidoc:highlight - Enable source code highlighting
 app-text/asciidoc:latex - Install app-text/dblatex for translating LaTeX format
 app-text/asciidoc:pdf - Install app-text/dblatex or dev-java/fop for translating PDF format
 app-text/asciidoc:ps - Install app-text/dblatex for translating PostScript format
+app-text/asciidoc:text - Install www-client/w3m or www-client/lynx for text generation
 app-text/atril:caja - Enable property page extension in mate-base/caja
 app-text/atril:dvi - Enable build-in DVI viewer
+app-text/atril:epub - Enable EPUB viewer depending on dev-libs/mathjax
+app-text/atril:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
 app-text/atril:ps - Enable build-in postscript viewer
 app-text/atril:t1lib - Enable the Type-1 fonts for the build-in DVI viewer (media-libs/t1lib)
 app-text/atril:xps - Enable XPS viewer using app-text/libxps
 app-text/markdown-gtksourceview:gedit - Install plugins for app-editors/gedit
 app-text/markdown-gtksourceview:pluma - Install plugins for app-editors/pluma
 app-text/markdown-gtksourceview:webkit - Install preview plugin powered by net-libs/webkit-gtk
+dev-libs/libmateweather:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
 gnome-extra/cinnamon-control-center:colord - Support color management using x11-misc/colord
 gnome-extra/cinnamon-settings-daemon:colord - Support color management using x11-misc/colord
 mail-client/sylpheed:oniguruma - Use dev-libs/oniguruma for regular expression
+mate-base/caja:dropbox - Install mate-extra/caja-dropbox
+mate-base/caja:extensions - Install mate-extra/caja-extensions
+mate-base/caja:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
 mate-base/caja:mate - Install x11-themes/mate-icon-theme which is needed when this package is used in the MATE desktop environment
 mate-base/caja:unique - Enable single instance support using dev-libs/libunique
+mate-base/libmatekbd:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
 mate-base/mate:base - Install base MATE Desktop applications that are recommended for the most common usage; for example, this installs the file manager. Disable this and other USE flags if you want a more minimal MATE Desktop
 mate-base/mate:extras - Install additional MATE Desktop applications that are recommended for extended usage of the MATE Desktop as upstream sees it; for example, this installs MATE Desktop's office related applications. Disable this if you plan to use your own non-MATE Desktop alternatives or a custom mixture of MATE and non-MATE packages
 mate-base/mate:gtk3 - EXPERIMENTAL: Build MATE Desktop based on GTK+ 3
 mate-base/mate:netbook - Install mate-extra/mate-netbook
 mate-base/mate:themes - Install MATE Desktop's themes; if you use other themes, you can disable this to spare some space and time
 mate-base/mate:user-guide - Install mate-extra/mate-user-guide
+mate-base/mate-applets:cpufreq - Install CPU frequency monitor applet based on sys-power/cpupower
+mate-base/mate-applets:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
+mate-base/mate-applets:gucharmap - Install character applet based on gnome-extra/gucharmap
+mate-base/mate-applets:weather - Install dev-libs/libmateweather to enable MATE weather applet
 mate-base/mate-applets-meta:appindicator - Pull in mate-extra/mate-indicator-applet for AppIndicator applet
+mate-base/mate-applets-meta:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
 mate-base/mate-applets-meta:sensors - Pull in mate-extra/mate-sensors-applet for hw sensors applet
 mate-base/mate-control-center:appindicator - Support dev-libs/libappindicator
+mate-base/mate-control-center:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
+mate-base/mate-desktop:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
+mate-base/mate-panel:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
+mate-base/mate-session-manager:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
+mate-base/mate-settings-daemon:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
 mate-extra/caja-extensions:cdr - Add extension to support sendto by burning media
 mate-extra/caja-extensions:debug - Enable gconf debug
 mate-extra/caja-extensions:drive - Add extension to support sendto disk drives
 mate-extra/caja-extensions:gajim - Add extension to support net-im/gajim
 mate-extra/caja-extensions:gksu - Add extension to open terminal as root
+mate-extra/caja-extensions:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
 mate-extra/caja-extensions:image-converter - Add image conversion utility
 mate-extra/caja-extensions:mail - Add extension to support sendto by e-mail
 mate-extra/caja-extensions:open-terminal - Add extension to open terminal
@@ -96,17 +116,29 @@ mate-extra/caja-extensions:pidgin - Add extension to support net-im/pidgin
 mate-extra/caja-extensions:share - Add extension to share files
 mate-extra/caja-extensions:upnp - Add extension to support sendto by upnp
 mate-extra/caja-extensions:wallpaper - Add extension to set wallpapers
+mate-extra/mate-indicator-applet:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
 mate-extra/mate-media:debug - Enable gconf debug
+mate-extra/mate-media:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
+mate-extra/mate-netbook:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
+mate-extra/mate-polkit:appindicator - Support dev-libs/libappindicator
+mate-extra/mate-polkit:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
 mate-extra/mate-power-manager:applet - Enable building of the MATE applet
+mate-extra/mate-power-manager:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
 mate-extra/mate-power-manager:man - Build power manager's man page
 mate-extra/mate-screensaver:consolekit - Enable support for sys-auth/consolekit
+mate-extra/mate-screensaver:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
+mate-extra/mate-sensors-applet:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
+mate-extra/mate-user-share:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
 mate-extra/mate-utils:applet - Enable the mate dictionary applet
+mate-extra/mate-utils:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
 media-fonts/genju-gothic:rounded-l - Install "Genju Gothic L" as well as "Genju Gothic"
 media-fonts/genju-gothic:rounded-x - Install "Genju Gothic X" as well as "Genju Gothic"
+media-fonts/noto-en:unhinted - Install unhinted fonts instead of hinted fonts
 media-fonts/rounded-mgenplus:rounded-l - Install "Rounded-L Mgen+" as well as "Rounded Mgen+"
 media-fonts/rounded-mgenplus:rounded-x - Install "Rounded-X Mgen+" as well as "Rounded Mgen+"
 media-fonts/rounded-mplus:rounded-l - Install "Rounded-L M+" as well as "Rounded M+"
 media-fonts/rounded-mplus:rounded-x - Install "Rounded-X M+" as well as "Rounded M+"
+media-gfx/eom:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
 media-plugins/audacious-plugins:aac - Support AAC decode
 media-plugins/audacious-plugins:alsa - Support ALSA output
 media-plugins/audacious-plugins:bs2b - Enable Bauer Bauer stereophonic-to-binaural headphone filter
@@ -173,6 +205,7 @@ media-video/libav:twolame - Enable MP2 encoding via media-sound/twolame as an al
 media-video/libav:vpx - Enable vp8 encoding support using media-libs/libvpx
 media-video/libav:webp - Enable WebP encoding with media-libs/libwebp
 media-video/libav:x265 - Enable HEVC encoding with media-libs/x265
+sci-calculators/galculator:gtk3 - Build for gtk+:3 instead of gtk+:2
 sys-libs/libunwind:debug-frame - Adds support for DWARF .debug_frame section: Use the information from this section if available
 sys-libs/libunwind:libatomic - Use libatomic instead of builtin atomic operations
 www-apps/nikola:assets - Support web asset management through dev-python/assets
@@ -210,4 +243,7 @@ x11-misc/lightdm:introspection - Use dev-libs/gobject-introspection for introspe
 x11-misc/lightdm:kde - Pull in the kde greeter
 x11-misc/lightdm:qt4 - Support Qt4
 x11-misc/lightdm:qt5 - Support Qt5
+x11-misc/mate-notification-daemon:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
 x11-misc/screengrab:xdg - Place config files into $XDG_CONFIG_HOME
+x11-terms/mate-terminal:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
+x11-wm/marco:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
