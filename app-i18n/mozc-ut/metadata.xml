@@ -18,7 +18,7 @@
 		<doc>http://www.geocities.jp/ep3797/mozc_01.html</doc>
 	</upstream>
 	<use>
-		<flag name='clang'>Use <pkg>sys-devel/clang</pkg> for building</flag>
+		<flag name='clang'>Use <pkg>sys-devel/clang</pkg> to compile</flag>
 		<flag name='ejdic'>Add English-Japanese dictionary</flag>
 		<flag name='emacs'>Enable support for <pkg>virtual/emacs</pkg></flag>
 		<flag name='fcitx'>Enable support for <pkg>app-i18n/fcitx</pkg></flag>
@@ -28,6 +28,9 @@
 			Without this flag, no configuration tools are available</flag>
 		<flag name='renderer'>Enable native candidate window</flag>
 		<flag name='test'>Enable src_test phase for runtests</flag>
+		<flag name='tomoe'>Use <pkg>app-i18n/zinnia-tomoe</pkg> instead of
+			<pkg>app-i18n/tegaki-zinnia-japanese</pkg> for handwriting
+			recognition</flag>
 		<flag name='uim'>Enable support for <pkg>app-i18n/uim</pkg></flag>
 	</use>
 </pkgmetadata>
