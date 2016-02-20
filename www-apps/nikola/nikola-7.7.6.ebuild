@@ -74,6 +74,19 @@ RDEPEND="${DEPEND}
 # https://github.com/getnikola/nikola/blob/v7.7.5/requirements-tests.txt
 RESTRICT="mirror test"
 
+src_prepare() {
+	# Fix typo: https://github.com/getnikola/nikola/commit/a304d8b
+	if grep -n -e '7\.5\.6' setup.py 1>/dev/null 2>&1 ; then
+		einfo "Fixing upstream's typos"
+		sed -i -e '/[Vv]ersion/s/7\.5\.6/7.7.6/g' **/*.{py,rst,txt} || die
+		gzip -d docs/man/nikola.1.gz || die
+		sed -i -e 's/Nikola v7\.5\.6/Nikola v7.7.6/g' docs/man/nikola.1 || die
+		gzip docs/man/nikola.1 || die
+	fi
+
+	eapply_user
+}
+
 src_install() {
 	distutils-r1_src_install
 
