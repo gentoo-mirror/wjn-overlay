@@ -8,7 +8,6 @@ EAPI=6
 # I'm waiting for their update.
 # PYTHON_COMPAT=( python{2_7,3_3,3_4,3_5} )
 PYTHON_COMPAT=( python{2_7,3_3,3_4} )
-# PYTHON_REQ_USE="gdbm"
 
 inherit distutils-r1 python-r1
 
@@ -19,26 +18,40 @@ if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/getnikola/${PN}.git"
 	SRC_URI=""
+	KEYWORDS=""
 else
+	# SRC_URI="mirror://pypi/N/${PN/n/N}/${P}.tar.gz"
 	SRC_URI="https://github.com/getnikola/${PN}/archive/v${PV}.zip
 		-> ${P}.zip"
+	KEYWORDS="~amd64"
+	DEPEND="${DEPEND}
+		app-arch/unzip"
 fi
 
 # Gutenberg: nikola/data/samplesite/stories/dr-nikolas-vendetta.rst
 LICENSE="Gutenberg MIT"
 SLOT="0"
-KEYWORDS=""
 IUSE="+assets bbcode charts -extras ghpages hyphenation ipython jinja +markdown micawber php typogrify websocket"
 REQUIRED_USE="extras? ( assets bbcode charts ghpages hyphenation ipython jinja markdown micawber php typogrify websocket )"
 
-# Upstream makes the constraint <=dev-python/doit-0.29.0,
+# Generally, >=dev-python/doit-0.29.0 depends on dev-python/cloudpickle
+# But in Gentoo system, without dev-python/doit[test], cloudpickle isn't pulled
+# Since nikola depends on doit with cloudpickle,
+# dev-python/cloudpickle should be added to ${RDEPEND}
+#
+# Upstream makes the constraint of <=dev-python/doit-0.29.0,
 # but it's for Python 2 compatibility.
 # Gentoo users can install Nikola based on Python 3.
 # https://github.com/getnikola/nikola/commit/07962cb7
-DEPEND=">=dev-python/docutils-0.12[${PYTHON_USEDEP}]"
-RDEPEND="${DEPEND}
+COMMON_DEPEND=">=dev-python/docutils-0.12[${PYTHON_USEDEP}]
+	>=dev-python/setuptools-5.4.1[${PYTHON_USEDEP}]"
+DEPEND="${COMMON_DEPEND}
+	${DEPEND}"
+RDEPEND="${COMMON_DEPEND}
 	>=dev-python/blinker-1.3[${PYTHON_USEDEP}]
-	>=dev-python/doit-0.28.0[${PYTHON_USEDEP}]
+	|| ( ( dev-python/cloudpickle[${PYTHON_USEDEP}]
+			>=dev-python/doit-0.29.0[${PYTHON_USEDEP}] )
+		=dev-python/doit-0.28*[${PYTHON_USEDEP}] )
 	>=dev-python/husl-4.0.2[${PYTHON_USEDEP}]
 	>=dev-python/logbook-0.7.0[${PYTHON_USEDEP}]
 	>=dev-python/lxml-3.3.5[${PYTHON_USEDEP}]
@@ -50,7 +63,6 @@ RDEPEND="${DEPEND}
 	>=dev-python/python-dateutil-2.4.0[${PYTHON_USEDEP}]
 	>=dev-python/pytz-2013d[${PYTHON_USEDEP}]
 	>=dev-python/requests-2.2.0[${PYTHON_USEDEP}]
-	>=dev-python/setuptools-5.4.1[${PYTHON_USEDEP}]
 	>=dev-python/unidecode-0.04.16[${PYTHON_USEDEP}]
 	~dev-python/watchdog-0.8.3[${PYTHON_USEDEP}]
 	>=dev-python/yapsy-1.11.223[${PYTHON_USEDEP}]
@@ -71,7 +83,7 @@ RDEPEND="${DEPEND}
 
 # mock, coverage, pytest, pytest-cov, freezegun, python-coveralls and colorama
 # are necessary for test.
-# https://github.com/getnikola/nikola/blob/v7.7.5/requirements-tests.txt
+# https://github.com/getnikola/nikola/blob/v7.7.6/requirements-tests.txt
 RESTRICT="mirror test"
 
 src_prepare() {
