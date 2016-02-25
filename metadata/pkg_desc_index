@@ -16,7 +16,7 @@ app-i18n/im-chooser 1.6.4: Desktop Input Method configuration tool
 app-i18n/libkkc 0.3.5 9999: Japanese Kana Kanji conversion library
 app-i18n/libkkc-data 0.2.7: Japanese Kana Kanji conversion dictionary for libkkc
 app-i18n/mozc 2.17.2243.102 2.17.2287.102 2.17.2313.102: Mozc - a Japanese Input Method Editor designed for multi-platform
-app-i18n/mozc-neologd-ut 2.17.2319.102.20160125.1 2.17.2320.102.20160212.0.1 2.17.2320.102.20160215.0.1 2.17.2320.102.20160218.0.1: Mozc Japanese Input Method with mecab-ipadic-NEologd
+app-i18n/mozc-neologd-ut 2.17.2319.102.20160125.1 2.17.2320.102.20160222.0.1: Mozc Japanese Input Method with mecab-ipadic-NEologd
 app-i18n/mozc-ut 2.17.2319.102.20160125: Mozc Japanese Input Method with Additional Japanese dictionary
 app-i18n/uim 9999: Simple, secure and flexible input method library
 app-misc/grc 1.9 9999: Generic Colouriser beautifies your logfiles or output of commands
