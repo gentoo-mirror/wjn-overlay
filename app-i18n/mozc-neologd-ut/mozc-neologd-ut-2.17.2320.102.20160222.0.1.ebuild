@@ -24,7 +24,7 @@ FCITX_PATCH_VER="2.17.2313.102.1"
 UIM_PATCH_REV="3ea28b1"
 
 DIC_REL="$(get_version_component_range 5)"
-NEOLOGD_REV="fb3bb00"
+NEOLOGD_REV="308d582"
 
 # Zip code data are revised on the last of every month
 ZIPCODE_REV="201601"
@@ -179,6 +179,10 @@ src_unpack() {
 src_prepare() {
 	# This function is declared at the last of this file
 	generate-mozc-neologd-ut
+
+	# Fix negative value costs
+	sed -i -e 's/\t-\([0-9]*\)/\t\1/g' \
+		"${S}/data/dictionary_oss/dictionary00.txt"
 
 	if use fcitx ; then
 		rm -rf unix/fcitx/
