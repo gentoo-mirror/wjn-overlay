@@ -24,19 +24,21 @@ FCITX_PATCH_VER="2.17.2313.102.1"
 UIM_PATCH_REV="3ea28b1"
 
 DIC_REL="$(get_version_component_range 5)"
-NEOLOGD_REV="3017021"
+NEOLOGD_REV="3731da5"
 
 # Zip code data are revised on the last of every month
-ZIPCODE_REV="201601"
+ZIPCODE_REV="201602"
 
 # In case of replacing NEologd's seed, assign ${UT_REL} as well as ${DIC_REL}
 # In such a case, ${PV} can be ${MOZC_VER}.${DIC_REL}.0.${UT_REV}
 # On the other case, ${PV} is ${MOZC_VER}.${DIC_REL}.${UT_REV}
 # Therefore, ${UT_REV} is the last number of ${PV}
-UT_REL="20160225"
+UT_UPD="20160301"
+UT_REL="20160229"
 UT_REV="$(get_version_component_range $(get_version_component_count))"
+GET_DIC="$(get_version_component_range 6)"
 # FYI: https://osdn.jp/users/utuhiro/pf/utuhiro/wiki/FrontPage
-UT_DIR="9/9974"
+UT_DIR="9/9984"
 #######################
 
 # Assign URI variables #########
@@ -46,7 +48,7 @@ UIM_PATCH_URI="https://github.com/e-kato/macuim.git"
 
 # mozcdic-neologd-ut*.tar.bz2 has same release date's mecab-user-dict-seed
 # Do not download if unneeded
-if [ ${DIC_REL} -eq ${UT_REL} ] ; then
+if [ ${GET_DIC} != 0 ] ; then
 	NEOLOGD_URI=""
 else
 	NEOLOGD_URI="https://raw.githubusercontent.com/neologd/mecab-ipadic-neologd/${NEOLOGD_REV}/seed/mecab-user-dict-seed.${DIC_REL}.csv.xz
@@ -150,7 +152,7 @@ NEOLOGD_DOCS=( "${NEOLOGD_S}/COPYING" "${NEOLOGD_S}/ChangeLog"
 src_unpack() {
 	unpack ${A}
 
-	if [ ${DIC_REL} -eq ${UT_REL} ] ; then
+	if [ ${GET_DIC} != 0 ] ; then
 		einfo "Unpacking mecab-user-dict-seed.${UT_REL}.csv.xz"
 		(
 			cp -R "${UT_S}/mecab-ipadic-neologd" "${WORKDIR}/"
@@ -387,7 +389,7 @@ generate-mozc-neologd-ut() {
 		# Add NEologd UT information to Mozc's about_dialog
 		# e.g. when you execute "/usr/lib/mozc/mozc_tool -mode about_dialog"
 		sed -i -e \
-			"s%NErUTr% / NEologd release date: ${DIC_REL}\&lt;br\&gt;UT release date: ${UT_REL}, revision: ${UT_REV}%g" \
+			"s%NErUTr% / NEologd release date: ${DIC_REL}\&lt;br\&gt;UT release date: ${UT_UPD}, revision: ${UT_REV}%g" \
 			"${S}/gui/about_dialog/about_dialog.ui" \
 			"${S}/gui/about_dialog/about_dialog_en.ts" \
 			"${S}/gui/about_dialog/about_dialog_ja.ts" \
