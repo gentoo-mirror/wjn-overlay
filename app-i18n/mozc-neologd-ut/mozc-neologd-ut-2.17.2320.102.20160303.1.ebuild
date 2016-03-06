@@ -4,7 +4,7 @@
 
 EAPI=6
 
-# Mozc doesn't support Python 3 yet.
+# Mozc doesn't support Python 3 yet
 PYTHON_COMPAT=( python2_7 )
 
 inherit elisp-common git-r3 python-single-r1 python-utils-r1 toolchain-funcs \
@@ -24,7 +24,7 @@ FCITX_PATCH_VER="2.17.2313.102.1"
 UIM_PATCH_REV="3ea28b1"
 
 DIC_REL="$(get_version_component_range 5)"
-NEOLOGD_REV="3731da5"
+NEOLOGD_REV="7152ff2"
 
 # Zip code data are revised on the last of every month
 ZIPCODE_REV="201602"
@@ -33,12 +33,12 @@ ZIPCODE_REV="201602"
 # In such a case, ${PV} can be ${MOZC_VER}.${DIC_REL}.0.${UT_REV}
 # On the other case, ${PV} is ${MOZC_VER}.${DIC_REL}.${UT_REV}
 # Therefore, ${UT_REV} is the last number of ${PV}
-UT_UPD="20160301"
-UT_REL="20160229"
+UT_UPD="20160304"
+UT_REL="20160303"
 UT_REV="$(get_version_component_range $(get_version_component_count))"
 GET_DIC="$(get_version_component_range 6)"
 # FYI: https://osdn.jp/users/utuhiro/pf/utuhiro/wiki/FrontPage
-UT_DIR="9/9984"
+UT_DIR="9/9995"
 #######################
 
 # Assign URI variables #########
@@ -94,7 +94,7 @@ EGIT_COMMIT=${MOZC_REV}
 # - Zipcode: public-domain http://www.post.japanpost.jp/zipcode/dl/readme.html
 # - Station names: public-domain
 #   http://www5a.biglobe.ne.jp/~harako/data/station.htm
-# - biographical dictionary: derived from Mozc (ipadic and public-domain)
+# - person name dictionary: derived from Mozc (ipadic and public-domain)
 # - Mozc Fcitx: BSD
 # - MacUIM: BSD
 LICENSE="Apache-2.0 BSD BSD-2 free-noncomm ipadic public-domain unicode"
@@ -389,7 +389,7 @@ generate-mozc-neologd-ut() {
 		# Add NEologd UT information to Mozc's about_dialog
 		# e.g. when you execute "/usr/lib/mozc/mozc_tool -mode about_dialog"
 		sed -i -e \
-			"s%NErUTr% / NEologd release date: ${DIC_REL}\&lt;br\&gt;UT release date: ${UT_UPD}, revision: ${UT_REV}%g" \
+			"s%NErUTr% / NEologd released: ${DIC_REL}\&lt;br\&gt;UT updated: ${UT_UPD}, revision: ${UT_REV}%g" \
 			"${S}/gui/about_dialog/about_dialog.ui" \
 			"${S}/gui/about_dialog/about_dialog_en.ts" \
 			"${S}/gui/about_dialog/about_dialog_ja.ts" \
@@ -406,30 +406,22 @@ generate-mozc-neologd-ut() {
 
 	ebegin "Getting mozcdic costlist"
 	cat "${S}"/data/dictionary_oss/dictionary*.txt > mozcdic.txt
-	ruby 01-* mozcdic.txt || die "Failed to get mozcdic costlist"
+	ruby 01-get-mozc-cost.rb mozcdic.txt \
+		|| die "Failed to get mozcdic costlist"
 	eend
 
 	einfo "Copying hinshi ID"
 	cp "${S}/data/dictionary_oss/id.def" id.def \
 		|| die "Failed to copy hinshi ID"
 
-	ebegin "Generating neologd.txt"
+	ebegin "Filtering neologd entries"
 	cp "${NEOLOGD_S}/mecab-user-dict-seed.${DIC_REL}.csv" ./
-	ruby 03-* "mecab-user-dict-seed.${DIC_REL}.csv" \
-		|| die "Failed to generate neologd.txt"
+	ruby 03-get-neologd-entries.rb "mecab-user-dict-seed.${DIC_REL}.csv" \
+		|| die "Failed to filter neologd entries"
 	eend
 
-	ebegin "Generating mozcdic-neologd-ut.txt"
-	ruby 05-* || die "Failed to generate mozcdic-neologd-ut.txt"
-	ruby 07-* mozcdic-neologd-ut.txt
-	mv mozcdic-neologd-ut.txt.jinmei mozcdic-neologd-ut.txt
-	eend
-
-	einfo "Copying dictionary files"
-	cat mozcdic-neologd-ut.txt "${S}/data/dictionary_oss/dictionary00.txt" \
-		> dictionary00.txt
-	mv dictionary00.txt "${S}/data/dictionary_oss/dictionary00.txt" \
-		|| die "Failed to copy dictionary files"
+	# Move directories for generating place name dictionaries
+	cd "${UT_S}/chimei"
 
 	ebegin "Generating zip code dictionary"
 	cp "${S}/dictionary/gen_zip_code_seed.py" ./
@@ -440,6 +432,35 @@ generate-mozc-neologd-ut() {
 		>> "${S}/data/dictionary_oss/dictionary09.txt" \
 		|| die "Failed to generate zip code dictionary"
 	eend
+
+	ebegin "Generating place name dictionary"
+	ruby get-chimei-entries.rb KEN_ALL.CSV.r \
+		|| die "Failed to generate place name dictionary"
+	ruby apply-cost-and-id.rb chimei.txt \
+		|| die "Failed to generate place name dictionary"
+
+	cat ../neologd.txt chimei.txt.r > ../neologd.txt.new
+	mv ../neologd.txt.new ../neologd.txt
+	eend
+
+	# Move back to the dictionary before
+	cd "${UT_S}"
+
+	ebegin "Diffing mozcdic neologddic"
+	ruby 05-get-diff-entries.rb \
+		|| die "Failed to diff mozcdic neologddic"
+	eend
+
+	ebegin "Modifyng person name entries"
+	ruby 07-fix-jinmei.rb mozcdic-neologd-ut.txt \
+		|| die "Failed to modify person name entries"
+	mv mozcdic-neologd-ut.txt.jinmei mozcdic-neologd-ut.txt
+	eend
+
+	einfo "Copying mozcdic-neologd-ut"
+	cat mozcdic-neologd-ut.txt "${S}/data/dictionary_oss/dictionary00.txt" \
+		> dictionary00.txt
+	mv dictionary00.txt "${S}/data/dictionary_oss/dictionary00.txt"
 
 	# Go back to the default directory ##
 	cd "${S}"
