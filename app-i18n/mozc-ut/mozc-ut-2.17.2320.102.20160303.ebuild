@@ -18,15 +18,15 @@ HOMEPAGE="http://www.geocities.jp/ep3797/mozc_01.html
 
 # Assign version variables #####
 MOZC_VER="$(get_version_component_range 1-4)"
-MOZC_REV="070bf2a"
+MOZC_REV="5711076"
 FCITX_PATCH_VER="2.17.2313.102.1"
 UIM_PATCH_REV="3ea28b1"
 
 # Zip code data are revised on the last of every month
-ZIPCODE_REV="201601"
+ZIPCODE_REV="201602"
 
 UT_REL=$(get_version_component_range $(get_version_component_count))
-UT_DIR="9/9843"
+UT_DIR="9/9993"
 #######################
 
 # Assign URI variables #########
@@ -65,7 +65,7 @@ EGIT_COMMIT=${MOZC_REV}
 #   + GTEST: BSD
 #   + IPAfont is in repo, but not used
 # - alt-cannadic: GPL-2+
-# - biographical dictionary: GPL-3+
+# - person name dictionary: GPL-3+
 # - SKK-JISYO.L: GPL-2+
 # - Hatena: free-noncomm
 #   http://developer.hatena.ne.jp/ja/documents/keyword/misc/catalog
@@ -398,8 +398,9 @@ generate-mozc-ut() {
 	cd "${UT_S}"
 
 	ebegin "Getting mozcdic costlist"
-	cat "${S}"/data/dictionary_oss/dictionary*.txt > mozcdic_all.txt
-	ruby 01-* mozcdic_all.txt || die "Failed to get mozcdic costlist"
+	cat "${S}"/data/dictionary_oss/dictionary*.txt > mozcdic.txt
+	ruby 01-get-mozc-cost.rb mozcdic.txt \
+		|| die "Failed to get mozcdic costlist"
 	eend
 
 	einfo "Copying hinshi ID"
@@ -411,81 +412,88 @@ generate-mozc-ut() {
 		cd chimei/
 		cp "${WORKDIR}"/*.CSV ./
 		cp "${S}/dictionary/gen_zip_code_seed.py" ./
-		ruby modify-zipcode.rb KEN_ALL.CSV || die
+		ruby modify-zipcode.rb KEN_ALL.CSV \
+			|| die "Failed to generate zip code dictionary"
 		"${PYTHON}" gen_zip_code_seed.py --zip_code=KEN_ALL.CSV.r \
 			--jigyosyo=JIGYOSYO.CSV \
 			>> "${S}/data/dictionary_oss/dictionary09.txt" \
 				|| die "Failed to generate zip code dictionary"
 		eend
 
-		ebegin "Generating chimei.txt"
-		ruby get-entries.rb KEN_ALL.CSV.r \
+		ebegin "Generating place name dictionary"
+		ruby get-chimei-entries.rb KEN_ALL.CSV.r \
 			|| die "Failed to generate chimei.txt"
 		eend
 	)
 
-	ebegin "Checking major ut dictionaries"
-	# ruby 03-* dicfile min_hits || die
-	ruby 03-* altcanna/altcanna.txt 300 || die "Failed to tune altcanna.txt"
-	ruby 03-* jinmei/jinmei.txt 20 || die "Failed to tune jinmei.txt"
-	ruby 03-* ekimei/ekimei.txt 0 || die "Failed to tune ekimei.txt"
-	ruby 03-* chimei/chimei.txt 0 || die "Failed to tune chimei.txt"
-	cat altcanna/altcanna.txt.r jinmei/jinmei.txt.r ekimei/ekimei.txt.r \
-		chimei/chimei.txt.r > ut-dic1.txt
-	if use ejdic ; then
-		ruby 03-* wordnet-ejdic/wordnet-ejdic.txt 0 \
-			|| die  "Failed to tune wordnet-ejdic.txt"
-		cat wordnet-ejdic/wordnet-ejdic.txt.r ut-dic1.txt > ut-dic1.txt.new
-		mv ut-dic1.txt.new ut-dic1.txt
-	fi
-	ruby 05-* mozcdic_all.txt ut-dic1.txt || die "Failed to remove duplicates"
-	ruby 11-* ut-dic1.txt.yomihyouki || die "Failed to apply cost and hinshi"
-	cat ut-dic1.txt.yomihyouki.cost mozcdic_all.txt > mozcdic_all.txt.utmajor
-	eend
+	einfo "Generating mozcdic-ut entries"
+	cat altcanna/altcanna.txt edict/edict.txt hatena/hatena.txt \
+		jinmei/jinmei.txt skk/skk.txt > utdic.txt \
+			|| die "Failed to generate mozcdic-ut entries"
 
-	ebegin "Checking minor ut dictionaries"
-	ruby 03-* skk/skk.txt 300 || die "Failed to tune skk.txt"
-	ruby 03-* edict/edict.txt 300 || die "Failed to tune edict.txt"
-	ruby 03-* hatena/hatena.txt 300 || die "Failed to tune hatena.txt"
-	cat skk/skk.txt.r edict/edict.txt.r hatena/hatena.txt.r > ut-dic2.txt
 	if use nicodic ; then
-		ruby 03-* niconico/niconico.txt 300 \
-			|| die "Failed to tune niconico.txt"
-		cat niconico/niconico.txt.r ut-dic2.txt > ut-dic2.txt.new
-		mv ut-dic2.txt.new ut-dic2.txt
+		cat utdic.txt niconico/niconico.txt > utdic.txt.new \
+			|| die "Failed to generate mozcdic-ut entries"
+		mv utdic.txt.new utdic.txt
 	fi
-	ruby 07-* mozcdic_all.txt.utmajor ut-dic2.txt \
-		|| die "Failed to remove duplicates of yomi"
-	ruby 09-* mozcdic_all.txt.utmajor ut-dic2.txt.yomi \
-		|| die "Failed to remove duplicates of hyouki"
-	ruby 11-* ut-dic2.txt.yomi.hyouki \
-		|| die "Failed to apply cost and hinshi"
+
+	ebegin "Removing rare words"
+	ruby 03-remove-rare-long-words.rb utdic.txt \
+		|| die "Failed to remove rare words"
+	mv utdic.txt.r utdic.txt
 	eend
 
-	(
-		ebegin "Generating katakana-eigo entries"
-		cd edict-katakanago
-		cp "${WORKDIR}/monash-nihongo-edict" ./edict
-		ruby 01-* edict || die "Failed to convert edict to UTF-8"
-		ruby 02-* edict.utf8 || die " Failed to generate entries"
-		ruby remove-duplicates-mozc-format.rb edict.utf8.kata \
-			|| die "Failed to remove duplicates"
-		cat ../mozcdic_all.txt ../*.cost ./edict.utf8.kata.r > ./edict.kata
-		ruby 03-* edict.kata || die "Failed to apply cost"
-		eend
+	ebegin "Removing duplicates"
+	ruby remove-duplicates-cannaformat.rb utdic.txt \
+		|| die "Failed to remove duplicates"
+	mv utdic.txt.removed utdic.txt
+	eend
+
+	ebegin "Filtering entries"
+	ruby filter-entries.rb utdic.txt || die "Failed to filter entries"
+	mv utdic.txt.r utdic.txt
+	eend
+
+	ebegin "Generating katakana-english entries"
+	( cd edict-katakana-english/
+		cp "${WORKDIR}/monash-nihongo-edict" edict
+		ruby 02-generate-katakana-english-entries.rb edict \
+			|| die "Failed to generate katakana-english entries"
 	)
+	cat utdic.txt chimei/chimei.txt edict-katakana-english/edict.je \
+		ekimei/ekimei.txt > utdic.txt.new
+	mv utdic.txt.new utdic.txt
+	eend
+
+	ebegin "Diffing mozcdic utdic"
+	ruby 05-get-diff-entries.rb utdic.txt \
+		|| die "Failed to diff mozcdic utdic"
+	eend
+
+	if use ejdic ; then
+		einfo "Adding ejdic"
+		cat wordnet-ejdic/wordnet-ejdic.txt utdic.txt.diff \
+			> utdic.txt.diff.new || die "Failed to add ejdic"
+		mv utdic.txt.diff.new utdic.txt.diff
+	fi
+
+	ebegin "Applying cost and id"
+	ruby 10-apply-cost-and-id.rb utdic.txt.diff \
+		|| die "Failed to apply cost and id"
+	eend
 
 	ebegin "Generating babibubebo from vavivuvevo"
-	cat *.cost mozcdic_all.txt edict-katakanago/edict.kata.cost \
-		> ut-check-va.txt
-	ruby 60-* ut-check-va.txt || die 'Failed to generate "babibubebo" entries'
+	cat mozcdic.txt utdic.txt.diff.cost > utdic-check-va.txt
+	ruby 20-generate-ba-entries.rb utdic-check-va.txt \
+		|| die 'Failed to generate "babibubebo" entries'
+	cat utdic.txt.diff.cost utdic-check-va.txt.to_ba > mozcdic-ut.txt
 	eend
 
-	einfo "Installing mozcdic-ut"
-	cat *.cost edict-katakanago/edict.kata.cost *.to_ba > mozcdic-ut.txt
+	einfo "Copying mozcdic-ut to official Mozc source"
 	cat mozcdic-ut.txt \
-		"${S}/data/dictionary_oss/dictionary00.txt" > dictionary00.txt
-	mv dictionary00.txt "${S}/data/dictionary_oss/"
+		"${S}/data/dictionary_oss/dictionary00.txt" > dictionary00.txt \
+		 || die "Failed to copy mozcdic-ut to official Mozc source"
+	mv dictionary00.txt "${S}/data/dictionary_oss/dictionary00.txt"
 
 	# Go back to the default directory ##
 	cd "${S}"
