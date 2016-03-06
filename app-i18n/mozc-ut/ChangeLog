@@ -2,6 +2,12 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*mozc-ut-2.17.2320.102.20160303 (06 Mar 2016)
+
+  06 Mar 2016; wjn <wjn@aol.jp> -mozc-ut-2.17.2319.102.20160125.ebuild,
+  +mozc-ut-2.17.2320.102.20160303.ebuild:
+  Add version 2.17.2320.102.20160303, delete old
+
   19 Feb 2016; wjn <wjn@aol.jp> metadata.xml:
   app-i18n/mozc*/metadata.xml: Add a description for USE="tomoe"
 
