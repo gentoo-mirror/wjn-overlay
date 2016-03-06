@@ -1,7 +1,7 @@
 wjn-overlay packages list
 ========
 
-- This list is updated on 2016-02-19 16:14 UTC
+- This list is updated on 2016-03-06 23:01 UTC
 
 | Package Name | Description | Upstream Website | This Overlay Only | Note |
 | ---- | ---- | ---- | ---- | ---- |
@@ -129,7 +129,6 @@ wjn-overlay packages list
 | www-apps/nikola | A static website and blog generator | <https://getnikola.com/> | - | newer ver. |
 | www-plugins/freshplayerplugin | PPAPI-host NPAPI-plugin adapter for flashplayer in npapi based browsers | <https://github.com/i-rinat/freshplayerplugin> | - | dev ver. |
 | www-plugins/gnash | GNU Flash movie player that supports many SWF v7,8,9 features | <http://www.gnu.org/software/gnash/> | - | newer patched |
-| x11-drivers/xf86-video-intel | X.Org driver for Intel cards | <http://xorg.freedesktop.org/> | - | enables DRI3. **DRI3 is still EXPERIMENTAL**, doesn't work with UXA. To use DRI3, disable DRI2 and UXA |
 | x11-libs/gdk-pixbuf-psd | A GdkPixbuf loader for Adobe Photoshop images | <http://cgit.sukimashita.com/gdk-pixbuf-psd.git/> | o | **UPSTEAM seems to be UNMAINTAINED**  |
 | x11-libs/gdk-pixbuf-xcf | A gdk-pixbuf loader for xcf (The Gimp) files | <https://gitorious.org/xcf-pixbuf-loader/> | o | **UPSTREAM is NOT ALIVE** |
 | x11-libs/libvdpau-va-gl | VDPAU driver with OpenGL/VAAPI backend | <https://github.com/i-rinat/libvdpau-va-gl> | o | |
