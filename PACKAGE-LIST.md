@@ -123,7 +123,6 @@ wjn-overlay packages list
 | media-sound/audacious | A lightweight and versatile audio player | <http://audacious-media-player.org/> | - | newer and dev ver. |
 | media-sound/jack-audio-connection-kit | Jackdmp jack implemention for multi-processor machine | <http://jackaudio.org/> | - | This is a temporary pkg for [JACK2](https://github.com/jackaudio/jackaudio.github.com/wiki/Q_difference_jack1_jack2). It's compatible with JACK1. But gentoo repo names it as media-sound/jack2. Therefore, depender pkgs should depend on virtual/jack, but not fully updated |
 | media-sound/yoshimi | A software synthesizer based on ZynAddSubFX | <http://yoshimi.sourceforge.net/> | - | fix to build |
-| media-video/libav | Complete solution to record, convert and stream audio and video | <https://libav.org/> | - | newer ver. |
 | sci-calculators/galculator | GTK+ based algebraic and RPN calculator | <http://galculator.mnim.org/> | - | USE="gtk2" |
 | sys-libs/libunwind | Portable and efficient API to determine the call-chain of a program | <http://savannah.nongnu.org/projects/libunwind> | - | fix build process |
 | www-apps/nikola | A static website and blog generator | <https://getnikola.com/> | - | newer ver. |
