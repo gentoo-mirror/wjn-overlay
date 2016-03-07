@@ -7,8 +7,9 @@ IUSE=+lv2
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
 RDEPEND=>=dev-libs/mini-xml-2.5 >=media-libs/alsa-lib-1.0.17 media-libs/fontconfig media-libs/libsndfile sci-libs/fftw:3.0 sys-libs/ncurses:0= sys-libs/zlib virtual/jack x11-libs/cairo[X] x11-libs/fltk:1[opengl] lv2? ( media-libs/lv2 )
+RESTRICT=mirror
 SLOT=0
-SRC_URI=mirror://sourceforge/yoshimi/yoshimi-1.3.8.2.tar.bz2
+SRC_URI=mirror://sourceforge/yoshimi/yoshimi-1.3.9.tar.bz2
 _eclass_exported_funcs=src_prepare:- src_configure:- src_compile:cmake-utils src_test:cmake-utils src_install:cmake-utils
 _eclasses_=cmake-utils	fa44804882ff16943e9f71b544f56bc9	eutils	9d81603248f2ba3ec59124320d123e5e	flag-o-matic	d270fa247153df66074f795fa42dba3e	multilib	3972ca401cf7dbb430df9995f5d8d580	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
-_md5_=e3ba42277d64c0d77dfe5ea5c1a32b3e
+_md5_=0d0287270f96c75510f98b0e64603184
