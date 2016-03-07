@@ -178,33 +178,6 @@ media-sound/jack-audio-connection-kit:celt - Support CELT low delay audio codec 
 media-sound/jack-audio-connection-kit:opus - Support media-libs/opus
 media-sound/jack-audio-connection-kit:pam - Add basic realime configuration via sys-auth/realtime-base
 media-sound/yoshimi:lv2 - Add support for Ladspa V2
-media-video/libav:aac - Use external vo-aacenc library for AAC encoding
-media-video/libav:amr - Enable Adaptive Multi-Rate Audio support
-media-video/libav:armv5te - Enable optimizations for armv5te processors
-media-video/libav:armv6 - Enable optimizations for armv6 processors
-media-video/libav:armv6t2 - Enable optimizations for armv6t2 processors
-media-video/libav:armvfp - Enable VFP optimizations for ARM processors
-media-video/libav:bs2b - Enable media-libs/libbs2b based Bauer stereo-to-binaural audio filter
-media-video/libav:cdio - Enable audio CD grabbing with dev-libs/libcdio
-media-video/libav:cpudetection - Enables runtime CPU detection (useful for bindist, compatibility on other CPUs)
-media-video/libav:faac - Use external faac library for AAC encoding
-media-video/libav:fdk - Use external fdk-aac library for AAC encoding and decoding
-media-video/libav:frei0r - Enable frei0r wrapping in libavfilter
-media-video/libav:gpl - Build all GPL licensed code. Without this flag set the package is build under LGPL license
-media-video/libav:hardcoded-tables - Use pre-calculated tables rather than calculating them on the fly
-media-video/libav:network - Enable network streaming support
-media-video/libav:openssl - Prefer dev-libs/openssl over net-libs/gnutls to provide SSL/TLS support (notice: the resulting binaries are unredistributable)
-media-video/libav:opus - Use the external opus library for encoding and decoding
-media-video/libav:pic - Force shared libraries to be built as PIC (this is slower)
-media-video/libav:pulseaudio - Enable pulseaudio input support
-media-video/libav:rtmp - Enable Real Time Messaging Protocol using librtmp instead the native implementation
-media-video/libav:schroedinger - Enable Dirac video support (an advanced royalty-free video compression format) via libschroedinger (high-speed implementation in C of the Dirac codec)
-media-video/libav:ssl - Enable SSL/TLS support using dev-libs/openssl or dev-libs/gnutls
-media-video/libav:tools - Build and install small tools like aviocat, cws2fws, graph2dot, ismindex, qt-faststart
-media-video/libav:twolame - Enable MP2 encoding via media-sound/twolame as an alternative to the internal encoder
-media-video/libav:vpx - Enable vp8 encoding support using media-libs/libvpx
-media-video/libav:webp - Enable WebP encoding with media-libs/libwebp
-media-video/libav:x265 - Enable HEVC encoding with media-libs/x265
 sci-calculators/galculator:gtk3 - Build for gtk+:3 instead of gtk+:2
 sys-libs/libunwind:debug-frame - Adds support for DWARF .debug_frame section: Use the information from this section if available
 sys-libs/libunwind:libatomic - Use libatomic instead of builtin atomic operations
