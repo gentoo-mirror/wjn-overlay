@@ -34,7 +34,7 @@ COMMON_DEPEND="dev-libs/glib:2=
 	x11-libs/libXrender:=
 	x11-libs/libdrm:=
 	x11-libs/pango:=[X]
-	jack? ( media-sound/jack-audio-connection-kit )
+	jack? ( virtual/jack )
 	pulseaudio? ( media-sound/pulseaudio )
 	!gtk3? ( x11-libs/gtk+:2= )
 	gtk3? ( x11-libs/gtk+:3= )
