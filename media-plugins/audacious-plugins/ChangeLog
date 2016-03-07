@@ -2,6 +2,10 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  07 Mar 2016; wjn <wjn@aol.jp> audacious-plugins-3.7.1.ebuild,
+  audacious-plugins-9999.ebuild:
+  audacious-plugins,freshplayerplugin: Change to virtual/jack
+
   19 Feb 2016; wjn <wjn@aol.jp> audacious-plugins-3.7.1.ebuild, metadata.xml:
   Correct for quality assurance
 
