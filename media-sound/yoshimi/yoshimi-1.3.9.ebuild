@@ -2,8 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
-inherit eutils cmake-utils flag-o-matic multilib
+EAPI=6
+
+inherit cmake-utils flag-o-matic
 
 DESCRIPTION="A software synthesizer based on ZynAddSubFX"
 HOMEPAGE="http://yoshimi.sourceforge.net/"
@@ -19,10 +20,11 @@ RDEPEND="
 	>=media-libs/alsa-lib-1.0.17
 	media-libs/fontconfig
 	media-libs/libsndfile
-	>=media-sound/jack-audio-connection-kit-0.115.6
 	sci-libs/fftw:3.0
+	sys-libs/ncurses:0=
 	sys-libs/zlib
-	x11-libs/cairo
+	virtual/jack
+	x11-libs/cairo[X]
 	x11-libs/fltk:1[opengl]
 	lv2? ( media-libs/lv2 )
 "
@@ -31,23 +33,25 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig
 "
 
-S=${WORKDIR}/${P}/src
+RESTRICT="mirror"
 
-DOCS="../Changelog"
+PATCHES=( "${FILESDIR}/${PN}-1.3.8.2-underlinking.patch" )
+
+CMAKE_USE_DIR="${WORKDIR}/${P}/src"
 
 src_prepare() {
+	mv Change{l,L}og || die
 	sed -i \
 		-e '/set (CMAKE_CXX_FLAGS_RELEASE/d' \
 		-e "s:lib/lv2:$(get_libdir)/lv2:" \
-		CMakeLists.txt || die
-
-	EPATCH_OPTS="-d .." epatch "${FILESDIR}"/${PN}-1.1.0-desktop-version.patch
+		src/CMakeLists.txt || die
+	cmake-utils_src_prepare
 }
 
 src_configure() {
 	append-ldflags -pthread
 	local mycmakeargs=(
-		-DBuildLV2Plugin=$(usex lv2 ON OFF)
+		-DBuildLV2Plugin=$(usex lv2)
 	)
 	cmake-utils_src_configure
 }

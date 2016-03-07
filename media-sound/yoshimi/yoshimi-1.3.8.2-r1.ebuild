@@ -20,10 +20,10 @@ RDEPEND="
 	>=media-libs/alsa-lib-1.0.17
 	media-libs/fontconfig
 	media-libs/libsndfile
-	>=media-sound/jack-audio-connection-kit-0.115.6
 	sci-libs/fftw:3.0
 	sys-libs/ncurses:0=
 	sys-libs/zlib
+	virtual/jack
 	x11-libs/cairo[X]
 	x11-libs/fltk:1[opengl]
 	lv2? ( media-libs/lv2 )
