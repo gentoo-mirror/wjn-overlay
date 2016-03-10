@@ -51,8 +51,7 @@ DEPEND="${COMMON_DEPEND}
 	sys-apps/sed:0
 	sys-devel/gettext:0
 	virtual/pkgconfig:0
-	doc? ( >=dev-util/gtk-doc-1.4:0 )
-	!!mate-base/mate-file-manager:*"
+	doc? ( >=dev-util/gtk-doc-1.4:0 )"
 RDEPEND="${COMMON_DEPEND}"
 PDEPEND="dropbox? ( ~mate-extra/caja-dropbox-9999:0 )
 	extensions? ( ~mate-extra/caja-extensions-9999:0[gtk3?] )

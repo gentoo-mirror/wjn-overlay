@@ -40,11 +40,7 @@ DEPEND="${COMMON_DEPEND}
 	>=dev-util/intltool-0.18:0
 	~mate-base/mate-common-9999:0
 	sys-devel/gettext:0
-	virtual/pkgconfig:0
-	!!mate-extra/mate-file-manager-open-terminal:*
-	!!mate-extra/mate-file-manager-sendto:*
-	!!mate-extra/mate-file-manager-image-converter:*
-	!!mate-extra/mate-file-manager-share:*"
+	virtual/pkgconfig:0"
 RDEPEND="${COMMON_DEPEND}
 	gksu? ( x11-libs/gksu:0 )
 	image-converter? ( || ( media-gfx/imagemagick

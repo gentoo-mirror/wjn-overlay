@@ -3,6 +3,9 @@
 # (auto-generated from git log)
 
   10 Mar 2016; wjn <wjn@aol.jp> caja-extensions-9999.ebuild:
+  MATE desktop environment: Remove obsolete package blockers
+
+  10 Mar 2016; wjn <wjn@aol.jp> caja-extensions-9999.ebuild:
   Fix to add imagemagick to RDEPEND
 
   19 Feb 2016; wjn <wjn@aol.jp> metadata.xml:

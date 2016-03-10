@@ -44,8 +44,7 @@ COMMON_DEPEND="dev-libs/atk:0
 		>=x11-libs/gtk+-2.24.0:2 )
 	gtk3? ( media-libs/libcanberra:0[gtk3]
 		>=x11-libs/gtk+-3.0.0:3 )
-	xinerama? ( x11-libs/libXinerama:0 )
-	!!x11-wm/mate-window-manager:*"
+	xinerama? ( x11-libs/libXinerama:0 )"
 DEPEND="${COMMON_DEPEND}
 	app-text/yelp-tools:0
 	>=dev-util/intltool-0.34.90:0

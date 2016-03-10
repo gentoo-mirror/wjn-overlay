@@ -47,8 +47,7 @@ COMMON_DEPEND="app-text/rarian:0
 		>=dev-python/pygtk-2.12:2[${PYTHON_USEDEP}]
 		>=dev-python/pygtksourceview-2.9.2:2 )
 	spell? ( >=app-text/enchant-1.2:0
-		>=app-text/iso-codes-0.35:0 )
-	!!app-editors/mate-text-editor:*"
+		>=app-text/iso-codes-0.35:0 )"
 DEPEND="${COMMON_DEPEND}
 	app-text/docbook-xml-dtd:4.1.2
 	>=app-text/scrollkeeper-dtd-1:1.0
