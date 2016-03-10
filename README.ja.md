@@ -5,7 +5,7 @@ Gentoo GNU/Linux 向けの overlay です
 
 追加や最新の情報は、 [Wiki](https://bitbucket.org/wjn/wjn-overlay/wiki/) に書いています
 
-- 本ファイル更新: 2016-01-28
+- 本ファイル更新: 2016-03-10 01:20 UTC
 
 ----
 
@@ -18,10 +18,10 @@ Gentoo GNU/Linux 向けの overlay です
 ### 文字変換
     
 - [Mozc](https://code.google.com/p/mozc/)  
-    (**[uim](https://code.google.com/p/uim/)対応**。公式同様に Clang コンパイル可)  
+    (**[uim](https://code.google.com/p/uim/)対応**。Mozc 公式同様に Clang コンパイル可)  
     
 - [Mozc UT Dictionary](http://www.geocities.jp/ep3797/mozc_01.html)  
-    (追加辞書付 Mozc。**uim 対応**。公式同様に Clang コンパイル可)  
+    (追加辞書付 Mozc。**uim 対応**。Mozc 公式同様に Clang コンパイル可)  
     <small>※はてなキーワード辞書およびニコニコ大百科(nicodic)辞書機能は、ライセンス不明です  
     　とりわけニコニコ大百科は収載単語が独特で著作性が高く、
     また運営企業は２ちゃんねるで有名な未来検索ブラジルですので、
@@ -29,7 +29,7 @@ Gentoo GNU/Linux 向けの overlay です
     デフォルトのUSEフラグも無効にしてあります</small>  
 
 - [Mozc NEologd UT Dictionary](http://www.geocities.jp/ep3797/mozc_01.html)  
-    ([mecab-ipa-NEologd](https://github.com/neologd/mecab-ipadic-neologd) 由来の追加辞書付 Mozc。**uim 対応**。公式同様に Clang コンパイル可)
+    ([mecab-ipa-NEologd](https://github.com/neologd/mecab-ipadic-neologd) 由来の追加辞書付 Mozc。**uim 対応**。Mozc 公式同様に Clang コンパイル可)
 
 - [uim](http://code.google.com/p/uim/)  
     (dev 版、 Qt5 対応)
@@ -197,7 +197,26 @@ MogaMicho は IPA と大差がない
 ----
 ### ライセンス
 
-GPL v2
+GPLv2
+
+```
+wjn-overlay
+Copyright (C) 2014-2016  wjn
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+```
 
 ----
 ### 免責条項

@@ -7,7 +7,7 @@ wjn's user overlay for Gentoo GNU/Linux.
 There is Wiki documents at <https://bitbucket.org/wjn/wjn-overlay/wiki/>  
 It contains more guidances and information
 
-- This file is updated on 2016-01-28
+- This file is updated on 2016-03-10 01:20 UTC
 
 ## contents
 
@@ -51,7 +51,7 @@ but in short, below is some examples
 - [gdk-pixbuf-psd](http://cgit.sukimashita.com/gdk-pixbuf-psd.git/)  
     (gdk-pixbuf loader for PSD files)
 
-- [gdk-pixbuf-xcf (io-xcf)](https://gitorious.org/xcf-pixbuf-loader)  
+- gdk-pixbuf-xcf (io-xcf)  
     (gdk-pixbuf loader for XCF files)
     
 - [libvdpau-va-gl](https://github.com/i-rinat/libvdpau-va-gl)  
@@ -96,11 +96,30 @@ and many JA fonts
 
 ## License
 
-GPL v2
+GPLv2
+
+```
+wjn-overlay
+Copyright (C) 2014-2016  wjn
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+```
 
 ## Disclaimer
 
-This repository has completely **NO WARRANTY**.
+This repository has absolutely **NO WARRANTY**.
 DO NOT USE this if you don't know what means to use "overlay" (additional repository)
 
 ----
