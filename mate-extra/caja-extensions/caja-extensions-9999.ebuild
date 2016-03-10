@@ -46,7 +46,10 @@ DEPEND="${COMMON_DEPEND}
 	!!mate-extra/mate-file-manager-image-converter:*
 	!!mate-extra/mate-file-manager-share:*"
 RDEPEND="${COMMON_DEPEND}
-	gksu? ( x11-libs/gksu:0 )"
+	gksu? ( x11-libs/gksu:0 )
+	image-converter? ( || ( media-gfx/imagemagick
+	media-gfx/graphicsmagick[imagemagick] ) )
+"
 
 DOCS=( AUTHORS NEWS README )
 
