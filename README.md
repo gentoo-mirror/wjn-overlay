@@ -7,7 +7,7 @@ wjn's user overlay for Gentoo GNU/Linux.
 There is Wiki documents at <https://bitbucket.org/wjn/wjn-overlay/wiki/>  
 It contains more guidances and information
 
-- This file is updated on 2016-03-10 01:20 UTC
+- This file is updated on 2016-03-10 16:23 UTC
 
 ## contents
 
@@ -96,7 +96,7 @@ and many JA fonts
 
 ## License
 
-GPLv2
+GPLv2. See [COPYING](COPYING)
 
 ```
 wjn-overlay
@@ -104,17 +104,12 @@ Copyright (C) 2014-2016  wjn
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
-as published by the Free Software Foundation; either version 2
-of the License, or (at your option) any later version.
+as published by the Free Software Foundation; version 2.
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program; if not, write to the Free Software
-Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 ```
 
 ## Disclaimer
