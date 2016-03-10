@@ -50,8 +50,7 @@ COMMON_DEPEND="app-text/rarian:0
 	pdf? ( >=app-text/poppler-0.16.0:0=[cairo] )
 	ps? ( >=app-text/libspectre-0.2.0:0 )
 	tiff? ( >=media-libs/tiff-3.6:0 )
-	xps? ( >=app-text/libgxps-0.2.0:0 )
-	!!app-text/mate-document-viewer:*"
+	xps? ( >=app-text/libgxps-0.2.0:0 )"
 DEPEND="${COMMON_DEPEND}
 	app-text/docbook-xml-dtd:4.1.2
 	app-text/yelp-tools:0

@@ -35,8 +35,7 @@ RDEPEND="${COMMON_DEPEND}
 	~mate-base/mate-panel-9999:0
 	x11-libs/gdk-pixbuf:2[introspection]
 	x11-libs/gtk+:2[introspection]
-	virtual/libintl:0
-	!!x11-misc/mate-menu-editor:*"
+	virtual/libintl:0"
 
 DOCS=( AUTHORS NEWS NEWS.GNOME README )
 

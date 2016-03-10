@@ -46,8 +46,7 @@ COMMON_DEPEND="dev-libs/atk:0[introspection?]
 		>=dev-python/pygobject-2.15.1:2[${PYTHON_USEDEP}]
 		>=dev-python/pygtk-2.13.0:2[${PYTHON_USEDEP}] )
 	svg? ( >=gnome-base/librsvg-2.36.2:2 )
-	xmp? ( >=media-libs/exempi-1.99.5:2 )
-	!!media-gfx/mate-image-viewer:*"
+	xmp? ( >=media-libs/exempi-1.99.5:2 )"
 DEPEND="${COMMON_DEPEND}
 	app-text/yelp-tools:0
 	>=dev-util/gtk-doc-1.9

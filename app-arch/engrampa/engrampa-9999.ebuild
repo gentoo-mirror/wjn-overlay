@@ -28,8 +28,7 @@ COMMON_DEPEND=">=dev-libs/glib-2.32.0:2
 	virtual/libintl:0
 	caja? ( ~mate-base/caja-9999:0 )
 	!gtk3? ( >=x11-libs/gtk+-2.24.0:2 )
-	gtk3? ( >=x11-libs/gtk+-3.0.2:3 )
-	!!app-arch/mate-file-archiver:*"
+	gtk3? ( >=x11-libs/gtk+-3.0.2:3 )"
 DEPEND="${COMMON_DEPEND}
 	>=dev-util/intltool-0.50.1:0
 	dev-util/itstool:0
