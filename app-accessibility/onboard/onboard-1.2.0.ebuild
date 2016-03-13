@@ -41,6 +41,7 @@ RDEPEND="${COMMON_DEPEND}
 	app-text/hunspell
 	app-text/iso-codes
 	gnome-extra/mousetweaks
+	dev-libs/libappindicator:3[introspection]
 	x11-libs/libxkbfile"
 
 RESTRICT="mirror"
