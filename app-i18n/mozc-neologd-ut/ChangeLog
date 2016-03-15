@@ -2,6 +2,20 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*mozc-neologd-ut-2.17.2322.102.20160314.0.1 (15 Mar 2016)
+
+  15 Mar 2016; wjn <wjn@aol.jp>
+  -mozc-neologd-ut-2.17.2320.102.20160310.0.1.ebuild,
+  +mozc-neologd-ut-2.17.2322.102.20160314.0.1.ebuild:
+  Add version 2.17.2322.102.20160314.0.1, delete old
+
+   Now, NEologed Release is 20160314
+
+   Note
+   - Mozc is updated to BUILD 2322
+     But this fix is for MS-Windows, has no sense for Gentoo GNU/{Linux,FBSD}
+     See: https://github.com/google/mozc/commit/{61452d4,0ccaad3}
+
 *mozc-neologd-ut-2.17.2320.102.20160310.0.1 (12 Mar 2016)
 
   12 Mar 2016; wjn <wjn@aol.jp>
