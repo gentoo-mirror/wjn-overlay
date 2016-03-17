@@ -1,0 +1,74 @@
+--- firefox.orig/xpcom/io/nsLocalFileUnix.cpp.orig	2016-03-10 00:30:17.745427775 +0000
++++ firefox/xpcom/io/nsLocalFileUnix.cpp	2016-03-10 00:30:36.866428142 +0000
+@@ -13,6 +13,7 @@
+ 
+ #include <sys/types.h>
+ #include <sys/stat.h>
++#include "sysmacros.h"
+ #include <unistd.h>
+ #include <fcntl.h>
+ #include <errno.h>
+--- firefox.orig/xpcom/io/sysmacros.h	1970-01-01 00:00:00.000000000 +0000
++++ firefox/xpcom/io/sysmacros.h	2016-03-17 10:41:46.481341509 +0000
+@@ -0,0 +1,61 @@
++/* Definitions of macros to access `dev_t' values.
++   Copyright (C) 1996-2016 Free Software Foundation, Inc.
++   This file is part of the GNU C Library.
++
++   The GNU C Library is free software; you can redistribute it and/or
++   modify it under the terms of the GNU Lesser General Public
++   License as published by the Free Software Foundation; either
++   version 2.1 of the License, or (at your option) any later version.
++
++   The GNU C Library is distributed in the hope that it will be useful,
++   but WITHOUT ANY WARRANTY; without even the implied warranty of
++   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++   Lesser General Public License for more details.
++
++   You should have received a copy of the GNU Lesser General Public
++   License along with the GNU C Library; if not, see
++   <http://www.gnu.org/licenses/>.  */
++
++
++#include <features.h>
++
++__BEGIN_DECLS
++
++__extension__
++extern unsigned int gnu_dev_major (unsigned long long int __dev)
++     __THROW __attribute_const__;
++__extension__
++extern unsigned int gnu_dev_minor (unsigned long long int __dev)
++     __THROW __attribute_const__;
++__extension__
++extern unsigned long long int gnu_dev_makedev (unsigned int __major,
++					       unsigned int __minor)
++     __THROW __attribute_const__;
++
++__extension__ __extern_inline __attribute_const__ unsigned int
++__NTH (gnu_dev_major (unsigned long long int __dev))
++{
++  return ((__dev >> 8) & 0xfff) | ((unsigned int) (__dev >> 32) & ~0xfff);
++}
++
++__extension__ __extern_inline __attribute_const__ unsigned int
++__NTH (gnu_dev_minor (unsigned long long int __dev))
++{
++  return (__dev & 0xff) | ((unsigned int) (__dev >> 12) & ~0xff);
++}
++
++__extension__ __extern_inline __attribute_const__ unsigned long long int
++__NTH (gnu_dev_makedev (unsigned int __major, unsigned int __minor))
++{
++  return ((__minor & 0xff) | ((__major & 0xfff) << 8)
++	  | (((unsigned long long int) (__minor & ~0xff)) << 12)
++	  | (((unsigned long long int) (__major & ~0xfff)) << 32));
++}
++
++__END_DECLS
++
++/* Access the functions with their traditional names.  */
++#define major(dev) gnu_dev_major (dev)
++#define minor(dev) gnu_dev_minor (dev)
++#define makedev(maj, min) gnu_dev_makedev (maj, min)
++
