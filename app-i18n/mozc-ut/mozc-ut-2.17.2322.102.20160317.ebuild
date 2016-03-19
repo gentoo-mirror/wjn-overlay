@@ -18,7 +18,7 @@ HOMEPAGE="http://www.geocities.jp/ep3797/mozc_01.html
 
 # Assign version variables #####
 MOZC_VER="$(get_version_component_range 1-4)"
-MOZC_REV="5711076"
+MOZC_REV="0ccaad3"
 FCITX_PATCH_VER="2.17.2313.102.1"
 UIM_PATCH_REV="3ea28b1"
 
@@ -26,7 +26,7 @@ UIM_PATCH_REV="3ea28b1"
 ZIPCODE_REV="201602"
 
 UT_REL=$(get_version_component_range $(get_version_component_count))
-UT_DIR="9/9993"
+UT_DIR="10/10032"
 #######################
 
 # Assign URI variables #########
