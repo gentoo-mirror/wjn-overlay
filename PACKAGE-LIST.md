@@ -1,7 +1,7 @@
 wjn-overlay packages list
 ========
 
-- This list is updated on 2016-03-17 12:49 UTC
+- This list is updated on 2016-03-21 00:44 UTC
 
 | Package Name | Description | Upstream Website | This Overlay Only | Note |
 | ---- | ---- | ---- | ---- | ---- |
@@ -15,7 +15,6 @@ wjn-overlay packages list
 | app-editors/juffed |  QScintilla-based tabbed text editor with syntax highlighting | <http://juffed.com/> | - | dev ver. with Qt5 support |
 | app-editors/pluma | A powerful text editor for MATE | <http://mate-desktop.org/> | - | dev ver. |
 | app-i18n/fcitx | Flexible Contect-aware Input Tool with eXtension support | <http://fcitx-im.org/> | - | newer ver. |
-| app-i18n/fcitx-anthy | Japanese Anthy module for Fcitx | <http://fcitx-im.org/> | - | newer ver. |
 | app-i18n/fcitx-kkc | Japanese libkkc module for Fcitx | <https://github.com/fcitx/fcitx-kkc> | o | |
 | app-i18n/fcitx-qt5 | Qt5 input module for Fcitx | <http://fcitx-im.org/> | - | newer and dev ver. |
 | app-i18n/ibus-kkc | Japanese Kana Kanji input engine for IBus | <https://github.com/ueno/ibus-kkc> | o | |
