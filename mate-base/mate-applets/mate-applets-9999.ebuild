@@ -19,7 +19,8 @@ HOMEPAGE="http://mate-desktop.org/
 SRC_URI=""
 EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 
-LICENSE="GPL-2 FDL-1.1 LGPL-2"
+# Codes: GPLv2+, Docs: FDLv1.1, some Icons: LGPLv2.1
+LICENSE="GPL-2+ FDL-1.1 LGPL-2.1"
 SLOT="0"
 KEYWORDS=""
 IUSE="X +cpufreq -gtk3 gucharmap ipv6 nls policykit upower weather wifi"
