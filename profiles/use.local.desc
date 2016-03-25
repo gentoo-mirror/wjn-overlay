@@ -58,12 +58,6 @@ app-i18n/uim:gtk3 - Enable support for x11-libs/gtk+:3
 app-i18n/uim:kde - Enable support for kde-base/kdelibs
 app-i18n/uim:qt3support - Enable support for dev-qt/qtgui:4[qt3support]
 app-i18n/uim:skk - Enable support for app-i18n/skk-jisyo
-app-text/asciidoc:dvi - Install app-text/dblatex for translating dvi format
-app-text/asciidoc:highlight - Enable source code highlighting
-app-text/asciidoc:latex - Install app-text/dblatex for translating LaTeX format
-app-text/asciidoc:pdf - Install app-text/dblatex or dev-java/fop for translating PDF format
-app-text/asciidoc:ps - Install app-text/dblatex for translating PostScript format
-app-text/asciidoc:text - Install www-client/w3m or www-client/lynx for text generation
 app-text/atril:caja - Enable property page extension in mate-base/caja
 app-text/atril:dvi - Enable build-in DVI viewer
 app-text/atril:epub - Enable EPUB viewer depending on dev-libs/mathjax
