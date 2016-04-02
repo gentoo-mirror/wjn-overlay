@@ -2,7 +2,7 @@ app-accessibility/florence 0.6.3: an extensible scalable virtual keyboard for X1
 app-accessibility/onboard 1.1.2 1.2.0: Onscreen keyboard for tablet PC users and mobility impaired users
 app-accessibility/xvkbd 3.7: Virtual Keyboard for X Window System
 app-arch/engrampa 9999: Engrampa archive manager for MATE
-app-editors/cutemarked 0.11.1 0.11.2: Qt5-based Markdown editor with live HTML preview
+app-editors/cutemarked 0.11.2 0.11.3: Qt5-based Markdown editor with live HTML preview
 app-editors/focuswriter 9999: A fullscreen and distraction-free word processor
 app-editors/juffed 9999: QScintilla-based tabbed text editor with syntax highlighting
 app-editors/mined 2015.25: Terminal-based Text Editor with extensive Unicode and CJK support
@@ -32,7 +32,7 @@ dev-python/python-caja 9999: Python bindings for Caja file manager
 dev-python/python-distutils-extra 2.38-r1 2.39: Gettext support, themed icons and scrollkeeper-based documentation in distutils
 dev-python/typogrify 2.0.7: Filters to enhance web typography, often used with Jinja or Django
 dev-util/meld 3.15.2: A graphical diff and merge tool
-gnome-extra/cinnamon 2.6.13-r1 2.8.4-r1 2.8.5 2.8.6 2.8.7: A fork of GNOME Shell with layout similar to GNOME 2
+gnome-extra/cinnamon 2.6.13-r1 2.8.4-r1 2.8.5 2.8.6 2.8.7 2.8.8: A fork of GNOME Shell with layout similar to GNOME 2
 gnome-extra/cinnamon-control-center 2.6.0-r1 2.8.1: Cinnamon's main interface to configure various aspects of the desktop
 gnome-extra/cinnamon-settings-daemon 2.6.3 2.8.1 2.8.2 2.8.3 2.8.4: Cinnamon's settings daemon
 mail-client/sylpheed 3.5.0: A lightweight email client and newsreader
@@ -131,7 +131,7 @@ x11-libs/qscintilla 2.9.1-r200: A Qt port of Neil Hodgson's Scintilla C++ editor
 x11-misc/lightdm 1.17.5 1.17.6 1.18.0: A lightweight display manager
 x11-misc/lightdm-gtk-greeter-settings 1.1.0 1.2.0: LightDM Gtk+ Greeter settings editor
 x11-misc/mate-notification-daemon 9999: MATE Notification daemon
-x11-misc/mate-tweak 3.5.7: MATE desktop tweak tool
+x11-misc/mate-tweak 3.5.8: MATE desktop tweak tool
 x11-misc/mozo 9999: Menu editor for MATE using the freedesktop.org menu specification
 x11-misc/screengrab 2.9999: Qt-based program for fast creating screenshots
 x11-terms/mate-terminal 9999: The MATE Terminal Emulator
