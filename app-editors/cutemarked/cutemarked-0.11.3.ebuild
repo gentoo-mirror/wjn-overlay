@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 inherit qmake-utils
 
@@ -14,7 +14,6 @@ SRC_URI="https://github.com/cloose/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 
 DEPEND="app-text/discount
 	app-text/hunspell
@@ -29,9 +28,11 @@ DEPEND="app-text/discount
 RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/CuteMarkEd-${PV}"
+RESTRICT="mirror"
 
 src_prepare() {
-	epatch "${FILESDIR}/${P}"-respect-destdir.patch
+	eapply "${FILESDIR}/${PN}-0.11.1-respect-destdir.patch"
+	eapply_user
 }
 
 src_configure() {
