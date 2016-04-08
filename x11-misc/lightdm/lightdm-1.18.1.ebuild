@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
-inherit autotools eutils pam readme.gentoo systemd versionator
+inherit autotools eutils pam readme.gentoo-r1 systemd versionator
 
 TRUNK_VERSION="$(get_version_component_range 1-2)"
 DESCRIPTION="A lightweight display manager"
@@ -59,7 +59,7 @@ src_prepare() {
 		"/session-wrapper/s@^.*@session-wrapper=/etc/${PN}/Xsession@" \
 		data/lightdm.conf || die "Failed to fix lightdm.conf"
 
-	epatch_user
+	default
 
 	# Remove bogus Makefile statement. This needs to go upstream
 	sed -i /"@YELP_HELP_RULES@"/d help/Makefile.am || die
