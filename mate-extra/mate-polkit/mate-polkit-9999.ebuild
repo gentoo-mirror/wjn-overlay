@@ -2,9 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
-
-GCONF_DEBUG="no"
+EAPI=6
 
 inherit autotools git-r3 gnome2
 
@@ -39,13 +37,14 @@ RDEPEND="${COMMON_DEPEND}"
 # Entropy PMS specific. This way we can install the pkg into the build chroots.
 ENTROPY_RDEPEND="!lxde-base/lxpolkit:*"
 
-DOCS=( AUTHORS HACKING NEWS README )
+DOCS=( AUTHORS ChangeLog HACKING NEWS README )
 
 src_unpack() {
 	git-r3_src_unpack
 }
 
 src_prepare() {
+	eapply_user
 	eautoreconf
 	gnome2_src_prepare
 }
