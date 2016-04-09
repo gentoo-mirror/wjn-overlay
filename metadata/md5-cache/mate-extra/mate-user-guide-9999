@@ -1,10 +1,10 @@
 DEFINED_PHASES=postinst prepare unpack
 DEPEND=>=dev-util/intltool-0.40.0:0 app-text/yelp-tools:0 sys-devel/gettext:0 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.15:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 >=dev-vcs/git-1.8.2.1
 DESCRIPTION=Documents for end-users of MATE
-EAPI=5
+EAPI=6
 HOMEPAGE=http://mate-desktop.org/ https://github.com/mate-desktop/mate-user-guide
-LICENSE=CC-BY-SA-3.0
+LICENSE=FDL-1.1+
 SLOT=0
 _eclass_exported_funcs=pkg_postinst:- src_unpack:git-r3 src_prepare:-
 _eclasses_=autotools	07e71b3b5690738ef7e8bc097077e00c	eutils	9d81603248f2ba3ec59124320d123e5e	git-r3	018b3baa1d2b738e5bc146a0e807494e	libtool	4890219c51da247200223277f993e054	multilib	3972ca401cf7dbb430df9995f5d8d580	toolchain-funcs	d513d423d449877e49d99af3f7af7acb
-_md5_=5fbbb86ed23d58200a1782482dd7e803
+_md5_=4011cede660131ca66e5404d11572c7e
