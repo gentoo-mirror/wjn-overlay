@@ -2,9 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
-GCONF_DEBUG="yes"
 GNOME2_LA_PUNT="yes"
 
 inherit autotools git-r3 gnome2
@@ -18,7 +17,7 @@ EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-2 LGPL-2 FDL-1.1"
 SLOT="0"
 KEYWORDS=""
-IUSE="elibc_FreeBSD gnome-keyring -gtk3 ipv6 systemd upower"
+IUSE="debug elibc_FreeBSD gnome-keyring -gtk3 ipv6 systemd upower"
 
 # x11-misc/xdg-user-dirs{,-gtk} are needed to create the various XDG_*_DIRs, and
 # create .config/user-dirs.dirs which is read by glib to get G_USER_DIRECTORY_*
@@ -57,7 +56,7 @@ DEPEND="${COMMON_DEPEND}
 	!<gnome-base/gdm-2.20.4:*"
 RDEPEND="${COMMON_DEPEND}"
 
-DOCS=( AUTHORS HACKING MAINTAINERS NEWS README )
+DOCS=( AUTHORS ChangeLog HACKING MAINTAINERS NEWS README )
 
 src_unpack() {
 	git-r3_src_unpack
@@ -68,6 +67,7 @@ src_prepare() {
 	# see https://bugzilla.gnome.org/show_bug.cgi?id=575544
 	# epatch "${FILESDIR}"/${PN}-1.5.2-save-session-ui.patch
 
+	eapply_user
 	eautoreconf
 	gnome2_src_prepare
 }
