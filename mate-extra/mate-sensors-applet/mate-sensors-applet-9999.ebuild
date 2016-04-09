@@ -2,9 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
-GCONF_DEBUG="no"
 GNOME2_LA_PUNT="yes"
 
 inherit autotools git-r3 gnome2
@@ -48,13 +47,14 @@ RDEPEND="${COMMON_DEPEND}"
 # Requires libxslt only for use by gnome-doc-utils.
 PDEPEND="hddtemp? ( dbus? ( sys-fs/udisks:0 ) )"
 
-DOCS=( AUTHORS NEWS README TODO )
+DOCS=( AUTHORS ChangeLog NEWS README TODO )
 
 src_unpack() {
 	git-r3_src_unpack
 }
 
 src_prepare() {
+	eapply_user
 	eautoreconf
 	gnome2_src_prepare
 }
