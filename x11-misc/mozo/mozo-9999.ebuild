@@ -2,9 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
-GCONF_DEBUG="no"
 GNOME2_LA_PUNT="yes"
 
 PYTHON_COMPAT=( python2_7 )
@@ -37,13 +36,14 @@ RDEPEND="${COMMON_DEPEND}
 	x11-libs/gtk+:3[introspection]
 	virtual/libintl:0"
 
-DOCS=( AUTHORS NEWS NEWS.GNOME README )
+DOCS=( AUTHORS ChangeLog NEWS NEWS.GNOME README )
 
 src_unpack() {
 	git-r3_src_unpack
 }
 
 src_prepare() {
+	eapply_user
 	eautoreconf
 	gnome2_src_prepare
 	python_copy_sources
