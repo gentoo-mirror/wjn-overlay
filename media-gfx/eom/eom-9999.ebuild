@@ -2,9 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
-GCONF_DEBUG="yes"
 PYTHON_COMPAT=( python2_7 )
 
 inherit autotools git-r3 gnome2 python-single-r1
@@ -18,7 +17,7 @@ EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="X dbus doc exif -gtk3 introspection jpeg lcms python svg tiff xmp"
+IUSE="X dbus debug doc exif -gtk3 introspection jpeg lcms python svg tiff xmp"
 REQUIRED_USE="gtk3? ( !python )
 	python? ( ${PYTHON_REQUIRED_USE} )"
 
@@ -55,7 +54,7 @@ DEPEND="${COMMON_DEPEND}
 	virtual/pkgconfig:0"
 RDEPEND="${COMMON_DEPEND}"
 
-DOCS=( AUTHORS HACKING NEWS NEWS.gnome README THANKS TODO )
+DOCS=( AUTHORS ChangeLog HACKING NEWS NEWS.gnome README THANKS TODO )
 
 pkg_setup() {
 	use python && python-single-r1_pkg_setup
@@ -66,6 +65,7 @@ src_unpack() {
 }
 
 src_prepare() {
+	eapply_user
 	eautoreconf
 	gnome2_src_prepare
 }
