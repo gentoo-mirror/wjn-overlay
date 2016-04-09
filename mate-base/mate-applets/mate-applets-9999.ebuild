@@ -4,14 +4,13 @@
 
 # ISSUES: Help documents need yelp-build and install.
 
-EAPI=5
+EAPI=6
 
-GCONF_DEBUG="no"
 GNOME2_LA_PUNT="yes"
 
 PYTHON_COMPAT=( python2_7 )
 
-inherit autotools eutils git-r3 gnome2 python-single-r1
+inherit autotools git-r3 gnome2 python-single-r1
 
 DESCRIPTION="Applets for the MATE Desktop and Panel"
 HOMEPAGE="http://mate-desktop.org/
@@ -67,13 +66,14 @@ DEPEND="${COMMON_DEPEND}
 	virtual/pkgconfig:0"
 RDEPEND="${COMMON_DEPEND}"
 
-DOCS=( AUTHORS NEWS NEWS.GNOME README )
+DOCS=( AUTHORS ChangeLog NEWS NEWS.GNOME README )
 
 src_unpack() {
 	git-r3_src_unpack
 }
 
 src_prepare() {
+	eapply_user
 	eautoreconf
 }
 
