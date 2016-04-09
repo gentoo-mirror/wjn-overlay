@@ -2,10 +2,10 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
-GCONF_DEBUG="yes"
 GNOME2_LA_PUNT="yes"
+
 PYTHON_COMPAT=( python2_7 )
 
 inherit autotools git-r3 gnome2 python-r1
@@ -19,7 +19,7 @@ EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="-gtk3 python"
+IUSE="debug -gtk3 python"
 REQUIRED_USE="gtk3? ( !python )
 	python? ( ${PYTHON_REQUIRED_USE} )"
 
@@ -41,7 +41,7 @@ DEPEND="${COMMON_DEPEND}
 	virtual/pkgconfig:0"
 RDEPEND="${COMMON_DEPEND}"
 
-DOCS=( AUTHORS NEWS NEWS.GNOME README )
+DOCS=( AUTHORS ChangeLog NEWS NEWS.GNOME README )
 
 my_command() {
 	if use python ; then
@@ -58,6 +58,8 @@ src_unpack() {
 src_prepare() {
 	# Fix undefined use of MKDIR_P in python/Makefile.am.
 	epatch "${FILESDIR}"/${PN}-1.6.1-fix-mkdirp.patch
+
+	eapply_user
 	eautoreconf
 
 	use python && python_copy_sources
