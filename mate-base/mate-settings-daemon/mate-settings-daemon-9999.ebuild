@@ -2,9 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
-GCONF_DEBUG="yes"
 GNOME2_LA_PUNT="yes"
 
 inherit autotools eutils git-r3 gnome2
@@ -15,7 +14,7 @@ HOMEPAGE="http://mate-desktop.org/
 SRC_URI=""
 EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 
-LICENSE="GPL-2"
+LICENSE="GPL-2+ LGPL-2+"
 SLOT="0"
 KEYWORDS=""
 IUSE="X -debug -gtk3 libnotify policykit pulseaudio smartcard"
@@ -60,6 +59,7 @@ src_unpack() {
 }
 
 src_prepare() {
+	eapply_user
 	eautoreconf
 	gnome2_src_prepare
 }
