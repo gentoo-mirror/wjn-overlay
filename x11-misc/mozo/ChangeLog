@@ -2,6 +2,9 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  09 Apr 2016; wjn <wjn@aol.jp> mozo-9999.ebuild:
+  Update dependencies to gtk+:3 from gtk+:2
+
   10 Mar 2016; wjn <wjn@aol.jp> mozo-9999.ebuild:
   MATE desktop environment: Remove obsolete package blockers
 

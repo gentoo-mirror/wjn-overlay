@@ -22,8 +22,7 @@ LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS=""
 
-COMMON_DEPEND=">=dev-python/pygobject-2.15.1:2[${PYTHON_USEDEP}]
-	>=dev-python/pygtk-2.13.0:2[${PYTHON_USEDEP}]
+COMMON_DEPEND="dev-python/pygobject:3[${PYTHON_USEDEP}]
 	~mate-base/mate-menus-9999:0[introspection,python]"
 DEPEND="${COMMON_DEPEND}
 	>=dev-util/intltool-0.40:0
@@ -32,9 +31,10 @@ DEPEND="${COMMON_DEPEND}
 	virtual/pkgconfig:0"
 RDEPEND="${COMMON_DEPEND}
 	${PYTHON_DEPS}
+	dev-libs/gobject-introspection
 	~mate-base/mate-panel-9999:0
 	x11-libs/gdk-pixbuf:2[introspection]
-	x11-libs/gtk+:2[introspection]
+	x11-libs/gtk+:3[introspection]
 	virtual/libintl:0"
 
 DOCS=( AUTHORS NEWS NEWS.GNOME README )
