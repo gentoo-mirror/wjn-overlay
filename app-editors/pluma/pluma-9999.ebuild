@@ -2,9 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
-GCONF_DEBUG="yes"
 GNOME2_LA_PUNT="yes"
 
 PYTHON_COMPAT=( python2_7 )
@@ -20,7 +19,7 @@ EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="-gtk3 +mate python spell"
+IUSE="debug -gtk3 +mate python spell"
 REQUIRED_USE="gtk3? ( !python )
 	python? ( ${PYTHON_REQUIRED_USE} )"
 
@@ -60,7 +59,7 @@ DEPEND="${COMMON_DEPEND}
 	virtual/pkgconfig:0"
 RDEPEND="${COMMON_DEPEND}"
 
-DOCS=( AUTHORS HACKING NEWS NEWS.GNOME README )
+DOCS=( AUTHORS ChangeLog HACKING NEWS NEWS.GNOME README )
 
 pkg_setup() {
 	use python && python-single-r1_pkg_setup
@@ -71,7 +70,7 @@ src_unpack() {
 }
 
 src_prepare() {
-	epatch_user
+	eapply_user
 	eautoreconf
 	gnome2_src_prepare
 }
