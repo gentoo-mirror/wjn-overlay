@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 GNOME2_LA_PUNT="yes"
 
@@ -42,6 +42,8 @@ G2CONF="${G2CONF} $(use_enable debug) --disable-static"
 
 CONFIG_CHECK="~INOTIFY_USER"
 
+DOCS=( AUTHORS ChangeLog NEWS README )
+
 pkg_setup () {
 	python-single-r1_pkg_setup
 	check_extra_config
@@ -53,6 +55,7 @@ src_unpack() {
 }
 
 src_prepare() {
+	eapply_user
 	eautoreconf
 	gnome2_src_prepare
 
@@ -66,8 +69,6 @@ src_prepare() {
 
 	AT_NOELIBTOOLIZE=yes eautoreconf
 }
-
-DOCS=( AUTHORS NEWS README )
 
 src_install () {
 	python_fix_shebang caja-dropbox.in
