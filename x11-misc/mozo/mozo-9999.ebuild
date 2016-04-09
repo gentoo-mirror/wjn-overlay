@@ -36,7 +36,7 @@ RDEPEND="${COMMON_DEPEND}
 	x11-libs/gtk+:3[introspection]
 	virtual/libintl:0"
 
-DOCS=( AUTHORS NEWS NEWS.GNOME README )
+DOCS=( AUTHORS ChangeLog NEWS NEWS.GNOME README )
 
 src_unpack() {
 	git-r3_src_unpack
