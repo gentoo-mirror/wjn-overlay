@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 inherit autotools git-r3
 
@@ -12,7 +12,7 @@ HOMEPAGE="http://mate-desktop.org/
 SRC_URI=""
 EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 
-LICENSE="CC-BY-SA-3.0"
+LICENSE="FDL-1.1+"
 SLOT="0"
 KEYWORDS=""
 
@@ -21,9 +21,10 @@ DEPEND=">=dev-util/intltool-0.40.0:0
 	sys-devel/gettext:0"
 RDEPEND=""
 
-DOCS=( AUTHORS HACKING NEWS README )
+DOCS=( AUTHORS ChangeLog HACKING NEWS README )
 
 src_prepare() {
+	eapply_user
 	eautoreconf
 }
 
