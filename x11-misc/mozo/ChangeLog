@@ -3,6 +3,9 @@
 # (auto-generated from git log)
 
   09 Apr 2016; wjn <wjn@aol.jp> mozo-9999.ebuild:
+  Move to EAPI 6
+
+  09 Apr 2016; wjn <wjn@aol.jp> mozo-9999.ebuild:
   Update dependencies to gtk+:3 from gtk+:2
 
   10 Mar 2016; wjn <wjn@aol.jp> mozo-9999.ebuild:
