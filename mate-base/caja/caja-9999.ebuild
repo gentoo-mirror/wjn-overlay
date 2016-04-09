@@ -2,9 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
-GCONF_DEBUG="yes"
 GNOME2_LA_PUNT="yes"
 
 inherit autotools git-r3 gnome2
@@ -18,7 +17,8 @@ EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-2 LGPL-2 FDL-1.1"
 SLOT="0"
 KEYWORDS=""
-IUSE="doc dropbox extensions -gtk3 +mate +introspection python +unique xmp"
+IUSE="debug doc dropbox extensions -gtk3 +mate +introspection python +unique
+	xmp"
 
 COMMON_DEPEND="dev-libs/atk:0[introspection?]
 	dev-libs/glib:2
@@ -60,13 +60,15 @@ PDEPEND="dropbox? ( ~mate-extra/caja-dropbox-9999:0 )
 
 RESTRICT="test"
 
-DOCS=( AUTHORS HACKING MAINTAINERS NEWS README README.commits THANKS TODO )
+DOCS=( AUTHORS ChangeLog HACKING MAINTAINERS NEWS README README.commits THANKS
+	TODO )
 
 src_unpack() {
 	git-r3_src_unpack
 }
 
 src_prepare() {
+	eapply_user
 	eautoreconf
 
 	# Remove unnecessary CFLAGS.
