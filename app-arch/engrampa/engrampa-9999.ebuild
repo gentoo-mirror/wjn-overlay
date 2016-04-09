@@ -2,9 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
-GCONF_DEBUG="yes"
 GNOME2_LA_PUNT="yes"
 
 inherit autotools git-r3 gnome2
@@ -19,7 +18,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 
-IUSE="caja -gtk3"
+IUSE="caja debug -gtk3"
 
 COMMON_DEPEND=">=dev-libs/glib-2.32.0:2
 	>=dev-libs/json-glib-0.14:0
@@ -37,13 +36,15 @@ DEPEND="${COMMON_DEPEND}
 	virtual/pkgconfig:0"
 RDEPEND="${COMMON_DEPEND}"
 
-DOCS=( AUTHORS HACKING MAINTAINERS NEWS NEWS.GNOME README README-DISTRIBUTIONS TODO )
+DOCS=( AUTHORS HACKING MAINTAINERS NEWS NEWS.GNOME README README-DISTRIBUTIONS
+	TODO )
 
 src_unpack() {
 	git-r3_src_unpack
 }
 
 src_prepare() {
+	eapply_user
 	eautoreconf
 	gnome2_src_prepare
 }
