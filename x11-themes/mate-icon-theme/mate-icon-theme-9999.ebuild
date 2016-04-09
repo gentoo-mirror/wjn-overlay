@@ -2,9 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
-
-GCONF_DEBUG="no"
+EAPI=6
 
 inherit autotools git-r3 gnome2
 
@@ -28,13 +26,14 @@ RDEPEND="${COMMON_DEPEND}"
 
 RESTRICT="binchecks strip"
 
-DOCS=( AUTHORS NEWS README TODO )
+DOCS=( AUTHORS ChangeLog NEWS README TODO )
 
 src_unpack() {
 	git-r3_src_unpack
 }
 
 src_prepare() {
+	eapply_user
 	eautoreconf
 	gnome2_src_prepare
 }
