@@ -2,11 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
-GCONF_DEBUG="yes"
-
-inherit autotools git-r3 gnome2 multilib readme.gentoo
+inherit autotools git-r3 gnome2 readme.gentoo-r1
 
 DESCRIPTION="Replaces xscreensaver, integrating with the MATE desktop"
 HOMEPAGE="http://mate-desktop.org/
@@ -17,7 +15,7 @@ EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="X consolekit -gtk3 kernel_linux libnotify opengl pam systemd"
+IUSE="X consolekit debug -gtk3 kernel_linux libnotify opengl pam systemd"
 
 DOC_CONTENTS="
 	Information for converting screensavers is located in
@@ -62,13 +60,14 @@ DEPEND="${COMMON_DEPEND}
 	virtual/pkgconfig:0"
 RDEPEND="${COMMON_DEPEND}"
 
-DOCS=( AUTHORS NEWS README )
+DOCS=( AUTHORS ChangeLog README )
 
 src_unpack() {
 	git-r3_src_unpack
 }
 
 src_prepare() {
+	eapply_user
 	eautoreconf
 	gnome2_src_prepare
 }
