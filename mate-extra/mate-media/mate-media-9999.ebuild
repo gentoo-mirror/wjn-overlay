@@ -2,9 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
-
-GCONF_DEBUG="yes"
+EAPI=6
 
 inherit autotools git-r3 gnome2
 
@@ -17,7 +15,7 @@ EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 LICENSE="LGPL-2 GPL-2 FDL-1.1"
 SLOT="0"
 KEYWORDS=""
-IUSE="-gtk3"
+IUSE="debug -gtk3"
 
 COMMON_DEPEND="app-text/rarian:0
 	dev-libs/libxml2:2
@@ -45,13 +43,14 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	x11-themes/sound-theme-freedesktop"
 
-DOCS=( AUTHORS NEWS README )
+DOCS=( AUTHORS ChangeLog NEWS NEWS.GNOME README )
 
 src_unpack() {
 	git-r3_src_unpack
 }
 
 src_prepare() {
+	eapply_user
 	eautoreconf
 	gnome2_src_prepare
 }

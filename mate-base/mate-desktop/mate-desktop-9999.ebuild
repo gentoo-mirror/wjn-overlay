@@ -2,9 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
-GCONF_DEBUG="yes"
 GNOME2_LA_PUNT="yes"
 
 PYTHON_COMPAT=( python2_7 )
@@ -20,7 +19,7 @@ EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-2 FDL-1.1 LGPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="X doc -gtk3 introspection startup-notification"
+IUSE="X debug doc -gtk3 introspection startup-notification"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 COMMON_DEPEND="${PYTHON_DEPS}
@@ -55,6 +54,7 @@ src_unpack() {
 }
 
 src_prepare() {
+	eapply_user
 	eautoreconf
 	gnome2_src_prepare
 }

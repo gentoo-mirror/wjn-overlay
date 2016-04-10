@@ -2,12 +2,11 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
-GCONF_DEBUG="yes"
 GNOME2_LA_PUNT="yes"
 
-inherit autotools eutils git-r3 gnome2
+inherit autotools git-r3 gnome2
 
 DESCRIPTION="Several extensions for Caja file manager"
 HOMEPAGE="http://mate-desktop.org/
@@ -20,7 +19,7 @@ SLOT="0"
 KEYWORDS=""
 
 SENDTO="cdr drive gajim mail pidgin upnp"
-IUSE="${SENDTO} gksu -gtk3 image-converter +open-terminal share wallpaper"
+IUSE="${SENDTO} debug gksu -gtk3 image-converter +open-terminal share wallpaper"
 REQUIRED_USE="gksu? ( open-terminal )"
 
 COMMON_DEPEND=">=dev-libs/glib-2.36.0:2
@@ -44,16 +43,16 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	gksu? ( x11-libs/gksu:0 )
 	image-converter? ( || ( media-gfx/imagemagick
-	media-gfx/graphicsmagick[imagemagick] ) )
-"
+	media-gfx/graphicsmagick[imagemagick] ) )"
 
-DOCS=( AUTHORS NEWS README )
+DOCS=( AUTHORS ChangeLog NEWS README )
 
 src_unpack() {
 	git-r3_src_unpack
 }
 
 src_prepare() {
+	eapply_user
 	eautoreconf
 	gnome2_src_prepare
 }

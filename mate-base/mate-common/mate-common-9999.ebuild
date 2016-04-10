@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 inherit autotools git-r3
 
@@ -18,9 +18,10 @@ KEYWORDS=""
 DEPEND=""
 RDEPEND=""
 
-DOCS=( AUTHORS NEWS README )
+DOCS=( AUTHORS ChangeLog NEWS README )
 
 src_prepare() {
+	eapply_user
 	eautoreconf
 }
 

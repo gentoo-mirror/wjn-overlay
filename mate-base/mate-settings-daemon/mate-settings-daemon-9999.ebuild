@@ -6,7 +6,7 @@ EAPI=6
 
 GNOME2_LA_PUNT="yes"
 
-inherit autotools eutils git-r3 gnome2
+inherit autotools git-r3 gnome2
 
 DESCRIPTION="MATE Settings Daemon"
 HOMEPAGE="http://mate-desktop.org/
@@ -50,7 +50,7 @@ DEPEND="${COMMON_DEPEND}
 	virtual/pkgconfig:0
 	x11-proto/inputproto:0
 	x11-proto/xproto:0"
-RDEPEND="${COMMON_DEPEND}"
+RDEPEND=${COMMON_DEPEND}
 
 DOCS=( AUTHORS NEWS README )
 

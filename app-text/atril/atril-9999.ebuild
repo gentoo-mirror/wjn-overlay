@@ -2,11 +2,10 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 ELTCONF="--portage"
 
-GCONF_DEBUG="yes"
 GNOME2_LA_PUNT="yes"
 
 inherit autotools git-r3 gnome2
@@ -21,7 +20,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 IUSE="caja dbus debug djvu doc dvi epub -gtk3 +introspection gnome-keyring +pdf
-	+ps -test t1lib tiff xps"
+	+ps t1lib tiff xps"
 
 COMMON_DEPEND="app-text/rarian:0
 	dev-libs/atk:0
@@ -63,15 +62,16 @@ DEPEND="${COMMON_DEPEND}
 		dev-python/pyatspi )"
 RDEPEND="${COMMON_DEPEND}"
 
-use test || RESTRICT="test"
+RESTRICT="test"
 
-DOCS=( AUTHORS NEWS NEWS.gnome README TODO )
+DOCS=( AUTHORS ChangeLog NEWS NEWS.gnome README TODO )
 
 src_unpack() {
 	git-r3_src_unpack
 }
 
 src_prepare() {
+	eapply_user
 	eautoreconf
 	gnome2_src_prepare
 }
