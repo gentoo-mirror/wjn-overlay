@@ -3,6 +3,9 @@
 # (auto-generated from git log)
 
   09 Apr 2016; wjn <wjn@aol.jp> caja-dropbox-9999.ebuild:
+  Define src_configure to use configure flags
+
+  09 Apr 2016; wjn <wjn@aol.jp> caja-dropbox-9999.ebuild:
   Fix to inherit git-r3, remove deprecated G2CONF
 
   09 Apr 2016; wjn <wjn@aol.jp> caja-dropbox-9999.ebuild:

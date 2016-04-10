@@ -68,7 +68,13 @@ src_prepare() {
 	AT_NOELIBTOOLIZE=yes eautoreconf
 }
 
-src_install () {
+src_configure() {
+	gnome2_src_configure \
+		--disbale-static \
+		$(use_enable debug)
+}
+
+src_install() {
 	python_fix_shebang caja-dropbox.in
 
 	gnome2_src_install
