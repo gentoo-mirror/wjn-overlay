@@ -3,6 +3,12 @@
 # (auto-generated from git log)
 
   10 Apr 2016; wjn <wjn@aol.jp> eom-9999.ebuild:
+  Remove NEWS.gnome, THANKS and TODO from DOCS
+
+   NEWS.gnome, THANKS and TODO are removed.
+  See https://github.com/mate-desktop/eom/commit/31dda79
+
+  10 Apr 2016; wjn <wjn@aol.jp> eom-9999.ebuild:
   Add ChangeLog to DOCS, move to EAPI 6
 
   10 Mar 2016; wjn <wjn@aol.jp> eom-9999.ebuild:
