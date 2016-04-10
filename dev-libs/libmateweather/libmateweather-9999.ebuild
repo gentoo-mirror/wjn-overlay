@@ -16,7 +16,7 @@ HOMEPAGE="http://mate-desktop.org/
 SRC_URI=""
 EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 
-LICENSE="GPL-2"
+LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
 KEYWORDS=""
 IUSE="debug -gtk3 python"

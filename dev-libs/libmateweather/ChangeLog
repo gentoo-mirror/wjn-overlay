@@ -3,6 +3,9 @@
 # (auto-generated from git log)
 
   10 Apr 2016; wjn <wjn@aol.jp> libmateweather-9999.ebuild:
+  Fix LICENSE
+
+  10 Apr 2016; wjn <wjn@aol.jp> libmateweather-9999.ebuild:
   Add ChangeLog to DOCS, move to EAPI 6
 
   19 Feb 2016; wjn <wjn@aol.jp> metadata.xml:
