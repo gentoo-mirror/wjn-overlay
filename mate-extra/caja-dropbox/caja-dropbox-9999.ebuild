@@ -8,7 +8,7 @@ GNOME2_LA_PUNT="yes"
 
 PYTHON_COMPAT=( python2_7 )
 
-inherit autotools eutils git-r3 gnome2 python-single-r1 linux-info user
+inherit autotools git-r3 gnome2 python-single-r1 linux-info user
 
 DESCRIPTION="Dropbox extension for Caja file manager"
 HOMEPAGE="http://mate-desktop.org/
@@ -36,7 +36,7 @@ COMMON_DEPEND="dev-libs/atk:0
 DEPEND="${COMMON_DEPEND}
 	dev-python/docutils:0
 	virtual/pkgconfig:0"
-RDEPEND="${COMMON_DEPEND}"
+RDEPEND=${COMMON_DEPEND}
 
 CONFIG_CHECK="~INOTIFY_USER"
 
@@ -63,7 +63,7 @@ src_prepare() {
 			-i caja-dropbox.in || die
 
 	# Use system rst2man.
-	epatch "${FILESDIR}"/${P}-system-rst2man.patch
+	eapply "${FILESDIR}"/${P}-system-rst2man.patch
 
 	AT_NOELIBTOOLIZE=yes eautoreconf
 }
