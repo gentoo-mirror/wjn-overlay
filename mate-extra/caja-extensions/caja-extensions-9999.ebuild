@@ -6,7 +6,7 @@ EAPI=6
 
 GNOME2_LA_PUNT="yes"
 
-inherit autotools eutils git-r3 gnome2
+inherit autotools git-r3 gnome2
 
 DESCRIPTION="Several extensions for Caja file manager"
 HOMEPAGE="http://mate-desktop.org/
