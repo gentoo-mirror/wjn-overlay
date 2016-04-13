@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python3_{3,4,5} )
 
 inherit distutils-r1
 
-HASH="8a5299d21dd8"
+HASH="d90d62bc967d"
 DESCRIPTION="MATE desktop tweak tool"
 HOMEPAGE="https://launchpad.net/ubuntu/+source/mate-tweak"
 SRC_URI="https://launchpad.net/ubuntu/+archive/primary/+files/${PN}_${PV}.orig.tar.gz"
