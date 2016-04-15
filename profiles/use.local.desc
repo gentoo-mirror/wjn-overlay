@@ -133,6 +133,9 @@ media-fonts/rounded-mgenplus:rounded-x - Install "Rounded-X Mgen+" as well as "R
 media-fonts/rounded-mplus:rounded-l - Install "Rounded-L M+" as well as "Rounded M+"
 media-fonts/rounded-mplus:rounded-x - Install "Rounded-X M+" as well as "Rounded M+"
 media-gfx/eom:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
+media-gfx/fbida:X - Install the Motif based image viewer "ida"
+media-gfx/fbida:fbcon - Install the framebuffer image viewer "fbi"
+media-gfx/fbida:webp - Enable support for the WebP image format
 media-plugins/audacious-plugins:aac - Support AAC decode
 media-plugins/audacious-plugins:alsa - Support ALSA output
 media-plugins/audacious-plugins:bs2b - Enable Bauer Bauer stereophonic-to-binaural headphone filter
