@@ -1,7 +1,7 @@
 wjn-overlay packages list
 ========
 
-- This list is updated on 2016-03-21 00:44 UTC
+- This list is updated on 2016-04-18 04:26 UTC
 
 | Package Name | Description | Upstream Website | This Overlay Only | Note |
 | ---- | ---- | ---- | ---- | ---- |
@@ -27,7 +27,6 @@ wjn-overlay packages list
 | app-i18n/uim | Simple, secure and flexible input method library | <http://code.google.com/p/uim/> | - | dev ver., supports Qt5 |
 | app-misc/grc |  Generic Colouriser beautifies your logfiles or output of commands | <https://github.com/garabik/grc> | - | newer and dev ver. |
 | app-text/aobook | Viewer for Aozora Bunko (Japanese electric library) | <http://azsky2.html.xdomain.jp/linux/aobook/index.html> | o | |
-| app-text/asciidoc | translates AsciiDoc format to other presentation formats | <http://asciidoc.org/> | - | avoid installing unwanted pkg. |
 | app-text/asciidoc-gtksourceview | AsciiDoc bindings for gtksourceview | <https://launchpad.net/asciidoc-gtk-highlight> | o | |
 | app-text/atril | Atril document viewer for MATE | <http://mate-desktop.org/> | - | dev ver. |
 | app-text/markdown-gtksourceview | Support for Markdown in GtkSourceView and Pluma | <https://github.com/jpfleury/gedit-markdown> | o | |
@@ -117,6 +116,7 @@ wjn-overlay packages list
 | media-gfx/azdrawing | A painting software by drawing | <http://osdn.jp/projects/azdrawing/> | o | |
 | media-gfx/azpainter | A full-color painting software | <http://azsky2.html.xdomain.jp/linux/azpainter/> | o | |
 | media-gfx/eom | The MATE image viewer | <http://mate-desktop.org/> | - | dev ver. |
+| media-gfx/fbida | Image viewers for framebuffer and X11 | <http://www.kraxel.org/blog/linux/fbida/> | - | fix dependencies |
 | media-gfx/viewnior | Fast and simple image viewer | <http://xsisqox.github.com/Viewnior/index.html> | - | newer ver. |
 | media-plugins/audacious-plugins | Plugins for Audacious music player | <http://audacious-media-player.org/> | - | newer and dev ver., supports media-libs/soxr |
 | media-sound/audacious | A lightweight and versatile audio player | <http://audacious-media-player.org/> | - | newer and dev ver. |
