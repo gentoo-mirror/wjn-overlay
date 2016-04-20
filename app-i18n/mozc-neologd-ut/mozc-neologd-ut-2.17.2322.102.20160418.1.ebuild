@@ -33,12 +33,12 @@ ZIPCODE_REV="201603"
 # In such a case, ${PV} can be ${MOZC_VER}.${DIC_REL}.0.${UT_REV}
 # On the other case, ${PV} is ${MOZC_VER}.${DIC_REL}.${UT_REV}
 # Therefore, ${UT_REV} is the last number of ${PV}
-UT_UPD="20160319"
-UT_REL="20160317"
+UT_UPD="20160419"
+UT_REL="20160418"
 UT_REV="$(get_version_component_range $(get_version_component_count))"
 GET_DIC="$(get_version_component_range 6)"
 # FYI: https://osdn.jp/users/utuhiro/pf/utuhiro/wiki/FrontPage
-UT_DIR="10/10034"
+UT_DIR="10/10775"
 #######################
 
 # Assign URI variables #########
