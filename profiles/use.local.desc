@@ -254,17 +254,6 @@ www-apps/nikola:php - Support dev-python/phpserialize
 www-apps/nikola:typogrify - Support dev-python/typogrify
 www-apps/nikola:websocket - Support dev-python/ws4py
 www-plugins/freshplayerplugin:gtk3 - Build with GTK+ 3 instead of GTK+ 2
-www-plugins/gnash:agg - Rendering based on the Anti-Grain Geometry Rendering Engine library
-www-plugins/gnash:cygnal - Enable building of the cygnal server
-www-plugins/gnash:dump - Enable dump output module for creating video from SWF
-www-plugins/gnash:egl - Enable EGL support for the OpenVG, OpenGL and X11 renderers
-www-plugins/gnash:gconf - Enable GConf configuration backend
-www-plugins/gnash:harden - Enable upstream recommended hardening build flags (may conflict with system ones)
-www-plugins/gnash:jemalloc - Use dev-libs/jemalloc for allocations
-www-plugins/gnash:openvg - Rendering based on the OpenVG graphics acceleration API
-www-plugins/gnash:sdl-sound - Enable SDL audio output for the standalone player
-www-plugins/gnash:ssh - Enable using SSH for network authentication in libnet
-www-plugins/gnash:ssl - Enable directly using OpenSSL in libnet (not needed for nsplugin ssl support)
 x11-libs/qscintilla:designer - Build plugin for Qt Designer
 x11-misc/lightdm:gtk - Pull in the gtk+ greeter
 x11-misc/lightdm:introspection - Use dev-libs/gobject-introspection for introspection

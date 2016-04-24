@@ -124,7 +124,6 @@ sci-calculators/galculator 2.1.4: GTK+ based algebraic and RPN calculator
 sys-libs/libunwind 1.1: Portable and efficient API to determine the call-chain of a program
 www-apps/nikola 7.6.4 7.7.3 7.7.7: A static website and blog generator
 www-plugins/freshplayerplugin 9999: PPAPI-host NPAPI-plugin adapter for flashplayer in npapi based browsers
-www-plugins/gnash 0.8.10_p20160215: GNU Flash movie player that supports many SWF v7,8,9 features
 x11-libs/gdk-pixbuf-psd 0.1.0 9999: A GdkPixbuf loader for Adobe Photoshop images
 x11-libs/gdk-pixbuf-xcf 2012.05: A gdk-pixbuf loader for xcf (The Gimp) files
 x11-libs/libvdpau-va-gl 9999: VDPAU driver with OpenGL/VAAPI backend
