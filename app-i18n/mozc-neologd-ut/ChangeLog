@@ -2,6 +2,10 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  29 Apr 2016; wjn <wjn@aol.jp>
+  mozc-neologd-ut-2.17.2322.102.20160418.1.ebuild:
+  Update manifests for Yusei zipcode
+
 *mozc-neologd-ut-2.17.2322.102.20160428.0.1 (29 Apr 2016)
 
   29 Apr 2016; wjn <wjn@aol.jp>
