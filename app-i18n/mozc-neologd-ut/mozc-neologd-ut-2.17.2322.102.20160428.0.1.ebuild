@@ -24,10 +24,10 @@ FCITX_PATCH_VER="2.17.2313.102.1"
 UIM_PATCH_REV="3ea28b1"
 
 DIC_REL="$(get_version_component_range 5)"
-NEOLOGD_REV="073525b"
+NEOLOGD_REV="955782c"
 
 # Zip code data are revised on the last of every month
-ZIPCODE_REV="201603"
+ZIPCODE_REV="201604"
 
 # In case of replacing NEologd's seed, assign ${UT_REL} as well as ${DIC_REL}
 # In such a case, ${PV} can be ${MOZC_VER}.${DIC_REL}.0.${UT_REV}
