@@ -2,6 +2,11 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*meld-3.16.0 (06 May 2016)
+
+  06 May 2016; wjn <wjn@aol.jp> -meld-3.15.2.ebuild, +meld-3.16.0.ebuild:
+  Add version 3.16.0, delete 3.15.2
+
 *meld-3.15.2 (28 Mar 2016)
 
   28 Mar 2016; wjn <wjn@aol.jp> -meld-3.15.1.ebuild, +meld-3.15.2.ebuild:
