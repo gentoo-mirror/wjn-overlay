@@ -115,6 +115,7 @@ wjn-overlay packages list
 | media-fonts/yozfontkm | Japanese OpenType brush fonts made by Y.Oz | <http://yozvox.web.fc2.com/> | o | |
 | media-gfx/azdrawing | A painting software by drawing | <http://osdn.jp/projects/azdrawing/> | o | |
 | media-gfx/azpainter | A full-color painting software | <http://azsky2.html.xdomain.jp/linux/azpainter/> | o | |
+| media-gfx/azpainterb | A simple full-color paint software, a successor of AzPainter | <http://azsky2.html.xdomain.jp/> | o | |
 | media-gfx/eom | The MATE image viewer | <http://mate-desktop.org/> | - | dev ver. |
 | media-gfx/fbida | Image viewers for framebuffer and X11 | <http://www.kraxel.org/blog/linux/fbida/> | - | fix dependencies |
 | media-gfx/viewnior | Fast and simple image viewer | <http://xsisqox.github.com/Viewnior/index.html> | - | newer ver. |
