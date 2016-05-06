@@ -2,6 +2,10 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  06 May 2016; wjn <wjn@aol.jp> fcitx-qt5-1.0.5.ebuild, fcitx-qt5-9999.ebuild,
+  +files/fcitx-qt5-1.0.5-ucs4.patch:
+  Update to keep consistencies with gentoo repository
+
   19 Feb 2016; wjn <wjn@aol.jp> metadata.xml:
   **/metadata.xml: Update and tidy up
 
