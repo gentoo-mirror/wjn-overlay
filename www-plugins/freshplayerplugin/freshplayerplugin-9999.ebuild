@@ -22,6 +22,7 @@ HWDEC_DEPEND="x11-libs/libva
 	libav? ( media-video/libav:0=[vaapi?,vdpau?,x264] )
 	!libav? ( media-video/ffmpeg:0=[vaapi?,vdpau?,x264] )"
 COMMON_DEPEND="dev-libs/glib:2=
+	dev-libs/icu:0
 	dev-libs/libconfig:=
 	dev-libs/libevent:=[threads]
 	|| ( dev-libs/openssl:0=
