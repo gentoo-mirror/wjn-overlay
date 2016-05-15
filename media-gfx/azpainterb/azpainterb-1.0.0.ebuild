@@ -6,11 +6,11 @@ EAPI=6
 
 inherit gnome2-utils
 
-MY_P="${P/_beta/b}"
+OSDN_DIR="65811"
 
 DESCRIPTION="A simple full-color paint software, a successor of AzPainter"
-HOMEPAGE="http://azsky2.html.xdomain.jp/"
-SRC_URI="http://azsky2.html.xdomain.jp/memo/${MY_P}.tar.bz2"
+HOMEPAGE="http://azsky2.html.xdomain.jp/linux/azpainterb/index.html"
+SRC_URI="mirror://osdn/${PN}/${OSDN_DIR}/${P}.tar.bz2"
 
 LICENSE="GPL-3 BSD"
 SLOT="0"
@@ -28,7 +28,6 @@ COMMON_DEPEND="media-libs/fontconfig
 DEPEND=${COMMON_DEPEND}
 RDEPEND=${COMMON_DEPEND}
 
-S="${WORKDIR}/${MY_P}"
 RESTRICT="mirror"
 
 DOCS=( AUTHORS ChangeLog NEWS README README_ja html translation )
