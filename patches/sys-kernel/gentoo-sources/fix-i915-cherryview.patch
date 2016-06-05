@@ -1,0 +1,20 @@
+--- a/drivers/gpu/drm/i915/i915_irq.c	2016-06-04 10:18:16.774072702 +0000
++++ b/drivers/gpu/drm/i915/i915_irq.c	2016-05-18 20:26:29.515010859 +0000
+@@ -1829,7 +1829,7 @@
+ 	/* IRQs are synced during runtime_suspend, we don't require a wakeref */
+ 	disable_rpm_wakeref_asserts(dev_priv);
+ 
+-	do {
++	for (;;) {
+ 		master_ctl = I915_READ(GEN8_MASTER_IRQ) & ~GEN8_MASTER_IRQ_CONTROL;
+ 		iir = I915_READ(VLV_IIR);
+ 
+@@ -1857,7 +1857,7 @@
+ 
+ 		I915_WRITE(GEN8_MASTER_IRQ, DE_MASTER_IRQ_CONTROL);
+ 		POSTING_READ(GEN8_MASTER_IRQ);
+-	} while (0);
++	}
+ 
+ 	enable_rpm_wakeref_asserts(dev_priv);
+ 
