@@ -6,7 +6,7 @@ EAPI=5
 
 DESCRIPTION="Viewer for Aozora Bunko (Japanese electric library)"
 HOMEPAGE="http://azsky2.html.xdomain.jp/linux/aobook/index.html"
-SRC_URI="mirror://osdn/${PN}/62557/${P}.tar.bz2"
+SRC_URI="mirror://osdn/${PN}/65908/${P}.tar.bz2"
 
 LICENSE="BSD"
 SLOT="0"
@@ -23,4 +23,4 @@ DEPEND=${RDEPEND}
 
 RESTRICT="mirror"
 
-DOCS=( AUTHORS ChangeLog NEWS README manual.html )
+DOCS=( AUTHORS ChangeLog NEWS README doc/manual.html )
