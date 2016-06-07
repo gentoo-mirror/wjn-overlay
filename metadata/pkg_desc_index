@@ -19,7 +19,7 @@ app-i18n/mozc-neologd-ut 2.17.2322.102.20160524.1 2.17.2322.102.20160606.0.1: Mo
 app-i18n/mozc-ut 2.17.2322.102.20160524: Mozc Japanese Input Method with Additional Japanese dictionary
 app-i18n/uim 9999: Simple, secure and flexible input method library
 app-misc/grc 1.9 9999: Generic Colouriser beautifies your logfiles or output of commands
-app-text/aobook 1.0.1: Viewer for Aozora Bunko (Japanese electric library)
+app-text/aobook 1.0.1 1.0.2: Viewer for Aozora Bunko (Japanese electric library)
 app-text/asciidoc-gtksourceview 2.0.1 3.0.1: AsciiDoc bindings for gtksourceview
 app-text/atril 9999: Atril document viewer for MATE desktop environment
 app-text/markdown-gtksourceview 2.1.9999 3.2.9999: Extra support for Markdown in GtkSourceView and gedit
