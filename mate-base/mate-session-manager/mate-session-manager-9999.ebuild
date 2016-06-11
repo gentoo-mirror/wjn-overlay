@@ -17,7 +17,7 @@ EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-2 LGPL-2 FDL-1.1"
 SLOT="0"
 KEYWORDS=""
-IUSE="debug elibc_FreeBSD gnome-keyring -gtk3 ipv6 systemd upower"
+IUSE="debug elibc_FreeBSD gnome-keyring ipv6 systemd upower"
 
 # x11-misc/xdg-user-dirs{,-gtk} are needed to create the various XDG_*_DIRs, and
 # create .config/user-dirs.dirs which is read by glib to get G_USER_DIRECTORY_*
@@ -29,6 +29,7 @@ COMMON_DEPEND=">=dev-libs/dbus-glib-0.76:0
 	sys-apps/dbus:0
 	x11-apps/xdpyinfo:0
 	x11-libs/gdk-pixbuf:2
+	>=x11-libs/gtk+-3.14.0:3
 	x11-libs/libICE:0
 	x11-libs/libSM:0
 	x11-libs/libX11:0
@@ -43,8 +44,6 @@ COMMON_DEPEND=">=dev-libs/dbus-glib-0.76:0
 	virtual/libintl:0
 	elibc_FreeBSD? ( dev-libs/libexecinfo:0 )
 	gnome-keyring? ( gnome-base/gnome-keyring:0 )
-	!gtk3? ( >=x11-libs/gtk+-2.24.0:2 )
-	gtk3? ( >=x11-libs/gtk+-3.0.0:3 )
 	systemd? ( sys-apps/systemd:0 )
 	upower? ( >=sys-power/upower-pm-utils-0.9.23 )"
 DEPEND="${COMMON_DEPEND}
@@ -76,7 +75,6 @@ src_configure() {
 	gnome2_src_configure \
 		--docdir="${EPREFIX}/usr/share/doc/${PF}" \
 		--with-default-wm=mate-wm \
-		--with-gtk=$(usex gtk3 '3.0' '2.0') \
 		$(use_enable ipv6) \
 		$(use_with systemd) \
 		$(use_enable upower)
