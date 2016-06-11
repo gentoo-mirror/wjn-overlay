@@ -51,7 +51,7 @@ src_configure() {
 		--disable-run-in-place \
 		--disable-packagekit \
 		--disable-deprecations \
-		$(use_enable caja caja-actions) \
+		$(use_enable caja caja-actions)
 }
 
 pkg_postinst() {

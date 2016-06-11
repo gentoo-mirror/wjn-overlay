@@ -62,8 +62,6 @@ DEPEND="${COMMON_DEPEND}
 		dev-python/pyatspi )"
 RDEPEND="${COMMON_DEPEND}"
 
-RESTRICT="test"
-
 DOCS=( AUTHORS ChangeLog NEWS README )
 
 src_unpack() {

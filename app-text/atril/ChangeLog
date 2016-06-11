@@ -3,6 +3,9 @@
 # (auto-generated from git log)
 
   11 Jun 2016; wjn <wjn@aol.jp> atril-9999.ebuild:
+  Remove useless RESTRICT="test"
+
+  11 Jun 2016; wjn <wjn@aol.jp> atril-9999.ebuild:
   Remove deleted doc files
 
   10 Apr 2016; wjn <wjn@aol.jp> atril-9999.ebuild:
