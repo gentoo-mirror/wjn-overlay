@@ -60,8 +60,7 @@ PDEPEND="dropbox? ( ~mate-extra/caja-dropbox-9999:0 )
 
 RESTRICT="test"
 
-DOCS=( AUTHORS ChangeLog HACKING MAINTAINERS NEWS README README.commits THANKS
-	TODO )
+DOCS=( AUTHORS ChangeLog HACKING NEWS README )
 
 src_unpack() {
 	git-r3_src_unpack
