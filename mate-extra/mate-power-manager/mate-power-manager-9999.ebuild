@@ -50,7 +50,7 @@ DEPEND="${COMMON_DEPEND}
 	man? ( app-text/docbook-sgml-utils:0
 		app-text/docbook-sgml-dtd:4.3 )"
 RDEPEND="${COMMON_DEPEND}
-	policykit? ( ~mate-extra/mate-polkit-9999[gtk3=] )"
+	policykit? ( ~mate-extra/mate-polkit-9999 )"
 
 DOCS=( AUTHORS ChangeLog NEWS README )
 

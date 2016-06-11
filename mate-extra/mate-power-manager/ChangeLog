@@ -3,6 +3,9 @@
 # (auto-generated from git log)
 
   11 Jun 2016; wjn <wjn@aol.jp> mate-power-manager-9999.ebuild:
+  Drop GTK+:2 support of mate-extra/mate-polkit
+
+  11 Jun 2016; wjn <wjn@aol.jp> mate-power-manager-9999.ebuild:
   Remove GTK+:2 support
 
   11 Jun 2016; wjn <wjn@aol.jp> mate-power-manager-9999.ebuild:
