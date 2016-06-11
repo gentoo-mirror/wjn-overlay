@@ -3,6 +3,9 @@
 # (auto-generated from git log)
 
   11 Jun 2016; wjn <wjn@aol.jp> mate-power-manager-9999.ebuild:
+  Remove GTK+:2 support
+
+  11 Jun 2016; wjn <wjn@aol.jp> mate-power-manager-9999.ebuild:
   Remove deleted doc files
 
   09 Apr 2016; wjn <wjn@aol.jp> mate-power-manager-9999.ebuild:
