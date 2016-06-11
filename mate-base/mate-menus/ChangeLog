@@ -2,6 +2,13 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  11 Jun 2016; wjn <wjn@aol.jp> mate-menus-9999.ebuild:
+  Remove deprecated ${G2CONF}
+
+   G2CONF in gnome2.eclass is deprecated, should be removed.
+  See https://wiki.gentoo.org/wiki/Project:GNOME/Gnome_Team_Ebuild_Policies#G2
+  CONF_and_src_configure
+
   10 Apr 2016; wjn <wjn@aol.jp> mate-menus-9999.ebuild:
   mate-extra/mate-menus: Add ChangeLog to DOCS, move to EAPI 6
 
