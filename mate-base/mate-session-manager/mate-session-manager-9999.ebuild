@@ -55,7 +55,7 @@ DEPEND="${COMMON_DEPEND}
 	!<gnome-base/gdm-2.20.4:*"
 RDEPEND="${COMMON_DEPEND}"
 
-DOCS=( AUTHORS ChangeLog HACKING MAINTAINERS NEWS README )
+DOCS=( AUTHORS ChangeLog HACKING NEWS README )
 
 src_unpack() {
 	git-r3_src_unpack
