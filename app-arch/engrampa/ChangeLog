@@ -3,6 +3,9 @@
 # (auto-generated from git log)
 
   11 Jun 2016; wjn <wjn@aol.jp> engrampa-9999.ebuild:
+  Remove deleted doc files
+
+  11 Jun 2016; wjn <wjn@aol.jp> engrampa-9999.ebuild:
   Update depended GTK+:3 version
 
   11 Jun 2016; wjn <wjn@aol.jp> engrampa-9999.ebuild:
