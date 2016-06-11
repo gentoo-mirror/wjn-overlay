@@ -55,7 +55,7 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	policykit? ( ~mate-extra/mate-polkit-9999[gtk3=] )"
 
-DOCS=( AUTHORS ChangeLog HACKING NEWS NEWS.GNOME README )
+DOCS=( AUTHORS ChangeLog NEWS README )
 
 src_unpack() {
 	git-r3_src_unpack
