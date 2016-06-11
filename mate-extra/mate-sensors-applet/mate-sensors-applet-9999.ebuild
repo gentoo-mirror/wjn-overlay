@@ -47,7 +47,7 @@ RDEPEND="${COMMON_DEPEND}"
 # Requires libxslt only for use by gnome-doc-utils.
 PDEPEND="hddtemp? ( dbus? ( sys-fs/udisks:0 ) )"
 
-DOCS=( AUTHORS ChangeLog NEWS README TODO )
+DOCS=( AUTHORS ChangeLog NEWS README )
 
 src_unpack() {
 	git-r3_src_unpack
