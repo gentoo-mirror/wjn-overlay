@@ -17,17 +17,15 @@ EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-
-IUSE="caja debug -gtk3"
+IUSE="caja debug"
 
 COMMON_DEPEND=">=dev-libs/glib-2.32.0:2
 	>=dev-libs/json-glib-0.14:0
 	x11-libs/gdk-pixbuf:2
+	>=x11-libs/gtk+-3.14.0:3
 	x11-libs/pango:0
 	virtual/libintl:0
-	caja? ( ~mate-base/caja-9999:0 )
-	!gtk3? ( >=x11-libs/gtk+-2.24.0:2 )
-	gtk3? ( >=x11-libs/gtk+-3.0.2:3 )"
+	caja? ( ~mate-base/caja-9999:0 )"
 DEPEND="${COMMON_DEPEND}
 	>=dev-util/intltool-0.50.1:0
 	dev-util/itstool:0
@@ -36,8 +34,7 @@ DEPEND="${COMMON_DEPEND}
 	virtual/pkgconfig:0"
 RDEPEND="${COMMON_DEPEND}"
 
-DOCS=( AUTHORS HACKING MAINTAINERS NEWS NEWS.GNOME README README-DISTRIBUTIONS
-	TODO )
+DOCS=( AUTHORS HACKING NEWS README README-DISTRIBUTIONS )
 
 src_unpack() {
 	git-r3_src_unpack
@@ -54,8 +51,7 @@ src_configure() {
 		--disable-run-in-place \
 		--disable-packagekit \
 		--disable-deprecations \
-		$(use_enable caja caja-actions) \
-		--with-gtk=$(usex gtk3 '3.0' '2.0')
+		$(use_enable caja caja-actions)
 }
 
 pkg_postinst() {

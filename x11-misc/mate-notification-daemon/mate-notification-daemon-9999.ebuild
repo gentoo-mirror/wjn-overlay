@@ -17,24 +17,20 @@ EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="-gtk3"
 
 COMMON_DEPEND="dev-libs/atk:0
 	>=dev-libs/dbus-glib-0.78:0
 	>=dev-libs/glib-2.36.0:2
 	gnome-base/gsettings-desktop-schemas:0
+	>=media-libs/libcanberra-0.4:0[gtk3]
 	>=sys-apps/dbus-0.78:0
 	x11-libs/cairo:0
 	>=x11-libs/gdk-pixbuf-2.22.0:2
+	>=x11-libs/gtk+-3.14.0:3
 	>=x11-libs/libnotify-0.7:0
+	>=x11-libs/libwnck-3.0.0:3
 	x11-libs/libX11:0
 	virtual/libintl:0
-	!gtk3? ( >=media-libs/libcanberra-0.4:0[gtk]
-		>=x11-libs/gtk+-2.24.0:2
-		>=x11-libs/libwnck-2.0.0:1 )
-	gtk3? ( >=media-libs/libcanberra-0.4:0[gtk3]
-		>=x11-libs/gtk+-3.0.0:3
-		>=x11-libs/libwnck-3.0.0:3 )
 	!x11-misc/notify-osd:*
 	!x11-misc/qtnotifydaemon:*
 	!x11-misc/notification-daemon:*"
@@ -46,7 +42,7 @@ DEPEND="${COMMON_DEPEND}
 	virtual/pkgconfig:0"
 RDEPEND="${COMMON_DEPEND}"
 
-DOCS=( AUTHORS ChangeLog NEWS NEWS.GNOME README )
+DOCS=( AUTHORS ChangeLog NEWS README )
 
 src_unpack() {
 	git-r3_src_unpack
@@ -59,8 +55,7 @@ src_prepare() {
 }
 
 src_configure() {
-	gnome2_src_configure \
-		--with-gtk=$(usex gtk3 '3.0' '2.0')
+	gnome2_src_configure
 }
 
 src_install() {

@@ -56,21 +56,22 @@ src_prepare() {
 }
 
 src_configure() {
-	G2CONF="${G2CONF} \
+	local myconf
+	myconf="${myconf} \
 		$(use_enable python) \
 		$(use_enable introspection)"
 
 	# Do NOT compile with --disable-debug/--enable-debug=no as it disables API 
 	# usage checks.
 	if ! use debug ; then
-		G2CONF="${G2CONF} --enable-debug=minimum"
+		myconf="${myconf} --enable-debug=minimum"
 	fi
 
 	if use python ; then
 		python_copy_sources
 	fi
 
-	my_command gnome2_src_configure
+	my_command gnome2_src_configure ${myconf}
 }
 
 src_compile() {

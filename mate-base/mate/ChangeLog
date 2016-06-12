@@ -2,6 +2,16 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  11 Jun 2016; wjn <wjn@aol.jp> mate-9999.ebuild:
+  Drop GTK+:2 support for some packages
+
+   These packages are dropped GTK+:2 support
+   - app-arch/engrampa
+   - mate-base/mate-session-manager
+   - mate-extra/mate-polkit
+   - mate-extra/mate-power-manager
+   - x11-misc/mate-notification-daemon
+
   20 Feb 2016; wjn <wjn@aol.jp> mate-9999.ebuild:
   Make notification-daemon selectable
 

@@ -62,9 +62,7 @@ DEPEND="${COMMON_DEPEND}
 		dev-python/pyatspi )"
 RDEPEND="${COMMON_DEPEND}"
 
-RESTRICT="test"
-
-DOCS=( AUTHORS ChangeLog NEWS NEWS.gnome README TODO )
+DOCS=( AUTHORS ChangeLog NEWS README )
 
 src_unpack() {
 	git-r3_src_unpack

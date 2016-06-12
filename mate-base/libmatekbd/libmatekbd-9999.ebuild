@@ -25,7 +25,7 @@ COMMON_DEPEND=">=dev-libs/glib-2.18:2
 	x11-libs/cairo:0
 	>=x11-libs/gdk-pixbuf-2.18:2[introspection?]
 	x11-libs/libX11:0
-	>=x11-libs/libxklavier-5.0:0
+	>=x11-libs/libxklavier-5.2:0[introspection]
 	x11-libs/pango:0
 	virtual/libintl:0
 	!gtk3? ( >=x11-libs/gtk+-2.24.0:2[introspection?] )
