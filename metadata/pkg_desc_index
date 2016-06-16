@@ -2,6 +2,7 @@ app-accessibility/florence 0.6.3: an extensible scalable virtual keyboard for X1
 app-accessibility/onboard 1.1.2 1.2.0: Onscreen keyboard for tablet PC users and mobility impaired users
 app-accessibility/xvkbd 3.7: Virtual Keyboard for X Window System
 app-arch/engrampa 9999: Engrampa archive manager for MATE
+app-doc/doxygen 1.8.11-r2: Documentation system for most programming languages
 app-editors/cutemarked 0.11.2 0.11.3: Qt5-based Markdown editor with live HTML preview
 app-editors/focuswriter 9999: A fullscreen and distraction-free word processor
 app-editors/juffed 9999: QScintilla-based tabbed text editor with syntax highlighting
