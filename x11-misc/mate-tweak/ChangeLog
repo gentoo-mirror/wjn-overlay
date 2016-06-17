@@ -2,6 +2,21 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*mate-tweak-16.10.1 (17 Jun 2016)
+
+  17 Jun 2016; wjn <wjn@aol.jp> -mate-tweak-3.5.9.ebuild,
+  +mate-tweak-16.10.1.ebuild:
+  Add version 16.10.1, delete old 3.5.9
+
+   - mate-tweak changes to support GTK+ 3, gtk+:3 is needed instead of gtk+:2
+   - MATE 1.14 or later is required
+
+   After mate-tweak 16.10.0, its versioning seems to change the base to
+  the release version of Ubuntu MATE (16.10 is "Yakkety Yak", Oct 2016)
+
+   Changelog is at
+  https://launchpad.net/ubuntu/yakkety/+source/mate-tweak/+changelog
+
 *mate-tweak-3.5.10 (18 Apr 2016)
 
   18 Apr 2016; wjn <wjn@aol.jp> +mate-tweak-3.5.10.ebuild:
