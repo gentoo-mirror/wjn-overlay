@@ -16,7 +16,7 @@ app-i18n/im-chooser 1.6.4: Desktop Input Method configuration tool
 app-i18n/libkkc 0.3.5 9999: Japanese Kana Kanji conversion library
 app-i18n/libkkc-data 0.2.7: Japanese Kana Kanji conversion dictionary for libkkc
 app-i18n/mozc 2.17.2243.102 2.17.2287.102 2.17.2313.102: Mozc - a Japanese Input Method Editor designed for multi-platform
-app-i18n/mozc-neologd-ut 2.17.2322.102.20160524.1 2.17.2322.102.20160609.0.1: Mozc Japanese Input Method with mecab-ipadic-NEologd
+app-i18n/mozc-neologd-ut 2.17.2322.102.20160524.1 2.17.2322.102.20160616.0.1: Mozc Japanese Input Method with mecab-ipadic-NEologd
 app-i18n/mozc-ut 2.17.2322.102.20160524: Mozc Japanese Input Method with Additional Japanese dictionary
 app-i18n/uim 9999: Simple, secure and flexible input method library
 app-misc/grc 1.9 9999: Generic Colouriser beautifies your logfiles or output of commands
@@ -134,7 +134,7 @@ x11-libs/qscintilla 2.9.1-r200: A Qt port of Neil Hodgson's Scintilla C++ editor
 x11-misc/lightdm 1.19.0: A lightweight display manager
 x11-misc/lightdm-gtk-greeter-settings 1.2.1: LightDM Gtk+ Greeter settings editor
 x11-misc/mate-notification-daemon 9999: MATE Notification daemon
-x11-misc/mate-tweak 3.5.9 3.5.10: MATE desktop tweak tool
+x11-misc/mate-tweak 3.5.10 16.10.1: MATE desktop tweak tool, a fork of mintDesktop
 x11-misc/mozo 9999: Menu editor for MATE using the freedesktop.org menu specification
 x11-misc/screengrab 2.9999: Qt-based program for fast creating screenshots
 x11-terms/mate-terminal 9999: The MATE Terminal Emulator
