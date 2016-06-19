@@ -15,7 +15,7 @@ EGIT_REPO_URI="https://github.com/i-rinat/${PN}.git"
 LICENSE="MIT"
 SLOT=0
 KEYWORDS=""
-IUSE="gtk3 jack libav pulseaudio vaapi vdpau"
+IUSE="jack libav pulseaudio vaapi vdpau"
 
 HWDEC_DEPEND="x11-libs/libva
 	x11-libs/libvdpau
@@ -31,14 +31,14 @@ COMMON_DEPEND="dev-libs/glib:2=
 	media-libs/freetype:2=
 	media-libs/libv4l:0=
 	media-libs/mesa:=[egl,gles2]
+	|| ( x11-libs/gtk+:2=
+		x11-libs/gtk+:3= )
 	x11-libs/libXrandr:=
 	x11-libs/libXrender:=
 	x11-libs/libdrm:=
 	x11-libs/pango:=[X]
 	jack? ( virtual/jack )
 	pulseaudio? ( media-sound/pulseaudio )
-	!gtk3? ( x11-libs/gtk+:2= )
-	gtk3? ( x11-libs/gtk+:3= )
 	vaapi? ( ${HWDEC_DEPEND} )
 	vdpau? ( ${HWDEC_DEPEND} )"
 DEPEND="${COMMON_DEPEND}
@@ -57,7 +57,6 @@ src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with jack JACK)
 		$(cmake-utils_use_with pulseaudio PULSEAUDIO)
-		-DWITH_GTK=$(usex gtk3 3 2)
 		-DCMAKE_SKIP_RPATH=1
 	)
 	if use vaapi || use vdpau ; then
