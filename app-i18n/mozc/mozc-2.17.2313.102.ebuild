@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 # Mozc doesn't support Python 3 yet.
 PYTHON_COMPAT=( python2_7 )
@@ -28,10 +28,11 @@ SRC_URI="fcitx? ( ${FCITX_PATCH_URI} )"
 # Mozc: BSD, dictionary_oss: ipadic and public-domain, unicode: unicode,
 # zinnia: BSD, usagedic: BSD-2, GYP: BSD, Mozc Fcitx: BSD, MacUIM: BSD,
 # GMOCK: Boost-1.0, GTEST: BSD. IPAfont is in repo, but not used.
-LICENSE="BSD BSD-2 ipadic public-domain unicode test? ( Boost-1.0 )"
+LICENSE="BSD BSD-2 ipadic public-domain unicode"
+# test? ( Boost-1.0 )"
 SLOT="0"
-KEYWORDS=""
-IUSE="clang emacs fcitx ibus +qt4 renderer -test tomoe uim"
+KEYWORDS="~amd64"
+IUSE="clang emacs fcitx ibus +qt4 renderer tomoe uim"
 REQUIRED_USE="|| ( emacs fcitx ibus uim )
 	tomoe? ( qt4 )"
 
@@ -60,8 +61,7 @@ RDEPEND="${COMMON_DEPEND}
 
 S="${WORKDIR}/${P}/src"
 
-RESTRICT="mirror"
-use test || RESTRICT="${RESTRICT} test"
+RESTRICT="mirror test"
 
 BUILDTYPE=${BUILDTYPE:-Release}
 
@@ -99,6 +99,8 @@ src_prepare() {
 			-e "s/<!(which clang++)/$(tc-getCXX)/" \
 			gyp/common.gypi || die
 	fi
+
+	eapply_user
 }
 
 src_configure() {
@@ -150,9 +152,9 @@ src_compile() {
 	use emacs && elisp-compile unix/emacs/*.el
 }
 
-src_test() {
-	"${PYTHON}" build_mozc.py runtests -c "${BUILDTYPE}"
-}
+# src_test() {
+# 	"${PYTHON}" build_mozc.py runtests -c "${BUILDTYPE}"
+# }
 
 src_install() {
 	exeinto "/usr/$(get_libdir)/mozc"
