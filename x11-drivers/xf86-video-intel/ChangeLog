@@ -2,6 +2,16 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*xf86-video-intel-2.99.917_p20160625 (28 Jun 2016)
+
+  28 Jun 2016; wjn <wjn@aol.jp> +xf86-video-intel-2.99.917_p20160625.ebuild:
+  Add version 2.99.917_p20160625
+
+*xf86-video-intel-2.99.917_p20160621 (27 Jun 2016)
+
+  27 Jun 2016; wjn <wjn@aol.jp> +xf86-video-intel-2.99.917_p20160621.ebuild:
+  Add version 2.99.917_p20160621
+
 *xf86-video-intel-2.99.917_p20160601 (05 Jun 2016)
 
   05 Jun 2016; wjn <wjn@aol.jp> +files/xf86-video-intel-2.21.15-handle-updates

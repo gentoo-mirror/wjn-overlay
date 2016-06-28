@@ -2,6 +2,12 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*mozc-ut-2.17.2322.102.20160627 (28 Jun 2016)
+
+  28 Jun 2016; wjn <wjn@aol.jp> -mozc-ut-2.17.2322.102.20160524.ebuild,
+  +mozc-ut-2.17.2322.102.20160627.ebuild:
+  Add version 2.17.2322.102.20160627, delete old
+
   07 Jun 2016; wjn <wjn@aol.jp> mozc-ut-2.17.2322.102.20160524.ebuild:
   Update manifests of yusei zipcode archives
 
