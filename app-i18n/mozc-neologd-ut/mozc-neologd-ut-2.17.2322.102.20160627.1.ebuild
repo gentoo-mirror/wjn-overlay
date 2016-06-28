@@ -24,7 +24,7 @@ FCITX_PATCH_VER="2.17.2313.102.1"
 UIM_PATCH_REV="3ea28b1"
 
 DIC_REL="$(get_version_component_range 5)"
-NEOLOGD_REV="4ae091a"
+NEOLOGD_REV="2e3eccf"
 
 # Zip code data are revised on the last of every month
 ZIPCODE_REV="201605"
@@ -33,12 +33,12 @@ ZIPCODE_REV="201605"
 # In such a case, ${PV} can be ${MOZC_VER}.${DIC_REL}.0.${UT_REV}
 # On the other case, ${PV} is ${MOZC_VER}.${DIC_REL}.${UT_REV}
 # Therefore, ${UT_REV} is the last number of ${PV}
-UT_UPD="20160419"
-UT_REL="20160418"
+UT_UPD="20160627"
+UT_REL="20160627"
 UT_REV="$(get_version_component_range $(get_version_component_count))"
 GET_DIC="$(get_version_component_range 6)"
 # FYI: https://osdn.jp/users/utuhiro/pf/utuhiro/wiki/FrontPage
-UT_DIR="10/10775"
+UT_DIR="10/10946"
 #######################
 
 # Assign URI variables #########
