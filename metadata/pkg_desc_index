@@ -32,7 +32,7 @@ dev-python/phpserialize 1.3: A small library for extracting rich content from ur
 dev-python/python-caja 9999: Python bindings for Caja file manager
 dev-python/python-distutils-extra 2.38-r1 2.39: Gettext support, themed icons and scrollkeeper-based documentation in distutils
 dev-python/typogrify 2.0.7: Filters to enhance web typography, often used with Jinja or Django
-dev-util/meld 3.16.0: A graphical diff and merge tool
+dev-util/meld 3.16.1: A graphical diff and merge tool
 gnome-extra/cinnamon 2.6.13-r1 2.8.4-r1 2.8.5 2.8.6 2.8.7 2.8.8: A fork of GNOME Shell with layout similar to GNOME 2
 gnome-extra/cinnamon-control-center 2.6.0-r1 2.8.1: Cinnamon's main interface to configure various aspects of the desktop
 gnome-extra/cinnamon-settings-daemon 2.6.3 2.8.1 2.8.2 2.8.3 2.8.4: Cinnamon's settings daemon
