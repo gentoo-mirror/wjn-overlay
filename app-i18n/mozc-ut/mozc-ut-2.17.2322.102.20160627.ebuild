@@ -23,7 +23,7 @@ FCITX_PATCH_VER="2.17.2313.102.1"
 UIM_PATCH_REV="3ea28b1"
 
 # Zip code data are revised on the last of every month
-ZIPCODE_REV="201605"
+ZIPCODE_REV="201606"
 
 UT_REL=$(get_version_component_range $(get_version_component_count))
 UT_DIR="10/10948"
