@@ -2,7 +2,10 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
-  09 Apr 2016; wjn <wjn@aol.jp> mate-control-center-9999.ebuild:
+  15 Jul 2016; wjn <wjn@aol.jp> mate-control-center-9999.ebuild:
+  Update depended libappindicator ver to 0.0.13
+
+  10 Apr 2016; wjn <wjn@aol.jp> mate-control-center-9999.ebuild:
   mate-extra/mate-control-center: Add ChangeLog to DOCS, move to EAPI 6
 
   19 Feb 2016; wjn <wjn@aol.jp> metadata.xml:
