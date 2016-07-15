@@ -50,8 +50,8 @@ COMMON_DEPEND="app-text/rarian:0
 	x11-libs/pango:0
 	~x11-wm/marco-9999[gtk3?]
 	virtual/libintl:0
-	appindicator? ( !gtk3? ( >=dev-libs/libappindicator-0.0.7:2 )
-		gtk3? ( >=dev-libs/libappindicator-0.0.7:3 ) )
+	appindicator? ( !gtk3? ( >=dev-libs/libappindicator-0.0.13:2 )
+		gtk3? ( >=dev-libs/libappindicator-0.0.13:3 ) )
 	!gtk3? ( >=dev-libs/libunique-1.0:1
 		media-libs/libcanberra:0[gtk] )
 	gtk3? ( >=dev-libs/libunique-3.0:3
