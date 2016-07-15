@@ -47,7 +47,7 @@ DEPEND="${COMMON_DEPEND}
 	doc? ( >=dev-util/gtk-doc-1.4:0 )"
 RDEPEND="${COMMON_DEPEND}"
 
-DOCS=( AUTHORS ChangeLog HACKING MAINTAINERS NEWS README )
+DOCS=( AUTHORS ChangeLog NEWS README )
 
 src_unpack() {
 	git-r3_src_unpack
