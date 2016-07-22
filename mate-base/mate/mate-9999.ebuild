@@ -27,7 +27,7 @@ RDEPEND="~mate-base/mate-desktop-9999:0[gtk3=]
 		~mate-base/mate-control-center-9999:0[gtk3=]
 		~mate-extra/mate-media-9999:0[gtk3=]
 		~x11-misc/mozo-9999
-		~x11-terms/mate-terminal-9999:0[gtk3=] )
+		~x11-terms/mate-terminal-9999:0 )
 	bluetooth? ( net-wireless/blueman:0 )
 	extras? ( ~app-arch/engrampa-9999:0
 		~app-text/atril-9999:0[gtk3=]
