@@ -2,6 +2,9 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  27 Jul 2016; wjn <wjn@aol.jp> atril-9999.ebuild:
+  Drop USE=test from ${DEPEND}
+
   15 Jul 2016; wjn <wjn@aol.jp> atril-9999.ebuild:
   Update depended poppler version requirement to 0.18.0
 
