@@ -127,11 +127,11 @@ sci-calculators/galculator 2.1.4: GTK+ based algebraic and RPN calculator
 sys-libs/libunwind 1.2_rc1: Portable and efficient API to determine the call-chain of a program
 www-apps/nikola 7.6.4 7.7.3 7.7.8 7.7.9 7.7.11: A static website and blog generator
 www-plugins/freshplayerplugin 9999: PPAPI-host NPAPI-plugin adapter for flashplayer in npapi based browsers
-x11-drivers/xf86-video-intel 2.99.917_p20160601 2.99.917_p20160621 2.99.917_p20160625 2.99.917_p20160704: X.Org driver for Intel cards
+x11-drivers/xf86-video-intel 2.99.917_p20160601 2.99.917_p20160621 2.99.917_p20160625 2.99.917_p20160704 2.99.917_p20160721: X.Org driver for Intel cards
 x11-libs/gdk-pixbuf-psd 0.1.0 9999: A GdkPixbuf loader for Adobe Photoshop images
 x11-libs/gdk-pixbuf-xcf 2012.05: A gdk-pixbuf loader for xcf (The Gimp) files
 x11-libs/libvdpau-va-gl 9999: VDPAU driver with OpenGL/VAAPI backend
-x11-libs/qscintilla 2.9.1-r200: A Qt port of Neil Hodgson's Scintilla C++ editor class
+x11-libs/qscintilla 2.9.1-r200 2.9.2-r200: A Qt port of Neil Hodgson's Scintilla C++ editor class
 x11-misc/lightdm 1.19.3: A lightweight display manager
 x11-misc/lightdm-gtk-greeter-settings 1.2.1: LightDM Gtk+ Greeter settings editor
 x11-misc/mate-notification-daemon 9999: MATE Notification daemon
