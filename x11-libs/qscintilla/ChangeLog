@@ -2,6 +2,11 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*qscintilla-2.9.2-r200 (27 Jul 2016)
+
+  27 Jul 2016; wjn <wjn@aol.jp> +qscintilla-2.9.2-r200.ebuild:
+  Add version qscintilla-2.9.2-r200
+
   19 Feb 2016; wjn <wjn@aol.jp> qscintilla-2.9.1-r200.ebuild:
   Correct for quality assurance
 
