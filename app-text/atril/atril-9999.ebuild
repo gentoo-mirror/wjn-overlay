@@ -57,9 +57,7 @@ DEPEND="${COMMON_DEPEND}
 	>=dev-util/intltool-0.50.1:0
 	virtual/pkgconfig:0
 	sys-devel/gettext:0
-	doc? ( >=dev-util/gtk-doc-1.13:0 )
-	test? ( dev-util/dogtail
-		dev-python/pyatspi )"
+	doc? ( >=dev-util/gtk-doc-1.13:0 )"
 RDEPEND="${COMMON_DEPEND}"
 
 DOCS=( AUTHORS ChangeLog NEWS README )
