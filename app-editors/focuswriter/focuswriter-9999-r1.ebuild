@@ -5,7 +5,7 @@
 EAPI=6
 
 PLOCALES="ar ca cs da de el en en_GB eo es es_MX fi fr he hu hy id it ja ko lt
-	nl pl pt pt_BR ro ru sk sr sv tr uk vi zh_CN zh_TW"
+	nl pl pt pt_BR ro ru sk sr sv tr uk vi zh_CN"
 PLOCALE_BACKUP="en"
 
 inherit fdo-mime git-r3 gnome2-utils l10n qmake-utils
