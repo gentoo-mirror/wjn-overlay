@@ -16,7 +16,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 DEPEND="app-text/discount
-	app-text/hunspell
+	app-text/hunspell:=
 	dev-qt/linguist-tools:5
 	dev-qt/qtcore:5
 	dev-qt/qtgui:5

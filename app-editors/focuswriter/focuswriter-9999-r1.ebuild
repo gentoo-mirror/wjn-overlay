@@ -4,8 +4,8 @@
 
 EAPI=6
 
-PLOCALES="ar ca cs da de el en en_GB eo es es_MX fi fr he hu hy id it ja ko lt
-	nl pl pt pt_BR ro ru sk sr sv tr uk vi zh_CN zh_TW"
+PLOCALES="af_ZA ar ca cs da de el en en_GB eo es es_MX fi fr he hu hy id it ja
+	ko lt nl pl pt pt_BR ro ru sk sr sv tr uk vi zh_CN"
 PLOCALE_BACKUP="en"
 
 inherit fdo-mime git-r3 gnome2-utils l10n qmake-utils
@@ -19,7 +19,7 @@ SLOT="0"
 KEYWORDS=""
 IUSE="debug"
 
-COMMON_DEPEND="app-text/hunspell
+COMMON_DEPEND="app-text/hunspell:=
 	>=dev-qt/qtconcurrent-5.2:5
 	>=dev-qt/qtcore-5.2:5
 	>=dev-qt/qtgui-5.2:5
