@@ -3,6 +3,11 @@
 # (auto-generated from git log)
 
   28 Jul 2016; wjn <wjn@aol.jp> focuswriter-9999-r1.ebuild:
+  Add af_ZA (Afrikaans (South Africa)) translation
+
+   Upstream Added af_ZA in the commit of 39fb0b5
+
+  28 Jul 2016; wjn <wjn@aol.jp> focuswriter-9999-r1.ebuild:
   Drop zh_TW (Republic of China) translation
 
    Upstream dropped zh_TW translation in the commit of 39fb0b
