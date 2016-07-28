@@ -12,8 +12,7 @@ DESCRIPTION="Onscreen keyboard for tablet PC users and mobility impaired users"
 HOMEPAGE="https://launchpad.net/onboard"
 SRC_URI="https://launchpad.net/${PN}/$(get_version_component_range 1-2)/${PV}/+download/${P}.tar.gz"
 
-# po/* are licensed under BSD 3-clause
-LICENSE="GPL-3 BSD"
+LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
 
@@ -38,7 +37,7 @@ DEPEND="${COMMON_DEPEND}
 	dev-util/intltool"
 RDEPEND="${COMMON_DEPEND}
 	app-accessibility/at-spi2-core
-	app-text/hunspell
+	app-text/hunspell:=
 	app-text/iso-codes
 	gnome-extra/mousetweaks
 	dev-libs/libappindicator:3[introspection]
@@ -47,8 +46,10 @@ RDEPEND="${COMMON_DEPEND}
 RESTRICT="mirror"
 
 # These are using a functionality of distutils-r1.eclass
-DOCS=( AUTHORS CHANGELOG HACKING NEWS README onboard-defaults.conf.example )
-PATCHES=( "${FILESDIR}/${P}-remove-duplicated-docs.patch" )
+DOCS=( AUTHORS CHANGELOG NEWS README
+	onboard-defaults.conf.example onboard-defaults.conf.example.nexus7 )
+HTML_DOCS=( docs/. )
+PATCHES=( "${FILESDIR}/${PN}-remove-duplicated-docs.patch" )
 
 src_prepare() {
 	distutils-r1_src_prepare

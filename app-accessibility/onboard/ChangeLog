@@ -2,6 +2,16 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*onboard-1.2.0-r1 (28 Jul 2016)
+*onboard-1.1.2-r1 (28 Jul 2016)
+
+  28 Jul 2016; wjn <wjn@aol.jp> -onboard-1.1.2.ebuild,
+  +onboard-1.1.2-r1.ebuild, -onboard-1.2.0.ebuild, +onboard-1.2.0-r1.ebuild:
+  Bind slotting of app-text/hunspell
+
+   Since Hunspell 1.4.0 changes ABI, app-text/hunspell has subslots
+  Dependents are needed to rebuild
+
   13 Mar 2016; wjn <wjn@aol.jp> onboard-1.1.2.ebuild, onboard-1.2.0.ebuild:
   Fix to add libappindicator:3 to $RDEPEND
 
