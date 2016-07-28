@@ -2,6 +2,15 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*focuswriter-9999-r1 (28 Jul 2016)
+
+  28 Jul 2016; wjn <wjn@aol.jp> -focuswriter-9999.ebuild,
+  +focuswriter-9999-r1.ebuild:
+  Bind slotting of app-text/hunspell
+
+   Since Hunspell 1.4.0 changes ABI, app-text/hunspell has subslots
+  Dependents are needed to rebuild
+
   19 Feb 2016; wjn <wjn@aol.jp> metadata.xml:
   **/metadata.xml: Update and tidy up
 

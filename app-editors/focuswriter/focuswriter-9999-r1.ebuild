@@ -19,7 +19,7 @@ SLOT="0"
 KEYWORDS=""
 IUSE="debug"
 
-COMMON_DEPEND="app-text/hunspell
+COMMON_DEPEND="app-text/hunspell:=
 	>=dev-qt/qtconcurrent-5.2:5
 	>=dev-qt/qtcore-5.2:5
 	>=dev-qt/qtgui-5.2:5
