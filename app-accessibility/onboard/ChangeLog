@@ -2,6 +2,10 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  28 Jul 2016; wjn <wjn@aol.jp> onboard-1.1.2-r1.ebuild,
+  onboard-1.2.0-r1.ebuild:
+  Move app-text/hunspell dep to C_DEPEND from RDEPEND
+
 *onboard-1.2.0-r1 (28 Jul 2016)
 *onboard-1.1.2-r1 (28 Jul 2016)
 

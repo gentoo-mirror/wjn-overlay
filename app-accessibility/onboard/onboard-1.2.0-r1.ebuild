@@ -17,7 +17,8 @@ LICENSE="GPL-3 BSD"
 SLOT="0"
 KEYWORDS=""
 
-COMMON_DEPEND="dev-libs/dbus-glib
+COMMON_DEPEND="app-text/hunspell:=
+	dev-libs/dbus-glib
 	dev-python/dbus-python[${PYTHON_USEDEP}]
 	dev-python/pycairo[${PYTHON_USEDEP}]
 	dev-python/pygobject:3[${PYTHON_USEDEP}]
@@ -38,7 +39,6 @@ DEPEND="${COMMON_DEPEND}
 	dev-util/intltool"
 RDEPEND="${COMMON_DEPEND}
 	app-accessibility/at-spi2-core
-	app-text/hunspell:=
 	app-text/iso-codes
 	gnome-extra/mousetweaks
 	dev-libs/libappindicator:3[introspection]
