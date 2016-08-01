@@ -44,8 +44,7 @@ COMMON_DEPEND="!!media-gfx/fbi
 
 DEPEND="${COMMON_DEPEND}
 	X? ( x11-proto/xextproto
-		x11-proto/xproto )
-	pdf? ( app-text/ghostscript-gpl )"
+		x11-proto/xproto )"
 
 RDEPEND=${COMMON_DEPEND}
 
