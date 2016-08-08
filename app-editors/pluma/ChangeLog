@@ -2,6 +2,12 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  08 Aug 2016; wjn <wjn@aol.jp> pluma-9999.ebuild:
+  Drop mate-desktop dependency and IUSE=mate
+
+   Upstream removed the dependency of mate-desktop
+   https://github.com/mate-desktop/pluma/commit/0309e46
+
   11 Jun 2016; wjn <wjn@aol.jp> pluma-9999.ebuild:
   Remove deleted doc files
 
