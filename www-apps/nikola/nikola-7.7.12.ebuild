@@ -6,9 +6,8 @@ EAPI=6
 
 # Some dependended pakages still don't have [python_targets_python3_5]
 # Should wait for their update
-# - dev-python/doit, dev-python/watchdog, dev-python/webassets,
-# - dev-python/ghp-import, dev-python/pyphen, dev-python/micawber,
-# - dev-python/ws4py
+# - dev-python/doit, dev-python/webassets, dev-python/ghp-import,
+# - dev-python/micawber, dev-python/ws4py
 # PYTHON_COMPAT=( python{2_7,3_3,3_4,3_5} )
 PYTHON_COMPAT=( python{2_7,3_3,3_4} )
 PYTHON_REQ_USE="gdbm"
@@ -62,7 +61,7 @@ RDEPEND="${COMMON_DEPEND}
 	>=dev-python/mako-1.0.0[${PYTHON_USEDEP}]
 	>=dev-python/natsort-3.5.2[${PYTHON_USEDEP}]
 	>=dev-python/pillow-2.4.0[${PYTHON_USEDEP}]
-	>=dev-python/piexif-1.0.4[${PYTHON_USEDEP}]
+	>=dev-python/piexif-1.0.3[${PYTHON_USEDEP}]
 	>=dev-python/pygments-1.6[${PYTHON_USEDEP}]
 	>=dev-python/PyRSS2Gen-1.1[${PYTHON_USEDEP}]
 	>=dev-python/python-dateutil-2.4.0[${PYTHON_USEDEP}]
@@ -88,7 +87,7 @@ RDEPEND="${COMMON_DEPEND}
 
 # mock, coverage, pytest, pytest-cov, freezegun, python-coveralls and colorama
 # are necessary for test.
-# https://github.com/getnikola/nikola/blob/v7.7.11/requirements-tests.txt
+# https://github.com/getnikola/nikola/blob/v7.7.12/requirements-tests.txt
 RESTRICT="mirror test"
 
 src_install() {
@@ -97,6 +96,6 @@ src_install() {
 	# hackish way to remove docs that ended up in the wrong place
 	rm -rf "${D}"/usr/share/doc/${PN}
 
-	dodoc AUTHORS.txt CHANGES.txt README.rst docs/*.txt
+	dodoc AUTHORS.txt CHANGES.txt CONTRIBUTING.rst README.rst docs/*.txt
 	doman docs/man/nikola.1.gz
 }
