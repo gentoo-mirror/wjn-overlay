@@ -19,12 +19,12 @@ HOMEPAGE="http://www.geocities.jp/ep3797/mozc_01.html
 
 # Assign version variables #####
 MOZC_VER="$(get_version_component_range 1-4)"
-MOZC_REV="73a8154"
+MOZC_REV="53e91ea"
 FCITX_PATCH_VER="2.17.2313.102.1"
 UIM_PATCH_REV="3ea28b1"
 
 DIC_REL="$(get_version_component_range 5)"
-NEOLOGD_REV="ffc6040"
+NEOLOGD_REV="c0d044f"
 
 # Zip code data are revised on the last of every month
 ZIPCODE_REV="201607"
