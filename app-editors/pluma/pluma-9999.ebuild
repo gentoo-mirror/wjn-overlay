@@ -19,7 +19,7 @@ EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="debug -gtk3 +mate python spell"
+IUSE="debug -gtk3 python spell"
 REQUIRED_USE="gtk3? ( !python )
 	python? ( ${PYTHON_REQUIRED_USE} )"
 
@@ -40,7 +40,6 @@ COMMON_DEPEND="app-text/rarian:0
 		>=x11-libs/gtksourceview-2.9.7:2.0 )
 	gtk3? ( >=x11-libs/gtk+-3.0.0:3
 		>=x11-libs/gtksourceview-3.0.0:3.0 )
-	mate? ( ~mate-base/mate-desktop-9999:0[gtk3=] )
 	python? ( ${PYTHON_DEPS}
 		>=dev-python/pygobject-2.15.4:2[${PYTHON_USEDEP}]
 		>=dev-python/pygtk-2.12:2[${PYTHON_USEDEP}]
@@ -78,7 +77,6 @@ src_prepare() {
 src_configure() {
 	gnome2_src_configure \
 		--with-gtk=$(usex gtk3 '3.0' '2.0') \
-		$(use_with mate matedesktop) \
 		$(use_enable python) \
 		$(use_enable spell)
 }
