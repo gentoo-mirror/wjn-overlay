@@ -16,7 +16,7 @@ app-i18n/im-chooser 1.6.4: Desktop Input Method configuration tool
 app-i18n/libkkc 0.3.5 9999: Japanese Kana Kanji conversion library
 app-i18n/libkkc-data 0.2.7: Japanese Kana Kanji conversion dictionary for libkkc
 app-i18n/mozc 2.17.2313.102: Mozc - a Japanese Input Method Editor designed for multi-platform
-app-i18n/mozc-neologd-ut 2.17.2322.102.20160627.1 2.17.2404.102.20160728.0.1: Mozc Japanese Input Method with mecab-ipadic-NEologd
+app-i18n/mozc-neologd-ut 2.17.2322.102.20160627.1 2.17.2517.102.20160808.0.1: Mozc Japanese Input Method with mecab-ipadic-NEologd
 app-i18n/mozc-ut 2.17.2322.102.20160627: Mozc Japanese Input Method with Additional Japanese dictionary
 app-i18n/uim 9999: Simple, secure and flexible input method library
 app-misc/grc 1.9 9999: Generic Colouriser beautifies your logfiles or output of commands
@@ -37,7 +37,7 @@ dev-util/meld 3.16.1: A graphical diff and merge tool
 gnome-extra/cinnamon 2.6.13-r1 2.8.4-r1 2.8.5 2.8.6 2.8.7 2.8.8: A fork of GNOME Shell with layout similar to GNOME 2
 gnome-extra/cinnamon-control-center 2.6.0-r1 2.8.1: Cinnamon's main interface to configure various aspects of the desktop
 gnome-extra/cinnamon-settings-daemon 2.6.3 2.8.1 2.8.2 2.8.3 2.8.4: Cinnamon's settings daemon
-mail-client/sylpheed 3.5.0: A lightweight email client and newsreader
+mail-client/sylpheed 3.5.0 3.5.1: A lightweight email client and newsreader
 mate-base/caja 9999: Caja file manager for the MATE desktop
 mate-base/libmatekbd 9999: MATE keyboard configuration library
 mate-base/mate 9999: Meta ebuild for MATE, a traditional desktop environment
@@ -125,9 +125,9 @@ media-sound/yoshimi 1.3.8.2-r1 1.3.9: A software synthesizer based on ZynAddSubF
 media-video/vlc 9999: VLC media player - Video player and streamer
 sci-calculators/galculator 2.1.4: GTK+ based algebraic and RPN calculator
 sys-libs/libunwind 1.2_rc1: Portable and efficient API to determine the call-chain of a program
-www-apps/nikola 7.6.4 7.7.3 7.7.8 7.7.9 7.7.11: A static website and blog generator
+www-apps/nikola 7.6.4 7.7.3 7.7.8 7.7.9 7.7.12: A static website and blog generator
 www-plugins/freshplayerplugin 9999: PPAPI-host NPAPI-plugin adapter for flashplayer in npapi based browsers
-x11-drivers/xf86-video-intel 2.99.917_p20160601 2.99.917_p20160621 2.99.917_p20160625 2.99.917_p20160704 2.99.917_p20160721: X.Org driver for Intel cards
+x11-drivers/xf86-video-intel 2.99.917_p20160601 2.99.917_p20160621 2.99.917_p20160625 2.99.917_p20160704 2.99.917_p20160721 2.99.917_p20160803: X.Org driver for Intel cards
 x11-libs/gdk-pixbuf-psd 0.1.0 9999: A GdkPixbuf loader for Adobe Photoshop images
 x11-libs/gdk-pixbuf-xcf 2012.05: A gdk-pixbuf loader for xcf (The Gimp) files
 x11-libs/libvdpau-va-gl 9999: VDPAU driver with OpenGL/VAAPI backend
