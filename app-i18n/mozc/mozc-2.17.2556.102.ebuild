@@ -4,7 +4,7 @@
 
 EAPI=6
 
-# Mozc doesn't support Python 3 yet.
+# Mozc doesn't support Python 3 yet
 PYTHON_COMPAT=( python2_7 )
 
 inherit elisp-common eutils git-r3 multilib multiprocessing python-single-r1 \
@@ -13,7 +13,7 @@ inherit elisp-common eutils git-r3 multilib multiprocessing python-single-r1 \
 DESCRIPTION="Mozc - a Japanese Input Method Editor designed for multi-platform"
 HOMEPAGE="https://github.com/google/mozc"
 
-MOZC_REV="3306d33"
+MOZC_REV="ae6bbac"
 FCITX_PATCH_VER="2.17.2313.102.1"
 UIM_PATCH_REV="3ea28b1"
 
@@ -27,9 +27,8 @@ SRC_URI="fcitx? ( ${FCITX_PATCH_URI} )"
 
 # Mozc: BSD, dictionary_oss: ipadic and public-domain, unicode: unicode,
 # zinnia: BSD, usagedic: BSD-2, GYP: BSD, Mozc Fcitx: BSD, MacUIM: BSD,
-# GMOCK: Boost-1.0, GTEST: BSD. IPAfont is in repo, but not used.
+# GMOCK: BSD, GTEST: BSD. IPAfont is in repo, but not used
 LICENSE="BSD BSD-2 ipadic public-domain unicode"
-# test? ( Boost-1.0 )"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="clang emacs fcitx ibus +qt4 renderer tomoe uim"
@@ -45,13 +44,13 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	emacs? ( virtual/emacs )
 	fcitx? ( app-i18n/fcitx )
 	ibus? ( >=app-i18n/ibus-1.4.1 )
-	qt4? ( dev-qt/qtgui:4 )
+	qt4? ( dev-qt/qtcore:4
+		dev-qt/qtgui:4
+		app-i18n/zinnia	)
 	renderer? ( x11-libs/gtk+:2 )
 	uim? ( app-i18n/uim )"
 DEPEND="${COMMON_DEPEND}
 	dev-util/ninja
-	dev-vcs/git
-	>=sys-libs/zlib-1.2.8
 	virtual/pkgconfig
 	clang? ( >=sys-devel/clang-3.4 )
 	fcitx? ( sys-devel/gettext )"
@@ -85,13 +84,13 @@ src_unpack() {
 src_prepare() {
 	if use fcitx ; then
 		rm -rf unix/fcitx/
-		EPATCH_OPTS="-p2" epatch "${DISTDIR}/$(basename ${FCITX_PATCH_URI})"
+		eapply -p2 "${DISTDIR}/$(basename ${FCITX_PATCH_URI})"
 	fi
 
 	if use uim ; then
 		rm -rf unix/uim/
 		cp -r "${WORKDIR}/macuim/Mozc/uim" "${S}/unix/"
-		epatch "${FILESDIR}/mozc-kill-line.diff"
+		eapply -p0 "${WORKDIR}/macuim/Mozc/mozc-kill-line.diff"
 	fi
 
 	if ! use clang ; then
@@ -104,18 +103,18 @@ src_prepare() {
 }
 
 src_configure() {
-	local myconf="--server_dir=/usr/$(get_libdir)/mozc"
-
 	if use clang ; then
 		export GYP_DEFINES="compiler_target=clang compiler_host=clang"
 	else
 		export GYP_DEFINES="compiler_target=gcc compiler_host=gcc"
+		tc-export CC CXX AR AS RANLIB LD NM
 	fi
 
 	use ibus && export GYP_DEFINES="${GYP_DEFINES}
 		ibus_mozc_path=/usr/libexec/ibus-engine-mozc
 		ibus_mozc_icon_path=/usr/share/ibus-mozc/product_icon.png"
 
+	local myconf
 	if ! use qt4 ; then
 		myconf="${myconf} --noqt"
 	elif use tomoe ; then
@@ -128,9 +127,9 @@ src_configure() {
 
 	use renderer || export GYP_DEFINES="${GYP_DEFINES} enable_gtk_renderer=0"
 
-	use clang || tc-export CC CXX AR AS RANLIB LD NM
-
-	"${PYTHON}" build_mozc.py gyp --target_platform=Linux "${myconf}" || die
+	"${PYTHON}" build_mozc.py gyp --target_platform=Linux \
+		--server_dir="/usr/$(get_libdir)/mozc" "${myconf}" \
+		|| die 'Failed to execute "build_mozc.py gyp"'
 }
 
 src_compile() {
@@ -146,15 +145,15 @@ src_compile() {
 	use uim && mytarget="${mytarget} unix/uim/uim.gyp:uim-mozc"
 
 	use clang || tc-export CC CXX AR AS RANLIB LD
-
-	"${PYTHON}" build_mozc.py build -c "${BUILDTYPE}" ${mytarget} || die
+	"${PYTHON}" build_mozc.py build -c "${BUILDTYPE}" ${mytarget} \
+		|| die 'Failed to execute "build_mozc.py build"'
 
 	use emacs && elisp-compile unix/emacs/*.el
 }
 
-# src_test() {
-# 	"${PYTHON}" build_mozc.py runtests -c "${BUILDTYPE}"
-# }
+src_test() {
+	"${PYTHON}" build_mozc.py runtests -c "${BUILDTYPE}"
+}
 
 src_install() {
 	exeinto "/usr/$(get_libdir)/mozc"
@@ -192,8 +191,8 @@ src_install() {
 			done
 		)
 		for mofile in out_linux/${BUILDTYPE}/gen/unix/fcitx/po/*.mo ; do
-			filename=$(basename ${mofile})
-			lang=${filename/.mo/}
+			filename="$(basename ${mofile})"
+			lang="${filename/.mo/}"
 			insinto "/usr/share/locale/${lang}/LC_MESSAGES/"
 			newins "${mofile}" fcitx-mozc.mo
 		done
@@ -201,8 +200,9 @@ src_install() {
 
 	if use ibus ; then
 		exeinto /usr/libexec
-		newexe "out_linux/${BUILDTYPE}/ibus_mozc" ibus-engine-mozc
-		sed -i "s_lib/ibus-mozc/ibus-engine-mozc_libexec/ibus-engine-mozc_g" \
+		newexe "out_linux/${BUILDTYPE}/ibus_mozc" "ibus-engine-mozc"
+		sed -i \
+			"s_lib/ibus-mozc/ibus-engine-mozc_libexec/ibus-engine-mozc_g" \
 			"out_linux/${BUILDTYPE}/gen/unix/ibus/mozc.xml"
 		insinto /usr/share/ibus/component
 		doins "out_linux/${BUILDTYPE}/gen/unix/ibus/mozc.xml"
@@ -229,15 +229,14 @@ src_install() {
 	if use uim ; then
 		exeinto "/usr/$(get_libdir)/uim/plugin"
 		doexe "out_linux/${BUILDTYPE}/libuim-mozc.so"
-
-		insinto /usr/share/uim/pixmaps
-		newins data/images/unix/ime_product_icon_opensource-32.png mozc.png
-		newins data/images/unix/ui-dictionary.png \
-			mozc_tool_uim_dictionary_tool.png
-		newins data/images/unix/ui-properties.png \
-			mozc_tool_uim_config_dialog.png
-		newins data/images/unix/ui-tool.png mozc_tool_uim_selector.png
-
+		insinto /usr/share/uim/pixmaps/
+		(
+			cd data/images/unix
+			newins ime_product_icon_opensource-32.png mozc.png
+			newins ui-dictionary.png mozc_tool_uim_dictionary_tool.png
+			newins ui-properties.png mozc_tool_uim_config_dialog.png
+			newins ui-tool.png mozc_tool_uim_selector.png
+		)
 		insinto /usr/share/uim
 		(
 			cd "${WORKDIR}/macuim/Mozc/scm"
@@ -264,6 +263,7 @@ pkg_postinst() {
 		elog " Having the above settings, just type C-\\ which is bound to"
 		elog "\`toggle-input-method' by default."
 	fi
+
 	use uim && uim-module-manager --register mozc
 }
 
