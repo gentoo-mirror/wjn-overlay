@@ -2,12 +2,17 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  14 Aug 2016; wjn <wjn@aol.jp>
+  mozc-neologd-ut-2.17.2322.102.20160627.1.ebuild,
+  mozc-neologd-ut-2.17.2517.102.20160808.0.1.ebuild:
+  Require USE="qt4" when USE="tomoe"
+
 *mozc-neologd-ut-2.17.2517.102.20160808.0.1 (10 Aug 2016)
 
   10 Aug 2016; wjn <wjn@aol.jp>
   -mozc-neologd-ut-2.17.2404.102.20160728.0.1.ebuild,
   +mozc-neologd-ut-2.17.2517.102.20160808.0.1.ebuild:
-
+  Add version 2.17.2517.102.20160808, delete old
 
   01 Aug 2016; wjn <wjn@aol.jp>
   mozc-neologd-ut-2.17.2322.102.20160627.1.ebuild,
