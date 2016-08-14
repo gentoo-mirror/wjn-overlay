@@ -101,7 +101,8 @@ LICENSE="Apache-2.0 BSD BSD-2 free-noncomm ipadic public-domain unicode"
 SLOT="0"
 KEYWORDS=""
 IUSE="clang emacs fcitx ibus +qt4 renderer tomoe uim"
-REQUIRED_USE="|| ( emacs fcitx ibus uim )"
+REQUIRED_USE="|| ( emacs fcitx ibus uim )
+	tomoe? ( qt4 )"
 
 COMMON_DEPEND="${PYTHON_DEPS}
 	!!app-i18n/mozc

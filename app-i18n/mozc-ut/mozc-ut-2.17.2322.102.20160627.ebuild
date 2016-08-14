@@ -4,7 +4,7 @@
 
 EAPI=6
 
-# Mozc doesn't support Python 3 yet.
+# Mozc doesn't support Python 3 yet
 PYTHON_COMPAT=( python2_7 )
 
 inherit elisp-common git-r3 python-single-r1 python-utils-r1 toolchain-funcs \
@@ -84,8 +84,9 @@ LICENSE="BSD BSD-2 CC-BY-SA-3.0 GPL-2+ GPL-3+ all-rights-reserved
 	free-noncomm ipadic public-domain unicode ejdic? ( wn-ja )"
 SLOT="0"
 KEYWORDS=""
-IUSE="clang ejdic emacs fcitx ibus -nicodic +qt4 renderer -test tomoe uim"
-REQUIRED_USE="|| ( emacs fcitx ibus uim )"
+IUSE="clang ejdic emacs fcitx ibus -nicodic +qt4 renderer tomoe uim"
+REQUIRED_USE="|| ( emacs fcitx ibus uim )
+	tomoe? ( qt4 )"
 
 COMMON_DEPEND="${PYTHON_DEPS}
 	!!app-i18n/mozc
