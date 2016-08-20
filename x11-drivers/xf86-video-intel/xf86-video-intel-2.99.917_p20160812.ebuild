@@ -4,22 +4,22 @@
 
 EAPI=5
 
-XORG_DRI=dri
-XORG_EAUTORECONF=yes
+XORG_DRI="dri"
+XORG_EAUTORECONF="yes"
+
 inherit linux-info xorg-2
 
 DESCRIPTION="X.Org driver for Intel cards"
 
 KEYWORDS=""
-IUSE="debug +dri3 +sna +udev uxa xvmc"
-COMMIT_ID="6988b873b041130d88dd0aae70c10f86550ee2b3"
+IUSE="debug +dri +dri3 +sna +udev uxa xvmc"
+COMMIT_ID="c8fc7f5e4bdd5b1e3212a226a2873393b5745f14"
 SRC_URI="https://cgit.freedesktop.org/xorg/driver/xf86-video-intel/snapshot/${COMMIT_ID}.tar.xz -> ${P}.tar.xz"
 
 S=${WORKDIR}/${COMMIT_ID}
 
-REQUIRED_USE="
-	|| ( sna uxa )
-"
+REQUIRED_USE="|| ( sna uxa )
+	dri3? ( dri )"
 RDEPEND="x11-libs/libXext
 	x11-libs/libXfixes
 	>=x11-libs/pixman-0.27.1
@@ -73,5 +73,13 @@ pkg_postinst() {
 		ewarn "	      i915 driver"
 		ewarn "      [*]       Enable modesetting on intel by default"
 		echo
+	fi
+
+	if use dri3; then
+		ewarn "There are reports of crashes when using DRI3, we recommend"
+		ewarn "to be careful when enabling this option. Check the following"
+		ewarn "bugs for discussion and a workaround patch for libdrm:"
+		ewarn "https://bugs.freedesktop.org/show_bug.cgi?id=71759"
+		ewarn "https://bugs.gentoo.org/show_bug.cgi?id=582544"
 	fi
 }

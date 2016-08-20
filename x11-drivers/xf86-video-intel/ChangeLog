@@ -2,6 +2,21 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*xf86-video-intel-2.99.917_p20160812 (15 Aug 2016)
+
+  15 Aug 2016; wjn <wjn@aol.jp> -xf86-video-intel-2.99.917_p20160601.ebuild,
+  -xf86-video-intel-2.99.917_p20160621.ebuild,
+  -xf86-video-intel-2.99.917_p20160625.ebuild,
+  -xf86-video-intel-2.99.917_p20160704.ebuild,
+  -xf86-video-intel-2.99.917_p20160721.ebuild,
+  -xf86-video-intel-2.99.917_p20160803.ebuild,
+  +xf86-video-intel-2.99.917_p20160812.ebuild:
+  Add version 2.99.917_p20160812, delete olds
+
+   Upstream:
+    https://cgit.freedesktop.org/xorg/driver/xf86-video-
+  intel/commit/?id=c8fc7f5
+
 *xf86-video-intel-2.99.917_p20160803 (04 Aug 2016)
 
   04 Aug 2016; wjn <wjn@aol.jp> -xf86-video-intel-2.99.917_p20160729.ebuild,
