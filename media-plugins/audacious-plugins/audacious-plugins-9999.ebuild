@@ -110,7 +110,10 @@ src_configure() {
 	fi
 
 	# coreaudio and mac-media-keys are for MacOSX / Darwin
+	# ampache browser is depended on another library,
+	# see https://github.com/ampache-browser/ampache_browser
 	econf \
+		--disable-ampache \
 		--disable-coreaudio \
 		--disable-mac-media-keys \
 		$(use_enable aac) \

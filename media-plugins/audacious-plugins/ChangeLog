@@ -3,6 +3,17 @@
 # (auto-generated from git log)
 
   26 Aug 2016; wjn <wjn@aol.jp> audacious-plugins-9999.ebuild:
+  Disable Ampache browser plugin explicitly
+
+   Upstream Added Ampache browser plugin, but it depended on another library
+   - https://github.com/audacious-media-player/audacious-
+  plugins/commit/54c5059
+   - https://github.com/ampache-browser/ampache_browser
+
+   That library's package is not in Gentoo repository,
+  so explicitly disable the plugin
+
+  26 Aug 2016; wjn <wjn@aol.jp> audacious-plugins-9999.ebuild:
   Remove GTK+ dep for USE=filewriter
 
    Upstream:
