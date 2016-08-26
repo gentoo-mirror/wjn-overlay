@@ -2,6 +2,16 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  26 Aug 2016; wjn <wjn@aol.jp> audacious-plugins-9999.ebuild,
+  +files/audacious-plugins-3.8-qtglspectrum-include-glu.patch:
+  Update the target to patch for include GL/glu
+
+   Since src/gl-spectrum-qt/ is renamed to src/qtglspectrum/ ,
+  the patch file should be updated
+
+   Upstream :
+    https://github.com/audacious-media-player/audacious-plugins/commit/c79dde1
+
   26 Aug 2016; wjn <wjn@aol.jp> audacious-plugins-9999.ebuild:
   Remove gtk+ dep from USE=scrobbler
 

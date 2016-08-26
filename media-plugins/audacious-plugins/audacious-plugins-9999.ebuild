@@ -93,7 +93,7 @@ pkg_setup(){
 }
 
 src_prepare() {
-	eapply "${FILESDIR}/${PN}-3.7-gl-spectrum-qt-include-glu.patch"
+	eapply "${FILESDIR}/${PN}-3.8-qtglspectrum-include-glu.patch"
 	eautoreconf
 	l10n_for_each_disabled_locale_do remove_locales
 	eapply_user
