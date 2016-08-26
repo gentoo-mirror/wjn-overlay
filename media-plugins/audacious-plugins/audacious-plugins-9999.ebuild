@@ -25,7 +25,7 @@ IUSE="aac alsa bs2b cdda cue ffmpeg +filewriter flac gnome +gtk -gtk3 http
 REQUIRED_USE="	|| ( gtk qt5 )
 	filewriter? ( gtk )
 	gtk3? ( gtk )
-	libnotify? ( gtk )
+	libnotify? ( || ( gtk qt5 ) )
 	spectrum? ( || ( gtk qt5 ) )"
 
 COMMON_DEPEND=">=dev-libs/dbus-glib-0.60
