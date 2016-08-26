@@ -126,7 +126,6 @@ src_configure() {
 		$(use_enable flac filewriter_flac) \
 		$(use_enable gnome gnomeshortcuts) \
 		$(use_enable gtk aosd) \
-		$(use_enable gtk aosd-xcomp) \
 		$(use_enable gtk) \
 		$(use_enable gtk hotkey) \
 		$(use_enable http neon) \

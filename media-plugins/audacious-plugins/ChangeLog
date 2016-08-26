@@ -3,6 +3,14 @@
 # (auto-generated from git log)
 
   26 Aug 2016; wjn <wjn@aol.jp> audacious-plugins-9999.ebuild:
+  Remove --enable-aosd-xcomp
+
+   Now aosd-xcomp is always depended by aosd
+
+   Upstream:
+    https://github.com/audacious-media-player/audacious-plugins/commit/86fd7b0
+
+  26 Aug 2016; wjn <wjn@aol.jp> audacious-plugins-9999.ebuild:
   Disable Ampache browser plugin explicitly
 
    Upstream Added Ampache browser plugin, but it depended on another library
