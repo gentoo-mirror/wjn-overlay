@@ -23,10 +23,8 @@ IUSE="aac alsa bs2b cdda cue ffmpeg +filewriter flac gnome +gtk -gtk3 http
 	jack lame libav libnotify libsamplerate lirc midi mms modplug mp3
 	pulseaudio qt5 scrobbler sdl sid sndfile soxr spectrum vorbis wavpack"
 REQUIRED_USE="	|| ( gtk qt5 )
-	filewriter? ( gtk )
 	gtk3? ( gtk )
-	libnotify? ( gtk )
-	scrobbler? ( gtk )
+	libnotify? ( || ( gtk qt5 ) )
 	spectrum? ( || ( gtk qt5 ) )"
 
 COMMON_DEPEND=">=dev-libs/dbus-glib-0.60
@@ -53,7 +51,8 @@ COMMON_DEPEND=">=dev-libs/dbus-glib-0.60
 	jack? ( >=media-libs/bio2jack-0.4
 		virtual/jack )
 	lame? ( media-sound/lame )
-	libnotify? ( >=x11-libs/libnotify-0.7 )
+	libnotify? ( >=x11-libs/gdk-pixbuf-2.26
+		>=x11-libs/libnotify-0.7 )
 	libsamplerate? ( media-libs/libsamplerate )
 	lirc? ( app-misc/lirc )
 	midi? ( >=media-sound/fluidsynth-1.0.6 )
@@ -84,17 +83,12 @@ DEPEND="${COMMON_DEPEND}
 	virtual/pkgconfig"
 RDEPEND=${COMMON_DEPEND}
 
-pkg_pretend() {
-	use mp3 || ewarn \
-		"MP3 support is optional. Are you sure to disable mp3 USE flag?"
-}
-
 pkg_setup(){
 	use gtk3 && EGIT_BRANCH="master-gtk3"
 }
 
 src_prepare() {
-	eapply "${FILESDIR}/${PN}-3.7-gl-spectrum-qt-include-glu.patch"
+	eapply "${FILESDIR}/${PN}-3.8-qtglspectrum-include-glu.patch"
 	eautoreconf
 	l10n_for_each_disabled_locale_do remove_locales
 	eapply_user
@@ -112,7 +106,10 @@ src_configure() {
 	fi
 
 	# coreaudio and mac-media-keys are for MacOSX / Darwin
+	# ampache browser is depended on another library,
+	# see https://github.com/ampache-browser/ampache_browser
 	econf \
+		--disable-ampache \
 		--disable-coreaudio \
 		--disable-mac-media-keys \
 		$(use_enable aac) \
@@ -121,14 +118,10 @@ src_configure() {
 		$(use_enable cdda cdaudio) \
 		$(use_enable cue) \
 		${ffmpeg_conf} \
-		$(use_enable flac flacng) \
-		$(use_enable flac filewriter_flac) \
 		$(use_enable gnome gnomeshortcuts) \
 		$(use_enable gtk aosd) \
-		$(use_enable gtk aosd-xcomp) \
 		$(use_enable gtk) \
-		$(use_enable gtk hotkey) \
-		$(use_enable http neon) \
+		$(use gtk3 || use_enable gtk hotkey) \
 		$(use_enable jack) \
 		$(use_enable lame filewriter_mp3) \
 		$(use_enable libnotify notify) \
@@ -137,7 +130,6 @@ src_configure() {
 		$(use_enable midi amidiplug) \
 		$(use_enable mms) \
 		$(use_enable modplug) \
-		$(use_enable mp3) \
 		$(use_enable midi amidiplug) \
 		$(use_enable pulseaudio pulse) \
 		$(use_enable qt5 qt) \

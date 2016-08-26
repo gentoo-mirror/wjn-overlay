@@ -2,6 +2,76 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  26 Aug 2016; wjn <wjn@aol.jp> audacious-plugins-9999.ebuild:
+  Auto-detect flac, mp3, neon and vorbis support
+
+   --enable-{flacng,filewriter-flac,mp3,neon,vorbis} are removed by the
+  upstream
+
+   Upstream:
+    https://github.com/audacious-media-player/audacious-plugins/commit/f2b97de
+
+  26 Aug 2016; wjn <wjn@aol.jp> audacious-plugins-9999.ebuild:
+  Do not enable hotkey if USE=gtk3
+
+   hotkey plugin depends on gdk-x11-2.0, not 3.0.
+  gtk+:2 ( $lib_dir/pkgconfig/gdk-x11-2.0.pc ) is needed
+
+   Upstream:
+    https://github.com/audacious-media-player/audacious-plugins/commit/fae9b04
+
+  26 Aug 2016; wjn <wjn@aol.jp> audacious-plugins-9999.ebuild:
+  Fix to add gdk-pixbuf dep for libnotify OSD
+
+  26 Aug 2016; wjn <wjn@aol.jp> audacious-plugins-9999.ebuild:
+  Remove --enable-aosd-xcomp
+
+   Now aosd-xcomp is always depended by aosd
+
+   Upstream:
+    https://github.com/audacious-media-player/audacious-plugins/commit/86fd7b0
+
+  26 Aug 2016; wjn <wjn@aol.jp> audacious-plugins-9999.ebuild:
+  Disable Ampache browser plugin explicitly
+
+   Upstream Added Ampache browser plugin, but it depends on another library
+   - https://github.com/audacious-media-player/audacious-
+  plugins/commit/54c5059
+   - https://github.com/ampache-browser/ampache_browser
+
+   That library's package is not in Gentoo repository,
+  so explicitly disable the plugin
+
+  26 Aug 2016; wjn <wjn@aol.jp> audacious-plugins-9999.ebuild:
+  Remove GTK+ dep for USE=filewriter
+
+   Upstream:
+    https://github.com/audacious-media-player/audacious-plugins/commit/0d80656
+
+  26 Aug 2016; wjn <wjn@aol.jp> audacious-plugins-9999.ebuild:
+  Support libnotify OSD for Qt
+
+   Now libnotify OSD can support either GTK+ or Qt
+
+   Upstream:
+    https://github.com/audacious-media-player/audacious-plugins/commit/55c76df
+
+  26 Aug 2016; wjn <wjn@aol.jp> audacious-plugins-9999.ebuild,
+  +files/audacious-plugins-3.8-qtglspectrum-include-glu.patch:
+  Update the target to patch for include GL/glu
+
+   Since src/gl-spectrum-qt/ is renamed to src/qtglspectrum/ ,
+  the patch file should be updated
+
+   Upstream :
+    https://github.com/audacious-media-player/audacious-plugins/commit/c79dde1
+
+  26 Aug 2016; wjn <wjn@aol.jp> audacious-plugins-9999.ebuild:
+  Remove gtk+ dep from USE=scrobbler
+
+   Upstream:
+    https://github.com/audacious-media-player/audacious-plugins/commit/789d7b0
+
 *audacious-plugins-3.7.2 (29 Mar 2016)
 
   29 Mar 2016; wjn <wjn@aol.jp> +audacious-plugins-3.7.2.ebuild:
