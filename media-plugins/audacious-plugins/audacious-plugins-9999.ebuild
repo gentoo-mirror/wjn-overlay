@@ -128,7 +128,7 @@ src_configure() {
 		$(use_enable gnome gnomeshortcuts) \
 		$(use_enable gtk aosd) \
 		$(use_enable gtk) \
-		$(use_enable gtk hotkey) \
+		$(use gtk3 || use_enable gtk hotkey) \
 		$(use_enable http neon) \
 		$(use_enable jack) \
 		$(use_enable lame filewriter_mp3) \
