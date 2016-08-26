@@ -26,7 +26,6 @@ REQUIRED_USE="	|| ( gtk qt5 )
 	filewriter? ( gtk )
 	gtk3? ( gtk )
 	libnotify? ( gtk )
-	scrobbler? ( gtk )
 	spectrum? ( || ( gtk qt5 ) )"
 
 COMMON_DEPEND=">=dev-libs/dbus-glib-0.60
