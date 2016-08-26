@@ -83,11 +83,6 @@ DEPEND="${COMMON_DEPEND}
 	virtual/pkgconfig"
 RDEPEND=${COMMON_DEPEND}
 
-pkg_pretend() {
-	use mp3 || ewarn \
-		"MP3 support is optional. Are you sure to disable mp3 USE flag?"
-}
-
 pkg_setup(){
 	use gtk3 && EGIT_BRANCH="master-gtk3"
 }
@@ -123,13 +118,10 @@ src_configure() {
 		$(use_enable cdda cdaudio) \
 		$(use_enable cue) \
 		${ffmpeg_conf} \
-		$(use_enable flac flacng) \
-		$(use_enable flac filewriter_flac) \
 		$(use_enable gnome gnomeshortcuts) \
 		$(use_enable gtk aosd) \
 		$(use_enable gtk) \
 		$(use gtk3 || use_enable gtk hotkey) \
-		$(use_enable http neon) \
 		$(use_enable jack) \
 		$(use_enable lame filewriter_mp3) \
 		$(use_enable libnotify notify) \
@@ -138,7 +130,6 @@ src_configure() {
 		$(use_enable midi amidiplug) \
 		$(use_enable mms) \
 		$(use_enable modplug) \
-		$(use_enable mp3) \
 		$(use_enable midi amidiplug) \
 		$(use_enable pulseaudio pulse) \
 		$(use_enable qt5 qt) \

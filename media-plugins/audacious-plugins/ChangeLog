@@ -3,6 +3,24 @@
 # (auto-generated from git log)
 
   26 Aug 2016; wjn <wjn@aol.jp> audacious-plugins-9999.ebuild:
+  Auto-detect flac, mp3, neon and vorbis support
+
+   --enable-{flacng,filewriter-flac,mp3,neon,vorbis} are removed by the
+  upstream
+
+   Upstream:
+    https://github.com/audacious-media-player/audacious-plugins/commit/f2b97de
+
+  26 Aug 2016; wjn <wjn@aol.jp> audacious-plugins-9999.ebuild:
+  Do not enable hotkey if USE=gtk3
+
+   hotkey plugin depends on gdk-x11-2.0, not 3.0.
+  gtk+:2 ( $lib_dir/pkgconfig/gdk-x11-2.0.pc ) is needed
+
+   Upstream:
+    https://github.com/audacious-media-player/audacious-plugins/commit/fae9b04
+
+  26 Aug 2016; wjn <wjn@aol.jp> audacious-plugins-9999.ebuild:
   Fix to add gdk-pixbuf dep for libnotify OSD
 
   26 Aug 2016; wjn <wjn@aol.jp> audacious-plugins-9999.ebuild:
@@ -16,7 +34,7 @@
   26 Aug 2016; wjn <wjn@aol.jp> audacious-plugins-9999.ebuild:
   Disable Ampache browser plugin explicitly
 
-   Upstream Added Ampache browser plugin, but it depended on another library
+   Upstream Added Ampache browser plugin, but it depends on another library
    - https://github.com/audacious-media-player/audacious-
   plugins/commit/54c5059
    - https://github.com/ampache-browser/ampache_browser
