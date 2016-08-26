@@ -3,6 +3,9 @@
 # (auto-generated from git log)
 
   26 Aug 2016; wjn <wjn@aol.jp> audacious-plugins-9999.ebuild:
+  Fix to add gdk-pixbuf dep for libnotify OSD
+
+  26 Aug 2016; wjn <wjn@aol.jp> audacious-plugins-9999.ebuild:
   Remove --enable-aosd-xcomp
 
    Now aosd-xcomp is always depended by aosd

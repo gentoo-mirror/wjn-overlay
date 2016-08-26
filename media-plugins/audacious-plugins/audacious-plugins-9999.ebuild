@@ -51,7 +51,8 @@ COMMON_DEPEND=">=dev-libs/dbus-glib-0.60
 	jack? ( >=media-libs/bio2jack-0.4
 		virtual/jack )
 	lame? ( media-sound/lame )
-	libnotify? ( >=x11-libs/libnotify-0.7 )
+	libnotify? ( >=x11-libs/gdk-pixbuf-2.26
+		>=x11-libs/libnotify-0.7 )
 	libsamplerate? ( media-libs/libsamplerate )
 	lirc? ( app-misc/lirc )
 	midi? ( >=media-sound/fluidsynth-1.0.6 )
