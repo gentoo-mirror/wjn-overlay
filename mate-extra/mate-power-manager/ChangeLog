@@ -3,6 +3,9 @@
 # (auto-generated from git log)
 
   27 Aug 2016; wjn <wjn@aol.jp> mate-power-manager-9999.ebuild:
+  Drop libunique dep if USE=gtk3
+
+  27 Aug 2016; wjn <wjn@aol.jp> mate-power-manager-9999.ebuild:
   Revert "mate-extra/mate-power-manager: Remove GTK+:2 support"
 
   This reverts commit 695bd3b4099dda4901e81f45c9207ecf9dcfbc62.
