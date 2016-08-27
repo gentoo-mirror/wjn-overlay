@@ -91,6 +91,7 @@ src_configure() {
 		$(use_enable ipv6) \
 		$(use_enable nls) \
 		$(use_enable policykit polkit) \
+		$(use policykit || use_enable cpufreq suid) \
 		--enable-stickynotes
 }
 
