@@ -3,6 +3,12 @@
 # (auto-generated from git log)
 
   27 Aug 2016; wjn <wjn@aol.jp> mate-applets-9999.ebuild:
+  Drop mate-desktop dependency
+
+   Upstream:
+    https://github.com/mate-desktop/mate-applets/commit/5dbef4d
+
+  27 Aug 2016; wjn <wjn@aol.jp> mate-applets-9999.ebuild:
   Enable suid if cpufreq is enabled without polkit
 
   11 Jun 2016; wjn <wjn@aol.jp> mate-applets-9999.ebuild:
