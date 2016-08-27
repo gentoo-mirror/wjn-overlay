@@ -20,7 +20,6 @@ KEYWORDS=""
 IUSE="debug gtk3"
 
 COMMON_DEPEND=">=dev-libs/glib-2.36:2
-	dev-libs/libunique:1
 	~mate-base/mate-desktop-9999:0[gtk3=]
 	~mate-base/mate-panel-9999:0[gtk3=]
 	x11-libs/cairo:0
