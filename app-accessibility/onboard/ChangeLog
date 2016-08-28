@@ -2,6 +2,15 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  28 Aug 2016; wjn <wjn@aol.jp> -onboard-1.1.2-r1.ebuild:
+  Delete old 1.1.2-r1
+
+*onboard-1.3.0 (28 Aug 2016)
+
+  28 Aug 2016; wjn <wjn@aol.jp>
+  +files/onboard-1.3.0-remove-duplicated-docs.patch, +onboard-1.3.0.ebuild:
+  Add version 1.3.0
+
   28 Jul 2016; wjn <wjn@aol.jp> onboard-1.1.2-r1.ebuild,
   onboard-1.2.0-r1.ebuild:
   Move app-text/hunspell dep to C_DEPEND from RDEPEND
