@@ -132,10 +132,10 @@ x11-libs/gdk-pixbuf-psd 0.1.0 9999: A GdkPixbuf loader for Adobe Photoshop image
 x11-libs/gdk-pixbuf-xcf 2012.05: A gdk-pixbuf loader for xcf (The Gimp) files
 x11-libs/libvdpau-va-gl 9999: VDPAU driver with OpenGL/VAAPI backend
 x11-libs/qscintilla 2.9.1-r200 2.9.2-r200: A Qt port of Neil Hodgson's Scintilla C++ editor class
-x11-misc/lightdm 1.19.3: A lightweight display manager
+x11-misc/lightdm 1.19.4: A lightweight display manager
 x11-misc/lightdm-gtk-greeter-settings 1.2.1: LightDM Gtk+ Greeter settings editor
 x11-misc/mate-notification-daemon 9999: MATE Notification daemon
-x11-misc/mate-tweak 3.5.10 16.10.1: MATE desktop tweak tool, a fork of mintDesktop
+x11-misc/mate-tweak 3.5.10 16.10.5: MATE desktop tweak tool, a fork of mintDesktop
 x11-misc/mozo 9999: Menu editor for MATE using the freedesktop.org menu specification
 x11-misc/screengrab 2.9999: Qt-based program for fast creating screenshots
 x11-terms/mate-terminal 9999: The MATE Terminal Emulator
