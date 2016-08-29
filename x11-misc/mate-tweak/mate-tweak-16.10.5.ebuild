@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python3_{3,4,5} )
 
 inherit distutils-r1
 
-HASH="4ed790914550"
+HASH="197ee3a56604"
 DESCRIPTION="MATE desktop tweak tool, a fork of mintDesktop"
 HOMEPAGE="https://launchpad.net/ubuntu/+source/mate-tweak"
 SRC_URI="https://launchpad.net/ubuntu/+archive/primary/+files/${PN}_${PV}.orig.tar.gz"
@@ -22,6 +22,7 @@ DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
 RDEPEND="dev-libs/glib:2
 	dev-python/psutil
 	dev-python/pygobject:3
+	dev-python/setproctitle
 	gnome-base/dconf
 	mate-base/caja
 	>=mate-base/mate-desktop-1.14
