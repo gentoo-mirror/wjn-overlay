@@ -15,10 +15,11 @@ KEYWORDS=""
 LICENSE="LGPL-3"
 SLOT="0"
 
-DEPEND="x11-libs/libvdpau
+DEPEND="media-libs/mesa
+		x11-base/xorg-server
+		x11-libs/libvdpau
 		x11-libs/libva
-		>=dev-libs/glib-2.0
-		media-libs/mesa"
+		virtual/pkgconfig"
 RDEPEND="${DEPEND}"
 
 RESTRICT="mirror"
