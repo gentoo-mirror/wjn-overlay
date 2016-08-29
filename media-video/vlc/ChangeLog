@@ -2,6 +2,15 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  29 Aug 2016; wjn <wjn@aol.jp> vlc-9999.ebuild:
+  Follow up the gentoo repository
+
+   gentoo repository:
+    - media-video/vlc: Added sub-slot dep for media-libs/libvpx.
+      Lars Wendler, Fri, 12 Aug 2016 04:16, commit 80f9150e
+    - media-video/vlc: fix compiler type check
+      Amy Winston, Tue, 26 Jul 2016 05:30, commit bbd3998a
+
 *vlc-9999 (17 Mar 2016)
 
   17 Mar 2016; wjn <wjn@aol.jp> +files/opencv-3.0.0.patch,
