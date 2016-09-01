@@ -16,8 +16,8 @@ app-i18n/im-chooser 1.6.4: Desktop Input Method configuration tool
 app-i18n/libkkc 0.3.5 9999: Japanese Kana Kanji conversion library
 app-i18n/libkkc-data 0.2.7: Japanese Kana Kanji conversion dictionary for libkkc
 app-i18n/mozc 2.17.2556.102: Mozc - a Japanese Input Method Editor designed for multi-platform
-app-i18n/mozc-neologd-ut 2.17.2556.102.20160815.1 2.17.2556.102.20160818.0.1: Mozc Japanese Input Method with mecab-ipadic-NEologd
-app-i18n/mozc-ut 2.17.2322.102.20160627 2.17.2556.102.20160815: Mozc Japanese Input Method with Additional Japanese dictionary
+app-i18n/mozc-neologd-ut 2.17.2556.102.20160815.1 2.17.2556.102.20160902.0.1: Mozc Japanese Input Method with mecab-ipadic-NEologd
+app-i18n/mozc-ut 2.17.2556.102.20160815: Mozc Japanese Input Method with Additional Japanese dictionary
 app-i18n/uim 9999: Simple, secure and flexible input method library
 app-misc/grc 1.9 9999: Generic Colouriser beautifies your logfiles or output of commands
 app-text/aobook 1.0.1 1.0.2: Viewer for Aozora Bunko (Japanese electric library)
@@ -130,7 +130,7 @@ www-plugins/freshplayerplugin 9999: PPAPI-host NPAPI-plugin adapter for flashpla
 x11-drivers/xf86-video-intel 2.99.917_p20160823: X.Org driver for Intel cards
 x11-libs/gdk-pixbuf-psd 0.1.0 9999: A GdkPixbuf loader for Adobe Photoshop images
 x11-libs/gdk-pixbuf-xcf 2012.05: A gdk-pixbuf loader for xcf (The Gimp) files
-x11-libs/libvdpau-va-gl 9999: VDPAU driver with OpenGL/VAAPI backend
+x11-libs/libvdpau-va-gl 9999-r1: VDPAU driver with OpenGL/VAAPI backend
 x11-libs/qscintilla 2.9.1-r200 2.9.2-r200: A Qt port of Neil Hodgson's Scintilla C++ editor class
 x11-misc/lightdm 1.19.4: A lightweight display manager
 x11-misc/lightdm-gtk-greeter-settings 1.2.1: LightDM Gtk+ Greeter settings editor
