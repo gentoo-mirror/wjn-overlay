@@ -12,21 +12,33 @@ inherit elisp-common git-r3 python-single-r1 python-utils-r1 toolchain-funcs \
 
 MY_PN=${PN/mozc/mozcdic}
 
-DESCRIPTION="Mozc Japanese Input Method with Additional Japanese dictionary"
+DESCRIPTION="Mozc Japanese Input Method with mecab-ipadic-NEologd"
 HOMEPAGE="http://www.geocities.jp/ep3797/mozc_01.html
+	https://github.com/neologd/mecab-ipadic-neologd
 	https://github.com/google/mozc"
 
 # Assign version variables #####
 MOZC_VER="$(get_version_component_range 1-4)"
-MOZC_REV="0ccaad3"
+MOZC_REV="ae6bbac"
 FCITX_PATCH_VER="2.17.2313.102.1"
 UIM_PATCH_REV="3ea28b1"
 
-# Zip code data are revised on the last of every month
-ZIPCODE_REV="201607"
+DIC_REL="$(get_version_component_range 5)"
+NEOLOGD_REV="c30c45a"
 
-UT_REL=$(get_version_component_range $(get_version_component_count))
-UT_DIR="10/10948"
+# Zip code data are revised on the last of every month
+ZIPCODE_REV="201608"
+
+# In case of replacing NEologd's seed, assign ${UT_REL} as well as ${DIC_REL}
+# In such a case, ${PV} can be ${MOZC_VER}.${DIC_REL}.0.${UT_REV}
+# On the other case, ${PV} is ${MOZC_VER}.${DIC_REL}.${UT_REV}
+# Therefore, ${UT_REV} is the last number of ${PV}
+UT_UPD="20160815"
+UT_REL="20160815"
+UT_REV="$(get_version_component_range $(get_version_component_count))"
+GET_DIC="$(get_version_component_range 6)"
+# FYI: https://osdn.jp/users/utuhiro/pf/utuhiro/wiki/FrontPage
+UT_DIR="11/11037"
 #######################
 
 # Assign URI variables #########
@@ -34,26 +46,38 @@ MOZC_URI="https://github.com/google/mozc.git"
 FCITX_PATCH_URI="http://download.fcitx-im.org/fcitx-mozc/fcitx-mozc-${FCITX_PATCH_VER}.patch"
 UIM_PATCH_URI="https://github.com/e-kato/macuim.git"
 
+# mozcdic-neologd-ut*.tar.bz2 has same release date's mecab-user-dict-seed
+# Do not download if unneeded
+if [ ${GET_DIC} != 0 ] ; then
+	NEOLOGD_URI=""
+else
+	NEOLOGD_URI="https://raw.githubusercontent.com/neologd/mecab-ipadic-neologd/${NEOLOGD_REV}/seed/mecab-user-dict-seed.${DIC_REL}.csv.xz
+	https://raw.githubusercontent.com/neologd/mecab-ipadic-neologd/${NEOLOGD_REV}/COPYING
+	-> mecab-ipadic-neologd-${DIC_REL}-COPYING
+	https://raw.githubusercontent.com/neologd/mecab-ipadic-neologd/${NEOLOGD_REV}/ChangeLog
+	-> mecab-ipadic-neologd-${DIC_REL}-ChangeLog
+	https://raw.githubusercontent.com/neologd/mecab-ipadic-neologd/${NEOLOGD_REV}/README.ja.md
+	-> mecab-ipadic-neologd-${DIC_REL}-README.ja.md
+	https://raw.githubusercontent.com/neologd/mecab-ipadic-neologd/${NEOLOGD_REV}/README.md
+	-> mecab-ipadic-neologd-${DIC_REL}-README.md"
+fi
+
 ZIP1_URI="http://www.post.japanpost.jp/zipcode/dl/kogaki/zip/ken_all.zip"
 ZIP2_URI="http://www.post.japanpost.jp/zipcode/dl/jigyosyo/zip/jigyosyo.zip"
-EDICT_URI="http://ftp.monash.edu.au/pub/nihongo/edict.gz"
 
-UT_URI="mirror://osdn/users/${UT_DIR}/mozcdic-ut-${UT_REL}.tar.bz2"
+UT_URI="mirror://osdn/users/${UT_DIR}/${MY_PN}-${UT_REL}.${UT_REV}.tar.bz2"
 #######################
 
 SRC_URI="${UT_URI}
+	${NEOLOGD_URI}
 	${ZIP1_URI} -> jp-zipcode${ZIPCODE_REV}-1.zip
 	${ZIP2_URI} -> jp-zipcode${ZIPCODE_REV}-2.zip
-	${EDICT_URI} -> monash-nihongo-edict.gz
 	fcitx? ( ${FCITX_PATCH_URI} )"
 EGIT_REPO_URI=${MOZC_URI}
 EGIT_COMMIT=${MOZC_REV}
 
-# CAUTION:
-# 	The license of nicodic is NOT CLEAR -> nicodic is not recommended
-#
 # LICENSES
-# - UT ruby/shell scripts: GPL
+# - UT ruby/shell scripts: Apache-2.0
 # - Mozc
 #   + Mozc: BSD
 #   + dictionary_oss: ipadic and public-domain
@@ -64,33 +88,25 @@ EGIT_COMMIT=${MOZC_REV}
 #   + GMOCK: BSD
 #   + GTEST: BSD
 #   + IPAfont is in repo, but not used
-# - alt-cannadic: GPL-2+
-# - person name dictionary: GPL-3+
-# - SKK-JISYO.L: GPL-2+
-# - Hatena: free-noncomm
+# - mecab-ipadic-NEologd: Apache-2.0
+# - Hatena: free-noncomm (This means free price, not freedom)
 #   http://developer.hatena.ne.jp/ja/documents/keyword/misc/catalog
-# - EDICT: CC-BY-SA-3.0
-# 	http://www.edrdg.org/jmdict/edict.html
 # - Zipcode: public-domain http://www.post.japanpost.jp/zipcode/dl/readme.html
 # - Station names: public-domain
 #   http://www5a.biglobe.ne.jp/~harako/data/station.htm
-# - Japanese WordNet: wn-ja
-# 	http://nlpwww.nict.go.jp/wn-ja/license.txt
-# - niconico: ** NOT CLEAR ** (This may mean all-rights-reserved)
-#   http://tkido.com/blog/1019.html
+# - person name dictionary: derived from Mozc (ipadic and public-domain)
 # - Mozc Fcitx: BSD
 # - MacUIM: BSD
-LICENSE="BSD BSD-2 CC-BY-SA-3.0 GPL-2+ GPL-3+ all-rights-reserved
-	free-noncomm ipadic public-domain unicode ejdic? ( wn-ja )"
+LICENSE="Apache-2.0 BSD BSD-2 free-noncomm ipadic public-domain unicode"
 SLOT="0"
 KEYWORDS=""
-IUSE="clang ejdic emacs fcitx ibus -nicodic +qt4 renderer tomoe uim"
+IUSE="clang emacs fcitx ibus +qt4 renderer tomoe uim"
 REQUIRED_USE="|| ( emacs fcitx ibus uim )
 	tomoe? ( qt4 )"
 
 COMMON_DEPEND="${PYTHON_DEPS}
 	!!app-i18n/mozc
-	!!app-i18n/mozc-neologd-ut
+	!!app-i18n/mozc-ut
 	dev-libs/glib:2
 	x11-libs/libXfixes
 	x11-libs/libxcb
@@ -104,7 +120,6 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	uim? ( app-i18n/uim )"
 DEPEND="${COMMON_DEPEND}
 	app-arch/unzip
-	app-i18n/nkf
 	>=dev-lang/ruby-2.0
 	dev-util/ninja
 	virtual/pkgconfig
@@ -115,13 +130,14 @@ RDEPEND="${COMMON_DEPEND}
 		tomoe? ( app-i18n/zinnia-tomoe ) )"
 
 S="${WORKDIR}/${P}/src"
-UT_S="${WORKDIR}/${MY_PN}-${UT_REL}"
+UT_S="${WORKDIR}/${MY_PN}-${UT_REL}.${UT_REV}"
+NEOLOGD_S="${WORKDIR}/mecab-ipadic-neologd"
 
 RESTRICT="mirror test"
 
 BUILDTYPE=${BUILDTYPE:-Release}
 
-SITEFILE="50${PN%-ut}-gentoo.el"
+SITEFILE="50${PN%-neologd-ut}-gentoo.el"
 
 DOCS=( "${UT_S}/AUTHORS" "${UT_S}/ChangeLog" "${UT_S}/COPYING"
 	"${UT_S}/README" )
@@ -131,24 +147,28 @@ MOZC_DOCS=( "${S%/src}/AUTHORS" "${S%/src}/CONTRIBUTING.md"
 	"${S%/src}/doc/about_branding.md" "${S%/src}/doc/release_history.md"
 	"${S%/src}/doc/design_doc" )
 
-pkg_pretend(){
-	if use nicodic ; then
-		ewarn 'WARNING:'
-		ewarn 'The author of Mozc UT recommends disabling its NICODIC feature,'
-		ewarn 'because NICODIC is all-rights-reserved.'
-		ewarn 'See also: http://tkido.com/blog/1019.html'
-		ewarn 'Are you sure to enable NICODIC feature?'
-		echo -n '   '
-		for num in 5 4 3 2 1 ; do
-			echo -n "${num} "
-			sleep 1
-		done
-		echo
-	fi
-}
+NEOLOGD_DOCS=( "${NEOLOGD_S}/COPYING" "${NEOLOGD_S}/ChangeLog"
+	"${NEOLOGD_S}/README.md" "${NEOLOGD_S}/README.ja.md" )
 
 src_unpack() {
 	unpack ${A}
+
+	if [ ${GET_DIC} != 0 ] ; then
+		einfo "Unpacking mecab-user-dict-seed.${UT_REL}.csv.xz"
+		(
+			cp -R "${UT_S}/mecab-ipadic-neologd" "${WORKDIR}/"
+			cd "${NEOLOGD_S}"
+			unxz "mecab-user-dict-seed.${UT_REL}.csv.xz" || die
+		)
+	else
+		einfo "Placing mecab-user-dict-seed.${DIC_REL}.csv.xz"
+		mkdir -p "${NEOLOGD_S}"
+		cp mecab-user-dict-seed.${DIC_REL}.csv "${NEOLOGD_S}/" || die
+		for f_n in COPYING ChangeLog README.ja.md README.md ; do
+			cp "${DISTDIR}/mecab-ipadic-neologd-${DIC_REL}-${f_n}" \
+				"${NEOLOGD_S}/${f_n}" || die
+		done
+	fi
 
 	git-r3_fetch ${MOZC_URI} ${MOZC_REV} mozc
 	git-r3_checkout ${MOZC_URI} "${S%/src}" mozc
@@ -160,13 +180,8 @@ src_unpack() {
 }
 
 src_prepare() {
-	# Document files of altcanna are EUC-JP encoded, should be converted to UTF-8
-	for f_n in "${UT_S}"/altcanna/doc/* ; do
-		nkf -E -w --overwrite ${f_n}
-	done
-
 	# This function is declared at the last of this file
-	generate-mozc-ut
+	generate-mozc-neologd-ut
 
 	if use fcitx ; then
 		rm -rf unix/fcitx/
@@ -255,15 +270,8 @@ src_install() {
 	einstalldocs
 	docinto mozc
 	dodoc -r ${MOZC_DOCS[@]}
-
-	local dic_names=( "altcanna" "chimei" "edict" "ekimei" "hatena" "jinmei"
-		"skk" )
-	use ejdic && dic_names=( ${dic_names[@]} "wordnet-ejdic" )
-	use nicodic && dic_names=( ${dic_names[@]} "niconico" )
-	for dic_name in ${dic_names[@]} ; do
-		docinto ${dic_name}
-		dodoc "${UT_S}"/${dic_name}/doc/*
-	done
+	docinto mecab-ipadic-neologd
+	dodoc -r ${NEOLOGD_DOCS[@]}
 
 	if use emacs ; then
 		dobin "out_linux/${BUILDTYPE}/mozc_emacs_helper"
@@ -370,24 +378,23 @@ pkg_postrm() {
 	use uim && uim-module-manager --unregister mozc
 }
 
-generate-mozc-ut() {
-	einfo "Adding mozc-ut version information"
+generate-mozc-neologd-ut() {
+	einfo "Adding neologd-ut version information"
 	eapply "${FILESDIR}/${PN}-add-ut-info.patch"
-
-	# Converting "ba-jonn", UT release date is also printed
-	sed -i -e 's/\(GetMozcVersion()\);/\1 + ".'"${UT_REL}"'";/g' \
+	# Converting "ba-jonn", NEologd release and UT revision are also outputted
+	sed -i -e 's/\(GetMozcVersion()\);/\1 + ".'"${DIC_REL}.${UT_REV}"'";/g' \
 		rewriter/version_rewriter.cc \
-		|| die "Failed to add ut info to Mozc version_rewriter"
+		|| die "Failed to add neologd-ut info to Mozc version_rewriter"
 
 	if use qt4 ; then
-		# Add UT information to Mozc's about_dialog
+		# Add NEologd UT information to Mozc's about_dialog
 		# e.g. when you execute "/usr/lib/mozc/mozc_tool -mode about_dialog"
 		sed -i -e \
-			"s_UTr_/ release date: ${UT_REL}_g" \
+			"s%NErUTr% / NEologd released: ${DIC_REL}\&lt;br\&gt;UT updated: ${UT_UPD}, revision: ${UT_REV}%g" \
 			"${S}/gui/about_dialog/about_dialog.ui" \
 			"${S}/gui/about_dialog/about_dialog_en.ts" \
 			"${S}/gui/about_dialog/about_dialog_ja.ts" \
-			|| die "Failed to add ut info to Mozc about_dialog"
+			|| die "Failed to add neologd-ut info to Mozc about_dialog"
 		"/usr/$(get_libdir)/qt4/bin/lrelease" -silent \
 			"${S}/gui/about_dialog/about_dialog_en.ts"
 		"/usr/$(get_libdir)/qt4/bin/lrelease" -silent \
@@ -408,92 +415,52 @@ generate-mozc-ut() {
 	cp "${S}/data/dictionary_oss/id.def" id.def \
 		|| die "Failed to copy hinshi ID"
 
-	(
-		ebegin "Generating zip code dictionary"
-		cd chimei/
-		cp "${WORKDIR}"/*.CSV ./
-		cp "${S}/dictionary/gen_zip_code_seed.py" ./
-		ruby modify-zipcode.rb KEN_ALL.CSV \
-			|| die "Failed to generate zip code dictionary"
-		"${PYTHON}" gen_zip_code_seed.py --zip_code=KEN_ALL.CSV.r \
-			--jigyosyo=JIGYOSYO.CSV \
-			>> "${S}/data/dictionary_oss/dictionary09.txt" \
-				|| die "Failed to generate zip code dictionary"
-		eend
-
-		ebegin "Generating place name dictionary"
-		ruby get-chimei-entries.rb KEN_ALL.CSV.r \
-			|| die "Failed to generate chimei.txt"
-		eend
-	)
-
-	einfo "Generating mozcdic-ut entries"
-	cat altcanna/altcanna.txt edict/edict.txt hatena/hatena.txt \
-		jinmei/jinmei.txt skk/skk.txt > utdic.txt \
-			|| die "Failed to generate mozcdic-ut entries"
-
-	if use nicodic ; then
-		cat utdic.txt niconico/niconico.txt > utdic.txt.new \
-			|| die "Failed to generate mozcdic-ut entries"
-		mv utdic.txt.new utdic.txt
-	fi
-
-	ebegin "Removing rare words"
-	ruby 03-remove-rare-long-words.rb utdic.txt \
-		|| die "Failed to remove rare words"
-	mv utdic.txt.r utdic.txt
+	ebegin "Filtering neologd entries"
+	cp "${NEOLOGD_S}/mecab-user-dict-seed.${DIC_REL}.csv" ./
+	ruby 03-get-neologd-entries.rb "mecab-user-dict-seed.${DIC_REL}.csv" \
+		|| die "Failed to filter neologd entries"
 	eend
 
-	ebegin "Removing duplicates"
-	ruby remove-duplicates-cannaformat.rb utdic.txt \
-		|| die "Failed to remove duplicates"
-	mv utdic.txt.removed utdic.txt
+	# Move directories for generating place name dictionaries
+	cd "${UT_S}/chimei"
+
+	ebegin "Generating zip code dictionary"
+	cp "${S}/dictionary/gen_zip_code_seed.py" ./
+	cp "${WORKDIR}"/*.CSV ./
+	ruby modify-zipcode.rb KEN_ALL.CSV
+	"${PYTHON}" gen_zip_code_seed.py --zip_code=KEN_ALL.CSV.r \
+		--jigyosyo=JIGYOSYO.CSV \
+		>> "${S}/data/dictionary_oss/dictionary09.txt" \
+		|| die "Failed to generate zip code dictionary"
 	eend
 
-	ebegin "Filtering entries"
-	ruby filter-entries.rb utdic.txt || die "Failed to filter entries"
-	mv utdic.txt.r utdic.txt
+	ebegin "Generating place name dictionary"
+	ruby get-chimei-entries.rb KEN_ALL.CSV.r \
+		|| die "Failed to generate place name dictionary"
+	ruby apply-cost-and-id.rb chimei.txt \
+		|| die "Failed to generate place name dictionary"
+
+	cat ../neologd.txt chimei.txt.r > ../neologd.txt.new
+	mv ../neologd.txt.new ../neologd.txt
 	eend
 
-	ebegin "Generating katakana-english entries"
-	( cd edict-katakana-english/
-		cp "${WORKDIR}/monash-nihongo-edict" edict
-		ruby 02-generate-katakana-english-entries.rb edict \
-			|| die "Failed to generate katakana-english entries"
-	)
-	cat utdic.txt chimei/chimei.txt edict-katakana-english/edict.je \
-		ekimei/ekimei.txt > utdic.txt.new
-	mv utdic.txt.new utdic.txt
+	# Move back to the previous dictionary
+	cd "${UT_S}"
+
+	ebegin "Diffing mozcdic neologddic"
+	ruby 05-get-diff-entries.rb \
+		|| die "Failed to diff mozcdic neologddic"
 	eend
 
-	ebegin "Diffing mozcdic utdic"
-	ruby 05-get-diff-entries.rb utdic.txt \
-		|| die "Failed to diff mozcdic utdic"
+	ebegin "Modifyng person name entries"
+	ruby 07-fix-jinmei.rb mozcdic-neologd-ut.txt \
+		|| die "Failed to modify person name entries"
+	mv mozcdic-neologd-ut.txt.jinmei mozcdic-neologd-ut.txt
 	eend
 
-	if use ejdic ; then
-		einfo "Adding ejdic"
-		cat wordnet-ejdic/wordnet-ejdic.txt utdic.txt.diff \
-			> utdic.txt.diff.new || die "Failed to add ejdic"
-		mv utdic.txt.diff.new utdic.txt.diff
-	fi
-
-	ebegin "Applying cost and id"
-	ruby 10-apply-cost-and-id.rb utdic.txt.diff \
-		|| die "Failed to apply cost and id"
-	eend
-
-	ebegin "Generating babibubebo from vavivuvevo"
-	cat mozcdic.txt utdic.txt.diff.cost > utdic-check-va.txt
-	ruby 20-generate-ba-entries.rb utdic-check-va.txt \
-		|| die 'Failed to generate "babibubebo" entries'
-	cat utdic.txt.diff.cost utdic-check-va.txt.to_ba > mozcdic-ut.txt
-	eend
-
-	einfo "Copying mozcdic-ut to official Mozc source"
-	cat mozcdic-ut.txt \
-		"${S}/data/dictionary_oss/dictionary00.txt" > dictionary00.txt \
-		 || die "Failed to copy mozcdic-ut to official Mozc source"
+	einfo "Copying mozcdic-neologd-ut"
+	cat mozcdic-neologd-ut.txt "${S}/data/dictionary_oss/dictionary00.txt" \
+		> dictionary00.txt
 	mv dictionary00.txt "${S}/data/dictionary_oss/dictionary00.txt"
 
 	# Go back to the default directory ##
