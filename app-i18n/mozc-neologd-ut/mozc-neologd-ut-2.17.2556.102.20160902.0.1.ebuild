@@ -24,7 +24,7 @@ FCITX_PATCH_VER="2.17.2313.102.1"
 UIM_PATCH_REV="3ea28b1"
 
 DIC_REL="$(get_version_component_range 5)"
-NEOLOGD_REV="5a8201b"
+NEOLOGD_REV="c30c45a"
 
 # Zip code data are revised on the last of every month
 ZIPCODE_REV="201608"
