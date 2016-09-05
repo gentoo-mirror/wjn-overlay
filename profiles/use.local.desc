@@ -248,6 +248,7 @@ www-apps/nikola:bbcode - Support bbcode format
 www-apps/nikola:charts - Support chart generation through dev-python/pygal
 www-apps/nikola:extras - Add all functionalities
 www-apps/nikola:ghpages - Support GitHub Page
+www-apps/nikola:husl - Add support fordev-python/husl
 www-apps/nikola:hyphenation - Add hyphenation support through dev-python/pyphen
 www-apps/nikola:ipython - Add IPython notebook compilation and LESS support
 www-apps/nikola:jinja - Add support for dev-python/jinja as alternative templating engine to Mako
