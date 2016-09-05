@@ -2,6 +2,14 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*nikola-7.8.0 (05 Sep 2016)
+
+  05 Sep 2016; wjn <wjn@aol.jp> metadata.xml, +nikola-7.8.0.ebuild:
+  Add version 7.8.0
+
+   Now HUSL support has become optional
+   Upstream: https://github.com/getnikola/nikola/commit/fe3628e
+
 *nikola-7.7.12 (10 Aug 2016)
 
   10 Aug 2016; wjn <wjn@aol.jp> -nikola-7.7.11.ebuild, +nikola-7.7.12.ebuild:
