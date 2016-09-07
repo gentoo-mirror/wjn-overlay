@@ -13,7 +13,7 @@ inherit elisp-common eutils git-r3 multilib multiprocessing python-single-r1 \
 DESCRIPTION="Mozc - a Japanese Input Method Editor designed for multi-platform"
 HOMEPAGE="https://github.com/google/mozc"
 
-MOZC_REV="ae6bbac"
+MOZC_REV="d44d064"
 FCITX_PATCH_VER="2.17.2313.102.1"
 UIM_PATCH_REV="3ea28b1"
 
@@ -68,8 +68,8 @@ SITEFILE="50${PN}-gentoo.el"
 
 DOCS=( "${S%/src}/AUTHORS" "${S%/src}/CONTRIBUTING.md"
 	"${S%/src}/CONTRIBUTORS" "${S%/src}/README.md"
-	"${S%/src}/doc/about_branding.md" "${S%/src}/doc/release_history.md"
-	"${S%/src}/doc/design_doc" )
+	"${S%/src}/docs/about_branding.md" "${S%/src}/docs/release_history.md"
+	"${S%/src}/docs/design_doc" )
 
 src_unpack() {
 	git-r3_fetch ${MOZC_URI} ${MOZC_REV} mozc
