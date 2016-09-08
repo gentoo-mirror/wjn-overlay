@@ -18,7 +18,7 @@ HOMEPAGE="http://www.geocities.jp/ep3797/mozc_01.html
 
 # Assign version variables #####
 MOZC_VER="$(get_version_component_range 1-4)"
-MOZC_REV="ae6bbac"
+MOZC_REV="d44d064"
 FCITX_PATCH_VER="2.17.2313.102.1"
 UIM_PATCH_REV="3ea28b1"
 
@@ -26,7 +26,7 @@ UIM_PATCH_REV="3ea28b1"
 ZIPCODE_REV="201608"
 
 UT_REL=$(get_version_component_range $(get_version_component_count))
-UT_DIR="11/11036"
+UT_DIR="11/11060"
 #######################
 
 # Assign URI variables #########
@@ -128,8 +128,8 @@ DOCS=( "${UT_S}/AUTHORS" "${UT_S}/ChangeLog" "${UT_S}/COPYING"
 
 MOZC_DOCS=( "${S%/src}/AUTHORS" "${S%/src}/CONTRIBUTING.md"
 	"${S%/src}/CONTRIBUTORS" "${S%/src}/README.md"
-	"${S%/src}/doc/about_branding.md" "${S%/src}/doc/release_history.md"
-	"${S%/src}/doc/design_doc" )
+	"${S%/src}/docs/about_branding.md" "${S%/src}/docs/release_history.md"
+	"${S%/src}/docs/design_doc" )
 
 pkg_pretend(){
 	if use nicodic ; then
