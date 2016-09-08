@@ -1,15 +1,13 @@
 diff -ur --unidirectional-new-file -u -r src.orig/base/const.h src/base/const.h
---- src.orig/base/const.h	2016-01-18 15:23:26.977781556 +0000
-+++ src/base/const.h	2016-01-18 13:28:07.097941842 +0000
-@@ -38,9 +38,9 @@
-     = "Google \xE6\x97\xA5\xE6\x9C\xAC\xE8\xAA\x9E\xE5\x85\xA5\xE5\x8A\x9B";
+--- src.orig/base/const.h	2016-09-08 00:17:27.306194215 +0000
++++ src/base/const.h	2016-09-08 00:17:45.160971000 +0000
+@@ -35,8 +35,8 @@
+ const char kProductNameInEnglish[] = "Google Japanese Input";
  #define kProductPrefix "GoogleJapaneseInput"
  #else  // GOOGLE_JAPANESE_INPUT_BUILD
 -const char kProductNameInEnglish[] = "Mozc";
--const char kProductNameLocalized[] = "Mozc";
 -#define kProductPrefix "Mozc"
 +const char kProductNameInEnglish[] = "Mozc-NEologd-UT";
-+const char kProductNameLocalized[] = "Mozc-NEologd-UT";
 +#define kProductPrefix "Mozc-NEologd-UT"
  #endif  // GOOGLE_JAPANESE_INPUT_BUILD
  

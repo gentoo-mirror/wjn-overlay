@@ -19,12 +19,12 @@ HOMEPAGE="http://www.geocities.jp/ep3797/mozc_01.html
 
 # Assign version variables #####
 MOZC_VER="$(get_version_component_range 1-4)"
-MOZC_REV="ae6bbac"
+MOZC_REV="d44d064"
 FCITX_PATCH_VER="2.17.2313.102.1"
 UIM_PATCH_REV="3ea28b1"
 
 DIC_REL="$(get_version_component_range 5)"
-NEOLOGD_REV="2e3eccf"
+NEOLOGD_REV="c45e7df"
 
 # Zip code data are revised on the last of every month
 ZIPCODE_REV="201608"
@@ -33,12 +33,12 @@ ZIPCODE_REV="201608"
 # In such a case, ${PV} can be ${MOZC_VER}.${DIC_REL}.0.${UT_REV}
 # On the other case, ${PV} is ${MOZC_VER}.${DIC_REL}.${UT_REV}
 # Therefore, ${UT_REV} is the last number of ${PV}
-UT_UPD="20160815"
-UT_REL="20160815"
+UT_UPD="20160905"
+UT_REL="20160905"
 UT_REV="$(get_version_component_range $(get_version_component_count))"
 GET_DIC="$(get_version_component_range 6)"
 # FYI: https://osdn.jp/users/utuhiro/pf/utuhiro/wiki/FrontPage
-UT_DIR="11/11037"
+UT_DIR="11/11061"
 #######################
 
 # Assign URI variables #########
@@ -144,8 +144,8 @@ DOCS=( "${UT_S}/AUTHORS" "${UT_S}/ChangeLog" "${UT_S}/COPYING"
 
 MOZC_DOCS=( "${S%/src}/AUTHORS" "${S%/src}/CONTRIBUTING.md"
 	"${S%/src}/CONTRIBUTORS" "${S%/src}/README.md"
-	"${S%/src}/doc/about_branding.md" "${S%/src}/doc/release_history.md"
-	"${S%/src}/doc/design_doc" )
+	"${S%/src}/docs/about_branding.md" "${S%/src}/docs/release_history.md"
+	"${S%/src}/docs/design_doc" )
 
 NEOLOGD_DOCS=( "${NEOLOGD_S}/COPYING" "${NEOLOGD_S}/ChangeLog"
 	"${NEOLOGD_S}/README.md" "${NEOLOGD_S}/README.ja.md" )
