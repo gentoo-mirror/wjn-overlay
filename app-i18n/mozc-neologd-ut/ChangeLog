@@ -2,6 +2,14 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*mozc-neologd-ut-2.18.2598.102.20160905.1 (08 Sep 2016)
+
+  08 Sep 2016; wjn <wjn@aol.jp> files/mozc-neologd-ut-add-ut-info.patch,
+  -mozc-neologd-ut-2.17.2556.102.20160815.1.ebuild,
+  -mozc-neologd-ut-2.17.2556.102.20160902.0.1.ebuild,
+  +mozc-neologd-ut-2.18.2598.102.20160905.1.ebuild:
+  Add version 2.18.2598.102.20160905.1, delete olds
+
 *mozc-neologd-ut-2.17.2556.102.20160902.0.1 (01 Sep 2016)
 
   01 Sep 2016; wjn <wjn@aol.jp>
