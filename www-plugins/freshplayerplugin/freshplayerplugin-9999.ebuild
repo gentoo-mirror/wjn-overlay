@@ -45,7 +45,8 @@ DEPEND="${COMMON_DEPEND}
 	dev-util/ragel
 	virtual/pkgconfig"
 RDEPEND="${COMMON_DEPEND}
-	|| ( www-plugins/chrome-binary-plugins[flash]
+	|| ( www-plugins/adobe-flash:22
+		www-plugins/chrome-binary-plugins[flash]
 		www-client/google-chrome
 		www-client/google-chrome-beta
 		www-client/google-chrome-unstable )"
