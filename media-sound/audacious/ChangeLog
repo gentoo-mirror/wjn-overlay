@@ -2,6 +2,11 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*audacious-3.8 (23 Sep 2016)
+
+  23 Sep 2016; wjn <wjn@aol.jp> +audacious-3.8.ebuild:
+  Add version 3.8
+
 *audacious-3.7.2 (29 Mar 2016)
 
   29 Mar 2016; wjn <wjn@aol.jp> +audacious-3.7.2.ebuild:
