@@ -2,6 +2,11 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*audacious-plugins-3.8 (23 Sep 2016)
+
+  23 Sep 2016; wjn <wjn@aol.jp> +audacious-plugins-3.8.ebuild:
+  Add version 3.8
+
   26 Aug 2016; wjn <wjn@aol.jp> audacious-plugins-9999.ebuild:
   Auto-detect flac, mp3, neon and vorbis support
 
