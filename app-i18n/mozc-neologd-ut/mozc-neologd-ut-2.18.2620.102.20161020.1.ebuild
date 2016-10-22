@@ -13,32 +13,32 @@ inherit elisp-common git-r3 python-single-r1 python-utils-r1 toolchain-funcs \
 MY_PN=${PN/mozc/mozcdic}
 
 DESCRIPTION="Mozc Japanese Input Method with mecab-ipadic-NEologd"
-HOMEPAGE="http://www.geocities.jp/ep3797/mozc_01.html
+HOMEPAGE="http://www.geocities.jp/ep3797/mozc-neologd-ut.html
 	https://github.com/neologd/mecab-ipadic-neologd
 	https://github.com/google/mozc"
 
 # Assign version variables #####
 MOZC_VER="$(get_version_component_range 1-4)"
-MOZC_REV="d44d064"
-FCITX_PATCH_VER="2.17.2313.102.1"
+MOZC_REV="d87954b"
+FCITX_PATCH_VER="2.18.2612.102.1"
 UIM_PATCH_REV="3ea28b1"
 
 DIC_REL="$(get_version_component_range 5)"
 NEOLOGD_REV="c45e7df"
 
 # Zip code data are revised on the last of every month
-ZIPCODE_REV="201608"
+ZIPCODE_REV="201609"
 
 # In case of replacing NEologd's seed, assign ${UT_REL} as well as ${DIC_REL}
 # In such a case, ${PV} can be ${MOZC_VER}.${DIC_REL}.0.${UT_REV}
 # On the other case, ${PV} is ${MOZC_VER}.${DIC_REL}.${UT_REV}
 # Therefore, ${UT_REV} is the last number of ${PV}
-UT_UPD="20160905"
-UT_REL="20160905"
+UT_UPD="20161020"
+UT_REL="20161020"
 UT_REV="$(get_version_component_range $(get_version_component_count))"
 GET_DIC="$(get_version_component_range 6)"
 # FYI: https://osdn.jp/users/utuhiro/pf/utuhiro/wiki/FrontPage
-UT_DIR="11/11061"
+UT_DIR="11/11175"
 #######################
 
 # Assign URI variables #########
@@ -107,6 +107,7 @@ REQUIRED_USE="|| ( emacs fcitx ibus uim )
 COMMON_DEPEND="${PYTHON_DEPS}
 	!!app-i18n/mozc
 	!!app-i18n/mozc-ut
+	!!app-i18n/mozc-ut2
 	dev-libs/glib:2
 	x11-libs/libXfixes
 	x11-libs/libxcb
@@ -120,6 +121,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	uim? ( app-i18n/uim )"
 DEPEND="${COMMON_DEPEND}
 	app-arch/unzip
+	app-i18n/nkf
 	>=dev-lang/ruby-2.0
 	dev-util/ninja
 	virtual/pkgconfig
@@ -140,7 +142,7 @@ BUILDTYPE=${BUILDTYPE:-Release}
 SITEFILE="50${PN%-neologd-ut}-gentoo.el"
 
 DOCS=( "${UT_S}/AUTHORS" "${UT_S}/ChangeLog" "${UT_S}/COPYING"
-	"${UT_S}/README" )
+	"${UT_S}/README.md" )
 
 MOZC_DOCS=( "${S%/src}/AUTHORS" "${S%/src}/CONTRIBUTING.md"
 	"${S%/src}/CONTRIBUTORS" "${S%/src}/README.md"
@@ -403,57 +405,55 @@ generate-mozc-neologd-ut() {
 	fi
 
 	# For running UT scripts ############
-	cd "${UT_S}"
-
-	ebegin "Getting mozcdic costlist"
-	cat "${S}"/data/dictionary_oss/dictionary*.txt > mozcdic.txt
-	ruby 01-get-mozc-cost.rb mozcdic.txt \
-		|| die "Failed to get mozcdic costlist"
-	eend
+	cd "${UT_S}/src"
 
 	einfo "Copying hinshi ID"
 	cp "${S}/data/dictionary_oss/id.def" id.def \
 		|| die "Failed to copy hinshi ID"
 
+	(
+		# Move directories for generating place name dictionaries
+		cd "${UT_S}/chimei"
+
+		ebegin "Generating zip code dictionary"
+		cp "${WORKDIR}"/*.CSV ./
+		ruby modify-zipcode.rb KEN_ALL.CSV
+		cp "${S}/dictionary/gen_zip_code_seed.py" ./
+		cp "${S}/dictionary/zip_code_util.py" ./
+		sed -i "s/from dictionary import zip_code_util/import zip_code_util/g" \
+			gen_zip_code_seed.py
+		"${PYTHON}" gen_zip_code_seed.py --zip_code=KEN_ALL.CSV.modzip \
+			--jigyosyo=JIGYOSYO.CSV \
+			>> "${S}/data/dictionary_oss/dictionary09.txt" \
+			|| die "Failed to generate zip code dictionary"
+		eend
+
+		ebegin "Generating place name dictionary"
+		ruby get-chimei-entries.rb KEN_ALL.CSV.modzip \
+			|| die "Failed to generate place name dictionary"
+		eend
+	)
+
+	einfo "Copying original dictionaries"
+	cat "${S}"/data/dictionary_oss/dictionary*.txt > mozcdic.txt
+
 	ebegin "Filtering neologd entries"
 	cp "${NEOLOGD_S}/mecab-user-dict-seed.${DIC_REL}.csv" ./
-	ruby 03-get-neologd-entries.rb "mecab-user-dict-seed.${DIC_REL}.csv" \
+	ruby get-neologd-entries.rb "mecab-user-dict-seed.${DIC_REL}.csv" \
 		|| die "Failed to filter neologd entries"
 	eend
 
-	# Move directories for generating place name dictionaries
-	cd "${UT_S}/chimei"
-
-	ebegin "Generating zip code dictionary"
-	cp "${S}/dictionary/gen_zip_code_seed.py" ./
-	cp "${WORKDIR}"/*.CSV ./
-	ruby modify-zipcode.rb KEN_ALL.CSV
-	"${PYTHON}" gen_zip_code_seed.py --zip_code=KEN_ALL.CSV.r \
-		--jigyosyo=JIGYOSYO.CSV \
-		>> "${S}/data/dictionary_oss/dictionary09.txt" \
-		|| die "Failed to generate zip code dictionary"
-	eend
-
-	ebegin "Generating place name dictionary"
-	ruby get-chimei-entries.rb KEN_ALL.CSV.r \
-		|| die "Failed to generate place name dictionary"
-	ruby apply-cost-and-id.rb chimei.txt \
-		|| die "Failed to generate place name dictionary"
-
-	cat ../neologd.txt chimei.txt.r > ../neologd.txt.new
-	mv ../neologd.txt.new ../neologd.txt
-	eend
-
-	# Move back to the previous dictionary
-	cd "${UT_S}"
+	einfo "Merging dictionaries"
+	cat ../chimei/KEN_ALL.CSV.modzip.chimei neologd.txt > neologd.txt.new
+	mv neologd.txt.new neologd.txt
 
 	ebegin "Diffing mozcdic neologddic"
-	ruby 05-get-diff-entries.rb \
+	ruby get-diff-entries.rb \
 		|| die "Failed to diff mozcdic neologddic"
 	eend
 
 	ebegin "Modifyng person name entries"
-	ruby 07-fix-jinmei.rb mozcdic-neologd-ut.txt \
+	ruby fix-jinmei.rb mozcdic-neologd-ut.txt \
 		|| die "Failed to modify person name entries"
 	mv mozcdic-neologd-ut.txt.jinmei mozcdic-neologd-ut.txt
 	eend

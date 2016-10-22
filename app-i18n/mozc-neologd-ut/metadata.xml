@@ -16,7 +16,7 @@
 			<email>utuhiro78@yahoo.co.jp</email>
 			<name>UTUMI Hirosi</name>
 		</maintainer>
-		<doc>http://www.geocities.jp/ep3797/mozc_01.html</doc>
+		<doc>http://www.geocities.jp/ep3797/mozc-neologd-ut.html</doc>
 	</upstream>
 	<use>
 		<flag name='clang'>Use <pkg>sys-devel/clang</pkg> to compile</flag>
