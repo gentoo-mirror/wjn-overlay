@@ -2,6 +2,17 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*mozc-ut-2.18.2620.102.20160905 (22 Oct 2016)
+
+  22 Oct 2016; wjn <wjn@aol.jp> files/mozc-ut-add-ut-info.patch,
+  -mozc-ut-2.18.2598.102.20160905.ebuild,
+  +mozc-ut-2.18.2620.102.20160905.ebuild:
+  Add version 2.18.2620.102.20160905, delete old
+
+   Mozc UT Dictionary (Upstream) discontinued
+  Please transit Mozc UT2 Dictionary
+  See http://www.geocities.jp/ep3797/mozc-ut.html
+
 *mozc-ut-2.18.2598.102.20160905 (08 Sep 2016)
 
   08 Sep 2016; wjn <wjn@aol.jp> files/mozc-ut-add-ut-info.patch,
