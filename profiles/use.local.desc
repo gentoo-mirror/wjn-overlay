@@ -270,11 +270,6 @@ www-apps/nikola:typogrify - Support dev-python/typogrify
 www-apps/nikola:websocket - Support dev-python/ws4py
 www-plugins/freshplayerplugin:gtk3 - Build with GTK+ 3 instead of GTK+ 2
 x11-libs/qscintilla:designer - Build plugin for Qt Designer
-x11-misc/lightdm:gtk - Pull in the gtk+ greeter
-x11-misc/lightdm:introspection - Use dev-libs/gobject-introspection for introspection
-x11-misc/lightdm:kde - Pull in the kde greeter
-x11-misc/lightdm:qt4 - Support Qt4
-x11-misc/lightdm:qt5 - Support Qt5
 x11-misc/mate-notification-daemon:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
 x11-misc/screengrab:xdg - Place config files into $XDG_CONFIG_HOME
 x11-terms/mate-terminal:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
