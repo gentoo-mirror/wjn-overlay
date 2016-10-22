@@ -1,0 +1,95 @@
+diff -ur --unidirectional-new-file -u -r src.orig/base/const.h src/base/const.h
+--- src.orig/base/const.h	2016-09-08 00:17:27.306194215 +0000
++++ src/base/const.h	2016-09-08 00:17:45.160971000 +0000
+@@ -35,8 +35,8 @@
+ const char kProductNameInEnglish[] = "Google Japanese Input";
+ #define kProductPrefix "GoogleJapaneseInput"
+ #else  // GOOGLE_JAPANESE_INPUT_BUILD
+-const char kProductNameInEnglish[] = "Mozc";
+-#define kProductPrefix "Mozc"
++const char kProductNameInEnglish[] = "Mozc-UT";
++#define kProductPrefix "Mozc-UT"
+ #endif  // GOOGLE_JAPANESE_INPUT_BUILD
+ 
+ const char kVersionRewriterVersionPrefix[] = kProductPrefix "-";
+diff -ur --unidirectional-new-file -u -r src.orig/gui/about_dialog/about_dialog.ui src/gui/about_dialog/about_dialog.ui
+--- src.orig/gui/about_dialog/about_dialog.ui	2016-01-18 15:12:24.184796909 +0000
++++ src/gui/about_dialog/about_dialog.ui	2016-01-18 15:19:00.381787732 +0000
+@@ -37,7 +37,7 @@
+     <x>0</x>
+     <y>0</y>
+     <width>490</width>
+-    <height>250</height>
++    <height>280</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+@@ -49,13 +49,13 @@
+   <property name="minimumSize">
+    <size>
+     <width>490</width>
+-    <height>250</height>
++    <height>280</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>490</width>
+-    <height>250</height>
++    <height>280</height>
+    </size>
+   </property>
+   <property name="windowTitle">
+@@ -80,7 +80,7 @@
+     <property name="geometry">
+      <rect>
+       <x>400</x>
+-      <y>90</y>
++      <y>120</y>
+       <width>91</width>
+       <height>32</height>
+      </rect>
+@@ -95,7 +95,7 @@
+       <x>20</x>
+       <y>10</y>
+       <width>471</width>
+-      <height>81</height>
++      <height>111</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_3">
+@@ -160,7 +160,7 @@
+         </font>
+        </property>
+        <property name="text">
+-        <string>&lt;html&gt;&lt;body&gt;Mozc &lt;a href=&quot;https://github.com/google/mozc&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;product information&lt;/span&gt;&lt;/a&gt; &lt;a href=&quot;https://github.com/google/mozc/issues&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;issues&lt;/span&gt;&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;</string>
++        <string>&lt;html&gt;&lt;body&gt;Mozc &lt;a href=&quot;https://github.com/google/mozc&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;product information&lt;/span&gt;&lt;/a&gt; &lt;a href=&quot;https://github.com/google/mozc/issues&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;issues&lt;/span&gt;&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.geocities.jp/ep3797/mozc-ut2.html&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Mozc UT2 Dictionary&lt;/span&gt;&lt;/a&gt; UTr&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+      </item>
+diff -ur --unidirectional-new-file -u -r src.orig/gui/about_dialog/about_dialog_en.ts src/gui/about_dialog/about_dialog_en.ts
+--- src.orig/gui/about_dialog/about_dialog_en.ts	2016-01-18 15:12:24.184796909 +0000
++++ src/gui/about_dialog/about_dialog_en.ts	2016-01-18 15:18:46.157788061 +0000
+@@ -25,7 +25,7 @@
+     </message>
+     <message>
+         <location filename="about_dialog.ui" line="133"/>
+-        <source>&lt;html&gt;&lt;body&gt;Mozc &lt;a href=&quot;https://github.com/google/mozc&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;product information&lt;/span&gt;&lt;/a&gt; &lt;a href=&quot;https://github.com/google/mozc/issues&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;issues&lt;/span&gt;&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;</source>
++        <source>&lt;html&gt;&lt;body&gt;Mozc &lt;a href=&quot;https://github.com/google/mozc&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;product information&lt;/span&gt;&lt;/a&gt; &lt;a href=&quot;https://github.com/google/mozc/issues&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;issues&lt;/span&gt;&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.geocities.jp/ep3797/mozc-ut2.html&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Mozc UT2 Dictionary&lt;/span&gt;&lt;/a&gt; UTr&lt;/body&gt;&lt;/html&gt;</source>
+         <translation type="unfinished"></translation>
+     </message>
+     <message>
+diff -ur --unidirectional-new-file -u -r src.orig/gui/about_dialog/about_dialog_ja.ts src/gui/about_dialog/about_dialog_ja.ts
+--- src.orig/gui/about_dialog/about_dialog_ja.ts	2016-01-18 15:12:24.184796909 +0000
++++ src/gui/about_dialog/about_dialog_ja.ts	2016-01-18 15:18:51.644787934 +0000
+@@ -25,8 +25,8 @@
+     </message>
+     <message>
+         <location filename="about_dialog.ui" line="133"/>
+-        <source>&lt;html&gt;&lt;body&gt;Mozc &lt;a href=&quot;https://github.com/google/mozc&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;product information&lt;/span&gt;&lt;/a&gt; &lt;a href=&quot;https://github.com/google/mozc/issues&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;issues&lt;/span&gt;&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;</source>
+-        <translation type="unfinished">&lt;html&gt;&lt;body&gt;Mozc &lt;a href=&quot;https://github.com/google/mozc&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;製品情報&lt;/span&gt;&lt;/a&gt; &lt;a href=&quot;https://github.com/google/mozc/issues&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;issues&lt;/span&gt;&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;</translation>
++        <source>&lt;html&gt;&lt;body&gt;Mozc &lt;a href=&quot;https://github.com/google/mozc&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;product information&lt;/span&gt;&lt;/a&gt; &lt;a href=&quot;https://github.com/google/mozc/issues&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;issues&lt;/span&gt;&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.geocities.jp/ep3797/mozc-ut2.html&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Mozc UT2 Dictionary&lt;/span&gt;&lt;/a&gt; UTr&lt;/body&gt;&lt;/html&gt;</source>
++        <translation>&lt;html&gt;&lt;body&gt;Mozc &lt;a href=&quot;https://github.com/google/mozc&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;製品情報&lt;/span&gt;&lt;/a&gt; &lt;a href=&quot;https://github.com/google/mozc/issues&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;issues&lt;/span&gt;&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.geocities.jp/ep3797/mozc-ut2.html&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Mozc UT2 Dictionary&lt;/span&gt;&lt;/a&gt; UTr&lt;/body&gt;&lt;/html&gt;</translation>
+     </message>
+     <message>
+         <source>&lt;html&gt;&lt;body&gt;Google &lt;a href=&quot;file://privacy_en.html&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;privacy policy&lt;/span&gt;&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;</source>
