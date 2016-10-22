@@ -2,6 +2,14 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*xf86-video-intel-2.99.917_p20161021 (22 Oct 2016)
+
+  22 Oct 2016; wjn <wjn@aol.jp> -xf86-video-intel-2.99.917_p20160823.ebuild,
+  +xf86-video-intel-2.99.917_p20161021.ebuild:
+  Add version 2.99.917_p20161021, delete old
+
+   At the commit of 'sna: Disable screen saver if Option "DPMS" is specified'
+
   27 Aug 2016; wjn <wjn@aol.jp> -xf86-video-intel-2.99.917_p20160812.ebuild,
   -xf86-video-intel-2.99.917_p20160817.ebuild:
   Delete old p20160812 and p20160817
