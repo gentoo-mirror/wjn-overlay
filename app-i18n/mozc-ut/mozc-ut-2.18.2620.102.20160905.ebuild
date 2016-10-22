@@ -13,20 +13,20 @@ inherit elisp-common git-r3 python-single-r1 python-utils-r1 toolchain-funcs \
 MY_PN=${PN/mozc/mozcdic}
 
 DESCRIPTION="Mozc Japanese Input Method with Additional Japanese dictionary"
-HOMEPAGE="http://www.geocities.jp/ep3797/mozc_01.html
+HOMEPAGE="http://www.geocities.jp/ep3797/mozc-ut.html
 	https://github.com/google/mozc"
 
 # Assign version variables #####
 MOZC_VER="$(get_version_component_range 1-4)"
-MOZC_REV="d44d064"
-FCITX_PATCH_VER="2.17.2313.102.1"
+MOZC_REV="d87954b"
+FCITX_PATCH_VER="2.18.2612.102.1"
 UIM_PATCH_REV="3ea28b1"
 
 # Zip code data are revised on the last of every month
-ZIPCODE_REV="201608"
+ZIPCODE_REV="201609"
 
 UT_REL=$(get_version_component_range $(get_version_component_count))
-UT_DIR="11/11060"
+UT_DIR="11/11140"
 #######################
 
 # Assign URI variables #########
@@ -38,7 +38,7 @@ ZIP1_URI="http://www.post.japanpost.jp/zipcode/dl/kogaki/zip/ken_all.zip"
 ZIP2_URI="http://www.post.japanpost.jp/zipcode/dl/jigyosyo/zip/jigyosyo.zip"
 EDICT_URI="http://ftp.monash.edu.au/pub/nihongo/edict.gz"
 
-UT_URI="mirror://osdn/users/${UT_DIR}/mozcdic-ut-${UT_REL}.tar.bz2"
+UT_URI="mirror://osdn/users/${UT_DIR}/${MY_PN}-${UT_REL}.tar.bz2"
 #######################
 
 SRC_URI="${UT_URI}
@@ -132,6 +132,10 @@ MOZC_DOCS=( "${S%/src}/AUTHORS" "${S%/src}/CONTRIBUTING.md"
 	"${S%/src}/docs/design_doc" )
 
 pkg_pretend(){
+	ewarn 'Mozc UT Dictionary (Upstream) discontinued,'
+	ewarn 'it will be no longer maintainanced.'
+	ewarn 'Please transit to Mozc UT2 Dictionary.'
+
 	if use nicodic ; then
 		ewarn 'WARNING:'
 		ewarn 'The author of Mozc UT recommends disabling its NICODIC feature,'
@@ -413,8 +417,11 @@ generate-mozc-ut() {
 		cd chimei/
 		cp "${WORKDIR}"/*.CSV ./
 		cp "${S}/dictionary/gen_zip_code_seed.py" ./
+		cp "${S}/dictionary/zip_code_util.py" ./
 		ruby modify-zipcode.rb KEN_ALL.CSV \
 			|| die "Failed to generate zip code dictionary"
+		sed -i "s/from dictionary import zip_code_util/import zip_code_util/g" \
+			gen_zip_code_seed.py
 		"${PYTHON}" gen_zip_code_seed.py --zip_code=KEN_ALL.CSV.r \
 			--jigyosyo=JIGYOSYO.CSV \
 			>> "${S}/data/dictionary_oss/dictionary09.txt" \
