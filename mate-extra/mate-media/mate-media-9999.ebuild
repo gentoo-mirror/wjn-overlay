@@ -31,8 +31,7 @@ COMMON_DEPEND="app-text/rarian:0
 		>=media-libs/libcanberra-0.13:0[gtk]
 		>=x11-libs/gtk+-2.24.0:2 )
 	gtk3? ( >=x11-libs/gtk+-3.0.0:3
-		>=media-libs/libcanberra-0.13:0[gtk3]
-		>=dev-libs/libunique-3.0:3 )"
+		>=media-libs/libcanberra-0.13:0[gtk3] )"
 DEPEND="${COMMON_DEPEND}
 	app-text/docbook-xml-dtd:4.1.2
 	app-text/yelp-tools:0
