@@ -42,7 +42,7 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	x11-themes/sound-theme-freedesktop"
 
-DOCS=( AUTHORS ChangeLog NEWS NEWS.GNOME README )
+DOCS=( AUTHORS ChangeLog NEWS README )
 
 src_unpack() {
 	git-r3_src_unpack

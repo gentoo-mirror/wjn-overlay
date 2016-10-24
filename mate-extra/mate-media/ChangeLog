@@ -3,6 +3,9 @@
 # (auto-generated from git log)
 
   24 Oct 2016; wjn <wjn@aol.jp> mate-media-9999.ebuild:
+  Drop deleted NEWS.GNOME from DOCS
+
+  24 Oct 2016; wjn <wjn@aol.jp> mate-media-9999.ebuild:
   Drop libunique dependency for gtk+:3
 
   10 Apr 2016; wjn <wjn@aol.jp> mate-media-9999.ebuild:
