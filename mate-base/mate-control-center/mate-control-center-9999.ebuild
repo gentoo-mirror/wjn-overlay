@@ -54,8 +54,7 @@ COMMON_DEPEND="app-text/rarian:0
 		gtk3? ( >=dev-libs/libappindicator-0.0.13:3 ) )
 	!gtk3? ( >=dev-libs/libunique-1.0:1
 		media-libs/libcanberra:0[gtk] )
-	gtk3? ( >=dev-libs/libunique-3.0:3
-		media-libs/libcanberra:0[gtk3] )"
+	gtk3? ( media-libs/libcanberra:0[gtk3] )"
 DEPEND="${COMMON_DEPEND}
 	>=app-text/scrollkeeper-dtd-1:1.0
 	app-text/yelp-tools:0
