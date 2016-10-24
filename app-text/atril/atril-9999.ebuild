@@ -45,7 +45,7 @@ COMMON_DEPEND="app-text/rarian:0
 	!gtk3? ( >=x11-libs/gtk+-2.24.0:2[introspection?] )
 	gtk3? ( >=x11-libs/gtk+-3.0.0:3[introspection?] )
 	introspection? ( >=dev-libs/gobject-introspection-0.6:0 )
-	pdf? ( >=app-text/poppler-0.18.0:0=[cairo] )
+	pdf? ( >=app-text/poppler-0.22.0:0=[cairo] )
 	ps? ( >=app-text/libspectre-0.2.0:0 )
 	tiff? ( >=media-libs/tiff-3.6:0 )
 	xps? ( >=app-text/libgxps-0.2.0:0 )"
