@@ -38,7 +38,9 @@ DOCS=( AUTHORS NEWS README )
 
 pkg_setup(){
 	# should select the appropriate branch for the installed GTK+:3 version
-	if has_version '>=x11-libs/gtk+-3.19.9' ; then
+	if has_version '>=x11-libs/gtk+-3.21.9' ; then
+		EGIT_BRANCH="gtk3.22"
+	elif has_version '>=x11-libs/gtk+-3.20' ; then
 		EGIT_BRANCH="gtk3.20"
 	elif has_version '>=x11-libs/gtk+-3.18' ; then
 		EGIT_BRANCH="gtk3.18"

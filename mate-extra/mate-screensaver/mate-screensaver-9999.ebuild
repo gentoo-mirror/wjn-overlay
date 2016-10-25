@@ -42,7 +42,7 @@ COMMON_DEPEND=">=dev-libs/dbus-glib-0.71:0
 	virtual/libintl:0
 	consolekit? ( sys-auth/consolekit:0 )
 	!gtk3? ( >=x11-libs/gtk+-2.24.0:2 )
-	gtk3? ( >=x11-libs/gtk+-3.0.0:3 )
+	gtk3? ( >=x11-libs/gtk+-3.16.0:3 )
 	libnotify? ( >=x11-libs/libnotify-0.7:0 )
 	opengl? ( virtual/opengl:0 )
 	pam? ( gnome-base/gnome-keyring:0 virtual/pam:0 )

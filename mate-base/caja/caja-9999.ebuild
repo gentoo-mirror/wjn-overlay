@@ -19,6 +19,7 @@ SLOT="0"
 KEYWORDS=""
 IUSE="debug doc dropbox extensions -gtk3 +mate +introspection python +unique
 	xmp"
+REQUIRED_USE="!gtk3? ( unique )"
 
 COMMON_DEPEND="dev-libs/atk:0[introspection?]
 	dev-libs/glib:2
@@ -85,7 +86,7 @@ src_configure() {
 		$(use_enable doc gtk-doc) \
 		--with-gtk=$(usex gtk3 '3.0' '2.0') \
 		$(use_enable introspection) \
-		$(use_enable unique) \
+		$(use_enable libunique) \
 		$(use_enable xmp)
 }
 
