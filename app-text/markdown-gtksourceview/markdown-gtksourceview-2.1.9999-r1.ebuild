@@ -24,8 +24,9 @@ REQUIRED_USE="webkit? ( pluma )"
 DEPEND="app-arch/unzip"
 RDEPEND="x11-libs/gtksourceview:${SLOT}
 	pluma? ( ${PYTHON_DEPS}
-		app-editors/pluma[python,${PYTHON_USEDEP}]
-		dev-python/markdown[${PYTHON_USEDEP}] )
+		dev-python/markdown[${PYTHON_USEDEP}]
+		!webkit? ( app-editors/pluma )
+		webkit? ( app-editors/pluma[python,${PYTHON_USEDEP}] ) )
 	webkit? ( dev-python/pywebkitgtk[${PYTHON_USEDEP}] )"
 
 S="${WORKDIR}/${MY_PN}-1"

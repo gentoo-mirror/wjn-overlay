@@ -4,7 +4,7 @@
 
 EAPI=5
 
-PYTHON_COMPAT=( python3_{3,4} )
+PYTHON_COMPAT=( python3_{3,4,5} )
 
 inherit eutils multilib python-r1
 
@@ -23,8 +23,9 @@ REQUIRED_USE="webkit? ( gedit )"
 DEPEND="app-arch/unzip"
 RDEPEND="x11-libs/gtksourceview:${SLOT}
 	gedit? ( ${PYTHON_DEPS}
-		app-editors/gedit[python,${PYTHON_USEDEP}]
-		dev-python/markdown[${PYTHON_USEDEP}] )
+		!webkit? ( app-editors/gedit )
+		webkit? ( app-editors/gedit[python,${PYTHON_USEDEP}]
+			dev-python/markdown[${PYTHON_USEDEP}] ) )
 	webkit? ( net-libs/webkit-gtk:3 )"
 
 S="${WORKDIR}/${MY_PN}-master"

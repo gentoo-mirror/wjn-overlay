@@ -2,6 +2,19 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*markdown-gtksourceview-3.2.9999-r1 (28 Oct 2016)
+*markdown-gtksourceview-2.1.9999-r1 (28 Oct 2016)
+
+  28 Oct 2016; wjn <wjn@aol.jp> -markdown-gtksourceview-2.1.9999.ebuild,
+  +markdown-gtksourceview-2.1.9999-r1.ebuild,
+  -markdown-gtksourceview-3.2.9999.ebuild,
+  +markdown-gtksourceview-3.2.9999-r1.ebuild:
+  Remove python deps when USE="-webkit"
+
+   Because Python is required only in the preview functionality
+
+   Additionally, Python 3.5 is added to the slot of 3.0
+
   19 Feb 2016; wjn <wjn@aol.jp> markdown-gtksourceview-2.1.9999.ebuild,
   markdown-gtksourceview-3.2.9999.ebuild:
   Correct for quality assurance
