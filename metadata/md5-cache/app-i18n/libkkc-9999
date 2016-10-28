@@ -1,14 +1,14 @@
 DEFINED_PHASES=configure prepare setup unpack
-DEPEND=>=dev-lang/python-2.7.5-r2:2.7 >=dev-lang/python-exec-2:=[python_targets_python2_7(-)?,-python_single_target_jython2_7(-),-python_single_target_pypy(-),-python_single_target_pypy3(-),-python_single_target_python3_3(-),-python_single_target_python3_4(-),-python_single_target_python3_5(-),python_single_target_python2_7(+)] >=dev-libs/glib-2.24:2 >=dev-libs/json-glib-1.0 dev-libs/libgee:0.8 dev-libs/marisa[python] >=dev-lang/vala-0.16.0 dev-util/intltool virtual/pkgconfig introspection? ( >=dev-libs/gobject-introspection-0.9.0 ) nls? ( sys-devel/gettext ) !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.15:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 >=dev-vcs/git-1.8.2.1
+DEPEND=>=dev-lang/python-2.7.5-r2:2.7 >=dev-lang/python-exec-2:=[python_targets_python2_7(-)?,-python_single_target_jython2_7(-),-python_single_target_pypy(-),-python_single_target_pypy3(-),-python_single_target_python3_4(-),-python_single_target_python3_5(-),python_single_target_python2_7(+)] >=dev-libs/glib-2.24:2 >=dev-libs/json-glib-1.0 dev-libs/libgee:0.8 dev-libs/marisa[python] >=dev-lang/vala-0.16.0 dev-util/intltool virtual/pkgconfig introspection? ( >=dev-libs/gobject-introspection-0.9.0 ) nls? ( sys-devel/gettext ) !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.15:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 >=dev-vcs/git-1.8.2.1
 DESCRIPTION=Japanese Kana Kanji conversion library
 EAPI=5
 HOMEPAGE=https://github.com/ueno/libkkc https://bitbucket.org/libkkc/libkkc
 IUSE=doc introspection +nls static-libs python_targets_python2_7
 LICENSE=GPL-3+
 PDEPEND=app-i18n/libkkc-data app-i18n/skk-jisyo
-RDEPEND=>=dev-lang/python-2.7.5-r2:2.7 >=dev-lang/python-exec-2:=[python_targets_python2_7(-)?,-python_single_target_jython2_7(-),-python_single_target_pypy(-),-python_single_target_pypy3(-),-python_single_target_python3_3(-),-python_single_target_python3_4(-),-python_single_target_python3_5(-),python_single_target_python2_7(+)] >=dev-libs/glib-2.24:2 >=dev-libs/json-glib-1.0 dev-libs/libgee:0.8 dev-libs/marisa[python]
+RDEPEND=>=dev-lang/python-2.7.5-r2:2.7 >=dev-lang/python-exec-2:=[python_targets_python2_7(-)?,-python_single_target_jython2_7(-),-python_single_target_pypy(-),-python_single_target_pypy3(-),-python_single_target_python3_4(-),-python_single_target_python3_5(-),python_single_target_python2_7(+)] >=dev-libs/glib-2.24:2 >=dev-libs/json-glib-1.0 dev-libs/libgee:0.8 dev-libs/marisa[python]
 RESTRICT=mirror
 SLOT=0
 _eclass_exported_funcs=pkg_setup:- src_unpack:git-r3 src_prepare:- src_configure:-
-_eclasses_=autotools	07e71b3b5690738ef7e8bc097077e00c	eutils	b83a2420b796f7c6eff682679d08fe25	git-r3	cdaef36c79142ebb9e20f9ff75e324f3	libtool	4890219c51da247200223277f993e054	multilib	165fc17c38d1b11dac2008280dab6e80	python-single-r1	2ebea8fbab356d63110245129a67a6dd	python-utils-r1	1797277ea0e7cee5c7de7ce74cf8acd8	toolchain-funcs	1b1da0c45c555989dc5d832b54880783	vala	764817a25b405b65269d8619e203a52f
+_eclasses_=autotools	07e71b3b5690738ef7e8bc097077e00c	eutils	b83a2420b796f7c6eff682679d08fe25	git-r3	cdaef36c79142ebb9e20f9ff75e324f3	libtool	4890219c51da247200223277f993e054	multilib	165fc17c38d1b11dac2008280dab6e80	python-single-r1	2ebea8fbab356d63110245129a67a6dd	python-utils-r1	d142329ab093dd20c1dd0edb5f094108	toolchain-funcs	1b1da0c45c555989dc5d832b54880783	vala	764817a25b405b65269d8619e203a52f
 _md5_=bec581fd808eee274f58688adf1448f5
