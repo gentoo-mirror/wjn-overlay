@@ -38,7 +38,7 @@ PATCHES=( "${FILESDIR}/${PN}-1.5.2-unbundle-qtsingleapplication.patch" )
 
 rm_loc() {
 	sed -e "s|translations/${PN}_${1}.ts||"	-i ${PN}.pro || die 'sed failed'
-	rm translations/${PN}_${1}.{ts,qm} || die "removing ${1} locale failed"
+	rm translations/${PN}_${1}.ts || die "removing ${1} locale failed"
 }
 
 src_prepare() {
