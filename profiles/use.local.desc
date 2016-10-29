@@ -46,9 +46,9 @@ app-i18n/mozc-ut:emacs - Enable support for virtual/emacs
 app-i18n/mozc-ut:fcitx - Enable support for app-i18n/fcitx
 app-i18n/mozc-ut:ibus - Enable support for app-i18n/ibus
 app-i18n/mozc-ut:nicodic - Add "Nico Nico Pedia" dictionary (NICODIC)
-app-i18n/mozc-ut:qt4 - Build with dev-qt/qtgui:4. Recommended. Without this flag, no configuration tools are available
+app-i18n/mozc-ut:qt4 - Build with dev-qt/qtgui:4
+app-i18n/mozc-ut:qt5 - Build with dev-qt/qtgui:5
 app-i18n/mozc-ut:renderer - Enable native candidate window
-app-i18n/mozc-ut:test - Enable src_test phase for runtests
 app-i18n/mozc-ut:tomoe - Use app-i18n/zinnia-tomoe instead of app-i18n/tegaki-zinnia-japanese for handwriting recognition
 app-i18n/mozc-ut:uim - Enable support for app-i18n/uim
 app-i18n/mozc-ut2:clang - Use sys-devel/clang to compile
@@ -57,9 +57,9 @@ app-i18n/mozc-ut2:emacs - Enable support for virtual/emacs
 app-i18n/mozc-ut2:fcitx - Enable support for app-i18n/fcitx
 app-i18n/mozc-ut2:ibus - Enable support for app-i18n/ibus
 app-i18n/mozc-ut2:nicodic - Add "Nico Nico Pedia" dictionary (NICODIC)
-app-i18n/mozc-ut2:qt4 - Build with dev-qt/qtgui:4. Recommended. Without this flag, no configuration tools are available
+app-i18n/mozc-ut2:qt4 - Build with dev-qt/qtgui:4
+app-i18n/mozc-ut2:qt5 - Build with dev-qt/qtgui:5
 app-i18n/mozc-ut2:renderer - Enable native candidate window
-app-i18n/mozc-ut2:test - Enable src_test phase for runtests
 app-i18n/mozc-ut2:tomoe - Use app-i18n/zinnia-tomoe instead of app-i18n/tegaki-zinnia-japanese for handwriting recognition
 app-i18n/mozc-ut2:uim - Enable support for app-i18n/uim
 app-i18n/uim:anthy - Enable support for app-i18n/anthy
