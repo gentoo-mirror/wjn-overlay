@@ -2,6 +2,12 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  29 Oct 2016; wjn <wjn@aol.jp> dejima-mincho-227.ebuild:
+  Change $SRC_URI to googlecode-archive temporarily
+
+   Since googlecode was already closed,
+  distributing at another site or removing this package is required (TBD)
+
   19 Feb 2016; wjn <wjn@aol.jp> dejima-mincho-227.ebuild:
   media-fonts/*: Keyword "~amd64 ~x86"
 
