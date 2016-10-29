@@ -23,8 +23,8 @@ COMMON_DEPEND="app-text/rarian:0
 	>=dev-libs/dbus-glib-0.70:0
 	>=dev-libs/glib-2.36.0:2
 	>=sys-apps/dbus-1:0
-	|| ( >=sys-power/upower-0.9.23:=
-		>=sys-power/upower-pm-utils-0.9.23:= )
+	|| ( >=sys-power/upower-0.9.23
+		>=sys-power/upower-pm-utils-0.9.23 )
 	>=x11-apps/xrandr-1.3.0:0
 	>=x11-libs/cairo-1:0
 	>=x11-libs/gdk-pixbuf-2.11:2
