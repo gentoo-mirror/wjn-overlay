@@ -12,4 +12,4 @@ SLOT=0
 SRC_URI=mirror://osdn/users/11/11172/mozcdic-ut2-20161020.tar.bz2 http://www.post.japanpost.jp/zipcode/dl/kogaki/zip/ken_all.zip -> jp-zipcode201609-1.zip http://www.post.japanpost.jp/zipcode/dl/jigyosyo/zip/jigyosyo.zip -> jp-zipcode201609-2.zip http://ftp.monash.edu.au/pub/nihongo/edict.gz -> monash-nihongo-edict.gz fcitx? ( http://download.fcitx-im.org/fcitx-mozc/fcitx-mozc-2.18.2612.102.1.patch )
 _eclass_exported_funcs=pkg_pretend:- pkg_postrm:- pkg_postinst:- pkg_setup:python-single-r1 src_unpack:- src_prepare:- src_configure:- src_compile:- src_test:- src_install:-
 _eclasses_=elisp-common	9f56c4e9bf1282dbfc2a5a09e1124e74	eutils	b83a2420b796f7c6eff682679d08fe25	git-r3	cdaef36c79142ebb9e20f9ff75e324f3	multilib	165fc17c38d1b11dac2008280dab6e80	python-single-r1	2ebea8fbab356d63110245129a67a6dd	python-utils-r1	d142329ab093dd20c1dd0edb5f094108	toolchain-funcs	1b1da0c45c555989dc5d832b54880783	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
-_md5_=8f7f66dcaf80712129c70083c0d55d95
+_md5_=1ef061b51fbb118bbdfe95d7b92b16b4
