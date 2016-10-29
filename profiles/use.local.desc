@@ -26,9 +26,9 @@ app-i18n/mozc:clang - Use sys-devel/clang to compile
 app-i18n/mozc:emacs - Enable support for virtual/emacs
 app-i18n/mozc:fcitx - Enable support for app-i18n/fcitx
 app-i18n/mozc:ibus - Enable support for app-i18n/ibus
-app-i18n/mozc:qt4 - Build with dev-qt/qtgui:4. Recommended. Without this flag, no configuration tools are available
+app-i18n/mozc:qt4 - Build with dev-qt/qtgui:4
+app-i18n/mozc:qt5 - Build with dev-qt/qtgui:5
 app-i18n/mozc:renderer - Enable native candidate window
-app-i18n/mozc:test - Enable src_test phase for runtests
 app-i18n/mozc:tomoe - Use app-i18n/zinnia-tomoe instead of app-i18n/tegaki-zinnia-japanese for handwriting recognition
 app-i18n/mozc:uim - Enable support for app-i18n/uim
 app-i18n/mozc-neologd-ut:clang - Use sys-devel/clang to compile
