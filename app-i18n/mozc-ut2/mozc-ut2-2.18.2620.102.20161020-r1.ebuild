@@ -273,7 +273,7 @@ src_install() {
 
 	einstalldocs
 
-	dodoc "${UT2_S}"/docs/*
+	dodoc -r "${UT2_S}"/docs/*
 
 	docinto mozc
 	dodoc -r ${MOZC_DOCS[@]}
