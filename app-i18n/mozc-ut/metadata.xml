@@ -15,7 +15,7 @@
 			<email>utuhiro78@yahoo.co.jp</email>
 			<name>UTUMI Hirosi</name>
 		</maintainer>
-		<doc>http://www.geocities.jp/ep3797/mozc_01.html</doc>
+		<doc>http://www.geocities.jp/ep3797/mozc-ut.html</doc>
 	</upstream>
 	<use>
 		<flag name='clang'>Use <pkg>sys-devel/clang</pkg> to compile</flag>
@@ -24,10 +24,9 @@
 		<flag name='fcitx'>Enable support for <pkg>app-i18n/fcitx</pkg></flag>
 		<flag name='ibus'>Enable support for <pkg>app-i18n/ibus</pkg></flag>
 		<flag name='nicodic'>Add "Nico Nico Pedia" dictionary (NICODIC)</flag>
-		<flag name='qt4'>Build with <pkg>dev-qt/qtgui:4</pkg>. Recommended.
-			Without this flag, no configuration tools are available</flag>
+		<flag name='qt4'>Build with <pkg>dev-qt/qtgui:4</pkg></flag>
+		<flag name='qt5'>Build with <pkg>dev-qt/qtgui:5</pkg></flag>
 		<flag name='renderer'>Enable native candidate window</flag>
-		<flag name='test'>Enable src_test phase for runtests</flag>
 		<flag name='tomoe'>Use <pkg>app-i18n/zinnia-tomoe</pkg> instead of
 			<pkg>app-i18n/tegaki-zinnia-japanese</pkg> for handwriting
 			recognition</flag>
