@@ -14,7 +14,7 @@ if [[ ${PV} = *9999* ]]; then
 	EGIT_BRANCH="master"
 	EGIT_CHECKOUT_DIR="${S}"
 else
-	SRC_URI="http://uim.googlecode.com/files/${P}.tar.bz2"
+	SRC_URI="https://github.com/uim/uim/releases/download/${P}/${P}.tar.bz2"
 fi
 
 LICENSE="BSD GPL-2 LGPL-2.1"
