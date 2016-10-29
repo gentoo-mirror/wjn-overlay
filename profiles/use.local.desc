@@ -35,7 +35,8 @@ app-i18n/mozc-neologd-ut:clang - Use sys-devel/clang to compile
 app-i18n/mozc-neologd-ut:emacs - Enable support for virtual/emacs
 app-i18n/mozc-neologd-ut:fcitx - Enable support for app-i18n/fcitx
 app-i18n/mozc-neologd-ut:ibus - Enable support for app-i18n/ibus
-app-i18n/mozc-neologd-ut:qt4 - Build with dev-qt/qtgui:4. Recommended. Without this flag, no configuration tools are available
+app-i18n/mozc-neologd-ut:qt4 - Build with dev-qt/qtgui:4
+app-i18n/mozc-neologd-ut:qt5 - Build with dev-qt/qtgui:5
 app-i18n/mozc-neologd-ut:renderer - Enable native candidate window
 app-i18n/mozc-neologd-ut:tomoe - Use app-i18n/zinnia-tomoe instead of app-i18n/tegaki-zinnia-japanese for handwriting recognition
 app-i18n/mozc-neologd-ut:uim - Enable support for app-i18n/uim
