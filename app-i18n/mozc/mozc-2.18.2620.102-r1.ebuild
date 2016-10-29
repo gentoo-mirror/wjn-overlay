@@ -30,13 +30,15 @@ SRC_URI="fcitx? ( ${FCITX_PATCH_URI} )"
 # GMOCK: BSD, GTEST: BSD. IPAfont is in repo, but not used
 LICENSE="BSD BSD-2 ipadic public-domain unicode"
 SLOT="0"
-KEYWORDS="~amd64"
-IUSE="clang emacs fcitx ibus +qt4 renderer tomoe uim"
+KEYWORDS="~amd64 ~x86"
+IUSE="clang emacs fcitx ibus qt4 +qt5 renderer tomoe uim"
 REQUIRED_USE="|| ( emacs fcitx ibus uim )
-	tomoe? ( qt4 )"
+	?? ( qt4 qt5 )
+	tomoe? ( || ( qt4 qt5 ) )"
 
 COMMON_DEPEND="${PYTHON_DEPS}
 	!!app-i18n/mozc-ut
+	!!app-i18n/mozc-ut2
 	!!app-i18n/mozc-neologd-ut
 	dev-libs/glib:2
 	x11-libs/libXfixes
@@ -47,6 +49,10 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	qt4? ( dev-qt/qtcore:4
 		dev-qt/qtgui:4
 		app-i18n/zinnia	)
+	qt5? ( dev-qt/qtcore:5
+		dev-qt/qtgui:5
+		dev-qt/qtwidgets:5
+		app-i18n/zinnia	)
 	renderer? ( x11-libs/gtk+:2 )
 	uim? ( app-i18n/uim )"
 DEPEND="${COMMON_DEPEND}
@@ -56,6 +62,8 @@ DEPEND="${COMMON_DEPEND}
 	fcitx? ( sys-devel/gettext )"
 RDEPEND="${COMMON_DEPEND}
 	qt4? ( !tomoe? ( app-i18n/tegaki-zinnia-japanese )
+		tomoe? ( app-i18n/zinnia-tomoe ) )
+	qt5? ( !tomoe? ( app-i18n/tegaki-zinnia-japanese )
 		tomoe? ( app-i18n/zinnia-tomoe ) )"
 
 S="${WORKDIR}/${P}/src"
@@ -115,9 +123,16 @@ src_configure() {
 		ibus_mozc_icon_path=/usr/share/ibus-mozc/product_icon.png"
 
 	local myconf
-	if ! use qt4 ; then
+
+	if use qt5 ; then
+		myconf="${myconf} --qtver=5"
+	elif use qt4 ; then
+		myconf="${myconf} --qtver=4"
+	else
 		myconf="${myconf} --noqt"
-	elif use tomoe ; then
+	fi
+
+	if use tomoe ; then
 		export GYP_DEFINES="${GYP_DEFINES}
 		zinnia_model_file=/usr/$(get_libdir)/zinnia/model/tomoe/handwriting-ja.model"
 	else
@@ -137,7 +152,7 @@ src_compile() {
 	use emacs && mytarget="${mytarget} unix/emacs/emacs.gyp:mozc_emacs_helper"
 	use fcitx && mytarget="${mytarget} unix/fcitx/fcitx.gyp:fcitx-mozc"
 	use ibus && mytarget="${mytarget} unix/ibus/ibus.gyp:ibus_mozc"
-	if use qt4 ; then
+	if use qt5 || use qt4 ; then
 		QTDIR="${EPREFIX}/usr"
 		mytarget="${mytarget} gui/gui.gyp:mozc_tool"
 	fi
@@ -216,7 +231,7 @@ src_install() {
 		)
 	fi
 
-	if use qt4 ; then
+	if use qt5 || use qt4 ; then
 		exeinto "/usr/$(get_libdir)/mozc"
 		doexe "out_linux/${BUILDTYPE}/mozc_tool"
 	fi
