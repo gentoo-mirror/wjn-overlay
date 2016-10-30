@@ -2,6 +2,11 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*bbcode-1.0.24 (30 Oct 2016)
+
+  30 Oct 2016; wjn <wjn@aol.jp> +bbcode-1.0.24.ebuild:
+  Add version 1.0.24
+
   19 Feb 2016; wjn <wjn@aol.jp> metadata.xml:
   **/metadata.xml: Update and tidy up
 
