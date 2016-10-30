@@ -7,7 +7,7 @@ EAPI="5"
 GCONF_DEBUG="no"
 GNOME2_LA_PUNT="yes"
 
-PYTHON_COMPAT=( python{2_7,3_3,3_4} )
+PYTHON_COMPAT=( python{2_7,3_4,3_5} )
 PYTHON_REQ_USE="xml"
 
 inherit autotools eutils flag-o-matic gnome2 multilib pax-utils python-r1
@@ -29,7 +29,7 @@ IUSE="+nls +networkmanager +pulseaudio" #+bluetooth
 # We need *both* python 2.7 and 3.x
 REQUIRED_USE="${PYTHON_REQUIRED_USE}
 	python_targets_python2_7
-	|| ( python_targets_python3_3 python_targets_python3_4 )
+	|| ( python_targets_python3_4 python_targets_python3_5 )
 "
 
 KEYWORDS=""
