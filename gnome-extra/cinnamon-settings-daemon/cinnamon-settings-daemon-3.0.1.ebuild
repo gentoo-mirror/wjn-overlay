@@ -2,9 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
-
-GCONF_DEBUG="yes"
+EAPI=6
 GNOME2_LA_PUNT="yes"
 
 inherit autotools eutils gnome2 virtualx
@@ -13,23 +11,22 @@ DESCRIPTION="Cinnamon's settings daemon"
 HOMEPAGE="http://cinnamon.linuxmint.com/"
 SRC_URI="https://github.com/linuxmint/cinnamon-settings-daemon/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="GPL-2+ LGPL-2.1+"
+LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS=""
-IUSE="+colord cups input_devices_wacom pulseaudio smartcard systemd"
+IUSE="+colord cups input_devices_wacom +pulseaudio smartcard systemd"
 
 # udev is non-optional since lots of plugins, not just gudev, pull it in
 RDEPEND="
 	>=dev-libs/glib-2.38:2
 	>=gnome-base/libgnomekbd-3.6
 	>=gnome-base/librsvg-2.36.2
-	>=gnome-extra/cinnamon-desktop-2.8:0=
+	>=gnome-extra/cinnamon-desktop-2.8.0:0=
 	media-libs/fontconfig
 	>=media-libs/lcms-2.2:2
 	media-libs/libcanberra:0=[gtk3]
 	sys-apps/dbus
 	>=sys-auth/polkit-0.97
-	|| ( >=sys-power/upower-0.9.11:= sys-power/upower-pm-utils )
 	x11-libs/gdk-pixbuf:2
 	>=x11-libs/gtk+-3.9.10:3
 	>=x11-libs/libnotify-0.7.3:0=
@@ -46,10 +43,13 @@ RDEPEND="
 		>=dev-libs/libwacom-0.7
 		x11-drivers/xf86-input-wacom
 		x11-libs/libXtst )
-	pulseaudio? ( >=media-sound/pulseaudio-0.9.16:0= )
 	smartcard? ( >=dev-libs/nss-3.11.2 )
-	systemd? ( sys-apps/systemd:0= )
-	!systemd? ( sys-auth/consolekit:0= )
+	systemd? (
+		sys-apps/systemd:0=
+		>=sys-power/upower-0.9.11:= )
+	!systemd? (
+		sys-auth/consolekit:0=
+		|| ( >=sys-power/upower-0.9.11 sys-power/upower-pm-utils ) )
 "
 DEPEND="${RDEPEND}
 	dev-libs/libxml2:2
@@ -60,35 +60,21 @@ DEPEND="${RDEPEND}
 
 src_prepare() {
 	# make colord and wacom optional
-	epatch "${FILESDIR}"/${PN}-2.6.2-optional.patch
+	eapply "${FILESDIR}"/${PN}-3.0.1-optional.patch
 
 	# Disable broken test
 	sed -e '/g_test_add_func ("\/color\/edid/d' \
 		-i plugins/color/gcm-self-test.c || die
 
-	# Fix intltool unittest
-	cat >>"${S}"/po/POTFILES.in <<EOF
-data/org.cinnamon.settings-daemon.peripherals.wacom.gschema.xml.in.in
-data/org.cinnamon.settings-daemon.plugins.background.gschema.xml.in
-data/org.cinnamon.settings-daemon.plugins.background.gschema.xml.in.in
-plugins/datetime/org.cinnamon.settingsdaemon.datetimemechanism.policy.in
-plugins/keyboard/csd-keyboard-xkb.c
-plugins/wacom/csd-wacom-device.c
-plugins/wacom/csd-wacom-osd-window.c
-plugins/wacom/org.cinnamon.settings-daemon.plugins.wacom.policy.in.in
-EOF
+	use pulseaudio || eapply "${FILESDIR}/${PN}-3.0.1-disable-pulseaudio.patch"
 
-	use pulseaudio || epatch "${FILESDIR}/${PN}-disable-pulseaudio.patch"
-
-	epatch_user
+	eapply_user
 
 	eautoreconf
 	gnome2_src_prepare
 }
 
 src_configure() {
-	DOCS="AUTHORS ChangeLog MAINTAINERS README"
-
 	# no point in disabling gudev since other plugins pull it in
 	gnome2_src_configure \
 		--disable-static \
@@ -103,6 +89,5 @@ src_configure() {
 }
 
 src_test() {
-	unset DISPLAY
-	Xemake check
+	virtx emake check
 }

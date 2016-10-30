@@ -2,12 +2,11 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI="5"
+EAPI=6
 
-GCONF_DEBUG="no"
 GNOME2_LA_PUNT="yes"
 
-PYTHON_COMPAT=( python2_7 python3_3 python3_4 )
+PYTHON_COMPAT=( python{2_7,3_4,3_5} )
 PYTHON_REQ_USE="xml"
 
 inherit autotools eutils flag-o-matic gnome2 multilib pax-utils python-r1
@@ -23,31 +22,30 @@ SRC_URI="https://github.com/linuxmint/Cinnamon/archive/${MY_PV}.tar.gz -> ${MY_P
 LICENSE="GPL-2+"
 SLOT="0"
 
-# bluetooth support dropped due bug #511648
+# bluetooth support dropped due to bug #511648
 IUSE="+nls +networkmanager +pulseaudio" #+bluetooth
 
 # We need *both* python 2.7 and 3.x
 REQUIRED_USE="${PYTHON_REQUIRED_USE}
 	python_targets_python2_7
-	|| ( python_targets_python3_3 python_targets_python3_4 )
-	"
+	|| ( python_targets_python3_4 python_targets_python3_5 )"
 
 KEYWORDS=""
 
-COMMON_DEPEND="
+COMMON_DEPEND="${PYTHON_DEPS}
 	app-accessibility/at-spi2-atk:2
 	app-misc/ca-certificates
 	dev-libs/dbus-glib
-	>=dev-libs/glib-2.29.10:2[dbus]
+	>=dev-libs/glib-2.35.0:2[dbus]
 	>=dev-libs/gobject-introspection-0.10.1:=
 	>=dev-libs/json-glib-0.13.2
 	>=dev-libs/libcroco-0.6.2:0.6
 	dev-libs/libxml2:2
 	gnome-base/gconf:2[introspection]
 	gnome-base/librsvg
-	>=gnome-extra/cinnamon-desktop-2.4:0=[introspection]
+	>=gnome-extra/cinnamon-desktop-2.4:0=[introspection,pulseaudio(+)?]
 	gnome-extra/cinnamon-menus[introspection]
-	>=gnome-extra/cjs-2.4
+	>=gnome-extra/cjs-2.8.0
 	>=media-libs/clutter-1.10:1.0[introspection]
 	media-libs/cogl:1.0=[introspection]
 	>=gnome-base/gsettings-desktop-schemas-2.91.91
@@ -61,12 +59,9 @@ COMMON_DEPEND="
 	>=x11-libs/startup-notification-0.11
 	x11-libs/libX11
 	>=x11-libs/libXfixes-5.0
-	>=x11-wm/muffin-2.5[introspection]
-	${PYTHON_DEPS}
-	networkmanager? (
-		gnome-base/libgnome-keyring
-		>=net-misc/networkmanager-0.8.999[introspection] )
-	pulseaudio? ( media-sound/pulseaudio:0=[glib] )"
+	>=x11-wm/muffin-3.0.0[introspection]
+	networkmanager? ( gnome-base/libgnome-keyring
+		>=net-misc/networkmanager-0.8.999:=[introspection] )"
 #bluetooth? ( >=net-wireless/gnome-bluetooth-3.1:=[introspection] )
 
 # Runtime-only deps are probably incomplete and approximate.
@@ -90,7 +85,7 @@ RDEPEND="${COMMON_DEPEND}
 	|| ( sys-power/upower[introspection] sys-power/upower-pm-utils[introspection] )
 
 	>=gnome-extra/cinnamon-session-2.4
-	>=gnome-extra/cinnamon-settings-daemon-2.4[pulseaudio=]
+	>=gnome-extra/cinnamon-settings-daemon-2.4
 
 	>=sys-apps/accountsservice-0.6.14[introspection]
 
@@ -102,37 +97,35 @@ RDEPEND="${COMMON_DEPEND}
 	dev-python/gconf-python:2[python_targets_python2_7]
 	dev-python/lxml[python_targets_python2_7]
 	dev-python/pexpect[python_targets_python2_7]
-	dev-python/pillow[python_targets_python2_7]
 	dev-python/pycairo[python_targets_python2_7]
 	dev-python/pygobject:3[${PYTHON_USEDEP}]
 	dev-python/pyinotify[python_targets_python2_7]
 	dev-python/pypam[python_targets_python2_7]
+	dev-python/pillow[python_targets_python2_7]
 
-	x11-themes/gnome-themes-standard[gtk]
-	x11-themes/gnome-icon-theme-symbolic
+	x11-themes/gnome-themes-standard
+	x11-themes/adwaita-icon-theme
 
 	>=gnome-extra/nemo-2.4
-	>=gnome-extra/cinnamon-control-center-2.4[networkmanager=,pulseaudio=]
+	>=gnome-extra/cinnamon-control-center-2.4
 	>=gnome-extra/cinnamon-screensaver-2.4
 
 	gnome-extra/polkit-gnome
 
-	networkmanager? (
-		gnome-extra/nm-applet
+	networkmanager? ( gnome-extra/nm-applet
 		net-misc/mobile-broadband-provider-info
 		sys-libs/timezone-data )
-	nls? ( >=gnome-extra/cinnamon-translations-2.4 )
-"
+	nls? ( >=gnome-extra/cinnamon-translations-2.4 )"
 #bluetooth? ( net-wireless/cinnamon-bluetooth )
 
 DEPEND="${COMMON_DEPEND}
 	dev-python/polib[python_targets_python2_7]
+	dev-util/gtk-doc
+	>=dev-util/intltool-0.4
 	>=sys-devel/gettext-0.17
 	virtual/pkgconfig
-	>=dev-util/intltool-0.40
 	gnome-base/gnome-common
-	!!=dev-lang/spidermonkey-1.8.2*
-"
+	!!=dev-lang/spidermonkey-1.8.2*"
 # libmozjs.so is picked up from /usr/lib while compiling, so block at build-time
 # https://bugs.gentoo.org/show_bug.cgi?id=360413
 
@@ -145,25 +138,17 @@ pkg_setup() {
 src_prepare() {
 	# Fix backgrounds path as cinnamon doesn't provide them
 	# https://github.com/linuxmint/Cinnamon/issues/3575
-	epatch "${FILESDIR}"/${PN}-2.4.5-background.patch
+	eapply "${FILESDIR}"/${PN}-2.8.0-background.patch
 
 	# Fix automagic gnome-bluetooth dep, bug #398145
-	epatch "${FILESDIR}"/${PN}-2.2.6-automagic-gnome-bluetooth.patch
+	eapply "${FILESDIR}"/${PN}-2.2.6-automagic-gnome-bluetooth.patch
 
 	# Optional NetworkManager, bug #488684
-	epatch "${FILESDIR}"/${PN}-2.6.7-optional-networkmanager.patch
+	eapply "${FILESDIR}"/${PN}-2.6.7-optional-networkmanager.patch
 
 	# Use wheel group instead of sudo (from Fedora/Arch)
 	# https://github.com/linuxmint/Cinnamon/issues/3576
-	epatch "${FILESDIR}"/${PN}-2.6.7-set-wheel.patch
-
-	# Fix GNOME 3.14 support (from Fedora/Arch)
-	# https://github.com/linuxmint/Cinnamon/issues/3577
-	epatch "${FILESDIR}"/${PN}-2.4.5-gnome-3.14.patch
-
-	# Fix build with clutter[-gtk]
-	# https://github.com/linuxmint/Cinnamon/pull/4600
-	epatch "${FILESDIR}"/${PN}-2.6.13-test-recorder-includes.patch
+	eapply "${FILESDIR}"/${PN}-2.8.3-set-wheel.patch
 
 	# Use pkexec instead of gksu (from Arch)
 	# https://github.com/linuxmint/Cinnamon/issues/3565
@@ -174,26 +159,19 @@ src_prepare() {
 	sed -i 's/RequiredComponents=\(.*\)$/RequiredComponents=\1polkit-gnome-authentication-agent-1;/' \
 		files/usr/share/cinnamon-session/sessions/cinnamon*.session || die
 
-	# Gentoo uses /usr/$(get_libdir), not /usr/lib even for python
-	sed -e "s:/usr/lib/:/usr/$(get_libdir)/:" \
-		-e 's:"/usr/lib":"/usr/'"$(get_libdir)"'":' \
-		-i files/usr/share/polkit-1/actions/org.cinnamon.settings-users.policy \
-		-i files/usr/lib/*/*.py \
-		-i files/usr/lib/*/*/*.py \
-		-i files/usr/bin/* || die "sed failed"
-	if [[ "$(get_libdir)" != lib ]]; then
-		mv files/usr/lib "files/usr/$(get_libdir)" || die "mv failed"
-	fi
-
 	if ! use networkmanager; then
-		rm -rv files/usr/share/cinnamon/applets/network@cinnamon.org || die
-		sed -i 's_nm-applet;__' \
-			files/usr/share/cinnamon-session/sessions/cinnamon*.session
+		rm -rf files/usr/share/cinnamon/applets/network@cinnamon.org || die
+		sed -i -e 's/nm-applet;//' \
+			files/usr/share/cinnamon-session/sessions/cinnamon*.session || die
+		sed -i -e 's/'nm-applet': 'network',//' \
+			js/ui/statusIconDispatcher.js || die
 	fi
 
-	use pulseaudio || epatch "${FILESDIR}/cinnamon-disable-pulseaudio.patch"
-
-	epatch_user
+	if ! use pulseaudio; then
+		rm -rf files/usr/share/cinnamon/cinnamon-settings/modules/cs_sound.py \
+			|| die
+		sed -i -e 's/libcvc.*//g' "${S}/Makefile.am"
+	fi
 
 	# python 2-and-3 shebang fixing craziness
 	local p
