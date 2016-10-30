@@ -2,6 +2,9 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  30 Oct 2016; wjn <wjn@aol.jp> -cinnamon-control-center-2.6.0-r1.ebuild:
+  Delete obsolete version 2.6.0-r1
+
 *cinnamon-control-center-3.0.1 (28 Aug 2016)
 
   28 Aug 2016; wjn <wjn@aol.jp> +cinnamon-control-center-3.0.1.ebuild:
