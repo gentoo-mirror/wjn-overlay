@@ -17,7 +17,8 @@ EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-2 LGPL-2 FDL-1.1"
 SLOT="0"
 KEYWORDS=""
-IUSE="debug elibc_FreeBSD gnome-keyring ipv6 systemd upower"
+IUSE="debug elibc_FreeBSD -consolekit gnome-keyring ipv6 systemd upower"
+REQUIRED_USE="consolekit? ( !upower )"
 
 # x11-misc/xdg-user-dirs{,-gtk} are needed to create the various XDG_*_DIRs, and
 # create .config/user-dirs.dirs which is read by glib to get G_USER_DIRECTORY_*
@@ -42,6 +43,7 @@ COMMON_DEPEND=">=dev-libs/dbus-glib-0.76:0
 	x11-misc/xdg-user-dirs:0
 	x11-misc/xdg-user-dirs-gtk:0
 	virtual/libintl:0
+	consolekit? ( >=sys-auth/consolekit-1.0 )
 	elibc_FreeBSD? ( dev-libs/libexecinfo:0 )
 	gnome-keyring? ( gnome-base/gnome-keyring:0 )
 	systemd? ( sys-apps/systemd:0 )
@@ -65,6 +67,8 @@ src_prepare() {
 	# Add "session saving" button back,
 	# see https://bugzilla.gnome.org/show_bug.cgi?id=575544
 	# epatch "${FILESDIR}"/${PN}-1.5.2-save-session-ui.patch
+
+	use consolekit && eapply "${FILESDIR}/${PN}-replace-upower-with-consolekit.patch"
 
 	eapply_user
 	eautoreconf

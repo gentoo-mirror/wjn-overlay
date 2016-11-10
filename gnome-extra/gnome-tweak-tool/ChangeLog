@@ -1,0 +1,13 @@
+# ChangeLog for gnome-extra/gnome-tweak-tool
+# Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
+# (auto-generated from git log)
+
+*gnome-tweak-tool-3.20.1 (10 Nov 2016)
+
+  10 Nov 2016; wjn <wjn@aol.jp>
+  +files/gnome-tweak-tool-3.10.1-gentoo-cursor-themes.patch,
+  +files/gnome-tweak-tool-3.18.1-libsoup.patch,
+  +files/gnome-tweak-tool-3.8.1-wm-preferences.patch,
+  +gnome-tweak-tool-3.20.1.ebuild:
+  Add newly to omit gnome-shell
+
