@@ -2,6 +2,11 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  10 Nov 2016; wjn <wjn@aol.jp>
+  +files/mate-session-manager-replace-upower-with-consolekit.patch,
+  mate-session-manager-9999.ebuild:
+  Support ConsoleKit 2 instead of UPower
+
   11 Jun 2016; wjn <wjn@aol.jp> mate-session-manager-9999.ebuild:
   Remove deleted MAINTAINERS file
 
