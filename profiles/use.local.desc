@@ -84,6 +84,7 @@ app-text/markdown-gtksourceview:gedit - Install plugins for app-editors/gedit
 app-text/markdown-gtksourceview:pluma - Install plugins for app-editors/pluma
 app-text/markdown-gtksourceview:webkit - Install preview plugin powered by net-libs/webkit-gtk
 dev-libs/libmateweather:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
+gnome-extra/budgie-desktop:control-center - Install gnome-base/gnome-control-center for configuring purpose
 gnome-extra/cinnamon-control-center:colord - Support color management using x11-misc/colord
 gnome-extra/cinnamon-settings-daemon:colord - Support color management using x11-misc/colord
 mail-client/sylpheed:oniguruma - Use dev-libs/oniguruma for regular expression
