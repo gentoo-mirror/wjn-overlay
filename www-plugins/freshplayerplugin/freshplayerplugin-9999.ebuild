@@ -25,14 +25,14 @@ COMMON_DEPEND="dev-libs/glib:2=
 	dev-libs/icu:0
 	dev-libs/libconfig:=
 	dev-libs/libevent:=[threads]
-	|| ( dev-libs/openssl:0=
-		dev-libs/libressl:= )
+	|| ( dev-libs/openssl:0
+		dev-libs/libressl )
 	media-libs/alsa-lib:=
 	media-libs/freetype:2=
 	media-libs/libv4l:0=
 	media-libs/mesa:=[egl,gles2]
-	|| ( x11-libs/gtk+:2=
-		x11-libs/gtk+:3= )
+	|| ( x11-libs/gtk+:2
+		x11-libs/gtk+:3 )
 	x11-libs/libXrandr:=
 	x11-libs/libXrender:=
 	x11-libs/libdrm:=
@@ -45,11 +45,8 @@ DEPEND="${COMMON_DEPEND}
 	dev-util/ragel
 	virtual/pkgconfig"
 RDEPEND="${COMMON_DEPEND}
-	|| ( www-plugins/adobe-flash:22
-		www-plugins/chrome-binary-plugins[flash]
-		www-client/google-chrome
-		www-client/google-chrome-beta
-		www-client/google-chrome-unstable )"
+	|| ( www-plugins/adobe-flash:22[abi_x86_64,ppapi(+)]
+		www-plugins/chrome-binary-plugins[flash] )"
 
 DOCS=( ChangeLog README.md )
 PATCHES=( "${FILESDIR}/0.2.4-cmake.patch" )
