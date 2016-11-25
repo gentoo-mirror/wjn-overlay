@@ -1,6 +1,6 @@
---- applets/brightness/brightness-applet.c.orig	2015-10-26 01:15:05.035039045 +0900
-+++ applets/brightness/brightness-applet.c	2015-10-26 01:12:52.956037794 +0900
-@@ -686,9 +686,6 @@
+--- a/applets/brightness/brightness-applet.c.orig	2015-10-26 01:15:05.035039045 +0900
++++ b/applets/brightness/brightness-applet.c	2015-10-26 01:12:52.956037794 +0900
+@@ -705,9 +705,6 @@
  
  	/* window */
  	applet->popup = gtk_window_new (GTK_WINDOW_POPUP);
