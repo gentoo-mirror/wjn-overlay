@@ -19,7 +19,7 @@ EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
 KEYWORDS=""
-IUSE="debug -gtk3 python"
+IUSE="debug +gtk3 -python"
 REQUIRED_USE="gtk3? ( !python )
 	python? ( ${PYTHON_REQUIRED_USE} )"
 
@@ -36,7 +36,7 @@ COMMON_DEPEND=">=dev-libs/glib-2.36.0:2[${PYTHON_USEDEP}]
 		>=dev-python/pygtk-2:2[${PYTHON_USEDEP}] )"
 DEPEND="${COMMON_DEPEND}
 	>=dev-util/intltool-0.50.1:0
-	~mate-base/mate-common-9999:0
+	mate-base/mate-common:0
 	sys-devel/gettext:0
 	virtual/pkgconfig:0"
 RDEPEND="${COMMON_DEPEND}"
