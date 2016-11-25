@@ -1,7 +1,7 @@
 app-accessibility/florence 0.6.3: an extensible scalable virtual keyboard for X11
 app-accessibility/onboard 1.2.0-r1 1.3.0: Onscreen keyboard for tablet PC users and mobility impaired users
 app-accessibility/xvkbd 3.7: Virtual Keyboard for X Window System
-app-arch/engrampa 9999: Engrampa archive manager for MATE
+app-arch/engrampa 9999: Engrampa archive manager for MATE desktop
 app-doc/doxygen 1.8.12: Documentation system for most programming languages
 app-editors/cutemarked 0.11.2-r1 0.11.3-r1: Qt5-based Markdown editor with live HTML preview
 app-editors/focuswriter 9999-r1: A fullscreen and distraction-free word processor
@@ -23,8 +23,8 @@ app-i18n/uim 9999: Simple, secure and flexible input method library
 app-misc/grc 1.9 9999: Generic Colouriser beautifies your logfiles or output of commands
 app-text/aobook 1.0.1 1.0.2: Viewer for Aozora Bunko (Japanese electric library)
 app-text/asciidoc-gtksourceview 2.0.1 3.0.1: AsciiDoc bindings for gtksourceview
-app-text/atril 9999: Atril document viewer for MATE desktop environment
-app-text/markdown-gtksourceview 2.1.9999-r1 3.2.9999-r1: Extra support for Markdown in GtkSourceView and gedit
+app-text/atril 9999: Atril document viewer for MATE desktop
+app-text/markdown-gtksourceview 2.1.9999-r2 3.2.9999-r1: Extra support for Markdown in GtkSourceView and gedit
 dev-libs/libmateweather 9999: MATE library to access weather information from online services
 dev-python/bbcode 1.0.21 1.0.24: A pure python bbcode parser and formatter
 dev-python/ghp-import2 1.0.1: Easily import docs to your gh-pages branch
@@ -44,30 +44,30 @@ gnome-extra/cinnamon-screensaver 3.0.1: Screensaver for Cinnamon
 gnome-extra/cinnamon-settings-daemon 2.8.3 2.8.4 3.0.1: Cinnamon's settings daemon
 gnome-extra/gnome-tweak-tool 3.20.1 3.22.0: Tool to customize GNOME 3 options
 mail-client/sylpheed 3.5.0 3.5.1: A lightweight email client and newsreader
-mate-base/caja 9999: Caja file manager for the MATE desktop
+mate-base/caja 9999: Caja file manager for MATE desktop
 mate-base/libmatekbd 9999: MATE keyboard configuration library
 mate-base/mate 9999: Meta ebuild for MATE, a traditional desktop environment
-mate-base/mate-applets 9999: Applets for the MATE Desktop and Panel
+mate-base/mate-applets 9999: Applets for use with MATE panel
 mate-base/mate-applets-meta 9999: Meta package for MATE panel applets
-mate-base/mate-common 9999: Common files for development of MATE packages
-mate-base/mate-control-center 9999: The MATE Desktop configuration tool
-mate-base/mate-desktop 9999: Libraries for the MATE desktop that are not part of the UI
-mate-base/mate-menus 9999: MATE menu system, implementing the F.D.O cross-desktop spec
-mate-base/mate-panel 9999: The MATE panel
+mate-base/mate-common 9999: Common files for development of MATE desktop packages
+mate-base/mate-control-center 9999: Configuration tool for MATE desktop
+mate-base/mate-desktop 9999: Library with common API for various MATE modules
+mate-base/mate-menus 9999: Library implements freedesktop.org specification to MATE desktop
+mate-base/mate-panel 9999: Panel, library and several applets for the MATE desktop
 mate-base/mate-session-manager 9999: MATE session manager
-mate-base/mate-settings-daemon 9999: MATE Settings Daemon
+mate-base/mate-settings-daemon 9999: Daemon which handles session settings of MATE desktop
 mate-extra/caja-dropbox 9999: Dropbox extension for Caja file manager
 mate-extra/caja-extensions 9999: Several extensions for Caja file manager
-mate-extra/mate-indicator-applet 9999: Applet to display information from applications in the panel
-mate-extra/mate-media 9999: Multimedia related programs for the MATE desktop
-mate-extra/mate-netbook 9999: MATE utilities for netbooks
-mate-extra/mate-polkit 9999: Authentication Agent for PolicyKit that integrates well with MATE
-mate-extra/mate-power-manager 9999: Session daemon for MATE that acts as a policy agent of UPower
-mate-extra/mate-screensaver 9999: Replaces xscreensaver, integrating with the MATE desktop
+mate-extra/mate-indicator-applet 9999: Applet to display information from applications in MATE panel
+mate-extra/mate-media 9999: Multimedia related programs for MATE desktop
+mate-extra/mate-netbook 9999: Utilities of MATE desktop for netbooks
+mate-extra/mate-polkit 9999: Authentication agent of PolicyKit for MATE desktop
+mate-extra/mate-power-manager 9999: Session daemon for MATE desktop, acts as a policy agent of UPower
+mate-extra/mate-screensaver 9999: Screensaver and locker for MATE Desktop
 mate-extra/mate-sensors-applet 9999: MATE panel applet to display readings from hardware sensors
 mate-extra/mate-system-monitor 9999: The MATE System Monitor
-mate-extra/mate-user-guide 9999: Documents for end-users of MATE
-mate-extra/mate-user-share 9999: Package for user-level file sharing in MATE desktop environment
+mate-extra/mate-user-guide 9999: Documents for end-users of MATE desktop
+mate-extra/mate-user-share 9999: Package for user-level file sharing in MATE desktop
 mate-extra/mate-utils 9999: Utilities for the MATE desktop
 media-fonts/aoyagikohzan 1: Japanese OpenType brush font written by AOYAGI Kohzan.
 media-fonts/aoyagisoseki 2: Japanese OpenType brush font written by AOYAGI Soseki.
@@ -119,7 +119,7 @@ media-fonts/yozfontkm 7.01: Japanese OpenType brush fonts made by Y.Oz
 media-gfx/azdrawing 1.5: A painting software by drawing
 media-gfx/azpainter 1.0.6 1.0.7: A full-color painting software
 media-gfx/azpainterb 1.0.1 1.0.2 1.0.3: A simple full-color paint software, a successor of AzPainter
-media-gfx/eom 9999: The MATE image viewer
+media-gfx/eom 9999: Image viewer for MATE desktop
 media-gfx/fbida 2.12: Image viewers for the framebuffer console (fbi) and X11 (ida)
 media-gfx/viewnior 1.5 1.6: Fast and simple image viewer
 media-libs/libmatemixer 9999: Mixer library for MATE Desktop
@@ -139,18 +139,18 @@ x11-libs/gdk-pixbuf-xcf 2012.05: A gdk-pixbuf loader for xcf (The Gimp) files
 x11-libs/libvdpau-va-gl 9999-r1: VDPAU driver with OpenGL/VAAPI backend
 x11-libs/qscintilla 2.9.1-r200 2.9.2-r200: A Qt port of Neil Hodgson's Scintilla C++ editor class
 x11-misc/lightdm-gtk-greeter-settings 1.2.1: LightDM Gtk+ Greeter settings editor
-x11-misc/mate-notification-daemon 9999: MATE Notification daemon
+x11-misc/mate-notification-daemon 9999: Notification daemon for MATE desktop
 x11-misc/mate-tweak 3.5.10 16.10.5: MATE desktop tweak tool, a fork of mintDesktop
-x11-misc/mozo 9999: Menu editor for MATE using the freedesktop.org menu specification
+x11-misc/mozo 9999: Menu editor for MATE desktop using freedesktop.org menu spec
 x11-misc/screengrab 2.9999: Qt-based program for fast creating screenshots
-x11-terms/mate-terminal 9999: The MATE Terminal Emulator
+x11-terms/mate-terminal 9999: Terminal emulator for MATE desktop
 x11-themes/faience-icon-theme 0.5.1: A scalable icon theme called Faience
 x11-themes/gion-icon-theme 0.1.2: A scalable icon theme called Gion
-x11-themes/mate-backgrounds 9999: A set of backgrounds packaged with the MATE desktop
-x11-themes/mate-icon-theme 9999: MATE default icon themes
+x11-themes/mate-backgrounds 9999: A set of backgrounds packaged with MATE desktop
+x11-themes/mate-icon-theme 9999: Default icon themes of MATE desktop
 x11-themes/mate-icon-theme-faenza 9999: Faenza icon theme, that was adapted for MATE desktop
-x11-themes/mate-themes 9999: A theme set for MATE Desktop Environment
+x11-themes/mate-themes 9999: A theme set for MATE desktop
 x11-themes/mate-themes-extras 3.14.7 3.16.3: GTK2/3 desktop themes for MATE
 x11-themes/neu-icon-theme 0.6: A scalable icon theme called Neu
 x11-themes/smooth-themes 0.5.8: Themes for Smooth GTK1/GTK2 Theme Engine
-x11-wm/marco 9999: MATE default window manager
+x11-wm/marco 9999: Default window manager of MATE desktop

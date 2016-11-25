@@ -1,6 +1,6 @@
 DEFINED_PHASES=prepare setup unpack
 DEPEND=>=x11-libs/gdk-pixbuf-2.0.0:2 || ( ( >=x11-libs/gtk+-2.0.0:2 >=x11-themes/gtk-engines-2.15.3:2 x11-themes/murrine-themes:0 ) >=x11-libs/gtk+-3.16.0:3= ) >=dev-util/intltool-0.35:0 sys-devel/gettext:0 >=x11-misc/icon-naming-utils-0.8.7:0 virtual/pkgconfig:0 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.15:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 >=dev-vcs/git-1.8.2.1
-DESCRIPTION=A theme set for MATE Desktop Environment
+DESCRIPTION=A theme set for MATE desktop
 EAPI=6
 HOMEPAGE=http://mate-desktop.org/ https://github.com/mate-desktop/mate-themes
 LICENSE=LGPL-2.1 LGPL-2.1+ GPL-3
@@ -9,4 +9,4 @@ RESTRICT=binchecks strip
 SLOT=0
 _eclass_exported_funcs=pkg_setup:- src_unpack:git-r3 src_prepare:-
 _eclasses_=autotools	07e71b3b5690738ef7e8bc097077e00c	eutils	b83a2420b796f7c6eff682679d08fe25	git-r3	cdaef36c79142ebb9e20f9ff75e324f3	libtool	4890219c51da247200223277f993e054	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
-_md5_=a97b4518ca0f198dbadeb1e746d094f6
+_md5_=399c5f3ae0de904dbb29f97fb46919ef

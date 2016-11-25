@@ -7,10 +7,6 @@ app-arch/engrampa:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
 app-doc/doxygen:clang - support for sys-devel/clang assisted parsing
 app-doc/doxygen:dot - allow to create dot graphs using media-gfx/graphviz
 app-doc/doxygen:doxysearch - build doxyindexer and doxysearch.cgi
-app-editors/pluma:debug - Enable gconf debug
-app-editors/pluma:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
-app-editors/pluma:mate - Build with mate-base/mate-desktop
-app-editors/pluma:python - Enable plugins depend on python:2.7
 app-editors/pluma:spell - Enable spell checker with app-text/enchant
 app-i18n/fcitx:autostart - Enable xdg-compatible autostart of fcitx
 app-i18n/fcitx:enchant - Use app-text/enchant for text prediction
