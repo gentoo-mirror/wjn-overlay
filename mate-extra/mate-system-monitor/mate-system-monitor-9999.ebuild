@@ -55,3 +55,10 @@ src_configure() {
 	gnome2_src_configure \
 		$(use_enable systemd)
 }
+
+pkg_postinst() {
+        gnome2_pkg_postinst
+
+        einfo "To kill or renice processes with root privilege,"
+        einfo "please install sys-auth/polkit or x11-libs/gksu"
+}
