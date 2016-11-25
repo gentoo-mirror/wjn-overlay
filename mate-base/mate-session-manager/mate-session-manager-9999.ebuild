@@ -51,7 +51,7 @@ COMMON_DEPEND=">=dev-libs/dbus-glib-0.76:0
 DEPEND="${COMMON_DEPEND}
 	>=dev-util/intltool-0.40:0
 	>=dev-lang/perl-5:0
-	~mate-base/mate-common-9999:0
+	mate-base/mate-common:0
 	>=sys-devel/gettext-0.10.40:0
 	virtual/pkgconfig:0
 	!<gnome-base/gdm-2.20.4:*"

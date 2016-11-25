@@ -6,9 +6,7 @@ EAPI=6
 
 GNOME2_LA_PUNT="yes"
 
-PYTHON_COMPAT=( python2_7 )
-
-inherit autotools git-r3 gnome2 python-single-r1
+inherit autotools git-r3 gnome2
 
 DESCRIPTION="A powerful text editor for MATE"
 HOMEPAGE="http://mate-desktop.org/
@@ -19,9 +17,7 @@ EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="debug -gtk3 python spell"
-REQUIRED_USE="gtk3? ( !python )
-	python? ( ${PYTHON_REQUIRED_USE} )"
+IUSE="debug spell"
 
 RESTRICT="test"
 
@@ -31,19 +27,13 @@ COMMON_DEPEND="app-text/rarian:0
 	>=dev-libs/libxml2-2.5:2
 	x11-libs/cairo:0
 	x11-libs/gdk-pixbuf:2
+	>=x11-libs/gtk+-3.0.0:3
+	>=x11-libs/gtksourceview-3.0.0:3.0
 	x11-libs/libICE:0
 	x11-libs/libX11:0
 	>=x11-libs/libSM-1.0
 	x11-libs/pango:0
 	virtual/libintl:0
-	!gtk3? ( >=x11-libs/gtk+-2.24.0:2
-		>=x11-libs/gtksourceview-2.9.7:2.0 )
-	gtk3? ( >=x11-libs/gtk+-3.0.0:3
-		>=x11-libs/gtksourceview-3.0.0:3.0 )
-	python? ( ${PYTHON_DEPS}
-		>=dev-python/pygobject-2.15.4:2[${PYTHON_USEDEP}]
-		>=dev-python/pygtk-2.12:2[${PYTHON_USEDEP}]
-		>=dev-python/pygtksourceview-2.9.2:2 )
 	spell? ( >=app-text/enchant-1.2:0
 		>=app-text/iso-codes-0.35:0 )"
 DEPEND="${COMMON_DEPEND}
@@ -60,10 +50,6 @@ RDEPEND="${COMMON_DEPEND}"
 
 DOCS=( AUTHORS ChangeLog NEWS README )
 
-pkg_setup() {
-	use python && python-single-r1_pkg_setup
-}
-
 src_unpack() {
 	git-r3_src_unpack
 }
@@ -76,7 +62,5 @@ src_prepare() {
 
 src_configure() {
 	gnome2_src_configure \
-		--with-gtk=$(usex gtk3 '3.0' '2.0') \
-		$(use_enable python) \
 		$(use_enable spell)
 }

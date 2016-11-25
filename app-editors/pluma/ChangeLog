@@ -2,6 +2,9 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  20 Nov 2016; wjn <wjn@aol.jp> metadata.xml, pluma-9999.ebuild:
+  Drop gtk+:2 UI and python based plugins
+
   08 Aug 2016; wjn <wjn@aol.jp> pluma-9999.ebuild:
   Drop mate-desktop dependency and IUSE=mate
 

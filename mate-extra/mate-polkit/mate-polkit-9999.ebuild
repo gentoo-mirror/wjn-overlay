@@ -6,7 +6,7 @@ EAPI=6
 
 inherit autotools git-r3 gnome2
 
-DESCRIPTION="Authentication Agent for PolicyKit that integrates well with MATE"
+DESCRIPTION="Authentication agent of PolicyKit for MATE desktop"
 HOMEPAGE="http://mate-desktop.org/
 	https://github.com/mate-desktop/${PN}"
 SRC_URI=""
@@ -20,7 +20,7 @@ IUSE="appindicator doc +introspection"
 COMMON_DEPEND=">=dev-libs/glib-2.36.0:2
 	>=sys-auth/polkit-0.102:0[introspection?]
 	x11-libs/gdk-pixbuf:2[introspection?]
-	>=x11-libs/gtk+-3.0.0:3[introspection?]
+	>=x11-libs/gtk+-3.14.0:3[introspection?]
 	virtual/libintl:0
 	appindicator? ( dev-libs/libappindicator:3 )
 	introspection? ( >=dev-libs/gobject-introspection-0.6.2:0 )"

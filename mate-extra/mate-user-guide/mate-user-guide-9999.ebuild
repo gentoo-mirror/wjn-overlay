@@ -6,7 +6,7 @@ EAPI=6
 
 inherit autotools git-r3
 
-DESCRIPTION="Documents for end-users of MATE"
+DESCRIPTION="Documents for end-users of MATE desktop"
 HOMEPAGE="http://mate-desktop.org/
 	https://github.com/mate-desktop/${PN}"
 SRC_URI=""
@@ -29,5 +29,5 @@ src_prepare() {
 }
 
 pkg_postinst(){
-	elog "gnome-extra/yelp is needed to parse documents fully."
+	elog "To browse the documents, please install gnome-extra/yelp"
 }

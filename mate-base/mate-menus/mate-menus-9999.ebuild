@@ -10,7 +10,7 @@ PYTHON_COMPAT=( python2_7 )
 
 inherit autotools git-r3 gnome2 python-r1
 
-DESCRIPTION="MATE menu system, implementing the F.D.O cross-desktop spec"
+DESCRIPTION="Library implements freedesktop.org specification to MATE desktop"
 HOMEPAGE="http://mate-desktop.org/
 	https://github.com/mate-desktop/${PN}"
 SRC_URI=""
@@ -20,17 +20,15 @@ LICENSE="GPL-2 LGPL-2"
 SLOT="0"
 KEYWORDS=""
 IUSE="debug +introspection python"
-
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
 COMMON_DEPEND=">=dev-libs/glib-2.15.2:2
 	virtual/libintl:0
 	introspection? ( >=dev-libs/gobject-introspection-0.6.7:0 )
-	python? ( dev-python/pygtk:2[${PYTHON_USEDEP}]
-		${PYTHON_DEPS} )"
+	python? ( ${PYTHON_DEPS} )"
 DEPEND="${COMMON_DEPEND}
 	>=dev-util/intltool-0.40:0
-	~mate-base/mate-common-9999
+	mate-base/mate-common:0
 	sys-devel/gettext:0
 	virtual/pkgconfig:0"
 RDEPEND="${COMMON_DEPEND}"

@@ -27,7 +27,7 @@ DIC_REL="$(get_version_component_range 5)"
 NEOLOGD_REV="c45e7df"
 
 # Zip code data are revised on the last of every month
-ZIPCODE_REV="201609"
+ZIPCODE_REV="201610"
 
 # In case of replacing NEologd's seed, assign ${UT_REL} as well as ${DIC_REL}
 # In such a case, ${PV} can be ${MOZC_VER}.${DIC_REL}.0.${UT_REV}

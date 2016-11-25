@@ -23,11 +23,9 @@ IUSE="doc"
 
 COMMON_DEPEND="${PYTHON_DEPS}
 	dev-libs/glib:2
-	|| ( >=dev-python/pygobject-2.28.2:2[${PYTHON_USEDEP}]
-		>=dev-python/pygobject-3.0.0:3[${PYTHON_USEDEP}] )
-	~mate-base/caja-9999:0[introspection]
-	|| ( x11-libs/gtk+:2
-		x11-libs/gtk+:3 )"
+	>=dev-python/pygobject-3.0.0:3[${PYTHON_USEDEP}]
+	>=mate-base/caja-1.17.1:0[introspection]
+	x11-libs/gtk+:3"
 DEPEND="${RDEPEND}
 	>=dev-util/intltool-0.35.0:0
 	virtual/pkgconfig:0

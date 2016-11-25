@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python2_7 )
 
 inherit autotools git-r3 gnome2 python-single-r1
 
-DESCRIPTION="The MATE image viewer"
+DESCRIPTION="Image viewer for MATE desktop"
 HOMEPAGE="http://mate-desktop.org/
 	https://github.com/mate-desktop/${PN}"
 SRC_URI=""
@@ -17,19 +17,19 @@ EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="X dbus debug doc exif -gtk3 introspection jpeg lcms python svg tiff xmp"
+IUSE="X dbus debug doc exif +gtk3 introspection jpeg lcms -python svg tiff xmp"
 REQUIRED_USE="gtk3? ( !python )
 	python? ( ${PYTHON_REQUIRED_USE} )"
 
 COMMON_DEPEND="dev-libs/atk:0[introspection?]
-	>=dev-libs/glib-2.36:2
+	>=dev-libs/glib-2.36.0:2
 	>=dev-libs/libxml2-2.0:2
 	gnome-base/dconf:0
 	gnome-base/gsettings-desktop-schemas:0[introspection?]
-	~mate-base/mate-desktop-9999:0[gtk3=,introspection?]
+	>=mate-base/mate-desktop-1.9.1:0[gtk3(+)=,introspection?]
 	sys-libs/zlib:0
 	x11-libs/cairo:0
-	>=x11-libs/gdk-pixbuf-2.4.0:2[introspection?,jpeg?,tiff?]
+	>=x11-libs/gdk-pixbuf-2.30.0:2[introspection?,jpeg?,tiff?]
 	x11-libs/libX11:0
 	>=x11-misc/shared-mime-info-0.20:0
 	virtual/libintl:0
@@ -37,7 +37,7 @@ COMMON_DEPEND="dev-libs/atk:0[introspection?]
 	exif? ( >=media-libs/libexif-0.6.14:0
 		virtual/jpeg:0 )
 	!gtk3? ( >=x11-libs/gtk+-2.18.0:2[introspection?] )
-	gtk3? ( >=x11-libs/gtk+-3.0.0:3[introspection?] )
+	gtk3? ( >=x11-libs/gtk+-3.14.0:3[introspection?] )
 	introspection? ( >=dev-libs/gobject-introspection-0.9.3:0 )
 	jpeg? ( virtual/jpeg:0 )
 	lcms? ( media-libs/lcms:2 )

@@ -6,7 +6,7 @@ EAPI=6
 
 inherit autotools git-r3
 
-DESCRIPTION="Common files for development of MATE packages"
+DESCRIPTION="Common files for development of MATE desktop packages"
 HOMEPAGE="http://mate-desktop.org/
 	https://github.com/mate-desktop/${PN}"
 EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
@@ -18,7 +18,8 @@ KEYWORDS=""
 DEPEND=""
 RDEPEND=""
 
-DOCS=( AUTHORS ChangeLog NEWS README )
+DOCS=( AUTHORS ChangeLog NEWS README README.doc-build doc/usage.txt
+	doc/autogen.sh.example )
 
 src_prepare() {
 	eapply_user
@@ -27,9 +28,6 @@ src_prepare() {
 
 src_install() {
 	mv doc-build/README README.doc-build \
-		|| die "Failed to rename doc-build/README."
-
+		|| die "Failed to rename doc-build/README"
 	default
-
-	dodoc doc/usage.txt
 }

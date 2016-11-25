@@ -2,6 +2,9 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  25 Nov 2016; wjn <wjn@aol.jp> eom-9999.ebuild:
+  Update for gtk+:3 support
+
   11 Jun 2016; wjn <wjn@aol.jp> eom-9999.ebuild:
   Remove deleted HACKING file
 

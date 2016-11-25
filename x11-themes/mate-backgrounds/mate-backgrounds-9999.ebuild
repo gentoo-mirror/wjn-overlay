@@ -6,7 +6,7 @@ EAPI=6
 
 inherit autotools git-r3 gnome2
 
-DESCRIPTION="A set of backgrounds packaged with the MATE desktop"
+DESCRIPTION="A set of backgrounds packaged with MATE desktop"
 HOMEPAGE="http://mate-desktop.org/
 	https://github.com/mate-desktop/${PN}"
 SRC_URI=""

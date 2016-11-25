@@ -6,7 +6,7 @@ EAPI=6
 
 inherit autotools git-r3 gnome2
 
-DESCRIPTION="The MATE Terminal Emulator"
+DESCRIPTION="Terminal emulator for MATE desktop"
 HOMEPAGE="http://mate-desktop.org/
 	https://github.com/mate-desktop/${PN}"
 SRC_URI=""
@@ -15,11 +15,12 @@ EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
+IUSE="skey"
 
 COMMON_DEPEND="app-text/rarian:0
 	dev-libs/atk:0
-	>=dev-libs/glib-2.36:2
-	>=gnome-base/dconf-0.10:0
+	>=dev-libs/glib-2.36.0:2
+	>=gnome-base/dconf-0.13.4:0
 	x11-libs/gdk-pixbuf:2
 	>=x11-libs/gtk+-3.14.0:3
 	x11-libs/libICE:0
@@ -42,11 +43,13 @@ src_unpack() {
 }
 
 src_prepare() {
+	use !skey && sed -ie '/libskey\.la/d' src/Makefile.am
 	eapply_user
 	eautoreconf
 	gnome2_src_prepare
 }
 
 src_configure() {
-	gnome2_src_configure
+	gnome2_src_configure \
+		$(use_enable skey)
 }

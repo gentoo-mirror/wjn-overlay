@@ -2,6 +2,9 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  25 Nov 2016; wjn <wjn@aol.jp> mate-terminal-9999.ebuild:
+  Add IUSE="skey", fix building and update deps
+
   27 Aug 2016; wjn <wjn@aol.jp> mate-terminal-9999.ebuild:
   Require >=gtk+-3.14:3
 

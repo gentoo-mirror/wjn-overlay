@@ -6,7 +6,7 @@ EAPI=6
 
 inherit autotools git-r3
 
-DESCRIPTION="A theme set for MATE Desktop Environment"
+DESCRIPTION="A theme set for MATE desktop"
 HOMEPAGE="http://mate-desktop.org/
 	https://github.com/mate-desktop/${PN}"
 SRC_URI=""

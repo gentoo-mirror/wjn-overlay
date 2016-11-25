@@ -8,7 +8,7 @@ GNOME2_LA_PUNT="yes"
 
 inherit autotools git-r3 gnome2
 
-DESCRIPTION="Applet to display information from applications in the panel"
+DESCRIPTION="Applet to display information from applications in MATE panel"
 HOMEPAGE="http://mate-desktop.org/
 	https://github.com/mate-desktop/${PN}"
 SRC_URI=""
@@ -17,16 +17,12 @@ EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-3 LGPL-2.1"
 SLOT="0"
 KEYWORDS=""
-IUSE="-gtk3"
 
 COMMON_DEPEND=">=dev-libs/glib-2.2.0:2
-	>=dev-libs/libindicator-0.4:0
-	~mate-base/mate-panel-9999[gtk3=]
-	virtual/libintl:0
-	!gtk3? ( >=x11-libs/gtk+-2.24.0:2
-		>=dev-libs/libindicator-0.4:0 )
-	gtk3? ( >=x11-libs/gtk+-3.0.0:3
-		>=dev-libs/libindicator-0.4:3 )"
+	>=dev-libs/libindicator-0.3.90:3
+	>=mate-base/mate-panel-1.17.0
+	>=x11-libs/gtk+-3.14.0:3
+	virtual/libintl:0"
 DEPEND="${COMMON_DEPEND}
 	>=dev-util/intltool-0.35.0:0
 	sys-devel/gettext:0
@@ -47,6 +43,5 @@ src_prepare() {
 
 src_configure() {
 	gnome2_src_configure \
-		--disable-static \
-		--with-gtk=$(usex gtk3 '3.0' '2.0')
+		--disable-static
 }
