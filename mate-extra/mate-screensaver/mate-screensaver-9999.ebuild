@@ -6,7 +6,7 @@ EAPI=6
 
 inherit autotools git-r3 gnome2 readme.gentoo-r1
 
-DESCRIPTION="Replaces xscreensaver, integrating with the MATE desktop"
+DESCRIPTION="Screensaver and locker for MATE Desktop"
 HOMEPAGE="http://mate-desktop.org/
 	https://github.com/mate-desktop/${PN}"
 SRC_URI=""
@@ -15,7 +15,7 @@ EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="X consolekit debug -gtk3 kernel_linux libnotify opengl pam systemd"
+IUSE="X consolekit debug kernel_linux libnotify opengl pam systemd"
 
 DOC_CONTENTS="
 	Information for converting screensavers is located in
@@ -23,15 +23,16 @@ DOC_CONTENTS="
 "
 
 COMMON_DEPEND=">=dev-libs/dbus-glib-0.71:0
-	>=dev-libs/glib-2.36:2
+	>=dev-libs/glib-2.36.0:2
 	gnome-base/dconf:0
-	~mate-base/libmatekbd-9999:0[gtk3=]
-	~mate-base/mate-desktop-9999:0[gtk3=]
-	~mate-base/mate-menus-9999:0
+	>=mate-base/libmatekbd-1.17.0:0
+	>=mate-base/mate-desktop-1.17.0:0
+	>=mate-base/mate-menus-1.10:0
 	>=sys-apps/dbus-0.30:0
 	>=x11-libs/gdk-pixbuf-2.14:2
-	>=x11-libs/libX11-1:0
+	>=x11-libs/libX11-1.0:0
 	x11-libs/cairo:0
+	>=x11-libs/gtk+-3.14.0:3
 	x11-libs/libXext:0
 	x11-libs/libXrandr:0
 	x11-libs/libXScrnSaver:0
@@ -41,8 +42,6 @@ COMMON_DEPEND=">=dev-libs/dbus-glib-0.71:0
 	x11-libs/pango:0
 	virtual/libintl:0
 	consolekit? ( sys-auth/consolekit:0 )
-	!gtk3? ( >=x11-libs/gtk+-2.24.0:2 )
-	gtk3? ( >=x11-libs/gtk+-3.16.0:3 )
 	libnotify? ( >=x11-libs/libnotify-0.7:0 )
 	opengl? ( virtual/opengl:0 )
 	pam? ( gnome-base/gnome-keyring:0 virtual/pam:0 )
@@ -51,7 +50,7 @@ COMMON_DEPEND=">=dev-libs/dbus-glib-0.71:0
 	!!<gnome-extra/gnome-screensaver-3:*"
 DEPEND="${COMMON_DEPEND}
 	>=dev-util/intltool-0.50.1:0
-	~mate-base/mate-common-9999
+	mate-base/mate-common:0
 	sys-devel/gettext:0
 	x11-proto/randrproto:0
 	x11-proto/scrnsaverproto:0
@@ -82,7 +81,6 @@ src_configure() {
 		$(use_with X x) \
 		$(use_with consolekit console-kit) \
 		$(use_enable debug) \
-		--with-gtk=$(usex gtk3 '3.0' '2.0') \
 		$(use_with libnotify) \
 		$(use_with opengl libgl) \
 		$(use_enable pam) \
@@ -110,20 +108,5 @@ src_install() {
 
 pkg_postinst() {
 	gnome2_pkg_postinst
-
-	if has_version "<x11-base/xorg-server-1.5.3-r4" ; then
-		ewarn "You have a too old xorg-server installation. This will cause"
-		ewarn "mate-screensaver to eat up your CPU. Please consider upgrading."
-		echo
-	fi
-
-	if has_version "<x11-misc/xscreensaver-4.22-r2" ; then
-		ewarn "You have xscreensaver installed, you probably want to disable it."
-		ewarn "To prevent a duplicate screensaver entry in the menu, you need to"
-		ewarn "build xscreensaver with -gnome in the USE flags."
-		ewarn "echo \"x11-misc/xscreensaver -gnome\" >> /etc/portage/package.use"
-		echo
-	fi
-
 	readme.gentoo_print_elog
 }
