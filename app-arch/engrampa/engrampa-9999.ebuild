@@ -8,7 +8,7 @@ GNOME2_LA_PUNT="yes"
 
 inherit autotools git-r3 gnome2
 
-DESCRIPTION="Engrampa archive manager for MATE"
+DESCRIPTION="Engrampa archive manager for MATE desktop"
 HOMEPAGE="http://mate-desktop.org/
 	https://github.com/mate-desktop/${PN}"
 SRC_URI=""
@@ -25,11 +25,11 @@ COMMON_DEPEND=">=dev-libs/glib-2.32.0:2
 	>=x11-libs/gtk+-3.14.0:3
 	x11-libs/pango:0
 	virtual/libintl:0
-	caja? ( ~mate-base/caja-9999:0 )"
+	caja? ( >=mate-base/caja-1.17.1:0 )"
 DEPEND="${COMMON_DEPEND}
 	>=dev-util/intltool-0.50.1:0
 	dev-util/itstool:0
-	~mate-base/mate-common-9999:0
+	mate-base/mate-common:0
 	sys-devel/gettext:0
 	virtual/pkgconfig:0"
 RDEPEND="${COMMON_DEPEND}"
