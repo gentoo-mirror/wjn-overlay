@@ -6,7 +6,7 @@ EAPI=6
 
 inherit autotools git-r3 gnome2
 
-DESCRIPTION="MATE default icon themes"
+DESCRIPTION="Default icon themes of MATE desktop"
 HOMEPAGE="http://mate-desktop.org/
 	https://github.com/mate-desktop/${PN}"
 SRC_URI=""
