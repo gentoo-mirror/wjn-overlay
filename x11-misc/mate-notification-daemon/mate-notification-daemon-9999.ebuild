@@ -8,7 +8,7 @@ GNOME2_LA_PUNT="yes"
 
 inherit autotools git-r3 gnome2
 
-DESCRIPTION="MATE Notification daemon"
+DESCRIPTION="Notification daemon for MATE desktop"
 HOMEPAGE="http://mate-desktop.org/
 	https://github.com/mate-desktop/${PN}"
 SRC_URI=""
