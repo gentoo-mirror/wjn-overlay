@@ -11,7 +11,7 @@ PYTHON_REQ_USE="xml"
 
 inherit autotools git-r3 gnome2 python-r1
 
-DESCRIPTION="Menu editor for MATE using the freedesktop.org menu specification"
+DESCRIPTION="Menu editor for MATE desktop using freedesktop.org menu spec"
 HOMEPAGE="http://mate-desktop.org/
 	https://github.com/mate-desktop/${PN}"
 SRC_URI=""
@@ -22,7 +22,7 @@ SLOT="0"
 KEYWORDS=""
 
 COMMON_DEPEND="dev-python/pygobject:3[${PYTHON_USEDEP}]
-	~mate-base/mate-menus-9999:0[introspection,python]"
+	>=mate-base/mate-menus-1.1.0:0[introspection,python]"
 DEPEND="${COMMON_DEPEND}
 	>=dev-util/intltool-0.40:0
 	sys-apps/sed:0
@@ -31,7 +31,6 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	${PYTHON_DEPS}
 	dev-libs/gobject-introspection
-	~mate-base/mate-panel-9999:0
 	x11-libs/gdk-pixbuf:2[introspection]
 	x11-libs/gtk+:3[introspection]
 	virtual/libintl:0"
