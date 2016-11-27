@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 inherit gnome2-utils
 
@@ -21,8 +21,8 @@ KEYWORDS="~amd64 ~arm ~x86"
 IUSE="minimal"
 
 DEPEND=""
-RDEPEND="!minimal? ( x11-themes/gnome-icon-theme )
-	x11-themes/hicolor-icon-theme"
+RDEPEND="x11-themes/hicolor-icon-theme
+	!minimal? ( x11-themes/adwaita-icon-theme )"
 
 S=${WORKDIR}/${PN}-${PV%.*}
 RESTRICT="binchecks mirror strip"
@@ -39,6 +39,7 @@ src_prepare() {
 #	done
 		cp Faience/places/scalable/start-here-gentoo-symbolic.svg \
 			Faience/places/scalable/start-here.svg || die
+	eapply_user
 }
 
 src_install() {
