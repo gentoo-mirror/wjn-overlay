@@ -2,13 +2,13 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 inherit gnome2-utils
 
-DESCRIPTION="A scalable icon theme called Gion"
-HOMEPAGE="http://www.silvestre.com.ar/"
-SRC_URI="http://www.silvestre.com.ar/icons/Gion-${PV}.tar.bz2"
+DESCRIPTION="Scalable and PNG icon theme named Gion"
+HOMEPAGE="https://www.gnome-look.org/p/1108828/"
+SRC_URI="https://gh.asis.li/files/Gion-${PV}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -16,7 +16,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="minimal"
 
 DEPEND=""
-RDEPEND="!minimal? ( x11-themes/gnome-icon-theme )"
+RDEPEND="!minimal? ( x11-themes/adwaita-icon-theme )"
 
 S="${WORKDIR}"
 RESTRICT="binchecks mirror strip"
