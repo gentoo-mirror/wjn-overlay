@@ -45,8 +45,8 @@ DEPEND="${COMMON_DEPEND}
 	dev-util/ragel
 	virtual/pkgconfig"
 RDEPEND="${COMMON_DEPEND}
-	|| ( www-plugins/adobe-flash:22[abi_x86_64,ppapi(+)]
-		www-plugins/chrome-binary-plugins[flash] )"
+	www-plugins/adobe-flash:22[abi_x86_64,ppapi(+)]"
+
 
 DOCS=( ChangeLog README.md )
 PATCHES=( "${FILESDIR}/0.2.4-cmake.patch" )
