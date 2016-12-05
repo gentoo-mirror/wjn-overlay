@@ -118,7 +118,7 @@ media-fonts/yozfont 13.11: Japanese OpenType pen writing fonts made by Y.Oz
 media-fonts/yozfontkm 7.01: Japanese OpenType brush fonts made by Y.Oz
 media-gfx/azdrawing 1.5: A painting software by drawing
 media-gfx/azpainter 1.0.6 1.0.7: A full-color painting software
-media-gfx/azpainterb 1.0.1 1.0.2 1.0.3: A simple full-color paint software, a successor of AzPainter
+media-gfx/azpainterb 1.0.1 1.0.2 1.0.3 1.0.4: A simple full-color paint software, a successor of AzPainter
 media-gfx/eom 9999: Image viewer for MATE desktop
 media-gfx/fbida 2.12: Image viewers for the framebuffer console (fbi) and X11 (ida)
 media-gfx/viewnior 1.5 1.6: Fast and simple image viewer
@@ -133,6 +133,7 @@ media-video/vlc 9999: VLC media player - Video player and streamer
 sci-calculators/galculator 2.1.4: GTK+ based algebraic and RPN calculator
 sys-libs/libunwind 1.2_rc1: Portable and efficient API to determine the call-chain of a program
 www-apps/nikola 7.6.4 7.7.3 7.7.8 7.7.9 7.7.12 7.8.0 7.8.1: A static website and blog generator
+www-client/icecat-bin 45.5.1: GNU IceCat is a entirely free software version of Firefox browser
 www-plugins/freshplayerplugin 9999: PPAPI-host NPAPI-plugin adapter for flashplayer in npapi based browsers
 x11-drivers/xf86-video-intel 2.99.917_p20161021: X.Org driver for Intel cards
 x11-libs/gdk-pixbuf-psd 0.1.0 9999: A GdkPixbuf loader for Adobe Photoshop images
