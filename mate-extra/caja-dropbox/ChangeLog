@@ -2,6 +2,11 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  11 Dec 2016; wjn <wjn@aol.jp> caja-dropbox-9999.ebuild:
+  Update dep of caja and glib
+
+   Upstream: https://github.com/mate-desktop/caja-dropbox/commit/aa87656
+
   25 Nov 2016; wjn <wjn@aol.jp> caja-dropbox-9999.ebuild:
   Update caja[-gtk3] dep to [-gtk3(+)]
 
