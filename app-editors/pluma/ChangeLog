@@ -2,6 +2,11 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  15 Dec 2016; wjn <wjn@aol.jp> pluma-9999.ebuild:
+  Add dev-libs/libpeas[gtk] to dependencies
+
+   Upstream: https://github.com/mate-desktop/pluma/commit/52fd78d
+
   20 Nov 2016; wjn <wjn@aol.jp> metadata.xml, pluma-9999.ebuild:
   Drop gtk+:2 UI and python based plugins
 
