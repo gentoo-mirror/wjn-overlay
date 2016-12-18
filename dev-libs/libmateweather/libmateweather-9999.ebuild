@@ -19,21 +19,15 @@ EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
 KEYWORDS=""
-IUSE="debug +gtk3 -python"
-REQUIRED_USE="gtk3? ( !python )
-	python? ( ${PYTHON_REQUIRED_USE} )"
+IUSE="debug"
 
 COMMON_DEPEND=">=dev-libs/glib-2.36.0:2[${PYTHON_USEDEP}]
 	>=dev-libs/libxml2-2.6.0:2
 	>=net-libs/libsoup-2.34.0:2.4
 	>=sys-libs/timezone-data-2010k:0
 	x11-libs/gdk-pixbuf:2
-	virtual/libintl:0
-	!gtk3? ( >=x11-libs/gtk+-2.24.0:2 )
-	gtk3? ( >=x11-libs/gtk+-3.0.0:3 )
-	python? ( ${PYTHON_DEPS}
-		>=dev-python/pygobject-2:2[${PYTHON_USEDEP}]
-		>=dev-python/pygtk-2:2[${PYTHON_USEDEP}] )"
+	>=x11-libs/gtk+-3.14.0:3
+	virtual/libintl:0"
 DEPEND="${COMMON_DEPEND}
 	>=dev-util/intltool-0.50.1:0
 	mate-base/mate-common:0
@@ -43,41 +37,26 @@ RDEPEND="${COMMON_DEPEND}"
 
 DOCS=( AUTHORS ChangeLog NEWS NEWS.GNOME README )
 
-my_command() {
-	if use python ; then
-		python_foreach_impl run_in_build_dir $@
-	else
-		$@
-	fi
-}
-
 src_unpack() {
 	git-r3_src_unpack
 }
 
 src_prepare() {
-	# Fix undefined use of MKDIR_P in python/Makefile.am.
-	epatch "${FILESDIR}"/${PN}-1.6.1-fix-mkdirp.patch
-
 	eapply_user
 	eautoreconf
-
-	use python && python_copy_sources
-	my_command gnome2_src_prepare
+	gnome2_src_prepare
 }
 
 src_configure() {
-	my_command gnome2_src_configure \
+	gnome2_src_configure \
 		--enable-locations-compression \
-		--disable-all-translations-in-one-xml \
-		--with-gtk=$(usex gtk3 '3.0' '2.0') \
-		$(use_enable python)
+		--disable-all-translations-in-one-xml
 }
 
 src_compile() {
-	my_command gnome2_src_compile
+	gnome2_src_compile
 }
 
 src_install() {
-	my_command gnome2_src_install
+	gnome2_src_install
 }
