@@ -2,6 +2,10 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  18 Dec 2016; wjn <wjn@aol.jp> -files/libmateweather-1.6.1-fix-mkdirp.patch,
+  libmateweather-9999.ebuild:
+  Remove GTK+:2 and Python support
+
   25 Nov 2016; wjn <wjn@aol.jp> libmateweather-9999.ebuild:
   Make gtk+:3 default and remove ver dep of mate-common
 
