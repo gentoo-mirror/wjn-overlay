@@ -173,6 +173,9 @@ src_install() {
 		done
 	)
 
+	insinto "/usr/$(get_libdir)/mozc/documents"
+	doins data/installer/*
+
 	einstalldocs
 
 	if use emacs ; then
