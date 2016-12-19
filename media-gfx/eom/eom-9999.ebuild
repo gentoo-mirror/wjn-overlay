@@ -23,6 +23,7 @@ REQUIRED_USE="gtk3? ( !python )
 
 COMMON_DEPEND="dev-libs/atk:0[introspection?]
 	>=dev-libs/glib-2.36.0:2
+	dev-libs/libpeas:0
 	>=dev-libs/libxml2-2.0:2
 	gnome-base/dconf:0
 	gnome-base/gsettings-desktop-schemas:0[introspection?]
