@@ -2,6 +2,25 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  19 Dec 2016; wjn <wjn@aol.jp> mozc-2.18.2620.102-r1.ebuild,
+  mozc-2.20.2673.102.ebuild:
+  Install credits_*.html for about_dialog
+
+   "mozc_tool about_dialog" has a link to
+  /usr/lib/mozc/documents/credits_*.html
+
+   cf.
+    - https://github.com/google/mozc/blob/master/src/gui/about_dialog/about_di
+  alog.ui#L125
+    - https://github.com/google/mozc/tree/master/src/data/installer
+
+   FYI:
+    credits_ja.html was removed as of Upstream's 2ec6c8f
+    https://github.com/google/mozc/commit/2ec6c8f
+
+  19 Dec 2016; wjn <wjn@aol.jp> -mozc-2.18.2598.102.ebuild:
+  Delete old version 2.18.2598.102
+
 *mozc-2.20.2673.102 (19 Dec 2016)
 
   19 Dec 2016; wjn <wjn@aol.jp> +mozc-2.20.2673.102.ebuild:
