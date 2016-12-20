@@ -18,15 +18,15 @@ HOMEPAGE="http://www.geocities.jp/ep3797/mozc-ut2.html
 
 # Assign version variables #####
 MOZC_VER="$(get_version_component_range 1-4)"
-MOZC_REV="d87954b"
+MOZC_REV="4767ce2"
 FCITX_PATCH_VER="2.18.2612.102.1"
 UIM_PATCH_REV="3ea28b1"
 
 # Zip code data are revised on the last of every month
-ZIPCODE_REV="201610"
+ZIPCODE_REV="201611"
 
 UT2_REL=$(get_version_component_range $(get_version_component_count))
-UT2_DIR="11/11172"
+UT2_DIR="11/11369"
 #######################
 
 # Assign URI variables #########
@@ -84,10 +84,9 @@ LICENSE="BSD BSD-2 CC-BY-SA-3.0 GPL-2+ GPL-3+ all-rights-reserved
 	free-noncomm ipadic public-domain unicode ejdic? ( wn-ja )"
 SLOT="0"
 KEYWORDS=""
-IUSE="clang ejdic emacs fcitx ibus -nicodic qt4 +qt5 renderer tomoe uim"
+IUSE="clang ejdic emacs fcitx ibus -nicodic +qt5 renderer tomoe uim"
 REQUIRED_USE="|| ( emacs fcitx ibus uim )
-	?? ( qt4 qt5 )
-	tomoe? ( || ( qt4 qt5 ) )"
+	tomoe? ( qt5 )"
 
 COMMON_DEPEND="${PYTHON_DEPS}
 	!!app-i18n/mozc
@@ -99,9 +98,6 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	emacs? ( virtual/emacs )
 	fcitx? ( app-i18n/fcitx )
 	ibus? ( >=app-i18n/ibus-1.4.1 )
-	qt4? ( dev-qt/qtcore:4
-		dev-qt/qtgui:4
-		app-i18n/zinnia	)
 	qt5? ( dev-qt/qtcore:5
 		dev-qt/qtgui:5
 		dev-qt/qtwidgets:5
@@ -117,8 +113,6 @@ DEPEND="${COMMON_DEPEND}
 	clang? ( >=sys-devel/clang-3.4 )
 	fcitx? ( sys-devel/gettext )"
 RDEPEND="${COMMON_DEPEND}
-	qt4? ( !tomoe? ( app-i18n/tegaki-zinnia-japanese )
-		tomoe? ( app-i18n/zinnia-tomoe ) )
 	qt5? ( !tomoe? ( app-i18n/tegaki-zinnia-japanese )
 		tomoe? ( app-i18n/zinnia-tomoe ) )"
 
@@ -216,8 +210,6 @@ src_configure() {
 
 	if use qt5 ; then
 		myconf="${myconf} --qtver=5"
-	elif use qt4 ; then
-		myconf="${myconf} --qtver=4"
 	else
 		myconf="${myconf} --noqt"
 	fi
@@ -242,7 +234,7 @@ src_compile() {
 	use emacs && mytarget="${mytarget} unix/emacs/emacs.gyp:mozc_emacs_helper"
 	use fcitx && mytarget="${mytarget} unix/fcitx/fcitx.gyp:fcitx-mozc"
 	use ibus && mytarget="${mytarget} unix/ibus/ibus.gyp:ibus_mozc"
-	if use qt5 || use qt4 ; then
+	if use qt5 ; then
 		QTDIR="${EPREFIX}/usr"
 		mytarget="${mytarget} gui/gui.gyp:mozc_tool"
 	fi
@@ -270,6 +262,9 @@ src_install() {
 			doexe "${f}"
 		done
 	)
+
+	insinto "/usr/$(get_libdir)/mozc/documents"
+	doins data/installer/*
 
 	einstalldocs
 
@@ -326,7 +321,7 @@ src_install() {
 		)
 	fi
 
-	if use qt5 || use qt4 ; then
+	if use qt5 ; then
 		exeinto "/usr/$(get_libdir)/mozc"
 		doexe "out_linux/${BUILDTYPE}/mozc_tool"
 	fi
@@ -406,18 +401,6 @@ generate-mozc-ut2() {
 		"/usr/$(get_libdir)/qt5/bin/lrelease" -silent \
 			"${S}/gui/about_dialog/about_dialog_ja.ts" \
 			|| die "Failed to recompile translation file"
-	elif use qt4 ; then
-		sed -i -e \
-			"s_UTr_/ release date: ${UT2_REL}_g" \
-			"${S}/gui/about_dialog/about_dialog.ui" \
-			"${S}/gui/about_dialog/about_dialog_en.ts" \
-			"${S}/gui/about_dialog/about_dialog_ja.ts" \
-			|| die "Failed to add ut info to Mozc about_dialog"
-		"/usr/$(get_libdir)/qt4/bin/lrelease" -silent \
-			"${S}/gui/about_dialog/about_dialog_en.ts"
-		"/usr/$(get_libdir)/qt4/bin/lrelease" -silent \
-			"${S}/gui/about_dialog/about_dialog_ja.ts" \
-			|| die "Failed to recompile translation file"
 	fi
 
 	# For running UT2 scripts ############
@@ -450,25 +433,27 @@ generate-mozc-ut2() {
 
 	ebegin "Merging additional dictionaries"
 	cat ../alt-cannadic/alt-cannadic.jawikihits ../edict/edict.jawikihits \
-		../hatena/hatena.jawikihits ../jinmei/jinmei.jawikihits.modhits \
-		../skk-jisyo/skk-jisyo.jawikihits > jawikihits_all
+		../hatena/hatena.jawikihits.modhits \
+		../jinmei/jinmei.jawikihits.modhits \
+		../skk-jisyo/skk-jisyo.jawikihits > jawikihits_all || die
 
 	if use nicodic ; then
-		cat ../niconico/niconico.jawikihits >> jawikihits_all
+		cat ../niconico/niconico.jawikihits >> jawikihits_all || die
 	fi
 
-	ruby modify-mozcdict.rb mozcdict
-	ruby modify-jawikihits.rb jawikihits_all
+	ruby modify-mozcdict.rb mozcdict || die "Failed to modify mozcdict"
+	ruby modify-jawikihits.rb jawikihits_all \
+		|| die "Failed to modify jawikihits"
 
 	cat mozcdict.modmozcdict jawikihits_all.modjawikihits \
 		../chimei/KEN_ALL.CSV.modzip.chimei \
-		../edict-katakana-english/edict2.utf8.katakanaeng > utdict
+		../edict-katakana-english/edict2.utf8.katakanaeng > utdict || die
 
 	if use ejdic ; then
-		cat ../wordnet-ejdic/wordnet-ejdic.txt >> utdict
+		cat ../wordnet-ejdic/wordnet-ejdic.txt >> utdict || die
 	fi
 
-	ruby split-new-words.rb utdict
+	ruby split-new-words.rb utdict || die
 	eend
 
 	einfo "Copying mozcdic-ut2 to official Mozc source"
