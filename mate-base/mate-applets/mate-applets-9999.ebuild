@@ -54,7 +54,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	policykit? ( >=sys-auth/polkit-0.97:0 )
 	upower? ( || ( >=sys-power/upower-0.9.4:0
 		>=sys-power/upower-pm-utils-0.9.4:0 ) )
-	weather? ( 	>=dev-libs/libmateweather-1.16:0[gtk3(+)=] )
+	weather? ( 	>=dev-libs/libmateweather-1.17.0:0 )
 	wifi? ( net-wireless/wireless-tools )"
 DEPEND="${COMMON_DEPEND}
 	app-text/docbook-xml-dtd:4.3
