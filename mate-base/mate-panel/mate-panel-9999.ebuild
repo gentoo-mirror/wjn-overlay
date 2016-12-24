@@ -22,7 +22,7 @@ IUSE="X +introspection"
 COMMON_DEPEND="dev-libs/atk:0[introspection?]
 	>=dev-libs/dbus-glib-0.80:0
 	>=dev-libs/glib-2.36:2
-	>=dev-libs/libmateweather-1.16.0:0
+	>=dev-libs/libmateweather-1.17.0:0
 	dev-libs/libxml2:2
 	>=gnome-base/dconf-0.13.4:0
 	>=gnome-base/librsvg-2.36.2:2
