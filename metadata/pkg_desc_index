@@ -18,7 +18,7 @@ app-i18n/libkkc-data 0.2.7: Japanese Kana Kanji conversion dictionary for libkkc
 app-i18n/mozc 2.18.2620.102-r1 2.20.2677.102: Mozc - a Japanese Input Method Editor designed for multi-platform
 app-i18n/mozc-ut2 2.20.2677.102.20161215: Mozc Japanese Input Method with Additional Japanese dictionary
 app-i18n/uim 9999: Simple, secure and flexible input method library
-app-misc/grc 1.9 9999: Generic Colouriser beautifies your logfiles or output of commands
+app-misc/grc 9999: Generic Colouriser beautifies your logfiles or output of commands
 app-text/aobook 1.0.1 1.0.2: Viewer for Aozora Bunko (Japanese electric library)
 app-text/asciidoc-gtksourceview 2.0.1 3.0.1: AsciiDoc bindings for gtksourceview
 app-text/atril 9999: Atril document viewer for MATE desktop
