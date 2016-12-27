@@ -2,11 +2,11 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
-PYTHON_COMPAT=( python2_7 pypy )
+PYTHON_COMPAT=( python{2_7,3_4,3_5} pypy )
 
-inherit eutils python-r1
+inherit python-r1
 
 DESCRIPTION="Generic Colouriser beautifies your logfiles or output of commands"
 HOMEPAGE="http://kassiopeia.juls.savba.sk/~garabik/software/grc.html
@@ -17,34 +17,48 @@ if [ ${PV} = 9999 ]; then
 	SRC_URI=""
 	EGIT_REPO_URI="https://github.com/garabik/grc.git"
 else
-	SRC_URI="http://kassiopeia.juls.savba.sk/~garabik/software/${PN}/${P/-/_}.orig.tar.gz"
+	SRC_URI="https://github.com/garabik/grc/archive/v${PV}.tar.gz
+		-> ${P}.tar.gz"
 fi
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ppc x86"
+KEYWORDS=""
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 DEPEND="${PYTHON_DEPS}"
 RDEPEND="${PYTHON_DEPS}"
 
-RESTRICT="mirror"
+PATCHES=(
+	# https://github.com/garabik/grc/pull/19
+	# This patch doesn't work for hostnames without any period
+	# "${FILESDIR}"/${P}-domain-match.patch
 
-src_prepare() {
-	epatch \
-		"${FILESDIR}"/${PN}-1.4-support-more-files.patch \
-		"${FILESDIR}"/${PN}-1.4-ipv6.patch
-}
+	# https://github.com/garabik/grc/pull/43
+	"${FILESDIR}"/${PN}-1.4-ipv6.patch
+
+	# https://github.com/garabik/grc/pull/44
+	"${FILESDIR}"/${PN}-1.4-support-more-files.patch
+
+	# https://github.com/garabik/grc/pull/45
+	"${FILESDIR}"/${PN}-1.9-python3.patch
+
+	# https://github.com/garabik/grc/pull/46
+	"${FILESDIR}"/${PN}-1.9-bash.patch
+
+	# https://github.com/garabik/grc/pull/47
+	"${FILESDIR}"/${PN}-1.9-configure.patch
+)
 
 src_install() {
 	python_foreach_impl python_doscript grc grcat
 
 	insinto /usr/share/grc
-	doins conf.* "${FILESDIR}"/conf.*
+	doins conf.* grc.bashrc mrsmith/conf.*
 
 	insinto /etc
 	doins grc.conf
 
-	dodoc README* INSTALL TODO debian/changelog CREDITS
+	dodoc CREDITS INSTALL README* Regexp.txt TODO debian/changelog
 	doman grc.1 grcat.1
 }
