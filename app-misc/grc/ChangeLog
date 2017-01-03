@@ -1,6 +1,9 @@
 # ChangeLog for app-misc/grc
-# Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
+
+  03 Jan 2017; wjn <wjn@aol.jp> grc-9999.ebuild:
+  */*/*.ebuild: Change 2016 to 2017 in the GPLv2 copyright expressions
 
   27 Dec 2016; wjn <wjn@aol.jp> -files/1.0.6-support-more-files.patch,
   -files/conf.configure, +files/grc-1.9-bash.patch,
