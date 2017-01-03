@@ -1,6 +1,9 @@
 # ChangeLog for app-i18n/fcitx
-# Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
+
+  03 Jan 2017; wjn <wjn@aol.jp> fcitx-4.2.9.1.ebuild:
+  */*/*.ebuild: Change 2016 to 2017 in the GPLv2 copyright expressions
 
   09 May 2016; wjn <wjn@aol.jp> fcitx-4.2.9.1.ebuild,
   +files/fcitx-4.2.9.1-qt-4_ucs4.patch, +files/fcitx-4.2.9.1-tray_icon.patch:

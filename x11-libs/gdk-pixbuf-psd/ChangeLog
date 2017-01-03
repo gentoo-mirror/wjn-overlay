@@ -1,6 +1,10 @@
 # ChangeLog for x11-libs/gdk-pixbuf-psd
-# Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
+
+  03 Jan 2017; wjn <wjn@aol.jp> gdk-pixbuf-psd-0.1.0.ebuild,
+  gdk-pixbuf-psd-9999.ebuild:
+  */*/*.ebuild: Change 2016 to 2017 in the GPLv2 copyright expressions
 
   19 Feb 2016; wjn <wjn@aol.jp> metadata.xml:
   **/metadata.xml: Update and tidy up

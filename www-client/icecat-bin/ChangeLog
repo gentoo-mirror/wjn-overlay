@@ -1,10 +1,13 @@
 # ChangeLog for www-client/icecat-bin
-# Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
-*icecat-bin-45.5.1 (04 Dec 2016)
+  03 Jan 2017; wjn <wjn@aol.jp> icecat-bin-45.5.1.ebuild:
+  */*/*.ebuild: Change 2016 to 2017 in the GPLv2 copyright expressions
 
-  04 Dec 2016; wjn <wjn@aol.jp> +files/10icecat-bin, +files/all-gentoo-1.js,
+*icecat-bin-45.5.1 (05 Dec 2016)
+
+  05 Dec 2016; wjn <wjn@aol.jp> +files/10icecat-bin, +files/all-gentoo-1.js,
   +files/icecat-bin-prefs.js, +files/icecat-bin.desktop,
   +files/local-settings.js, +icecat-bin-45.5.1.ebuild:
   Add newly, version 45.5.1
