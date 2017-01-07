@@ -6,7 +6,7 @@ EAPI=6
 
 inherit gnome2-utils
 
-MY_PV=${PV/_beta/b1}
+MY_PV=${PV/_beta/b}
 MY_P="${PN}-${MY_PV}"
 
 DESCRIPTION="A full-color painting software"
