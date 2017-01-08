@@ -32,7 +32,7 @@ RDEPEND=${COMMON_DEPEND}
 S="${WORKDIR}/${MY_P}"
 RESTRICT="mirror"
 
-DOCS=( NEWS README README.ja translation )
+DOCS=( ChangeLog NEWS README README.ja translation )
 
 # src_compile() {
 # 	emake datadir="/usr/share/${PN}"
