@@ -88,7 +88,7 @@ RDEPEND="${COMMON_DEPEND}
 
 # mock, coverage, pytest, pytest-cov, freezegun, codacy-coverage and colorama
 # are necessary for test.
-# https://github.com/getnikola/nikola/blob/v7.8.2/requirements-tests.txt
+# https://github.com/getnikola/nikola/blob/v7.8.3/requirements-tests.txt
 RESTRICT="mirror test"
 
 src_install() {
