@@ -2,6 +2,17 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*nikola-7.8.3 (13 Jan 2017)
+
+  13 Jan 2017; wjn <wjn@aol.jp> -nikola-7.8.0.ebuild, -nikola-7.8.2.ebuild,
+  +nikola-7.8.3.ebuild:
+  Add version 7.8.3, delete old 7.8.0 and 7.8.2
+
+*nikola-7.8.2 (09 Jan 2017)
+
+  09 Jan 2017; wjn <wjn@aol.jp> +nikola-7.8.2.ebuild:
+  Add version 7.8.2
+
   03 Jan 2017; wjn <wjn@aol.jp> nikola-7.6.4.ebuild, nikola-7.7.3.ebuild,
   nikola-7.7.8.ebuild, nikola-7.7.9.ebuild, nikola-7.7.12.ebuild,
   nikola-7.8.0.ebuild, nikola-7.8.1.ebuild:
