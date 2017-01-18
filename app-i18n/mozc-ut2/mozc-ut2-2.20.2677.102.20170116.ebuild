@@ -26,7 +26,7 @@ UIM_PATCH_REV="3ea28b1"
 ZIPCODE_REV="201612"
 
 UT2_REL=$(get_version_component_range $(get_version_component_count))
-UT2_DIR="11/11369"
+UT2_DIR="11/11558"
 #######################
 
 # Assign URI variables #########
