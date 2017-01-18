@@ -7,8 +7,8 @@ diff -ur --unidirectional-new-file -u -r src.orig/base/const.h src/base/const.h
  #else  // GOOGLE_JAPANESE_INPUT_BUILD
 -const char kProductNameInEnglish[] = "Mozc";
 -#define kProductPrefix "Mozc"
-+const char kProductNameInEnglish[] = "Mozc-UT";
-+#define kProductPrefix "Mozc-UT"
++const char kProductNameInEnglish[] = "Mozc-UT2";
++#define kProductPrefix "Mozc-UT2"
  #endif  // GOOGLE_JAPANESE_INPUT_BUILD
  
  const char kVersionRewriterVersionPrefix[] = kProductPrefix "-";
