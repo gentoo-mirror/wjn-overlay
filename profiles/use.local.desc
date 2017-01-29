@@ -166,6 +166,7 @@ media-sound/jack-audio-connection-kit:celt - Support CELT low delay audio codec 
 media-sound/jack-audio-connection-kit:opus - Support media-libs/opus
 media-sound/jack-audio-connection-kit:pam - Add basic realime configuration via sys-auth/realtime-base
 media-sound/yoshimi:lv2 - Add support for Ladspa V2
+net-firewall/firewalld:gui - Add GUI frontend
 sci-calculators/galculator:gtk3 - Build for gtk+:3 instead of gtk+:2
 sys-libs/libunwind:debug-frame - Adds support for DWARF .debug_frame section: Use the information from this section if available
 sys-libs/libunwind:libatomic - Use libatomic instead of builtin atomic operations
