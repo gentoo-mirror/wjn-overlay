@@ -6,9 +6,9 @@ EAPI=6
 
 inherit gnome2-utils
 
-OSDN_DIR="66065"
+OSDN_DIR="67026"
 
-DESCRIPTION="A simple full-color paint software, a successor of AzPainter"
+DESCRIPTION="Simple 8bit color paint software"
 HOMEPAGE="http://azsky2.html.xdomain.jp/linux/azpainterb/index.html"
 SRC_URI="mirror://osdn/${PN}/${OSDN_DIR}/${P}.tar.bz2"
 
