@@ -1,0 +1,13 @@
+# ChangeLog for net-firewall/firewalld
+# Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
+# (auto-generated from git log)
+
+*firewalld-0.4.4.2 (29 Jan 2017)
+
+  29 Jan 2017; wjn <wjn@aol.jp> +files/firewalld.init,
+  +firewalld-0.4.4.2.ebuild:
+  Add newly, version 0.4.4.2
+
+   Upstream:
+    http://www.firewalld.org/ https://github.com/t-woerner/firewalld
+
