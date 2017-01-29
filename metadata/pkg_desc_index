@@ -116,7 +116,7 @@ media-fonts/yozfont 13.11: Japanese OpenType pen writing fonts made by Y.Oz
 media-fonts/yozfontkm 7.01: Japanese OpenType brush fonts made by Y.Oz
 media-gfx/azdrawing 1.5: A painting software by drawing
 media-gfx/azpainter 1.0.6 1.0.7 2.0.0_beta8: A full-color painting software
-media-gfx/azpainterb 1.0.1 1.0.2 1.0.3 1.0.4: A simple full-color paint software, a successor of AzPainter
+media-gfx/azpainterb 1.0.4 1.0.5: Simple 8bit color paint software
 media-gfx/eom 9999: Image viewer for MATE desktop
 media-gfx/fbida 2.12: Image viewers for the framebuffer console (fbi) and X11 (ida)
 media-gfx/viewnior 1.5 1.6: Fast and simple image viewer
