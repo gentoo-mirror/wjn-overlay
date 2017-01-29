@@ -33,21 +33,6 @@ PATCHES=(
 	# https://github.com/garabik/grc/pull/19
 	# This patch doesn't work for hostnames without any period
 	# "${FILESDIR}"/${P}-domain-match.patch
-
-	# https://github.com/garabik/grc/pull/43
-	"${FILESDIR}"/${PN}-1.4-ipv6.patch
-
-	# https://github.com/garabik/grc/pull/44
-	"${FILESDIR}"/${PN}-1.4-support-more-files.patch
-
-	# https://github.com/garabik/grc/pull/45
-	"${FILESDIR}"/${PN}-1.9-python3.patch
-
-	# https://github.com/garabik/grc/pull/46
-	"${FILESDIR}"/${PN}-1.9-bash.patch
-
-	# https://github.com/garabik/grc/pull/47
-	"${FILESDIR}"/${PN}-1.9-configure.patch
 )
 
 src_install() {
