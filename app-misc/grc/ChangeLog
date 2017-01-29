@@ -2,6 +2,17 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  29 Jan 2017; wjn <wjn@aol.jp> grc-9999.ebuild:
+  Remove Python 2.7 support
+
+   Upstream: https://github.com/garabik/grc/commit/94a46c6
+
+  29 Jan 2017; wjn <wjn@aol.jp> -files/grc-1.4-ipv6.patch,
+  -files/grc-1.4-support-more-files.patch, -files/grc-1.9-bash.patch,
+  -files/grc-1.9-configure.patch, -files/grc-1.9-python3.patch,
+  grc-9999.ebuild:
+  Remove patches that's merged in Upstream
+
   03 Jan 2017; wjn <wjn@aol.jp> grc-9999.ebuild:
   */*/*.ebuild: Change 2016 to 2017 in the GPLv2 copyright expressions
 
