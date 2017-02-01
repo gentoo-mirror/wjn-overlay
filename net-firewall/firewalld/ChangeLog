@@ -2,10 +2,20 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  01 Feb 2017; wjn <wjn@aol.jp> files/firewalld.init:
+  Change "provide iptables.." to "provide firewall"
+
+   OpenRC now prohibits init scripts from providing a virtual service with
+  the name used by real services.
+   See https://github.com/OpenRC/openrc/commit/69f052b
+
+   Therefore, "provide iptables" and /etc/init.d/iptables conflict.
+  Providing ip6tables and ebtables are also prohibited
+
 *firewalld-0.4.4.2 (29 Jan 2017)
 
   29 Jan 2017; wjn <wjn@aol.jp> +files/firewalld.init,
-  +firewalld-0.4.4.2.ebuild:
+  +firewalld-0.4.4.2.ebuild, +metadata.xml:
   Add newly, version 0.4.4.2
 
    Upstream:
