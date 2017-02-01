@@ -3,6 +3,11 @@
 # (auto-generated from git log)
 
   01 Feb 2017; wjn <wjn@aol.jp> files/firewalld.init:
+  Run firewalld before net
+
+   Firewalls should stand before networks are up
+
+  01 Feb 2017; wjn <wjn@aol.jp> files/firewalld.init:
   Change "provide iptables.." to "provide firewall"
 
    OpenRC now prohibits init scripts from providing a virtual service with

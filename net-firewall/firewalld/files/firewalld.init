@@ -8,6 +8,7 @@ command=/usr/sbin/firewalld
 pidfile=/var/run/firewalld.pid
 
 depend() {
+	before net
 	need dbus
 	provide firewall
 }
