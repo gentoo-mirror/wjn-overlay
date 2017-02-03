@@ -2,6 +2,9 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  03 Feb 2017; wjn <wjn@aol.jp> mozc-ut2-2.20.2677.102.20170116.ebuild:
+  Update manifests of yusei zipcode archives
+
   18 Jan 2017; wjn <wjn@aol.jp> files/mozc-ut2-add-ut2-info.patch:
   Update version string from "Mozc-UT" to "Mozc-UT2"
 
