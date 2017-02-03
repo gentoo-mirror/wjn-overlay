@@ -56,7 +56,6 @@ src_prepare() {
 src_configure() {
 	gnome2_src_configure \
 		--enable-mate-about \
-		--disable-mpaste \
 		$(use_with X x) \
 		$(use_enable doc gtk-doc) \
 		$(use_enable introspection) \
