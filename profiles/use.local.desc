@@ -4,9 +4,6 @@
 
 app-arch/engrampa:caja - Enable engrampa to integrate with mate-base/caja by providing entries in its context menu
 app-arch/engrampa:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
-app-doc/doxygen:clang - support for sys-devel/clang assisted parsing
-app-doc/doxygen:dot - allow to create dot graphs using media-gfx/graphviz
-app-doc/doxygen:doxysearch - build doxyindexer and doxysearch.cgi
 app-editors/pluma:spell - Enable spell checker with app-text/enchant
 app-i18n/fcitx:autostart - Enable xdg-compatible autostart of fcitx
 app-i18n/fcitx:enchant - Use app-text/enchant for text prediction
