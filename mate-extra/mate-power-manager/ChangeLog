@@ -2,6 +2,22 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  05 Feb 2017; wjn <wjn@aol.jp>
+  +files/mate-power-manager-replace-upower-with-consolekit.patch,
+  mate-power-manager-9999.ebuild:
+  Add IUSE="consolekit" to support ConsoleKit2
+
+   Can enable ConsoleKit2 support instead of UPower.
+  This patch is originally written by Sander Sweers.
+  See https://bugs.gentoo.org/show_bug.cgi?id=586302#c21
+
+  05 Feb 2017; wjn <wjn@aol.jp>
+  -files/mate-power-manager-9999-remove-unset-flags-toplevel.patch,
+  mate-power-manager-9999.ebuild:
+  Remove GTK+:2 support
+
+   Upstream: https://github.com/mate-desktop/mate-power-manager/commit/ce1cbb1
+
   03 Jan 2017; wjn <wjn@aol.jp> mate-power-manager-9999.ebuild:
   */*/*.ebuild: Change 2016 to 2017 in the GPLv2 copyright expressions
 
