@@ -2,6 +2,9 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  05 Feb 2017; wjn <wjn@aol.jp> -azpainter-2.0.0_beta8.ebuild:
+  Delete old version 2.0.0_beta8
+
 *azpainter-2.0.0 (05 Feb 2017)
 
   05 Feb 2017; wjn <wjn@aol.jp> +azpainter-2.0.0.ebuild:
