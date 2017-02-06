@@ -82,7 +82,7 @@ mate-base/mate-applets-meta:sensors - Pull in mate-extra/mate-sensors-applet for
 mate-base/mate-control-center:appindicator - Support dev-libs/libappindicator
 mate-base/mate-control-center:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
 mate-base/mate-desktop:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
-mate-base/mate-panel:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
+mate-base/mate-panel:menulibre - Support x11-misc/menulibre instead of x11-misc/mozo
 mate-base/mate-session-manager:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
 mate-base/mate-settings-daemon:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
 mate-extra/caja-extensions:cdr - Add extension to support sendto by burning media
