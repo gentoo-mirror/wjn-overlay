@@ -149,7 +149,6 @@ x11-themes/mate-backgrounds 9999: A set of backgrounds packaged with MATE deskto
 x11-themes/mate-icon-theme 9999: Default icon themes of MATE desktop
 x11-themes/mate-icon-theme-faenza 9999: Faenza icon theme, that was adapted for MATE desktop
 x11-themes/mate-themes 9999: A theme set for MATE desktop
-x11-themes/mate-themes-extras 3.14.7 3.16.3: GTK2/3 desktop themes for MATE
 x11-themes/neu-icon-theme 0.6: Scalable and PNG icon theme named Dropline Neu!
 x11-themes/smooth-themes 0.5.8: Themes for Smooth GTK1/GTK2 Theme Engine
 x11-wm/marco 9999: Default window manager of MATE desktop
