@@ -2,6 +2,9 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  06 Feb 2017; wjn <wjn@aol.jp> -files/azpainter-1.0.5-rulepos.patch:
+  Delete an unused patch
+
 *azpainter-2.0.0-r1 (06 Feb 2017)
 
   06 Feb 2017; wjn <wjn@aol.jp> -azpainter-2.0.0.ebuild,
