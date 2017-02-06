@@ -24,6 +24,7 @@ COMMON_DEPEND="app-text/hunspell:=
 	>=dev-qt/qtcore-5.2:5
 	>=dev-qt/qtgui-5.2:5
 	>=dev-qt/qtmultimedia-5.2:5
+	>=dev-qt/qtnetwork-5.2:5
 	>=dev-qt/qtprintsupport-5.2:5
 	dev-qt/qtsingleapplication[X,qt5]
 	>=dev-qt/qtwidgets-5.2:5
