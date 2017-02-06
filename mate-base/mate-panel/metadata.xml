@@ -5,8 +5,8 @@
 		<email>wjn@aol.jp</email>
 	</maintainer>
 	<use>
-		<flag name="gtk3">Build for gtk+:3 instead of gtk+:2.
-			EXPERIMENTAL</flag>
+		<flag name="menulibre">Support <pkg>x11-misc/menulibre</pkg>
+			instead of <pkg>x11-misc/mozo</pkg></flag>
 	</use>
 	<upstream>
 		<remote-id type="github">mate-desktop/mate-panel</remote-id>

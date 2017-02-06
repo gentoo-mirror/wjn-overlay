@@ -2,6 +2,14 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  06 Feb 2017; wjn <wjn@aol.jp> +files/mate-panel-9999-drop-menulibre.patch,
+  mate-panel-9999.ebuild, metadata.xml:
+  Drop menulibre support to launch mozo
+
+   Upstream's a506150 breaks launching mozo from the right click menu of
+  the main menu icon
+   This commit revert it
+
   05 Jan 2017; wjn <wjn@aol.jp> mate-panel-9999.ebuild:
   Remove libcanberra from dependencies
 
