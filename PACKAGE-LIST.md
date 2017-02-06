@@ -144,7 +144,6 @@ wjn-overlay packages list
 | x11-themes/mate-icon-theme | MATE default icon themes | <http://mate-desktop.org/> | - | dev ver. |
 | x11-themes/mate-icon-theme-faenza | Faenza icon theme, that was adapted for MATE desktop | <http://mate-desktop.org/> | - | dev ver. |
 | x11-themes/mate-themes | A theme set for MATE Desktop Environment | <http://mate-desktop.org/> | - | dev ver. |
-| x11-themes/mate-themes-extras | GTK2/3 desktop themes for MATE | <https://github.com/raveit65/mate-themes-extras> | o | |
 | x11-themes/neu-icon-theme | A scalable icon theme called Neu | <http://www.silvestre.com.ar/> | o | |
 | x11-themes/smooth-themes | Themes for Smooth GTK1/GTK2 Theme Engine | <http://sourceforge.net/projects/smooth-engine/> | o | |
 | x11-wm/marco | MATE default window manager | <http://mate-desktop.org/> | - | dev ver. |
