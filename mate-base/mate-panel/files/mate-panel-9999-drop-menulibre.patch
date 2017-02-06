@@ -1,0 +1,64 @@
+    Revert "Add (optional) support for menulibre. https://smdavis.us/projects/menulibre/ (#515)"
+    
+    This reverts commit a506150684ad2e71b1f70190ee70fe9eda7a4ba9.
+
+diff --git a/mate-panel/panel-menu-bar.c b/mate-panel/panel-menu-bar.c
+index fbc759d..c95533d 100644
+--- a/mate-panel/panel-menu-bar.c
++++ b/mate-panel/panel-menu-bar.c
+@@ -355,7 +355,7 @@ static void panel_menu_bar_load(PanelWidget* panel, gboolean locked, int positio
+ 	mate_panel_applet_add_callback(menubar->priv->info, "help", GTK_STOCK_HELP, _("_Help"), NULL);
+ 
+ 	/* Menu editors */
+-	if (!panel_lockdown_get_locked_down () && (panel_is_program_in_path("mozo") || panel_is_program_in_path("menulibre")))
++	if (!panel_lockdown_get_locked_down () && (panel_is_program_in_path("mozo") || panel_is_program_in_path("matemenu-simple-editor")))
+ 	{
+ 		mate_panel_applet_add_callback (menubar->priv->info, "edit", NULL, _("_Edit Menus"), NULL);
+ 	}
+@@ -402,12 +402,12 @@ void panel_menu_bar_invoke_menu(PanelMenuBar* menubar, const char* callback_name
+ 	{
+ 		GError* error = NULL;
+ 
+-		panel_launch_desktop_file_with_fallback("menulibre.desktop", "menulibre", screen, &error);
++		panel_launch_desktop_file_with_fallback("mozo.desktop", "mozo", screen, &error);
+ 
+ 		if (error)
+ 		{
+ 			g_error_free(error);
+-			panel_launch_desktop_file_with_fallback("mozo.desktop", "mozo", screen, NULL);
++			panel_launch_desktop_file_with_fallback("matemenu-simple-editor.desktop", "matemenu-simple-editor", screen, NULL);
+ 		}
+ 	}
+ }
+diff --git a/mate-panel/panel-menu-button.c b/mate-panel/panel-menu-button.c
+index c49de47..a35dba8 100644
+--- a/mate-panel/panel-menu-button.c
++++ b/mate-panel/panel-menu-button.c
+@@ -667,7 +667,7 @@ panel_menu_button_load (const char  *menu_path,
+ 
+         if (!panel_lockdown_get_locked_down () &&
+             (panel_is_program_in_path ("mozo") ||
+-	    panel_is_program_in_path ("menulibre")))
++	    panel_is_program_in_path ("matemenu-simple-editor")))
+ 		mate_panel_applet_add_callback (info, "edit", NULL,
+ 					   _("_Edit Menus"), NULL);
+ 
+@@ -988,14 +988,14 @@ panel_menu_button_invoke_menu (PanelMenuButton *button,
+ 	} else if (!strcmp (callback_name, "edit")) {
+                 GError *error = NULL;
+ 
+-		panel_launch_desktop_file_with_fallback ("menulibre.desktop",
+-							 "menulibre",
++		panel_launch_desktop_file_with_fallback ("mozo.desktop",
++							 "mozo",
+ 							 screen, &error);
+ 		if (error) {
+ 			g_error_free (error);
+ 			panel_launch_desktop_file_with_fallback (
+-						"mozo.desktop",
+-						"mozo",
++						"matemenu-simple-editor.desktop",
++						"matemenu-simple-editor",
+ 						screen, NULL);
+ 		}
+ 	}
