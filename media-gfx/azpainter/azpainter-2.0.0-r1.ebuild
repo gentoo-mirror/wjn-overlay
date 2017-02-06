@@ -31,6 +31,11 @@ RESTRICT="mirror"
 
 DOCS=( ChangeLog NEWS README README.ja translation )
 
+src_prepare() {
+	eapply "${FILESDIR}/${P}-fix-svg-icon.patch"
+	default
+}
+
 pkg_preinst() {
 	gnome2_icon_savelist
 }
