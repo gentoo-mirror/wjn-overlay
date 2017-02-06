@@ -2,6 +2,12 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  06 Feb 2017; wjn <wjn@aol.jp> mate-panel-9999.ebuild:
+  Add gdbus-codegen to build dependencies
+
+   dev-util/gdbus-codegen became neccessary as of Upstream 7d39b2e
+  https://github.com/mate-desktop/mate-panel/blob/7d39b2e/configure.ac#L39
+
   06 Feb 2017; wjn <wjn@aol.jp> +files/mate-panel-9999-drop-menulibre.patch,
   mate-panel-9999.ebuild, metadata.xml:
   Drop menulibre support to launch mozo
