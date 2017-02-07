@@ -3,6 +3,9 @@
 # (auto-generated from git log)
 
   07 Feb 2017; wjn <wjn@aol.jp> metadata.xml:
+  Remove unused "gtk3" flag from metadata.xml
+
+  07 Feb 2017; wjn <wjn@aol.jp> metadata.xml:
   Add "skey" flag to metadata.xml
 
   03 Jan 2017; wjn <wjn@aol.jp> mate-terminal-9999.ebuild:
