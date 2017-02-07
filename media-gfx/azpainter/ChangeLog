@@ -2,6 +2,17 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*azpainter-2.0.1 (07 Feb 2017)
+
+  07 Feb 2017; wjn <wjn@aol.jp> +azpainter-2.0.1.ebuild:
+  Add version 2.0.1
+
+   AzPainter 2.0.1 is fixed for a SVG icon bug
+
+   Note:
+     Because that bug is already fixed by 2.0.0-r1 in this overlay,
+    upgrading is not neccessary
+
   06 Feb 2017; wjn <wjn@aol.jp> -files/azpainter-1.0.5-rulepos.patch:
   Delete an unused patch
 
