@@ -12,6 +12,7 @@
 	<use>
 		<flag name="gtk3">Build for gtk+:3 instead of gtk+:2.
 			EXPERIMENTAL</flag>
+		<flag name="skey">Enable <pkg>sys-auth/skey</pkg> support</flag>
 	</use>
 	<upstream>
 		<remote-id type="github">mate-desktop/mate-terminal</remote-id>
