@@ -114,7 +114,7 @@ media-fonts/yozeng 1.40: Latin OpenType fonts like old typewriter and digital di
 media-fonts/yozfont 13.11: Japanese OpenType pen writing fonts made by Y.Oz
 media-fonts/yozfontkm 7.01: Japanese OpenType brush fonts made by Y.Oz
 media-gfx/azdrawing 1.5: A painting software by drawing
-media-gfx/azpainter 1.0.7 2.0.0-r1: A full-color painting software
+media-gfx/azpainter 1.0.7 2.0.0-r1 2.0.1: A full-color painting software
 media-gfx/azpainterb 1.0.4 1.0.5: Simple 8bit color paint software
 media-gfx/eom 9999: Image viewer for MATE desktop
 media-gfx/fbida 2.12: Image viewers for the framebuffer console (fbi) and X11 (ida)
