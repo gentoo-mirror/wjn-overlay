@@ -19,8 +19,8 @@ EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="caja dbus debug djvu doc dvi epub +gtk3 +introspection gnome-keyring +pdf
-	+ps t1lib tiff xps"
+IUSE="caja dbus debug djvu doc dvi epub +introspection gnome-keyring +pdf +ps
+	t1lib tiff xps"
 
 COMMON_DEPEND="app-text/rarian:0
 	dev-libs/atk:0
@@ -28,22 +28,20 @@ COMMON_DEPEND="app-text/rarian:0
 	>=dev-libs/libxml2-2.5.0:2
 	sys-libs/zlib:0
 	x11-libs/gdk-pixbuf:2[introspection?]
+	>=x11-libs/gtk+-3.0.0:3[introspection?]
 	x11-libs/libICE:0
 	>=x11-libs/libSM-1:0
 	x11-libs/libX11:0
 	>=x11-libs/cairo-1.9.10:0
 	x11-libs/pango:0
-	caja? ( mate-base/caja[gtk3(+)=,introspection?] )
+	caja? ( mate-base/caja[gtk3(+),introspection?] )
 	djvu? ( >=app-text/djvu-3.5.17:0 )
 	dvi? ( virtual/tex-base:0
 		t1lib? ( >=media-libs/t1lib-5:5 ) )
 	epub? ( dev-libs/mathjax
-		!gtk3? ( net-libs/webkit-gtk:2 )
-		gtk3? ( || ( net-libs/webkit-gtk:4
-				net-libs/webkit-gtk:3 ) ) )
+		|| ( net-libs/webkit-gtk:4
+			net-libs/webkit-gtk:3 ) )
 	gnome-keyring? ( >=app-crypt/libsecret-0.5:0 )
-	!gtk3? ( >=x11-libs/gtk+-2.24.0:2[introspection?] )
-	gtk3? ( >=x11-libs/gtk+-3.0.0:3[introspection?] )
 	introspection? ( >=dev-libs/gobject-introspection-0.6:0 )
 	pdf? ( >=app-text/poppler-0.22.0:0=[cairo] )
 	ps? ( >=app-text/libspectre-0.2.0:0 )
@@ -88,7 +86,6 @@ src_configure() {
 		$(use_enable dvi) \
 		$(use_enable epub) \
 		$(use_with gnome-keyring keyring) \
-		--with-gtk=$(usex gtk3 '3.0' '2.0') \
 		$(use_enable introspection) \
 		$(use_enable pdf) \
 		$(use_enable ps) \
