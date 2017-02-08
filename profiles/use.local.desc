@@ -48,23 +48,16 @@ app-i18n/uim:skk - Enable support for app-i18n/skk-jisyo
 app-text/atril:caja - Enable property page extension in mate-base/caja
 app-text/atril:dvi - Enable build-in DVI viewer
 app-text/atril:epub - Enable EPUB viewer depending on dev-libs/mathjax
-app-text/atril:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
 app-text/atril:ps - Enable build-in postscript viewer
 app-text/atril:t1lib - Enable the Type-1 fonts for the build-in DVI viewer (media-libs/t1lib)
 app-text/atril:xps - Enable XPS viewer using app-text/libxps
 app-text/markdown-gtksourceview:gedit - Install plugins for app-editors/gedit
 app-text/markdown-gtksourceview:pluma - Install plugins for app-editors/pluma
 app-text/markdown-gtksourceview:webkit - Install preview plugin powered by net-libs/webkit-gtk
-dev-libs/libmateweather:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
 gnome-extra/budgie-desktop:control-center - Install gnome-base/gnome-control-center for configuring purpose
 gnome-extra/cinnamon-control-center:colord - Support color management using x11-misc/colord
 gnome-extra/cinnamon-settings-daemon:colord - Support color management using x11-misc/colord
 mail-client/sylpheed:oniguruma - Use dev-libs/oniguruma for regular expression
-mate-base/caja:dropbox - Install mate-extra/caja-dropbox
-mate-base/caja:extensions - Install mate-extra/caja-extensions
-mate-base/caja:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
-mate-base/caja:mate - Install x11-themes/mate-icon-theme which is needed when this package is used in the MATE desktop environment
-mate-base/caja:unique - Enable single instance support using dev-libs/libunique
 mate-base/libmatekbd:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
 mate-base/mate:base - Install base MATE Desktop applications that are recommended for the most common usage; for example, this installs the file manager. Disable this and other USE flags if you want a more minimal MATE Desktop
 mate-base/mate:extras - Install additional MATE Desktop applications that are recommended for extended usage of the MATE Desktop as upstream sees it; for example, this installs MATE Desktop's office related applications. Disable this if you plan to use your own non-MATE Desktop alternatives or a custom mixture of MATE and non-MATE packages
@@ -185,5 +178,5 @@ www-plugins/freshplayerplugin:gtk3 - Build with GTK+ 3 instead of GTK+ 2
 x11-libs/qscintilla:designer - Build plugin for Qt Designer
 x11-misc/mate-notification-daemon:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
 x11-misc/screengrab:xdg - Place config files into $XDG_CONFIG_HOME
-x11-terms/mate-terminal:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
+x11-terms/mate-terminal:skey - Enable sys-auth/skey support
 x11-wm/marco:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
