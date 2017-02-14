@@ -2,6 +2,11 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*cinnamon-control-center-3.2.1 (14 Feb 2017)
+
+  14 Feb 2017; wjn <wjn@aol.jp> +cinnamon-control-center-3.2.1.ebuild:
+  Add version 3.2.1 for "-networkmanager"
+
   03 Jan 2017; wjn <wjn@aol.jp> cinnamon-control-center-2.8.1.ebuild,
   cinnamon-control-center-3.0.1.ebuild:
   */*/*.ebuild: Change 2016 to 2017 in the GPLv2 copyright expressions
