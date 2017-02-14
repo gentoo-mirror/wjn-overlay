@@ -1,0 +1,15 @@
+# ChangeLog for gnome-extra/cinnamon-session
+# Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
+# (auto-generated from git log)
+
+*cinnamon-session-3.2.0 (14 Feb 2017)
+
+  14 Feb 2017; wjn <wjn@aol.jp> +cinnamon-session-3.2.0.ebuild,
+  +files/cinnamon-session-3.0.1-automagic.patch, +metadata.xml:
+  Add again for "-old-upower", ver 3.2.0
+
+   cinnamon-session supports upower-pm-utils only, but that is too deprecated
+
+   Since upower and upower-pm-utils are conflict,
+  it might be nice to support disabling upower-pm-utils and systemd
+

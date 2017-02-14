@@ -2,6 +2,14 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*cinnamon-3.2.7-r1 (14 Feb 2017)
+
+  14 Feb 2017; wjn <wjn@aol.jp> +cinnamon-3.2.7-r1.ebuild:
+  Add version 3.2.7-r1 to fix USE="-networkmanager"
+
+   When USE="-networkmanager",
+  "nm-applet" must be removed from *.session and statusIconDispatcher.js
+
   03 Jan 2017; wjn <wjn@aol.jp> cinnamon-2.8.8.ebuild,
   cinnamon-3.0.7-r1.ebuild:
   */*/*.ebuild: Change 2016 to 2017 in the GPLv2 copyright expressions
