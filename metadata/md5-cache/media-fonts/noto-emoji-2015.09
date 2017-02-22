@@ -10,5 +10,5 @@ RESTRICT=binchecks mirror strip
 SLOT=0
 SRC_URI=https://raw.githubusercontent.com/googlei18n/noto-emoji/v2015-09-29-license-apache/NotoEmoji-Regular.ttf -> noto-emoji-2015.09-Regular.ttf https://raw.githubusercontent.com/googlei18n/noto-emoji/v2015-09-29-license-apache/AUTHORS -> noto-emoji-2015.09-AUTHORS https://raw.githubusercontent.com/googlei18n/noto-emoji/v2015-09-29-license-apache/CONTRIBUTING.md -> noto-emoji-2015.09-CONTRIBUTING.md https://raw.githubusercontent.com/googlei18n/noto-emoji/v2015-09-29-license-apache/CONTRIBUTORS -> noto-emoji-2015.09-CONTRIBUTORS https://raw.githubusercontent.com/googlei18n/noto-emoji/v2015-09-29-license-apache/README.md -> noto-emoji-2015.09-README.md
 _eclass_exported_funcs=pkg_postrm:font pkg_postinst:font pkg_setup:font src_unpack:- src_install:font
-_eclasses_=eutils	ea170b525f6a38a006be05c9d9429f13	font	cd7790315ca5b8c505e1e0513df6acce	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_eclasses_=eutils	708f85bc1bf00876604e223fb56e062a	font	cd7790315ca5b8c505e1e0513df6acce	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
 _md5_=e295bdb42b17fd5eb018fa63ff695956

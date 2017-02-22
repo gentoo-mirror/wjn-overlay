@@ -7,5 +7,5 @@ LICENSE=GPL-2+
 RDEPEND=>=app-i18n/ibus-1.5 >=app-i18n/libkkc-0.3.4 >=x11-libs/gtk+-3.10:3 app-i18n/libkkc-data app-i18n/skk-jisyo
 SLOT=0
 _eclass_exported_funcs=src_unpack:git-r3 src_prepare:-
-_eclasses_=autotools	07e71b3b5690738ef7e8bc097077e00c	eutils	ea170b525f6a38a006be05c9d9429f13	git-r3	cdaef36c79142ebb9e20f9ff75e324f3	libtool	84763589a795fb127b537cac01e5359f	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783	vala	ca3f1c504058f5de407febddfae73167
+_eclasses_=autotools	07e71b3b5690738ef7e8bc097077e00c	eutils	708f85bc1bf00876604e223fb56e062a	git-r3	cdaef36c79142ebb9e20f9ff75e324f3	libtool	84763589a795fb127b537cac01e5359f	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783	vala	ca3f1c504058f5de407febddfae73167
 _md5_=3f51d979a02fc011fa38bbbbcc900660
