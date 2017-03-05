@@ -2,6 +2,11 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*azpainter-2.0.3 (05 Mar 2017)
+
+  05 Mar 2017; wjn <wjn@aol.jp> +azpainter-2.0.3.ebuild:
+  Add version 2.0.3
+
 *azpainter-2.0.2 (23 Feb 2017)
 
   23 Feb 2017; wjn <wjn@aol.jp> +azpainter-2.0.2.ebuild:
