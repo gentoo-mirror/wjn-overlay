@@ -1,13 +1,17 @@
-# sourceforge.jp is the former name of OSDN, domain names are still active
-sourceforge.jp	http://iij.dl.sourceforge.jp http://osdn.dl.sourceforge.jp http://jaist.dl.sourceforge.jp
-
 # See also: https://osdn.jp/docs/Mirrors
-osdn	http://iij.dl.osdn.jp http://osdn.dl.osdn.jp http://jaist.dl.osdn.jp
-# - does not seem to mirror all tarballs: http://globalbase.dl.sourceforge.jp
-# - too far from japland (over 200ms), enable if you are far from japland
+# IIJ is the fastest reach in most cases
+osdn	http://iij.dl.osdn.jp http://osdn.dl.osdn.jp
+# - omited because they're governmental :
+#		http://ymu.dl.osdn.jp http://jaist.dl.osdn.jp
+# - does not seem to mirror all tarballs:
+#		http://globalbase.dl.sourceforge.jp
+# - too far from japland (over 200ms)
 #   + Australia: http://aarnet.dl.osdn.jp
 #   + Brasil: http://c3sl.dl.osdn.jp
 #   + Česká: http://cznic.dl.osdn.jp
 #   + Deutschland: http://rwthaachen.dl.osdn.jp
 #   + Polska: http://onet.dl.osdn.jp
 #   + The USA: http://gigenet.dl.osdn.jp
+
+# sourceforge.jp is the former name of OSDN, domain names are still active
+sourceforge.jp	http://iij.dl.sourceforge.jp http://osdn.dl.sourceforge.jp
