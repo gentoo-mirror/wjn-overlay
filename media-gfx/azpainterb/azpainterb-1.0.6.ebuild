@@ -6,10 +6,10 @@ EAPI=6
 
 inherit gnome2-utils
 
-OSDN_DIR="67063"
+OSDN_DIR="67217"
 
-DESCRIPTION="A full-color painting software"
-HOMEPAGE="http://azsky2.html.xdomain.jp/linux/azpainter/"
+DESCRIPTION="Simple 8bit color paint software"
+HOMEPAGE="http://azsky2.html.xdomain.jp/linux/azpainterb/index.html"
 SRC_URI="mirror://osdn/${PN}/${OSDN_DIR}/${P}.tar.bz2"
 
 LICENSE="GPL-3 BSD"
@@ -19,21 +19,22 @@ KEYWORDS=""
 COMMON_DEPEND="media-libs/fontconfig
 	media-libs/freetype:2
 	media-libs/libjpeg-turbo
-	media-libs/libpng:*
+	media-libs/libpng:0
 	sys-libs/zlib
 	x11-libs/libX11
 	x11-libs/libXext
+	x11-libs/libXft
 	x11-libs/libXi"
 DEPEND=${COMMON_DEPEND}
 RDEPEND=${COMMON_DEPEND}
 
 RESTRICT="mirror"
 
-DOCS=( ChangeLog NEWS README README.ja translation )
+DOCS=( AUTHORS ChangeLog NEWS README README_ja html translation )
 
 src_prepare() {
-	eapply "${FILESDIR}/${P}-fix-svg-icon.patch"
 	default
+	mv manual html
 }
 
 pkg_preinst() {
