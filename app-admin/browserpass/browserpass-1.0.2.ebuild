@@ -29,6 +29,7 @@ RDEPEND="${COMMON_DEPEND}
 		>=www-client/firefox-bin-50 )"
 
 S="$WORKDIR/${P}/src/${EGO_PN}"
+RESTRICT="mirror"
 
 src_prepare() {
 	eapply_user
