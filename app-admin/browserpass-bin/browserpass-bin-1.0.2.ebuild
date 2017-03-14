@@ -17,6 +17,7 @@ COMMON_DEPEND="!!app-admin/browserpass"
 DEPEND="${COMMON_DEPEND}
 	app-arch/unzip"
 RDEPEND="${COMMON_DEPEND}
+	app-admin/pass
 	|| ( www-client/google-chrome
 		www-client/google-chrome-beta
 		www-client/google-chrome-unstable

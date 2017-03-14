@@ -20,6 +20,7 @@ COMMON_DEPEND="!!app-admin/browserpass-binary-component
 	dev-go/go-zglob"
 DEPEND=${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
+	app-admin/pass
 	|| ( www-client/google-chrome
 		www-client/google-chrome-beta
 		www-client/google-chrome-unstable
