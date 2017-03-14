@@ -1,0 +1,9 @@
+# ChangeLog for dev-go/go-zglob
+# Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
+# (auto-generated from git log)
+
+*go-zglob-9999 (14 Mar 2017)
+
+  14 Mar 2017; wjn <wjn@aol.jp> +go-zglob-9999.ebuild, +metadata.xml:
+  Add newly
+
