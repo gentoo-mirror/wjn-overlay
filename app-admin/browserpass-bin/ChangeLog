@@ -1,0 +1,17 @@
+# ChangeLog for app-admin/browserpass-bin
+# Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
+# (auto-generated from git log)
+
+*browserpass-bin-1.0.2 (14 Mar 2017)
+
+  14 Mar 2017; wjn <wjn@aol.jp> +browserpass-bin-1.0.2.ebuild, +metadata.xml:
+  Add newly, version 1.0.2
+
+   Browserpass is a browser extension / add-on for zx2c4's pass (app-
+  admin/pass).
+  To use Browserpass, installing its host application is also required
+
+   But, Since this host application is written Go,
+  dev-lang/go is required to compile from source
+   This package installs its pre-built binary
+
