@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile install postinst prepare test unpack
+DEPEND=!!app-admin/browserpass-binary-component dev-go/go-zglob >=dev-lang/go-1.7:=
+DESCRIPTION=Host application required by Browserpass extension for ZX2C4's pass
+EAPI=6
+HOMEPAGE=https://github.com/dannyvankooten/browserpass
+KEYWORDS=~amd64 -x86
+LICENSE=MIT
+RDEPEND=!!app-admin/browserpass-binary-component dev-go/go-zglob || ( www-client/google-chrome www-client/google-chrome-beta www-client/google-chrome-unstable www-client/chromium >=www-client/firefox-50 >=www-client/firefox-bin-50 )
+SLOT=0
+SRC_URI=https://github.com/dannyvankooten/browserpass/archive/1.0.2.tar.gz -> browserpass-1.0.2.tar.gz
+_eclass_exported_funcs=pkg_postinst:- src_unpack:golang-vcs-snapshot src_prepare:- src_compile:golang-build src_test:golang-build src_install:-
+_eclasses_=golang-base	2983c8674b8e3b3a99ec61986356c76a	golang-build	b66349c110e4ddd6203bbe8bf4ae05c1	golang-vcs-snapshot	7fb5d554a7e656be19ec465fa5bb66db
+_md5_=8d57b07640e42f267aa87fce5482d8e4

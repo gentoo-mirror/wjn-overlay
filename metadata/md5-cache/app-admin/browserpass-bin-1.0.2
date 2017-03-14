@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile install postinst prepare
+DEPEND=!!app-admin/browserpass app-arch/unzip
+DESCRIPTION=Host application required by Browserpass extension for ZX2C4's pass
+EAPI=6
+HOMEPAGE=https://github.com/dannyvankooten/browserpass
+KEYWORDS=~amd64 -x86
+LICENSE=MIT
+RDEPEND=!!app-admin/browserpass || ( www-client/google-chrome www-client/google-chrome-beta www-client/google-chrome-unstable www-client/chromium >=www-client/firefox-50 >=www-client/firefox-bin-50 )
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/dannyvankooten/browserpass/releases/download/1.0.2/browserpass-linux64.zip -> browserpass-bin-1.0.2.zip
+_eclass_exported_funcs=pkg_postinst:- src_prepare:- src_compile:- src_install:-
+_md5_=fd5d3803f30416fa345f633ced867707
