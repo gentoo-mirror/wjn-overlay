@@ -1,0 +1,14 @@
+# ChangeLog for app-admin/pass-otp
+# Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
+# (auto-generated from git log)
+
+*pass-otp-0.1.0 (14 Mar 2017)
+
+  14 Mar 2017; wjn <wjn@aol.jp> +metadata.xml, +pass-otp-0.1.0.ebuild:
+  Add newly, version 0.1.0
+
+   pass-otp is apass extension for managing one-time-password (OTP) tokens
+   It is compatible with Google Authentication System (Google認証システム),
+  makes numeric password valid in a short period such as 60 seconds
+   See https://github.com/tadfisher/pass-otp
+
