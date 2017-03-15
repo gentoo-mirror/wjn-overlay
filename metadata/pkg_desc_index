@@ -22,7 +22,7 @@ app-i18n/mozc 2.18.2620.102-r1 2.20.2677.102: Mozc - a Japanese Input Method Edi
 app-i18n/mozc-ut2 2.20.2677.102.20170116: Mozc Japanese Input Method with Additional Japanese dictionary
 app-i18n/uim 9999: Simple, secure and flexible input method library
 app-misc/grc 9999: Generic Colouriser beautifies your logfiles or output of commands
-app-text/aobook 1.0.1 1.0.2: Viewer for Aozora Bunko (Japanese electric library)
+app-text/aobook 1.0.1 1.0.2 1.0.3: Viewer for Aozora Bunko (Japanese electric library)
 app-text/asciidoc-gtksourceview 2.0.1 3.0.1: AsciiDoc bindings for gtksourceview
 app-text/atril 9999: Atril document viewer for MATE desktop
 app-text/markdown-gtksourceview 2.1.9999-r2 3.2.9999-r1: Extra support for Markdown in GtkSourceView and gedit
@@ -120,8 +120,8 @@ media-fonts/yozeng 1.40: Latin OpenType fonts like old typewriter and digital di
 media-fonts/yozfont 13.11: Japanese OpenType pen writing fonts made by Y.Oz
 media-fonts/yozfontkm 7.01: Japanese OpenType brush fonts made by Y.Oz
 media-gfx/azdrawing 1.5: A painting software by drawing
-media-gfx/azpainter 1.0.7 2.0.1 2.0.2 2.0.3: A full-color painting software
-media-gfx/azpainterb 1.0.4 1.0.5 1.0.6: Simple 8bit color paint software
+media-gfx/azpainter 1.0.7 2.0.1 2.0.2 2.0.3 2.0.4: A full-color painting software
+media-gfx/azpainterb 1.0.4 1.0.5 1.0.6 1.0.7: Simple 8bit color paint software
 media-gfx/eom 9999: Image viewer for MATE desktop
 media-gfx/fbida 2.12: Image viewers for the framebuffer console (fbi) and X11 (ida)
 media-gfx/viewnior 1.5 1.6: Fast and simple image viewer
