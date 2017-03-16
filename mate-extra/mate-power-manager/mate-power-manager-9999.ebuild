@@ -15,7 +15,7 @@ EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="+applet -consolekit gnome-keyring man policykit test"
+IUSE="+applet gnome-keyring man policykit test"
 
 RESTRICT="test"
 
@@ -24,6 +24,7 @@ COMMON_DEPEND="app-text/rarian:0
 	>=dev-libs/glib-2.36.0:2
 	>=media-libs/libcanberra-0.10:0[gtk3]
 	>=sys-apps/dbus-1.0:0
+	>=sys-auth/consolekit-1.0
 	>=x11-apps/xrandr-1.3.0:0
 	>=x11-libs/cairo-1.0.0:0
 	>=x11-libs/gdk-pixbuf-2.11:2
@@ -34,9 +35,6 @@ COMMON_DEPEND="app-text/rarian:0
 	>=x11-libs/libnotify-0.7.0:0
 	x11-libs/pango:0
 	applet? ( >=mate-base/mate-panel-1.5.0:0[gtk3(+)] )
-	!consolekit? ( || ( >=sys-power/upower-0.9.5
-			>=sys-power/upower-pm-utils-0.9.5 ) )
-	consolekit? ( >=sys-auth/consolekit-1.0 )
 	gnome-keyring? ( >=gnome-base/libgnome-keyring-3.0.0:0 )"
 DEPEND="${COMMON_DEPEND}
 	app-text/docbook-xml-dtd:4.3
@@ -59,8 +57,6 @@ src_unpack() {
 }
 
 src_prepare() {
-	use consolekit \
-		&& eapply "${FILESDIR}/${PN}-replace-upower-with-consolekit.patch"
 	eapply_user
 	eautoreconf
 	gnome2_src_prepare

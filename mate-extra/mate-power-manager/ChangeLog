@@ -2,6 +2,14 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  16 Mar 2017; wjn <wjn@aol.jp>
+  -files/mate-power-manager-replace-upower-with-consolekit.patch,
+  mate-power-manager-9999.ebuild:
+  Drop obsolete UPower support
+
+   Now always needs ConsoleKit2
+   Upstream: https://github.com/mate-desktop/mate-power-manager/commit/a4d30e3
+
   05 Feb 2017; wjn <wjn@aol.jp>
   +files/mate-power-manager-replace-upower-with-consolekit.patch,
   mate-power-manager-9999.ebuild:
