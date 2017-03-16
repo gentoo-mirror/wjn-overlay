@@ -17,8 +17,7 @@ EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-2 LGPL-2 FDL-1.1"
 SLOT="0"
 KEYWORDS=""
-IUSE="debug elibc_FreeBSD -consolekit gnome-keyring ipv6 systemd upower"
-REQUIRED_USE="consolekit? ( !upower )"
+IUSE="debug elibc_FreeBSD gnome-keyring ipv6 systemd"
 
 # x11-misc/xdg-user-dirs{,-gtk} are needed to create the various XDG_*_DIRs, and
 # create .config/user-dirs.dirs which is read by glib to get G_USER_DIRECTORY_*
@@ -28,6 +27,7 @@ COMMON_DEPEND=">=dev-libs/dbus-glib-0.76:0
 	>=dev-libs/glib-2.36:2
 	dev-libs/libxslt:0
 	sys-apps/dbus:0
+	>=sys-auth/consolekit-1.0
 	x11-apps/xdpyinfo:0
 	x11-libs/gdk-pixbuf:2
 	>=x11-libs/gtk+-3.14.0:3
@@ -43,11 +43,9 @@ COMMON_DEPEND=">=dev-libs/dbus-glib-0.76:0
 	x11-misc/xdg-user-dirs:0
 	x11-misc/xdg-user-dirs-gtk:0
 	virtual/libintl:0
-	consolekit? ( >=sys-auth/consolekit-1.0 )
 	elibc_FreeBSD? ( dev-libs/libexecinfo:0 )
 	gnome-keyring? ( gnome-base/gnome-keyring:0 )
-	systemd? ( sys-apps/systemd:0 )
-	upower? ( >=sys-power/upower-pm-utils-0.9.23 )"
+	systemd? ( sys-apps/systemd:0 )"
 DEPEND="${COMMON_DEPEND}
 	>=dev-util/intltool-0.40:0
 	>=dev-lang/perl-5:0
@@ -64,12 +62,6 @@ src_unpack() {
 }
 
 src_prepare() {
-	# Add "session saving" button back,
-	# see https://bugzilla.gnome.org/show_bug.cgi?id=575544
-	# epatch "${FILESDIR}"/${PN}-1.5.2-save-session-ui.patch
-
-	use consolekit && eapply "${FILESDIR}/${PN}-replace-upower-with-consolekit.patch"
-
 	eapply_user
 	eautoreconf
 	gnome2_src_prepare
@@ -80,8 +72,7 @@ src_configure() {
 		--docdir="${EPREFIX}/usr/share/doc/${PF}" \
 		--with-default-wm=mate-wm \
 		$(use_enable ipv6) \
-		$(use_with systemd) \
-		$(use_enable upower)
+		$(use_with systemd)
 }
 
 src_install() {

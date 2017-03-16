@@ -2,6 +2,16 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  16 Mar 2017; wjn <wjn@aol.jp>
+  -files/mate-session-manager-1.5.2-save-session-ui.patch,
+  -files/mate-session-manager-replace-upower-with-consolekit.patch,
+  mate-session-manager-9999.ebuild:
+  Drop obsolete UPower support
+
+   Now always needs ConsoleKit2
+   Upstream: https://github.com/mate-desktop/mate-session-
+  manager/commit/9923739
+
   03 Jan 2017; wjn <wjn@aol.jp> mate-session-manager-9999.ebuild:
   */*/*.ebuild: Change 2016 to 2017 in the GPLv2 copyright expressions
 
