@@ -2,6 +2,9 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  16 Mar 2017; wjn <wjn@aol.jp> pass-import-0.1_p20170312.ebuild:
+  Fix dependencies
+
 *pass-import-0.1_p20170312 (14 Mar 2017)
 
   14 Mar 2017; wjn <wjn@aol.jp> +metadata.xml,

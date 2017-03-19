@@ -15,10 +15,10 @@ LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-COMMON_DEPEND="app-shell/bash"
+COMMON_DEPEND="app-shells/bash"
 DEPEND=${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
-	>=app-admin/pass-1.7.0"
+	>=app-admin/pass-1.7"
 
 RESTRICT="mirror"
 
