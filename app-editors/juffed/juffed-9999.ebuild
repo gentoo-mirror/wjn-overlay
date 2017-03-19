@@ -31,7 +31,7 @@ DEPEND="app-i18n/enca
 		dev-qt/qtsingleapplication[X,qt5]
 		dev-qt/qtwidgets:5
 		dev-qt/qtxml:5
-		>=x11-libs/qscintilla-2.1:5= )"
+		>=x11-libs/qscintilla-2.9.4:0=[qt5] )"
 RDEPEND=${DEPEND}
 
 DOCS=( ChangeLog README )
@@ -59,7 +59,8 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=( -DUSE_SYSTEM_QTSINGLEAPPLICATION=ON -DUSE_ENCA=ON
 		-DUSE_QT5="$(usex qt5)"
-		-DQT_LIBRARY_DIR="/usr/$(get_libdir)$(usex qt5 / /qt4)" )
+		-DQT_LIBRARY_DIR="/usr/$(get_libdir)$(usex qt5 / /qt4)"
+		-DQSCINTILLA_LIBRARY="/usr/$(get_libdir)/libqscintilla2.so" )
 
 	cmake-utils_src_configure
 }
