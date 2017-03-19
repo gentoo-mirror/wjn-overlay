@@ -5,16 +5,6 @@
 app-arch/engrampa:caja - Enable engrampa to integrate with mate-base/caja by providing entries in its context menu
 app-arch/engrampa:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
 app-editors/pluma:spell - Enable spell checker with app-text/enchant
-app-i18n/fcitx:autostart - Enable xdg-compatible autostart of fcitx
-app-i18n/fcitx:enchant - Use app-text/enchant for text prediction
-app-i18n/fcitx:gtk - Install GTK2 IM module
-app-i18n/fcitx:gtk3 - Install GTK3 IM module
-app-i18n/fcitx:introspection - Enable GObject Introspection
-app-i18n/fcitx:opencc - Enable OpenCC for Chinese Transform
-app-i18n/fcitx:pango - Enable support for x11-libs/pango
-app-i18n/fcitx:qt4 - Install Qt4 IM module
-app-i18n/fcitx:qt5 - Install Qt5 IM module (app-i18n/fcitx-qt5)
-app-i18n/fcitx:table - Enable Table IM
 app-i18n/mozc:clang - Use sys-devel/clang to compile
 app-i18n/mozc:emacs - Enable support for virtual/emacs
 app-i18n/mozc:fcitx - Enable support for app-i18n/fcitx
@@ -175,7 +165,6 @@ www-apps/nikola:php - Support dev-python/phpserialize
 www-apps/nikola:typogrify - Support dev-python/typogrify
 www-apps/nikola:websocket - Support dev-python/ws4py
 www-plugins/freshplayerplugin:gtk3 - Build with GTK+ 3 instead of GTK+ 2
-x11-libs/qscintilla:designer - Build plugin for Qt Designer
 x11-misc/mate-notification-daemon:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
 x11-misc/screengrab:xdg - Place config files into $XDG_CONFIG_HOME
 x11-terms/mate-terminal:skey - Enable sys-auth/skey support

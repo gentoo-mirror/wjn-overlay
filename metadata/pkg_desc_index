@@ -11,9 +11,7 @@ app-editors/focuswriter 9999-r1: A fullscreen and distraction-free word processo
 app-editors/juffed 9999: QScintilla-based tabbed text editor with syntax highlighting
 app-editors/mined 2015.25: Terminal-based Text Editor with extensive Unicode and CJK support
 app-editors/pluma 9999: A powerful text editor for MATE
-app-i18n/fcitx 4.2.9.1: Fcitx (Flexible Context-aware Input Tool with eXtension) input method framework
 app-i18n/fcitx-kkc 0.1.2 9999: Japanese libkkc module for Fcitx
-app-i18n/fcitx-qt5 9999: Qt5 input module for Fcitx
 app-i18n/ibus-kkc 1.5.22 9999: Japanese Kana Kanji input engine for IBus
 app-i18n/im-chooser 1.6.4: Desktop Input Method configuration tool
 app-i18n/libkkc 0.3.5 9999: Japanese Kana Kanji conversion library
@@ -44,7 +42,7 @@ gnome-extra/cinnamon-control-center 2.8.1 3.0.1 3.2.1: Cinnamon's main interface
 gnome-extra/cinnamon-desktop 3.0.2 3.2.4: A collection of libraries and utilites used by Cinnamon
 gnome-extra/cinnamon-screensaver 3.0.1: Screensaver for Cinnamon
 gnome-extra/cinnamon-session 3.2.0: Cinnamon session manager
-gnome-extra/cinnamon-settings-daemon 2.8.3 2.8.4 3.0.1: Cinnamon's settings daemon
+gnome-extra/cinnamon-settings-daemon 2.8.3 2.8.4 3.0.1 3.2.0: Cinnamon's settings daemon
 gnome-extra/gnome-tweak-tool 3.20.1 3.22.0: Tool to customize GNOME 3 options
 mail-client/sylpheed 3.5.0 3.5.1: A lightweight email client and newsreader
 mate-base/caja 9999: Caja file manager for MATE desktop
@@ -142,7 +140,6 @@ x11-drivers/xf86-video-intel 2.99.917_p20161021: X.Org driver for Intel cards
 x11-libs/gdk-pixbuf-psd 0.1.0 9999: A GdkPixbuf loader for Adobe Photoshop images
 x11-libs/gdk-pixbuf-xcf 2012.05: A gdk-pixbuf loader for xcf (The Gimp) files
 x11-libs/libvdpau-va-gl 9999-r1: VDPAU driver with OpenGL/VAAPI backend
-x11-libs/qscintilla 2.9.1-r200 2.9.2-r200: A Qt port of Neil Hodgson's Scintilla C++ editor class
 x11-misc/lightdm-gtk-greeter-settings 1.2.1: LightDM Gtk+ Greeter settings editor
 x11-misc/mate-notification-daemon 9999: Notification daemon for MATE desktop
 x11-misc/mate-tweak 3.5.10 16.10.5: MATE desktop tweak tool, a fork of mintDesktop

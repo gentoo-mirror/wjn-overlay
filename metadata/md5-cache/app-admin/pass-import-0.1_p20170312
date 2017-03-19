@@ -1,13 +1,13 @@
 DEFINED_PHASES=compile postinst prepare unpack
-DEPEND=app-shell/bash >=dev-vcs/git-1.8.2.1
+DEPEND=app-shells/bash >=dev-vcs/git-1.8.2.1
 DESCRIPTION=generic importer extension for password manager ZX2C4's pass
 EAPI=6
 HOMEPAGE=https://github.com/roddhjav/pass-import
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3+
-RDEPEND=app-shell/bash >=app-admin/pass-1.7.0
+RDEPEND=app-shells/bash >=app-admin/pass-1.7
 RESTRICT=mirror
 SLOT=0
 _eclass_exported_funcs=pkg_postinst:- src_unpack:git-r3 src_prepare:- src_compile:-
 _eclasses_=epatch	122e1264e67c4f59a1482f2095e0b35d	estack	5ac2a138d0b33354b764d84f9e835db8	eutils	1ef31aee2bd63ffbfcae8a1843c9208d	git-r3	cdaef36c79142ebb9e20f9ff75e324f3	ltprune	2770eed66a9b8ef944714cd0e968182e	multilib	0236be304ee52e7f179ed2f337075515	python-utils-r1	4f8aa7196c2c9a5630e66c2113ae46c3	toolchain-funcs	6eb35f81556258a4bc9182ad3dfd58ee
-_md5_=00cf846f3b473e49ddadef7e2a89920c
+_md5_=e412b15a3cf94eee09be74047a0e9a18

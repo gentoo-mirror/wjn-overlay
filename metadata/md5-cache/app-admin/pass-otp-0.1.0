@@ -1,12 +1,12 @@
 DEFINED_PHASES=compile postinst
-DEPEND=app-shell/bash
+DEPEND=app-shells/bash
 DESCRIPTION=generic importer extension for password manager ZX2C4's pass
 EAPI=6
 HOMEPAGE=https://github.com/tadfisher/pass-otp
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3+
-RDEPEND=app-shell/bash >=app-admin/pass-1.7.0 media-gfx/qrencode sys-auth/oath-toolkit
+RDEPEND=app-shells/bash >=app-admin/pass-1.7 media-gfx/qrencode sys-auth/oath-toolkit
 SLOT=0
 SRC_URI=https://github.com/tadfisher/pass-otp/archive/v0.1.0.tar.gz -> pass-otp-0.1.0.tar.gz
 _eclass_exported_funcs=pkg_postinst:- src_compile:-
-_md5_=41078fe67982d1a41822afc66d961cfd
+_md5_=38b4fa598ef9c6757a513732a09f9e4c
