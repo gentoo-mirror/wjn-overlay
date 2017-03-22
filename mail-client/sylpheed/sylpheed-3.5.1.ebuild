@@ -2,13 +2,11 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
-PLOCALES="be bg cs da de el en es et eu fi fr gl he hr hu it ja ko lt nl pl
-	pt_BR ro ru sk sl sr sv tr uk vi zh_CN zh_TW"
-PLOCALE_BACKUP="en"
+PLOCALES="ja"
 
-inherit eutils l10n
+inherit ltprune l10n
 
 # these are needed for RC versions
 MY_PV=${PV/_/}
@@ -35,8 +33,8 @@ COMMON_DEPEND="x11-libs/gtk+:2
 	ssl? ( || ( dev-libs/openssl:0
 		dev-libs/libressl ) )"
 DEPEND="${COMMON_DEPEND}
-	app-i18n/nkf
 	virtual/pkgconfig
+	linguas_ja? ( app-i18n/nkf )
 	xface? ( media-libs/compface )"
 RDEPEND="${COMMON_DEPEND}
 	app-misc/mime-types
@@ -46,14 +44,14 @@ RDEPEND="${COMMON_DEPEND}
 S="${WORKDIR}/${MY_P%rc*}"
 RESTRICT="mirror"
 
-DOCS=( AUTHORS ChangeLog* NEWS* README* TODO* )
+DOCS=( AUTHORS 'ChangeLog*' 'NEWS*' 'README*' 'TODO*' )
 
 src_configure() {
 	econf \
 		--disable-updatecheck \
 		--disable-updatecheckplugin \
-		--without-manualdir \
-		--without-faqdir \
+		--with-manualdir=/usr/share/doc/${PF}/manual \
+		--with-faqdir=/usr/share/doc/${PF}/faq \
 		$(use_enable crypt gpgme) \
 		$(use_enable ipv6) \
 		$(use_enable ldap) \
@@ -65,18 +63,13 @@ src_configure() {
 }
 
 src_install() {
-	# note for the future: einstall is deprecated in EAPI 6
-	einstall
-
-	use linguas_es || rm *.es*
+	emake DESTDIR="${ED}" install
 
 	if use linguas_ja ; then
 		# documents in Japanese are in EUC-JP, should be converted to UTF-8
 		for fn in *.ja* manual/ja/* ; do
 			nkf -w --overwrite ${fn}
 		done
-	else
-		rm *.ja*
 	fi
 
 	dodoc ${DOCS[@]}
@@ -86,20 +79,6 @@ src_install() {
 	#  Therefore, let's rename "PLUGIN.txt" to "PLUGIN".
 	for fn in PLUGIN*.txt ; do
 		newdoc ${fn} ${fn%.txt}
-	done
-
-	docompress -x /usr/share/doc/${PF}/faq /usr/share/doc/${PF}/manual
-	for dir_name in faq manual ; do
-		cd "${S}/${dir_name}"
-		for lang in $(find * -type d) ; do
-			if [ x"${lang}" = x"en" ] \
-				|| grep -q "${lang}" <(echo $(l10n_get_locales)) ; then
-				rm "${lang}"/Makefile*
-				rm -rf "${lang}"/no
-				docinto "${dir_name}"
-				dodoc -r "${lang}"
-			fi
-		done
 	done
 
 	cd "${S}/plugin/attachment_tool"

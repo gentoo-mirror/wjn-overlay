@@ -2,6 +2,12 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  22 Mar 2017; wjn <wjn@aol.jp> sylpheed-3.5.1.ebuild:
+  Revert removing multi-lingualization
+
+   Manual and FAQ are multi-lingualized and refered by GUI "Help" interface.
+  So it's clean to keep them as-is
+
   22 Mar 2017; wjn <wjn@aol.jp> -sylpheed-3.5.0.ebuild:
   Delete old version 3.5.0
 
