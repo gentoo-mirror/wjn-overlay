@@ -35,7 +35,7 @@ dev-python/python-caja 9999: Python bindings for Caja file manager
 dev-python/python-distutils-extra 2.38-r1 2.39: Gettext support, themed icons and scrollkeeper-based documentation in distutils
 dev-python/typogrify 2.0.7: Filters to enhance web typography, often used with Jinja or Django
 dev-util/meld 3.16.1: A graphical diff and merge tool
-gnome-base/gnome-settings-daemon 3.20.2 3.22.1: Gnome Settings Daemon
+gnome-base/gnome-settings-daemon 3.20.2 3.22.1 3.22.2: Gnome Settings Daemon
 gnome-extra/budgie-desktop 10.2.8 10.2.9: Flagship desktop of Solus, designed with the modern user in mind
 gnome-extra/cinnamon 2.8.8 3.0.7-r1 3.2.7-r1: A fork of GNOME Shell with layout similar to GNOME 2
 gnome-extra/cinnamon-control-center 2.8.1 3.0.1 3.2.1: Cinnamon's main interface to configure various aspects of the desktop
@@ -44,7 +44,7 @@ gnome-extra/cinnamon-screensaver 3.0.1: Screensaver for Cinnamon
 gnome-extra/cinnamon-session 3.2.0: Cinnamon session manager
 gnome-extra/cinnamon-settings-daemon 2.8.3 2.8.4 3.0.1 3.2.0: Cinnamon's settings daemon
 gnome-extra/gnome-tweak-tool 3.20.1 3.22.0: Tool to customize GNOME 3 options
-mail-client/sylpheed 3.5.0 3.5.1: A lightweight email client and newsreader
+mail-client/sylpheed 3.5.1: A lightweight email client and newsreader
 mate-base/caja 9999: Caja file manager for MATE desktop
 mate-base/libmatekbd 9999: MATE keyboard configuration library
 mate-base/mate 9999: Meta ebuild for MATE, a traditional desktop environment
