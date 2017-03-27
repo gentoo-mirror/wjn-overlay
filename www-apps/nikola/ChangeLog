@@ -2,6 +2,15 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*nikola-7.8.4 (27 Mar 2017)
+
+  27 Mar 2017; wjn <wjn@aol.jp> +nikola-7.8.4.ebuild:
+  Add version 7.8.4
+
+  Note:
+   Nikola 7.8.4 depends on ws4py==0.4.1 for websockets
+  but it isn't in the gentoo repository yet
+
 *nikola-7.8.3 (13 Jan 2017)
 
   13 Jan 2017; wjn <wjn@aol.jp> -nikola-7.8.0.ebuild, -nikola-7.8.2.ebuild,
