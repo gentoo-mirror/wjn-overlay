@@ -17,7 +17,7 @@ app-i18n/im-chooser 1.6.4: Desktop Input Method configuration tool
 app-i18n/libkkc 0.3.5 9999: Japanese Kana Kanji conversion library
 app-i18n/libkkc-data 0.2.7: Japanese Kana Kanji conversion dictionary for libkkc
 app-i18n/mozc 2.18.2620.102-r1 2.20.2677.102: Mozc - a Japanese Input Method Editor designed for multi-platform
-app-i18n/mozc-ut2 2.20.2677.102.20170116: Mozc Japanese Input Method with Additional Japanese dictionary
+app-i18n/mozc-ut2 2.20.2677.102.20170321: Mozc Japanese Input Method with Additional Japanese dictionary
 app-i18n/uim 9999: Simple, secure and flexible input method library
 app-misc/grc 9999: Generic Colouriser beautifies your logfiles or output of commands
 app-text/aobook 1.0.1 1.0.2 1.0.3: Viewer for Aozora Bunko (Japanese electric library)
@@ -133,7 +133,7 @@ media-sound/yoshimi 1.4.1 1.5.0: A software synthesizer based on ZynAddSubFX
 net-firewall/firewalld 0.4.4.2: Firewall daemon with D-BUS interface
 sci-calculators/galculator 2.1.4: GTK+ based algebraic and RPN calculator
 sys-libs/libunwind 1.2_rc1 1.2: Portable and efficient API to determine the call-chain of a program
-www-apps/nikola 7.6.4 7.7.3 7.7.8 7.7.9 7.7.12 7.8.1 7.8.3: A static website and blog generator
+www-apps/nikola 7.6.4 7.7.3 7.7.8 7.7.9 7.7.12 7.8.1 7.8.3 7.8.4: A static website and blog generator
 www-client/icecat-bin 45.5.1: GNU IceCat is a entirely free software version of Firefox browser
 www-plugins/freshplayerplugin 9999: PPAPI-host NPAPI-plugin adapter for flashplayer in npapi based browsers
 x11-drivers/xf86-video-intel 2.99.917_p20161021: X.Org driver for Intel cards
