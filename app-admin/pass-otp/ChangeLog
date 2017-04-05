@@ -2,6 +2,9 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  05 Apr 2017; wjn <wjn@aol.jp> pass-otp-0.1.0.ebuild:
+  Fix ${DESCRIPTION}
+
   16 Mar 2017; wjn <wjn@aol.jp> pass-otp-0.1.0.ebuild:
   Fix dependencies
 
