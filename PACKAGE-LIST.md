@@ -1,7 +1,7 @@
 wjn-overlay packages list
 ========
 
-- This list is updated on 2017-03-15 EDT
+- This list is updated on 2017-04-05 EDT
 
 | Package Name | Description | Upstream Website | This Overlay Only | Note |
 | ---- | ---- | ---- | ---- | ---- |
@@ -33,7 +33,6 @@ wjn-overlay packages list
 | dev-python/percol | percol adds flavor of interactive selection to pipe | <https://github.com/mooz/percol> | o | |
 | dev-python/phpserialize | A small library for extracting rich content from urls | <http://github.com/mitsuhiko/phpserialize> | o | improves www-apps/nikola |
 | dev-python/python-caja | Python bindings for Caja file manager | <http://www.mate-desktop.org> | - | dev ver. |
-| dev-python/python-distutils-extra | Gettext support, themed icons and scrollkeeper-based documentation in distutils | <https://launchpad.net/python-distutils-extra> | - | needed by app-accessibility/onboard |
 | dev-python/typogrify | Filters to enhance web typography, often used with Jinja or Django | <https://github.com/mintchaos/typogrify> | o | improves www-apps/nikola |
 | dev-util/meld | A graphical diff and merge tool | <http://meldmerge.org/> | - | newer ver. |
 | gnome-extra/cinnamon | A fork of GNOME Shell with layout similar to GNOME 2 | <http://cinnamon.linuxmint.com/> | - | USE="pulseaudio" |
