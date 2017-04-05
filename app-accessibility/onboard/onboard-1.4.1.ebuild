@@ -4,16 +4,16 @@
 
 EAPI=6
 
-PYTHON_COMPAT=( python3_{3,4,5} )
+PYTHON_COMPAT=( python3_{4,5} )
 
 inherit distutils-r1 gnome2-utils versionator
 
-DESCRIPTION="Onscreen keyboard for tablet PC users and mobility impaired users"
+DESCRIPTION="Onscreen keyboard for everybody who can't use a hardware keyboard"
 HOMEPAGE="https://launchpad.net/onboard"
 SRC_URI="https://launchpad.net/${PN}/$(get_version_component_range 1-2)/${PV}/+download/${P}.tar.gz"
 
 # po/* are licensed under BSD 3-clause
-LICENSE="GPL-3 BSD"
+LICENSE="GPL-3+ BSD"
 SLOT="0"
 KEYWORDS=""
 
@@ -41,13 +41,13 @@ RDEPEND="${COMMON_DEPEND}
 	app-accessibility/at-spi2-core
 	app-text/iso-codes
 	gnome-extra/mousetweaks
-	dev-libs/libappindicator:3[introspection]
 	x11-libs/libxkbfile"
 
 RESTRICT="mirror"
 
 # These are using a functionality of distutils-r1.eclass
-DOCS=( AUTHORS CHANGELOG HACKING NEWS README onboard-defaults.conf.example )
+DOCS=( AUTHORS CHANGELOG HACKING NEWS README onboard-defaults.conf.example
+	onboard-default-settings.gschema.override.example )
 PATCHES=( "${FILESDIR}/${P}-remove-duplicated-docs.patch" )
 
 src_prepare() {
