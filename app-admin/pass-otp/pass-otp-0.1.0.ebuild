@@ -3,7 +3,7 @@
 
 EAPI=6
 
-DESCRIPTION="generic importer extension for password manager ZX2C4's pass"
+DESCRIPTION="One-time password extension for password manager ZX2C4's pass"
 HOMEPAGE="https://github.com/tadfisher/pass-otp"
 SRC_URI="https://github.com/tadfisher/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
