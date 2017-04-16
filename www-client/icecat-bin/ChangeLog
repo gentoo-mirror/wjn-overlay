@@ -2,6 +2,12 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*icecat-bin-52.0.2 (16 Apr 2017)
+
+  16 Apr 2017; wjn <wjn@aol.jp> -icecat-bin-45.5.1.ebuild,
+  +icecat-bin-52.0.2.ebuild:
+  Add version 52.0.2, delete old version 45.5.1
+
   03 Jan 2017; wjn <wjn@aol.jp> icecat-bin-45.5.1.ebuild:
   */*/*.ebuild: Change 2016 to 2017 in the GPLv2 copyright expressions
 
