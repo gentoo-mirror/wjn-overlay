@@ -2,6 +2,11 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*budgie-desktop-10.3.1 (18 Apr 2017)
+
+  18 Apr 2017; wjn <wjn@aol.jp> +budgie-desktop-10.3.1.ebuild:
+  Add version 10.3.1
+
   03 Jan 2017; wjn <wjn@aol.jp> budgie-desktop-10.2.8.ebuild,
   budgie-desktop-10.2.9.ebuild:
   */*/*.ebuild: Change 2016 to 2017 in the GPLv2 copyright expressions
