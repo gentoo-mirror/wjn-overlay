@@ -5,6 +5,7 @@
 EAPI=5
 
 PYTHON_COMPAT=( python2_7 )
+VALA_MIN_API_VERSION="0.24"
 
 inherit autotools python-single-r1 vala
 
@@ -29,9 +30,8 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	>=dev-libs/glib-2.24:2
 	>=dev-libs/json-glib-1.0
 	dev-libs/libgee:0.8
-	dev-libs/marisa[python]"
+	dev-libs/marisa[python,${PYTHON_USEDEP}]"
 DEPEND="${COMMON_DEPEND}
-	>=dev-lang/vala-0.16.0
 	dev-util/intltool
 	virtual/pkgconfig
 	introspection? ( >=dev-libs/gobject-introspection-0.9.0 )
