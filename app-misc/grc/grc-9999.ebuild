@@ -4,7 +4,7 @@
 
 EAPI=6
 
-PYTHON_COMPAT=( python{3_4,3_5} pypy )
+PYTHON_COMPAT=( python{3_4,3_5,3_6} pypy )
 
 inherit python-r1
 
@@ -29,21 +29,22 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 DEPEND="${PYTHON_DEPS}"
 RDEPEND="${PYTHON_DEPS}"
 
-PATCHES=(
-	# https://github.com/garabik/grc/pull/19
-	# This patch doesn't work for hostnames without any period
-	# "${FILESDIR}"/${P}-domain-match.patch
-)
-
 src_install() {
 	python_foreach_impl python_doscript grc grcat
 
 	insinto /usr/share/grc
-	doins conf.* grc.bashrc mrsmith/conf.*
+	doins colourfiles/conf.* contrib/mrsmith/conf.*
 
 	insinto /etc
 	doins grc.conf
 
 	dodoc CREDITS INSTALL README* Regexp.txt TODO debian/changelog
+	docinto profiles
+	dodoc grc.bashrc grc.fish grc.zsh
 	doman grc.1 grcat.1
+}
+
+pkg_postinst() {
+	elog "This ebuild doesn't install command aliases for safety"
+	elog "If you want to alias, please refer to /usr/share/doc/${PF}/profiles/"
 }
