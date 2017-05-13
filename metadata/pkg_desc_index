@@ -132,8 +132,8 @@ media-sound/yoshimi 1.4.1 1.5.0 1.5.1.1: A software synthesizer based on ZynAddS
 net-firewall/firewalld 0.4.4.2: Firewall daemon with D-BUS interface
 sci-calculators/galculator 2.1.4: GTK+ based algebraic and RPN calculator
 sys-libs/libunwind 1.2_rc1 1.2: Portable and efficient API to determine the call-chain of a program
-www-apps/nikola 7.6.4 7.7.3 7.7.8 7.7.9 7.7.12 7.8.1 7.8.3 7.8.4: A static website and blog generator
-www-client/icecat-bin 52.0.2: GNU IceCat is a entirely free software version of Firefox browser
+www-apps/nikola 7.8.3 7.8.4 7.8.5: A static website and blog generator
+www-client/icecat-bin 52.1.0: GNU IceCat is a entirely free software version of Firefox browser
 www-plugins/freshplayerplugin 9999: PPAPI-host NPAPI-plugin adapter for flashplayer in npapi based browsers
 x11-drivers/xf86-video-intel 2.99.917_p20161021: X.Org driver for Intel cards
 x11-libs/gdk-pixbuf-psd 0.1.0 9999: A GdkPixbuf loader for Adobe Photoshop images
