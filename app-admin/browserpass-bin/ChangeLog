@@ -2,6 +2,11 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*browserpass-bin-1.0.4 (13 May 2017)
+
+  13 May 2017; wjn <wjn@aol.jp> +browserpass-bin-1.0.4.ebuild:
+  Add version 1.0.4
+
   14 Mar 2017; wjn <wjn@aol.jp> browserpass-bin-1.0.2.ebuild:
   app-admin/browserpass*: Add app-admin/pass to ${RDEPEND}
 
