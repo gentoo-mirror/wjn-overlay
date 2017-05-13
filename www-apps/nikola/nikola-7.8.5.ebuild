@@ -1,11 +1,11 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=6
 
-# Some dependended pakages still don't have [python_targets_python3_5],
-# I'm waiting for their update.
+# Some dependended pakages still don't have [python_targets_python3_5]
+# Should wait for their update
+# - dev-python/doit, dev-python/ghp-import, dev-python/micawber
 # PYTHON_COMPAT=( python{2_7,3_4,3_5} )
 PYTHON_COMPAT=( python{2_7,3_4} )
 PYTHON_REQ_USE="gdbm"
@@ -32,8 +32,10 @@ fi
 # Gutenberg: nikola/data/samplesite/stories/dr-nikolas-vendetta.rst
 LICENSE="Gutenberg MIT"
 SLOT="0"
-IUSE="+assets bbcode charts -extras ghpages hyphenation ipython jinja +markdown micawber php typogrify websocket"
-REQUIRED_USE="extras? ( assets bbcode charts ghpages hyphenation ipython jinja markdown micawber php typogrify websocket )"
+IUSE="+assets bbcode charts -extras ghpages husl hyphenation ipython jinja
+	+markdown micawber php typogrify websocket"
+REQUIRED_USE="extras? ( assets bbcode charts ghpages husl hyphenation ipython
+	jinja markdown micawber php typogrify websocket )"
 
 # Generally, >=dev-python/doit-0.29.0 depends on dev-python/cloudpickle
 # But in Gentoo system, without dev-python/doit[test], cloudpickle isn't pulled
@@ -45,7 +47,7 @@ REQUIRED_USE="extras? ( assets bbcode charts ghpages hyphenation ipython jinja m
 # Gentoo users can install Nikola based on Python 3.
 # https://github.com/getnikola/nikola/commit/07962cb7
 COMMON_DEPEND=">=dev-python/docutils-0.12[${PYTHON_USEDEP}]
-	>=dev-python/setuptools-5.4.1[${PYTHON_USEDEP}]"
+	>=dev-python/setuptools-20.3[${PYTHON_USEDEP}]"
 DEPEND="${COMMON_DEPEND}
 	${DEPEND}"
 RDEPEND="${COMMON_DEPEND}
@@ -53,12 +55,12 @@ RDEPEND="${COMMON_DEPEND}
 	|| ( ( dev-python/cloudpickle[${PYTHON_USEDEP}]
 			>=dev-python/doit-0.29.0[${PYTHON_USEDEP}] )
 		=dev-python/doit-0.28*[${PYTHON_USEDEP}] )
-	>=dev-python/husl-4.0.2[${PYTHON_USEDEP}]
 	>=dev-python/logbook-0.7.0[${PYTHON_USEDEP}]
 	>=dev-python/lxml-3.3.5[${PYTHON_USEDEP}]
 	>=dev-python/mako-1.0.0[${PYTHON_USEDEP}]
 	>=dev-python/natsort-3.5.2[${PYTHON_USEDEP}]
 	>=dev-python/pillow-2.4.0[${PYTHON_USEDEP}]
+	>=dev-python/piexif-1.0.3[${PYTHON_USEDEP}]
 	>=dev-python/pygments-1.6[${PYTHON_USEDEP}]
 	>=dev-python/PyRSS2Gen-1.1[${PYTHON_USEDEP}]
 	>=dev-python/python-dateutil-2.4.0[${PYTHON_USEDEP}]
@@ -72,6 +74,7 @@ RDEPEND="${COMMON_DEPEND}
 	charts? ( >=dev-python/pygal-2.0.0[${PYTHON_USEDEP}] )
 	ghpages? ( || ( >=dev-python/ghp-import-0.4.1[${PYTHON_USEDEP}]
 		>=dev-python/ghp-import2-1.0.0[${PYTHON_USEDEP}] ) )
+	husl? ( >=dev-python/husl-4.0.2[${PYTHON_USEDEP}] )
 	hyphenation? ( >=dev-python/pyphen-0.9.1[${PYTHON_USEDEP}] )
 	ipython? ( >=dev-python/ipykernel-4.0.0[${PYTHON_USEDEP}]
 		>=dev-python/notebook-4.0.0[${PYTHON_USEDEP}] )
@@ -80,12 +83,14 @@ RDEPEND="${COMMON_DEPEND}
 	micawber? ( >=dev-python/micawber-0.3.0[${PYTHON_USEDEP}] )
 	php? ( >=dev-python/phpserialize-1.3[${PYTHON_USEDEP}] )
 	typogrify? ( >=dev-python/typogrify-2.0.4[${PYTHON_USEDEP}] )
-	websocket? ( ~dev-python/ws4py-0.3.4 )"
+	websocket? ( ~dev-python/ws4py-0.4.1 )"
 
-# mock, coverage, pytest, pytest-cov, freezegun, python-coveralls and colorama
+# mock, coverage, pytest, pytest-cov, freezegun, codacy-coverage and colorama
 # are necessary for test.
-# https://github.com/getnikola/nikola/blob/v7.7.8/requirements-tests.txt
+# https://github.com/getnikola/nikola/blob/v7.8.5/requirements-tests.txt
 RESTRICT="mirror test"
+
+PATCHES=( "${FILESDIR}/${P}-fix-version.patch" )
 
 src_install() {
 	distutils-r1_src_install
@@ -93,6 +98,6 @@ src_install() {
 	# hackish way to remove docs that ended up in the wrong place
 	rm -rf "${D}"/usr/share/doc/${PN}
 
-	dodoc AUTHORS.txt CHANGES.txt README.rst docs/*.txt
+	dodoc AUTHORS.txt CHANGES.txt CONTRIBUTING.rst README.rst docs/*.txt
 	doman docs/man/nikola.1.gz
 }

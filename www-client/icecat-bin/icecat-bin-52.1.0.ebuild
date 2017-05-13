@@ -14,6 +14,8 @@ MOZ_PN="${PN/-bin}"
 MOZ_P="${MOZ_PN}-${PV}"
 
 MOZ_HTTP_URI="http://ftpmirror.gnu.org/gnuzilla"
+#MOZ_HTTP_URI="mirror://gnu/gnuzilla"
+#MOZ_HTTP_URI="http://ftp.jaist.ac.jp/pub/GNU/gnuzilla"
 MOZ_LANGPACK_PREFIX="${PV}/langpacks/${MOZ_P}."
 MOZ_LANGPACK_SUFFIX=".langpack.xpi"
 
