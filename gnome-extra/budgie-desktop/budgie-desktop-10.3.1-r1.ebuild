@@ -44,7 +44,8 @@ RDEPEND="${COMMON_DEPEND}
 
 RESTRICT="mirror"
 
-PATCHES=( "${FILESDIR}/${P}-fix-typo.patch" )
+PATCHES=( "${FILESDIR}/${P}-fix-typo.patch"
+	"${FILESDIR}/${P}-for-gtk3_22_13.patch" )
 
 pkg_setup() {
 	export MAKE=ninja

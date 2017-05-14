@@ -2,6 +2,17 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*budgie-desktop-10.3.1-r1 (14 May 2017)
+
+  14 May 2017; wjn <wjn@aol.jp> -budgie-desktop-10.3.1.ebuild,
+  +budgie-desktop-10.3.1-r1.ebuild,
+  +files/budgie-desktop-10.3.1-for-gtk3_22_13.patch:
+  Work around serious regressions in GTK3.22.13+
+
+   Upstream: https://github.com/budgie-desktop/budgie-desktop/commit/b07359f
+
+   This patch is neccessary to run in >=gtk+-3.22.13
+
   14 May 2017; wjn <wjn@aol.jp> budgie-desktop-10.3.1.ebuild,
   +files/budgie-desktop-10.3.1-fix-typo.patch:
   Fix typo in meson.build
