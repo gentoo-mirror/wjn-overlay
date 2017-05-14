@@ -17,7 +17,7 @@ IUSE="bluetooth control-center +introspection"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-COMMON_DEPEND=">=app-i18n/ibus-1.5.10
+COMMON_DEPEND=">=app-i18n/ibus-1.5.10[vala]
 	>=dev-libs/glib-2.44.0:2
 	dev-libs/gjs
 	>=dev-libs/libpeas-1.8.0:0
