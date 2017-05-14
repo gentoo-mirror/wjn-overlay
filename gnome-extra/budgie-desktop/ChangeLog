@@ -2,6 +2,21 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  14 May 2017; wjn <wjn@aol.jp> budgie-desktop-10.3.1.ebuild,
+  +files/budgie-desktop-10.3.1-fix-typo.patch:
+  Fix typo in meson.build
+
+   Upstream: https://github.com/budgie-desktop/budgie-desktop/commit/8454436
+
+  14 May 2017; wjn <wjn@aol.jp> budgie-desktop-10.2.9.ebuild,
+  budgie-desktop-10.3.1.ebuild:
+  Add use dep of app-i18n/ibus[vala]
+
+   app-i18n/ibus[vala] is needed to compile
+
+  14 May 2017; wjn <wjn@aol.jp> -budgie-desktop-10.2.8.ebuild:
+  Delete old version 10.2.8
+
 *budgie-desktop-10.3.1 (18 Apr 2017)
 
   18 Apr 2017; wjn <wjn@aol.jp> +budgie-desktop-10.3.1.ebuild:

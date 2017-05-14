@@ -17,7 +17,7 @@ IUSE="bluetooth +introspection +polkit"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-COMMON_DEPEND=">=app-i18n/ibus-1.5.11
+COMMON_DEPEND=">=app-i18n/ibus-1.5.11[vala]
 	>=dev-libs/glib-2.46.0:2
 	dev-libs/gjs
 	>=dev-libs/libpeas-1.8.0:0
@@ -44,6 +44,8 @@ RDEPEND="${COMMON_DEPEND}
 
 RESTRICT="mirror"
 
+PATCHES=( "${FILESDIR}/${P}-fix-typo.patch" )
+
 pkg_setup() {
 	export MAKE=ninja
 	ln -s /usr/bin/valac-$(vala_best_api_version) "${T}/valac"
@@ -51,7 +53,7 @@ pkg_setup() {
 }
 
 src_prepare() {
-	eapply_user
+	default
 	sed -i -e '/meson\.add_install_script/d' meson.build
 }
 
