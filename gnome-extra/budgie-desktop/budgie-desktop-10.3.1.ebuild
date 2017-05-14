@@ -44,6 +44,8 @@ RDEPEND="${COMMON_DEPEND}
 
 RESTRICT="mirror"
 
+PATCHES=( "${FILESDIR}/${P}-fix-typo.patch" )
+
 pkg_setup() {
 	export MAKE=ninja
 	ln -s /usr/bin/valac-$(vala_best_api_version) "${T}/valac"
@@ -51,7 +53,7 @@ pkg_setup() {
 }
 
 src_prepare() {
-	eapply_user
+	default
 	sed -i -e '/meson\.add_install_script/d' meson.build
 }
 
