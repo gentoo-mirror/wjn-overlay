@@ -1,8 +1,5 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
-
-# ISSUES: Help documents need yelp-build and install.
 
 EAPI=6
 
@@ -22,11 +19,10 @@ EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-2+ FDL-1.1 LGPL-2.1"
 SLOT="0"
 KEYWORDS=""
-IUSE="X +cpufreq +gtk3 gucharmap ipv6 nls policykit upower weather wifi"
+IUSE="X +cpufreq gucharmap ipv6 nls policykit upower weather wifi"
 
 # gnome-extra/gucharmap:2 isn't in the gentoo repository
-REQUIRED_USE="policykit? ( cpufreq )
-	gucharmap? ( gtk3 )"
+REQUIRED_USE="policykit? ( cpufreq )"
 
 COMMON_DEPEND="${PYTHON_DEPS}
 	app-text/rarian:0
@@ -36,25 +32,23 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	>=dev-libs/libxml2-2.5.0:2
 	dev-python/pygobject:3
 	>=gnome-base/libgtop-2.12.0:2=
-	>=mate-base/mate-panel-1.16.0:0[gtk3(+)=]
+	>=mate-base/mate-panel-1.16.0:0[gtk3(+)]
 	!!net-analyzer/mate-netspeed
 	>=sys-apps/dbus-1.1.2:0
 	x11-libs/gdk-pixbuf:2
-	>=x11-libs/libnotify-0.7.0:0
 	x11-libs/libX11:0
+	>=x11-libs/gtk+-3.14.0:3
+	>=x11-libs/libnotify-0.7.0:0
+	>=x11-libs/libwnck-3.4.0:3
 	>=x11-libs/libxklavier-4:0
 	x11-libs/pango:0
 	virtual/libintl:0
 	cpufreq? ( sys-power/cpupower:0 )
-	!gtk3? ( >=x11-libs/gtk+-2.24.0:2
-			>=x11-libs/libwnck-2.30.0:1 )
-	gtk3? ( >=x11-libs/gtk+-3.14.0:3
-			>=x11-libs/libwnck-3.4.0:3 )
 	gucharmap? ( >=gnome-extra/gucharmap-3.0.0:2.90 )
 	policykit? ( >=sys-auth/polkit-0.97:0 )
 	upower? ( || ( >=sys-power/upower-0.9.4:0
 		>=sys-power/upower-pm-utils-0.9.4:0 ) )
-	weather? ( 	>=dev-libs/libmateweather-1.17.0:0 )
+	weather? ( >=dev-libs/libmateweather-1.17.0:0 )
 	wifi? ( net-wireless/wireless-tools )"
 DEPEND="${COMMON_DEPEND}
 	app-text/docbook-xml-dtd:4.3
@@ -88,7 +82,6 @@ src_configure() {
 		$(use_enable cpufreq frequency-selector) \
 		$(use_with cpufreq cpufreq-lib cpupower) \
 		$(use_with upower) \
-		--with-gtk=$(usex gtk3 '3.0' '2.0') \
 		$(use_enable ipv6) \
 		$(use_enable nls) \
 		$(use_enable policykit polkit) \
