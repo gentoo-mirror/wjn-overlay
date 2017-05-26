@@ -1,6 +1,5 @@
 # Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 # ** TO BE DONE: Checking Linux kernel configuration **
 
@@ -14,14 +13,15 @@ inherit autotools gnome2-utils python-r1 systemd multilib bash-completion-r1
 DESCRIPTION="Firewall daemon with D-BUS interface"
 HOMEPAGE="http://www.firewalld.org/
 	https://github.com/t-woerner/firewalld"
-SRC_URI="https://fedorahosted.org/released/${PN}/${P}.tar.bz2"
+SRC_URI="https://github.com/t-woerner/firewalld/archive/v${PV}.tar.gz
+	-> ${P}.tar.gz"
 
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS=""
 IUSE="gui systemd"
 
-RDEPEND="${PYTHON_DEPS}
+COMMON_DEPEND="${PYTHON_DEPS}
 	dev-python/dbus-python[${PYTHON_USEDEP}]
 	dev-python/decorator[${PYTHON_USEDEP}]
 	>=dev-python/python-slip-0.2.7[dbus,${PYTHON_USEDEP}]
@@ -33,21 +33,34 @@ RDEPEND="${PYTHON_DEPS}
 		dev-python/PyQt5[${PYTHON_USEDEP}] )
 	!systemd? ( >=sys-apps/openrc-0.11.5 )
 	systemd? ( sys-apps/systemd )"
-DEPEND="${RDEPEND}
+DEPEND="${COMMON_DEPEND}
 	dev-libs/glib:2
 	>=dev-util/intltool-0.35
+	dev-libs/libxslt
 	sys-devel/gettext"
+RDEPEND=${COMMON_DEPEND}
+
+RESTRICT="mirror"
+
+src_prepare() {
+	default
+	ls po/*.po | sed -e 's/.po//' | sed -e 's/po\///' > po/LINGUAS
+	eautoreconf
+}
 
 src_configure() {
 	python_setup
 
 	econf \
+		--disable-sysconfig \
+		--disable-rpmmacros \
 		$(use_enable systemd) \
 		--with-bashcompletiondir="$(get_bashcompdir)" \
 		--with-ebtables="${EROOT}sbin/ebtables" \
 		--with-ebtables-restore="${EROOT}sbin/ebtables-restore" \
 		--with-ip6tables="${EROOT}sbin/ip6tables" \
 		--with-ip6tables-restore="${EROOT}sbin/ip6tables-restore" \
+		--with-ipset="${EROOT}sbin/ipset" \
 		--with-iptables="${EROOT}sbin/iptables" \
 		--with-iptables-restore="${EROOT}sbin/iptables-restore" \
 		--with-systemd-unitdir="$(systemd_get_systemunitdir)"
@@ -67,11 +80,11 @@ src_install() {
 	python_foreach_impl install_python
 
 	python_replicate_script "${D}"/usr/bin/firewall-{offline-cmd,cmd,applet,config}
+	python_replicate_script "${D}/usr/bin/firewallctl"
 	python_replicate_script "${D}/usr/sbin/firewalld"
 
-	# Get rid of junk
-	rm -rf "${D}/etc/rc.d/"
-	rm -rf "${D}/etc/sysconfig/"
+	# Disabling systemd, SysVinit script will be installed. But no sense
+	use systemd || rm -rf "${D}/etc/rc.d/"
 
 	# For non-gui installs we need to remove GUI bits
 	if ! use gui; then
