@@ -83,12 +83,14 @@ RDEPEND="${COMMON_DEPEND}
 	micawber? ( >=dev-python/micawber-0.3.0[${PYTHON_USEDEP}] )
 	php? ( >=dev-python/phpserialize-1.3[${PYTHON_USEDEP}] )
 	typogrify? ( >=dev-python/typogrify-2.0.4[${PYTHON_USEDEP}] )
-	websocket? ( ~dev-python/ws4py-0.3.5 )"
+	websocket? ( ~dev-python/ws4py-0.4.1 )"
 
 # mock, coverage, pytest, pytest-cov, freezegun, codacy-coverage and colorama
 # are necessary for test.
-# https://github.com/getnikola/nikola/blob/v7.8.3/requirements-tests.txt
+# https://github.com/getnikola/nikola/blob/v7.8.6/requirements-tests.txt
 RESTRICT="mirror test"
+
+PATCHES=( "${FILESDIR}/${P}-fix-version.patch" )
 
 src_install() {
 	distutils-r1_src_install
