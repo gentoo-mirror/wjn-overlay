@@ -2,6 +2,20 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  27 May 2017; wjn <wjn@aol.jp> nikola-7.8.3.ebuild, nikola-7.8.4.ebuild,
+  nikola-7.8.5.ebuild:
+  Update LICENSES
+
+   Sample data is derived from Open Library now
+   https://github.com/getnikola/nikola/blob/master/nikola/data/samplesite/page
+  s/dr-nikolas-vendetta.rst
+   CC0-1.0 https://openlibrary.org/help/faq/using#ownership
+
+*nikola-7.8.6 (27 May 2017)
+
+  27 May 2017; wjn <wjn@aol.jp> +nikola-7.8.6.ebuild:
+  Add version 7.8.6
+
 *nikola-7.8.5 (13 May 2017)
 
   13 May 2017; wjn <wjn@aol.jp> +files/nikola-7.8.5-fix-version.patch,

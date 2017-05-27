@@ -29,8 +29,8 @@ else
 		app-arch/unzip"
 fi
 
-# Gutenberg: nikola/data/samplesite/stories/dr-nikolas-vendetta.rst
-LICENSE="Gutenberg MIT"
+# CC0-1.0: nikola/data/samplesite/pages/dr-nikolas-vendetta.rst
+LICENSE="CC0-1.0 MIT"
 SLOT="0"
 IUSE="+assets bbcode charts -extras ghpages husl hyphenation ipython jinja
 	+markdown micawber php typogrify websocket"
