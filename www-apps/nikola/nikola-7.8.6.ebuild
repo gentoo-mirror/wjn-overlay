@@ -90,8 +90,6 @@ RDEPEND="${COMMON_DEPEND}
 # https://github.com/getnikola/nikola/blob/v7.8.6/requirements-tests.txt
 RESTRICT="mirror test"
 
-PATCHES=( "${FILESDIR}/${P}-fix-version.patch" )
-
 src_install() {
 	distutils-r1_src_install
 
