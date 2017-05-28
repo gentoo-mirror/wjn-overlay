@@ -26,7 +26,7 @@ UIM_PATCH_REV="3ea28b1"
 ZIPCODE_REV="201604"
 
 UT2_REL=$(get_version_component_range $(get_version_component_count))
-UT2_DIR="11/11741"
+UT2_DIR="11/11937"
 #######################
 
 # Assign URI variables #########
@@ -36,7 +36,6 @@ UIM_PATCH_URI="https://github.com/e-kato/macuim.git"
 
 ZIP1_URI="http://www.post.japanpost.jp/zipcode/dl/kogaki/zip/ken_all.zip"
 ZIP2_URI="http://www.post.japanpost.jp/zipcode/dl/jigyosyo/zip/jigyosyo.zip"
-EDICT_URI="http://ftp.monash.edu.au/pub/nihongo/edict.gz"
 
 UT2_URI="mirror://osdn/users/${UT2_DIR}/${MY_PN}-${UT2_REL}.tar.bz2"
 #######################
@@ -44,8 +43,8 @@ UT2_URI="mirror://osdn/users/${UT2_DIR}/${MY_PN}-${UT2_REL}.tar.bz2"
 SRC_URI="${UT2_URI}
 	${ZIP1_URI} -> jp-zipcode${ZIPCODE_REV}-1.zip
 	${ZIP2_URI} -> jp-zipcode${ZIPCODE_REV}-2.zip
-	${EDICT_URI} -> monash-nihongo-edict.gz
 	fcitx? ( ${FCITX_PATCH_URI} )"
+
 EGIT_REPO_URI=${MOZC_URI}
 EGIT_COMMIT=${MOZC_REV}
 
@@ -72,8 +71,8 @@ EGIT_COMMIT=${MOZC_REV}
 # - EDICT: CC-BY-SA-3.0
 # 	http://www.edrdg.org/jmdict/edict.html
 # - Zipcode: public-domain http://www.post.japanpost.jp/zipcode/dl/readme.html
-# - Station names: public-domain
-#   http://www5a.biglobe.ne.jp/~harako/data/station.htm
+# - Station names: CC-BY-SA 3.0
+#   https://ja.wikipedia.org/
 # - Japanese WordNet: wn-ja
 # 	http://nlpwww.nict.go.jp/wn-ja/license.txt
 # - niconico: ** NOT CLEAR ** (This may mean all-rights-reserved)
