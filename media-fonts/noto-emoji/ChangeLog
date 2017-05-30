@@ -2,6 +2,9 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  30 May 2017; wjn <wjn@aol.jp> noto-emoji-20170518.ebuild:
+  Move to EAPI 6
+
 *noto-emoji-20170518 (30 May 2017)
 
   30 May 2017; wjn <wjn@aol.jp> -noto-emoji-2015.09.ebuild,
