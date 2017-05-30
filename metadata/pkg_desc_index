@@ -96,7 +96,7 @@ media-fonts/mmcedar 20101113a: MMCedar are combined fonts that use Motoya L Ceda
 media-fonts/monapo 20090423: combined font of ja-ipafonts (GothicP) and monafont
 media-fonts/noto-cjk-jp 20170512: a Japanese OpenType font family by Google
 media-fonts/noto-emoji 20170518: Color and Black-and-White Noto Emoji fonts by Google
-media-fonts/noto-en 2015.09: Only English fonts package from Noto Fonts by Google
+media-fonts/noto-en 20170505: Only English fonts package from Noto Fonts by Google
 media-fonts/pixel-mplus 20130602: Japanese TrueType monospace fonts looks like bitmap fonts, based on mplus-fonts.
 media-fonts/rounded-mgenplus 1.059.20150602: Japanese TrueType rounded font based on Source Hans Sans and M+
 media-fonts/rounded-mplus 1.059.20150529: Japanese TrueType rounded gothic fonts based on mplus-fonts

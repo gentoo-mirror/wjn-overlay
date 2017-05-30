@@ -1,7 +1,7 @@
 DEFINED_PHASES=install postinst postrm setup unpack
 DEPEND=X? ( x11-apps/mkfontdir media-fonts/encodings )
 DESCRIPTION=Color and Black-and-White Noto Emoji fonts by Google
-EAPI=5
+EAPI=6
 HOMEPAGE=http://www.google.com/get/noto/ https://github.com/googlei18n/noto-emoji
 IUSE=X
 KEYWORDS=~amd64 ~x86
@@ -11,4 +11,4 @@ SLOT=0
 SRC_URI=https://raw.githubusercontent.com/googlei18n/noto-emoji/v2017-05-18-cook-color-fix/fonts/NotoColorEmoji.ttf -> noto-emoji-20170518-Color.ttf https://raw.githubusercontent.com/googlei18n/noto-emoji/v2017-05-18-cook-color-fix/fonts/NotoEmoji-Regular.ttf -> noto-emoji-20170518-Regular.ttf https://raw.githubusercontent.com/googlei18n/noto-emoji/v2017-05-18-cook-color-fix/AUTHORS -> noto-emoji-20170518-AUTHORS https://raw.githubusercontent.com/googlei18n/noto-emoji/v2017-05-18-cook-color-fix/CONTRIBUTING.md -> noto-emoji-20170518-CONTRIBUTING.md https://raw.githubusercontent.com/googlei18n/noto-emoji/v2017-05-18-cook-color-fix/CONTRIBUTORS -> noto-emoji-20170518-CONTRIBUTORS https://raw.githubusercontent.com/googlei18n/noto-emoji/v2017-05-18-cook-color-fix/README.md -> noto-emoji-20170518-README.md
 _eclass_exported_funcs=pkg_postrm:font pkg_postinst:font pkg_setup:font src_unpack:- src_install:font
 _eclasses_=epatch	8233751dc5105a6ae8fcd86ce2bb0247	estack	43ddf5aaffa7a8d0482df54d25a66a1f	eutils	9c113d6a64826c40154cad7be15d95ea	font	82836641e7d4639329d8c195234ad0e3	ltprune	2770eed66a9b8ef944714cd0e968182e	multilib	97f470f374f2e94ccab04a2fb21d811e	toolchain-funcs	6eb35f81556258a4bc9182ad3dfd58ee
-_md5_=97d9dca1dd26651eeaec172df0e7c2f5
+_md5_=688ab3388f594aa8d67e9b8f72f50a04
