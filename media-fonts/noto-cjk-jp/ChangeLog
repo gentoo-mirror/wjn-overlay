@@ -1,0 +1,9 @@
+# ChangeLog for media-fonts/noto-cjk-jp
+# Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
+# (auto-generated from git log)
+
+*noto-cjk-jp-20170512 (30 May 2017)
+
+  30 May 2017; wjn <wjn@aol.jp> +metadata.xml, +noto-cjk-jp-20170512.ebuild:
+  Add ver 20170512, delete media-fonts/noto-sans-cjk-jp
+
