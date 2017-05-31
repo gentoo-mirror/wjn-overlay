@@ -13,7 +13,7 @@ app-editors/mined 2015.25: Terminal-based Text Editor with extensive Unicode and
 app-editors/pluma 9999: A powerful text editor for MATE
 app-i18n/fcitx-kkc 0.1.2 9999: Japanese libkkc module for Fcitx
 app-i18n/ibus-kkc 1.5.22 9999: Japanese Kana Kanji input engine for IBus
-app-i18n/im-chooser 1.6.4: Desktop Input Method configuration tool
+app-i18n/im-chooser 1.7.0: Desktop Input Method configuration tool
 app-i18n/libkkc 0.3.5 9999: Japanese Kana Kanji conversion library
 app-i18n/libkkc-data 0.2.7: Japanese Kana Kanji conversion dictionary for libkkc
 app-i18n/mozc 2.18.2620.102-r1 2.20.2677.102: Mozc - a Japanese Input Method Editor designed for multi-platform
