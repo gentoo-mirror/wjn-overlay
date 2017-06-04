@@ -148,8 +148,6 @@ media-sound/jack-audio-connection-kit:pam - Add basic realime configuration via 
 media-sound/yoshimi:lv2 - Add support for Ladspa V2
 net-firewall/firewalld:gui - Add GUI frontend
 sci-calculators/galculator:gtk3 - Build for gtk+:3 instead of gtk+:2
-sys-libs/libunwind:debug-frame - Adds support for DWARF .debug_frame section: Use the information from this section if available
-sys-libs/libunwind:libatomic - Use libatomic instead of builtin atomic operations
 www-apps/nikola:assets - Support web asset management through dev-python/assets
 www-apps/nikola:bbcode - Support bbcode format
 www-apps/nikola:charts - Support chart generation through dev-python/pygal
