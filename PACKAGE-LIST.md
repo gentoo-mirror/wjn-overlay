@@ -93,7 +93,7 @@ wjn-overlay packages list
 | media-fonts/mmcedar | MMCedar are combined fonts that use Motoya L Cedar and M+ fonts | <http://www.geocities.jp/ep3797/modified_fonts_01.html> | o | |
 | media-fonts/monapo | combined font of ja-ipafonts (GothicP) and monafont | <http://www.geocities.jp/ep3797/modified_fonts_01.html> | o | |
 | media-fonts/noto-en | Noto Fonts serif, sans and UI. an English font family by Google | <http://www.google.com/get/noto/> | o | installs EN font only |
-| media-fonts/noto-sans-cjk-jp | a Japanese OpenType font family by Google | <http://www.google.com/get/noto/cjk.html> | o | installs JA font only|
+| media-fonts/noto-cjk-jp | a Japanese OpenType font family by Google | <http://www.google.com/get/noto/cjk.html> | o | installs JA font only|
 | media-fonts/pixel-mplus | Japanese TrueType monospace fonts looks like bitmap fonts, based on mplus-fonts. | <http://mix-mplus-ipa.osdn.jp/> | o | |
 | media-fonts/rounded-mgenplus | Japanese TrueType rounded font based on Source Hans Sans and M+ | <http://jikasei.me/font/rounded-mgenplus/> | o | |
 | media-fonts/rounded-mplus | Japanese TrueType rounded gothic fonts based on mplus-fonts | <http://jikasei.me/font/rounded-mplus/> | o | |
