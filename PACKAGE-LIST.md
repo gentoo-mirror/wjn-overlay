@@ -1,7 +1,7 @@
 wjn-overlay packages list
 ========
 
-- This list is updated on 2017-04-05 EDT
+- This list is updated on 2017-06-04 EDT
 
 | Package Name | Description | Upstream Website | This Overlay Only | Note |
 | ---- | ---- | ---- | ---- | ---- |
@@ -125,7 +125,6 @@ wjn-overlay packages list
 | media-sound/yoshimi | A software synthesizer based on ZynAddSubFX | <http://yoshimi.sourceforge.net/> | - | fix to build |
 | net-firewall/firewalld | Firewall daemon with D-BUS interface | <http://www.firewalld.org/> | - | newer ver. |
 | sci-calculators/galculator | GTK+ based algebraic and RPN calculator | <http://galculator.mnim.org/> | - | USE="gtk2" |
-| sys-libs/libunwind | Portable and efficient API to determine the call-chain of a program | <http://savannah.nongnu.org/projects/libunwind> | - | fix build process |
 | www-apps/nikola | A static website and blog generator | <https://getnikola.com/> | - | newer ver. |
 | www-plugins/freshplayerplugin | PPAPI-host NPAPI-plugin adapter for flashplayer in npapi based browsers | <https://github.com/i-rinat/freshplayerplugin> | - | dev ver. |
 | x11-libs/gdk-pixbuf-psd | A GdkPixbuf loader for Adobe Photoshop images | <http://cgit.sukimashita.com/gdk-pixbuf-psd.git/> | o | **UPSTEAM seems to be UNMAINTAINED**  |
