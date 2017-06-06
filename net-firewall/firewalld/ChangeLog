@@ -2,6 +2,9 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  06 Jun 2017; wjn <wjn@aol.jp> files/firewalld.init:
+  [QA] Remove no longer needed '$Id$' lines
+
 *firewalld-0.4.4.4 (26 May 2017)
 
   26 May 2017; wjn <wjn@aol.jp> +firewalld-0.4.4.4.ebuild:
