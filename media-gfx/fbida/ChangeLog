@@ -1,6 +1,12 @@
 # ChangeLog for media-gfx/fbida
-# Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
+
+  06 Jun 2017; wjn <wjn@aol.jp> fbida-2.12.ebuild:
+  [QA] Update copyright year to 2017
+
+  06 Jun 2017; wjn <wjn@aol.jp> fbida-2.12.ebuild:
+  [QA] Remove no longer needed '$Id$' lines
 
   01 Aug 2016; wjn <wjn@aol.jp> fbida-2.12.ebuild:
   Drop needless dep of app-text/ghostscript-gpl

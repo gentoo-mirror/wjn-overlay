@@ -2,6 +2,9 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  06 Jun 2017; wjn <wjn@aol.jp> bbcode-1.0.24.ebuild:
+  [QA] Remove no longer needed '$Id$' lines
+
   13 Jan 2017; wjn <wjn@aol.jp> -bbcode-1.0.21.ebuild:
   Delete old version 1.0.21
 

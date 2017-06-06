@@ -2,6 +2,9 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  06 Jun 2017; wjn <wjn@aol.jp> sylpheed-3.5.1.ebuild:
+  [QA] Remove no longer needed '$Id$' lines
+
   22 Mar 2017; wjn <wjn@aol.jp> sylpheed-3.5.1.ebuild:
   Revert removing multi-lingualization
 

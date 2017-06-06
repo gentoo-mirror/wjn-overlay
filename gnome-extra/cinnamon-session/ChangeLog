@@ -2,6 +2,12 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  06 Jun 2017; wjn <wjn@aol.jp> cinnamon-session-3.2.0.ebuild:
+  [QA] Update copyright year to 2017
+
+  06 Jun 2017; wjn <wjn@aol.jp> cinnamon-session-3.2.0.ebuild:
+  [QA] Remove no longer needed '$Id$' lines
+
 *cinnamon-session-3.2.0 (14 Feb 2017)
 
   14 Feb 2017; wjn <wjn@aol.jp> +cinnamon-session-3.2.0.ebuild,

@@ -2,6 +2,9 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  06 Jun 2017; wjn <wjn@aol.jp> mate-terminal-9999.ebuild:
+  [QA] Remove no longer needed '$Id$' lines
+
   07 Feb 2017; wjn <wjn@aol.jp> metadata.xml:
   Remove unused "gtk3" flag from metadata.xml
 

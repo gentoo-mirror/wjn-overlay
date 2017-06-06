@@ -2,6 +2,10 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  06 Jun 2017; wjn <wjn@aol.jp> cinnamon-2.8.8.ebuild,
+  cinnamon-3.0.7-r1.ebuild, cinnamon-3.2.7-r1.ebuild:
+  [QA] Remove no longer needed '$Id$' lines
+
 *cinnamon-3.2.7-r1 (14 Feb 2017)
 
   14 Feb 2017; wjn <wjn@aol.jp> +cinnamon-3.2.7-r1.ebuild:

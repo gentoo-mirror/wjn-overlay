@@ -2,6 +2,11 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  06 Jun 2017; wjn <wjn@aol.jp> azpainterb-1.0.4.ebuild,
+  azpainterb-1.0.5.ebuild, azpainterb-1.0.6.ebuild, azpainterb-1.0.7.ebuild,
+  azpainterb-1.0.8.ebuild, azpainterb-1.0.9.ebuild:
+  [QA] Remove no longer needed '$Id$' lines
+
 *azpainterb-1.0.9 (03 Jun 2017)
 
   03 Jun 2017; wjn <wjn@aol.jp> +azpainterb-1.0.9.ebuild:
