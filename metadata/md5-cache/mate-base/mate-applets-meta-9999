@@ -8,4 +8,4 @@ RDEPEND=~mate-base/mate-applets-9999[gtk3(+)=] appindicator? ( ~mate-extra/mate-
 REQUIRED_USE=appindicator? ( gtk3 ) sensors? ( gtk3 )
 SLOT=0
 _eclass_exported_funcs=-
-_md5_=a4ad6940727e012b0f87ad2a8172cb6a
+_md5_=9c22754090ff6615f79453eec8f80626
