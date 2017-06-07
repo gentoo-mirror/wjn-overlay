@@ -10,7 +10,6 @@
 		<flag name='bbcode'>Support bbcode format</flag>
 		<flag name='charts'>Support chart generation through
 			<pkg>dev-python/pygal</pkg></flag>
-		<flag name='extras'>Add all functionalities</flag>
 		<flag name='ghpages'>Support GitHub Page</flag>
 		<flag name='husl'>Add support for<pkg>dev-python/husl</pkg></flag>
 		<flag name='hyphenation'>Add hyphenation support through
@@ -25,6 +24,7 @@
 		<flag name='php'>Support <pkg>dev-python/phpserialize</pkg></flag>
 		<flag name='typogrify'>Support <pkg>dev-python/typogrify</pkg></flag>
 		<flag name='websocket'>Support <pkg>dev-python/ws4py</pkg></flag>
+		<flag name='yaml'>Support <pkg>dev-python/pyyaml</pkg></flag>
 	</use>
 	<upstream>
 		<remote-id type="github">getnikola/nikola</remote-id>
