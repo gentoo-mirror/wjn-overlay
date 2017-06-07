@@ -29,10 +29,8 @@ fi
 # CC0-1.0: nikola/data/samplesite/pages/dr-nikolas-vendetta.rst
 LICENSE="CC0-1.0 MIT"
 SLOT="0"
-IUSE="+assets bbcode charts -extras ghpages husl hyphenation ipython jinja
-	+markdown micawber php typogrify websocket"
-REQUIRED_USE="extras? ( assets bbcode charts ghpages husl hyphenation ipython
-	jinja markdown micawber php typogrify websocket )"
+IUSE="+assets bbcode charts ghpages husl hyphenation ipython jinja +markdown
+	micawber php typogrify websocket"
 
 # Generally, >=dev-python/doit-0.29.0 depends on dev-python/cloudpickle
 # But in Gentoo system, without dev-python/doit[test], cloudpickle isn't pulled
