@@ -2,6 +2,11 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*nikola-7.8.7 (07 Jun 2017)
+
+  07 Jun 2017; wjn <wjn@aol.jp> +nikola-7.8.7.ebuild:
+  Add version 7.8.7
+
   27 May 2017; wjn <wjn@aol.jp> nikola-7.8.6.ebuild:
   Remove needless PATCHES
 
