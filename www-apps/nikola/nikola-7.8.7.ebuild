@@ -21,12 +21,9 @@ if [[ ${PV} == *9999* ]]; then
 	SRC_URI=""
 	KEYWORDS=""
 else
-	# SRC_URI="mirror://pypi/N/${PN/n/N}/${P}.tar.gz"
-	SRC_URI="https://github.com/getnikola/${PN}/archive/v${PV}.zip
-		-> ${P}.zip"
+	SRC_URI="https://github.com/getnikola/${PN}/archive/v${PV}.tar.gz
+		-> ${P}.tar.gz"
 	KEYWORDS="~amd64"
-	DEPEND="${DEPEND}
-		app-arch/unzip"
 fi
 
 # CC0-1.0: nikola/data/samplesite/pages/dr-nikolas-vendetta.rst
