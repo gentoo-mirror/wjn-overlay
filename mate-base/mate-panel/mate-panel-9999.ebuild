@@ -16,7 +16,7 @@ EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-2 FDL-1.1 LGPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="X +introspection -menulibre"
+IUSE="X +introspection"
 
 COMMON_DEPEND="dev-libs/atk:0[introspection?]
 	>=dev-libs/dbus-glib-0.80:0
@@ -49,8 +49,7 @@ DEPEND="${COMMON_DEPEND}
 	mate-base/mate-common:0
 	sys-devel/gettext:0
 	virtual/pkgconfig:0"
-RDEPEND="${COMMON_DEPEND}
-	menulibre? ( x11-misc/menulibre )"
+RDEPEND="${COMMON_DEPEND}"
 
 DOCS=( AUTHORS ChangeLog HACKING NEWS README )
 
@@ -59,9 +58,6 @@ src_unpack() {
 }
 
 src_prepare() {
-	# Can't fallback to mozo without the patch
-	use menulibre || eapply "${FILESDIR}/${P}-drop-menulibre.patch"
-
 	eapply_user
 	eautoreconf
 	gnome2_src_prepare
@@ -73,4 +69,9 @@ src_configure() {
 		--disable-deprecation-flags \
 		$(use_with X x) \
 		$(use_enable introspection)
+}
+
+pkg_postinst() {
+	elog \
+	"Note: x11-misc/mozo or x11-misc/menulibre is needed to launch menu editor"
 }
