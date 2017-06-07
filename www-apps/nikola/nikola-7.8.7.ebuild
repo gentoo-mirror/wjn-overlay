@@ -21,21 +21,16 @@ if [[ ${PV} == *9999* ]]; then
 	SRC_URI=""
 	KEYWORDS=""
 else
-	# SRC_URI="mirror://pypi/N/${PN/n/N}/${P}.tar.gz"
-	SRC_URI="https://github.com/getnikola/${PN}/archive/v${PV}.zip
-		-> ${P}.zip"
+	SRC_URI="https://github.com/getnikola/${PN}/archive/v${PV}.tar.gz
+		-> ${P}.tar.gz"
 	KEYWORDS="~amd64"
-	DEPEND="${DEPEND}
-		app-arch/unzip"
 fi
 
 # CC0-1.0: nikola/data/samplesite/pages/dr-nikolas-vendetta.rst
 LICENSE="CC0-1.0 MIT"
 SLOT="0"
-IUSE="+assets bbcode charts -extras ghpages husl hyphenation ipython jinja
-	+markdown micawber php typogrify websocket"
-REQUIRED_USE="extras? ( assets bbcode charts ghpages husl hyphenation ipython
-	jinja markdown micawber php typogrify websocket )"
+IUSE="+assets bbcode charts ghpages husl hyphenation ipython jinja micawber
+	php typogrify websocket yaml"
 
 # Generally, >=dev-python/doit-0.29.0 depends on dev-python/cloudpickle
 # But in Gentoo system, without dev-python/doit[test], cloudpickle isn't pulled
@@ -48,8 +43,7 @@ REQUIRED_USE="extras? ( assets bbcode charts ghpages husl hyphenation ipython
 # https://github.com/getnikola/nikola/commit/07962cb7
 COMMON_DEPEND=">=dev-python/docutils-0.12[${PYTHON_USEDEP}]
 	>=dev-python/setuptools-20.3[${PYTHON_USEDEP}]"
-DEPEND="${COMMON_DEPEND}
-	${DEPEND}"
+DEPEND=${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	>=dev-python/blinker-1.3[${PYTHON_USEDEP}]
 	|| ( ( dev-python/cloudpickle[${PYTHON_USEDEP}]
@@ -58,6 +52,7 @@ RDEPEND="${COMMON_DEPEND}
 	>=dev-python/logbook-0.7.0[${PYTHON_USEDEP}]
 	>=dev-python/lxml-3.3.5[${PYTHON_USEDEP}]
 	>=dev-python/mako-1.0.0[${PYTHON_USEDEP}]
+	>=dev-python/markdown-2.4.0[${PYTHON_USEDEP}]
 	>=dev-python/natsort-3.5.2[${PYTHON_USEDEP}]
 	>=dev-python/pillow-2.4.0[${PYTHON_USEDEP}]
 	>=dev-python/piexif-1.0.3[${PYTHON_USEDEP}]
@@ -79,15 +74,15 @@ RDEPEND="${COMMON_DEPEND}
 	ipython? ( >=dev-python/ipykernel-4.0.0[${PYTHON_USEDEP}]
 		>=dev-python/notebook-4.0.0[${PYTHON_USEDEP}] )
 	jinja? ( >=dev-python/jinja-2.7.2[${PYTHON_USEDEP}] )
-	markdown? ( >=dev-python/markdown-2.4.0[${PYTHON_USEDEP}] )
 	micawber? ( >=dev-python/micawber-0.3.0[${PYTHON_USEDEP}] )
 	php? ( >=dev-python/phpserialize-1.3[${PYTHON_USEDEP}] )
 	typogrify? ( >=dev-python/typogrify-2.0.4[${PYTHON_USEDEP}] )
-	websocket? ( ~dev-python/ws4py-0.3.5 )"
+	websocket? ( ~dev-python/ws4py-0.4.2[${PYTHON_USEDEP}] )
+	yaml? ( =dev-python/pyyaml-3.12[${PYTHON_USEDEP}] )"
 
 # mock, coverage, pytest, pytest-cov, freezegun, codacy-coverage and colorama
 # are necessary for test.
-# https://github.com/getnikola/nikola/blob/v7.8.3/requirements-tests.txt
+# https://github.com/getnikola/nikola/blob/v7.8.7/requirements-tests.txt
 RESTRICT="mirror test"
 
 src_install() {

@@ -2,6 +2,51 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  07 Jun 2017; wjn <wjn@aol.jp> -files/nikola-7.8.5-fix-version.patch:
+  Delete a needless patch
+
+   nikola-7.8.5 is already deleted from this package
+
+  07 Jun 2017; wjn <wjn@aol.jp> metadata.xml:
+  Update metadata.xml to remove extras and add yaml
+
+*nikola-7.7.8 (07 Jun 2017)
+
+  07 Jun 2017; wjn <wjn@aol.jp> +nikola-7.7.8.ebuild:
+  Revert version 7.7.8 deletion
+
+   As of as of 2017-06-06,
+  =dev-python/ws4py-0.3.4 is newest in gentoo repository,
+  >=www-apps/nikola-7.7.9[websocket] can't be installed because of version
+  deps
+
+   And licenses/Gutenberg is needed for this 7.7.8
+
+  cf.
+   - https://github.com/getnikola/nikola/blob/v7.7.8/requirements-extras.txt
+   - https://github.com/getnikola/nikola/blob/v7.7.9/requirements-extras.txt
+
+  07 Jun 2017; wjn <wjn@aol.jp> nikola-7.8.6.ebuild:
+  QA] Remove IUSE="extras"
+
+  07 Jun 2017; wjn <wjn@aol.jp> nikola-7.8.6.ebuild, nikola-7.8.7.ebuild:
+  Change $SRC_URI from .zip to .tar.gz
+
+  07 Jun 2017; wjn <wjn@aol.jp> nikola-7.8.6.ebuild:
+  Remove a needless substitution for ${DEPENDS}
+
+  07 Jun 2017; wjn <wjn@aol.jp> nikola-7.8.6.ebuild:
+  Add [${PYTHON_USEDEP}] dependency of dev-python/ws4py
+
+  07 Jun 2017; wjn <wjn@aol.jp> -nikola-7.8.3.ebuild, -nikola-7.8.4.ebuild,
+  -nikola-7.8.5.ebuild:
+  delete old version up to 7.8.5
+
+*nikola-7.8.7 (07 Jun 2017)
+
+  07 Jun 2017; wjn <wjn@aol.jp> +nikola-7.8.7.ebuild:
+  Add version 7.8.7
+
   27 May 2017; wjn <wjn@aol.jp> nikola-7.8.6.ebuild:
   Remove needless PATCHES
 
