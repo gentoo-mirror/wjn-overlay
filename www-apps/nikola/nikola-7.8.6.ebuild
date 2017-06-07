@@ -48,8 +48,7 @@ REQUIRED_USE="extras? ( assets bbcode charts ghpages husl hyphenation ipython
 # https://github.com/getnikola/nikola/commit/07962cb7
 COMMON_DEPEND=">=dev-python/docutils-0.12[${PYTHON_USEDEP}]
 	>=dev-python/setuptools-20.3[${PYTHON_USEDEP}]"
-DEPEND="${COMMON_DEPEND}
-	${DEPEND}"
+DEPEND=${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	>=dev-python/blinker-1.3[${PYTHON_USEDEP}]
 	|| ( ( dev-python/cloudpickle[${PYTHON_USEDEP}]

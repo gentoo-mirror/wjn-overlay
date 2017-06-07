@@ -3,6 +3,9 @@
 # (auto-generated from git log)
 
   07 Jun 2017; wjn <wjn@aol.jp> nikola-7.8.6.ebuild:
+  Remove a needless substitution for ${DEPENDS}
+
+  07 Jun 2017; wjn <wjn@aol.jp> nikola-7.8.6.ebuild:
   Add [${PYTHON_USEDEP}] dependency of dev-python/ws4py
 
   07 Jun 2017; wjn <wjn@aol.jp> -nikola-7.8.3.ebuild, -nikola-7.8.4.ebuild,
