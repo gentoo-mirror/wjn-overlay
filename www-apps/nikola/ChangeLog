@@ -2,6 +2,11 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  07 Jun 2017; wjn <wjn@aol.jp> -files/nikola-7.8.5-fix-version.patch:
+  Delete a needless patch
+
+   nikola-7.8.5 is already deleted from this package
+
   07 Jun 2017; wjn <wjn@aol.jp> metadata.xml:
   Update metadata.xml to remove extras and add yaml
 
