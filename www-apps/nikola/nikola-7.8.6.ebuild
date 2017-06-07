@@ -83,7 +83,7 @@ RDEPEND="${COMMON_DEPEND}
 	micawber? ( >=dev-python/micawber-0.3.0[${PYTHON_USEDEP}] )
 	php? ( >=dev-python/phpserialize-1.3[${PYTHON_USEDEP}] )
 	typogrify? ( >=dev-python/typogrify-2.0.4[${PYTHON_USEDEP}] )
-	websocket? ( ~dev-python/ws4py-0.4.1 )"
+	websocket? ( ~dev-python/ws4py-0.4.2[${PYTHON_USEDEP}] )"
 
 # mock, coverage, pytest, pytest-cov, freezegun, codacy-coverage and colorama
 # are necessary for test.
