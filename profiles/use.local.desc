@@ -151,7 +151,6 @@ sci-calculators/galculator:gtk3 - Build for gtk+:3 instead of gtk+:2
 www-apps/nikola:assets - Support web asset management through dev-python/assets
 www-apps/nikola:bbcode - Support bbcode format
 www-apps/nikola:charts - Support chart generation through dev-python/pygal
-www-apps/nikola:extras - Add all functionalities
 www-apps/nikola:ghpages - Support GitHub Page
 www-apps/nikola:husl - Add support fordev-python/husl
 www-apps/nikola:hyphenation - Add hyphenation support through dev-python/pyphen
@@ -162,6 +161,7 @@ www-apps/nikola:micawber - Support dev-python/micawber
 www-apps/nikola:php - Support dev-python/phpserialize
 www-apps/nikola:typogrify - Support dev-python/typogrify
 www-apps/nikola:websocket - Support dev-python/ws4py
+www-apps/nikola:yaml - Support dev-python/pyyaml
 www-plugins/freshplayerplugin:gtk3 - Build with GTK+ 3 instead of GTK+ 2
 x11-misc/mate-notification-daemon:gtk3 - Build for gtk+:3 instead of gtk+:2. EXPERIMENTAL
 x11-misc/screengrab:xdg - Place config files into $XDG_CONFIG_HOME
