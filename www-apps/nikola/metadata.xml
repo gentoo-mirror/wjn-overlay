@@ -23,6 +23,8 @@
 		<flag name='micawber'>Support <pkg>dev-python/micawber</pkg></flag>
 		<flag name='php'>Support <pkg>dev-python/phpserialize</pkg></flag>
 		<flag name='typogrify'>Support <pkg>dev-python/typogrify</pkg></flag>
+		<flag name='watchdog'>Support <pkg>dev-python/watchdog</pkg>
+			to monitor file system events</flag>
 		<flag name='websocket'>Support <pkg>dev-python/ws4py</pkg></flag>
 		<flag name='yaml'>Support <pkg>dev-python/pyyaml</pkg></flag>
 	</use>

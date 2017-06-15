@@ -30,7 +30,7 @@ fi
 LICENSE="CC0-1.0 MIT"
 SLOT="0"
 IUSE="+assets bbcode charts ghpages husl hyphenation ipython jinja micawber
-	php typogrify websocket yaml"
+	php typogrify watchdog websocket yaml"
 
 # Generally, >=dev-python/doit-0.29.0 depends on dev-python/cloudpickle
 # But in Gentoo system, without dev-python/doit[test], cloudpickle isn't pulled
@@ -61,7 +61,6 @@ RDEPEND="${COMMON_DEPEND}
 	>=dev-python/python-dateutil-2.4.0[${PYTHON_USEDEP}]
 	>=dev-python/requests-2.2.0[${PYTHON_USEDEP}]
 	>=dev-python/unidecode-0.04.16[${PYTHON_USEDEP}]
-	~dev-python/watchdog-0.8.3[${PYTHON_USEDEP}]
 	>=dev-python/yapsy-1.11.223[${PYTHON_USEDEP}]
 	assets? ( >=dev-python/webassets-0.10.1[${PYTHON_USEDEP}] )
 	bbcode? ( dev-python/bbcode[${PYTHON_USEDEP}] )
@@ -76,6 +75,7 @@ RDEPEND="${COMMON_DEPEND}
 	micawber? ( >=dev-python/micawber-0.3.0[${PYTHON_USEDEP}] )
 	php? ( >=dev-python/phpserialize-1.3[${PYTHON_USEDEP}] )
 	typogrify? ( >=dev-python/typogrify-2.0.4[${PYTHON_USEDEP}] )
+	watchdog? ( ~dev-python/watchdog-0.8.3[${PYTHON_USEDEP}] )
 	websocket? ( ~dev-python/ws4py-0.4.2[${PYTHON_USEDEP}] )
 	yaml? ( =dev-python/pyyaml-3.12[${PYTHON_USEDEP}] )"
 
