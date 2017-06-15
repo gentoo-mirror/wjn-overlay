@@ -58,7 +58,6 @@ RDEPEND="${COMMON_DEPEND}
 	>=dev-python/pygments-1.6[${PYTHON_USEDEP}]
 	>=dev-python/PyRSS2Gen-1.1[${PYTHON_USEDEP}]
 	>=dev-python/python-dateutil-2.4.0[${PYTHON_USEDEP}]
-	>=dev-python/pytz-2013d[${PYTHON_USEDEP}]
 	>=dev-python/requests-2.2.0[${PYTHON_USEDEP}]
 	>=dev-python/unidecode-0.04.16[${PYTHON_USEDEP}]
 	~dev-python/watchdog-0.8.3[${PYTHON_USEDEP}]
