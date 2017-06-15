@@ -160,6 +160,7 @@ www-apps/nikola:markdown - Add support for Markdown as alternative markup langua
 www-apps/nikola:micawber - Support dev-python/micawber
 www-apps/nikola:php - Support dev-python/phpserialize
 www-apps/nikola:typogrify - Support dev-python/typogrify
+www-apps/nikola:watchdog - Support dev-python/watchdog to monitor file system events
 www-apps/nikola:websocket - Support dev-python/ws4py
 www-apps/nikola:yaml - Support dev-python/pyyaml
 www-plugins/freshplayerplugin:gtk3 - Build with GTK+ 3 instead of GTK+ 2
