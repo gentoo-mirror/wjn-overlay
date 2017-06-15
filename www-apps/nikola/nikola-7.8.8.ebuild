@@ -5,7 +5,7 @@ EAPI=6
 
 # Some dependended pakages still don't have [python_targets_python3_5]
 # Should wait for their update
-# - dev-python/doit, dev-python/ghp-import, dev-python/micawber
+# - dev-python/ghp-import, dev-python/micawber
 # PYTHON_COMPAT=( python{2_7,3_4,3_5} )
 PYTHON_COMPAT=( python{2_7,3_4} )
 PYTHON_REQ_USE="gdbm"

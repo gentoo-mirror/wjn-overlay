@@ -2,6 +2,10 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  15 Jun 2017; wjn <wjn@aol.jp> nikola-7.8.6.ebuild, nikola-7.8.7.ebuild,
+  nikola-7.8.8.ebuild:
+  Now, dev-python/doit has [python_targets_python3_5]
+
 *nikola-7.8.8 (15 Jun 2017)
 
   15 Jun 2017; wjn <wjn@aol.jp> +nikola-7.8.8.ebuild:
