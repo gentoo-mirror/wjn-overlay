@@ -2,6 +2,24 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  15 Jun 2017; wjn <wjn@aol.jp> nikola-7.7.8.ebuild, nikola-7.8.6.ebuild,
+  nikola-7.8.7.ebuild, nikola-7.8.8.ebuild:
+  dev-python/ghp-import should be >=0.4.1-r1
+
+   dev-python/ghp-import-0.4.1 has a bug about UTF-8 encordings.
+  dev-python/ghp-import-0.4.1-r1 fixes this bug.
+
+   Upstream is fixed as of version 0.5.0
+   cf. https://github.com/davisp/ghp-import/commit/9b6311
+
+   Note:
+    Nikola prefers ghp-import2 to ghp-import
+    https://github.com/getnikola/nikola/commit/7f7f660
+
+  15 Jun 2017; wjn <wjn@aol.jp> nikola-7.8.6.ebuild, nikola-7.8.7.ebuild,
+  nikola-7.8.8.ebuild:
+  Now, dev-python/doit has [python_targets_python3_5]
+
 *nikola-7.8.8 (15 Jun 2017)
 
   15 Jun 2017; wjn <wjn@aol.jp> +nikola-7.8.8.ebuild:

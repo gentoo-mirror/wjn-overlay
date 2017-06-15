@@ -5,7 +5,7 @@ EAPI=6
 
 # Some dependended pakages still don't have [python_targets_python3_5]
 # Should wait for their update
-# - dev-python/doit, dev-python/ghp-import, dev-python/micawber
+# - dev-python/ghp-import, dev-python/micawber
 # PYTHON_COMPAT=( python{2_7,3_4,3_5} )
 PYTHON_COMPAT=( python{2_7,3_4} )
 PYTHON_REQ_USE="gdbm"
@@ -65,7 +65,7 @@ RDEPEND="${COMMON_DEPEND}
 	assets? ( >=dev-python/webassets-0.10.1[${PYTHON_USEDEP}] )
 	bbcode? ( dev-python/bbcode[${PYTHON_USEDEP}] )
 	charts? ( >=dev-python/pygal-2.0.0[${PYTHON_USEDEP}] )
-	ghpages? ( || ( >=dev-python/ghp-import-0.4.1[${PYTHON_USEDEP}]
+	ghpages? ( || ( >=dev-python/ghp-import-0.4.1-r1[${PYTHON_USEDEP}]
 		>=dev-python/ghp-import2-1.0.0[${PYTHON_USEDEP}] ) )
 	husl? ( >=dev-python/husl-4.0.2[${PYTHON_USEDEP}] )
 	hyphenation? ( >=dev-python/pyphen-0.9.1[${PYTHON_USEDEP}] )
