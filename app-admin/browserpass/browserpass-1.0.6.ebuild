@@ -4,20 +4,20 @@
 EAPI=6
 
 EGO_PN="github.com/dannyvankooten/${PN}"
-EGIT_COMMIT="1.0.2"
+EGIT_COMMIT=${PV}
 
 inherit golang-build golang-vcs-snapshot
 
 DESCRIPTION="Host application required by Browserpass extension for ZX2C4's pass"
 HOMEPAGE="https://github.com/dannyvankooten/browserpass"
-SRC_URI="https://${EGO_PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/dannyvankooten/${PN}/archive/${PV}.tar.gz
+	-> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 -x86"
 
-COMMON_DEPEND="!!app-admin/browserpass-binary-component
-	dev-go/go-zglob"
+COMMON_DEPEND="!!app-admin/browserpass-bin"
 DEPEND=${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	app-admin/pass
@@ -26,7 +26,9 @@ RDEPEND="${COMMON_DEPEND}
 		www-client/google-chrome-unstable
 		www-client/chromium
 		>=www-client/firefox-50
-		>=www-client/firefox-bin-50 )"
+		>=www-client/firefox-bin-50
+		www-client/vivaldi
+		www-client/vivaldi-snapshot )"
 
 S="$WORKDIR/${P}/src/${EGO_PN}"
 RESTRICT="mirror"
@@ -41,6 +43,13 @@ src_prepare() {
 
 	cp chrome/host.json chrome/com.dannyvankooten.browserpass.json
 	cp firefox/host.json firefox/com.dannyvankooten.browserpass.json
+}
+
+src_compile() {
+	GOPATH="${WORKDIR}/${P}:$(get_golibdir_gopath)" \
+		go build -v -work -x ${EGO_BUILD_FLAGS} "${EGO_PN}/cmd/browserpass"
+
+	golang-build_src_compile
 }
 
 src_install() {
