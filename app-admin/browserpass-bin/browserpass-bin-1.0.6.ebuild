@@ -23,7 +23,9 @@ RDEPEND="${COMMON_DEPEND}
 		www-client/google-chrome-unstable
 		www-client/chromium
 		>=www-client/firefox-50
-		>=www-client/firefox-bin-50 )"
+		>=www-client/firefox-bin-50
+		www-client/vivaldi
+		www-client/vivaldi-snapshot )"
 
 S=${WORKDIR}
 RESTRICT="mirror"
