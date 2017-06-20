@@ -5,7 +5,8 @@ EAPI=6
 
 # Some dependended pakages still don't have [python_targets_python3_5]
 # Should wait for their update
-# - dev-python/ghp-import, dev-python/micawber
+# - dev-python/ghp-import should be >=0.5.5 but 0.4.1-r1::gentoo
+# - dev-python/micawber should be >=0.3.4 but 0.3.3::gentoo
 # PYTHON_COMPAT=( python{2_7,3_4,3_5} )
 PYTHON_COMPAT=( python{2_7,3_4} )
 PYTHON_REQ_USE="gdbm"
@@ -81,7 +82,7 @@ RDEPEND="${COMMON_DEPEND}
 
 # mock, coverage, pytest, pytest-cov, freezegun, codacy-coverage and colorama
 # are necessary for test.
-# https://github.com/getnikola/nikola/blob/v7.8.7/requirements-tests.txt
+# https://github.com/getnikola/nikola/blob/v7.8.9/requirements-tests.txt
 RESTRICT="mirror test"
 
 src_install() {
