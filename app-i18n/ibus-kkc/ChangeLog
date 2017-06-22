@@ -2,6 +2,9 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  22 Jun 2017; wjn <wjn@aol.jp> ibus-kkc-1.5.22.ebuild, ibus-kkc-9999.ebuild:
+  Use ${VALA_MIN_API_VERSION} for Vala dep
+
   06 Jun 2017; wjn <wjn@aol.jp> ibus-kkc-1.5.22.ebuild, ibus-kkc-9999.ebuild:
   [QA] Remove no longer needed '$Id$' lines
 
