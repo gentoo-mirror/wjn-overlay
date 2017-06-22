@@ -17,7 +17,8 @@ if [[ ${PV} = *9999* ]]; then
 	EGIT_REPO_URI="https://github.com/ueno/libkkc.git"
 	EGIT_BRANCH="master"
 else
-	SRC_URI="https://github.com/ueno/${PN}/releases/download/v${PV}/${P}.tar.gz"
+	SRC_URI="https://github.com/ueno/libkkc/archive/v${PV}.tar.gz
+		-> ${P}.tar.gz"
 fi
 
 LICENSE="GPL-3+"
