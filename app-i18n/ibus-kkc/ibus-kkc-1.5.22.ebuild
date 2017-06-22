@@ -3,6 +3,8 @@
 
 EAPI=5
 
+VALA_MIN_API_VERSION="0.24"
+
 inherit autotools git-r3 vala
 
 DESCRIPTION="Japanese Kana Kanji input engine for IBus"
@@ -23,7 +25,7 @@ COMMON_DEPEND=">=app-i18n/ibus-1.5
 	>=app-i18n/libkkc-0.3.4
 	>=x11-libs/gtk+-3.10:3"
 DEPEND="${COMMON_DEPEND}
-	>=dev-lang/vala-0.10.0
+	$(vala_depend)
 	dev-libs/glib:2
 	>=dev-util/intltool-0.35.0
 	virtual/pkgconfig"
