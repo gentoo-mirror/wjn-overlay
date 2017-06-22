@@ -31,6 +31,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	dev-libs/libgee:0.8
 	dev-libs/marisa[python,${PYTHON_USEDEP}]"
 DEPEND="${COMMON_DEPEND}
+	$(vala_depend)
 	dev-util/intltool
 	virtual/pkgconfig
 	introspection? ( >=dev-libs/gobject-introspection-0.9.0 )
