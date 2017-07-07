@@ -1,0 +1,14 @@
+DEFINED_PHASES=configure install postinst
+DEPEND=x11-libs/gtk+:2 crypt? ( app-crypt/gpgme ) ldap? ( net-nds/openldap ) nls? ( sys-devel/gettext ) oniguruma? ( dev-libs/oniguruma ) pda? ( app-pda/jpilot ) spell? ( app-text/gtkspell:2 ) ssl? ( || ( dev-libs/openssl:0 dev-libs/libressl ) ) virtual/pkgconfig linguas_ja? ( app-i18n/nkf ) xface? ( media-libs/compface )
+DESCRIPTION=A lightweight email client and newsreader
+EAPI=6
+HOMEPAGE=http://sylpheed.sraoss.jp/
+IUSE=crypt ipv6 ldap nls oniguruma pda spell ssl xface linguas_ja
+LICENSE=GPL-2 LGPL-2.1
+RDEPEND=x11-libs/gtk+:2 crypt? ( app-crypt/gpgme ) ldap? ( net-nds/openldap ) nls? ( sys-devel/gettext ) oniguruma? ( dev-libs/oniguruma ) pda? ( app-pda/jpilot ) spell? ( app-text/gtkspell:2 ) ssl? ( || ( dev-libs/openssl:0 dev-libs/libressl ) ) app-misc/mime-types net-misc/curl
+RESTRICT=mirror
+SLOT=0
+SRC_URI=mirror://osdn/sylpheed/67949/sylpheed-3.6.0.tar.bz2
+_eclass_exported_funcs=pkg_postinst:- src_configure:- src_install:-
+_eclasses_=l10n	2c2e15383ba891d642f51896a7f0ecfe	ltprune	2770eed66a9b8ef944714cd0e968182e	multilib	97f470f374f2e94ccab04a2fb21d811e	toolchain-funcs	8fec6b1eb195836560e70b66d98fb163
+_md5_=08b50ca585d0d59df06b18a00545e74b

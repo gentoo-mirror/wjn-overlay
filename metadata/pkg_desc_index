@@ -43,7 +43,7 @@ gnome-extra/cinnamon-session 3.2.0 3.4.1: Cinnamon session manager
 gnome-extra/cinnamon-settings-daemon 2.8.3 2.8.4 3.0.1 3.2.0: Cinnamon's settings daemon
 gnome-extra/gnome-tweak-tool 3.20.1 3.22.0: Tool to customize GNOME 3 options
 gnome-extra/nemo 3.4.4: A file manager for Cinnamon, forked from Nautilus
-mail-client/sylpheed 3.5.1: A lightweight email client and newsreader
+mail-client/sylpheed 3.5.1 3.6.0: A lightweight email client and newsreader
 mate-base/caja 9999: Caja file manager for MATE desktop
 mate-base/libmatekbd 9999: MATE keyboard configuration library
 mate-base/mate 9999: Meta ebuild for MATE, a traditional desktop environment
