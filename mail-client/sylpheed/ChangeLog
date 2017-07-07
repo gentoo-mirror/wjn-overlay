@@ -2,6 +2,11 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*sylpheed-3.6.0 (07 Jul 2017)
+
+  07 Jul 2017; wjn <wjn@aol.jp> +sylpheed-3.6.0.ebuild:
+  Add version 3.6.0
+
   06 Jun 2017; wjn <wjn@aol.jp> sylpheed-3.5.1.ebuild:
   [QA] Remove no longer needed '$Id$' lines
 
