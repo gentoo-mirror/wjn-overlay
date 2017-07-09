@@ -2,6 +2,13 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*gnome-settings-daemon-3.22.2-r1 (09 Jul 2017)
+
+  09 Jul 2017; wjn <wjn@aol.jp> +files/3.22.2-udevrulesdir-configure.patch,
+  files/gnome-settings-daemon-3.22.0-optional.patch,
+  +gnome-settings-daemon-3.22.2-r1.ebuild:
+  Add 3.22.2-r1 to add gentoo's patches
+
 *gnome-settings-daemon-3.22.2 (22 Mar 2017)
 
   22 Mar 2017; wjn <wjn@aol.jp> +gnome-settings-daemon-3.22.2.ebuild:
