@@ -2,6 +2,9 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  09 Jul 2017; wjn <wjn@aol.jp> gnome-settings-daemon-3.22.2-r1.ebuild:
+  Drop defaulting deprecated upower-pm-utils
+
 *gnome-settings-daemon-3.22.2-r1 (09 Jul 2017)
 
   09 Jul 2017; wjn <wjn@aol.jp> +files/3.22.2-udevrulesdir-configure.patch,

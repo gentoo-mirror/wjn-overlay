@@ -19,7 +19,7 @@ LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS=""
 
-IUSE="+colord +cups debug +deprecated input_devices_wacom networkmanager policykit smartcard systemd test +udev wayland"
+IUSE="+colord +cups debug deprecated input_devices_wacom networkmanager policykit smartcard systemd test +udev wayland"
 REQUIRED_USE="
 	input_devices_wacom? ( udev )
 	smartcard? ( udev )
