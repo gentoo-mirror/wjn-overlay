@@ -2,6 +2,9 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  09 Jul 2017; wjn <wjn@aol.jp> gnome-settings-daemon-3.22.2-r1.ebuild:
+  Remove eautoreconf, gnome2_src_prepare does
+
   09 Jul 2017; wjn <wjn@aol.jp>
   -files/gnome-settings-daemon-3.16.0-optional.patch,
   -files/gnome-settings-daemon-3.18.2-restore-deprecated-code.patch,

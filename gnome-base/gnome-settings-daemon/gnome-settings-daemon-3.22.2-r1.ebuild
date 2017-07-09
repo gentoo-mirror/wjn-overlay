@@ -125,7 +125,6 @@ src_prepare() {
 		eapply "${FILESDIR}"/${PN}-3.22.1-restore-deprecated-code.patch
 	fi
 
-	eautoreconf
 	gnome2_src_prepare
 }
 
