@@ -3,9 +3,9 @@
 # $Header: $
 
 # This ebuild file is derived from
-# https://github.com/dantrell/gentoo-overlay-dantrell-gnome-3-20
+# https://github.com/dantrell/gentoo-overlay-dantrell-gnome-3-22
 
-EAPI="6"
+EAPI=6
 
 GNOME2_LA_PUNT="yes"
 PYTHON_COMPAT=( python{2_7,3_4,3_5} )
@@ -19,7 +19,7 @@ LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS=""
 
-IUSE="+colord +cups debug +deprecated input_devices_wacom networkmanager policykit smartcard systemd test +udev wayland"
+IUSE="+colord +cups debug deprecated input_devices_wacom networkmanager policykit smartcard systemd test +udev wayland"
 REQUIRED_USE="
 	input_devices_wacom? ( udev )
 	smartcard? ( udev )
@@ -103,6 +103,13 @@ DEPEND="${COMMON_DEPEND}
 	>=x11-proto/xproto-7.0.15
 "
 
+PATCHES=(
+	# Make colord and wacom optional; requires eautoreconf
+	"${FILESDIR}"/${PN}-3.22.0-optional.patch
+	# Allow specifying udevrulesdir via configure, bug 509484; requires eautoreconf
+	"${FILESDIR}"/${PV}-udevrulesdir-configure.patch
+)
+
 python_check_deps() {
 	use test && has_version "dev-python/pygobject:3[${PYTHON_USEDEP}]"
 }
@@ -115,13 +122,9 @@ src_prepare() {
 	if use deprecated; then
 		# From Funtoo:
 		# 	https://bugs.funtoo.org/browse/FL-1329
-		eapply "${FILESDIR}"/${PN}-3.18.2-restore-deprecated-code.patch
+		eapply "${FILESDIR}"/${PN}-3.22.1-restore-deprecated-code.patch
 	fi
 
-	# Make colord and wacom optional; requires eautoreconf
-	eapply "${FILESDIR}"/${PN}-3.16.0-optional.patch
-
-	eautoreconf
 	gnome2_src_prepare
 }
 
