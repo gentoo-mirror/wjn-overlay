@@ -3,12 +3,14 @@
 
 EAPI=6
 
-# Some dependended pakages still don't have [python_targets_python3_5]
+# Though Nikola supports Python 3.6 ( See Upstream: 774a626 ),
+# some dependended pakages still don't have [python_targets_python3_6]
 # Should wait for their update
-# - dev-python/ghp-import should be >=0.5.5 but 0.4.1-r1::gentoo
-# - dev-python/micawber should be >=0.3.4 but 0.3.3::gentoo
-# PYTHON_COMPAT=( python{2_7,3_4,3_5} )
-PYTHON_COMPAT=( python{2_7,3_4} )
+# dev-python/ghp-import2	dev-python/husl		dev-python/phpserialize
+# dev-python/pygal			dev-python/pyphen	dev-python/typogrify
+# dev-python/webassets		dev-python/ws4py	dev-python/yapsy
+# PYTHON_COMPAT=( python{2_7,3_4,3_5,3_6} )
+PYTHON_COMPAT=( python{2_7,3_4,3_5} )
 PYTHON_REQ_USE="gdbm"
 
 inherit distutils-r1 python-r1
