@@ -2,6 +2,13 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  13 Jul 2017; wjn <wjn@aol.jp> firewalld-0.4.4.2.ebuild,
+  firewalld-0.4.4.4.ebuild, firewalld-0.4.4.5.ebuild:
+  Add python{3_5,3_6} to PYTHON_COMPAT
+
+   Now, depended dev-python/python-slip package supports Python 3.5 and 3.6
+  ( See Gentoo: 368afaa )
+
 *firewalld-0.4.4.5 (21 Jun 2017)
 
   21 Jun 2017; wjn <wjn@aol.jp> +firewalld-0.4.4.5.ebuild:
