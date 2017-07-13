@@ -28,23 +28,12 @@ SLOT="0"
 IUSE="+assets bbcode charts ghpages hyphenation ipython jinja +markdown
 	micawber php typogrify watchdog websocket"
 
-# Generally, >=dev-python/doit-0.29.0 depends on dev-python/cloudpickle
-# But in Gentoo system, without dev-python/doit[test], cloudpickle isn't pulled
-# Since nikola depends on doit with cloudpickle,
-# dev-python/cloudpickle should be added to ${RDEPEND}
-#
-# Upstream makes the constraint of <=dev-python/doit-0.29.0,
-# but it's for Python 2 compatibility.
-# Gentoo users can install Nikola based on Python 3.
-# https://github.com/getnikola/nikola/commit/07962cb7
 COMMON_DEPEND=">=dev-python/docutils-0.12[${PYTHON_USEDEP}]
 	>=dev-python/setuptools-5.4.1[${PYTHON_USEDEP}]"
 DEPEND=${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	>=dev-python/blinker-1.3[${PYTHON_USEDEP}]
-	|| ( ( dev-python/cloudpickle[${PYTHON_USEDEP}]
-			>=dev-python/doit-0.29.0[${PYTHON_USEDEP}] )
-		=dev-python/doit-0.28*[${PYTHON_USEDEP}] )
+	>=dev-python/doit-0.29.0[${PYTHON_USEDEP}]
 	>=dev-python/husl-4.0.2[${PYTHON_USEDEP}]
 	>=dev-python/logbook-0.7.0[${PYTHON_USEDEP}]
 	>=dev-python/lxml-3.3.5[${PYTHON_USEDEP}]

@@ -4,6 +4,13 @@
 
   13 Jul 2017; wjn <wjn@aol.jp> nikola-7.7.8.ebuild, nikola-7.8.8.ebuild,
   nikola-7.8.9.ebuild:
+  Remove dev-python/cloudpickle from ${RDEPEND}
+
+   The bug fixed in Gentoo repository: 08fc738
+  that cloudpickle is always needed by doit
+
+  13 Jul 2017; wjn <wjn@aol.jp> nikola-7.7.8.ebuild, nikola-7.8.8.ebuild,
+  nikola-7.8.9.ebuild:
   Add python3_5 to PYTHON_COMPAT
 
 *nikola-7.8.9 (20 Jun 2017)
