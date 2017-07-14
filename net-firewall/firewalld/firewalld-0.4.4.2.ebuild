@@ -5,8 +5,7 @@
 
 EAPI=6
 
-# Need dev-python/python-slip which doesn't support Python 3.5 yet
-PYTHON_COMPAT=( python{2_7,3_4} )
+PYTHON_COMPAT=( python{2_7,3_4,3_5,3_6} )
 
 inherit autotools gnome2-utils python-r1 systemd multilib bash-completion-r1
 
