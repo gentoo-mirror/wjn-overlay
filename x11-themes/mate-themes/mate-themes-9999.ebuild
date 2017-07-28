@@ -3,7 +3,7 @@
 
 EAPI=6
 
-inherit autotools git-r3
+inherit autotools git-r3 gnome2-utils
 
 DESCRIPTION="A theme set for MATE desktop"
 HOMEPAGE="http://mate-desktop.org/
@@ -22,7 +22,7 @@ KEYWORDS=""
 COMMON_DEPEND=">=x11-libs/gdk-pixbuf-2.0.0:2
 	|| ( ( >=x11-libs/gtk+-2.0.0:2
 			>=x11-themes/gtk-engines-2.15.3:2
-			x11-themes/murrine-themes:0 )
+			x11-themes/gtk-engines-murrine )
 		>=x11-libs/gtk+-3.16.0:3= )"
 DEPEND="${COMMON_DEPEND}
 	>=dev-util/intltool-0.35:0
@@ -49,6 +49,18 @@ pkg_setup(){
 }
 
 src_prepare() {
-	eapply_user
+	default
 	eautoreconf
+}
+
+pkg_preinst() {
+        gnome2_icon_savelist
+}
+
+pkg_postinst() {
+        gnome2_icon_cache_update
+}
+
+pkg_postrm() {
+        gnome2_icon_cache_update
 }
