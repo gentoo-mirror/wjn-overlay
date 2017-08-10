@@ -86,7 +86,6 @@ wjn-overlay packages list
 | media-fonts/koku-mincho | Japanese mincho TTF based on IPAex, has smaller kana letter | <http://freefonts.jp/font-koku-min.html> | o | |
 | media-fonts/komatuna-fonts | Komatuna fonts are modified Konatu and M+ fonts for Japanese | <http://www.geocities.jp/ep3797/modified_fonts_01.html> | o | |
 | media-fonts/konatu | Japanese TrueType sans-serif font made for BeOS | <http://www.masuseki.com/?u=be/konatu.htm> | o | |
-| media-fonts/koruri | Japanese TrueType font obtained by mixing M+ FONTS and Open Sans | <http://koruri.lindwurm.biz/> | - | newer ver. |
 | media-fonts/meguri-fonts | Meguri fonts are modified IPA and M+ fonts for Japanese | <http://www.geocities.jp/ep3797/modified_fonts_01.html> | o | |
 | media-fonts/mgenplus | Japanese TrueType font based on Source Hans Sans and M+ | <http://jikasei.me/font/mgenplus/> | o | |
 | media-fonts/migu-vbd | Japanse fonts mixed mplus, IPA-font and also DejaVu, Bitter or Droid. | <http://mix-mplus-ipa.osdn.jp/migu/> | o | |
