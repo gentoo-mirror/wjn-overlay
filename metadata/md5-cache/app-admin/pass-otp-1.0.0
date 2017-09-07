@@ -9,5 +9,4 @@ RDEPEND=app-shells/bash >=app-admin/pass-1.7 media-gfx/qrencode sys-auth/oath-to
 RESTRICT=mirror
 SLOT=0
 SRC_URI=https://github.com/tadfisher/pass-otp/archive/v1.0.0.tar.gz -> pass-otp-1.0.0.tar.gz
-_eclass_exported_funcs=pkg_postinst:- src_compile:-
 _md5_=a615f7ffb5e2c4140f302819aed92af9

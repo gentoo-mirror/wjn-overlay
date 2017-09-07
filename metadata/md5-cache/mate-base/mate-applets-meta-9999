@@ -7,5 +7,4 @@ LICENSE=metapackage
 RDEPEND=~mate-base/mate-applets-9999[gtk3(+)=] appindicator? ( ~mate-extra/mate-indicator-applet-9999 ) sensors? ( ~mate-extra/mate-sensors-applet-9999 )
 REQUIRED_USE=appindicator? ( gtk3 ) sensors? ( gtk3 )
 SLOT=0
-_eclass_exported_funcs=-
 _md5_=9c22754090ff6615f79453eec8f80626
