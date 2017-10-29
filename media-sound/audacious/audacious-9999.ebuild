@@ -8,7 +8,7 @@ PLOCALES="ast be bg ca cmn cs da de el en_GB eo es_AR es_MX es et eu fa_IR fi
 	sq sr@latin sr sr_RS sv ta tr uk vi zh_CN zh_TW"
 PLOCALE_BACKUP="en_GB"
 
-inherit autotools git-r3 l10n
+inherit autotools git-r3 gnome2-utils l10n xdg-utils
 
 DESCRIPTION="A lightweight and versatile audio player"
 HOMEPAGE="http://audacious-media-player.org/"
@@ -78,10 +78,19 @@ src_install() {
 }
 
 pkg_postinst() {
+	xdg_desktop_database_update
+
+	use gtk && gnome2_icon_cache_update
+
 	if use qt5 && use gtk ; then
 		ewarn 'It is not possible to switch between GTK+ and Qt while Audacious is running.'
 		ewarn 'Run audacious --qt to get the Qt interface.'
 	fi
+}
+
+pkg_postrm() {
+	gnome2_icon_cache_update
+	xdg_desktop_database_update
 }
 
 remove_locales() {
