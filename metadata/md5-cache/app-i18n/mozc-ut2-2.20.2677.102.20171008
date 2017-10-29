@@ -9,6 +9,6 @@ RDEPEND=python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/
 REQUIRED_USE=|| ( emacs fcitx ibus uim ) tomoe? ( qt5 )
 RESTRICT=mirror test
 SLOT=0
-SRC_URI=mirror://osdn/users/11/11937/mozcdic-ut2-20170529.tar.bz2 http://www.post.japanpost.jp/zipcode/dl/kogaki/zip/ken_all.zip -> jp-zipcode201607-1.zip http://www.post.japanpost.jp/zipcode/dl/jigyosyo/zip/jigyosyo.zip -> jp-zipcode201607-2.zip fcitx? ( http://download.fcitx-im.org/fcitx-mozc/fcitx-mozc-2.18.2612.102.1.patch )
+SRC_URI=mirror://osdn/users/16/16039/mozcdic-ut2-20171008.tar.bz2 http://www.post.japanpost.jp/zipcode/dl/kogaki/zip/ken_all.zip -> jp-zipcode201609-1.zip http://www.post.japanpost.jp/zipcode/dl/jigyosyo/zip/jigyosyo.zip -> jp-zipcode201609-2.zip fcitx? ( http://download.fcitx-im.org/fcitx-mozc/fcitx-mozc-2.18.2612.102.1.patch )
 _eclasses_=elisp-common	23f47b2e1de7abf387105eddd1318738	epatch	8233751dc5105a6ae8fcd86ce2bb0247	estack	43ddf5aaffa7a8d0482df54d25a66a1f	eutils	227b041a120d309fdefbebb3b8c1dfa9	git-r3	30cba6dae5b86530969e623c0922ab08	ltprune	2770eed66a9b8ef944714cd0e968182e	multilib	97f470f374f2e94ccab04a2fb21d811e	python-single-r1	317a2557b4d7319a7418225f65accf77	python-utils-r1	c9de01becf9df3f8c10aeec3dc693f5d	toolchain-funcs	185a06792159ca143528e7010368e8af	versionator	c80ccf29e90adea7c5cae94b42eb76d0
-_md5_=68c6a9630d17b73b3e04e2fdb0abc43a
+_md5_=68dcc2407ea900a3e202f3b6f384f5ef
