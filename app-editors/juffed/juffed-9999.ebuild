@@ -59,7 +59,7 @@ src_configure() {
 	local mycmakeargs=( -DUSE_SYSTEM_QTSINGLEAPPLICATION=ON -DUSE_ENCA=ON
 		-DUSE_QT5="$(usex qt5)"
 		-DQT_LIBRARY_DIR="/usr/$(get_libdir)$(usex qt5 / /qt4)"
-		-DQSCINTILLA_LIBRARY="/usr/$(get_libdir)/libqscintilla2.so" )
+		-DQSCINTILLA_LIBRARY="/usr/$(get_libdir)/libqscintilla2_qt5.so" )
 
 	cmake-utils_src_configure
 }

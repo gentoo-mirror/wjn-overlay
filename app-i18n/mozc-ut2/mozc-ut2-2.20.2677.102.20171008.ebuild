@@ -22,10 +22,10 @@ FCITX_PATCH_VER="2.18.2612.102.1"
 UIM_PATCH_REV="3ea28b1"
 
 # Zip code data are revised on the last of every month
-ZIPCODE_REV="201607"
+ZIPCODE_REV="201609"
 
 UT2_REL=$(get_version_component_range $(get_version_component_count))
-UT2_DIR="11/11937"
+UT2_DIR="16/16039"
 #######################
 
 # Assign URI variables #########
@@ -404,6 +404,26 @@ generate-mozc-ut2() {
 	# For running UT2 scripts ############
 	cd "${UT2_S}/src"
 
+	ebegin "Filtering the original dictionaries"
+	for n in $(seq 0 9) ; do
+		ruby filter-mozc-entries.rb \
+			"${S}"/data/dictionary_oss/dictionary0${n}.txt || die &
+		if [ $(((${n}+1)%($(nproc)-1))) -eq 0 ] ; then wait ; fi
+	done
+	wait
+	eend
+
+	rm "${S}"/data/dictionary_oss/dictionary*.txt
+	for fn in "${S}"/data/dictionary_oss/*.txt.filt ; do
+	   mv $fn ${fn%%.txt.filt}.txt;
+	done
+	cat "${S}"/data/dictionary_oss/dictionary*.txt > mozcdict
+	einfo "Removing duplicates"
+	ruby remove-mozc-duplicates.rb mozcdict || die
+	mv mozcdict.remdup mozcdict
+	cp "${S}/data/dictionary_oss/id.def" id.def \
+		|| die "Failed to copy hinshi ID"
+
 	(
 		ebegin "Generating zip code dictionary"
 		cd ../chimei/
@@ -411,55 +431,63 @@ generate-mozc-ut2() {
 		cp "${S}/dictionary/gen_zip_code_seed.py" ./
 		ruby modify-zipcode.rb KEN_ALL.CSV \
 			|| die "Failed to generate zip code dictionary"
-		ruby get-chimei-entries.rb KEN_ALL.CSV.modzip \
-			|| die "Failed to generate chimei.txt"
+		#ruby get-chimei-entries.rb KEN_ALL.CSV.modzip \
+		#	|| die "Failed to generate chimei.txt"
 		cp "${S}/dictionary/gen_zip_code_seed.py" ./
 		cp "${S}/dictionary/zip_code_util.py" ./
 		sed -i "s/from dictionary import zip_code_util/import zip_code_util/g" \
 			gen_zip_code_seed.py
 		"${PYTHON}" gen_zip_code_seed.py --zip_code=KEN_ALL.CSV.modzip \
 			--jigyosyo=JIGYOSYO.CSV \
-			>> "${S}/data/dictionary_oss/dictionary09.txt" \
+			>> "${UT2_S}/src/zipcode.costs" \
 				|| die "Failed to generate zip code dictionary"
+		ruby get-chimei-costs.rb KEN_ALL.CSV.modzip || die
 		eend
 	)
 
-	einfo "Copying original dictionaries"
-	cat "${S}"/data/dictionary_oss/dictionary*.txt > mozcdict
-	cp "${S}/data/dictionary_oss/id.def" id.def \
-		|| die "Failed to copy hinshi ID"
-
 	ebegin "Merging additional dictionaries"
-	cat ../alt-cannadic/alt-cannadic.jawikihits ../edict/edict.jawikihits \
-		../hatena/hatena.jawikihits.modhits \
-		../jinmei/jinmei.jawikihits.modhits \
-		../skk-jisyo/skk-jisyo.jawikihits > jawikihits_all || die
-
+	for dn in alt-cannadic chimei edict ekimei hatena neologd skk-jisyo ; do
+		cat ../"${dn}"/*.hits >> jawikihits_all || die
+	done
+	cat ../jinmei/*.hits.modhits >> jawikihits_all || die
+	
 	if use nicodic ; then
-		cat ../niconico/niconico.jawikihits >> jawikihits_all || die
+		cat ../niconico/niconico.hits >> jawikihits_all || die
 	fi
-
-	ruby modify-mozcdict.rb mozcdict || die "Failed to modify mozcdict"
-	ruby modify-jawikihits.rb jawikihits_all \
-		|| die "Failed to modify jawikihits"
-
-	cat mozcdict.modmozcdict jawikihits_all.modjawikihits \
-		../chimei/KEN_ALL.CSV.modzip.chimei \
-		../edict-katakana-english/edict2.utf8.katakanaeng > utdict || die
-
-	if use ejdic ; then
-		cat ../wordnet-ejdic/wordnet-ejdic.txt >> utdict || die
-	fi
-
-	ruby split-new-words.rb utdict || die
 	eend
 
-	einfo "Copying mozcdic-ut2 to official Mozc source"
-	cat utdict.newwords \
-		"${S}/data/dictionary_oss/dictionary00.txt" > dictionary00.txt \
-		 || die "Failed to copy mozcdic-ut to official Mozc source"
-	mv dictionary00.txt "${S}/data/dictionary_oss/dictionary00.txt"
+	einfo "Changing mozcdic order"
+	ruby change-mozcdic-order-to-utdic-order.rb mozcdict \
+		|| die "Failed to change mozcdic order"
+	einfo "Converting jawikihits to costs"
+	ruby convert-jawikihits-to-costs.rb jawikihits_all \
+		|| die "Failed to convert jawikihits to costs"
 
-	# Go back to the default directory ##
+	(
+		cd ../ekimei
+		einfo "Generating ekimei costs"
+		ruby generate-ekimei-costs.rb ekimei.hits || die
+	)
+
+	cat mozcdict.utorder jawikihits_all.costs \
+		../chimei/KEN_ALL.CSV.modzip.costs \
+		../edict-katakana-english/kanaeng.costs \
+		../ekimei/ekimei.costs > utdict.costs || die
+
+	if use ejdic ; then
+		cat ../wordnet-ejdic/wordnet-ejdic.costs >> utdict.costs || die
+	fi
+	eend
+
+	einfo "Splitting new words and adding IDs"
+	ruby split-new-words-and-add-id.rb utdict.costs || die
+	mv utdict.costs.new utdict.costs
+
+	einfo "Adding mozcdic-ut2 to the official Mozc source"
+	cat utdict.costs zipcode.costs \
+		>> "${S}/data/dictionary_oss/dictionary00.txt" \
+		 || die "Failed to copy mozcdic-ut to official Mozc source"
+
+	# Go back to the default directory
 	cd "${S}"
 }
