@@ -2,6 +2,11 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*audacious-plugins-3.9 (29 Oct 2017)
+
+  29 Oct 2017; wjn <wjn@aol.jp> +audacious-plugins-3.9.ebuild:
+  Add version 3.9
+
   06 Jun 2017; wjn <wjn@aol.jp> audacious-plugins-3.8.ebuild,
   audacious-plugins-3.8.1.ebuild, audacious-plugins-3.8.2.ebuild,
   audacious-plugins-9999.ebuild:
