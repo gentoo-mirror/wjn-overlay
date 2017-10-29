@@ -3,25 +3,24 @@
 
 EAPI=6
 
-PLOCALES="ast be bg ca cmn cs da de el en_GB eo es_AR es_MX es et eu fa_IR fi
-	fr gl he hu id_ID it ja ko ky lt lv ml_IN ms nl pl pt_BR pt_PT ro ru si sk
-	sq sr@latin sr sr_RS sv ta tr uk vi zh_CN zh_TW"
+PLOCALES="ar ast be bg ca cmn cs da de el en_GB eo es es_AR es_MX et eu fa_IR
+	fi fr gl he hu id_ID it ja ko ky lt lv ml_IN ms nl pl pt_BR pt_PT ro ru
+	si sk sq sr sr@latin sr_RS sv ta tr uk vi zh_CN zh_TW"
 PLOCALE_BACKUP="en_GB"
 
-inherit autotools git-r3 gnome2-utils l10n xdg-utils
+inherit gnome2-utils l10n xdg-utils
 
 DESCRIPTION="A lightweight and versatile audio player"
 HOMEPAGE="http://audacious-media-player.org/"
-EGIT_REPO_URI="https://github.com/audacious-media-player/${PN}.git"
-SRC_URI="mirror://gentoo/gentoo_ice-xmms-0.2.tar.bz2"
+SRC_URI="http://distfiles.audacious-media-player.org/${P}.tar.bz2
+	mirror://gentoo/gentoo_ice-xmms-0.2.tar.bz2"
 
 # bandeled libguess is BSD (3-clause)
 LICENSE="BSD-2 BSD"
 SLOT="0"
 KEYWORDS=""
-IUSE="+gtk -gtk3 qt5"
-REQUIRED_USE="|| ( gtk qt5 )
-	gtk3? ( gtk )"
+IUSE="+gtk qt5"
+REQUIRED_USE="|| ( gtk qt5 )"
 
 COMMON_DEPEND=">=dev-libs/glib-2.28
 	dev-libs/libxml2
@@ -29,8 +28,7 @@ COMMON_DEPEND=">=dev-libs/glib-2.28
 	>=sys-devel/gcc-4.7.0:*
 	>=x11-libs/cairo-1.2.6
 	>=x11-libs/pango-1.8.0
-	gtk? ( !gtk3? ( x11-libs/gtk+:2 ) )
-	gtk3? ( x11-libs/gtk+:3 )
+	gtk? ( x11-libs/gtk+:2 )
 	qt5? ( dev-qt/qtcore:5
 		dev-qt/qtgui:5
 		dev-qt/qtmultimedia:5
@@ -40,22 +38,11 @@ DEPEND="${COMMON_DEPEND}
 	sys-devel/gettext
 	virtual/pkgconfig"
 RDEPEND=${COMMON_DEPEND}
-PDEPEND="~media-plugins/audacious-plugins-9999[gtk=,gtk3=,qt5=]"
+PDEPEND="~media-plugins/audacious-plugins-${PVR}[gtk=,qt5=]"
 
-pkg_setup() {
-	if use gtk3 ; then
-		export S="${WORKDIR}/${P}-gtk3"
-		export EGIT_BRANCH="master-gtk3"
-	fi
-}
-
-src_unpack() {
-	git-r3_src_unpack
-	default
-}
+RESTRICT="mirror"
 
 src_prepare() {
-	eautoreconf
 	l10n_for_each_disabled_locale_do remove_locales
 	eapply_user
 }
