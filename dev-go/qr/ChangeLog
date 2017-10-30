@@ -1,0 +1,9 @@
+# ChangeLog for dev-go/qr
+# Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
+# (auto-generated from git log)
+
+*qr-9999 (30 Oct 2017)
+
+  30 Oct 2017; wjn <wjn@aol.jp> +metadata.xml, +qr-9999.ebuild:
+  Add newly
+
