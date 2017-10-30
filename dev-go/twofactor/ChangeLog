@@ -1,0 +1,9 @@
+# ChangeLog for dev-go/twofactor
+# Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
+# (auto-generated from git log)
+
+*twofactor-9999 (30 Oct 2017)
+
+  30 Oct 2017; wjn <wjn@aol.jp> +metadata.xml, +twofactor-9999.ebuild:
+  Add newly
+

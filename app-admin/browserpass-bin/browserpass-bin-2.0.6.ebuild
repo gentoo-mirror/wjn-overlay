@@ -62,6 +62,9 @@ src_install() {
 
 pkg_postinst() {
 	elog "To use Browserpass, don't forget to install the extention to your browser"
-	elog "- https://chrome.google.com/webstore/detail/browserpass/jegbgfamcgeocbfeebacnkociplhmfbk"
-	elog "- https://addons.mozilla.org/en-US/firefox/addon/browserpass/"
+	elog "- https://chrome.google.com/webstore/detail/browserpass/naepdomgkenhinolocfifgehidddafch"
+	elog "- https://addons.mozilla.org/en-US/firefox/addon/browserpass-ce/"
+	elog ""
+	elog "Browserpass 2.0.0 and later are not compatible with older versions"
+	elog "Do not forget to reinstall extentions of your browsers"
 }
