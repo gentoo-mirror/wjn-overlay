@@ -2,6 +2,11 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*browserpass-bin-2.0.6 (30 Oct 2017)
+
+  30 Oct 2017; wjn <wjn@aol.jp> +browserpass-bin-2.0.6.ebuild:
+  Add version 2.0.6
+
 *browserpass-bin-1.0.6 (19 Jun 2017)
 
   19 Jun 2017; wjn <wjn@aol.jp> -browserpass-bin-1.0.2.ebuild,
