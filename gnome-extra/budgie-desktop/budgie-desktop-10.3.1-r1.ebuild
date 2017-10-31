@@ -1,12 +1,11 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
 
 EAPI=6
 
 VALA_MIN_API_VERSION="0.28"
 
-inherit gnome2-utils vala
+inherit gnome2-utils meson vala
 
 DESCRIPTION="Flagship desktop of Solus, designed with the modern user in mind"
 HOMEPAGE="https://solus-project.com/budgie/
@@ -47,35 +46,25 @@ RESTRICT="mirror"
 PATCHES=( "${FILESDIR}/${P}-fix-typo.patch"
 	"${FILESDIR}/${P}-for-gtk3_22_13.patch" )
 
-pkg_setup() {
-	export MAKE=ninja
-	ln -s /usr/bin/valac-$(vala_best_api_version) "${T}/valac"
-	export PATH="${PATH}:${T}"
-}
-
 src_prepare() {
 	default
-	sed -i -e '/meson\.add_install_script/d' meson.build
+
+	# Meson bug workaround
+	cp -R src/gvc subprojects/gvc/ || die
+	sed -i -e 's:../../src/::g' \
+		subprojects/gvc/meson.build || die
+
+	vala_src_prepare
 }
 
 src_configure() {
-	meson build --prefix=/usr --sysconfdir=/etc --buildtype plain \
-		-Dwith-bluetooth=true \
-		-Dwith-introspection=$(usex introspection true false) \
-		-Dwith-polkit=true \
-		-Dwith-stateless=true \
-		|| die
-}
-
-src_compile() {
-	cd "${S}/build"
-	emake
-}
-
-src_install() {
-	cd "${S}/build"
-	DESTDIR="${ED}" emake install
-
+	local emesonargs=(
+		-Dwith-bluetooth=$(usex bluetooth true false)
+		-Dwith-introspection=$(usex introspection true false)
+		-Dwith-polkit=$(usex polkit true false)
+		-Dwith-stateless=true
+	)
+	meson_src_configure
 }
 
 pkg_preinst() {
