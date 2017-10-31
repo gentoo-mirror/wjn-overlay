@@ -32,6 +32,7 @@ COMMON_DEPEND=">=app-i18n/ibus-1.5.11[vala]
 	polkit? ( >=sys-auth/polkit-0.110 )"
 DEPEND="${COMMON_DEPEND}
 	$(vala_depend)
+	dev-libs/sassc
 	>=dev-util/intltool-0.50.0
 	dev-util/meson
 	dev-util/ninja
@@ -41,9 +42,6 @@ RDEPEND="${COMMON_DEPEND}
 	x11-themes/gnome-themes-standard"
 
 RESTRICT="mirror"
-
-PATCHES=( "${FILESDIR}/${P}-fix-typo.patch"
-	"${FILESDIR}/${P}-for-gtk3_22_13.patch" )
 
 src_prepare() {
 	default
