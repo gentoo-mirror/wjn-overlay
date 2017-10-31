@@ -2,8 +2,15 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  31 Oct 2017; wjn <wjn@aol.jp>
+  files/mate-applets-9999-revert-graph-scales.patch, mate-applets-9999.ebuild:
+  Update the patch fixing multiload applets
+
+   This commit updates the patch in 3c44b3e
+  because Upstream b74e642 breaks it
+
   31 Oct 2017; wjn <wjn@aol.jp> mate-applets-9999.ebuild:
-  Depend >=libmateweather-1.19.1
+  Depend on >=libmateweather-1.19.1
 
   Upstream: https://github.com/mate-desktop/mate-applets/commit/8111ccc
 
