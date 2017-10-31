@@ -3,13 +3,16 @@
 # (auto-generated from git log)
 
   31 Oct 2017; wjn <wjn@aol.jp> budgie-desktop-10.3.1-r1.ebuild:
+  10.3.1-r1: Install GNOME schemas
+
+  31 Oct 2017; wjn <wjn@aol.jp> budgie-desktop-10.3.1-r1.ebuild:
   10.3.1-r1: Tidy up dependencies
 
    - Enable USE dependencies
    - Depend on Mutter (libmutter) slot
 
   31 Oct 2017; wjn <wjn@aol.jp> budgie-desktop-10.3.1-r1.ebuild:
-  Use meson.eclass, fix building with newer Meson
+  10.3.1-r1: Use meson.eclass, fix building with newer Meson
 
    - Simplify functions by inherit meson.eclass and vala.eclass
    - Temporary work around to avoid Meson's bug about subprojects
