@@ -1,0 +1,9 @@
+# ChangeLog for dev-libs/sassc
+# Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
+# (auto-generated from git log)
+
+*sassc-3.4.5 (31 Oct 2017)
+
+  31 Oct 2017; wjn <wjn@aol.jp> +metadata.xml, +sassc-3.4.5.ebuild:
+  Add newly
+
