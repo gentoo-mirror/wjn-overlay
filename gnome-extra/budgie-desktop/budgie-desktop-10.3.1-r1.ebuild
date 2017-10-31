@@ -23,14 +23,13 @@ COMMON_DEPEND=">=app-i18n/ibus-1.5.11[vala]
 	>=gnome-base/gnome-desktop-3.18.0:3
 	>=gnome-base/gnome-menus-3.10.1
 	>=media-sound/pulseaudio-2.0
-	>=net-wireless/gnome-bluetooth-3.18.0:2
 	>=sys-apps/accountsservice-0.6
-	>=sys-auth/polkit-0.110
 	>=sys-power/upower-0.9.20
 	>=x11-libs/gtk+-3.16.0:3
 	>=x11-libs/libwnck-3.14.0:3
-	>=x11-wm/mutter-3.18.0"
-#	bluetooth? ( >=net-wireless/gnome-bluetooth-3.18.0:2 )"
+	>=x11-wm/mutter-3.18.0:=
+	bluetooth? ( >=net-wireless/gnome-bluetooth-3.18.0:2 )
+	polkit? ( >=sys-auth/polkit-0.110 )"
 DEPEND="${COMMON_DEPEND}
 	$(vala_depend)
 	>=dev-util/intltool-0.50.0
