@@ -2,6 +2,12 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*yoshimi-1.5.4.1 (31 Oct 2017)
+
+  31 Oct 2017; wjn <wjn@aol.jp> -yoshimi-1.4.1.ebuild, -yoshimi-1.5.0.ebuild,
+  -yoshimi-1.5.1.1.ebuild, +yoshimi-1.5.4.1.ebuild:
+  Add version 1.5.4.1, delete old versions
+
   06 Jun 2017; wjn <wjn@aol.jp> yoshimi-1.4.1.ebuild, yoshimi-1.5.0.ebuild,
   yoshimi-1.5.1.1.ebuild:
   [QA] Remove no longer needed '$Id$' lines
