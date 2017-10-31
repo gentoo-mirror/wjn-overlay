@@ -48,7 +48,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	policykit? ( >=sys-auth/polkit-0.97:0 )
 	upower? ( || ( >=sys-power/upower-0.9.4:0
 		>=sys-power/upower-pm-utils-0.9.4:0 ) )
-	weather? ( >=dev-libs/libmateweather-1.17.0:0 )
+	weather? ( >=dev-libs/libmateweather-1.19.1:0 )
 	wifi? ( net-wireless/wireless-tools )"
 DEPEND="${COMMON_DEPEND}
 	app-text/docbook-xml-dtd:4.3
@@ -69,7 +69,7 @@ src_unpack() {
 
 src_prepare() {
 	# Temporary revert to fix the system-monitor applet
-	eapply -p1 -R "${FILESDIR}/${P}-revert-graph-scales.patch"
+	eapply -p1 "${FILESDIR}/${P}-revert-graph-scales.patch"
 
 	default
 	eautoreconf
