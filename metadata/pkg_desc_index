@@ -39,14 +39,15 @@ dev-python/typogrify 2.0.7: Filters to enhance web typography, often used with J
 dev-util/meld 3.16.1: A graphical diff and merge tool
 gnome-base/gnome-settings-daemon 3.22.2-r1: Gnome Settings Daemon
 gnome-extra/budgie-desktop 10.2.9 10.3.1-r1 10.4: Flagship desktop of Solus, designed with the modern user in mind
-gnome-extra/cinnamon 2.8.8 3.0.7-r1 3.2.7-r1 3.4.2-r1: A fork of GNOME Shell with layout similar to GNOME 2
-gnome-extra/cinnamon-control-center 2.8.1 3.0.1 3.2.1: Cinnamon's main interface to configure various aspects of the desktop
+gnome-extra/cinnamon 2.8.8 3.0.7-r1 3.2.7-r1 3.4.2-r1 3.4.6: A fork of GNOME Shell with layout similar to GNOME 2
+gnome-extra/cinnamon-control-center 2.8.1 3.0.1 3.2.1 3.4.0: Cinnamon's main interface to configure various aspects of the desktop
 gnome-extra/cinnamon-desktop 3.0.2 3.2.4: A collection of libraries and utilites used by Cinnamon
-gnome-extra/cinnamon-screensaver 3.0.1 3.4.1: Screensaver for Cinnamon
-gnome-extra/cinnamon-session 3.2.0 3.4.1: Cinnamon session manager
+gnome-extra/cinnamon-screensaver 3.0.1 3.4.1 3.4.2: Screensaver for Cinnamon
+gnome-extra/cinnamon-session 3.2.0 3.4.1 3.4.2: Cinnamon session manager
 gnome-extra/cinnamon-settings-daemon 2.8.3 2.8.4 3.0.1 3.2.0: Cinnamon's settings daemon
-gnome-extra/gnome-tweak-tool 3.20.1 3.22.0: Tool to customize GNOME 3 options
-gnome-extra/nemo 3.4.4: A file manager for Cinnamon, forked from Nautilus
+gnome-extra/cinnamon-translations 3.4.3: Translation data for Cinnamon
+gnome-extra/gnome-tweak-tool 3.22.0 3.24.1: Tool to customize GNOME 3 options
+gnome-extra/nemo 3.4.4 3.4.7: A file manager for Cinnamon, forked from Nautilus
 mail-client/sylpheed 3.5.1 3.6.0: A lightweight email client and newsreader
 mate-base/caja 9999: Caja file manager for MATE desktop
 mate-base/libmatekbd 9999: MATE keyboard configuration library
@@ -96,7 +97,7 @@ media-fonts/meguri-fonts 20101113a: Meguri fonts are modified IPA and M+ fonts f
 media-fonts/mgenplus 1.059.20150602: Japanese TrueType font based on Source Hans Sans and M+
 media-fonts/migu-vbd 20130617: Japanse fonts mixed mplus, IPA-font and also DejaVu, Bitter or Droid.
 media-fonts/mmcedar 20101113a: MMCedar are combined fonts that use Motoya L Cedar and M+ fonts
-media-fonts/monapo 20090423: combined font of ja-ipafonts (GothicP) and monafont
+media-fonts/monapo 20170722: Monapo is a combined font of ja-ipafonts (GothicP) and monafont
 media-fonts/noto-cjk-jp 20170512: a Japanese OpenType font family by Google
 media-fonts/noto-emoji 20170518: Color and Black-and-White Noto Emoji fonts by Google
 media-fonts/noto-en 20170505: Only English fonts package from Noto Fonts by Google
