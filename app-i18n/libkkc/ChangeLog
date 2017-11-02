@@ -2,7 +2,7 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
-  22 Jun 2017; wjn <wjn@aol.jp> libkkc-0.3.5.ebuild, libkkc-9999.ebuild:
+  25 Jun 2017; wjn <wjn@aol.jp> libkkc-0.3.5.ebuild, libkkc-9999.ebuild:
   Fix ${SRC_URI}
 
   22 Jun 2017; wjn <wjn@aol.jp> libkkc-0.3.5.ebuild, libkkc-9999.ebuild:

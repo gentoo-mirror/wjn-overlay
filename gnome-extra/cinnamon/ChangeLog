@@ -2,6 +2,11 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*cinnamon-3.4.6 (02 Nov 2017)
+
+  02 Nov 2017; wjn <wjn@aol.jp> +cinnamon-3.4.6.ebuild:
+  Add version 3.4.6
+
 *cinnamon-3.4.2-r1 (28 Jul 2017)
 
   28 Jul 2017; wjn <wjn@aol.jp> -cinnamon-3.4.2.ebuild,
