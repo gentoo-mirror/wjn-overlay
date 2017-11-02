@@ -6,7 +6,7 @@ EAPI=6
 GNOME2_LA_PUNT="yes"
 PYTHON_COMPAT=( python2_7 )
 
-inherit eutils gnome2 python-r1
+inherit gnome2 python-r1
 
 DESCRIPTION="Tool to customize GNOME 3 options"
 HOMEPAGE="https://wiki.gnome.org/action/show/Apps/GnomeTweakTool"
@@ -17,10 +17,13 @@ KEYWORDS=""
 IUSE=""
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-COMMON_DEPEND="${PYTHON_DEPS}
+KEYWORDS="~amd64 ~ia64 ~x86"
+
+COMMON_DEPEND="
+	${PYTHON_DEPS}
 	dev-libs/glib:2[dbus]
 	>=dev-python/pygobject-3.10.2:3[${PYTHON_USEDEP}]
-	>=gnome-base/gsettings-desktop-schemas-3.4"
+	>=gnome-base/gsettings-desktop-schemas-3.23.3"
 DEPEND="${COMMON_DEPEND}
 	>=dev-util/intltool-0.40.0
 	virtual/pkgconfig"
