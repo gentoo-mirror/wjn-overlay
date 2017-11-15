@@ -32,7 +32,7 @@ COMMON_DEPEND=">=app-i18n/ibus-1.5.11[vala]
 	polkit? ( >=sys-auth/polkit-0.110 )"
 DEPEND="${COMMON_DEPEND}
 	$(vala_depend)
-	dev-libs/sassc
+	dev-lang/sassc
 	>=dev-util/intltool-0.50.0
 	dev-util/meson
 	dev-util/ninja

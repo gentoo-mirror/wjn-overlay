@@ -2,6 +2,11 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  15 Nov 2017; wjn <wjn@aol.jp> budgie-desktop-10.4.ebuild:
+  Depend on dev-lang/sassc instead of dev-libs/sassc
+
+   This commit is because sassc was added to dev-lang in gentoo repository
+
   31 Oct 2017; wjn <wjn@aol.jp> budgie-desktop-10.3.1-r1.ebuild:
   Install GNOME schemas
 
