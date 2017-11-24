@@ -27,9 +27,9 @@ app-text/markdown-gtksourceview 2.1.9999-r2 3.2.9999-r1: Extra support for Markd
 dev-go/go-zglob 9999: zglob implementation in Go
 dev-go/qr 9999: Go package encodes QR codes
 dev-go/twofactor 9999: Two-factor authentication in Go
+dev-lang/sassc 3.4.7: libsass command line driver
 dev-libs/libmateweather 9999: MATE library to access weather information from online services
-dev-libs/libsass 3.4.5: A C/C++ implementation of a Sass compiler
-dev-libs/sassc 3.4.5: libsass command line driver
+dev-libs/libsass 3.4.7: C/C++ implementation of Sass CSS compiler
 dev-python/bbcode 1.0.24 1.0.25: A pure python bbcode parser and formatter
 dev-python/ghp-import2 1.0.1: Easily import docs to your gh-pages branch
 dev-python/percol 0.2.1: percol adds flavor of interactive selection to pipe
