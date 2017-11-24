@@ -2,6 +2,14 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  24 Nov 2017; wjn <wjn@aol.jp> audacious-plugins-9999.ebuild:
+  Add adplug to IUSE
+
+   Upstream unbundles adplug, now needs media-libs/adplug
+   Upstream:
+     https://github.com/audacious-media-player/audacious-
+  plugins/commit/a39bfd7
+
 *audacious-plugins-3.9 (29 Oct 2017)
 
   29 Oct 2017; wjn <wjn@aol.jp> +audacious-plugins-3.9.ebuild:
