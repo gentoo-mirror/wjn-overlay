@@ -172,6 +172,8 @@ src_prepare() {
 	# This function is declared at the last of this file
 	generate-mozc-ut2
 
+	eapply -p2 "${FILESDIR}/mozc-2.20.2673.102-gcc-5.patch"
+
 	if use fcitx ; then
 		rm -rf unix/fcitx/
 		eapply -p2 "${DISTDIR}/$(basename ${FCITX_PATCH_URI})"
