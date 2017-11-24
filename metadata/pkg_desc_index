@@ -16,7 +16,7 @@ app-i18n/ibus-kkc 1.5.22 9999: Japanese Kana Kanji input engine for IBus
 app-i18n/im-chooser 1.7.0: Desktop Input Method configuration tool
 app-i18n/libkkc 0.3.5 9999: Japanese Kana Kanji conversion library
 app-i18n/libkkc-data 0.2.7: Japanese Kana Kanji conversion dictionary for libkkc
-app-i18n/mozc 2.18.2620.102-r1 2.20.2677.102: Mozc - a Japanese Input Method Editor designed for multi-platform
+app-i18n/mozc 2.20.2677.102: Mozc - a Japanese Input Method Editor designed for multi-platform
 app-i18n/mozc-ut2 2.20.2677.102.20171008: Mozc Japanese Input Method with Additional Japanese dictionary
 app-i18n/uim 9999: Simple, secure and flexible input method library
 app-misc/grc 9999: Generic Colouriser beautifies your logfiles or output of commands
@@ -27,7 +27,6 @@ app-text/markdown-gtksourceview 2.1.9999-r2 3.2.9999-r1: Extra support for Markd
 dev-go/go-zglob 9999: zglob implementation in Go
 dev-go/qr 9999: Go package encodes QR codes
 dev-go/twofactor 9999: Two-factor authentication in Go
-dev-lang/sassc 3.4.7: libsass command line driver
 dev-libs/libmateweather 9999: MATE library to access weather information from online services
 dev-libs/libsass 3.4.7: C/C++ implementation of Sass CSS compiler
 dev-python/bbcode 1.0.24 1.0.25: A pure python bbcode parser and formatter
