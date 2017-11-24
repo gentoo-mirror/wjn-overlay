@@ -2,6 +2,10 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  24 Nov 2017; wjn <wjn@aol.jp> -files/mozc-1.10.1390.102-drop-Werror.patch,
+  -files/mozc-ibus-1.5.4.patch, -files/mozc-macuim-rename-initgoogle.patch:
+  Delete needless patch files
+
   06 Jun 2017; wjn <wjn@aol.jp> mozc-2.18.2620.102-r1.ebuild,
   mozc-2.20.2677.102.ebuild:
   [QA] Remove no longer needed '$Id$' lines
