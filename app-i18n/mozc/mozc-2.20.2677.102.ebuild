@@ -60,7 +60,6 @@ RDEPEND="${COMMON_DEPEND}
 		tomoe? ( app-i18n/zinnia-tomoe ) )"
 
 S="${WORKDIR}/${P}/src"
-
 RESTRICT="mirror test"
 
 BUILDTYPE=${BUILDTYPE:-Release}
@@ -83,6 +82,8 @@ src_unpack() {
 }
 
 src_prepare() {
+	eapply -p2 ${FILESDIR}/${PN}-2.20.2673.102-gcc-5.patch
+
 	if use fcitx ; then
 		rm -rf unix/fcitx/
 		eapply -p2 "${DISTDIR}/$(basename ${FCITX_PATCH_URI})"
