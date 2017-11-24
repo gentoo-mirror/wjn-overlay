@@ -1,9 +1,0 @@
-# ChangeLog for dev-lang/sassc
-# Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
-# (auto-generated from git log)
-
-*sassc-3.4.7 (15 Nov 2017)
-
-  15 Nov 2017; wjn <wjn@aol.jp> +metadata.xml, +sassc-3.4.7.ebuild:
-  Move to dev-lang. Add version 3.4.7, delete old
-
