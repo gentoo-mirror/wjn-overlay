@@ -2,6 +2,10 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  28 Nov 2017; wjn <wjn@aol.jp> -audacious-3.8.ebuild,
+  -audacious-3.8.1.ebuild, -audacious-3.8.2.ebuild, -audacious-3.9.ebuild:
+  Delete old versions
+
   29 Oct 2017; wjn <wjn@aol.jp> audacious-9999.ebuild:
   9999: Updates gnome2_icon_cache and xdg_desktop_database
 
