@@ -129,7 +129,7 @@ media-libs/libmatemixer 9999: Mixer library for MATE Desktop
 media-plugins/audacious-plugins 9999: Plugins for Audacious music player
 media-sound/alsa-tools 1.1.0: Advanced Linux Sound Architecture tools
 media-sound/audacious 9999: A lightweight and versatile audio player
-media-sound/jack-audio-connection-kit 1.9.10: Jackdmp jack implemention for multi-processor machine
+media-sound/jack-audio-connection-kit 1.9.11_rc1: Jackdmp jack implemention for multi-processor machine
 media-sound/rosegarden 16.06: MIDI and audio sequencer and notation editor
 media-sound/yoshimi 1.5.4.1: A software synthesizer based on ZynAddSubFX
 net-firewall/firewalld 0.4.4.2 0.4.4.4 0.4.4.5: Firewall daemon with D-BUS interface
