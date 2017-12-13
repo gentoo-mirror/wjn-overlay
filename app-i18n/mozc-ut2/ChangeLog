@@ -2,6 +2,9 @@
 # Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  13 Dec 2017; wjn <wjn@aol.jp> mozc-ut2-2.20.2677.102.20171008.ebuild:
+  Update Manifest of yusei zipcode archives
+
   24 Nov 2017; wjn <wjn@aol.jp> +files/mozc-2.20.2673.102-gcc-5.patch,
   mozc-ut2-2.20.2677.102.20171008.ebuild:
   Patch for fixing reference to std::swap
