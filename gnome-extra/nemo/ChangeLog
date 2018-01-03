@@ -1,6 +1,9 @@
 # ChangeLog for gnome-extra/nemo
-# Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
+
+  03 Jan 2018; wjn <wjn@aol.jp> nemo-3.4.4.ebuild, nemo-3.4.7.ebuild:
+  [QA] Update copyright year to 2018
 
 *nemo-3.4.7 (02 Nov 2017)
 

@@ -1,6 +1,12 @@
 # ChangeLog for gnome-extra/cinnamon-settings-daemon
-# Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
+
+  03 Jan 2018; wjn <wjn@aol.jp> cinnamon-settings-daemon-2.8.3.ebuild,
+  cinnamon-settings-daemon-2.8.4.ebuild,
+  cinnamon-settings-daemon-3.0.1.ebuild,
+  cinnamon-settings-daemon-3.2.0.ebuild:
+  [QA] Update copyright year to 2018
 
   06 Jun 2017; wjn <wjn@aol.jp> cinnamon-settings-daemon-3.2.0.ebuild:
   [QA] Update copyright year to 2017

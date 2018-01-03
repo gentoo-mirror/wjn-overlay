@@ -1,6 +1,9 @@
 # ChangeLog for app-admin/pass-otp
-# Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
+
+  03 Jan 2018; wjn <wjn@aol.jp> pass-otp-0.1.0.ebuild, pass-otp-1.0.0.ebuild:
+  [QA] Update copyright year to 2018
 
 *pass-otp-1.0.0 (05 Apr 2017)
 
