@@ -17,6 +17,9 @@ RDEPEND="!<sys-apps/openrc-0.33"
 RESTRICT="mirror"
 
 src_prepare() {
+	# Replace VERSION with the current one
+	sed -i -e 's/__VERSION__/'${PV}'/' script/service
+
 	# update_openrc_started_symlinks is not needed any more
 	sed -i -e '/^update_openrc_started_symlinks$/d' script/service
 
