@@ -1,7 +1,7 @@
 wjn-overlay packages list
 ========
 
-- This list is updated on 2017-06-04 EDT
+- This list is updated on 2018-01-03 EDT
 
 | Package Name | Description | Upstream Website | This Overlay Only | Note |
 | ---- | ---- | ---- | ---- | ---- |
@@ -131,7 +131,6 @@ wjn-overlay packages list
 | x11-libs/gdk-pixbuf-xcf | A gdk-pixbuf loader for xcf (The Gimp) files | <https://gitorious.org/xcf-pixbuf-loader/> | o | **UPSTREAM is NOT ALIVE** |
 | x11-libs/libvdpau-va-gl | VDPAU driver with OpenGL/VAAPI backend | <https://github.com/i-rinat/libvdpau-va-gl> | o | |
 | x11-libs/qscintilla | A Qt port of Neil Hodgson's Scintilla C++ editor class | <http://www.riverbankcomputing.com/software/qscintilla/intro> | - | New slot to build for Qt5 |
-| x11-misc/lightdm | A lightweight display manager | <http://www.freedesktop.org/wiki/Software/LightDM> | - | newer ver., *if none, this is removed* |
 | x11-misc/lightdm-gtk-greeter-settings | LightDM Gtk+ Greeter settings editor | <https://launchpad.net/lightdm-gtk-greeter-settings> | o | |
 | x11-misc/mate-notification-daemon | MATE Notification daemon | <http://mate-desktop.org/> | - | dev ver. |
 | x11-misc/mate-tweak | MATE desktop tweak tool | <https://launchpad.net/ubuntu/+source/mate-tweak> | o | |
