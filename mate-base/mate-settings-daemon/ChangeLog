@@ -1,6 +1,9 @@
 # ChangeLog for mate-base/mate-settings-daemon
-# Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
+
+  03 Jan 2018; wjn <wjn@aol.jp> mate-settings-daemon-9999.ebuild:
+  [QA] Update copyright year to 2018
 
   31 Oct 2017; wjn <wjn@aol.jp> mate-settings-daemon-9999.ebuild:
   Depend on >=mate-desktop-1.19.0

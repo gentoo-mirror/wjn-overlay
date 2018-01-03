@@ -1,6 +1,10 @@
 # ChangeLog for app-admin/pass-import
-# Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
+
+  03 Jan 2018; wjn <wjn@aol.jp> pass-import-0.1_p20170312.ebuild,
+  pass-import-0.2_p20171001.ebuild:
+  [QA] Update copyright year to 2018
 
 *pass-import-0.2_p20171001 (30 Oct 2017)
 

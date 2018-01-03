@@ -1,6 +1,9 @@
 # ChangeLog for mate-base/mate-applets
-# Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
+
+  03 Jan 2018; wjn <wjn@aol.jp> mate-applets-9999.ebuild:
+  [QA] Update copyright year to 2018
 
   31 Oct 2017; wjn <wjn@aol.jp>
   files/mate-applets-9999-revert-graph-scales.patch, mate-applets-9999.ebuild:

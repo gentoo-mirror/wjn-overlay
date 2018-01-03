@@ -1,6 +1,10 @@
 # ChangeLog for app-admin/browserpass-bin
-# Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
+
+  03 Jan 2018; wjn <wjn@aol.jp> browserpass-bin-1.0.6.ebuild,
+  browserpass-bin-2.0.6.ebuild, browserpass-bin-2.0.8.ebuild:
+  [QA] Update copyright year to 2018
 
 *browserpass-bin-2.0.8 (10 Dec 2017)
 

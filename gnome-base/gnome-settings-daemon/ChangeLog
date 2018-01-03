@@ -1,6 +1,9 @@
 # ChangeLog for gnome-base/gnome-settings-daemon
-# Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
+
+  03 Jan 2018; wjn <wjn@aol.jp> gnome-settings-daemon-3.22.2-r1.ebuild:
+  [QA] Update copyright year to 2018
 
   09 Jul 2017; wjn <wjn@aol.jp> gnome-settings-daemon-3.22.2-r1.ebuild:
   Remove eautoreconf, gnome2_src_prepare does

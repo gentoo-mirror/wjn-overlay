@@ -1,6 +1,10 @@
 # ChangeLog for gnome-extra/gnome-tweak-tool
-# Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
+
+  03 Jan 2018; wjn <wjn@aol.jp> gnome-tweak-tool-3.22.0.ebuild,
+  gnome-tweak-tool-3.24.1.ebuild:
+  [QA] Update copyright year to 2018
 
 *gnome-tweak-tool-3.24.1 (02 Nov 2017)
 

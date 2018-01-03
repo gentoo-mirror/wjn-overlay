@@ -1,6 +1,9 @@
 # ChangeLog for mate-base/mate-panel
-# Copyright 1999-2017 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
+
+  03 Jan 2018; wjn <wjn@aol.jp> mate-panel-9999.ebuild:
+  [QA] Update copyright year to 2018
 
   07 Jun 2017; wjn <wjn@aol.jp> -files/mate-panel-9999-drop-menulibre.patch,
   mate-panel-9999.ebuild:
