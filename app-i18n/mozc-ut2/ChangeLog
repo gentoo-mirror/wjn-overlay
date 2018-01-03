@@ -3,6 +3,9 @@
 # (auto-generated from git log)
 
   03 Jan 2018; wjn <wjn@aol.jp> mozc-ut2-2.20.2677.102.20171008.ebuild:
+  Update Manifest of yusei zipcode archives
+
+  03 Jan 2018; wjn <wjn@aol.jp> mozc-ut2-2.20.2677.102.20171008.ebuild:
   [QA] Update copyright year to 2018
 
   13 Dec 2017; wjn <wjn@aol.jp> mozc-ut2-2.20.2677.102.20171008.ebuild:
