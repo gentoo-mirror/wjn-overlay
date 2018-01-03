@@ -10,4 +10,4 @@ RESTRICT=mirror
 SLOT=0
 SRC_URI=mirror://osdn/sylpheed/67949/sylpheed-3.6.0.tar.bz2
 _eclasses_=l10n	2c2e15383ba891d642f51896a7f0ecfe	ltprune	2770eed66a9b8ef944714cd0e968182e	multilib	97f470f374f2e94ccab04a2fb21d811e	toolchain-funcs	885c7d8dd70a58825f3d17e35a3cd1e9
-_md5_=08b50ca585d0d59df06b18a00545e74b
+_md5_=abee3745b9dc5727ccef3d54631e97b6

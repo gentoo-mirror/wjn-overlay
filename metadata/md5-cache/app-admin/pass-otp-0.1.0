@@ -8,4 +8,4 @@ LICENSE=GPL-3+
 RDEPEND=app-shells/bash >=app-admin/pass-1.7 media-gfx/qrencode sys-auth/oath-toolkit
 SLOT=0
 SRC_URI=https://github.com/tadfisher/pass-otp/archive/v0.1.0.tar.gz -> pass-otp-0.1.0.tar.gz
-_md5_=d3d5eed446db1eca7ce2cca44c79e6c7
+_md5_=e819459ec4360d299c38a4709b28ac20

@@ -1,0 +1,11 @@
+DEFINED_PHASES=compile install prepare
+DEPEND=dev-python/docutils
+DESCRIPTION=Helper tools for all init systems
+EAPI=6
+HOMEPAGE=https://packages.debian.org/sid/init-system-helpers
+LICENSE=BSD GPL-2+
+RDEPEND=!<sys-apps/openrc-0.33
+RESTRICT=mirror
+SLOT=0
+SRC_URI=http://http.debian.net/debian/pool/main/i/init-system-helpers/init-system-helpers_1.51.tar.xz
+_md5_=ab0bb3610ba4f36691c9b69d024a9826

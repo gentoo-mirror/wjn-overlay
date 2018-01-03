@@ -10,4 +10,4 @@ RESTRICT=binchecks mirror strip
 SLOT=0
 SRC_URI=mirror://osdn/users/8/8636/genjyuugothic-20150607.7z rounded-l? ( mirror://osdn/users/8/8635/genjyuugothic-l-20150607.7z ) rounded-x? ( mirror://osdn/users/8/8638/genjyuugothic-x-20150607.7z )
 _eclasses_=desktop	2ccd1dd1dd7bfb8795eea024a4f91bb6	epatch	8233751dc5105a6ae8fcd86ce2bb0247	estack	43ddf5aaffa7a8d0482df54d25a66a1f	eutils	97ce9decef1ff4b6c5be700283f67343	font	82836641e7d4639329d8c195234ad0e3	ltprune	2770eed66a9b8ef944714cd0e968182e	multilib	97f470f374f2e94ccab04a2fb21d811e	toolchain-funcs	885c7d8dd70a58825f3d17e35a3cd1e9	versionator	c80ccf29e90adea7c5cae94b42eb76d0
-_md5_=95c5649cae54aa3759b530676fb65799
+_md5_=cfa03b9ab5dd407877e962d1ad9e1288
