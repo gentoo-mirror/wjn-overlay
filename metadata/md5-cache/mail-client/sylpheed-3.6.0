@@ -9,5 +9,5 @@ RDEPEND=x11-libs/gtk+:2 crypt? ( app-crypt/gpgme ) ldap? ( net-nds/openldap ) nl
 RESTRICT=mirror
 SLOT=0
 SRC_URI=mirror://osdn/sylpheed/67949/sylpheed-3.6.0.tar.bz2
-_eclasses_=l10n	d8a55cfc27fb33b81f675c7f9c560941	ltprune	2770eed66a9b8ef944714cd0e968182e	multilib	97f470f374f2e94ccab04a2fb21d811e	toolchain-funcs	885c7d8dd70a58825f3d17e35a3cd1e9
+_eclasses_=l10n	97f2753e3f1f3753d53d856c7c0bbb0b	ltprune	2770eed66a9b8ef944714cd0e968182e	multilib	97f470f374f2e94ccab04a2fb21d811e	toolchain-funcs	885c7d8dd70a58825f3d17e35a3cd1e9
 _md5_=abee3745b9dc5727ccef3d54631e97b6
