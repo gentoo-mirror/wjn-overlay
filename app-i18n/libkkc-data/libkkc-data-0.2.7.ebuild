@@ -23,8 +23,6 @@ RDEPEND="${COMMON_DEPEND}"
 
 RESTRICT="mirror"
 
-DOCS=""
-
 pkg_setup() {
 	python-single-r1_pkg_setup
 }
