@@ -41,7 +41,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	x11-libs/libXfixes
 	x11-libs/libxcb
 	emacs? ( virtual/emacs )
-	fcitx? ( app-i18n/fcitx )
+	fcitx? ( app-i18n/fcitx:4 )
 	ibus? ( >=app-i18n/ibus-1.4.1 )
 	qt5? ( dev-qt/qtcore:5
 		dev-qt/qtgui:5
