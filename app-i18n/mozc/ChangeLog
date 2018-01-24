@@ -2,6 +2,11 @@
 # Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*mozc-2.23.2785.102 (24 Jan 2018)
+
+  24 Jan 2018; wjn <wjn@aol.jp> +mozc-2.23.2785.102.ebuild:
+  Add version 2.23.2785.102
+
   03 Jan 2018; wjn <wjn@aol.jp> mozc-2.20.2677.102.ebuild:
   [QA] Update copyright year to 2018
 
