@@ -181,11 +181,11 @@ src_prepare() {
 		eapply -p0 "${WORKDIR}/macuim/Mozc/mozc-kill-line.diff"
 	fi
 
-	sed -i -e "s/<!(which clang)/$(tc-getCC)/" \
-		-e "s/<!(which clang++)/$(tc-getCXX)/" \
+	sed -i -e 's:<!(which clang):'"$(tc-getCC)"':' \
+		-e 's:<!(which clang++):'"$(tc-getCXX)"':' \
 		gyp/common.gypi || die
 
-	sed -i -e "/RunOrDie(\[ninja/s/ja, /ja, '-j"$(makeopts_jobs)"', /" \
+	sed -i -e "/RunOrDie..ninja/s:ja, :ja, '-j"$(makeopts_jobs)"', :" \
 		build_mozc.py || die
 
 	eapply_user

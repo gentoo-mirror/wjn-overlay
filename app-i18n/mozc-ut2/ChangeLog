@@ -3,6 +3,11 @@
 # (auto-generated from git log)
 
   25 Jan 2018; wjn <wjn@aol.jp> mozc-ut2-2.23.2785.102.20171008.ebuild:
+  Use ':' character instead of '/' in sed substitution
+
+   Because variables such as $(tc-getCC) may include '/'
+
+  25 Jan 2018; wjn <wjn@aol.jp> mozc-ut2-2.23.2785.102.20171008.ebuild:
   Slot app-i18n/fcitx dependency to 4
 
 *mozc-ut2-2.23.2785.102.20171008 (24 Jan 2018)
