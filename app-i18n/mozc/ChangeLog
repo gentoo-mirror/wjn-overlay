@@ -2,6 +2,19 @@
 # Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  25 Jan 2018; wjn <wjn@aol.jp> mozc-2.23.2785.102.ebuild:
+  Use ':' character instead of '/' in sed substitution
+
+   Because variables such as $(tc-getCC) may include '/'
+
+  25 Jan 2018; wjn <wjn@aol.jp> mozc-2.23.2785.102.ebuild:
+  Slot app-i18n/fcitx dependency to 4
+
+*mozc-2.23.2785.102 (24 Jan 2018)
+
+  24 Jan 2018; wjn <wjn@aol.jp> +mozc-2.23.2785.102.ebuild:
+  Add version 2.23.2785.102
+
   03 Jan 2018; wjn <wjn@aol.jp> mozc-2.20.2677.102.ebuild:
   [QA] Update copyright year to 2018
 
