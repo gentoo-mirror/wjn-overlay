@@ -1,0 +1,3 @@
+move app-admin/browserpass www-plugins/browserpass
+move app-admin/browserpass-bin www-plugins/browserpass-bin
+move dev-go/go-zglob dev-go/zglob
