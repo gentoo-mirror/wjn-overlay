@@ -13,7 +13,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 -x86"
 
-COMMON_DEPEND="!!app-admin/browserpass"
+COMMON_DEPEND="!!www-plugins/browserpass"
 DEPEND="${COMMON_DEPEND}
 	app-arch/unzip"
 RDEPEND="${COMMON_DEPEND}
