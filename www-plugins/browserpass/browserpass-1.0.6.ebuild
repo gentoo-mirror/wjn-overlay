@@ -17,7 +17,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 -x86"
 
-COMMON_DEPEND="!!app-admin/browserpass-bin"
+COMMON_DEPEND="!!www-plugins/browserpass-bin"
 DEPEND=${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	app-admin/pass

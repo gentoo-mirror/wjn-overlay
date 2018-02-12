@@ -6,7 +6,7 @@ EAPI=6
 PYTHON_COMPAT=( python2_7 )
 PYTHON_REQ_USE="threads(+)"
 
-inherit eutils python-single-r1 waf-utils multilib-minimal
+inherit python-single-r1 waf-utils multilib-minimal
 
 DESCRIPTION="Jackdmp jack implemention for multi-processor machine"
 HOMEPAGE="http://jackaudio.org/"
@@ -24,8 +24,8 @@ else
 fi
 
 LICENSE="GPL-2"
-SLOT="0"
-IUSE="alsa celt dbus doc opus pam classic sndfile libsamplerate readline"
+SLOT="2"
+IUSE="alsa celt +classic dbus doc ieee1394 libsamplerate opus pam readline sndfile"
 
 REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}
@@ -46,13 +46,10 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	!media-sound/jack2
 	dbus? ( dev-python/dbus-python[${PYTHON_USEDEP}] )
-	pam? ( sys-auth/realtime-base )"
+	pam? ( sys-auth/realtime-base )
+	!media-sound/jack-audio-connection-kit:0"
 
 DOCS=( ChangeLog README README_NETJACK2 TODO )
-
-PATCHES=(
-	"${FILESDIR}"/${P}-gcc7.patch
-)
 
 src_prepare() {
 	default
@@ -67,7 +64,7 @@ multilib_src_configure() {
 		--alsa=$(usex alsa yes no)
 		--celt=$(usex celt yes no)
 		--doxygen=$(multilib_native_usex doc yes no)
-		--firewire=no
+		--firewire=$(usex ieee1394 yes no)
 		--freebob=no
 		--iio=no
 		--opus=$(usex opus yes no)
