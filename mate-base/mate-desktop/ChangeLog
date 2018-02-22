@@ -3,6 +3,11 @@
 # (auto-generated from git log)
 
   22 Feb 2018; wjn <wjn@aol.jp> mate-desktop-9999.ebuild:
+  Remove libunique from deps
+
+   Upstream: https://github.com/mate-desktop/mate-desktop/commit/cd799b7
+
+  22 Feb 2018; wjn <wjn@aol.jp> mate-desktop-9999.ebuild:
   Depend on >=gtk+-3.22
 
    Upstream: https://github.com/mate-desktop/mate-desktop/commit/44a8dae

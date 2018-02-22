@@ -19,7 +19,6 @@ KEYWORDS=""
 IUSE="X debug doc introspection startup-notification"
 
 COMMON_DEPEND=">=dev-libs/glib-2.50:2
-	>=dev-libs/libunique-3.0:3
 	>=gnome-base/dconf-0.13.4:0
 	x11-libs/cairo:0
 	>=x11-libs/gdk-pixbuf-2.4:2[introspection?]
