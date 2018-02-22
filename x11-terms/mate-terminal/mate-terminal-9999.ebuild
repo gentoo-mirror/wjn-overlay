@@ -26,7 +26,7 @@ COMMON_DEPEND="app-text/rarian:0
 	x11-libs/libSM:0
 	x11-libs/libX11:0
 	x11-libs/pango:0
-	>=x11-libs/vte-0.38.0:2.91"
+	>=x11-libs/vte-0.46.0:2.91"
 DEPEND="${COMMON_DEPEND}
 	>=app-text/scrollkeeper-dtd-1:1.0
 	app-text/yelp-tools:0
