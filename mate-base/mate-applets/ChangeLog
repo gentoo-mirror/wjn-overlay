@@ -3,6 +3,11 @@
 # (auto-generated from git log)
 
   22 Feb 2018; wjn <wjn@aol.jp> mate-applets-9999.ebuild:
+  Depend on >=gtk+-3.22 and >=glib-2.50
+
+   Upstream: https://github.com/mate-desktop/mate-applets/commit/d102022
+
+  22 Feb 2018; wjn <wjn@aol.jp> mate-applets-9999.ebuild:
   Remove dropped invest-applet
 
    Upstream: https://github.com/mate-desktop/mate-applets/commit/607d522

@@ -28,7 +28,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	app-text/rarian:0
 	dev-libs/atk:0
 	>=dev-libs/dbus-glib-0.74:0
-	>=dev-libs/glib-2.36:2
+	>=dev-libs/glib-2.50:2
 	>=dev-libs/libxml2-2.5.0:2
 	dev-python/pygobject:3
 	>=gnome-base/libgtop-2.12.0:2=
@@ -37,7 +37,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	>=sys-apps/dbus-1.1.2:0
 	x11-libs/gdk-pixbuf:2
 	x11-libs/libX11:0
-	>=x11-libs/gtk+-3.14.0:3
+	>=x11-libs/gtk+-3.22.0:3
 	>=x11-libs/libnotify-0.7.0:0
 	>=x11-libs/libwnck-3.4.0:3
 	>=x11-libs/libxklavier-4:0
