@@ -16,7 +16,7 @@ EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="+dbus hddtemp libnotify lm_sensors video_cards_fglrx video_cards_nvidia"
+IUSE="+dbus hddtemp libnotify lm_sensors video_cards_nvidia"
 
 COMMON_DEPEND="app-text/rarian:0
 	>=dev-libs/glib-2.50.0:2
@@ -31,7 +31,6 @@ COMMON_DEPEND="app-text/rarian:0
 		!dbus? ( >=app-admin/hddtemp-0.3_beta13:0 ) )
 	libnotify? ( >=x11-libs/libnotify-0.7.0:0 )
 	lm_sensors? ( sys-apps/lm_sensors:0 )
-	video_cards_fglrx? ( x11-drivers/ati-drivers:1 )
 	video_cards_nvidia? ( || ( >=x11-drivers/nvidia-drivers-100.14.09:0
 		media-video/nvidia-settings:0 ) )"
 DEPEND="${COMMON_DEPEND}
@@ -67,7 +66,6 @@ src_configure() {
 		--disable-static \
 		$(use_enable libnotify) \
 		$(use_with lm_sensors libsensors) \
-		$(use_with video_cards_fglrx aticonfig) \
 		$(use_with video_cards_nvidia nvidia) \
 		${myconf}
 }
