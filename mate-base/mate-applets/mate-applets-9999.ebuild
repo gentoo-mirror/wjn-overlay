@@ -98,13 +98,11 @@ src_test() {
 }
 
 src_install() {
-	python_fix_shebang invest-applet
 	gnome2_src_install
 
 	# Omit battstat
 	local APPLETS="accessx-status charpick command drivemount geyes
-			invest-applet multiload netspeed stickynotes timerapplet
-			trashapplet"
+			multiload netspeed stickynotes timerapplet trashapplet"
 	use cpufreq && APPLETS="${APPLETS} cpufreq"
 	use weather && APPLETS="${APPLETS} mateweather"
 
