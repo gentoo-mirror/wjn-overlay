@@ -19,11 +19,11 @@ KEYWORDS=""
 IUSE="+dbus hddtemp libnotify lm_sensors video_cards_fglrx video_cards_nvidia"
 
 COMMON_DEPEND="app-text/rarian:0
-	>=dev-libs/glib-2.36.0:2
+	>=dev-libs/glib-2.50.0:2
 	>=mate-base/mate-panel-1.17.0:0
 	>=x11-libs/cairo-1.0.4:0
 	x11-libs/gdk-pixbuf:2
-	>=x11-libs/gtk+-3.14.0:3
+	>=x11-libs/gtk+-3.22.0:3
 	virtual/libintl:0
 	hddtemp? ( dbus? ( >=dev-libs/dbus-glib-0.80:0
 			>=dev-libs/libatasmart-0.16:0
