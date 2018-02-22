@@ -3,6 +3,11 @@
 # (auto-generated from git log)
 
   22 Feb 2018; wjn <wjn@aol.jp> mate-terminal-9999.ebuild:
+  Depend on >=gtk+-3.22 and >=glib-2.50
+
+   Upstream: https://github.com/mate-desktop/mate-terminal/commit/2611e01
+
+  22 Feb 2018; wjn <wjn@aol.jp> mate-terminal-9999.ebuild:
   Depend on >=vte-0.46:2.91
 
    Upstream: https://github.com/mate-desktop/mate-terminal/commit/2b454bb

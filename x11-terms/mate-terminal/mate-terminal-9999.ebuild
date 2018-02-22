@@ -18,10 +18,10 @@ IUSE="skey"
 
 COMMON_DEPEND="app-text/rarian:0
 	dev-libs/atk:0
-	>=dev-libs/glib-2.36.0:2
+	>=dev-libs/glib-2.50.0:2
 	>=gnome-base/dconf-0.13.4:0
 	x11-libs/gdk-pixbuf:2
-	>=x11-libs/gtk+-3.14.0:3
+	>=x11-libs/gtk+-3.22.0:3
 	x11-libs/libICE:0
 	x11-libs/libSM:0
 	x11-libs/libX11:0
