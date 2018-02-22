@@ -42,7 +42,6 @@ wjn-overlay packages list
 | gnome-extra/cinnamon | A fork of GNOME Shell with layout similar to GNOME 2 | <http://cinnamon.linuxmint.com/> | - | USE="pulseaudio" |
 | gnome-extra/cinnamon-control-center | Cinnamon's main interface to configure various aspects of the desktop | <http://cinnamon.linuxmint.com/> | - | USE="networkmanager pulseaudio" |
 | gnome-extra/cinnamon-settings-daemon | Cinnamon's settings daemon | <http://cinnamon.linuxmint.com/> | - | USE="pulseaudio" |
-| mail-client/sylpheed | A lightweight email client and newsreader | <http://sylpheed.sraoss.jp/> | - | newer ver. |
 | mate-base/caja | Caja file manager for the MATE desktop | <http://mate-desktop.org/> | - | dev ver. |
 | mate-base/libmatekbd | MATE keyboard configuration library | <http://mate-desktop.org/> | - | dev ver. |
 | mate-base/mate | Meta ebuild for MATE, a traditional desktop environment | <http://mate-desktop.org/> | - | dev ver. |
