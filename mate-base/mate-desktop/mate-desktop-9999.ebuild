@@ -23,7 +23,7 @@ COMMON_DEPEND=">=dev-libs/glib-2.50:2
 	>=gnome-base/dconf-0.13.4:0
 	x11-libs/cairo:0
 	>=x11-libs/gdk-pixbuf-2.4:2[introspection?]
-	>=x11-libs/gtk+-3.14.0:3[introspection?]
+	>=x11-libs/gtk+-3.22.0:3[introspection?]
 	x11-libs/libX11:0
 	>=x11-libs/libXrandr-1.3:0
 	virtual/libintl:0
