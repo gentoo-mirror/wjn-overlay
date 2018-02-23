@@ -1,7 +1,7 @@
 wjn-overlay packages list
 ========
 
-- This list is updated on 2018-01-03 EDT
+- This list is updated on 2018-02-22 EST
 
 | Package Name | Description | Upstream Website | This Overlay Only | Note |
 | ---- | ---- | ---- | ---- | ---- |
@@ -15,7 +15,6 @@ wjn-overlay packages list
 | app-admin/pass-import | generic importer extension for password manager ZX2C4's pass | <https://github.com/roddhjav/pass-import> | o | |
 | app-admin/pass-otp | One-time password extension for password manager ZX2C4's pass | <https://github.com/tadfisher/pass-otp> | o | |
 | app-editors/mined | Terminal-based Text Editor with extensive Unicode and CJK support | <http://towo.net/mined/> | o | |
-| app-editors/juffed |  QScintilla-based tabbed text editor with syntax highlighting | <http://juffed.com/> | - | dev ver. with Qt5 support |
 | app-editors/pluma | A powerful text editor for MATE | <http://mate-desktop.org/> | - | dev ver. |
 | app-i18n/fcitx-kkc | Japanese libkkc module for Fcitx | <https://github.com/fcitx/fcitx-kkc> | o | |
 | app-i18n/ibus-kkc | Japanese Kana Kanji input engine for IBus | <https://github.com/ueno/ibus-kkc> | o | |
@@ -128,7 +127,6 @@ wjn-overlay packages list
 | x11-libs/gdk-pixbuf-psd | A GdkPixbuf loader for Adobe Photoshop images | <http://cgit.sukimashita.com/gdk-pixbuf-psd.git/> | o | **UPSTEAM seems to be UNMAINTAINED**  |
 | x11-libs/gdk-pixbuf-xcf | A gdk-pixbuf loader for xcf (The Gimp) files | <https://gitorious.org/xcf-pixbuf-loader/> | o | **UPSTREAM is NOT ALIVE** |
 | x11-libs/libvdpau-va-gl | VDPAU driver with OpenGL/VAAPI backend | <https://github.com/i-rinat/libvdpau-va-gl> | o | |
-| x11-libs/qscintilla | A Qt port of Neil Hodgson's Scintilla C++ editor class | <http://www.riverbankcomputing.com/software/qscintilla/intro> | - | New slot to build for Qt5 |
 | x11-misc/lightdm-gtk-greeter-settings | LightDM Gtk+ Greeter settings editor | <https://launchpad.net/lightdm-gtk-greeter-settings> | o | |
 | x11-misc/mate-notification-daemon | MATE Notification daemon | <http://mate-desktop.org/> | - | dev ver. |
 | x11-misc/mate-tweak | MATE desktop tweak tool | <https://launchpad.net/ubuntu/+source/mate-tweak> | o | |
