@@ -3,6 +3,9 @@
 # (auto-generated from git log)
 
   02 Mar 2018; wjn <wjn@aol.jp> caja-dropbox-9999.ebuild:
+  Depend on net-misc/dropbox only as runtime dependency
+
+  02 Mar 2018; wjn <wjn@aol.jp> caja-dropbox-9999.ebuild:
   Depend on >=dev-libs/glib-2.50.0
 
    Upstream: https://github.com/mate-desktop/caja-dropbox/commit/7f65c59
