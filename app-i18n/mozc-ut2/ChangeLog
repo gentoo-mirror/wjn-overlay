@@ -2,6 +2,15 @@
 # Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  02 Mar 2018; wjn <wjn@aol.jp> metadata.xml:
+  Remove deleted USE="clang" from metadata.xml
+
+  02 Mar 2018; wjn <wjn@aol.jp> mozc-ut2-2.23.2785.102.20171008.ebuild:
+  Update Manifest of yusei zipcode archives
+
+  02 Mar 2018; wjn <wjn@aol.jp> -mozc-ut2-2.20.2677.102.20171008.ebuild:
+  Delete version 2.20.2677.102.20171008
+
   25 Jan 2018; wjn <wjn@aol.jp> mozc-ut2-2.23.2785.102.20171008.ebuild:
   Use ':' character instead of '/' in sed substitution
 

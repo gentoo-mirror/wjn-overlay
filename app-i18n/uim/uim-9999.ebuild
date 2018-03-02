@@ -64,8 +64,9 @@ DEPEND="${COMMON_DEPEND}
 	dev-util/intltool
 	>=sys-devel/gettext-0.15
 	virtual/pkgconfig
-	X? ( x11-proto/xextproto
-		x11-proto/xproto )
+	X? ( || ( x11-base/xorg-proto
+		 ( x11-proto/xextproto
+			x11-proto/xproto ) ) )
 	kde? ( dev-util/cmake )"
 if [[ ${PV} = *9999* ]]; then
 	DEPEND="${DEPEND}

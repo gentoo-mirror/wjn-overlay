@@ -1,7 +1,7 @@
 wjn-overlay packages list
 ========
 
-- This list is updated on 2018-01-03 EDT
+- This list is updated on 2018-03-02 EST
 
 | Package Name | Description | Upstream Website | This Overlay Only | Note |
 | ---- | ---- | ---- | ---- | ---- |
@@ -14,9 +14,7 @@ wjn-overlay packages list
 | app-admin/browserpass-bin | Host application required by Browserpass extension for ZX2C4's pass | <https://github.com/dannyvankooten/browserpass> | o | |
 | app-admin/pass-import | generic importer extension for password manager ZX2C4's pass | <https://github.com/roddhjav/pass-import> | o | |
 | app-admin/pass-otp | One-time password extension for password manager ZX2C4's pass | <https://github.com/tadfisher/pass-otp> | o | |
-| app-editors/focuswriter | A fullscreen and distraction-free word processor | <http://gottcode.org/focuswriter/> | - | dev ver. with Qt5 support |
 | app-editors/mined | Terminal-based Text Editor with extensive Unicode and CJK support | <http://towo.net/mined/> | o | |
-| app-editors/juffed |  QScintilla-based tabbed text editor with syntax highlighting | <http://juffed.com/> | - | dev ver. with Qt5 support |
 | app-editors/pluma | A powerful text editor for MATE | <http://mate-desktop.org/> | - | dev ver. |
 | app-i18n/fcitx-kkc | Japanese libkkc module for Fcitx | <https://github.com/fcitx/fcitx-kkc> | o | |
 | app-i18n/ibus-kkc | Japanese Kana Kanji input engine for IBus | <https://github.com/ueno/ibus-kkc> | o | |
@@ -42,7 +40,6 @@ wjn-overlay packages list
 | gnome-extra/cinnamon | A fork of GNOME Shell with layout similar to GNOME 2 | <http://cinnamon.linuxmint.com/> | - | USE="pulseaudio" |
 | gnome-extra/cinnamon-control-center | Cinnamon's main interface to configure various aspects of the desktop | <http://cinnamon.linuxmint.com/> | - | USE="networkmanager pulseaudio" |
 | gnome-extra/cinnamon-settings-daemon | Cinnamon's settings daemon | <http://cinnamon.linuxmint.com/> | - | USE="pulseaudio" |
-| mail-client/sylpheed | A lightweight email client and newsreader | <http://sylpheed.sraoss.jp/> | - | newer ver. |
 | mate-base/caja | Caja file manager for the MATE desktop | <http://mate-desktop.org/> | - | dev ver. |
 | mate-base/libmatekbd | MATE keyboard configuration library | <http://mate-desktop.org/> | - | dev ver. |
 | mate-base/mate | Meta ebuild for MATE, a traditional desktop environment | <http://mate-desktop.org/> | - | dev ver. |
@@ -116,7 +113,6 @@ wjn-overlay packages list
 | media-gfx/azpainter | A full-color painting software | <http://azsky2.html.xdomain.jp/linux/azpainter/> | o | |
 | media-gfx/azpainterb | A simple full-color paint software, a successor of AzPainter | <http://azsky2.html.xdomain.jp/> | o | |
 | media-gfx/eom | The MATE image viewer | <http://mate-desktop.org/> | - | dev ver. |
-| media-gfx/fbida | Image viewers for framebuffer and X11 | <http://www.kraxel.org/blog/linux/fbida/> | - | fix dependencies |
 | media-gfx/viewnior | Fast and simple image viewer | <http://xsisqox.github.com/Viewnior/index.html> | - | newer ver. |
 | media-plugins/audacious-plugins | Plugins for Audacious music player | <http://audacious-media-player.org/> | - | newer and dev ver., supports media-libs/soxr |
 | media-sound/audacious | A lightweight and versatile audio player | <http://audacious-media-player.org/> | - | newer and dev ver. |
@@ -130,7 +126,6 @@ wjn-overlay packages list
 | x11-libs/gdk-pixbuf-psd | A GdkPixbuf loader for Adobe Photoshop images | <http://cgit.sukimashita.com/gdk-pixbuf-psd.git/> | o | **UPSTEAM seems to be UNMAINTAINED**  |
 | x11-libs/gdk-pixbuf-xcf | A gdk-pixbuf loader for xcf (The Gimp) files | <https://gitorious.org/xcf-pixbuf-loader/> | o | **UPSTREAM is NOT ALIVE** |
 | x11-libs/libvdpau-va-gl | VDPAU driver with OpenGL/VAAPI backend | <https://github.com/i-rinat/libvdpau-va-gl> | o | |
-| x11-libs/qscintilla | A Qt port of Neil Hodgson's Scintilla C++ editor class | <http://www.riverbankcomputing.com/software/qscintilla/intro> | - | New slot to build for Qt5 |
 | x11-misc/lightdm-gtk-greeter-settings | LightDM Gtk+ Greeter settings editor | <https://launchpad.net/lightdm-gtk-greeter-settings> | o | |
 | x11-misc/mate-notification-daemon | MATE Notification daemon | <http://mate-desktop.org/> | - | dev ver. |
 | x11-misc/mate-tweak | MATE desktop tweak tool | <https://launchpad.net/ubuntu/+source/mate-tweak> | o | |

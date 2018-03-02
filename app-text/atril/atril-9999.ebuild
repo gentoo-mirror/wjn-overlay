@@ -23,23 +23,23 @@ IUSE="caja dbus debug djvu doc dvi epub +introspection gnome-keyring +pdf +ps
 
 COMMON_DEPEND="app-text/rarian:0
 	dev-libs/atk:0
-	>=dev-libs/glib-2.36.0:2
+	>=dev-libs/glib-2.50.0:2
 	>=dev-libs/libxml2-2.5.0:2
 	sys-libs/zlib:0
 	x11-libs/gdk-pixbuf:2[introspection?]
-	>=x11-libs/gtk+-3.0.0:3[introspection?]
+	>=x11-libs/gtk+-3.22.0:3[introspection?]
 	x11-libs/libICE:0
 	>=x11-libs/libSM-1:0
 	x11-libs/libX11:0
-	>=x11-libs/cairo-1.9.10:0
+	>=x11-libs/cairo-1.10.0:0
 	x11-libs/pango:0
-	caja? ( mate-base/caja[gtk3(+),introspection?] )
+	caja? ( >=mate-base/caja-1.17.1[introspection?] )
 	djvu? ( >=app-text/djvu-3.5.17:0 )
 	dvi? ( virtual/tex-base:0
 		t1lib? ( >=media-libs/t1lib-5:5 ) )
 	epub? ( dev-libs/mathjax
-		|| ( net-libs/webkit-gtk:4
-			net-libs/webkit-gtk:3 ) )
+		|| ( >=net-libs/webkit-gtk-2.4.3:4
+			>=net-libs/webkit-gtk-2.4.3:3 ) )
 	gnome-keyring? ( >=app-crypt/libsecret-0.5:0 )
 	introspection? ( >=dev-libs/gobject-introspection-0.6:0 )
 	pdf? ( >=app-text/poppler-0.22.0:0=[cairo] )
