@@ -3,6 +3,11 @@
 # (auto-generated from git log)
 
   02 Mar 2018; wjn <wjn@aol.jp> caja-dropbox-9999.ebuild:
+  Depend on >=dev-libs/glib-2.50.0
+
+   Upstream: https://github.com/mate-desktop/caja-dropbox/commit/7f65c59
+
+  02 Mar 2018; wjn <wjn@aol.jp> caja-dropbox-9999.ebuild:
   Do not require GTK+ 2 version of caja
 
   03 Jan 2018; wjn <wjn@aol.jp> caja-dropbox-9999.ebuild:

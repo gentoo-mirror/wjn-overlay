@@ -21,7 +21,7 @@ KEYWORDS=""
 IUSE="debug"
 
 COMMON_DEPEND="dev-libs/atk:0
-	>=dev-libs/glib-2.36.0:2
+	>=dev-libs/glib-2.50.0:2
 	dev-python/pygtk:2[${PYTHON_USEDEP}]
 	>=mate-base/caja-1.17.1:0
 	media-libs/fontconfig:1.0
