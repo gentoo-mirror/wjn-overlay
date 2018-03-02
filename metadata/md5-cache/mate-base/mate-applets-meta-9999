@@ -2,9 +2,8 @@ DEFINED_PHASES=-
 DESCRIPTION=Meta package for MATE panel applets
 EAPI=6
 HOMEPAGE=http://mate-desktop.org/ https://github.com/mate-desktop/mate-applets
-IUSE=appindicator +gtk3 sensors
+IUSE=appindicator sensors
 LICENSE=metapackage
-RDEPEND=~mate-base/mate-applets-9999[gtk3(+)=] appindicator? ( ~mate-extra/mate-indicator-applet-9999 ) sensors? ( ~mate-extra/mate-sensors-applet-9999 )
-REQUIRED_USE=appindicator? ( gtk3 ) sensors? ( gtk3 )
+RDEPEND=~mate-base/mate-applets-9999 appindicator? ( ~mate-extra/mate-indicator-applet-9999 ) sensors? ( ~mate-extra/mate-sensors-applet-9999 )
 SLOT=0
-_md5_=9c4fef2224f71ec6b43d9d9065ca0ecc
+_md5_=4bfb3e20434ae0a2414e9b82ecc98274
