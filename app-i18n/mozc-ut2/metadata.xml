@@ -18,7 +18,6 @@
 		<doc>http://www.geocities.jp/ep3797/mozc-ut2.html</doc>
 	</upstream>
 	<use>
-		<flag name='clang'>Use <pkg>sys-devel/clang</pkg> to compile</flag>
 		<flag name='ejdic'>Add English-Japanese dictionary</flag>
 		<flag name='emacs'>Enable support for <pkg>virtual/emacs</pkg></flag>
 		<flag name='fcitx'>Enable support for <pkg>app-i18n/fcitx</pkg></flag>
