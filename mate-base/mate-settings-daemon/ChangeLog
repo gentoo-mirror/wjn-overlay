@@ -3,6 +3,9 @@
 # (auto-generated from git log)
 
   02 Mar 2018; wjn <wjn@aol.jp> mate-settings-daemon-9999.ebuild:
+  Allow x11-base/xorg-proto as choice dependency
+
+  02 Mar 2018; wjn <wjn@aol.jp> mate-settings-daemon-9999.ebuild:
   Depend on >=mate-desktop-1.20.0
 
    Upstream https://github.com/mate-desktop/mate-settings-
