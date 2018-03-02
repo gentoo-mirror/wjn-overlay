@@ -2,6 +2,13 @@
 # Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  02 Mar 2018; wjn <wjn@aol.jp> eom-9999.ebuild, metadata.xml:
+  Drop GTK+ 2 support and Python plugins
+
+   Upstream:
+    https://github.com/mate-desktop/eom/commit/9a94231
+    https://github.com/mate-desktop/eom/commit/e85aca3
+
   03 Jan 2018; wjn <wjn@aol.jp> eom-9999.ebuild:
   [QA] Update copyright year to 2018
 
