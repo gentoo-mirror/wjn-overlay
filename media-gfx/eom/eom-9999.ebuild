@@ -17,7 +17,7 @@ KEYWORDS=""
 IUSE="X dbus debug doc exif introspection jpeg lcms svg tiff xmp"
 
 COMMON_DEPEND="dev-libs/atk:0[introspection?]
-	>=dev-libs/glib-2.36.0:2
+	>=dev-libs/glib-2.50.0:2
 	dev-libs/libpeas:0
 	>=dev-libs/libxml2-2.0:2
 	gnome-base/dconf:0
@@ -26,7 +26,7 @@ COMMON_DEPEND="dev-libs/atk:0[introspection?]
 	sys-libs/zlib:0
 	x11-libs/cairo:0
 	>=x11-libs/gdk-pixbuf-2.30.0:2[introspection?,jpeg?,tiff?]
-	>=x11-libs/gtk+-3.14.0:3[introspection?]
+	>=x11-libs/gtk+-3.22.0:3[introspection?]
 	x11-libs/libX11:0
 	>=x11-misc/shared-mime-info-0.20:0
 	virtual/libintl:0
