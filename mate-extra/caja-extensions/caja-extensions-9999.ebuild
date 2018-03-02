@@ -22,14 +22,14 @@ IUSE="${SENDTO} debug gksu image-converter +open-terminal share wallpaper"
 REQUIRED_USE="gksu? ( open-terminal )"
 
 COMMON_DEPEND=">=dev-libs/glib-2.50.0:2
-	>=mate-base/caja-1.7.0:0[gtk3(+)]
+	>=mate-base/caja-1.17.1:0[gtk3(+)]
 	virtual/libintl:0
 	x11-libs/gdk-pixbuf:2
 	>=x11-libs/gtk+-3.22.0:3
 	gajim? ( net-im/gajim:0
 		>=dev-libs/dbus-glib-0.60:0
 		>=sys-apps/dbus-1.0:0 )
-	open-terminal? ( >=mate-base/mate-desktop-1.7.0:0 )
+	open-terminal? ( >=mate-base/mate-desktop-1.17.0:0 )
 	pidgin? ( >=dev-libs/dbus-glib-0.60:0 )
 	upnp? ( >=net-libs/gupnp-0.13:0= )"
 DEPEND="${COMMON_DEPEND}
