@@ -7,7 +7,7 @@ EAPI=6
 PYTHON_COMPAT=( python2_7 )
 
 inherit elisp-common git-r3 multilib multiprocessing python-single-r1 \
-	python-utils-r1 toolchain-funcs versionator 
+	python-utils-r1 toolchain-funcs versionator
 
 MY_PN=${PN/mozc/mozcdic}
 
@@ -22,7 +22,7 @@ FCITX_PATCH_VER="2.18.2612.102.1"
 UIM_PATCH_REV="3ea28b1"
 
 # Zip code data are revised on the last of every month
-ZIPCODE_REV="201712"
+ZIPCODE_REV="201802"
 
 UT2_REL=$(get_version_component_range $(get_version_component_count))
 UT2_DIR="16/16039"
