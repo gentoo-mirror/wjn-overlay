@@ -33,7 +33,7 @@ COMMON_DEPEND="app-text/rarian:0
 	>=x11-libs/libXrandr-1.3.0:0
 	>=x11-libs/libnotify-0.7.0:0
 	x11-libs/pango:0
-	applet? ( >=mate-base/mate-panel-1.5.0:0[gtk3(+)] )
+	applet? ( >=mate-base/mate-panel-1.17.0:0 )
 	gnome-keyring? ( >=gnome-base/libgnome-keyring-3.0.0:0 )"
 DEPEND="${COMMON_DEPEND}
 	app-text/docbook-xml-dtd:4.3
