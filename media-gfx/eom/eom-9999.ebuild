@@ -18,11 +18,11 @@ IUSE="X dbus debug doc exif introspection jpeg lcms svg tiff xmp"
 
 COMMON_DEPEND="dev-libs/atk:0[introspection?]
 	>=dev-libs/glib-2.50.0:2
-	dev-libs/libpeas:0
+	>=dev-libs/libpeas-1.2.0:0
 	>=dev-libs/libxml2-2.0:2
 	gnome-base/dconf:0
 	gnome-base/gsettings-desktop-schemas:0[introspection?]
-	>=mate-base/mate-desktop-1.9.1:0[gtk3(+),introspection?]
+	>=mate-base/mate-desktop-1.17.0:0[gtk3(+),introspection?]
 	sys-libs/zlib:0
 	x11-libs/cairo:0
 	>=x11-libs/gdk-pixbuf-2.30.0:2[introspection?,jpeg?,tiff?]
