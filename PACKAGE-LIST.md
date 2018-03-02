@@ -1,7 +1,7 @@
 wjn-overlay packages list
 ========
 
-- This list is updated on 2018-02-22 EST
+- This list is updated on 2018-03-02 EST
 
 | Package Name | Description | Upstream Website | This Overlay Only | Note |
 | ---- | ---- | ---- | ---- | ---- |
@@ -113,7 +113,6 @@ wjn-overlay packages list
 | media-gfx/azpainter | A full-color painting software | <http://azsky2.html.xdomain.jp/linux/azpainter/> | o | |
 | media-gfx/azpainterb | A simple full-color paint software, a successor of AzPainter | <http://azsky2.html.xdomain.jp/> | o | |
 | media-gfx/eom | The MATE image viewer | <http://mate-desktop.org/> | - | dev ver. |
-| media-gfx/fbida | Image viewers for framebuffer and X11 | <http://www.kraxel.org/blog/linux/fbida/> | - | fix dependencies |
 | media-gfx/viewnior | Fast and simple image viewer | <http://xsisqox.github.com/Viewnior/index.html> | - | newer ver. |
 | media-plugins/audacious-plugins | Plugins for Audacious music player | <http://audacious-media-player.org/> | - | newer and dev ver., supports media-libs/soxr |
 | media-sound/audacious | A lightweight and versatile audio player | <http://audacious-media-player.org/> | - | newer and dev ver. |
