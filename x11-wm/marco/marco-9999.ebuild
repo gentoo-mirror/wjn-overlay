@@ -19,7 +19,7 @@ KEYWORDS=""
 IUSE="startup-notification test xinerama"
 
 COMMON_DEPEND="dev-libs/atk:0
-	>=dev-libs/glib-2.36.0:2
+	>=dev-libs/glib-2.50.0:2
 	>=gnome-base/libgtop-2.0:2=
 	gnome-extra/zenity:0
 	media-libs/libcanberra:0[gtk3]
@@ -36,7 +36,7 @@ COMMON_DEPEND="dev-libs/atk:0
 	x11-libs/libXrandr:0
 	x11-libs/libXrender:0
 	x11-libs/libxkbcommon:0
-	>=x11-libs/gtk+-3.14.0:3
+	>=x11-libs/gtk+-3.22.0:3
 	>=x11-libs/pango-1.2.0:0[X]
 	>=x11-libs/startup-notification-0.7:0
 	virtual/libintl:0
