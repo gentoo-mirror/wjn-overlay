@@ -3,6 +3,9 @@
 # (auto-generated from git log)
 
   02 Mar 2018; wjn <wjn@aol.jp> mate-control-center-9999.ebuild:
+  Update version dependencies of libraries
+
+  02 Mar 2018; wjn <wjn@aol.jp> mate-control-center-9999.ebuild:
   Allow x11-base/xorg-proto as choice dependency
 
   02 Mar 2018; wjn <wjn@aol.jp> mate-control-center-9999.ebuild:

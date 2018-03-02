@@ -25,11 +25,11 @@ COMMON_DEPEND="app-text/rarian:0
 	dev-libs/libxml2:2
 	>=gnome-base/dconf-0.13.4:0
 	>=gnome-base/librsvg-2.0:2
-	>=mate-base/libmatekbd-1.1.0:0[gtk3(+)]
-	>=mate-base/mate-desktop-1.15.0:0[gtk3(+)]
+	>=mate-base/libmatekbd-1.17.0:0[gtk3(+)]
+	>=mate-base/mate-desktop-1.17.0:0[gtk3(+)]
 	>=mate-base/caja-1.13.0:0[gtk3(+)]
 	>=mate-base/mate-menus-1.1.0:0
-	>=mate-base/mate-settings-daemon-1.13.1:0[gtk3(+)]
+	>=mate-base/mate-settings-daemon-1.17.0:0[gtk3(+)]
 	>=media-libs/fontconfig-1:1.0
 	media-libs/freetype:2
 	media-libs/libcanberra:0[gtk3]
@@ -49,7 +49,7 @@ COMMON_DEPEND="app-text/rarian:0
 	x11-libs/libXxf86misc:0
 	>=x11-libs/libxklavier-4:0
 	x11-libs/pango:0
-	>=x11-wm/marco-1.13.1[gtk3(+)]
+	>=x11-wm/marco-1.17.0[gtk3(+)]
 	virtual/libintl:0
 	appindicator? ( >=dev-libs/libappindicator-0.0.13:3 )"
 DEPEND="${COMMON_DEPEND}
