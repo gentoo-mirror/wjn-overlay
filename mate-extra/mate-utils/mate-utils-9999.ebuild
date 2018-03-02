@@ -20,13 +20,13 @@ IUSE="X applet debug ipv6 test"
 
 COMMON_DEPEND="app-text/rarian:0
 	dev-libs/atk:0
-	>=dev-libs/glib-2.36.0:2
+	>=dev-libs/glib-2.50.0:2
 	>=gnome-base/libgtop-2.12.0:2=
 	>=media-libs/libcanberra-0.4:0[gtk3]
 	sys-libs/zlib:0
 	x11-libs/cairo:0
 	x11-libs/gdk-pixbuf:2
-	>=x11-libs/gtk+-3.16.0:3
+	>=x11-libs/gtk+-3.22.0:3
 	x11-libs/libICE:0
 	x11-libs/libSM:0
 	x11-libs/libX11:0
