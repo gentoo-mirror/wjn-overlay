@@ -32,7 +32,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	>=dev-libs/libxml2-2.5.0:2
 	dev-python/pygobject:3
 	>=gnome-base/libgtop-2.12.0:2=
-	>=mate-base/mate-panel-1.16.0:0[gtk3(+)]
+	>=mate-base/mate-panel-1.17.0:0
 	!!net-analyzer/mate-netspeed
 	>=sys-apps/dbus-1.1.2:0
 	x11-libs/gdk-pixbuf:2
