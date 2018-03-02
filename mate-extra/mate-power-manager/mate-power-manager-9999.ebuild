@@ -20,14 +20,14 @@ RESTRICT="test"
 
 COMMON_DEPEND="app-text/rarian:0
 	>=dev-libs/dbus-glib-0.70:0
-	>=dev-libs/glib-2.36.0:2
+	>=dev-libs/glib-2.50.0:2
 	>=media-libs/libcanberra-0.10:0[gtk3]
 	>=sys-apps/dbus-1.0:0
 	>=sys-auth/consolekit-1.0
 	>=x11-apps/xrandr-1.3.0:0
 	>=x11-libs/cairo-1.0.0:0
 	>=x11-libs/gdk-pixbuf-2.11:2
-	>=x11-libs/gtk+-3.14.0:3
+	>=x11-libs/gtk+-3.22.0:3
 	x11-libs/libX11:0
 	x11-libs/libXext:0
 	>=x11-libs/libXrandr-1.3.0:0
