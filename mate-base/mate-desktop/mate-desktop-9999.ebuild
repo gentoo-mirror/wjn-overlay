@@ -33,8 +33,9 @@ DEPEND="${COMMON_DEPEND}
 	>=dev-util/intltool-0.50.1:0
 	>=gnome-base/dconf-0.10:0
 	sys-devel/gettext:0
-	>=x11-proto/randrproto-1.2:0
-	x11-proto/xproto:0
+	|| ( x11-base/xorg-proto
+		( >=x11-proto/randrproto-1.2:0
+			x11-proto/xproto:0 ) )
 	virtual/pkgconfig:0
 	doc? ( >=dev-util/gtk-doc-1.4:0 )"
 RDEPEND="${COMMON_DEPEND}"
