@@ -21,11 +21,11 @@ SENDTO="cdr drive gajim mail pidgin upnp"
 IUSE="${SENDTO} debug gksu image-converter +open-terminal share wallpaper"
 REQUIRED_USE="gksu? ( open-terminal )"
 
-COMMON_DEPEND=">=dev-libs/glib-2.36.0:2
+COMMON_DEPEND=">=dev-libs/glib-2.50.0:2
 	>=mate-base/caja-1.7.0:0[gtk3(+)]
 	virtual/libintl:0
 	x11-libs/gdk-pixbuf:2
-	>=x11-libs/gtk+-3.0.0:3
+	>=x11-libs/gtk+-3.22.0:3
 	gajim? ( net-im/gajim:0
 		>=dev-libs/dbus-glib-0.60:0
 		>=sys-apps/dbus-1.0:0 )
