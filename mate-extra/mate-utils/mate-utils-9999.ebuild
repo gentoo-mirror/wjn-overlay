@@ -32,7 +32,7 @@ COMMON_DEPEND="app-text/rarian:0
 	x11-libs/libX11:0
 	x11-libs/libXext:0
 	x11-libs/pango:0
-	applet? ( >=mate-base/mate-panel-1.7.0:0[gtk3(+)] )"
+	applet? ( >=mate-base/mate-panel-1.17.0:0 )"
 DEPEND="${COMMON_DEPEND}
 	>=app-text/scrollkeeper-dtd-1:1.0
 	app-text/yelp-tools:0
