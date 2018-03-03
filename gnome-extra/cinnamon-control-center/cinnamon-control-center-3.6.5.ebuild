@@ -63,13 +63,13 @@ RDEPEND="${COMMON_DEPEND}
 		net-print/cups-pk-helper )
 	input_devices_wacom? ( gnome-extra/cinnamon-settings-daemon[input_devices_wacom] )
 	!systemd? ( app-admin/openrc-settingsd
-		sys-auth/consolekit )
+		|| ( sys-auth/consolekit
+		sys-auth/elogind ) )
 	systemd? ( >=sys-apps/systemd-31 )"
 
 RESTRICT="mirror"
 
 src_prepare() {
-	eapply_user
 	eautoreconf
 	gnome2_src_prepare
 }
@@ -78,6 +78,7 @@ src_configure() {
 	gnome2_src_configure \
 		--disable-static \
 		--enable-documentation \
+		--disable-onlineaccounts \
 		$(use_enable colord color) \
 		$(use_enable cups) \
 		$(usex debug --enable-debug=yes ' ') \

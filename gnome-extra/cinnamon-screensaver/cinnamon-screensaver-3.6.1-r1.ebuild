@@ -2,18 +2,21 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
-PYTHON_COMPAT=( python2_7 )
+
+PYTHON_COMPAT=( python3_{4,5,6} )
 
 inherit autotools gnome2 multilib python-single-r1
 
 DESCRIPTION="Screensaver for Cinnamon"
 HOMEPAGE="http://cinnamon.linuxmint.com/"
-SRC_URI="https://github.com/linuxmint/cinnamon-screensaver/archive/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/linuxmint/cinnamon-screensaver/archive/${PV}.tar.gz
+	 -> ${P}.tar.gz"
 
 LICENSE="GPL-2+"
 SLOT="0"
-IUSE="debug doc pam systemd +webkit"
-KEYWORDS="amd64 x86"
+KEYWORDS=""
+IUSE="debug doc pam systemd +webkit xinerama"
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 COMMON_DEPEND="${PYTHON_DEPS}
 	>=dev-libs/glib-2.37.3:2[dbus]
@@ -33,11 +36,16 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	x11-themes/adwaita-icon-theme
 	pam? ( virtual/pam )
 	systemd? ( >=sys-apps/systemd-31:0= )
-	webkit? ( net-libs/webkit-gtk:4[introspection] )"
+	webkit? ( net-libs/webkit-gtk:4[introspection] )
+	xinerama? ( x11-libs/libXinerama )"
 # our cinnamon-1.8 ebuilds installed a cinnamon-screensaver.desktop hack
-RDEPEND="!~gnome-extra/cinnamon-1.8.8.1
+RDEPEND="${COMMON_DEPEND}
+	!~gnome-extra/cinnamon-1.8.8.1
+	!systemd? ( sys-auth/consolekit )
 	dev-python/pygobject:3[${PYTHON_USEDEP}]
-	!systemd? ( sys-auth/consolekit )"
+	dev-python/setproctitle[${PYTHON_USEDEP}]
+	dev-python/xapp[${PYTHON_USEDEP}]
+	dev-python/psutil[${PYTHON_USEDEP}]"
 DEPEND="${COMMON_DEPEND}
 	>=dev-util/intltool-0.35
 	gnome-base/gnome-common
@@ -57,20 +65,14 @@ pkg_setup() {
 }
 
 src_prepare() {
-	eapply "${FILESDIR}"/${PN}-3.0.1-automagic-logind.patch
-	eapply "${FILESDIR}"/${PN}-2.8.0-webkit4.patch #566572
-
-	# Fix xscreensaver paths for gentoo
-	sed -e "s#/usr/lib/xscreensaver/#${EPREFIX}/usr/$(get_libdir)/misc/xscreensaver/#" \
-		-i data/screensavers/xscreensaver@cinnamon.org/main || die
-
 	if ! use webkit; then
-		rm -rf "${S}/data/screensavers/webkit@cinnamon.org"
-		sed -i -e 's/PKG_CHECK_MODULES(\[WEBKIT.*//' "${S}/configure.ac"
+		rm -rf "${S}/screensavers/webkit@cinnamon.org" || die
+		sed -i -e '/webkit/d' "${S}/configure.ac" || die
+		sed -i -e 's/webkit@cinnamon.org//' "${S}/screensavers/Makefile.am" \
+			|| die
 	fi
 
-	python_fix_shebang data/screensavers
-
+	python_fix_shebang screensavers
 	eautoreconf
 	gnome2_src_prepare
 }
@@ -78,16 +80,7 @@ src_prepare() {
 src_configure() {
 	gnome2_src_configure \
 		$(usex debug --enable-debug ' ') \
-		$(use_enable doc docbook-docs) \
-		$(use_enable pam locking) \
-		$(use_enable systemd logind) \
-		--with-mit-ext \
-		--with-pam-prefix=/etc \
-		--with-xf86gamma-ext \
-		--with-kbd-layout-indicator
-	# Do not use --without-console-kit, it would provide no benefit: there is
-	# no build-time or run-time check for consolekit, $PN merely listens to
-	# consolekit's messages over dbus.
+		$(use_enable xinerama)
 }
 
 pkg_postinst() {
