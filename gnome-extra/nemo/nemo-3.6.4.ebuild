@@ -50,7 +50,8 @@ DEPEND="${COMMON_DEPEND}
 	gnome-base/gnome-common
 	sys-devel/gettext
 	virtual/pkgconfig
-	x11-proto/xproto"
+	|| ( x11-base/xorg-proto
+		x11-proto/xproto )"
 RDEPEND="${COMMON_DEPEND}
 	x11-themes/adwaita-icon-theme
 	nls? ( >=gnome-extra/cinnamon-translations-2.2 )"
