@@ -51,7 +51,8 @@ COMMON_DEPEND=">=dev-libs/glib-2.38:2
 DEPEND="${COMMON_DEPEND}
 	dev-libs/libxml2:2
 	>=dev-util/intltool-0.37.1
-	x11-proto/kbproto
+	|| ( x11-base/xorg-proto
+		x11-proto/kbproto )
 	virtual/pkgconfig"
 RDEPEND=${COMMON_DEPEND}
 
