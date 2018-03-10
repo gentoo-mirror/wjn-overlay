@@ -34,6 +34,7 @@ wjn-overlay packages list
 | dev-python/percol | percol adds flavor of interactive selection to pipe | <https://github.com/mooz/percol> | o | |
 | dev-python/phpserialize | A small library for extracting rich content from urls | <http://github.com/mitsuhiko/phpserialize> | o | improves www-apps/nikola |
 | dev-python/python-caja | Python bindings for Caja file manager | <http://www.mate-desktop.org> | - | dev ver. |
+| dev-python/smartypants | Python fork of SmartyPants, a free web publishing plug-in | <https://github.com/leohemsted/smartypants.py> | o | needed by dev-python/typogrify |
 | dev-python/typogrify | Filters to enhance web typography, often used with Jinja or Django | <https://github.com/mintchaos/typogrify> | o | improves www-apps/nikola |
 | dev-util/meld | A graphical diff and merge tool | <http://meldmerge.org/> | - | newer ver. |
 | gnome-extra/cinnamon | A fork of GNOME Shell with layout similar to GNOME 2 | <http://cinnamon.linuxmint.com/> | - | USE="pulseaudio" |
