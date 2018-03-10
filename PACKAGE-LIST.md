@@ -1,13 +1,12 @@
 wjn-overlay packages list
 ========
 
-- This list is updated on 2018-03-02 EST
+- This list is updated on 2018-03-10 EST
 
 | Package Name | Description | Upstream Website | This Overlay Only | Note |
 | ---- | ---- | ---- | ---- | ---- |
 | app-accessibility/florence | an extensible scalable virtual keyboard for X11 | <http://florence.sourceforge.net/> | o | |
 | app-accessibility/onboard | Onscreen keyboard for tablet PC users and mobility impaired users | <https://launchpad.net/onboard> | o | |
-| app-accessibility/xvkbd | Virtual Keyboard for X Window System | <http://homepage3.nifty.com/tsato/xvkbd/> | o | gentoo repo includes this in **x11-misc** |
 | app-arch/engrampa | Engrampa archive manager for MATE | <http://mate-desktop.org/> | - | dev ver. |
 | app-editors/cutemarked | Qt5-based Markdown editor with live HTML preview | <http://cloose.github.io/CuteMarkEd/> | o | Fix deps. gentoo repo includes this in **app-text** |
 | app-admin/browserpass | Host application required by Browserpass extension for ZX2C4's pass | <https://github.com/dannyvankooten/browserpass> | o | |
