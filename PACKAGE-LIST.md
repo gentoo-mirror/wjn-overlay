@@ -1,13 +1,12 @@
 wjn-overlay packages list
 ========
 
-- This list is updated on 2018-03-02 EST
+- This list is updated on 2018-03-10 EST
 
 | Package Name | Description | Upstream Website | This Overlay Only | Note |
 | ---- | ---- | ---- | ---- | ---- |
 | app-accessibility/florence | an extensible scalable virtual keyboard for X11 | <http://florence.sourceforge.net/> | o | |
 | app-accessibility/onboard | Onscreen keyboard for tablet PC users and mobility impaired users | <https://launchpad.net/onboard> | o | |
-| app-accessibility/xvkbd | Virtual Keyboard for X Window System | <http://homepage3.nifty.com/tsato/xvkbd/> | o | gentoo repo includes this in **x11-misc** |
 | app-arch/engrampa | Engrampa archive manager for MATE | <http://mate-desktop.org/> | - | dev ver. |
 | app-editors/cutemarked | Qt5-based Markdown editor with live HTML preview | <http://cloose.github.io/CuteMarkEd/> | o | Fix deps. gentoo repo includes this in **app-text** |
 | app-admin/browserpass | Host application required by Browserpass extension for ZX2C4's pass | <https://github.com/dannyvankooten/browserpass> | o | |
@@ -35,6 +34,7 @@ wjn-overlay packages list
 | dev-python/percol | percol adds flavor of interactive selection to pipe | <https://github.com/mooz/percol> | o | |
 | dev-python/phpserialize | A small library for extracting rich content from urls | <http://github.com/mitsuhiko/phpserialize> | o | improves www-apps/nikola |
 | dev-python/python-caja | Python bindings for Caja file manager | <http://www.mate-desktop.org> | - | dev ver. |
+| dev-python/smartypants | Python fork of SmartyPants, a free web publishing plug-in | <https://github.com/leohemsted/smartypants.py> | o | needed by dev-python/typogrify |
 | dev-python/typogrify | Filters to enhance web typography, often used with Jinja or Django | <https://github.com/mintchaos/typogrify> | o | improves www-apps/nikola |
 | dev-util/meld | A graphical diff and merge tool | <http://meldmerge.org/> | - | newer ver. |
 | gnome-extra/cinnamon | A fork of GNOME Shell with layout similar to GNOME 2 | <http://cinnamon.linuxmint.com/> | - | USE="pulseaudio" |
