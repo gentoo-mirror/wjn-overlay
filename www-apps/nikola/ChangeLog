@@ -2,6 +2,11 @@
 # Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*nikola-7.8.12 (18 Mar 2018)
+
+  18 Mar 2018; wjn <wjn@aol.jp> +nikola-7.8.12.ebuild:
+  Add version 7.8.12
+
   10 Mar 2018; wjn <wjn@aol.jp> metadata.xml:
   Fix typo in metadata.xml
 
