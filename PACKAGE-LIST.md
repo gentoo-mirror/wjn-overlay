@@ -1,7 +1,7 @@
 wjn-overlay packages list
 ========
 
-- This list is updated on 2018-03-10 EST
+- This list is updated on 2018-03-19 EDT
 
 | Package Name | Description | Upstream Website | This Overlay Only | Note |
 | ---- | ---- | ---- | ---- | ---- |
@@ -9,10 +9,9 @@ wjn-overlay packages list
 | app-accessibility/onboard | Onscreen keyboard for tablet PC users and mobility impaired users | <https://launchpad.net/onboard> | o | |
 | app-arch/engrampa | Engrampa archive manager for MATE | <http://mate-desktop.org/> | - | dev ver. |
 | app-editors/cutemarked | Qt5-based Markdown editor with live HTML preview | <http://cloose.github.io/CuteMarkEd/> | o | Fix deps. gentoo repo includes this in **app-text** |
-| app-admin/browserpass | Host application required by Browserpass extension for ZX2C4's pass | <https://github.com/dannyvankooten/browserpass> | o | |
-| app-admin/browserpass-bin | Host application required by Browserpass extension for ZX2C4's pass | <https://github.com/dannyvankooten/browserpass> | o | |
+| app-admin/browserpass | Host application required by Browserpass extension for ZX2C4's pass | <https://github.com/dannyvankooten/browserpass> | - | |
+| app-admin/browserpass-bin | Host application required by Browserpass extension for ZX2C4's pass | <https://github.com/dannyvankooten/browserpass> | o | Pre-built ver. of app-admin/browserpass |
 | app-admin/pass-import | generic importer extension for password manager ZX2C4's pass | <https://github.com/roddhjav/pass-import> | o | |
-| app-admin/pass-otp | One-time password extension for password manager ZX2C4's pass | <https://github.com/tadfisher/pass-otp> | o | |
 | app-editors/mined | Terminal-based Text Editor with extensive Unicode and CJK support | <http://towo.net/mined/> | o | |
 | app-editors/pluma | A powerful text editor for MATE | <http://mate-desktop.org/> | - | dev ver. |
 | app-i18n/fcitx-kkc | Japanese libkkc module for Fcitx | <https://github.com/fcitx/fcitx-kkc> | o | |

@@ -7,7 +7,7 @@ ELTCONF="--portage"
 
 GNOME2_LA_PUNT="yes"
 
-inherit autotools git-r3 gnome2
+inherit autotools git-r3 gnome2 xdg-utils
 
 DESCRIPTION="Atril document viewer for MATE desktop"
 HOMEPAGE="http://mate-desktop.org/
@@ -64,6 +64,7 @@ src_unpack() {
 
 src_prepare() {
 	eapply_user
+	use epub || eapply -R "${FILESDIR}/${P}-disable-webkit.patch"
 	eautoreconf
 	gnome2_src_prepare
 }
@@ -94,6 +95,12 @@ src_configure() {
 }
 
 pkg_postinst() {
+	xdg_desktop_database_update
+
 	elog "For viewing comic books (CBR files),"
 	elog "Please note uncompressors such as app-arch/unrar may be needed."
+}
+
+pkg_postrm() {
+	xdg_desktop_database_update
 }

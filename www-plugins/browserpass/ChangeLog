@@ -2,6 +2,16 @@
 # Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*browserpass-2.0.13 (19 Mar 2018)
+
+  19 Mar 2018; wjn <wjn@aol.jp> +browserpass-2.0.13.ebuild:
+  Add version 2.0.13 temporarily
+
+   Since Browserpass 2.0.12, compatibility breaks with older versions.
+  So newer browser extensions need newer host application
+
+   This commit is for use with newer browser extensions
+
   12 Feb 2018; wjn <wjn@aol.jp> browserpass-1.0.6.ebuild:
   Block www-plugins/browserpass-bin
 
