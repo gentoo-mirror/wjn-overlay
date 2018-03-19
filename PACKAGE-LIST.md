@@ -12,7 +12,6 @@ wjn-overlay packages list
 | app-admin/browserpass | Host application required by Browserpass extension for ZX2C4's pass | <https://github.com/dannyvankooten/browserpass> | - | |
 | app-admin/browserpass-bin | Host application required by Browserpass extension for ZX2C4's pass | <https://github.com/dannyvankooten/browserpass> | o | |
 | app-admin/pass-import | generic importer extension for password manager ZX2C4's pass | <https://github.com/roddhjav/pass-import> | o | |
-| app-admin/pass-otp | One-time password extension for password manager ZX2C4's pass | <https://github.com/tadfisher/pass-otp> | o | |
 | app-editors/mined | Terminal-based Text Editor with extensive Unicode and CJK support | <http://towo.net/mined/> | o | |
 | app-editors/pluma | A powerful text editor for MATE | <http://mate-desktop.org/> | - | dev ver. |
 | app-i18n/fcitx-kkc | Japanese libkkc module for Fcitx | <https://github.com/fcitx/fcitx-kkc> | o | |
