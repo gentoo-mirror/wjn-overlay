@@ -10,7 +10,7 @@ wjn-overlay packages list
 | app-arch/engrampa | Engrampa archive manager for MATE | <http://mate-desktop.org/> | - | dev ver. |
 | app-editors/cutemarked | Qt5-based Markdown editor with live HTML preview | <http://cloose.github.io/CuteMarkEd/> | o | Fix deps. gentoo repo includes this in **app-text** |
 | app-admin/browserpass | Host application required by Browserpass extension for ZX2C4's pass | <https://github.com/dannyvankooten/browserpass> | - | |
-| app-admin/browserpass-bin | Host application required by Browserpass extension for ZX2C4's pass | <https://github.com/dannyvankooten/browserpass> | o | |
+| app-admin/browserpass-bin | Host application required by Browserpass extension for ZX2C4's pass | <https://github.com/dannyvankooten/browserpass> | o | Pre-built ver. of app-admin/browserpass |
 | app-admin/pass-import | generic importer extension for password manager ZX2C4's pass | <https://github.com/roddhjav/pass-import> | o | |
 | app-editors/mined | Terminal-based Text Editor with extensive Unicode and CJK support | <http://towo.net/mined/> | o | |
 | app-editors/pluma | A powerful text editor for MATE | <http://mate-desktop.org/> | - | dev ver. |
