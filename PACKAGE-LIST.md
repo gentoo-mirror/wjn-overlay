@@ -53,6 +53,7 @@ wjn-overlay packages list
 | mate-extra/caja-dropbox | Dropbox extension for Caja file manager | <http://mate-desktop.org/> | - | dev ver. |
 | mate-extra/caja-extensions | Several extensions for Caja file manager | <http://mate-desktop.org/> | - | dev ver. |
 | mate-extra/libmatemixer | Mixer library for MATE Desktop | <http://mate-desktop.org/> | o | dev ver. |
+| mate-extra/mate-calc | Calculator for MATE Desktop, a fork of gnome-calculator | <http://mate-desktop.org/> | - | dev ver. |
 | mate-extra/mate-indicator-applet | Applet to display information from applications in the panel | <http://mate-desktop.org/> | o | |
 | mate-extra/mate-media | Multimedia related programs for the MATE desktop | <http://mate-desktop.org/> | - | dev ver. |
 | mate-extra/mate-polkit | A MATE specific DBUS session bus service that is used to bring up authentication dialogs | <http://mate-desktop.org/> | - | dev ver. |
