@@ -66,12 +66,12 @@ RDEPEND="${COMMON_DEPEND}
 	php? ( >=dev-python/phpserialize-1.3[${PYTHON_USEDEP}] )
 	typogrify? ( >=dev-python/typogrify-2.0.4[${PYTHON_USEDEP}] )
 	watchdog? ( >=dev-python/watchdog-0.8.3[${PYTHON_USEDEP}] )
-	websocket? ( >=dev-python/aiohttp-2.2.0[${PYTHON_USEDEP}] )
+	websocket? ( >=dev-python/aiohttp-2.3.8[${PYTHON_USEDEP}] )
 	yaml? ( =dev-python/pyyaml-3.12[${PYTHON_USEDEP}] )"
 
 # mock, coverage, pytest, pytest-cov, freezegun, codacy-coverage and colorama
 # are necessary for test.
-# https://github.com/getnikola/nikola/blob/v7.8.11/requirements-tests.txt
+# https://github.com/getnikola/nikola/blob/v7.8.13/requirements-tests.txt
 RESTRICT="mirror test"
 
 src_install() {
