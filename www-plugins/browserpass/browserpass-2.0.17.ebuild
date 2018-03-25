@@ -23,6 +23,8 @@ DEPEND="${RDEPEND}
 	dev-go/twofactor:=
 	dev-go/zglob:="
 
+RESTRICT="mirror"
+
 DOCS=( CONTRIBUTING.md README.md )
 
 src_compile() {
