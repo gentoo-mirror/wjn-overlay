@@ -8,5 +8,5 @@ LICENSE=MIT
 RDEPEND=!!www-plugins/browserpass app-admin/pass || ( www-client/google-chrome www-client/google-chrome-beta www-client/google-chrome-unstable www-client/chromium >=www-client/firefox-50 >=www-client/firefox-bin-50 www-client/vivaldi www-client/vivaldi-snapshot )
 RESTRICT=mirror
 SLOT=0
-SRC_URI=https://github.com/dannyvankooten/browserpass/releases/download/2.0.13/browserpass-linux64.zip -> browserpass-bin-2.0.13.zip
+SRC_URI=https://github.com/dannyvankooten/browserpass/releases/download/2.0.17/browserpass-linux64.zip -> browserpass-bin-2.0.17.zip
 _md5_=276265e93088ff4f5302bb3890805573
