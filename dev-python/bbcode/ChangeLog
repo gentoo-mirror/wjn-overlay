@@ -2,6 +2,12 @@
 # Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  01 Apr 2018; wjn <wjn@aol.jp> bbcode-1.0.25.ebuild:
+  Move to EAPI=6
+
+  01 Apr 2018; wjn <wjn@aol.jp> -bbcode-1.0.24.ebuild:
+  Delete old version 1.0.24
+
   03 Jan 2018; wjn <wjn@aol.jp> bbcode-1.0.24.ebuild, bbcode-1.0.25.ebuild:
   [QA] Update copyright year to 2018
 

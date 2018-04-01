@@ -3,12 +3,7 @@
 
 EAPI=6
 
-# Though Nikola supports Python 3.6 ( See Upstream: 774a626 ),
-# some dependended pakages still don't have [python_targets_python3_6]
-# Should wait for their update
-# dev-python/ghp-import2	dev-python/husl		dev-python/phpserialize
-# PYTHON_COMPAT=( python{3_4,3_5,3_6} )
-PYTHON_COMPAT=( python{3_4,3_5} )
+PYTHON_COMPAT=( python{3_4,3_5,3_6} )
 PYTHON_REQ_USE="gdbm"
 
 inherit distutils-r1 python-r1
@@ -30,8 +25,8 @@ fi
 # CC0-1.0: nikola/data/samplesite/pages/dr-nikolas-vendetta.rst
 LICENSE="CC0-1.0 MIT"
 SLOT="0"
-IUSE="+assets bbcode charts ghpages husl hyphenation ipython jinja micawber
-	php typogrify watchdog websocket yaml"
+IUSE="+assets bbcode charts ghpages hyphenation ipython jinja micawber php
+	typogrify watchdog websocket yaml"
 
 COMMON_DEPEND=">=dev-python/docutils-0.13[${PYTHON_USEDEP}]
 	>=dev-python/setuptools-24.2.0[${PYTHON_USEDEP}]"
@@ -57,7 +52,6 @@ RDEPEND="${COMMON_DEPEND}
 	charts? ( >=dev-python/pygal-2.0.0[${PYTHON_USEDEP}] )
 	ghpages? ( || ( >=dev-python/ghp-import-0.4.1-r1[${PYTHON_USEDEP}]
 		>=dev-python/ghp-import2-1.0.0[${PYTHON_USEDEP}] ) )
-	husl? ( >=dev-python/husl-4.0.2[${PYTHON_USEDEP}] )
 	hyphenation? ( >=dev-python/pyphen-0.9.1[${PYTHON_USEDEP}] )
 	ipython? ( >=dev-python/ipykernel-4.0.0[${PYTHON_USEDEP}]
 		>=dev-python/notebook-4.0.0[${PYTHON_USEDEP}] )
@@ -71,7 +65,7 @@ RDEPEND="${COMMON_DEPEND}
 
 # mock, coverage, pytest, pytest-cov, freezegun, codacy-coverage and colorama
 # are necessary for test.
-# https://github.com/getnikola/nikola/blob/v7.8.13/requirements-tests.txt
+# https://github.com/getnikola/nikola/blob/v7.8.14/requirements-tests.txt
 RESTRICT="mirror test"
 
 src_install() {
