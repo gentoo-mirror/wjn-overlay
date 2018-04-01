@@ -3,6 +3,9 @@
 # (auto-generated from git log)
 
   01 Apr 2018; wjn <wjn@aol.jp> phpserialize-1.3.ebuild:
+  Move to EAPI=6
+
+  01 Apr 2018; wjn <wjn@aol.jp> phpserialize-1.3.ebuild:
   Add python3_6 to PYTHON_COMPAT
 
   03 Jan 2018; wjn <wjn@aol.jp> phpserialize-1.3.ebuild:
