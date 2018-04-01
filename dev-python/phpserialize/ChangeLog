@@ -2,6 +2,9 @@
 # Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  01 Apr 2018; wjn <wjn@aol.jp> phpserialize-1.3.ebuild:
+  Add python3_6 to PYTHON_COMPAT
+
   03 Jan 2018; wjn <wjn@aol.jp> phpserialize-1.3.ebuild:
   [QA] Update copyright year to 2018
 
