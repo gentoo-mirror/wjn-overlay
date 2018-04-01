@@ -3,6 +3,9 @@
 # (auto-generated from git log)
 
   01 Apr 2018; wjn <wjn@aol.jp> nikola-7.8.9.ebuild, nikola-7.8.14.ebuild:
+  Add python3_6 to PYTHON_COMPAT
+
+  01 Apr 2018; wjn <wjn@aol.jp> nikola-7.8.9.ebuild, nikola-7.8.14.ebuild:
   Drop dev-python/husl support
 
    Upstream of dev-python/husl seems to terminated

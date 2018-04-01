@@ -3,12 +3,7 @@
 
 EAPI=6
 
-# Though Nikola supports Python 3.6 ( See Upstream: 774a626 ),
-# some dependended pakages still don't have [python_targets_python3_6]
-# Should wait for their update
-# dev-python/ghp-import2	dev-python/phpserialize
-# PYTHON_COMPAT=( python{3_4,3_5,3_6} )
-PYTHON_COMPAT=( python{3_4,3_5} )
+PYTHON_COMPAT=( python{3_4,3_5,3_6} )
 PYTHON_REQ_USE="gdbm"
 
 inherit distutils-r1 python-r1
