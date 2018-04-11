@@ -1,7 +1,7 @@
 wjn-overlay packages list
 ========
 
-- This list is updated on 2018-03-19 EDT
+- This list is updated on 2018-04-10 EDT
 
 | Package Name | Description | Upstream Website | This Overlay Only | Note |
 | ---- | ---- | ---- | ---- | ---- |
@@ -113,7 +113,7 @@ wjn-overlay packages list
 | media-gfx/azpainter | A full-color painting software | <http://azsky2.html.xdomain.jp/linux/azpainter/> | o | |
 | media-gfx/azpainterb | A simple full-color paint software, a successor of AzPainter | <http://azsky2.html.xdomain.jp/> | o | |
 | media-gfx/eom | The MATE image viewer | <http://mate-desktop.org/> | - | dev ver. |
-| media-gfx/viewnior | Fast and simple image viewer | <http://xsisqox.github.com/Viewnior/index.html> | - | newer ver. |
+| media-gfx/viewnior | Fast and simple image viewer | <http://siyanpanayotov.com/project/viewnior/> | - | newer ver. |
 | media-plugins/audacious-plugins | Plugins for Audacious music player | <http://audacious-media-player.org/> | - | newer and dev ver., supports media-libs/soxr |
 | media-sound/audacious | A lightweight and versatile audio player | <http://audacious-media-player.org/> | - | newer and dev ver. |
 | media-sound/jack-audio-connection-kit | Jackdmp jack implemention for multi-processor machine | <http://jackaudio.org/> | - | This is a temporary pkg for [JACK2](https://github.com/jackaudio/jackaudio.github.com/wiki/Q_difference_jack1_jack2). It's compatible with JACK1. But gentoo repo names it as media-sound/jack2. Therefore, depender pkgs should depend on virtual/jack, but not fully updated |
