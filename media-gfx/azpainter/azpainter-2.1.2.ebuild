@@ -3,7 +3,7 @@
 
 EAPI=6
 
-inherit gnome2-utils
+inherit gnome2-utils xdg-utils
 
 OSDN_DIR="69408"
 
@@ -37,8 +37,10 @@ src_prepare() {
 
 pkg_postinst() {
 	gnome2_icon_cache_update
+	xdg_mimeinfo_database_update
 }
 
 pkg_postrm() {
 	gnome2_icon_cache_update
+	xdg_mimeinfo_database_update
 }
