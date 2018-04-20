@@ -1,0 +1,26 @@
+diff -ur --unidirectional-new-file -urN renpy-6.99.14.3-source/renpy/display/core.py renpy.new/renpy/display/core.py
+--- renpy-6.99.14.3-source/renpy/display/core.py	2018-03-25 18:31:05.000000000 +0000
++++ renpy.new/renpy/display/core.py	2018-04-19 21:59:54.739202329 +0000
+@@ -3077,7 +3077,7 @@
+ 
+                 renpy.plog(1, "start of interact while loop")
+ 
+-                renpy.execution.not_infinite_loop(10)
++                renpy.execution.not_infinite_loop(50)
+ 
+                 # Check for a change in fullscreen preference.
+                 if ((self.fullscreen != renpy.game.preferences.fullscreen) or
+diff -ur --unidirectional-new-file -urN renpy-6.99.14.3-source/renpy/main.py renpy.new/renpy/main.py
+--- renpy-6.99.14.3-source/renpy/main.py	2018-03-25 14:39:23.000000000 +0000
++++ renpy.new/renpy/main.py	2018-04-19 21:59:16.642127052 +0000
+--- a/renpy/main.py
++++ b/renpy/main.py
+@@ -310,7 +310,7 @@
+     game.contexts = [ renpy.execution.Context(False) ]
+     game.contexts[0].init_phase = True
+ 
+-    renpy.execution.not_infinite_loop(60)
++    renpy.execution.not_infinite_loop(300)
+ 
+     # Load the script.
+     renpy.game.exception_info = 'While loading the script.'
