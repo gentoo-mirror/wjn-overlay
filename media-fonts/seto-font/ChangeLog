@@ -2,6 +2,9 @@
 # Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  20 Apr 2018; wjn <wjn@aol.jp> seto-font-6.20.ebuild:
+  Update ${HOMEPAGE} and ${SRC_URI}
+
   03 Jan 2018; wjn <wjn@aol.jp> seto-font-6.20.ebuild:
   [QA] Update copyright year to 2018
 

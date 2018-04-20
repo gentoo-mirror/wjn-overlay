@@ -2,6 +2,20 @@
 # Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*browserpass-2.0.21 (20 Apr 2018)
+
+  20 Apr 2018; wjn <wjn@aol.jp> -browserpass-2.0.20.ebuild,
+  +browserpass-2.0.21.ebuild:
+  Add version 2.0.21, delete old version 2.0.20
+
+*browserpass-2.0.20 (17 Apr 2018)
+
+  17 Apr 2018; wjn <wjn@aol.jp> -browserpass-2.0.18.ebuild,
+  +browserpass-2.0.20.ebuild:
+  Add version 2.0.20, delete old version 2.0.18
+
+   Upstream: https://github.com/browserpass/browserpass/releases/tag/2.0.20
+
 *browserpass-2.0.18 (30 Mar 2018)
 
   30 Mar 2018; wjn <wjn@aol.jp> -browserpass-2.0.17.ebuild,

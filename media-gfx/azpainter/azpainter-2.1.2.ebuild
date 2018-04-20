@@ -3,13 +3,13 @@
 
 EAPI=6
 
-inherit gnome2-utils
+inherit gnome2-utils xdg-utils
 
-OSDN_DIR="67805"
+OSDN_DIR="69408"
 
 DESCRIPTION="A full-color painting software"
 HOMEPAGE="http://azsky2.html.xdomain.jp/linux/azpainter/"
-SRC_URI="mirror://osdn/${PN}/${OSDN_DIR}/${P}.tar.bz2"
+SRC_URI="mirror://osdn/${PN}/${OSDN_DIR}/${P}.tar.xz"
 
 LICENSE="GPL-3 BSD"
 SLOT="0"
@@ -28,21 +28,21 @@ RDEPEND=${COMMON_DEPEND}
 
 RESTRICT="mirror"
 
-DOCS=( ChangeLog NEWS README README_ja html translation )
+DOCS=( AUTHORS ChangeLog NEWS README README_ja html translation )
 
 src_prepare() {
 	default
 	mv manual html
 }
 
-pkg_preinst() {
-	gnome2_icon_savelist
-}
-
 pkg_postinst() {
 	gnome2_icon_cache_update
+	xdg_desktop_database_update
+	xdg_mimeinfo_database_update
 }
 
 pkg_postrm() {
 	gnome2_icon_cache_update
+	xdg_desktop_database_update
+	xdg_mimeinfo_database_update
 }
