@@ -1,0 +1,14 @@
+# ChangeLog for games-engines/renpy
+# Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
+# (auto-generated from git log)
+
+*renpy-6.99.14.3 (20 Apr 2018)
+
+  20 Apr 2018; wjn <wjn@aol.jp>
+  +files/renpy-6.99.14.3-compat-infinite-loop.patch,
+  +files/renpy-6.99.14.3-compat-style.patch,
+  +files/renpy-6.99.14.3-multiple-abi.patch,
+  +files/renpy-6.99.14.3-not-choose-new-tutorial.patch, +files/renpy.1,
+  +files/tmp.patch, +renpy-6.99.14.3.ebuild:
+  Add newly, version 6.99.14.3
+

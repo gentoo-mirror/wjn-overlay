@@ -1,0 +1,9 @@
+# ChangeLog for dev-python/pygame_sdl2
+# Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
+# (auto-generated from git log)
+
+*pygame_sdl2-6.99.14.3 (20 Apr 2018)
+
+  20 Apr 2018; wjn <wjn@aol.jp> +pygame_sdl2-6.99.14.3.ebuild:
+  Add newly. needed by Ren'Py. version 6.99.14.3
+
