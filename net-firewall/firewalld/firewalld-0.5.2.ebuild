@@ -7,12 +7,12 @@ EAPI=6
 
 PYTHON_COMPAT=( python{2_7,3_4,3_5,3_6} )
 
-inherit autotools gnome2-utils python-r1 systemd multilib bash-completion-r1
+inherit autotools gnome2-utils python-r1 systemd bash-completion-r1
 
 DESCRIPTION="Firewall daemon with D-BUS interface"
 HOMEPAGE="http://www.firewalld.org/
-	https://github.com/t-woerner/firewalld"
-SRC_URI="https://github.com/t-woerner/firewalld/archive/v${PV}.tar.gz
+	https://github.com/firewalld/firewalld"
+SRC_URI="https://github.com/firewalld/firewalld/archive/v${PV}.tar.gz
 	-> ${P}.tar.gz"
 
 LICENSE="GPL-2+"
@@ -83,22 +83,24 @@ src_install() {
 	python_replicate_script "${D}/usr/sbin/firewalld"
 
 	# Disabling systemd, SysVinit script will be installed. But no sense
-	use systemd || rm -rf "${D}/etc/rc.d/"
+	use systemd || rm -rf "${D}/etc/rc.d/" || die
+
+	# It's for RHEL/Fedora, needless for Gentoo
+	rm -rf "${D}/etc/sysconfig/" || die
 
 	# For non-gui installs we need to remove GUI bits
 	if ! use gui; then
-		rm -rf "${D}/etc/xdg/autostart"
-		rm -f "${D}/usr/bin/firewall-applet"
-		rm -f "${D}/usr/bin/firewall-config"
-		rm -rf "${D}/usr/share/applications"
-		rm -rf "${D}/usr/share/icons"
+		rm -rf "${D}/etc/xdg/autostart" || die
+		rm -f "${D}/usr/bin/firewall-applet" || die
+		rm -f "${D}/usr/bin/firewall-config" || die
+		rm -rf "${D}/usr/share/applications" || die
+		rm -rf "${D}/usr/share/icons" || die
 	fi
 
 	newinitd "${FILESDIR}"/firewalld.init firewalld
 }
 
 pkg_preinst() {
-	gnome2_icon_savelist
 	gnome2_schemas_savelist
 }
 
