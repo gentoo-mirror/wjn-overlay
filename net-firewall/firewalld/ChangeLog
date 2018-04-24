@@ -2,6 +2,14 @@
 # Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*firewalld-0.5.2 (24 Apr 2018)
+
+  24 Apr 2018; wjn <wjn@aol.jp> -firewalld-0.5.1.ebuild,
+  +firewalld-0.5.2.ebuild:
+  Add version 0.5.2, delete old version 0.5.1
+
+   Upstream: https://github.com/firewalld/firewalld/releases/tag/v0.5.2
+
 *firewalld-0.5.1 (12 Feb 2018)
 
   12 Feb 2018; wjn <wjn@aol.jp> -firewalld-0.4.4.2.ebuild,
