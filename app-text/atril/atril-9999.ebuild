@@ -50,6 +50,7 @@ DEPEND="${COMMON_DEPEND}
 	app-text/docbook-xml-dtd:4.1.2
 	app-text/yelp-tools:0
 	>=app-text/scrollkeeper-dtd-1:1.0
+	dev-util/gdbus-codegen
 	>=dev-util/intltool-0.50.1:0
 	virtual/pkgconfig:0
 	sys-devel/gettext:0
