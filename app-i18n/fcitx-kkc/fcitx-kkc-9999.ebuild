@@ -21,13 +21,14 @@ fi
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
-IUSE="qt4"
+IUSE="qt5"
 
-COMMON_DEPEND=">=app-i18n/fcitx-4.2.8[qt4?]
+COMMON_DEPEND=">=app-i18n/fcitx-4.2.8:4
 	>=app-i18n/libkkc-0.2.3
-	qt4? ( >=dev-qt/qtcore-4.8:4
-		>=dev-qt/qtdbus-4.8:4
-		>=dev-qt/qtgui-4.8:4 )"
+	qt5? ( >=dev-qt/qtcore-5.7:5
+		>=dev-qt/qtdbus-5.7:5
+		>=dev-qt/qtgui-5.7:5
+		>=dev-qt/qtwidgets-5.7:5 )"
 DEPEND="${COMMON_DEPEND}
 	dev-libs/glib:2
 	dev-libs/json-glib
@@ -50,7 +51,7 @@ src_prepare() {
 }
 
 src_configure() {
-	if use qt4 ; then
+	if use qt5 ; then
 		local mycmakeargs=( -DENABLE_QT=ON )
 	fi
 

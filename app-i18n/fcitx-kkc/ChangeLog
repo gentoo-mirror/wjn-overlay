@@ -2,6 +2,11 @@
 # Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  24 Apr 2018; wjn <wjn@aol.jp> fcitx-kkc-9999.ebuild:
+  9999: Move to Qt5 from Qt4
+
+   Upstream: https://github.com/fcitx/fcitx-kkc/commit/fdcdfa8
+
 *fcitx-kkc-0.1.4 (24 Apr 2018)
 
   24 Apr 2018; wjn <wjn@aol.jp> -fcitx-kkc-0.1.2.ebuild,
