@@ -34,7 +34,6 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}"
 
 DOCS=( AUTHORS CHANGELOG README.md  )
-HTML_DOCS=( docs/html )
 
 src_prepare() {
 	# QTXDG_USE_FILE is obsolete, Qt5Xdg should be linked dynamically
@@ -57,6 +56,8 @@ src_configure() {
 	local mycmakeargs=( -DSG_DOCDIR=${PF}
 		-DSG_USE_SYSTEM_QXT=OFF -DSG_GLOBALSHORTCUTS=OFF )
 
+	mycmakeargs+=( -DCMAKE_INSTALL_DOCDIR="${EPREFIX}/usr/share/doc/${PF}" )
+
 	if use dbus	; then
 		mycmakeargs=( ${mycmakeargs[@]} -DSG_DBUS_NOTIFY=ON )
 	else
@@ -75,8 +76,6 @@ src_configure() {
 src_install() {
 	cmake-utils_src_install
 	einstalldocs
-	insinto /usr/share/icons/hicolor/32x32/apps
-	doins img/screengrab.png
 }
 
 pkg_preinst() {

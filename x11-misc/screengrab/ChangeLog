@@ -3,6 +3,9 @@
 # (auto-generated from git log)
 
   24 Apr 2018; wjn <wjn@aol.jp> screengrab-2.9999.ebuild:
+  Install the icon and htmls by CMake instead of ebuild
+
+  24 Apr 2018; wjn <wjn@aol.jp> screengrab-2.9999.ebuild:
   Update the dependency on CMake version
 
    Upstream: https://github.com/DOOMer/screengrab/commit/0da732a
