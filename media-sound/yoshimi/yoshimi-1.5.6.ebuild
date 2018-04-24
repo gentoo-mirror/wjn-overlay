@@ -3,6 +3,8 @@
 
 EAPI=6
 
+CMAKE_MIN_VERSION="3.0"
+
 inherit cmake-utils flag-o-matic gnome2-utils
 
 DESCRIPTION="A software synthesizer based on ZynAddSubFX"
@@ -19,14 +21,16 @@ COMMON_DEPEND=">=dev-libs/mini-xml-2.5
 	media-libs/fontconfig
 	media-libs/libsndfile
 	sci-libs/fftw:3.0
+	|| ( sys-libs/glibc
+		sys-libs/musl )
 	sys-libs/ncurses:0=
+	sys-libs/readline
 	sys-libs/zlib
 	virtual/jack
 	x11-libs/cairo[X]
 	x11-libs/fltk:1[opengl]
 	lv2? ( media-libs/lv2 )"
 DEPEND="${COMMON_DEPEND}
-	dev-libs/boost
 	virtual/pkgconfig"
 RDEPEND=${COMMON_DEPEND}
 
@@ -46,9 +50,7 @@ src_prepare() {
 
 src_configure() {
 	append-ldflags -pthread
-	local mycmakeargs=(
-		-DBuildLV2Plugin=$(usex lv2)
-	)
+	local mycmakeargs=( -DLV2Plugin=$(usex lv2 ON OFF) )
 	cmake-utils_src_configure
 }
 
