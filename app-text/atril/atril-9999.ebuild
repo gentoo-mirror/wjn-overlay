@@ -65,7 +65,6 @@ src_unpack() {
 
 src_prepare() {
 	eapply_user
-	use epub || eapply -R "${FILESDIR}/${P}-disable-webkit.patch"
 	eautoreconf
 	gnome2_src_prepare
 }
