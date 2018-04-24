@@ -1,11 +1,11 @@
 # Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=6
 
 PLOCALES="de ja zh_CN zh_TW"
 
-inherit cmake-utils eutils l10n
+inherit cmake-utils l10n
 
 DESCRIPTION="Japanese libkkc module for Fcitx"
 HOMEPAGE="https://github.com/fcitx/fcitx-kkc"
@@ -41,8 +41,7 @@ RDEPEND="${COMMON_DEPEND}
 RESTRICT="mirror"
 
 src_prepare() {
-	epatch "${FILESDIR}/${PN}-0.1.1-add-direct-input.patch"
-	epatch "${FILESDIR}/${PN}-0.1.1-fix-keymap-conflict.patch"
+	cmake-utils_src_prepare
 
 	disable_locale() {
 		sed -i "s/ ${1}//" po/CMakeLists.txt
@@ -51,8 +50,9 @@ src_prepare() {
 }
 
 src_configure() {
-	local mycmakeargs=(
-		$(cmake-utils_use_enable qt4 QT)
-	)
+	if use qt4 ; then
+		local mycmakeargs=( -DENABLE_QT=ON )
+	fi
+
 	cmake-utils_src_configure
 }

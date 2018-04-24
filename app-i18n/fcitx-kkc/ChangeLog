@@ -2,6 +2,13 @@
 # Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  24 Apr 2018; wjn <wjn@aol.jp> fcitx-kkc-9999.ebuild:
+  9999: Remove patches for already fixed bugs
+
+   Upstream:
+    - https://github.com/fcitx/fcitx-kkc/commit/361a850
+    - https://github.com/fcitx/fcitx-kkc/commit/ba40da5
+
   03 Jan 2018; wjn <wjn@aol.jp> fcitx-kkc-0.1.2.ebuild, fcitx-kkc-9999.ebuild:
   [QA] Update copyright year to 2018
 
