@@ -3,6 +3,9 @@
 # (auto-generated from git log)
 
   24 Apr 2018; wjn <wjn@aol.jp> screengrab-2.9999.ebuild:
+  Remove the dependency on GCC. Respect ${CC}
+
+  24 Apr 2018; wjn <wjn@aol.jp> screengrab-2.9999.ebuild:
   Remove dropped SG_XDG_CONFIG_SUPPORT
 
    Upstream: https://github.com/DOOMer/screengrab/commit/741bfaa

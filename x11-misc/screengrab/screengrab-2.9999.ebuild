@@ -29,9 +29,8 @@ COMMON_DEPEND="dev-libs/libqtxdg
 	x11-libs/libXext
 	x11-libs/libXfixes
 	x11-libs/libxcb"
-DEPEND="${COMMON_DEPEND}
-	>sys-devel/gcc-4.5"
-RDEPEND="${COMMON_DEPEND}"
+DEPEND=${COMMON_DEPEND}
+RDEPEND=${COMMON_DEPEND}
 
 DOCS=( AUTHORS CHANGELOG README.md  )
 
