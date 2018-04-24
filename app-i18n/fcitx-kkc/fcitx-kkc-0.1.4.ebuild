@@ -54,9 +54,6 @@ src_prepare() {
 }
 
 src_configure() {
-	if use qt5 ; then
-		local mycmakeargs=( -DENABLE_QT=ON )
-	fi
-
+	local mycmakeargs=( -DENABLE_QT=$(usex qt5 NO OFF) )
 	cmake-utils_src_configure
 }
