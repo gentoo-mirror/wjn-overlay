@@ -46,13 +46,8 @@ src_configure() {
 	#  "-DSG_GLOBALSHORTCUTS" doesn't work without "-DSG_USE_SYSTEM_QXT".
 	local mycmakeargs=( -DSG_USE_SYSTEM_QXT=OFF -DSG_GLOBALSHORTCUTS=OFF )
 
-	mycmakeargs+=( -DCMAKE_INSTALL_DOCDIR="${EPREFIX}/usr/share/doc/${PF}" )
-
-	if use dbus	; then
-		mycmakeargs=( ${mycmakeargs[@]} -DSG_DBUS_NOTIFY=ON )
-	else
-		mycmakeargs=( ${mycmakeargs[@]} -DSG_DBUS_NOTIFY=OFF )
-	fi
+	mycmakeargs+=( -DCMAKE_INSTALL_DOCDIR="${EPREFIX}/usr/share/doc/${PF}"
+		-DSG_DBUS_NOTIFY=$(usex dbus ON OFF) )
 
 	cmake-utils_src_configure
 }
