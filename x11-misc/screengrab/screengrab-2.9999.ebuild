@@ -14,7 +14,7 @@ EGIT_REPO_URI="https://github.com/DOOMer/screengrab.git"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="dbus +xdg"
+IUSE="dbus"
 
 COMMON_DEPEND="dev-libs/libqtxdg
 	>=dev-qt/linguist-tools-5.7.1:5
@@ -53,12 +53,6 @@ src_configure() {
 		mycmakeargs=( ${mycmakeargs[@]} -DSG_DBUS_NOTIFY=ON )
 	else
 		mycmakeargs=( ${mycmakeargs[@]} -DSG_DBUS_NOTIFY=OFF )
-	fi
-
-	if use xdg ; then
-		mycmakeargs=( ${mycmakeargs[@]} -DSG_XDG_CONFIG_SUPPORT=ON )
-	else
-		mycmakeargs=( ${mycmakeargs[@]} -DSG_XDG_CONFIG_SUPPORT=OFF )
 	fi
 
 	cmake-utils_src_configure
