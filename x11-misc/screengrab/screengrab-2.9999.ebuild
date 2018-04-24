@@ -45,8 +45,7 @@ src_configure() {
 	# because x11-libs/libqxt doesn't support modern Qt libraries.
 	# LIBQXT IS NO LONGER MAINTAINED ( https://bitbucket.org/libqxt/libqxt ).
 	#  "-DSG_GLOBALSHORTCUTS" doesn't work without "-DSG_USE_SYSTEM_QXT".
-	local mycmakeargs=( -DSG_DOCDIR=${PF}
-		-DSG_USE_SYSTEM_QXT=OFF -DSG_GLOBALSHORTCUTS=OFF )
+	local mycmakeargs=( -DSG_USE_SYSTEM_QXT=OFF -DSG_GLOBALSHORTCUTS=OFF )
 
 	mycmakeargs+=( -DCMAKE_INSTALL_DOCDIR="${EPREFIX}/usr/share/doc/${PF}" )
 
