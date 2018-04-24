@@ -15,13 +15,13 @@ KEYWORDS=""
 IUSE="dbus +xdg"
 
 COMMON_DEPEND="dev-libs/libqtxdg
-	>=dev-qt/linguist-tools-5.2:5
-	>=dev-qt/qtcore-5.2:5
-	>=dev-qt/qtdbus-5.2:5
-	>=dev-qt/qtgui-5.2:5
-	>=dev-qt/qtnetwork-5.2:5
-	>=dev-qt/qtwidgets-5.2:5
-	>=dev-qt/qtx11extras-5.2:5
+	>=dev-qt/linguist-tools-5.7.1:5
+	>=dev-qt/qtcore-5.7.1:5
+	>=dev-qt/qtdbus-5.7.1:5
+	>=dev-qt/qtgui-5.7.1:5
+	>=dev-qt/qtnetwork-5.7.1:5
+	>=dev-qt/qtwidgets-5.7.1:5
+	>=dev-qt/qtx11extras-5.7.1:5
 	kde-frameworks/kwindowsystem:5
 	x11-libs/libX11
 	x11-libs/libXext
