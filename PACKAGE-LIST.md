@@ -1,7 +1,7 @@
 wjn-overlay packages list
 ========
 
-- This list is updated on 2018-04-20 EDT
+- This list is updated on 2018-04-24 EDT
 
 | Package Name | Description | Upstream Website | This Overlay Only | Note |
 | ---- | ---- | ---- | ---- | ---- |
@@ -16,7 +16,6 @@ wjn-overlay packages list
 | app-editors/pluma | A powerful text editor for MATE | <http://mate-desktop.org/> | - | dev ver. |
 | app-i18n/fcitx-kkc | Japanese libkkc module for Fcitx | <https://github.com/fcitx/fcitx-kkc> | o | |
 | app-i18n/ibus-kkc | Japanese Kana Kanji input engine for IBus | <https://github.com/ueno/ibus-kkc> | o | |
-| app-i18n/im-chooser | Desktop Input Method configuration tool | <https://fedorahosted.org/im-chooser/> | - | newer ver. |
 | app-i18n/libkkc | Japanese Kana Kanji conversion library | <https://github.com/ueno/libkkc> | o | |
 | app-i18n/libkkc-data | Japanese Kana Kanji conversion dictionary for libkkc | <https://github.com/ueno/libkkc> | o | |
 | app-i18n/mozc | Mozc - Japanese Input Method | <https://github.com/google/mozc> | - | newer rev., supports app-i18n/uim |
