@@ -3,6 +3,8 @@
 
 EAPI=6
 
+CMAKE_MIN_VERSION="3.0.2"
+
 inherit cmake-utils git-r3 gnome2-utils
 
 DESCRIPTION="Qt-based program for fast creating screenshots"
@@ -28,7 +30,6 @@ COMMON_DEPEND="dev-libs/libqtxdg
 	x11-libs/libXfixes
 	x11-libs/libxcb"
 DEPEND="${COMMON_DEPEND}
-	>=dev-util/cmake-2.8.11
 	>sys-devel/gcc-4.5"
 RDEPEND="${COMMON_DEPEND}"
 
