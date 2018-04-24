@@ -38,8 +38,7 @@ COMMON_DEPEND="app-text/rarian:0
 	dvi? ( virtual/tex-base:0
 		t1lib? ( >=media-libs/t1lib-5:5 ) )
 	epub? ( dev-libs/mathjax
-		|| ( >=net-libs/webkit-gtk-2.4.3:4
-			>=net-libs/webkit-gtk-2.4.3:3 ) )
+		>=net-libs/webkit-gtk-2.4.3:4 )
 	gnome-keyring? ( >=app-crypt/libsecret-0.5:0 )
 	introspection? ( >=dev-libs/gobject-introspection-0.6:0 )
 	pdf? ( >=app-text/poppler-0.22.0:0=[cairo] )
@@ -65,7 +64,6 @@ src_unpack() {
 
 src_prepare() {
 	eapply_user
-	use epub || eapply -R "${FILESDIR}/${P}-disable-webkit.patch"
 	eautoreconf
 	gnome2_src_prepare
 }
@@ -78,8 +76,6 @@ src_configure() {
 		--enable-comics \
 		--enable-pixbuf \
 		--enable-thumbnailer \
-		--with-smclient=xsmp \
-		--with-platform=mate \
 		$(use_enable caja) \
 		$(use_enable dbus) \
 		$(use_enable djvu) \

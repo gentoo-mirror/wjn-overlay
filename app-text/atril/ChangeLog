@@ -3,6 +3,22 @@
 # (auto-generated from git log)
 
   24 Apr 2018; wjn <wjn@aol.jp> atril-9999.ebuild:
+  Remove dropped configure flags for smclient
+
+   Upstream: https://github.com/mate-desktop/atril/commit/e5e2b89
+
+  24 Apr 2018; wjn <wjn@aol.jp> atril-9999.ebuild:
+  Drop webkit-gtk:3 support
+
+   webkit-gtk:3 is obsolete and already deleted from gentoo repository
+
+  24 Apr 2018; wjn <wjn@aol.jp> atril-9999.ebuild,
+  -files/atril-9999-disable-webkit.patch:
+  Remove patch for build without epub
+
+   Upstream: https://github.com/mate-desktop/atril/commit/efe29e6
+
+  24 Apr 2018; wjn <wjn@aol.jp> atril-9999.ebuild:
   Add dev-util/gdbus-codegen to ${DEPEND}
 
    Upstream: https://github.com/mate-desktop/atril/commit/3f48838
