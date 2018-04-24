@@ -16,7 +16,7 @@ EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="+dbus hddtemp libnotify lm_sensors video_cards_nvidia"
+IUSE="+dbus -dummy hddtemp libnotify lm_sensors video_cards_nvidia"
 
 COMMON_DEPEND="app-text/rarian:0
 	>=dev-libs/glib-2.50.0:2
@@ -64,6 +64,7 @@ src_configure() {
 
 	gnome2_src_configure \
 		--disable-static \
+		$(use_enable dummy dummyplugin) \
 		$(use_enable libnotify) \
 		$(use_with lm_sensors libsensors) \
 		$(use_with video_cards_nvidia nvidia) \

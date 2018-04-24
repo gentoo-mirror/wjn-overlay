@@ -2,6 +2,11 @@
 # Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  24 Apr 2018; wjn <wjn@aol.jp> atril-9999.ebuild:
+  Add dev-util/gdbus-codegen to ${DEPEND}
+
+   Upstream: https://github.com/mate-desktop/atril/commit/3f48838
+
   19 Mar 2018; wjn <wjn@aol.jp> atril-9999.ebuild:
   Do xdg_desktop_database_update in postinst and postrm
 
