@@ -76,8 +76,6 @@ src_configure() {
 		--enable-comics \
 		--enable-pixbuf \
 		--enable-thumbnailer \
-		--with-smclient=xsmp \
-		--with-platform=mate \
 		$(use_enable caja) \
 		$(use_enable dbus) \
 		$(use_enable djvu) \

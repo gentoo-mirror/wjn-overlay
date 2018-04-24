@@ -3,6 +3,11 @@
 # (auto-generated from git log)
 
   24 Apr 2018; wjn <wjn@aol.jp> atril-9999.ebuild:
+  Remove dropped configure flags for smclient
+
+   Upstream: https://github.com/mate-desktop/atril/commit/e5e2b89
+
+  24 Apr 2018; wjn <wjn@aol.jp> atril-9999.ebuild:
   Drop webkit-gtk:3 support
 
    webkit-gtk:3 is obsolete and already deleted from gentoo repository
