@@ -4,6 +4,9 @@
 	<maintainer type="person">
 		<email>wjn@aol.jp</email>
 	</maintainer>
+	<use>
+		<flag name="dummy">Enabling dummy plugin support for debug</flag>
+	</use>
 	<upstream>
 		<remote-id type="github">mate-desktop/mate-sensors-applet</remote-id>
 	</upstream>
