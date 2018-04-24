@@ -36,14 +36,6 @@ RDEPEND="${COMMON_DEPEND}"
 DOCS=( AUTHORS CHANGELOG README.md  )
 
 src_prepare() {
-	# QTXDG_USE_FILE is obsolete, Qt5Xdg should be linked dynamically
-	# https://github.com/lxde/libqtxdg/commit/d1ba4bc
-	if has_version '>=dev-libs/libqtxdg-1.3.0' ; then
-		sed -e '/include(\${QTXDG_USE_FILE})/d' \
-			-e 's/\(target_link_libraries(screengrab extedit)\)/\1\ntarget_link_libraries(screengrab Qt5Xdg)/' \
-			-i CMakeLists.txt || die
-	fi
-
 	cmake-utils_src_prepare
 	eapply_user
 }

@@ -3,6 +3,11 @@
 # (auto-generated from git log)
 
   24 Apr 2018; wjn <wjn@aol.jp> screengrab-2.9999.ebuild:
+  Remove sed'ing obsolete QTXDG_USE_FILE
+
+   Upstream fixed in https://github.com/DOOMer/screengrab/commit/31e1a18
+
+  24 Apr 2018; wjn <wjn@aol.jp> screengrab-2.9999.ebuild:
   Install the icon and htmls by CMake instead of ebuild
 
   24 Apr 2018; wjn <wjn@aol.jp> screengrab-2.9999.ebuild:
