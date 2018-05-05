@@ -43,7 +43,7 @@ RDEPEND="${COMMON_DEPEND}
 	>=dev-python/pillow-2.4.0[${PYTHON_USEDEP}]
 	>=dev-python/pygments-1.6[${PYTHON_USEDEP}]
 	>=dev-python/PyRSS2Gen-1.1[${PYTHON_USEDEP}]
-	>=dev-python/python-dateutil-2.4.0[${PYTHON_USEDEP}]
+	>=dev-python/python-dateutil-2.6.0[${PYTHON_USEDEP}]
 	>=dev-python/requests-2.2.0[${PYTHON_USEDEP}]
 	>=dev-python/unidecode-0.04.16[${PYTHON_USEDEP}]
 	>=dev-python/yapsy-1.11.223[${PYTHON_USEDEP}]
@@ -65,7 +65,7 @@ RDEPEND="${COMMON_DEPEND}
 
 # mock, coverage, pytest, pytest-cov, freezegun, codacy-coverage and colorama
 # are necessary for test.
-# https://github.com/getnikola/nikola/blob/v7.8.14/requirements-tests.txt
+# https://github.com/getnikola/nikola/blob/v7.8.15/requirements-tests.txt
 RESTRICT="mirror test"
 
 src_install() {
