@@ -1,4 +1,4 @@
-DEFINED_PHASES=install postinst postrm prepare setup
+DEFINED_PHASES=install nofetch postinst postrm prepare setup
 DEPEND=app-arch/unzip app-i18n/nkf X? ( x11-apps/mkfontdir media-fonts/encodings )
 DESCRIPTION=a Japanese mincho OpenType font with IPAmincho kanji chars
 EAPI=5
