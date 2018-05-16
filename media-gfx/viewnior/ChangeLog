@@ -2,6 +2,11 @@
 # Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*viewnior-1.7 (16 May 2018)
+
+  16 May 2018; wjn <wjn@aol.jp> -viewnior-1.6.ebuild, +viewnior-1.7.ebuild:
+  Add version 1.7, delete old version 1.6
+
   11 Apr 2018; wjn <wjn@aol.jp> viewnior-1.6.ebuild:
   Update ${HOMEPAGE} and ${SRC_URI}
 
