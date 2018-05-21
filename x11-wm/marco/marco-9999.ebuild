@@ -46,11 +46,8 @@ DEPEND="${COMMON_DEPEND}
 	>=dev-util/intltool-0.34.90:0
 	sys-devel/gettext:0
 	virtual/pkgconfig:0
-	|| ( x11-base/xorg-proto
-		( x11-proto/xextproto:0
-			x11-proto/xproto:0 ) )
-	test? ( app-text/docbook-xml-dtd:4.5 )
-	xinerama? ( x11-proto/xineramaproto:0 )"
+	x11-base/xorg-proto
+	test? ( app-text/docbook-xml-dtd:4.5 )"
 RDEPEND="${COMMON_DEPEND}"
 
 DOCS="AUTHORS ChangeLog HACKING NEWS README *.txt doc/*.txt"
