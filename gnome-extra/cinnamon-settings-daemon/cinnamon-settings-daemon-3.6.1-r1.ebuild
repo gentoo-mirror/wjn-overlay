@@ -27,6 +27,7 @@ COMMON_DEPEND=">=dev-libs/glib-2.38:2
 	media-libs/libcanberra:0=[gtk3]
 	sys-apps/dbus
 	>=sys-auth/polkit-0.97
+	virtual/libgudev:=
 	x11-libs/gdk-pixbuf:2
 	>=x11-libs/gtk+-3.9.10:3
 	>=x11-libs/libnotify-0.7.3:0=
@@ -35,7 +36,6 @@ COMMON_DEPEND=">=dev-libs/glib-2.38:2
 	x11-libs/libXfixes
 	x11-libs/libXi
 	x11-libs/libxklavier
-	virtual/libgudev:=
 	colord? ( >=x11-misc/colord-0.1.27:= )
 	cups? ( >=net-print/cups-1.4[dbus] )
 	input_devices_wacom? ( >=dev-libs/libwacom-0.7
@@ -51,9 +51,8 @@ COMMON_DEPEND=">=dev-libs/glib-2.38:2
 DEPEND="${COMMON_DEPEND}
 	dev-libs/libxml2:2
 	>=dev-util/intltool-0.37.1
-	|| ( x11-base/xorg-proto
-		x11-proto/kbproto )
-	virtual/pkgconfig"
+	virtual/pkgconfig
+	x11-base/xorg-proto"
 RDEPEND=${COMMON_DEPEND}
 
 src_prepare() {
