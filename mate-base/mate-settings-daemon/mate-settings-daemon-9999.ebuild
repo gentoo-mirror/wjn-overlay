@@ -44,9 +44,7 @@ DEPEND="${COMMON_DEPEND}
 	>=dev-util/intltool-0.37.1:0
 	sys-devel/gettext:0
 	virtual/pkgconfig:0
-	|| ( x11-base/xorg-proto
-		( x11-proto/inputproto:0
-			x11-proto/xproto:0 ) )"
+	x11-base/xorg-proto"
 RDEPEND=${COMMON_DEPEND}
 
 DOCS=( AUTHORS NEWS README )
