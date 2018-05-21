@@ -2,6 +2,11 @@
 # Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  21 May 2018; wjn <wjn@aol.jp> cinnamon-settings-daemon-3.0.1.ebuild,
+  cinnamon-settings-daemon-3.2.0.ebuild,
+  cinnamon-settings-daemon-3.6.1-r1.ebuild:
+  Remove x11-proto/* dependency
+
   03 Mar 2018; wjn <wjn@aol.jp> cinnamon-settings-daemon-3.0.1.ebuild,
   cinnamon-settings-daemon-3.2.0.ebuild,
   cinnamon-settings-daemon-3.6.1-r1.ebuild:
