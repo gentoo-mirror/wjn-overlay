@@ -2,6 +2,13 @@
 # Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  26 May 2018; wjn <wjn@aol.jp> cinnamon-3.4.2-r1.ebuild,
+  cinnamon-3.4.6.ebuild, cinnamon-3.6.6-r2.ebuild:
+  Support Python 3.6
+
+   Cinnamon seems to be fixed for Python 3.6 in 3.2.8
+   See Upstream: https://github.com/linuxmint/Cinnamon/commit/3936ac1
+
 *cinnamon-3.6.6-r2 (02 Mar 2018)
 
   02 Mar 2018; wjn <wjn@aol.jp> -cinnamon-2.8.8.ebuild,
