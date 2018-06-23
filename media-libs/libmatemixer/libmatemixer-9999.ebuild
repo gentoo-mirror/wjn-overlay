@@ -22,7 +22,7 @@ COMMON_DEPEND=">=dev-libs/glib-2.50.0:2
 	>=dev-libs/gobject-introspection-1.38.0:0
 	alsa? ( >=media-libs/alsa-lib-1.0.5:0 )
 	oss? ( virtual/os-headers:0 )
-	pulseaudio? ( >=media-sound/pulseaudio-2.0.0:0 )"
+	pulseaudio? ( >=media-sound/pulseaudio-5.0.0:0 )"
 DEPEND="${COMMON_DEPEND}
 	>=dev-util/gtk-doc-1.10:0
 	>=dev-util/intltool-0.35.0:0
