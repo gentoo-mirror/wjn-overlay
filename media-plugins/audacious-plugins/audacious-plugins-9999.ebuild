@@ -28,7 +28,6 @@ REQUIRED_USE="	|| ( gtk qt5 )
 
 COMMON_DEPEND="dev-libs/libxml2:2
 	~media-sound/audacious-9999[gtk=,gtk3=,qt5=]
-	>=sys-devel/gcc-4.7.0:*
 	x11-libs/libXcomposite
 	x11-libs/libXrender
 	aac? ( >=media-libs/faad2-2.7 )
