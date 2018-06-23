@@ -2,6 +2,12 @@
 # Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  23 Jun 2018; wjn <wjn@aol.jp> mate-notification-daemon-9999.ebuild:
+  Remove deps on dbus and dbus-glib
+
+   Upstream:
+    https://github.com/mate-desktop/mate-notification-daemon/commit/8217f2d
+
   02 Mar 2018; wjn <wjn@aol.jp> metadata.xml:
   Remove USE="gtk3" from metadata.xml
 
