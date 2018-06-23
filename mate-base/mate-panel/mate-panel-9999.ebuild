@@ -29,7 +29,7 @@ COMMON_DEPEND="dev-libs/atk:0[introspection?]
 	>=mate-base/mate-menus-1.21:0
 	>=sys-apps/dbus-1.1.2:0
 	>=x11-libs/cairo-1.0.0:0
-	>=x11-libs/gdk-pixbuf-2.7.1:2[introspection?]
+	>=x11-libs/gdk-pixbuf-2.25.2:2[introspection?]
 	>=x11-libs/gtk+-3.22.0:3[introspection?]
 	x11-libs/libICE:0
 	x11-libs/libSM:0

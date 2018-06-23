@@ -3,6 +3,11 @@
 # (auto-generated from git log)
 
   23 Jun 2018; wjn <wjn@aol.jp> mate-panel-9999.ebuild:
+  Add version dependency on gdk-pixbuf to 2.25.2
+
+   Upstream: https://github.com/mate-desktop/mate-panel/commit/ee07e90
+
+  23 Jun 2018; wjn <wjn@aol.jp> mate-panel-9999.ebuild:
   Update version dependency on mate-menus to 1.21
 
    Upstream: https://github.com/mate-desktop/mate-panel/commit/89e8e62
