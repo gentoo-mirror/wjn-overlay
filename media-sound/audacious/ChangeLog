@@ -2,6 +2,9 @@
 # Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  23 Jun 2018; wjn <wjn@aol.jp> audacious-9999.ebuild:
+  Add ar translation
+
   03 Jan 2018; wjn <wjn@aol.jp> audacious-9999.ebuild:
   [QA] Update copyright year to 2018
 

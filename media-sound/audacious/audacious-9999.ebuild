@@ -3,9 +3,9 @@
 
 EAPI=6
 
-PLOCALES="ast be bg ca cmn cs da de el en_GB eo es_AR es_MX es et eu fa_IR fi
-	fr gl he hu id_ID it ja ko ky lt lv ml_IN ms nl pl pt_BR pt_PT ro ru si sk
-	sq sr@latin sr sr_RS sv ta tr uk vi zh_CN zh_TW"
+PLOCALES="ar ast be bg ca cmn cs da de el en_GB eo es_AR es_MX es et eu fa_IR
+	fi fr gl he hu id_ID it ja ko ky lt lv ml_IN ms nl pl pt_BR pt_PT ro ru si
+	sk sq sr@latin sr sr_RS sv ta tr uk vi zh_CN zh_TW"
 PLOCALE_BACKUP="en_GB"
 
 inherit autotools git-r3 gnome2-utils l10n xdg-utils
