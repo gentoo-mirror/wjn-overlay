@@ -3,6 +3,9 @@
 # (auto-generated from git log)
 
   23 Jun 2018; wjn <wjn@aol.jp> audacious-9999.ebuild:
+  Make dbus choiceable
+
+  23 Jun 2018; wjn <wjn@aol.jp> audacious-9999.ebuild:
   Remove an obsolete dependency on GCC
 
    Anyway, <sys-devel/gcc-6 are masked in the gentoo repository.

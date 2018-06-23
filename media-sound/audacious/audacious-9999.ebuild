@@ -19,15 +19,15 @@ SRC_URI="mirror://gentoo/gentoo_ice-xmms-0.2.tar.bz2"
 LICENSE="BSD-2 BSD"
 SLOT="0"
 KEYWORDS=""
-IUSE="+gtk -gtk3 qt5"
+IUSE="+dbus +gtk -gtk3 qt5"
 REQUIRED_USE="|| ( gtk qt5 )
 	gtk3? ( gtk )"
 
 COMMON_DEPEND=">=dev-libs/glib-2.52.3
 	dev-libs/libxml2
-	>=sys-apps/dbus-0.6.0
 	>=x11-libs/cairo-1.2.6
 	>=x11-libs/pango-1.8.0
+	dbus? ( >=sys-apps/dbus-0.6.0 )
 	gtk? ( !gtk3? ( x11-libs/gtk+:2 ) )
 	gtk3? ( x11-libs/gtk+:3 )
 	qt5? ( dev-qt/qtcore:5
@@ -35,9 +35,9 @@ COMMON_DEPEND=">=dev-libs/glib-2.52.3
 		dev-qt/qtmultimedia:5
 		dev-qt/qtwidgets:5 )"
 DEPEND="${COMMON_DEPEND}
-	dev-util/gdbus-codegen
 	sys-devel/gettext
-	virtual/pkgconfig"
+	virtual/pkgconfig
+	dbus? ( dev-util/gdbus-codegen )"
 RDEPEND=${COMMON_DEPEND}
 PDEPEND="~media-plugins/audacious-plugins-9999[gtk=,gtk3=,qt5=]"
 
@@ -60,7 +60,7 @@ src_prepare() {
 }
 
 src_configure() {
-	econf --enable-dbus \
+	econf $(use_enable dbus) \
 		$(use_enable gtk) \
 		$(use_enable qt5 qt)
 }
