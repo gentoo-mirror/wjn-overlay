@@ -3,6 +3,9 @@
 # (auto-generated from git log)
 
   23 Jun 2018; wjn <wjn@aol.jp> mozo-9999.ebuild:
+  Support Python 3.6
+
+  23 Jun 2018; wjn <wjn@aol.jp> mozo-9999.ebuild:
   Update version dep on mate-menus, depend on Python 3
 
    Upstream: https://github.com/mate-desktop/mozo/commit/af19983
