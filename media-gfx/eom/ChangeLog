@@ -2,6 +2,11 @@
 # Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  23 Jun 2018; wjn <wjn@aol.jp> eom-9999.ebuild:
+  Update version dependency on libpeas to 1.8.0
+
+   Upstream: https://github.com/mate-desktop/eom/commit/5da033e
+
   02 Mar 2018; wjn <wjn@aol.jp> eom-9999.ebuild:
   Remove USE="gtk3" dependency of mate-base/mate-desktop
 
