@@ -20,7 +20,8 @@ SLOT="0"
 KEYWORDS=""
 IUSE="aac adplug alsa bs2b cdda cue ffmpeg +filewriter flac gnome +gtk -gtk3
 	http jack lame libav libnotify libsamplerate lirc midi mms modplug mp3
-	pulseaudio qt5 scrobbler sdl sid sndfile soxr spectrum vorbis wavpack"
+	mpris pulseaudio qt5 scrobbler sdl sid sndfile soxr spectrum vorbis
+	wavpack"
 REQUIRED_USE="	|| ( gtk qt5 )
 	gtk3? ( gtk )
 	libnotify? ( || ( gtk qt5 ) )
@@ -59,6 +60,7 @@ COMMON_DEPEND="dev-libs/libxml2:2
 	mms? ( >=media-libs/libmms-0.3 )
 	modplug? ( media-libs/libmodplug )
 	mp3? ( >=media-sound/mpg123-1.12.1 )
+	mpris? ( sys-apps/dbus )
 	pulseaudio? ( >=media-sound/pulseaudio-0.9.5 )
 	qt5? ( dev-qt/qtcore:5
 		dev-qt/qtgui:5
@@ -77,10 +79,10 @@ COMMON_DEPEND="dev-libs/libxml2:2
 		>=media-libs/libvorbis-1.2.0 )
 	wavpack? ( >=media-sound/wavpack-4.50.1-r1 )"
 DEPEND="${COMMON_DEPEND}
-	|| ( >=dev-libs/glib-2.32.2
-		dev-util/gdbus-codegen )
+	>=dev-libs/glib-2.32.2
 	sys-devel/gettext
-	virtual/pkgconfig"
+	virtual/pkgconfig
+	mpris? ( dev-util/gdbus-codegen )"
 RDEPEND=${COMMON_DEPEND}
 
 pkg_setup(){
@@ -131,6 +133,7 @@ src_configure() {
 		$(use_enable mms) \
 		$(use_enable modplug) \
 		$(use_enable midi amidiplug) \
+		$(use_enable mpris mpris2) \
 		$(use_enable pulseaudio pulse) \
 		$(use_enable qt5 qt) \
 		$(use_enable qt5 qtaudio) \
