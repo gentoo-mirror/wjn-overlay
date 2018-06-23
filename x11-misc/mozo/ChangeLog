@@ -2,6 +2,11 @@
 # Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  23 Jun 2018; wjn <wjn@aol.jp> mozo-9999.ebuild:
+  Update version dep on mate-menus, depend on Python 3
+
+   Upstream: https://github.com/mate-desktop/mozo/commit/af19983
+
   03 Jan 2018; wjn <wjn@aol.jp> mozo-9999.ebuild:
   [QA] Update copyright year to 2018
 

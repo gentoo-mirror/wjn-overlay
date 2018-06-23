@@ -5,7 +5,7 @@ EAPI=6
 
 GNOME2_LA_PUNT="yes"
 
-PYTHON_COMPAT=( python2_7 )
+PYTHON_COMPAT=( python3_5 )
 PYTHON_REQ_USE="xml"
 
 inherit autotools git-r3 gnome2 python-r1
@@ -21,7 +21,7 @@ SLOT="0"
 KEYWORDS=""
 
 COMMON_DEPEND="dev-python/pygobject:3[${PYTHON_USEDEP}]
-	>=mate-base/mate-menus-1.1.0:0[introspection,python]"
+	>=mate-base/mate-menus-1.21.0:0[introspection,python]"
 DEPEND="${COMMON_DEPEND}
 	>=dev-util/intltool-0.40:0
 	sys-apps/sed:0
