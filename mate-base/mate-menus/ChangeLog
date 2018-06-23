@@ -2,6 +2,11 @@
 # Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  23 Jun 2018; wjn <wjn@aol.jp> mate-menus-9999.ebuild:
+  Remove Python 2 support
+
+   Upstream: https://github.com/mate-desktop/mate-menus/commit/2b06561
+
   02 Mar 2018; wjn <wjn@aol.jp> mate-menus-9999.ebuild:
   Depend on >=dev-libs/glib-2.50
 
