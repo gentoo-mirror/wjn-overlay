@@ -18,7 +18,7 @@ IUSE="X dbus debug doc exif introspection jpeg lcms svg tiff xmp"
 
 COMMON_DEPEND="dev-libs/atk:0[introspection?]
 	>=dev-libs/glib-2.50.0:2
-	>=dev-libs/libpeas-1.2.0:0
+	>=dev-libs/libpeas-1.8.0:0
 	>=dev-libs/libxml2-2.0:2
 	gnome-base/dconf:0
 	gnome-base/gsettings-desktop-schemas:0[introspection?]

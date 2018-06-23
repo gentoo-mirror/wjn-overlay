@@ -18,11 +18,9 @@ SLOT="0"
 KEYWORDS=""
 
 COMMON_DEPEND="dev-libs/atk:0
-	>=dev-libs/dbus-glib-0.78:0
 	>=dev-libs/glib-2.50.0:2
 	gnome-base/gsettings-desktop-schemas:0
 	>=media-libs/libcanberra-0.4:0[gtk3]
-	>=sys-apps/dbus-0.78:0
 	x11-libs/cairo:0
 	>=x11-libs/gdk-pixbuf-2.22.0:2
 	>=x11-libs/gtk+-3.22.0:3
@@ -35,6 +33,7 @@ COMMON_DEPEND="dev-libs/atk:0
 	!x11-misc/notification-daemon:*"
 DEPEND="${COMMON_DEPEND}
 	app-arch/xz-utils:0
+	dev-util/gdbus-codegen
 	>=dev-util/intltool-0.50.1:0
 	sys-devel/gettext:0
 	>=sys-devel/libtool-2.2.6:2

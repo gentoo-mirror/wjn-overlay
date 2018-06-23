@@ -26,10 +26,10 @@ COMMON_DEPEND="dev-libs/atk:0[introspection?]
 	>=gnome-base/dconf-0.13.4:0
 	>=gnome-base/librsvg-2.36.2:2
 	>=mate-base/mate-desktop-1.17.0:0[introspection?]
-	>=mate-base/mate-menus-1.10:0
+	>=mate-base/mate-menus-1.21:0
 	>=sys-apps/dbus-1.1.2:0
 	>=x11-libs/cairo-1.0.0:0
-	>=x11-libs/gdk-pixbuf-2.7.1:2[introspection?]
+	>=x11-libs/gdk-pixbuf-2.25.2:2[introspection?]
 	>=x11-libs/gtk+-3.22.0:3[introspection?]
 	x11-libs/libICE:0
 	x11-libs/libSM:0

@@ -68,9 +68,6 @@ src_unpack() {
 }
 
 src_prepare() {
-	# Temporary revert to fix the system-monitor applet
-	eapply -p1 "${FILESDIR}/${P}-revert-graph-scales.patch"
-
 	default
 	eautoreconf
 }
