@@ -26,10 +26,8 @@ REQUIRED_USE="	|| ( gtk qt5 )
 	libnotify? ( || ( gtk qt5 ) )
 	spectrum? ( || ( gtk qt5 ) )"
 
-COMMON_DEPEND=">=dev-libs/dbus-glib-0.60
-	dev-libs/libxml2:2
+COMMON_DEPEND="dev-libs/libxml2:2
 	~media-sound/audacious-9999[gtk=,gtk3=,qt5=]
-	>=sys-apps/dbus-0.6.0
 	>=sys-devel/gcc-4.7.0:*
 	x11-libs/libXcomposite
 	x11-libs/libXrender
@@ -45,6 +43,9 @@ COMMON_DEPEND=">=dev-libs/dbus-glib-0.60
 		!libav? ( media-video/ffmpeg:0= ) )
 	flac? ( >=media-libs/libvorbis-1.0
 		>=media-libs/flac-1.2.1-r1 )
+	gnome? ( >=dev-libs/dbus-glib-0.60
+		~media-sound/audacious-9999[dbus]
+		>=sys-apps/dbus-0.6.0 )
 	gtk? ( !gtk3? ( x11-libs/gtk+:2 ) )
 	gtk3? ( x11-libs/gtk+:3 )
 	http? ( >=net-libs/neon-0.27 )
