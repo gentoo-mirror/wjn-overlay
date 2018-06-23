@@ -23,7 +23,7 @@ IUSE="+gtk -gtk3 qt5"
 REQUIRED_USE="|| ( gtk qt5 )
 	gtk3? ( gtk )"
 
-COMMON_DEPEND=">=dev-libs/glib-2.28
+COMMON_DEPEND=">=dev-libs/glib-2.52.3
 	dev-libs/libxml2
 	>=sys-apps/dbus-0.6.0
 	>=sys-devel/gcc-4.7.0:*

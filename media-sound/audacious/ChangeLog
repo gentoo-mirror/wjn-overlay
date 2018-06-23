@@ -3,6 +3,9 @@
 # (auto-generated from git log)
 
   23 Jun 2018; wjn <wjn@aol.jp> audacious-9999.ebuild:
+  Update glib version dependency to 2.52.3
+
+  23 Jun 2018; wjn <wjn@aol.jp> audacious-9999.ebuild:
   Add ar translation
 
   03 Jan 2018; wjn <wjn@aol.jp> audacious-9999.ebuild:
