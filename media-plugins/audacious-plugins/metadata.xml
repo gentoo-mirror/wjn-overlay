@@ -39,10 +39,10 @@
 		</flag>
 	<flag name='modplug'>Support module (modplug) decode</flag>
 	<flag name='mp3'>Support MPEG 1/2 Audio decode</flag>
+	<flag name='mpris'>Support for MPRIS2</flag>
 	<flag name='pulseaudio'>Support PulseAudio output</flag>
 	<flag name="qt5">Enable experimental Qt5 UI and output
-		(<pkg>dev-qt/qtgui:5</pkg>, <pkg>dev-qt/qtmultimedia:5</pkg>)</flag>	
-	<flag name='scrobbler'>Enable scrobbler/LastFM submission support</flag>
+		(<pkg>dev-qt/qtgui:5</pkg>, <pkg>dev-qt/qtmultimedia:5</pkg>)</flag>		<flag name='scrobbler'>Enable scrobbler/LastFM submission support</flag>
 	<flag name='sdl'>Support Simple Direct Media Layer</flag>
 	<flag name='sid'>Support SID (Commodore 64 Audio) </flag>
 	<flag name='sndfile'>Enable <pkg>media-libs/libsndfile</pkg></flag>

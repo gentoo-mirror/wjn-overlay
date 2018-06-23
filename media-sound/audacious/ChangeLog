@@ -2,6 +2,23 @@
 # Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  23 Jun 2018; wjn <wjn@aol.jp> audacious-9999.ebuild, metadata.xml:
+  Support enabling Valgrind analysis
+
+  23 Jun 2018; wjn <wjn@aol.jp> audacious-9999.ebuild:
+  Make dbus choiceable
+
+  23 Jun 2018; wjn <wjn@aol.jp> audacious-9999.ebuild:
+  Remove an obsolete dependency on GCC
+
+   Anyway, <sys-devel/gcc-6 are masked in the gentoo repository.
+
+  23 Jun 2018; wjn <wjn@aol.jp> audacious-9999.ebuild:
+  Update glib version dependency to 2.52.3
+
+  23 Jun 2018; wjn <wjn@aol.jp> audacious-9999.ebuild:
+  Add ar translation
+
   03 Jan 2018; wjn <wjn@aol.jp> audacious-9999.ebuild:
   [QA] Update copyright year to 2018
 

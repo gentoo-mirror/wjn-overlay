@@ -8,11 +8,11 @@ PLOCALES="de ja zh_CN zh_TW"
 inherit cmake-utils l10n
 
 DESCRIPTION="Japanese libkkc module for Fcitx"
-HOMEPAGE="https://github.com/fcitx/fcitx-kkc"
+HOMEPAGE="https://gitlab.com/fcitx/fcitx-kkc"
 
 if [[ ${PV} = *9999* ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/fcitx/${PN}.git"
+	EGIT_REPO_URI="https://gitlab.com/fcitx/${PN}.git"
 	EGIT_BRANCH="master"
 else
 	SRC_URI="http://download.fcitx-im.org/${PN}/${P}.tar.xz"

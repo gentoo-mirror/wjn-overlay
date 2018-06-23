@@ -17,12 +17,12 @@ HOMEPAGE="http://www.geocities.jp/ep3797/mozc-ut2.html
 
 # Assign version variables #####
 MOZC_VER="$(get_version_component_range 1-4)"
-MOZC_REV="6b878e31fb6ac4347dc9dfd8ccc1080fe718479f"
-FCITX_PATCH_VER="2.18.2612.102.1"
-UIM_PATCH_REV="3ea28b1"
+MOZC_REV="afb03dd"
+FCITX_PATCH_VER="2.23.2815.102.1"
+UIM_PATCH_REV="c979f12"
 
 # Zip code data are revised on the last of every month
-ZIPCODE_REV="201804"
+ZIPCODE_REV="201805"
 
 UT2_REL=$(get_version_component_range $(get_version_component_count))
 UT2_DIR="16/16039"
@@ -181,6 +181,12 @@ src_prepare() {
 		eapply -p0 "${WORKDIR}/macuim/Mozc/mozc-kill-line.diff"
 	fi
 
+	# Fix GCC 8 build
+	# https://github.com/google/mozc/pull/444/commits/82d38f9
+	if tc-is-gcc && [ $(gcc-major-version) -ge 8 ]; then
+		eapply -p2 "${FILESDIR}/mozc-2.23.2815.102-gcc8.patch"
+	fi
+
 	sed -i -e 's:<!(which clang):'"$(tc-getCC)"':' \
 		-e 's:<!(which clang++):'"$(tc-getCXX)"':' \
 		gyp/common.gypi || die
@@ -194,6 +200,10 @@ src_prepare() {
 src_configure() {
 	export GYP_DEFINES="compiler_target=$(tc-getCC) compiler_host=$(tc-getCC)"
 	tc-export CC CXX AR AS RANLIB LD NM
+
+	use fcitx && export GYP_DEFINES="${GYP_DEFINES}
+		use_fcitx=YES
+		use_fcitx5=NO"
 
 	use ibus && export GYP_DEFINES="${GYP_DEFINES}
 		ibus_mozc_path=/usr/libexec/ibus-engine-mozc

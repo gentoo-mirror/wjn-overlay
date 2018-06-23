@@ -2,6 +2,20 @@
 # Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*mozc-ut2-2.23.2815.102.20171008 (23 Jun 2018)
+
+  23 Jun 2018; wjn <wjn@aol.jp> -files/mozc-2.20.2673.102-gcc-5.patch,
+  +files/mozc-2.23.2815.102-gcc8.patch,
+  -mozc-ut2-2.23.2785.102.20171008.ebuild,
+  +mozc-ut2-2.23.2815.102.20171008.ebuild:
+  Add version 2.23.2785.102.20171008, delete old
+
+   - Update Manifests of Zipcode archive files
+   - Add patch for GCC 8
+   - Update Fcitx patch
+   - Update MacUIM hash
+   - Remove needless patch file
+
   28 Apr 2018; wjn <wjn@aol.jp> mozc-ut2-2.23.2785.102.20171008.ebuild:
   Update Manifest of yusei zipcode archives
 
