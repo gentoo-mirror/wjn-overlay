@@ -2,6 +2,17 @@
 # Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*mozc-2.23.2815.102 (23 Jun 2018)
+
+  23 Jun 2018; wjn <wjn@aol.jp> +files/mozc-2.23.2815.102-gcc8.patch,
+  -mozc-2.20.2677.102.ebuild, -mozc-2.23.2785.102.ebuild,
+  +mozc-2.23.2815.102.ebuild:
+  Add version 2.23.2815.102, delete old versions
+
+   - Add patch for GCC 8
+   - Update Fcitx patch
+   - Update MacUIM hash
+
   25 Jan 2018; wjn <wjn@aol.jp> mozc-2.23.2785.102.ebuild:
   Use ':' character instead of '/' in sed substitution
 

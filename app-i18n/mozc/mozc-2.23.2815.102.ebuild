@@ -12,9 +12,9 @@ inherit elisp-common git-r3 multilib multiprocessing python-single-r1 \
 DESCRIPTION="Mozc - a Japanese Input Method Editor designed for multi-platform"
 HOMEPAGE="https://github.com/google/mozc"
 
-MOZC_REV="6b878e31fb6ac4347dc9dfd8ccc1080fe718479f"
-FCITX_PATCH_VER="2.18.2612.102.1"
-UIM_PATCH_REV="3ea28b1"
+MOZC_REV="afb03dd"
+FCITX_PATCH_VER="2.23.2815.102.1"
+UIM_PATCH_REV="c979f12"
 
 MOZC_URI="https://github.com/google/mozc.git"
 FCITX_PATCH_URI="http://download.fcitx-im.org/fcitx-mozc/fcitx-mozc-${FCITX_PATCH_VER}.patch"
@@ -91,6 +91,12 @@ src_prepare() {
 		eapply -p0 "${WORKDIR}/macuim/Mozc/mozc-kill-line.diff"
 	fi
 
+	# Fix GCC 8 build
+	# https://github.com/google/mozc/pull/444/commits/82d38f9
+	if tc-is-gcc && [ $(gcc-major-version) -ge 8 ]; then
+		eapply -p2 "${FILESDIR}/mozc-2.23.2815.102-gcc8.patch"
+	fi
+
 	sed -i -e 's:<!(which clang):'"$(tc-getCC)"':' \
 		-e 's:<!(which clang++):'"$(tc-getCXX)"':' \
 		gyp/common.gypi || die
@@ -104,6 +110,10 @@ src_prepare() {
 src_configure() {
 	export GYP_DEFINES="compiler_target=$(tc-getCC) compiler_host=$(tc-getCC)"
 	tc-export CC CXX AR AS RANLIB LD NM
+
+	use fcitx && export GYP_DEFINES="${GYP_DEFINES}
+		use_fcitx=YES
+		use_fcitx5=NO"
 
 	use ibus && export GYP_DEFINES="${GYP_DEFINES}
 		ibus_mozc_path=/usr/libexec/ibus-engine-mozc
