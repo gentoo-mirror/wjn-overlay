@@ -26,7 +26,6 @@ REQUIRED_USE="|| ( gtk qt5 )
 COMMON_DEPEND=">=dev-libs/glib-2.52.3
 	dev-libs/libxml2
 	>=sys-apps/dbus-0.6.0
-	>=sys-devel/gcc-4.7.0:*
 	>=x11-libs/cairo-1.2.6
 	>=x11-libs/pango-1.8.0
 	gtk? ( !gtk3? ( x11-libs/gtk+:2 ) )

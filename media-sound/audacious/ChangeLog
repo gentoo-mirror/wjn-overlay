@@ -3,6 +3,11 @@
 # (auto-generated from git log)
 
   23 Jun 2018; wjn <wjn@aol.jp> audacious-9999.ebuild:
+  Remove an obsolete dependency on GCC
+
+   Anyway, <sys-devel/gcc-6 are masked in the gentoo repository.
+
+  23 Jun 2018; wjn <wjn@aol.jp> audacious-9999.ebuild:
   Update glib version dependency to 2.52.3
 
   23 Jun 2018; wjn <wjn@aol.jp> audacious-9999.ebuild:
