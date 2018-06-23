@@ -30,5 +30,7 @@
 			of version 2 (x11-libs/gtk+)</flag>
 		<flag name="qt5">Enable Qt5 UI and output (<pkg>dev-qt/qtgui:5</pkg>,
 			<pkg>dev-qt/qtmultimedia:5</pkg>)</flag>
+        <flag name="valgrind">Enable <pkg>dev-util/valgrind</pkg> analysis
+			support</flag>
 	</use>
 </pkgmetadata>
