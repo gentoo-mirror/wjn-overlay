@@ -15,7 +15,7 @@ if [[ ${PV} = *9999* ]]; then
 	EGIT_REPO_URI="https://gitlab.com/fcitx/${PN}.git"
 	EGIT_BRANCH="master"
 else
-	SRC_URI="http://download.fcitx-im.org/${PN}/${P}.tar.xz"
+	SRC_URI="https://download.fcitx-im.org/${PN}/${P}.tar.xz"
 fi
 
 LICENSE="GPL-3"
