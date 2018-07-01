@@ -1,7 +1,7 @@
 wjn-overlay packages list
 ========
 
-- This list is updated on 2018-04-24 EDT
+- This list is updated on 2018-06-30 EDT
 
 | Package Name | Description | Upstream Website | This Overlay Only | Note |
 | ---- | ---- | ---- | ---- | ---- |
@@ -35,7 +35,6 @@ wjn-overlay packages list
 | dev-python/python-caja | Python bindings for Caja file manager | <http://www.mate-desktop.org> | - | dev ver. |
 | dev-python/smartypants | Python fork of SmartyPants, a free web publishing plug-in | <https://github.com/leohemsted/smartypants.py> | o | needed by dev-python/typogrify |
 | dev-python/typogrify | Filters to enhance web typography, often used with Jinja or Django | <https://github.com/mintchaos/typogrify> | o | improves www-apps/nikola |
-| dev-util/meld | A graphical diff and merge tool | <http://meldmerge.org/> | - | newer ver. |
 | games-engines/renpy | Visual novel engine written in python | <https://www.renpy.org/> | - | newer ver. |
 | gnome-extra/cinnamon | A fork of GNOME Shell with layout similar to GNOME 2 | <http://cinnamon.linuxmint.com/> | - | USE="pulseaudio" |
 | gnome-extra/cinnamon-control-center | Cinnamon's main interface to configure various aspects of the desktop | <http://cinnamon.linuxmint.com/> | - | USE="networkmanager pulseaudio" |

@@ -5,7 +5,7 @@ EAPI=6
 
 PLOCALES="de ja zh_CN zh_TW"
 
-inherit cmake-utils l10n
+inherit cmake-utils gnome2-utils l10n
 
 DESCRIPTION="Japanese libkkc module for Fcitx"
 HOMEPAGE="https://gitlab.com/fcitx/fcitx-kkc"
@@ -56,4 +56,12 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=( -DENABLE_QT=$(usex qt5 NO OFF) )
 	cmake-utils_src_configure
+}
+
+pkg_postinst() {
+	gnome2_icon_cache_update
+}
+
+pkg_postrm() {
+	gnome2_icon_cache_update
 }

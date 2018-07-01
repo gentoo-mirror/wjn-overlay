@@ -3,6 +3,9 @@
 # (auto-generated from git log)
 
   25 Jun 2018; wjn <wjn@aol.jp> fcitx-kkc-0.1.4.ebuild, fcitx-kkc-9999.ebuild:
+  Update icon caches
+
+  25 Jun 2018; wjn <wjn@aol.jp> fcitx-kkc-0.1.4.ebuild, fcitx-kkc-9999.ebuild:
   Download SRC_URI via https
 
   23 Jun 2018; wjn <wjn@aol.jp> fcitx-kkc-0.1.4.ebuild, fcitx-kkc-9999.ebuild:
