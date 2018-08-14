@@ -19,17 +19,14 @@ SRC_URI="mirror://gentoo/gentoo_ice-xmms-0.2.tar.bz2"
 LICENSE="BSD-2 BSD"
 SLOT="0"
 KEYWORDS=""
-IUSE="+dbus +gtk -gtk3 qt5 valgrind"
-REQUIRED_USE="|| ( gtk qt5 )
-	gtk3? ( gtk )"
+IUSE="+dbus +gtk qt5 valgrind"
 
 COMMON_DEPEND=">=dev-libs/glib-2.52.3
 	dev-libs/libxml2
 	>=x11-libs/cairo-1.2.6
 	>=x11-libs/pango-1.8.0
 	dbus? ( >=sys-apps/dbus-0.6.0 )
-	gtk? ( !gtk3? ( x11-libs/gtk+:2 ) )
-	gtk3? ( x11-libs/gtk+:3 )
+	gtk? ( x11-libs/gtk+:2 )
 	qt5? ( dev-qt/qtcore:5
 		dev-qt/qtgui:5
 		dev-qt/qtmultimedia:5
@@ -40,14 +37,7 @@ DEPEND="${COMMON_DEPEND}
 	dbus? ( dev-util/gdbus-codegen )
 	valgrind? ( dev-util/valgrind )"
 RDEPEND=${COMMON_DEPEND}
-PDEPEND="~media-plugins/audacious-plugins-9999[gtk=,gtk3=,qt5=]"
-
-pkg_setup() {
-	if use gtk3 ; then
-		export S="${WORKDIR}/${P}-gtk3"
-		export EGIT_BRANCH="master-gtk3"
-	fi
-}
+PDEPEND="~media-plugins/audacious-plugins-9999[gtk=,qt5=]"
 
 src_unpack() {
 	git-r3_src_unpack
