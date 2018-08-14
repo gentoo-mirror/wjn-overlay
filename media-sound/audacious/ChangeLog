@@ -2,6 +2,11 @@
 # Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*audacious-3.10 (14 Aug 2018)
+
+  14 Aug 2018; wjn <wjn@aol.jp> +audacious-3.10.ebuild:
+  Add version 3.10
+
   14 Aug 2018; wjn <wjn@aol.jp> audacious-9999.ebuild:
   Drop GTK+:3 support, allow -gtk && -qt
 
