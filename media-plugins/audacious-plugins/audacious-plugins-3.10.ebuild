@@ -8,11 +8,11 @@ PLOCALES="ar be bg ca cmn cs da de el en_GB es_AR es_MX es et eu fa_IR fi fr
 	sv ta tr uk zh_CN zh_TW"
 PLOCALE_BACKUP="en_GB"
 
-inherit autotools git-r3 l10n
+inherit l10n
 
 DESCRIPTION="Plugins for Audacious music player"
 HOMEPAGE="http://audacious-media-player.org/"
-EGIT_REPO_URI="https://github.com/audacious-media-player/${PN}.git"
+SRC_URI="https://distfiles.audacious-media-player.org/${P}.tar.bz2"
 
 # Generally BSD-2. but GTK+/Qt5 skins: GPL-3, mostly: GPL-2+, some: LGPL-2.1+
 LICENSE="BSD-2 GPL-2+ GPL-3 LGPL-2.1+ libnotify? ( GPL-3+ )"
@@ -25,7 +25,7 @@ REQUIRED_USE="libnotify? ( || ( gtk qt5 ) )
 	spectrum? ( || ( gtk qt5 ) )"
 
 COMMON_DEPEND="dev-libs/libxml2:2
-	~media-sound/audacious-9999[gtk=,qt5=]
+	~media-sound/audacious-${PV}[gtk=,qt5=]
 	x11-libs/libXcomposite
 	x11-libs/libXrender
 	aac? ( >=media-libs/faad2-2.7 )
@@ -79,7 +79,6 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND=${COMMON_DEPEND}
 
 src_prepare() {
-	eautoreconf
 	l10n_for_each_disabled_locale_do remove_locales
 	eapply_user
 }

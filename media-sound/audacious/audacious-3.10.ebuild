@@ -8,12 +8,12 @@ PLOCALES="ar ast be bg ca cmn cs da de el en_GB eo es_AR es_MX es et eu fa_IR
 	sk sq sr@latin sr sr_RS sv ta tr uk vi zh_CN zh_TW"
 PLOCALE_BACKUP="en_GB"
 
-inherit autotools git-r3 gnome2-utils l10n xdg-utils
+inherit gnome2-utils l10n xdg-utils
 
 DESCRIPTION="A lightweight and versatile audio player"
 HOMEPAGE="http://audacious-media-player.org/"
-EGIT_REPO_URI="https://github.com/audacious-media-player/${PN}.git"
-SRC_URI="mirror://gentoo/gentoo_ice-xmms-0.2.tar.bz2"
+SRC_URI="https://distfiles.audacious-media-player.org/${P}.tar.bz2
+	mirror://gentoo/gentoo_ice-xmms-0.2.tar.bz2"
 
 # bandeled libguess is BSD (3-clause)
 LICENSE="BSD-2 BSD"
@@ -37,15 +37,9 @@ DEPEND="${COMMON_DEPEND}
 	dbus? ( dev-util/gdbus-codegen )
 	valgrind? ( dev-util/valgrind )"
 RDEPEND=${COMMON_DEPEND}
-PDEPEND="~media-plugins/audacious-plugins-9999[gtk=,qt5=]"
-
-src_unpack() {
-	git-r3_src_unpack
-	default
-}
+PDEPEND="~media-plugins/audacious-plugins-${PV}[gtk=,qt5=]"
 
 src_prepare() {
-	eautoreconf
 	l10n_for_each_disabled_locale_do remove_locales
 	eapply_user
 }
