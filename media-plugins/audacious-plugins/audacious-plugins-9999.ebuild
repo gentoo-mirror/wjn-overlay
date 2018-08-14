@@ -79,7 +79,6 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND=${COMMON_DEPEND}
 
 src_prepare() {
-	eapply "${FILESDIR}/${PN}-3.8-qtglspectrum-include-glu.patch"
 	eautoreconf
 	l10n_for_each_disabled_locale_do remove_locales
 	eapply_user
