@@ -18,17 +18,14 @@ EGIT_REPO_URI="https://github.com/audacious-media-player/${PN}.git"
 LICENSE="BSD-2 GPL-2+ GPL-3 LGPL-2.1+ libnotify? ( GPL-3+ )"
 SLOT="0"
 KEYWORDS=""
-IUSE="aac adplug alsa bs2b cdda cue ffmpeg +filewriter flac gnome +gtk -gtk3
-	http jack lame libav libnotify libsamplerate lirc midi mms modplug mp3
-	mpris pulseaudio qt5 scrobbler sdl sid sndfile soxr spectrum vorbis
-	wavpack"
-REQUIRED_USE="	|| ( gtk qt5 )
-	gtk3? ( gtk )
-	libnotify? ( || ( gtk qt5 ) )
+IUSE="aac adplug alsa bs2b cdda cue ffmpeg +filewriter flac +gtk http jack
+	lame libav libnotify libsamplerate lirc midi mms modplug mp3 mpris
+	pulseaudio qt5 scrobbler sdl sid sndfile soxr spectrum vorbis wavpack"
+REQUIRED_USE="libnotify? ( || ( gtk qt5 ) )
 	spectrum? ( || ( gtk qt5 ) )"
 
 COMMON_DEPEND="dev-libs/libxml2:2
-	~media-sound/audacious-9999[gtk=,gtk3=,qt5=]
+	~media-sound/audacious-9999[gtk=,qt5=]
 	x11-libs/libXcomposite
 	x11-libs/libXrender
 	aac? ( >=media-libs/faad2-2.7 )
@@ -43,11 +40,7 @@ COMMON_DEPEND="dev-libs/libxml2:2
 		!libav? ( media-video/ffmpeg:0= ) )
 	flac? ( >=media-libs/libvorbis-1.0
 		>=media-libs/flac-1.2.1-r1 )
-	gnome? ( >=dev-libs/dbus-glib-0.60
-		~media-sound/audacious-9999[dbus]
-		>=sys-apps/dbus-0.6.0 )
-	gtk? ( !gtk3? ( x11-libs/gtk+:2 ) )
-	gtk3? ( x11-libs/gtk+:3 )
+	gtk? ( x11-libs/gtk+:2 )
 	http? ( >=net-libs/neon-0.27 )
 	jack? ( >=media-libs/bio2jack-0.4
 		virtual/jack )
@@ -85,10 +78,6 @@ DEPEND="${COMMON_DEPEND}
 	mpris? ( dev-util/gdbus-codegen )"
 RDEPEND=${COMMON_DEPEND}
 
-pkg_setup(){
-	use gtk3 && EGIT_BRANCH="master-gtk3"
-}
-
 src_prepare() {
 	eapply "${FILESDIR}/${PN}-3.8-qtglspectrum-include-glu.patch"
 	eautoreconf
@@ -120,10 +109,8 @@ src_configure() {
 		$(use_enable cdda cdaudio) \
 		$(use_enable cue) \
 		${ffmpeg_conf} \
-		$(use_enable gnome gnomeshortcuts) \
 		$(use_enable gtk aosd) \
 		$(use_enable gtk) \
-		$(use gtk3 || use_enable gtk hotkey) \
 		$(use_enable jack) \
 		$(use_enable lame filewriter_mp3) \
 		$(use_enable libnotify notify) \

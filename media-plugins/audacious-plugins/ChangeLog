@@ -3,6 +3,13 @@
 # (auto-generated from git log)
 
   14 Aug 2018; wjn <wjn@aol.jp> audacious-plugins-9999.ebuild:
+  Drop GTK+ 3 support and GNOME shortcuts plugin
+
+   Now Upstream doesn't regularly update master-gtk3 branch
+  and removes GNOME Shortcuts plugin
+  See https://audacious-media-player.org/news/43-audacious-3-10-released
+
+  14 Aug 2018; wjn <wjn@aol.jp> audacious-plugins-9999.ebuild:
   Add AR translation
 
   23 Jun 2018; wjn <wjn@aol.jp> audacious-plugins-9999.ebuild, metadata.xml:
