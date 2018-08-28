@@ -6,7 +6,7 @@ EAPI=6
 inherit autotools elisp-common gnome2-utils qmake-utils
 
 DESCRIPTION="Simple, secure and flexible input method library"
-HOMEPAGE="http://code.google.com/p/uim/"
+HOMEPAGE="https://github.com/uim/uim"
 if [[ ${PV} = *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/uim/uim.git"
