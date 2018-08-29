@@ -6,7 +6,7 @@ EAPI=6
 inherit autotools elisp-common gnome2-utils qmake-utils
 
 DESCRIPTION="Simple, secure and flexible input method library"
-HOMEPAGE="http://code.google.com/p/uim/"
+HOMEPAGE="https://github.com/uim/uim"
 if [[ ${PV} = *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/uim/uim.git"
@@ -20,10 +20,8 @@ LICENSE="BSD GPL-2 LGPL-2.1"
 SLOT="0"
 KEYWORDS=""
 IUSE="X +anthy canna curl eb emacs expat gtk gtk3 kde libedit libffi libnotify
-	m17n-lib ncurses nls qt3support qt4 qt5 skk sqlite ssl static-libs
-	unicode xft"
+	m17n-lib ncurses nls qt5 skk sqlite ssl static-libs unicode xft"
 REQUIRED_USE="gtk? ( X )
-	qt4? ( X )
 	qt5? ( X )"
 
 RESTRICT="test"
@@ -52,8 +50,6 @@ COMMON_DEPEND="!dev-scheme/sigscheme
 	m17n-lib? ( >=dev-libs/m17n-lib-1.3.1 )
 	ncurses? ( sys-libs/ncurses:0 )
 	nls? ( virtual/libintl )
-	qt3support? ( dev-qt/qtgui:4[qt3support] )
-	qt4? ( dev-qt/qtgui:4 )
 	qt5? ( dev-qt/qtgui:5
 		dev-qt/qtx11extras:5 )
 	skk? ( app-i18n/skk-jisyo )
@@ -79,7 +75,7 @@ if [[ ${PV} = *9999* ]]; then
 fi
 RDEPEND=${COMMON_DEPEND}
 
-DOCS=( AUTHORS ChangeLog.old ChangeLog.old.2 NEWS README RELNOTE )
+DOCS=( AUTHORS NEWS README RELNOTE )
 
 SITEFILE=50${PN}-gentoo.el
 
@@ -93,14 +89,6 @@ src_prepare() {
 		|| die 'sed configure.ac failed!'
 
 	# plugin file must be installed to sandbox
-	if use qt4 ; then
-		sed -i \
-			-e 's_target.path.*/_target.path += '"/$(qt4_get_plugindir)"'/_g' \
-			qt4/immodule/quiminputcontextplugin.pro.in \
-			|| die 'sed qt4/immodule/ failed!'
-	fi
-
-	# plugin file must be installed to sandbox
 	if use qt5 ; then
 		sed -i \
 			-e 's_target.path.*/_target.path += '"/$(qt5_get_plugindir)"'/_g' \
@@ -108,31 +96,7 @@ src_prepare() {
 			|| die 'sed qt5/immodule/ failed!'
 	fi
 
-	if [[ ${PV} = *9999* ]]; then
-		( cd sigscheme/libgcroots
-			_elibtoolize --force --copy
-			eaclocal -I m4
-			eautomake
-			eautoconf
-		 )
-		( cd sigscheme
-			eaclocal -I m4
-			_elibtoolize --force --copy
-			eautoheader
-			eautomake
-			eautoconf
-		)
-		eaclocal -I m4
-		_elibtoolize --force --copy
-		eautoheader
-		eautomake
-		eautoconf
-		intltoolize --copy --force --automake
-		sed -i -e "s/^DISTFILES/# Makevars gets inserted here. (Don't remove this line!)\n\nDISTFILES/" \
-			po/Makefile.in.in || die 'sed Makefile.in.in failed!'
-	else
-		AT_NO_RECURSIVE=1 eautoreconf
-	fi
+	eautoreconf
 	eapply_user
 }
 
@@ -145,7 +109,7 @@ src_configure() {
 		myconf="${myconf} --disable-dict"
 	fi
 
-	if use gtk || use gtk3 || use qt4 ; then
+	if use gtk || use gtk3 ; then
 		myconf="${myconf} --enable-pref"
 	else
 		myconf="${myconf} --disable-pref"
@@ -165,13 +129,10 @@ src_configure() {
 		myconf="${myconf} --enable-default-toolkit=gtk3"
 	elif use qt5 ; then
 		myconf="${myconf} --enable-default-toolkit=qt5"
-	elif use qt4 ; then
-		myconf="${myconf} --enable-default-toolkit=qt4"
 	elif use gtk ; then
 		myconf="${myconf} --enable-default-toolkit=gtk"
 	fi
 
-	use qt4 && export QMAKE4="$(qt4_get_bindir)/qmake"
 	use qt5 && export QMAKE5="$(qt5_get_bindir)/qmake"
 
 	# This is neccessary to run "PKG_CHECK_MODULES" correctly around econf
@@ -183,9 +144,13 @@ src_configure() {
 		--disable-gnome3-applet \
 		--disable-kde-applet \
 		--enable-maintainer-mode \
+		--with-libgcroots=no \
 		--without-osx-dcs \
 		--without-qt \
 		--without-qt-immodule \
+		--without-qt4 \
+		--without-qt4-immodule \
+		--disable-qt4-qt3support
 		--disable-warnings-into-error \
 		${myconf} \
 		$(use_with X x) \
@@ -205,9 +170,6 @@ src_configure() {
 		$(use_with m17n-lib m17nlib) \
 		$(use_enable ncurses fep) \
 		$(use_enable nls) \
-		$(use_enable qt3support qt4-qt3support) \
-  		$(use_with qt4 qt4) \
-		$(use_with qt4 qt4-immodule) \
 		$(use_enable qt5) \
 		$(use_with qt5 qt5) \
 		$(use_with qt5 qt5-immodule) \
@@ -259,7 +221,7 @@ pkg_postinst() {
 	elog "to your ~/.uim."
 	elog
 	elog "All input methods can be found by running uim-im-switcher-gtk, "
-	elog "uim-im-switcher-gtk3, uim-im-switcher-qt4 or uim-im-switcher-qt5."
+	elog "uim-im-switcher-gtk3 or uim-im-switcher-qt5."
 	elog
 	elog "If you upgrade from a version of uim older than 1.4.0,"
 	elog "you should run revdep-rebuild."

@@ -2,6 +2,22 @@
 # Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  29 Aug 2018; wjn <wjn@aol.jp> uim-9999.ebuild:
+  eautoreconf recursively including libgcroot
+
+   eautoreconf can be done without error as default behavior
+
+   Bundled libgcroot might be neccessary because it's the development version
+
+  29 Aug 2018; wjn <wjn@aol.jp> uim-9999.ebuild:
+  Update ${DOCS}
+
+  29 Aug 2018; wjn <wjn@aol.jp> uim-9999.ebuild:
+  Drop Qt4 support
+
+  28 Aug 2018; wjn <wjn@aol.jp> uim-9999.ebuild:
+  Update ${HOMEPAGE}
+
   21 May 2018; wjn <wjn@aol.jp> uim-9999.ebuild:
   Remove x11-proto/* dependency
 

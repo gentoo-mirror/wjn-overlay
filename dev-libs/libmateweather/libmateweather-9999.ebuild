@@ -20,7 +20,7 @@ SLOT="0"
 KEYWORDS=""
 IUSE="debug"
 
-COMMON_DEPEND=">=dev-libs/glib-2.50.0:2[${PYTHON_USEDEP}]
+COMMON_DEPEND=">=dev-libs/glib-2.50.0:2
 	>=dev-libs/libxml2-2.6.0:2
 	>=net-libs/libsoup-2.34.0:2.4
 	>=sys-libs/timezone-data-2010k:0
