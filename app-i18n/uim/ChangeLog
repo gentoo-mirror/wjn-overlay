@@ -3,6 +3,13 @@
 # (auto-generated from git log)
 
   29 Aug 2018; wjn <wjn@aol.jp> uim-9999.ebuild:
+  eautoreconf recursively including libgcroot
+
+   eautoreconf can be done without error as default behavior
+
+   Bundled libgcroot might be neccessary because it's the development version
+
+  29 Aug 2018; wjn <wjn@aol.jp> uim-9999.ebuild:
   Update ${DOCS}
 
   29 Aug 2018; wjn <wjn@aol.jp> uim-9999.ebuild:

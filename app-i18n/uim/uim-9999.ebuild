@@ -96,31 +96,7 @@ src_prepare() {
 			|| die 'sed qt5/immodule/ failed!'
 	fi
 
-	if [[ ${PV} = *9999* ]]; then
-		( cd sigscheme/libgcroots
-			_elibtoolize --force --copy
-			eaclocal -I m4
-			eautomake
-			eautoconf
-		 )
-		( cd sigscheme
-			eaclocal -I m4
-			_elibtoolize --force --copy
-			eautoheader
-			eautomake
-			eautoconf
-		)
-		eaclocal -I m4
-		_elibtoolize --force --copy
-		eautoheader
-		eautomake
-		eautoconf
-		intltoolize --copy --force --automake
-		sed -i -e "s/^DISTFILES/# Makevars gets inserted here. (Don't remove this line!)\n\nDISTFILES/" \
-			po/Makefile.in.in || die 'sed Makefile.in.in failed!'
-	else
-		AT_NO_RECURSIVE=1 eautoreconf
-	fi
+	eautoreconf
 	eapply_user
 }
 
@@ -168,6 +144,7 @@ src_configure() {
 		--disable-gnome3-applet \
 		--disable-kde-applet \
 		--enable-maintainer-mode \
+		--with-libgcroots=no \
 		--without-osx-dcs \
 		--without-qt \
 		--without-qt-immodule \
