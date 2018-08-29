@@ -75,7 +75,7 @@ if [[ ${PV} = *9999* ]]; then
 fi
 RDEPEND=${COMMON_DEPEND}
 
-DOCS=( AUTHORS ChangeLog.old ChangeLog.old.2 NEWS README RELNOTE )
+DOCS=( AUTHORS NEWS README RELNOTE )
 
 SITEFILE=50${PN}-gentoo.el
 

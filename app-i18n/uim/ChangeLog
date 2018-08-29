@@ -3,6 +3,9 @@
 # (auto-generated from git log)
 
   29 Aug 2018; wjn <wjn@aol.jp> uim-9999.ebuild:
+  Update ${DOCS}
+
+  29 Aug 2018; wjn <wjn@aol.jp> uim-9999.ebuild:
   Drop Qt4 support
 
   28 Aug 2018; wjn <wjn@aol.jp> uim-9999.ebuild:
