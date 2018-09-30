@@ -3,7 +3,7 @@
 
 EAPI=5
 
-PYTHON_COMPAT=( python2_7 )
+PYTHON_COMPAT=( python3_{4,5,6,7} )
 VALA_MIN_API_VERSION="0.24"
 
 inherit autotools python-single-r1 vala
