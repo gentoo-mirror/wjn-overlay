@@ -2,6 +2,9 @@
 # Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  30 Sep 2018; wjn <wjn@aol.jp> mozc-ut2-2.23.2815.102.20171008.ebuild:
+  Update Manifest of yusei zipcode archives
+
   14 Aug 2018; wjn <wjn@aol.jp> mozc-ut2-2.23.2815.102.20171008.ebuild:
   Update Manifest of yusei zipcode archives
 
