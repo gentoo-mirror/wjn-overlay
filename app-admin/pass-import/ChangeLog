@@ -2,6 +2,13 @@
 # Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*pass-import-2.3 (05 Oct 2018)
+
+  05 Oct 2018; wjn <wjn@aol.jp> +pass-import-2.3.ebuild:
+  Add version 2.3
+
+   Upstream: https://github.com/roddhjav/pass-import/releases/tag/v2.3
+
   03 Jan 2018; wjn <wjn@aol.jp> pass-import-0.1_p20170312.ebuild,
   pass-import-0.2_p20171001.ebuild:
   [QA] Update copyright year to 2018
