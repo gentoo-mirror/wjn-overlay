@@ -1,0 +1,10 @@
+# ChangeLog for media-gfx/simple-scan
+# Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
+# (auto-generated from git log)
+
+*simple-scan-3.26.3 (05 Oct 2018)
+
+  05 Oct 2018; wjn <wjn@aol.jp> +files/3.26-add-control-optional-deps.patch,
+  +metadata.xml, +simple-scan-3.26.3.ebuild:
+  Add Newly, version 3.26.3
+
