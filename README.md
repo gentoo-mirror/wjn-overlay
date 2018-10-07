@@ -7,7 +7,7 @@ wjn's user overlay for Gentoo GNU/Linux.
 There is Wiki documents at <https://bitbucket.org/wjn/wjn-overlay/wiki/>  
 It contains more guidances and information
 
-- This file is updated on 2016-03-10 16:23 UTC
+- This file is updated on 2018-10-07 16:29 EDT
 
 ## contents
 
@@ -82,12 +82,6 @@ but in short, below is some examples
 - [Mozc UT Dictionary](http://www.geocities.jp/ep3797/mozc_01.html)  
     (Japanese converting server with additional dictionary "UT", patched for Fcitx an uim)  
     <small>The each dictionary's license of "hatena" and "nicodic" is unknown. Specifically "nicodic" feature is not recommended to use. My ebuild's default is "-nicodic"</small>
-
-- [Mozc NEologd UT Dictionary](http://www.geocities.jp/ep3797/mozc_01.html)  
-    (Japanese converting server with additional dictionary generated from [mecab-ipadic-NEologd](https://github.com/neologd/mecab-ipadic-neologd), patched for Fcitx an uim)  
-
-- [fcitx-qt5](http://fcitx-im.org/)  
-    (Development ver.)
 
 - [uim](http://code.google.com/p/uim/)  
     (Development ver.)
