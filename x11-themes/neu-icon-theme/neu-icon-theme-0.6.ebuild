@@ -7,7 +7,7 @@ inherit gnome2-utils
 
 DESCRIPTION="Scalable and PNG icon theme named Dropline Neu!"
 HOMEPAGE="https://www.gnome-look.org/p/1108733/"
-SRC_URI="https://gh.asis.li/files/Neu-${PV}-PR3.tar.bz2"
+SRC_URI=""
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -18,7 +18,11 @@ DEPEND=""
 RDEPEND="!minimal? ( x11-themes/adwaita-icon-theme )"
 
 S="${WORKDIR}"
-RESTRICT="binchecks mirror strip"
+RESTRICT="binchecks strip"
+
+src_unpack() {
+	unpack "${FILESDIR}/Neu-${PV}-PR3.tar.bz2"
+}
 
 src_install() {
 	dodoc Neu/{AUTHORS,README}
