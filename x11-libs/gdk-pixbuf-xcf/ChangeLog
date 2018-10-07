@@ -2,6 +2,12 @@
 # Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  07 Oct 2018; wjn <wjn@aol.jp> +files/gdk-pixbuf-xcf-2012.05.tar.xz,
+  gdk-pixbuf-xcf-2012.05.ebuild:
+  Move tarball from gh.asis.li to this repository
+
+   gh.asis.li/files is closed
+
   03 Jan 2018; wjn <wjn@aol.jp> gdk-pixbuf-xcf-2012.05.ebuild:
   [QA] Update copyright year to 2018
 
