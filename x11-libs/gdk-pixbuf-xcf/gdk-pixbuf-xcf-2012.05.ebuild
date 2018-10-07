@@ -1,9 +1,8 @@
 # Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=6
 
-GCONF_DEBUG="no"
 GNOME2_LA_PUNT="yes"
 
 inherit autotools gnome2 multilib multilib-minimal
@@ -27,6 +26,7 @@ src_unpack() {
 }
 
 src_prepare() {
+	eapply_user
 	eautoreconf
 }
 
