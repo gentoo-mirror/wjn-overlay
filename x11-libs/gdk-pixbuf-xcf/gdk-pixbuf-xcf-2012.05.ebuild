@@ -1,16 +1,15 @@
 # Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=6
 
-GCONF_DEBUG="no"
 GNOME2_LA_PUNT="yes"
 
 inherit autotools gnome2 multilib multilib-minimal
 
 DESCRIPTION="A gdk-pixbuf loader for xcf (The Gimp) files"
 HOMEPAGE="http://blog.reblochon.org/2009/03/gift-to-competition.html"
-SRC_URI="https://gh.asis.li/files/gdk-pixbuf-xcf-2012.05.tar.xz"
+SRC_URI=""
 
 LICENSE="LGPL-2+"
 SLOT="0"
@@ -22,9 +21,12 @@ COMMON_DEPEND=">=dev-libs/glib-2.0[${MULTILIB_USEDEP}]
 DEPEND=${COMMON_DEPEND}
 RDEPEND=${COMMON_DEPEND}
 
-RESTRICT="mirror"
+src_unpack() {
+	unpack "${FILESDIR}/gdk-pixbuf-xcf-2012.05.tar.xz"
+}
 
 src_prepare() {
+	eapply_user
 	eautoreconf
 }
 
