@@ -5,7 +5,7 @@ Gentoo GNU/Linux 向けの overlay です
 
 追加や最新の情報は、 [Wiki](https://bitbucket.org/wjn/wjn-overlay/wiki/) に書いています
 
-- 本ファイル更新: 2016-03-10 16:23 UTC
+- 本ファイル更新: 2018-10-07 16:28 EDT
 
 ----
 
@@ -27,9 +27,6 @@ Gentoo GNU/Linux 向けの overlay です
     また運営企業は２ちゃんねるで有名な未来検索ブラジルですので、
     無用な紛争に巻き込まれないためにもインストールしないことをお勧めします。
     デフォルトのUSEフラグも無効にしてあります</small>  
-
-- [Mozc NEologd UT Dictionary](http://www.geocities.jp/ep3797/mozc_01.html)  
-    ([mecab-ipa-NEologd](https://github.com/neologd/mecab-ipadic-neologd) 由来の追加辞書付 Mozc。**uim 対応**。Mozc 公式同様に Clang コンパイル可)
 
 - [uim](http://code.google.com/p/uim/)  
     (dev 版、 Qt5 対応)
