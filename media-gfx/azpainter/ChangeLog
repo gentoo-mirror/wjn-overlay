@@ -2,6 +2,11 @@
 # Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*azpainter-2.1.3 (07 Oct 2018)
+
+  07 Oct 2018; wjn <wjn@aol.jp> +azpainter-2.1.3.ebuild:
+  Add version 2.1.3
+
   20 Apr 2018; wjn <wjn@aol.jp> azpainter-2.1.2.ebuild:
   Execute xdg_mimeinfo_database_update in pkg_post{inst,rm}
 

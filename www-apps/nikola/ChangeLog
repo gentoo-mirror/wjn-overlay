@@ -2,6 +2,16 @@
 # Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  05 Oct 2018; wjn <wjn@aol.jp> -nikola-7.8.9.ebuild, -nikola-7.8.15.ebuild:
+  Delete old versions 7.8.9 and 7.8.15
+
+*nikola-8.0.1 (05 Oct 2018)
+
+  05 Oct 2018; wjn <wjn@aol.jp> +nikola-8.0.1.ebuild:
+  Add version 8.0.1
+
+   Upstream: https://github.com/getnikola/nikola/releases/tag/v8.0.1
+
 *nikola-7.8.15 (05 May 2018)
 
   05 May 2018; wjn <wjn@aol.jp> -nikola-7.8.14.ebuild, +nikola-7.8.15.ebuild:
