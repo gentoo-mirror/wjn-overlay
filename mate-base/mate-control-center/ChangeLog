@@ -2,6 +2,14 @@
 # Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  08 Oct 2018; wjn <wjn@aol.jp> mate-control-center-9999.ebuild:
+  Add a dependency on sys-apps/accountsservice
+
+   sys-apps/accountsservice is used by mate-about-me for get/set user face
+  icons
+   Upstream : https://github.com/mate-desktop/mate-control-
+  center/commit/28c5512
+
   30 Sep 2018; wjn <wjn@aol.jp> mate-control-center-9999.ebuild:
   Update version dep on mate-desktop to 1.21.1
 

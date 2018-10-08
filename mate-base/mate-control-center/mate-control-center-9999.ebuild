@@ -33,6 +33,7 @@ COMMON_DEPEND="app-text/rarian:0
 	>=media-libs/fontconfig-1:1.0
 	media-libs/freetype:2
 	media-libs/libcanberra:0[gtk3]
+	>=sys-apps/accountsservice-0.6.21
 	>=sys-apps/dbus-1:0
 	x11-apps/xmodmap:0
 	x11-libs/cairo:0
@@ -78,5 +79,6 @@ src_prepare() {
 src_configure() {
 	gnome2_src_configure \
 		--disable-update-mimedb \
+		--with-accountsservice \
 		$(use_enable appindicator)
 }
