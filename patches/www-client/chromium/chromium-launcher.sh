@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # NOTE:
-# Copy chromium-launcher.sh as /usr/lib/chromium-browser/chromium-launcher.sh
+# Copy chromium-launcher.sh as /usr/lib64/chromium-browser/chromium-launcher.sh
 # Then copy chromium.default as /etc/chromium/default
 
 # Allow the user to override command-line flags, bug #357629.
@@ -41,4 +41,4 @@ fi
 export CHROME_DESKTOP="chromium-browser-chromium.desktop"
 
 IFS=$'\n'
-exec -a "chromium-browser" "$PROGDIR/chrome" --extra-plugin-dir=/usr/lib/nsbrowser/plugins ${CHROMIUM_FLAGS} "$@"
+exec -a "chromium-browser" "$PROGDIR/chrome" --extra-plugin-dir=/usr/lib64/nsbrowser/plugins ${CHROMIUM_FLAGS} "$@"
