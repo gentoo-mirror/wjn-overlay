@@ -4,10 +4,13 @@ wjn-overlay
 wjn's user overlay for Gentoo GNU/Linux.  
 (JA version of README is [README.ja.md](README.ja.md) )
 
-There is Wiki documents at <https://bitbucket.org/wjn/wjn-overlay/wiki/>  
+Recent information may be available at <https://libre.asis.li/>
+
+Also there is Wiki documents at <https://bitbucket.org/wjn/wjn-overlay/wiki/>  
 It contains more guidances and information
 
-- This file is updated on 2018-10-07 16:29 EDT
+
+- This file is updated on 2018-10-14 08:39 EDT
 
 ## contents
 
@@ -94,7 +97,7 @@ GPLv2. See [COPYING](COPYING)
 
 ```
 wjn-overlay
-Copyright (C) 2014-2016  wjn
+Copyright (C) 2014-  wjn
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
