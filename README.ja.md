@@ -3,9 +3,13 @@
 
 Gentoo GNU/Linux 向けの overlay です
 
-追加や最新の情報は、 [Wiki](https://bitbucket.org/wjn/wjn-overlay/wiki/) に書いています
+ブログが <https://libre.asis.li/> にあり、最新の情報も適宜アナウンスしています
 
-- 本ファイル更新: 2018-10-07 16:28 EDT
+ほかに細かい情報を、 [Wiki](https://bitbucket.org/wjn/wjn-overlay/wiki/) に書いています
+
+
+
+- 本ファイル更新: 2018-10-14 08:41 EDT
 
 ----
 
@@ -198,7 +202,7 @@ GPLv2 [COPYING](COPYING)
 
 ```
 wjn-overlay
-Copyright (C) 2014-2016  wjn
+Copyright (C) 2014-  wjn
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
