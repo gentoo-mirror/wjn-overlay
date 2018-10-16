@@ -2,7 +2,13 @@
 # Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
 # (auto-generated from git log)
 
-  01 Oct 2018; wjn <wjn@aol.jp> libkkc-9999.ebuild:
+  16 Oct 2018; wjn <wjn@aol.jp> libkkc-0.3.5.ebuild, libkkc-9999.ebuild:
+  Update ${HOMEPAGE}
+
+   Upstream's repository in BitBucket has been closed
+  Now GitHub repository only
+
+  05 Oct 2018; wjn <wjn@aol.jp> libkkc-9999.ebuild:
   Support Python 3, drop Python 2.7
 
    Upstream: https://github.com/ueno/libkkc/commit/ba1c1bd
