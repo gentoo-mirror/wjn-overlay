@@ -8,9 +8,8 @@ PYTHON_COMPAT=( python2_7 )
 inherit python-single-r1
 
 DESCRIPTION="Japanese Kana Kanji conversion dictionary for libkkc"
-HOMEPAGE="https://github.com/ueno/libkkc
-	https://bitbucket.org/libkkc/libkkc"
-SRC_URI="https://bitbucket.org/libkkc/${PN}/downloads/${P}.tar.xz"
+HOMEPAGE="https://github.com/ueno/libkkc"
+SRC_URI="https://github.com/ueno/libkkc/releases/download/v0.3.5/${P}.tar.xz"
 
 LICENSE="GPL-3+"
 SLOT="0"
