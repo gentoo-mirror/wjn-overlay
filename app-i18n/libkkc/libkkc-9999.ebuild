@@ -9,8 +9,7 @@ VALA_MIN_API_VERSION="0.24"
 inherit autotools python-single-r1 vala
 
 DESCRIPTION="Japanese Kana Kanji conversion library"
-HOMEPAGE="https://github.com/ueno/libkkc
-	https://bitbucket.org/libkkc/libkkc"
+HOMEPAGE="https://github.com/ueno/libkkc"
 
 if [[ ${PV} = *9999* ]]; then
 	inherit git-r3
