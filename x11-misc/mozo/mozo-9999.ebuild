@@ -21,7 +21,7 @@ SLOT="0"
 KEYWORDS=""
 
 COMMON_DEPEND="dev-python/pygobject:3[${PYTHON_USEDEP}]
-	>=mate-base/mate-menus-1.21.0:0[introspection,python]"
+	>=mate-base/mate-menus-1.21.0:0[introspection,python(+)]"
 DEPEND="${COMMON_DEPEND}
 	>=dev-util/intltool-0.40:0
 	sys-apps/sed:0

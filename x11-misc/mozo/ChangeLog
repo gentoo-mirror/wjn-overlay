@@ -3,6 +3,12 @@
 # (auto-generated from git log)
 
   12 Nov 2018; wjn <wjn@aol.jp> mozo-9999.ebuild:
+  Change mate-base/mate-menus[python] dependency to [python(+)]
+
+   Newer mate-base/mate-menus drops Python support
+   See https://github.com/mate-desktop/mate-menus/commit/71e85c1
+
+  12 Nov 2018; wjn <wjn@aol.jp> mozo-9999.ebuild:
   [QA] Change copyright notices from 'Gentoo Foundation' to 'Gentoo Authors'
 
    See GLEP 76
