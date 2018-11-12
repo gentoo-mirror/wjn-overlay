@@ -1,8 +1,14 @@
 # ChangeLog for app-i18n/mozc-ut2
-# Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2018 Gentoo Authors; Distributed under the GPL v2
 # (auto-generated from git log)
 
-  30 Sep 2018; wjn <wjn@aol.jp> mozc-ut2-2.23.2815.102.20171008.ebuild:
+  12 Nov 2018; wjn <wjn@aol.jp> mozc-ut2-2.23.2815.102.20171008.ebuild:
+  [QA] Change copyright notices from 'Gentoo Foundation' to 'Gentoo Authors'
+
+   See GLEP 76
+   https://www.gentoo.org/glep/glep-0076.html
+
+  01 Oct 2018; wjn <wjn@aol.jp> mozc-ut2-2.23.2815.102.20171008.ebuild:
   Update Manifest of yusei zipcode archives
 
   14 Aug 2018; wjn <wjn@aol.jp> mozc-ut2-2.23.2815.102.20171008.ebuild:

@@ -1,6 +1,12 @@
 # ChangeLog for x11-themes/mate-icon-theme
-# Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2018 Gentoo Authors; Distributed under the GPL v2
 # (auto-generated from git log)
+
+  12 Nov 2018; wjn <wjn@aol.jp> mate-icon-theme-9999.ebuild:
+  [QA] Change copyright notices from 'Gentoo Foundation' to 'Gentoo Authors'
+
+   See GLEP 76
+   https://www.gentoo.org/glep/glep-0076.html
 
   03 Jan 2018; wjn <wjn@aol.jp> mate-icon-theme-9999.ebuild:
   [QA] Update copyright year to 2018
