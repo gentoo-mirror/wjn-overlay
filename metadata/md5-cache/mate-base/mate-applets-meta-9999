@@ -6,4 +6,4 @@ IUSE=appindicator sensors
 LICENSE=metapackage
 RDEPEND=~mate-base/mate-applets-9999 appindicator? ( ~mate-extra/mate-indicator-applet-9999 ) sensors? ( ~mate-extra/mate-sensors-applet-9999 )
 SLOT=0
-_md5_=4bfb3e20434ae0a2414e9b82ecc98274
+_md5_=aa3cd3b1f2ebbc0d098d7c066d72fdd3

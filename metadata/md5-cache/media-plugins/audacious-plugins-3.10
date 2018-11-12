@@ -10,4 +10,4 @@ REQUIRED_USE=libnotify? ( || ( gtk qt5 ) ) spectrum? ( || ( gtk qt5 ) )
 SLOT=0
 SRC_URI=https://distfiles.audacious-media-player.org/audacious-plugins-3.10.tar.bz2
 _eclasses_=l10n	97f2753e3f1f3753d53d856c7c0bbb0b
-_md5_=e6fd8f0d2822d0ff1f26c0adc5c90121
+_md5_=1a1f3ebc1759c7306faf5471e5bc25c5

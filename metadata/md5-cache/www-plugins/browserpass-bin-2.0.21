@@ -9,4 +9,4 @@ RDEPEND=!!www-plugins/browserpass app-admin/pass || ( www-client/google-chrome w
 RESTRICT=mirror
 SLOT=0
 SRC_URI=https://github.com/dannyvankooten/browserpass/releases/download/2.0.21/browserpass-linux64.zip -> browserpass-bin-2.0.21.zip
-_md5_=276265e93088ff4f5302bb3890805573
+_md5_=6b2fadf9bd75e4ec01f7b88890f83ade

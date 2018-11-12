@@ -6,4 +6,4 @@ LICENSE=GPL-3+
 RESTRICT=mirror
 SLOT=0
 SRC_URI=mirror://sourceforge/mined/mined-2015.25.tar.gz
-_md5_=17ca33f41b1f4251775883466473cd22
+_md5_=b6bc1ffa62deafca54719a1f44a009a1
