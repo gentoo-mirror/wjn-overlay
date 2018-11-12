@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -22,7 +22,7 @@ FCITX_PATCH_VER="2.23.2815.102.1"
 UIM_PATCH_REV="c979f12"
 
 # Zip code data are revised on the last of every month
-ZIPCODE_REV="201809"
+ZIPCODE_REV="201810"
 
 UT2_REL=$(get_version_component_range $(get_version_component_count))
 UT2_DIR="16/16039"

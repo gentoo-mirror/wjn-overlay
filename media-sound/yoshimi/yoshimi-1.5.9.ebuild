@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -16,7 +16,7 @@ SLOT="0"
 KEYWORDS=""
 IUSE="+lv2"
 
-COMMON_DEPEND=">=dev-libs/mini-xml-2.5
+COMMON_DEPEND=">=dev-libs/mxml-2.5
 	>=media-libs/alsa-lib-1.0.17
 	media-libs/fontconfig
 	media-libs/libsndfile

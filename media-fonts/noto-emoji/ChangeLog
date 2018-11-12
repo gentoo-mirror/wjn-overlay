@@ -1,6 +1,13 @@
 # ChangeLog for media-fonts/noto-emoji
-# Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2018 Gentoo Authors; Distributed under the GPL v2
 # (auto-generated from git log)
+
+  12 Nov 2018; wjn <wjn@aol.jp> noto-emoji-20170518.ebuild,
+  noto-emoji-20180810.ebuild:
+  [QA] Change copyright notices from 'Gentoo Foundation' to 'Gentoo Authors'
+
+   See GLEP 76
+   https://www.gentoo.org/glep/glep-0076.html
 
 *noto-emoji-20180810 (15 Oct 2018)
 
