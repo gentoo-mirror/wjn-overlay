@@ -1,7 +1,7 @@
 wjn-overlay packages list
 ========
 
-- This list is updated on 2018-06-30 EDT
+- This list is updated on 2018-11-12 EST
 
 | Package Name | Description | Upstream Website | This Overlay Only | Note |
 | ---- | ---- | ---- | ---- | ---- |
@@ -36,9 +36,6 @@ wjn-overlay packages list
 | dev-python/smartypants | Python fork of SmartyPants, a free web publishing plug-in | <https://github.com/leohemsted/smartypants.py> | o | needed by dev-python/typogrify |
 | dev-python/typogrify | Filters to enhance web typography, often used with Jinja or Django | <https://github.com/mintchaos/typogrify> | o | improves www-apps/nikola |
 | games-engines/renpy | Visual novel engine written in python | <https://www.renpy.org/> | - | newer ver. |
-| gnome-extra/cinnamon | A fork of GNOME Shell with layout similar to GNOME 2 | <http://cinnamon.linuxmint.com/> | - | USE="pulseaudio" |
-| gnome-extra/cinnamon-control-center | Cinnamon's main interface to configure various aspects of the desktop | <http://cinnamon.linuxmint.com/> | - | USE="networkmanager pulseaudio" |
-| gnome-extra/cinnamon-settings-daemon | Cinnamon's settings daemon | <http://cinnamon.linuxmint.com/> | - | USE="pulseaudio" |
 | mate-base/caja | Caja file manager for the MATE desktop | <http://mate-desktop.org/> | - | dev ver. |
 | mate-base/libmatekbd | MATE keyboard configuration library | <http://mate-desktop.org/> | - | dev ver. |
 | mate-base/mate | Meta ebuild for MATE, a traditional desktop environment | <http://mate-desktop.org/> | - | dev ver. |
