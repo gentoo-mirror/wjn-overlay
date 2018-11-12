@@ -16,7 +16,7 @@ SLOT="0"
 KEYWORDS=""
 IUSE="+lv2"
 
-COMMON_DEPEND=">=dev-libs/mini-xml-2.5
+COMMON_DEPEND=">=dev-libs/mxml-2.5
 	>=media-libs/alsa-lib-1.0.17
 	media-libs/fontconfig
 	media-libs/libsndfile
