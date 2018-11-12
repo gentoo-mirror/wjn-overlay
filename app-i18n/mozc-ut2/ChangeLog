@@ -3,6 +3,9 @@
 # (auto-generated from git log)
 
   12 Nov 2018; wjn <wjn@aol.jp> mozc-ut2-2.23.2815.102.20171008.ebuild:
+  Update Manifest of yusei zipcode archives
+
+  12 Nov 2018; wjn <wjn@aol.jp> mozc-ut2-2.23.2815.102.20171008.ebuild:
   [QA] Change copyright notices from 'Gentoo Foundation' to 'Gentoo Authors'
 
    See GLEP 76
