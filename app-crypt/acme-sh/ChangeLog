@@ -1,0 +1,20 @@
+# ChangeLog for app-crypt/acme-sh
+# Copyright 1999-2018 Gentoo Authors; Distributed under the GPL v2
+# (auto-generated from git log)
+
+*acme-sh-2.7.9 (21 Nov 2018)
+
+  21 Nov 2018; wjn <wjn@aol.jp> +acme-sh-2.7.9.ebuild, +files/99acme.sh-env,
+  +files/acme.sh-cron, +files/acme.sh-sbin, +metadata.xml:
+  Add newly, version 2.7.9
+
+   The package is not properly written in the gentoo repository
+   This commit makes
+    - Run bash explicitly because acme.sh is compatible with POSIX shells only
+    - Do not depend on bashrc. Our interactive shells isn't always Bash
+    - Install a cron job if USE="cron"
+    - Depend on net-dns/libidn if USE="idn"
+    - Do not pull packages that's not always depended on
+    - Show guide messages after the installation
+    - Improve ${DECRIPTION}
+

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+LE_WORKING_DIR='/usr/share/acme.sh/acme.sh' \
+	LE_CONFIG_DIR='/etc/acme.sh' \
+	/usr/share/acme.sh/acme.sh --config-home '/etc/acme.sh/' $@
