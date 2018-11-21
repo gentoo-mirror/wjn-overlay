@@ -2,6 +2,9 @@
 # Copyright 1999-2018 Gentoo Authors; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  21 Nov 2018; wjn <wjn@aol.jp> metadata.xml:
+  Add USE="cron" description to metadata.xml
+
 *acme-sh-2.7.9 (21 Nov 2018)
 
   21 Nov 2018; wjn <wjn@aol.jp> +acme-sh-2.7.9.ebuild, +files/99acme.sh-env,

@@ -8,6 +8,7 @@
 	A shell script to automatically issue and renew the free certificates
 	from Let's Encrypt
 	</longdescription>
+	<flag name="cron">Install cron job file</flag>
 	<upstream>
 		<remote-id type="github">Neilpang/acme.sh</remote-id>
 	</upstream>
