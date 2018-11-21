@@ -1,0 +1,9 @@
+#!/bin/sh
+
+/usr/share/acme.sh/acme.sh --cron \
+	--home /usr/share/acme.sh --config-home /etc/acme.sh > /dev/null
+EXITVALUE=$?
+if [ $EXITVALUE != 0 ]; then
+    /usr/bin/logger -t acme.sh "Cron for acme.sh failed with [$EXITVALUE]"
+fi
+exit $EXITVALUE

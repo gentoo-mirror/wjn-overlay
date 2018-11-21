@@ -1,0 +1,6 @@
+
+# directory acme.sh installed
+LE_WORKING_DIR='/usr/share/acme.sh'
+
+# directory to save configs and certs
+LE_CONFIG_HOME='/etc/acme.sh'
