@@ -22,7 +22,7 @@ IUSE="+cron idn"
 DEPEND=""
 
 # acme.sh is support POSIX shells, but Bash is preferred (and Gentoo has it)
-RDEPEND="app-shell/bash
+RDEPEND="app-shells/bash
 	|| ( dev-libs/openssl:0 dev-libs/libressl )
 	|| ( net-misc/curl net-misc/wget )
 	cron? ( virtual/cron )
