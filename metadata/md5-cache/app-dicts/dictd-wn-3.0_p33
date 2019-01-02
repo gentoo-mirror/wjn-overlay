@@ -9,4 +9,4 @@ RDEPEND=app-text/dictd
 SLOT=0
 SRC_URI=mirror://debian/pool/main/w/wordnet/dict-wn_3.0-33_all.deb
 _eclasses_=freedict	02474242ef7b791f4f93ae3d845f6be3	unpacker	ee2f5086cd7e7b747b061f58db14d89e
-_md5_=57dcfa0e96b5af7d7a69e0d973bf2bfc
+_md5_=fcc8f0a6ac1ed6811a56c03a89056785

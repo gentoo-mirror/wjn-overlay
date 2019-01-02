@@ -8,4 +8,4 @@ RDEPEND=!<sys-apps/openrc-0.33
 RESTRICT=mirror
 SLOT=0
 SRC_URI=http://http.debian.net/debian/pool/main/i/init-system-helpers/init-system-helpers_1.51.tar.xz
-_md5_=7131aad234009e70c56f9572984595b5
+_md5_=8b69e5986a011fff1e4c378d83fd9330
