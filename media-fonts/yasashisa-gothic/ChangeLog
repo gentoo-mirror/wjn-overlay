@@ -1,6 +1,9 @@
 # ChangeLog for media-fonts/yasashisa-gothic
-# Copyright 1999-2018 Gentoo Authors; Distributed under the GPL v2
+# Copyright 1999-2019 Gentoo Authors; Distributed under the GPL v2
 # (auto-generated from git log)
+
+  02 Jan 2019; wjn <wjn@aol.jp> yasashisa-gothic-1.ebuild:
+  Update the year of copyright notices to 2019
 
   12 Nov 2018; wjn <wjn@aol.jp> yasashisa-gothic-1.ebuild:
   [QA] Change copyright notices from 'Gentoo Foundation' to 'Gentoo Authors'
