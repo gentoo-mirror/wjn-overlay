@@ -2,6 +2,12 @@
 # Copyright 1999-2019 Gentoo Authors; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*audacious-3.10.1 (03 Jan 2019)
+
+  03 Jan 2019; wjn <wjn@aol.jp> -audacious-3.10.ebuild,
+  +audacious-3.10.1.ebuild, audacious-9999.ebuild:
+  Add version 3.10.1, delete old version 3.10
+
   02 Jan 2019; wjn <wjn@aol.jp> audacious-3.10.ebuild, audacious-9999.ebuild:
   Update the year of copyright notices to 2019
 
