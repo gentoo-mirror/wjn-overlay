@@ -80,7 +80,7 @@ pkg_postinst() {
 }
 
 pkg_postrm() {
-	gnome2_icon_cache_update
+	use gtk && gnome2_icon_cache_update
 	xdg_desktop_database_update
 }
 
