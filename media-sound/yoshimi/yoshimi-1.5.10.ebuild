@@ -37,11 +37,12 @@ RDEPEND=${COMMON_DEPEND}
 RESTRICT="mirror"
 
 PATCHES=( "${FILESDIR}/${PN}-1.4.1-underlinking.patch" )
+DOCS=( Changelog README.txt )
 
 CMAKE_USE_DIR="${WORKDIR}/${P}/src"
 
 src_prepare() {
-	mv Change{l,L}og || die
+	sed -e "s#/doc/yoshimi#/doc/${PF}#" -i src/CMakeLists.txt || die
 	sed -i \
 		-e '/set (CMAKE_CXX_FLAGS_RELEASE/d' \
 		src/CMakeLists.txt || die

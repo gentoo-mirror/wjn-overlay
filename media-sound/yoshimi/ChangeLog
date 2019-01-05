@@ -2,6 +2,11 @@
 # Copyright 1999-2019 Gentoo Authors; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*yoshimi-1.5.10 (05 Jan 2019)
+
+  05 Jan 2019; wjn <wjn@aol.jp> -yoshimi-1.5.9.ebuild, +yoshimi-1.5.10.ebuild:
+  Add version 1.5.10, delete old version 1.5.9
+
   02 Jan 2019; wjn <wjn@aol.jp> yoshimi-1.5.9.ebuild:
   Update the year of copyright notices to 2019
 
