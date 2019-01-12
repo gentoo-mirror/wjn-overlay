@@ -71,7 +71,6 @@ src_prepare() {
 
 src_configure() {
 	gnome2_src_configure \
-		--enable-unique \
 		--disable-packagekit \
 		--disable-update-mimedb \
 		$(use_enable doc gtk-doc) \

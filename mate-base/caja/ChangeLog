@@ -2,6 +2,12 @@
 # Copyright 1999-2019 Gentoo Authors; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  12 Jan 2019; wjn <wjn@aol.jp> caja-9999.ebuild:
+  Remove an unused econf option for libunique
+
+   Since libunique had been already unused
+   Upstream: 276eb145ce96d5f75f8d3901daf6310f60ddbb81
+
   02 Jan 2019; wjn <wjn@aol.jp> caja-9999.ebuild:
   Update the year of copyright notices to 2019
 
