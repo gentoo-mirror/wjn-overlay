@@ -29,7 +29,7 @@ COMMON_DEPEND="app-text/rarian:0
 	>=mate-base/mate-desktop-1.21.1:0
 	>=mate-base/caja-1.17.0:0
 	>=mate-base/mate-menus-1.1.0:0
-	>=mate-base/mate-settings-daemon-1.17.0:0
+	>=mate-base/mate-settings-daemon-1.21.2:0
 	>=media-libs/fontconfig-1:1.0
 	media-libs/freetype:2
 	media-libs/libcanberra:0[gtk3]
