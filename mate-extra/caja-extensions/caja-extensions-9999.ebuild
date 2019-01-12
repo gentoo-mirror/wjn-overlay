@@ -22,7 +22,7 @@ IUSE="${SENDTO} debug gksu image-converter +open-terminal share wallpaper"
 REQUIRED_USE="gksu? ( open-terminal )"
 
 COMMON_DEPEND=">=dev-libs/glib-2.50.0:2
-	>=mate-base/caja-1.17.1:0
+	>=mate-base/caja-1.21.3:0
 	virtual/libintl:0
 	x11-libs/gdk-pixbuf:2
 	>=x11-libs/gtk+-3.22.0:3
