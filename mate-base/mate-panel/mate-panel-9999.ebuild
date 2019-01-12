@@ -16,10 +16,9 @@ EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-2 FDL-1.1 LGPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="X +introspection"
+IUSE="+introspection wayland"
 
 COMMON_DEPEND="dev-libs/atk:0[introspection?]
-	>=dev-libs/dbus-glib-0.80:0
 	>=dev-libs/glib-2.50.0:2
 	>=dev-libs/libmateweather-1.17.0:0
 	dev-libs/libxml2:2
@@ -27,19 +26,20 @@ COMMON_DEPEND="dev-libs/atk:0[introspection?]
 	>=gnome-base/librsvg-2.36.2:2
 	>=mate-base/mate-desktop-1.17.0:0[introspection?]
 	>=mate-base/mate-menus-1.21:0
-	>=sys-apps/dbus-1.1.2:0
 	>=x11-libs/cairo-1.0.0:0
 	>=x11-libs/gdk-pixbuf-2.25.2:2[introspection?]
 	>=x11-libs/gtk+-3.22.0:3[introspection?]
 	x11-libs/libICE:0
 	x11-libs/libSM:0
 	x11-libs/libX11:0
-	>=x11-libs/libwnck-3.4.0:3[introspection?]
-	>=x11-libs/pango-1.15.4:0[introspection?]
 	x11-libs/libXau:0
 	>=x11-libs/libXrandr-1.3.0:0
+	>=x11-libs/libwnck-3.4.0:3[introspection?]
+	>=x11-libs/pango-1.15.4:0[introspection?]
 	virtual/libintl:0
-	introspection? ( >=dev-libs/gobject-introspection-0.6.7:0 )"
+	introspection? ( >=dev-libs/gobject-introspection-0.6.7:0 )
+	wayland? ( dev-libs/wayland
+		dev-libs/wayland-protocols )"
 DEPEND="${COMMON_DEPEND}
 	app-text/docbook-xml-dtd:4.1.2
 	app-text/yelp-tools:0
@@ -67,8 +67,9 @@ src_configure() {
 	gnome2_src_configure \
 		--libexecdir=/usr/libexec/mate-applets \
 		--disable-deprecation-flags \
-		$(use_with X x) \
-		$(use_enable introspection)
+		--enable-x11 \
+		$(use_enable introspection) \
+		$(use_enable wayland)
 }
 
 pkg_postinst() {

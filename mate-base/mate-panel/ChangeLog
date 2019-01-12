@@ -2,6 +2,22 @@
 # Copyright 1999-2019 Gentoo Authors; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  12 Jan 2019; wjn <wjn@aol.jp> mate-panel-9999.ebuild:
+  Support Wayland
+
+   Upstream: d7074e3 and b0fb7b5
+
+   Note:
+    X.org must been installed though Wayland has been supported
+    - X.org or Wayland is needed by Upstream 083180
+    - X.org is needed by Upstream 77d343b
+    Therefore X.org is neccessary and Wayland is a choice
+
+  12 Jan 2019; wjn <wjn@aol.jp> mate-panel-9999.ebuild:
+  Remove dev-libs/dbus-glib and sys-apps/dbus from DEPEND
+
+   Upstream: a34f531da4f03eecfc38414295ebe70742dfad71
+
   02 Jan 2019; wjn <wjn@aol.jp> mate-panel-9999.ebuild:
   Update the year of copyright notices to 2019
 

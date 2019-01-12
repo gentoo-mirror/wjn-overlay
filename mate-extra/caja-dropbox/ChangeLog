@@ -2,6 +2,11 @@
 # Copyright 1999-2019 Gentoo Authors; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  12 Jan 2019; wjn <wjn@aol.jp> caja-dropbox-9999.ebuild:
+  Remove dev-python/pygtk from DEPEND
+
+   Upstream: 167bfabfc228801bf99736bebb01ccbf2c9a76a8
+
   02 Jan 2019; wjn <wjn@aol.jp> caja-dropbox-9999.ebuild:
   Update the year of copyright notices to 2019
 
