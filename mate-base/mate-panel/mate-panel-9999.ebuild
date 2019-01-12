@@ -19,7 +19,6 @@ KEYWORDS=""
 IUSE="X +introspection"
 
 COMMON_DEPEND="dev-libs/atk:0[introspection?]
-	>=dev-libs/dbus-glib-0.80:0
 	>=dev-libs/glib-2.50.0:2
 	>=dev-libs/libmateweather-1.17.0:0
 	dev-libs/libxml2:2
@@ -27,7 +26,6 @@ COMMON_DEPEND="dev-libs/atk:0[introspection?]
 	>=gnome-base/librsvg-2.36.2:2
 	>=mate-base/mate-desktop-1.17.0:0[introspection?]
 	>=mate-base/mate-menus-1.21:0
-	>=sys-apps/dbus-1.1.2:0
 	>=x11-libs/cairo-1.0.0:0
 	>=x11-libs/gdk-pixbuf-2.25.2:2[introspection?]
 	>=x11-libs/gtk+-3.22.0:3[introspection?]
