@@ -2,6 +2,13 @@
 # Copyright 1999-2019 Gentoo Authors; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*acme-sh-2.8.0 (18 Feb 2019)
+
+  18 Feb 2019; wjn <wjn@aol.jp> +acme-sh-2.8.0.ebuild:
+  Add version 2.8.0
+
+   Upstraem: https://github.com/Neilpang/acme.sh/releases/tag/2.8.0
+
   02 Jan 2019; wjn <wjn@aol.jp> acme-sh-2.7.9.ebuild:
   Update the year of copyright notices to 2019
 
