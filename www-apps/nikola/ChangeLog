@@ -2,6 +2,13 @@
 # Copyright 1999-2019 Gentoo Authors; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*nikola-8.0.2 (25 Feb 2019)
+
+  25 Feb 2019; wjn <wjn@aol.jp> +nikola-8.0.2.ebuild:
+  Add version 8.0.2
+
+   Upstream: https://github.com/getnikola/nikola/releases/tag/v8.0.2
+
   02 Jan 2019; wjn <wjn@aol.jp> nikola-8.0.1.ebuild:
   Update the year of copyright notices to 2019
 
