@@ -33,6 +33,7 @@ DEPEND="${RDEPEND}
 RDEPEND="${COMMON_DEPEND}"
 
 DOCS="AUTHORS ChangeLog NEWS README"
+PATCHES=( "${FILESDIR}/${P}-fix-examples-installdir.patch" )
 
 src_unpack() {
 	git-r3_src_unpack
