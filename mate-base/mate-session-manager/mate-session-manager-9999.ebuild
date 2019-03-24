@@ -16,7 +16,7 @@ EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-2 LGPL-2 FDL-1.1"
 SLOT="0"
 KEYWORDS=""
-IUSE="debug elibc_FreeBSD gnome-keyring ipv6 systemd"
+IUSE="debug elibc_FreeBSD elogind gnome-keyring ipv6 systemd"
 
 # x11-misc/xdg-user-dirs{,-gtk} are needed to create the various XDG_*_DIRs, and
 # create .config/user-dirs.dirs which is read by glib to get G_USER_DIRECTORY_*
@@ -43,6 +43,7 @@ COMMON_DEPEND=">=dev-libs/dbus-glib-0.76:0
 	x11-misc/xdg-user-dirs-gtk:0
 	virtual/libintl:0
 	elibc_FreeBSD? ( dev-libs/libexecinfo:0 )
+	elogind? ( sys-auth/elogind:0 )
 	gnome-keyring? ( gnome-base/gnome-keyring:0 )
 	systemd? ( sys-apps/systemd:0 )"
 DEPEND="${COMMON_DEPEND}
@@ -70,6 +71,7 @@ src_configure() {
 	gnome2_src_configure \
 		--docdir="${EPREFIX}/usr/share/doc/${PF}" \
 		--with-default-wm=mate-wm \
+		$(use_with elogind) \
 		$(use_enable ipv6) \
 		$(use_with systemd)
 }
