@@ -2,6 +2,11 @@
 # Copyright 1999-2019 Gentoo Authors; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  24 Mar 2019; wjn <wjn@aol.jp> pluma-9999.ebuild:
+  Update version dep of app-text/enchant to 1.6
+
+   Upstream: https://github.com/mate-desktop/pluma/commit/e27a451
+
   02 Jan 2019; wjn <wjn@aol.jp> pluma-9999.ebuild:
   Update the year of copyright notices to 2019
 

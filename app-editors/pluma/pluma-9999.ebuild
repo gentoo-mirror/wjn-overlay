@@ -34,7 +34,7 @@ COMMON_DEPEND="app-text/rarian:0
 	>=x11-libs/libSM-1.0
 	x11-libs/pango:0
 	virtual/libintl:0
-	spell? ( >=app-text/enchant-1.2:0
+	spell? ( >=app-text/enchant-1.6:0
 		>=app-text/iso-codes-0.35:0 )"
 DEPEND="${COMMON_DEPEND}
 	app-text/docbook-xml-dtd:4.1.2
