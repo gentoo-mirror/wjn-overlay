@@ -2,6 +2,14 @@
 # Copyright 1999-2019 Gentoo Authors; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  24 Mar 2019; wjn <wjn@aol.jp> caja-dropbox-9999.ebuild,
+  files/caja-dropbox-9999-system-rst2man.patch:
+  Add Python 3 support, remove Python 2 support
+
+   Upstream:
+    https://github.com/mate-desktop/caja-dropbox/commit/cd91ced
+    https://github.com/mate-desktop/caja-dropbox/commit/285937d
+
   12 Jan 2019; wjn <wjn@aol.jp> caja-dropbox-9999.ebuild:
   Remove dev-python/pygtk from DEPEND
 

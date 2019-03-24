@@ -5,7 +5,7 @@ EAPI=6
 
 GNOME2_LA_PUNT="yes"
 
-PYTHON_COMPAT=( python2_7 )
+PYTHON_COMPAT=( python3_{5,6} )
 
 inherit autotools git-r3 gnome2 python-single-r1 linux-info user
 
@@ -20,7 +20,8 @@ SLOT="0"
 KEYWORDS=""
 IUSE="debug"
 
-COMMON_DEPEND="dev-libs/atk:0
+COMMON_DEPEND="${PYTHON_DEPS}
+	dev-libs/atk:0
 	>=dev-libs/glib-2.50.0:2
 	>=mate-base/caja-1.17.1:0
 	media-libs/fontconfig:1.0
@@ -31,10 +32,10 @@ COMMON_DEPEND="dev-libs/atk:0
 	x11-libs/libXinerama:0
 	x11-libs/pango:0"
 DEPEND="${COMMON_DEPEND}
-	dev-python/docutils:0
+	dev-python/docutils:0[${PYTHON_USEDEP}]
 	virtual/pkgconfig:0"
 RDEPEND="${COMMON_DEPEND}
-		net-misc/dropbox:0"
+		net-misc/dropbox:0[${PYTHON_USEDEP}]"
 CONFIG_CHECK="~INOTIFY_USER"
 
 DOCS=( AUTHORS ChangeLog NEWS README )

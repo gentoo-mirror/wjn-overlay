@@ -1,13 +1,12 @@
-Index: nautilus-dropbox-0.7.0/configure.ac
-===================================================================
---- nautilus-dropbox-0.7.0.orig/configure.ac
-+++ nautilus-dropbox-0.7.0/configure.ac
-@@ -31,7 +31,7 @@ PKG_CHECK_MODULES(GLIB, glib-2.0 >= $GLI
+diff -ur --unidirectional-new-file -urN a/configure.ac b/configure.ac
+--- a/configure.ac	2019-03-24 10:47:59.179277395 +0000
++++ b/configure.ac	2019-03-24 10:48:28.350362934 +0000
+@@ -28,7 +28,7 @@
  
- AC_PATH_PROG([PYTHON], [python])
+ AC_PATH_PROG([PYTHON3], [python3])
  
--AC_PATH_PROG([RST2MAN], [rst2man], [python rst2man.py])
-+AC_PATH_PROG([RST2MAN], [rst2man.py], [python rst2man.py])
+-AC_PATH_PROG([RST2MAN], [rst2man], [python3 rst2man.py])
++AC_PATH_PROG([RST2MAN], [rst2man.py], [python3 rst2man.py])
  AC_SUBST(RST2MAN)
  
  # define module checking macro
