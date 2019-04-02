@@ -2,6 +2,20 @@
 # Copyright 1999-2019 Gentoo Authors; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  24 Mar 2019; wjn <wjn@aol.jp>
+  +files/python-caja-9999-fix-examples-installdir.patch,
+  python-caja-9999.ebuild:
+  QA] Install example scripts to /usr/share/doc/${PF}
+
+    Upstream installs example scripts to /usr/share/doc/python-caja,
+   but they should be installed to /usr/share/doc/${PF} into Gentoo systems
+
+  24 Mar 2019; wjn <wjn@aol.jp> python-caja-9999.ebuild:
+  Add Python 3 support
+
+   python-caja supports Python 3 as of version 1.22.0
+   Upstream: https://github.com/mate-desktop/python-caja/commit/75906be
+
   02 Jan 2019; wjn <wjn@aol.jp> python-caja-9999.ebuild:
   Update the year of copyright notices to 2019
 

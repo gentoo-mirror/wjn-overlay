@@ -5,7 +5,7 @@ EAPI=6
 
 GNOME2_LA_PUNT="yes"
 
-PYTHON_COMPAT=( python2_7 )
+PYTHON_COMPAT=( python2_7 python3_{5,6,7} )
 
 inherit autotools git-r3 gnome2 python-single-r1
 
@@ -33,6 +33,7 @@ DEPEND="${RDEPEND}
 RDEPEND="${COMMON_DEPEND}"
 
 DOCS="AUTHORS ChangeLog NEWS README"
+PATCHES=( "${FILESDIR}/${P}-fix-examples-installdir.patch" )
 
 src_unpack() {
 	git-r3_src_unpack
