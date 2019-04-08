@@ -2,6 +2,49 @@
 # Copyright 1999-2019 Gentoo Authors; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*browserpass-3.0.4 (08 Apr 2019)
+
+  08 Apr 2019; wjn <wjn@aol.jp> +browserpass-3.0.4.ebuild:
+  Add version 3.0.4
+
+   This is an Upstream's pre-release version
+   https://github.com/browserpass/browserpass-native/releases/tag/3.0.4
+
+   Browserpass version 3.0.0 and later have no backward compatibility
+   Version 3.0.0 or later of Browserpass add-on/extension must be installed
+   https://github.com/browserpass/browserpass-extension
+
+   Dependencies:
+    >=www-plugins/browserpass-3
+     - dev-go/go-sys ( golang.org/x/sys )
+         *also needed by dev-go/logrus
+     - dev-go/lfshook ( github.com/rifflock/lfshook )
+     - dev-go/logrus ( github.com/sirupsen/logrus )
+         *also needed by dev-go/lfshook
+     - dev-go/zglob ( github.com/mattn/go-zglob )
+
+    dev-go/lfshook ( github.com/rifflock/lfshook )
+     - dev-go/logrus ( github.com/sirupsen/logrus )
+
+    dev-go/logrus
+     - dev-go/go-sys ( golang.org/x/sys )
+     - dev-go/go-windows-terminal-sequences
+         ( github.com/konsorten/go-windows-terminal-sequences )
+     - dev-go/testify ( github.com/stretchr/testify )
+         *also needed by dev-go/objx
+
+    dev-go/testify ( github.com/stretchr/testify )
+     - >=dev-go/go-spew-1.1.0 ( github.com/davecgh/go-spew )
+         *also needed by dev-go/objx
+     - dev-go/go-difflib ( github.com/pmezard/go-difflib )
+         *also needed by dev-go/objx
+     - dev-go/objx ( github.com/stretchr/objx )
+
+    dev-go/objx ( github.com/stretchr/objx )
+     - dev-go/go-spew ( github.com/davecgh/go-spew ) *RDEPEND
+     - dev-go/go-difflib ( github.com/pmezard/go-difflib ) *RDEPEND
+     - dev-go/testify ( github.com/stretchr/testify ) *PDEPEND
+
   08 Apr 2019; wjn <wjn@aol.jp> -browserpass-1.0.6.ebuild:
   Delete old version 1.0.6
 
