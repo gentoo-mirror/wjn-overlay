@@ -2,6 +2,13 @@
 # Copyright 1999-2019 Gentoo Authors; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  08 Apr 2019; wjn <wjn@aol.jp> -browserpass-1.0.6.ebuild:
+  Delete old version 1.0.6
+
+   In the Firefox Add-ons and the Chrome Web Store,
+  there isn't old version extension (not "browserpass-ce") any longer
+   This version is already unusable
+
   02 Jan 2019; wjn <wjn@aol.jp> browserpass-1.0.6.ebuild,
   browserpass-2.0.21.ebuild:
   Update the year of copyright notices to 2019
