@@ -2,6 +2,18 @@
 # Copyright 1999-2019 Gentoo Authors; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*browserpass-bin-3.0.4 (08 Apr 2019)
+
+  08 Apr 2019; wjn <wjn@aol.jp> +browserpass-bin-3.0.4.ebuild:
+  Add version 3.0.4
+
+   This is an Upstream's pre-release version
+   https://github.com/browserpass/browserpass-native/releases/tag/3.0.4
+
+   Browserpass version 3.0.0 and later have no backward compatibility
+   Version 3.0.0 or later of Browserpass add-on/extension must be installed
+   https://github.com/browserpass/browserpass-extension
+
   08 Apr 2019; wjn <wjn@aol.jp> -browserpass-bin-1.0.6.ebuild:
   Delete old version 1.0.6
 
