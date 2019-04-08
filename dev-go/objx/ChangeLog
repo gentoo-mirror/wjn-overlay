@@ -1,0 +1,17 @@
+# ChangeLog for dev-go/objx
+# Copyright 1999-2019 Gentoo Authors; Distributed under the GPL v2
+# (auto-generated from git log)
+
+*objx-0.1.1 (08 Apr 2019)
+
+  08 Apr 2019; wjn <wjn@aol.jp> +objx-0.1.1.ebuild:
+  Add newly, version 0.1.1
+
+   Needed by >=www-plugins/browserpass-3
+
+   Depgraph:
+     >=www-plugins/browserpass-3
+      dev-go/logrus
+           dev-go/testify
+            dev-go/objx
+
