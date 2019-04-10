@@ -1,20 +1,20 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 PYTHON_COMPAT=( python2_7 )
 DISTUTILS_IN_SOURCE_BUILD=1
 
-inherit eutils gnome2-utils toolchain-funcs versionator distutils-r1
+inherit desktop distutils-r1 toolchain-funcs xdg-utils
 
 DESCRIPTION="Visual novel engine written in python"
 HOMEPAGE="https://www.renpy.org/"
 SRC_URI="https://www.renpy.org/dl/${PV}/${P}-source.tar.bz2"
 
 LICENSE="MIT"
-SLOT="$(get_version_component_range 1-2)"
-MYSLOT=$(delete_all_version_separators ${SLOT})
+SLOT="$(ver_cut 1-2)"
+MYSLOT=$(ver_rs 1- '' ${SLOT})
 KEYWORDS="~amd64 ~x86"
 IUSE="development doc examples"
 REQUIRED_USE="examples? ( development )"
@@ -97,14 +97,14 @@ python_install_all() {
 }
 
 pkg_postinst() {
-	use development && gnome2_icon_cache_update
+	use development && xdg_icon_cache_update
 
 	einfo "running: eselect renpy update --if-unset"
 	eselect renpy update --if-unset
 }
 
 pkg_postrm() {
-	use development && gnome2_icon_cache_update
+	use development && xdg_icon_cache_update
 
 	einfo "running: eselect renpy update --if-unset"
 	eselect renpy update --if-unset
