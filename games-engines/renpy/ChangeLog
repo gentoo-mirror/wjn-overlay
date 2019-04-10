@@ -2,6 +2,14 @@
 # Copyright 1999-2019 Gentoo Authors; Distributed under the GPL v2
 # (auto-generated from git log)
 
+*renpy-7.2.2 (10 Apr 2019)
+
+  10 Apr 2019; wjn <wjn@aol.jp> +renpy-7.2.2.ebuild:
+  Add version 7.2.2
+
+  10 Apr 2019; wjn <wjn@aol.jp> renpy-6.99.14.3.ebuild:
+  Update for EAPI 7
+
   02 Jan 2019; wjn <wjn@aol.jp> renpy-6.99.14.3.ebuild:
   Update the year of copyright notices to 2019
 

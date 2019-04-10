@@ -1,0 +1,1835 @@
+diff --git a/.gitignore b/.gitignore
+index dee44d4..a898f13 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -30,6 +30,8 @@ compile
+ libtool
+ *.desktop
+ .deps
++.idea
++builddir/
+ 
+ viewnior-*.tar.gz
+ *.sublime-project
+diff --git a/data/viewnior.appdata.xml b/data/viewnior.appdata.xml
+index 95f4976..35d7bbe 100644
+--- a/data/viewnior.appdata.xml
++++ b/data/viewnior.appdata.xml
+@@ -22,5 +22,5 @@
+     <screenshot><image>https://siyanpanayotov.com/images/vnr_pref_window.png</image></screenshot>
+     <screenshot><image>https://siyanpanayotov.com/images/vnr_navigation_window.png</image></screenshot>
+   </screenshots>
+-  <update_contact>contact_AT_siyanpanayotov.com</updatecontact>
+-</application>
+\ No newline at end of file
++  <updatecontact>contact_AT_siyanpanayotov.com</updatecontact>
++</component>
+\ No newline at end of file
+diff --git a/po/LINGUAS b/po/LINGUAS
+index 27f30dd..4be35fb 100644
+--- a/po/LINGUAS
++++ b/po/LINGUAS
+@@ -18,6 +18,7 @@ hu
+ it
+ ja
+ lt
++nb_NO
+ nl
+ oc
+ pl
+diff --git a/po/ca.po b/po/ca.po
+index 92a6926..cc89f7b 100644
+--- a/po/ca.po
++++ b/po/ca.po
+@@ -2,21 +2,23 @@
+ # Copyright (c) 2013 Rosetta Contributors and Canonical Ltd 2013
+ # This file is distributed under the same license as the viewnior package.
+ # Ecron Smith <ecron_89@hotmail.com>, 2013.
++# Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2018.
+ #
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: viewnior\n"
+ "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+ "POT-Creation-Date: 2014-02-07 22:04+0200\n"
+-"PO-Revision-Date: 2018-04-22 19:09+0000\n"
+-"Last-Translator: toniem <toni.estevez@gmail.com>\n"
++"PO-Revision-Date: 2018-08-21 16:44+0200\n"
++"Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
+ "Language-Team: Catalan <ca@li.org>\n"
+ "MIME-Version: 1.0\n"
+ "Content-Type: text/plain; charset=UTF-8\n"
+ "Content-Transfer-Encoding: 8bit\n"
+ "Plural-Forms: nplurals=2; plural=n != 1;\n"
+ "X-Launchpad-Export-Date: 2018-05-12 11:12+0000\n"
+-"X-Generator: Launchpad (build 18640)\n"
++"X-Generator: Poedit 2.1.1\n"
++"Language: ca\n"
+ 
+ #: ../data/viewnior.desktop.in.in.h:1
+ msgid "Viewnior"
+@@ -24,19 +26,19 @@ msgstr "Viewnior"
+ 
+ #: ../data/viewnior.desktop.in.in.h:2 ../src/vnr-window.c:1372
+ msgid "Elegant Image Viewer"
+-msgstr "Un visor d'imatges elegant"
++msgstr "Un visualitzador d'imatges elegant"
+ 
+ #: ../data/vnr-preferences-dialog.ui.h:1
+ msgid "Viewnior Preferences"
+-msgstr "Preferències del Viewnior"
++msgstr "Preferències de Viewnior"
+ 
+ #: ../data/vnr-preferences-dialog.ui.h:2
+ msgid "Open new image in: "
+-msgstr "Obre una nova imatge en: "
++msgstr "Obre la imatge nova en: "
+ 
+ #: ../data/vnr-preferences-dialog.ui.h:3
+ msgid "Desktop: "
+-msgstr "Escriptori "
++msgstr "Escriptori: "
+ 
+ #: ../data/vnr-preferences-dialog.ui.h:4
+ msgid "Smooth images when zoomed"
+@@ -85,8 +87,8 @@ msgid ""
+ "  previous image and on the right side - the next.</small> "
+ msgstr ""
+ "<small> Navegació per les imatges amb doble clic:\n"
+-"   En clicar a la meitat esquerra de la finestra es mostra la\n"
+-"   imatge anterior i en clicar a la dreta es mostra la següent.</small> "
++"   En fer clic a la meitat esquerra de la finestra es mostra la\n"
++"   imatge anterior i en fer clic a la dreta es mostra la següent.</small> "
+ 
+ #: ../data/vnr-preferences-dialog.ui.h:17
+ msgid "Behavior"
+@@ -272,8 +274,8 @@ msgid ""
+ "Save modifications?\n"
+ "This will overwrite the image and may reduce its quality!"
+ msgstr ""
+-"Voleu desar els canvis?\n"
+-"Aquesta acció sobreescribiará la imatge i pot reduir-ne la qualitat."
++"Voleu desar les modificacions?\n"
++"Aquesta acció sobreescriurà la imatge i pot reduir-ne la qualitat!"
+ 
+ #: ../src/vnr-window.c:1271
+ msgid "Open Image"
+@@ -296,7 +298,9 @@ msgid "translator-credits"
+ msgstr ""
+ "Launchpad Contributions:\n"
+ "  Ecron https://launchpad.net/~ecron-89\n"
+-"  toniem https://launchpad.net/~toni-estevez"
++"  toniem https://launchpad.net/~toni-estevez\n"
++"\n"
++"Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>"
+ 
+ #: ../src/vnr-window.c:1558
+ msgid "If you delete an item, it will be permanently lost."
+@@ -309,7 +313,7 @@ msgid ""
+ "Are you sure you want to\n"
+ "permanently delete \"%s\"?"
+ msgstr ""
+-"Segur que voleu suprimir\n"
++"Esteu segur que voleu suprimir\n"
+ "de forma permanent «%s»?"
+ 
+ #: ../src/vnr-window.c:1721
+@@ -322,7 +326,7 @@ msgstr "_Edita"
+ 
+ #: ../src/vnr-window.c:1723
+ msgid "_View"
+-msgstr "_Visualització"
++msgstr "_Visualitza"
+ 
+ #: ../src/vnr-window.c:1724
+ msgid "_Image"
+@@ -330,7 +334,7 @@ msgstr "_Imatge"
+ 
+ #: ../src/vnr-window.c:1725
+ msgid "_Go"
+-msgstr "Ve_s"
++msgstr "Vé_s"
+ 
+ #: ../src/vnr-window.c:1726
+ msgid "_Help"
+@@ -374,7 +378,7 @@ msgstr "_Preferències..."
+ 
+ #: ../src/vnr-window.c:1741
+ msgid "User preferences for Viewnior"
+-msgstr "Preferències d'usuari per al Viewnior"
++msgstr "Preferències d'usuari per Viewnior"
+ 
+ #: ../src/vnr-window.c:1746
+ msgid "_Save"
+@@ -398,8 +402,7 @@ msgstr "Estableix com a fons de pantalla"
+ 
+ #: ../src/vnr-window.c:1759
+ msgid "Set the selected image as the desktop background"
+-msgstr ""
+-"Estableix la imatge seleccionada com a fons de pantalla de l'escriptori"
++msgstr "Estableix la imatge seleccionada com a fons de l'escriptori"
+ 
+ #: ../src/vnr-window.c:1764
+ msgid "Open _With"
+@@ -435,7 +438,7 @@ msgstr "Torna a carregar el fitxer actual"
+ 
+ #: ../src/vnr-window.c:1779 ../src/vnr-window.c:1791 ../src/vnr-window.c:1794
+ msgid "_Zoom In"
+-msgstr "_Amplia"
++msgstr "_Amplia el zoom"
+ 
+ #: ../src/vnr-window.c:1780
+ msgid "Enlarge the image"
+@@ -443,7 +446,7 @@ msgstr "Amplia la imatge"
+ 
+ #: ../src/vnr-window.c:1782 ../src/vnr-window.c:1797
+ msgid "Zoom _Out"
+-msgstr "_Redueix"
++msgstr "_Redueix el zoom"
+ 
+ #: ../src/vnr-window.c:1783 ../src/vnr-window.c:1792 ../src/vnr-window.c:1795
+ #: ../src/vnr-window.c:1798
+@@ -544,11 +547,11 @@ msgstr "Mostra les imatges en mode de presentació de diapositives"
+ 
+ #: ../src/vnr-window.c:1845
+ msgid "_Previous Image"
+-msgstr "Imatge _prèvia"
++msgstr "Imatge _anterior"
+ 
+ #: ../src/vnr-window.c:1846
+ msgid "Go to the previous image of the collection"
+-msgstr "Ves a la imatge anterior en la col·lecció"
++msgstr "Vés a l'anterior imatge de la col·lecció"
+ 
+ #: ../src/vnr-window.c:1848
+ msgid "_Next Image"
+@@ -556,7 +559,7 @@ msgstr "Imatge _següent"
+ 
+ #: ../src/vnr-window.c:1849
+ msgid "Go to the next image of the collection"
+-msgstr "Ves a la següent imatge en la col·lecció"
++msgstr "Vés a la següent imatge de la col·lecció"
+ 
+ #: ../src/vnr-window.c:1851
+ msgid "_First Image"
+@@ -564,7 +567,7 @@ msgstr "_Primera imatge"
+ 
+ #: ../src/vnr-window.c:1852
+ msgid "Go to the first image of the collection"
+-msgstr "Ves a la primera imatge de la col·lecció"
++msgstr "Vés a la primera imatge de la col·lecció"
+ 
+ #: ../src/vnr-window.c:1854
+ msgid "_Last Image"
+@@ -572,7 +575,7 @@ msgstr "Ú_ltima imatge"
+ 
+ #: ../src/vnr-window.c:1855
+ msgid "Go to the last image of the collection"
+-msgstr "Ves a l'última imatge de la col·lecció"
++msgstr "Vés a l'última imatge de la col·lecció"
+ 
+ #: ../src/uni-exiv2.hpp:49
+ msgid "Camera make"
+@@ -588,7 +591,7 @@ msgstr "Data de la captura"
+ 
+ #: ../src/uni-exiv2.hpp:52
+ msgid "Exposure time"
+-msgstr "Temps d’exposició"
++msgstr "Temps d'exposició"
+ 
+ #: ../src/uni-exiv2.hpp:53
+ msgid "Exposure mode"
+@@ -624,8 +627,8 @@ msgstr "Descripció"
+ 
+ #: ../src/uni-exiv2.hpp:64
+ msgid "Copyright"
+-msgstr "Drets d’autor"
++msgstr "Drets d'autor"
+ 
+ #: ../src/uni-exiv2.hpp:65
+ msgid "Author"
+-msgstr "Autor/a"
++msgstr "Autor"
+diff --git a/po/lt.po b/po/lt.po
+index 91058ed..b6ec0a7 100644
+--- a/po/lt.po
++++ b/po/lt.po
+@@ -8,16 +8,17 @@ msgstr ""
+ "Project-Id-Version: viewnior\n"
+ "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+ "POT-Creation-Date: 2014-02-07 22:04+0200\n"
+-"PO-Revision-Date: 2015-10-08 22:16+0000\n"
+-"Last-Translator: Moo <hazap@hotmail.com>\n"
++"PO-Revision-Date: 2018-07-27 16:15+0300\n"
++"Last-Translator: Moo\n"
+ "Language-Team: Lithuanian <lt@li.org>\n"
+ "MIME-Version: 1.0\n"
+ "Content-Type: text/plain; charset=UTF-8\n"
+ "Content-Transfer-Encoding: 8bit\n"
+-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+-"(n%100<10 || n%100>=20) ? 1 : 2;\n"
++"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
++"%100<10 || n%100>=20) ? 1 : 2;\n"
+ "X-Launchpad-Export-Date: 2018-03-04 17:52+0000\n"
+-"X-Generator: Launchpad (build 18566)\n"
++"X-Generator: Poedit 2.0.6\n"
++"Language: lt\n"
+ 
+ #: ../data/viewnior.desktop.in.in.h:1
+ msgid "Viewnior"
+@@ -29,11 +30,11 @@ msgstr "Elegantiška paveikslų žiūryklė"
+ 
+ #: ../data/vnr-preferences-dialog.ui.h:1
+ msgid "Viewnior Preferences"
+-msgstr "Programos nustatymai"
++msgstr "Viewnior nuostatos"
+ 
+ #: ../data/vnr-preferences-dialog.ui.h:2
+ msgid "Open new image in: "
+-msgstr "Atverti naują paveikslą: "
++msgstr "Atverti naują paveikslą naudojant: "
+ 
+ #: ../data/vnr-preferences-dialog.ui.h:3
+ msgid "Desktop: "
+@@ -41,23 +42,23 @@ msgstr "Darbalaukis: "
+ 
+ #: ../data/vnr-preferences-dialog.ui.h:4
+ msgid "Smooth images when zoomed"
+-msgstr "Glodinti pakeisto mastelio paveikslėlius"
++msgstr "Glodinti pakeisto mastelio paveikslus"
+ 
+ #: ../data/vnr-preferences-dialog.ui.h:5
+ msgid "Confirm image deletion"
+-msgstr "Patvirtinkite paveikslo šalinimą"
++msgstr "Patvirtinti paveikslo ištrynimą"
+ 
+ #: ../data/vnr-preferences-dialog.ui.h:6
+ msgid "Show hidden images"
+-msgstr "Rodyti slepiamus paveikslus"
++msgstr "Rodyti paslėptus paveikslus"
+ 
+ #: ../data/vnr-preferences-dialog.ui.h:7
+ msgid "General"
+-msgstr "Bendri"
++msgstr "Bendra"
+ 
+ #: ../data/vnr-preferences-dialog.ui.h:8
+ msgid "Show next image after (in seconds): "
+-msgstr "Rodyti tolesnį paveikslą po (sekundėmis): "
++msgstr "Rodyti kitą paveikslą po (sekundėmis): "
+ 
+ #: ../data/vnr-preferences-dialog.ui.h:9
+ msgid "Always expand images to fit screen"
+@@ -73,11 +74,11 @@ msgstr "Pasukus pelės ratuką: "
+ 
+ #: ../data/vnr-preferences-dialog.ui.h:12
+ msgid "On double click: "
+-msgstr "Dvigubu spustelėjimu: "
++msgstr "Spustelėjus du kartus: "
+ 
+ #: ../data/vnr-preferences-dialog.ui.h:13
+ msgid "On image modification: "
+-msgstr "Pasikeitus paveikslėliui: "
++msgstr "Pasikeitus paveikslui: "
+ 
+ #: ../data/vnr-preferences-dialog.ui.h:14
+ msgid ""
+@@ -85,17 +86,17 @@ msgid ""
+ "  Clicking on the left half of the window shows the\n"
+ "  previous image and on the right side - the next.</small> "
+ msgstr ""
+-"<small>  (!) Paveikslų naršymas dvigubu spustelėjimu:\n"
++"<small>  (!) Paveikslų naršymas dvikarčiu spustelėjimu:\n"
+ "  Spustelėjus kairėje lango pusėje rodomas ankstesnis\n"
+ "  paveikslas, spustelėjus dešinėje - kitas.</small> "
+ 
+ #: ../data/vnr-preferences-dialog.ui.h:17
+ msgid "Behavior"
+-msgstr "Elgesys"
++msgstr "Elgsena"
+ 
+ #: ../data/vnr-preferences-dialog.ui.h:18
+ msgid "Reload image on save"
+-msgstr "Įrašius paveikslą įkelti iš naujo"
++msgstr "Įrašius paveikslą įkelti jį iš naujo"
+ 
+ #: ../data/vnr-preferences-dialog.ui.h:19
+ msgid "JPEG quality:"
+@@ -103,11 +104,11 @@ msgstr "JPEG kokybė:"
+ 
+ #: ../data/vnr-preferences-dialog.ui.h:20
+ msgid "PNG compression:"
+-msgstr "PNG suspaudimas:"
++msgstr "PNG glaudinimas:"
+ 
+ #: ../data/vnr-preferences-dialog.ui.h:21
+ msgid "Saving"
+-msgstr "Įrašoma"
++msgstr "Įrašymas"
+ 
+ #: ../data/vnr-crop-dialog.ui.h:1
+ msgid "Crop Image"
+@@ -148,12 +149,12 @@ msgid ""
+ "Couldn't recognise the image file\n"
+ "format for file '%s'"
+ msgstr ""
+-"Nepavyko atpažinti paveikslo\n"
+-"failo formato failui '%s'"
++"Nepavyko atpažinti failo \"%s\"\n"
++"paveikslo failo formato"
+ 
+ #: ../src/vnr-prefs.c:260
+ msgid "Smart Mode"
+-msgstr "Išmani veiksena"
++msgstr "Išmanioji veiksena"
+ 
+ #: ../src/vnr-prefs.c:261
+ msgid "1:1 Mode"
+@@ -161,7 +162,7 @@ msgstr "1:1 veiksena"
+ 
+ #: ../src/vnr-prefs.c:262
+ msgid "Fit To Window Mode"
+-msgstr "Priderinti prie lango veiksena"
++msgstr "Talpinimo į langą veiksena"
+ 
+ #: ../src/vnr-prefs.c:263
+ msgid "Last Used Mode"
+@@ -185,7 +186,7 @@ msgstr "Perjungti mastelio keitimo veikseną"
+ 
+ #: ../src/vnr-prefs.c:303
+ msgid "Enter fullscreen mode"
+-msgstr "Įjungti viso ekrano režimą"
++msgstr "Įjungti viso ekrano veikseną"
+ 
+ #: ../src/vnr-prefs.c:312
+ msgid "Ask every time"
+@@ -193,7 +194,7 @@ msgstr "Klausti kiekvieną kartą"
+ 
+ #: ../src/vnr-prefs.c:313
+ msgid "Autosave"
+-msgstr "Automatinis įrašymas"
++msgstr "Automatiškai įrašyti"
+ 
+ #: ../src/vnr-prefs.c:314
+ msgid "Ignore changes"
+@@ -239,12 +240,12 @@ msgstr "<b>Aukštis:</b>"
+ #: ../src/vnr-properties-dialog.c:375 ../src/vnr-properties-dialog.c:376
+ #: ../src/vnr-properties-dialog.c:377 ../src/vnr-properties-dialog.c:378
+ msgid "None"
+-msgstr "Nieko"
++msgstr "Nėra"
+ 
+ #: ../src/vnr-window.c:297
+ #, c-format
+ msgid "Use \"%s\" to open the selected image"
+-msgstr "Atverti pasirinktą paveikslą su „%s“"
++msgstr "Atverti pasirinktą paveikslą naudojant „%s“"
+ 
+ #: ../src/vnr-window.c:467
+ msgid "Show next image after: "
+@@ -253,8 +254,8 @@ msgstr "Rodyti kitą paveikslą po: "
+ #: ../src/vnr-window.c:485 ../src/vnr-window.c:902
+ msgid " second"
+ msgid_plural " seconds"
+-msgstr[0] " sekundė"
+-msgstr[1] " sekundės"
++msgstr[0] " sekundės"
++msgstr[1] " sekundžių"
+ msgstr[2] " sekundžių"
+ 
+ #: ../src/vnr-window.c:727 ../src/vnr-window.c:790
+@@ -266,7 +267,7 @@ msgid ""
+ "Image modifications cannot be saved.\n"
+ "Writing in this format is not supported."
+ msgstr ""
+-"Negalima įrašyti paveikslėlio pakeitimų.\n"
++"Negalima įrašyti paveikslo pakeitimų.\n"
+ "Įrašymas šiuo formatu nepalaikomas."
+ 
+ #: ../src/vnr-window.c:768 ../src/vnr-window.c:826 ../src/vnr-window.c:1713
+@@ -275,7 +276,7 @@ msgid ""
+ "This will overwrite the image and may reduce its quality!"
+ msgstr ""
+ "Įrašyti modifikacijas?\n"
+-"Tai perrašys paveikslą ir gali sumažinti jo kokybę!"
++"Tai perrašys paveikslą ir gali pabloginti jo kokybę!"
+ 
+ #: ../src/vnr-window.c:1271
+ msgid "Open Image"
+@@ -312,8 +313,8 @@ msgid ""
+ "Are you sure you want to\n"
+ "permanently delete \"%s\"?"
+ msgstr ""
+-"Ar Jūs tikrai norite \n"
+-"negrįžtamai pašalinti „%s“?"
++"Ar tikrai norite \n"
++"negrįžtamai ištrinti „%s“?"
+ 
+ #: ../src/vnr-window.c:1721
+ msgid "_File"
+@@ -337,7 +338,7 @@ msgstr "_Eiti"
+ 
+ #: ../src/vnr-window.c:1726
+ msgid "_Help"
+-msgstr "_Pagalba"
++msgstr "Ž_inynas"
+ 
+ #: ../src/vnr-window.c:1728
+ msgid "Open _Image..."
+@@ -373,15 +374,15 @@ msgstr "Apie šią programą"
+ 
+ #: ../src/vnr-window.c:1740
+ msgid "_Preferences..."
+-msgstr "_Parinktys..."
++msgstr "_Nuostatos..."
+ 
+ #: ../src/vnr-window.c:1741
+ msgid "User preferences for Viewnior"
+-msgstr "Vartotojo parinktys programai"
++msgstr "Viewnior naudotojo nuostatos"
+ 
+ #: ../src/vnr-window.c:1746
+ msgid "_Save"
+-msgstr "_Įrašyti"
++msgstr "Į_rašyti"
+ 
+ #: ../src/vnr-window.c:1747
+ msgid "Save changes"
+@@ -397,43 +398,43 @@ msgstr "Savybės"
+ 
+ #: ../src/vnr-window.c:1758
+ msgid "Set as _Wallpaper"
+-msgstr "Parinkti _darbalaukio fonu"
++msgstr "Nustatyti kaip _darbalaukio foną"
+ 
+ #: ../src/vnr-window.c:1759
+ msgid "Set the selected image as the desktop background"
+-msgstr "Nustatyti parinktą paveikslą kaip darbalaukio foną"
++msgstr "Nustatyti pasirinktą paveikslą kaip darbalaukio foną"
+ 
+ #: ../src/vnr-window.c:1764
+ msgid "Open _With"
+-msgstr "Atverti _su"
++msgstr "Atverti nau_dojant"
+ 
+ #: ../src/vnr-window.c:1765
+ msgid "Open the selected image with a different application"
+-msgstr "Atverti parinktą paveikslą su kita programa"
++msgstr "Atverti pasirinktą paveikslą naudojant kitą programą"
+ 
+ #: ../src/vnr-window.c:1767 ../src/vnr-window.c:1776
+ msgid "_Delete"
+-msgstr "_Pašalinti"
++msgstr "_Ištrinti"
+ 
+ #: ../src/vnr-window.c:1768 ../src/vnr-window.c:1777
+ msgid "Delete the current file"
+-msgstr "Pašalinti parinktą failą"
++msgstr "Ištrinti esamą failą"
+ 
+ #: ../src/vnr-window.c:1770
+ msgid "_Properties..."
+-msgstr "_Savybės"
++msgstr "_Savybės..."
+ 
+ #: ../src/vnr-window.c:1771
+ msgid "Show information about the current file"
+-msgstr "Rodyti informaciją apie šį failą"
++msgstr "Rodyti informaciją apie esamą failą"
+ 
+ #: ../src/vnr-window.c:1773
+ msgid "_Reload"
+-msgstr "_Įkelti iš naujo"
++msgstr "Į_kelti iš naujo"
+ 
+ #: ../src/vnr-window.c:1774
+ msgid "Reload the current file"
+-msgstr "Įkelti šį failą iš naujo"
++msgstr "Įkelti esamą failą iš naujo"
+ 
+ #: ../src/vnr-window.c:1779 ../src/vnr-window.c:1791 ../src/vnr-window.c:1794
+ msgid "_Zoom In"
+@@ -466,7 +467,7 @@ msgstr "_Geriausias priderinimas"
+ 
+ #: ../src/vnr-window.c:1789
+ msgid "Fit the image to the window"
+-msgstr "Priderinti paveikslo dydį langui"
++msgstr "Priderinti paveikslo dydį prie lango"
+ 
+ #: ../src/vnr-window.c:1803
+ msgid "Rotate _Clockwise"
+@@ -518,7 +519,7 @@ msgstr "_Priderinti lango dydį"
+ 
+ #: ../src/vnr-window.c:1825
+ msgid "Adjust window size to fit the image"
+-msgstr "Priderinti lango dydį paveikslui"
++msgstr "Priderinti lango dydį prie paveikslo"
+ 
+ #: ../src/vnr-window.c:1830
+ msgid "Menu Bar"
+@@ -538,11 +539,11 @@ msgstr "Rodyti įrankių juostą"
+ 
+ #: ../src/vnr-window.c:1839
+ msgid "Sli_deshow"
+-msgstr "_Pristatymas"
++msgstr "Skai_drių rodymas"
+ 
+ #: ../src/vnr-window.c:1840
+ msgid "Show in slideshow mode"
+-msgstr "Rodyti pristatymo veiksenoje"
++msgstr "Rodyti skaidrių rodymo veiksenoje"
+ 
+ #: ../src/vnr-window.c:1845
+ msgid "_Previous Image"
+@@ -618,7 +619,7 @@ msgstr "Židinio nuotolis"
+ 
+ #: ../src/uni-exiv2.hpp:59
+ msgid "Software"
+-msgstr "Programa"
++msgstr "Programinė įranga"
+ 
+ #: ../src/uni-exiv2.hpp:63
+ msgid "Description"
+diff --git a/po/nb_NO.po b/po/nb_NO.po
+new file mode 100644
+index 0000000..7fa86d6
+--- /dev/null
++++ b/po/nb_NO.po
+@@ -0,0 +1,626 @@
++# Norwegian (Bokmål) translation for viewnior
++# Copyright (c) 2018 Nichlas Severinsen
++# This file is distributed under the same license as the viewnior package.
++#
++msgid ""
++msgstr ""
++"Project-Id-Version: viewnior\n"
++"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
++"POT-Creation-Date: 2018-10-08 13:00+0200\n"
++"PO-Revision-Date: 2018-10-08 13:20+0200\n"
++"Last-Translator: Nichlas Severinsen <Unknown>\n"
++"Language-Team: <Unknown>\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n != 1;\n"
++
++#: ../data/viewnior.desktop.in.in.h:1
++msgid "Viewnior"
++msgstr "Viewnior"
++
++#: ../data/viewnior.desktop.in.in.h:2 ../src/vnr-window.c:1372
++msgid "Elegant Image Viewer"
++msgstr "Elegant Bildeviser"
++
++#: ../data/vnr-preferences-dialog.ui.h:1
++msgid "Viewnior Preferences"
++msgstr "Viewnior Preferanser"
++
++#: ../data/vnr-preferences-dialog.ui.h:2
++msgid "Open new image in: "
++msgstr "Åpne nytt bilde i: "
++
++#: ../data/vnr-preferences-dialog.ui.h:3
++msgid "Desktop: "
++msgstr "Skrivebord: "
++
++#: ../data/vnr-preferences-dialog.ui.h:4
++msgid "Smooth images when zoomed"
++msgstr "Jevn bilder ved zooming"
++
++#: ../data/vnr-preferences-dialog.ui.h:5
++msgid "Confirm image deletion"
++msgstr "Bekreft bildesletting"
++
++#: ../data/vnr-preferences-dialog.ui.h:6
++msgid "Show hidden images"
++msgstr "Vis skjulte bilder"
++
++#: ../data/vnr-preferences-dialog.ui.h:7
++msgid "General"
++msgstr "Generell"
++
++#: ../data/vnr-preferences-dialog.ui.h:8
++msgid "Show next image after (in seconds): "
++msgstr "Vis neste bilde etter (i sekunder): "
++
++#: ../data/vnr-preferences-dialog.ui.h:9
++msgid "Always expand images to fit screen"
++msgstr "Tilpass bildet til skjermoppløsningen"
++
++#: ../data/vnr-preferences-dialog.ui.h:10
++msgid "Fullscreen"
++msgstr "Fullskjerm"
++
++#: ../data/vnr-preferences-dialog.ui.h:11
++msgid "On mouse wheel: "
++msgstr "Ved musehjul: "
++
++#: ../data/vnr-preferences-dialog.ui.h:12
++msgid "On double click: "
++msgstr "Ved dobbeltklikk: "
++
++#: ../data/vnr-preferences-dialog.ui.h:13
++msgid "On image modification: "
++msgstr "Ved bildemodifisering: "
++
++#: ../data/vnr-preferences-dialog.ui.h:14
++msgid ""
++"<small>  (!) Navigating images with double click :\n"
++"  Clicking on the left half of the window shows the\n"
++"  previous image and on the right side - the next.</small> "
++msgstr ""
++"<small>  (!) Navigering av bilder med dobbeltklikk :\n"
++"  Ved å trykke på venstre halvdel av vinduet vises\n"
++"  det forrige bildet, og på høyre side - det neste.</small> "
++
++#: ../data/vnr-preferences-dialog.ui.h:17
++msgid "Behavior"
++msgstr "Oppførsel"
++
++#: ../data/vnr-preferences-dialog.ui.h:18
++msgid "Reload image on save"
++msgstr "Oppdater bildet ved lagring"
++
++#: ../data/vnr-preferences-dialog.ui.h:19
++msgid "JPEG quality:"
++msgstr "JPEG kvalitet:"
++
++#: ../data/vnr-preferences-dialog.ui.h:20
++msgid "PNG compression:"
++msgstr "PNG komprimering:"
++
++#: ../data/vnr-preferences-dialog.ui.h:21
++msgid "Saving"
++msgstr "Lagrer"
++
++#: ../data/vnr-crop-dialog.ui.h:1
++msgid "Crop Image"
++msgstr "Beskjær Bilde"
++
++#: ../data/vnr-crop-dialog.ui.h:2
++msgid "X: "
++msgstr "X: "
++
++#: ../data/vnr-crop-dialog.ui.h:3
++msgid "Y: "
++msgstr "Y: "
++
++#: ../data/vnr-crop-dialog.ui.h:4
++msgid "Width: "
++msgstr "Bredde: "
++
++#: ../data/vnr-crop-dialog.ui.h:5
++msgid "Height: "
++msgstr "Høyde: "
++
++#: ../data/vnr-crop-dialog.ui.h:6 ../src/vnr-window.c:1816
++msgid "Crop"
++msgstr "Beskjær"
++
++#: ../src/main.c:117 ../src/vnr-window.c:1620 ../src/vnr-window.c:1975
++#: ../src/vnr-window.c:2414
++msgid "The given locations contain no images."
++msgstr "Den gitte lokasjonen inneholder ingen bilder."
++
++#: ../src/uni-scroll-win.c:223
++msgid "Open the navigator window"
++msgstr "Åpne navigasjonsvinduet"
++
++#: ../src/vnr-file.c:223
++#, c-format
++msgid ""
++"Couldn't recognise the image file\n"
++"format for file '%s'"
++msgstr ""
++"Kunne ikke gjenkjenne bildeformatet\n"
++"for filen '%s'"
++
++#: ../src/vnr-prefs.c:260
++msgid "Smart Mode"
++msgstr "Smart Modus"
++
++#: ../src/vnr-prefs.c:261
++msgid "1:1 Mode"
++msgstr "1:1 Modus"
++
++#: ../src/vnr-prefs.c:262
++msgid "Fit To Window Mode"
++msgstr "Tilpass Vinduet Modus"
++
++#: ../src/vnr-prefs.c:263
++msgid "Last Used Mode"
++msgstr "Sist Brukte Modus"
++
++#: ../src/vnr-prefs.c:292 ../src/vnr-prefs.c:304
++msgid "Navigate images"
++msgstr "Naviger bilder"
++
++#: ../src/vnr-prefs.c:293
++msgid "Zoom image"
++msgstr "Zoom bilder"
++
++#: ../src/vnr-prefs.c:294
++msgid "Scroll image up/down"
++msgstr "Bla bildet opp/ned"
++
++#: ../src/vnr-prefs.c:302
++msgid "Switch zoom modes"
++msgstr "Bytt zoom modus"
++
++#: ../src/vnr-prefs.c:303
++msgid "Enter fullscreen mode"
++msgstr "Gå inn i fullskjerm modus"
++
++#: ../src/vnr-prefs.c:312
++msgid "Ask every time"
++msgstr "Spør hver gang"
++
++#: ../src/vnr-prefs.c:313
++msgid "Autosave"
++msgstr "Autolagre"
++
++#: ../src/vnr-prefs.c:314
++msgid "Ignore changes"
++msgstr "Ignorer forandringer"
++
++#: ../src/vnr-properties-dialog.c:112
++msgid "_Next"
++msgstr "_Neste"
++
++#: ../src/vnr-properties-dialog.c:113
++msgid "_Previous"
++msgstr "_Forrige"
++
++#: ../src/vnr-properties-dialog.c:128
++msgid "Image Properties"
++msgstr "Bildeegenskaper"
++
++#: ../src/vnr-properties-dialog.c:136
++msgid "<b>Location:</b>"
++msgstr "<b>Lokasjon:</b>"
++
++#: ../src/vnr-properties-dialog.c:185
++msgid "<b>Name:</b>"
++msgstr "<b>Navn:</b>"
++
++#: ../src/vnr-properties-dialog.c:189
++msgid "<b>Type:</b>"
++msgstr "<b>Type:</b>"
++
++#: ../src/vnr-properties-dialog.c:193
++msgid "<b>Size:</b>"
++msgstr "<b>Størrelse:</b>"
++
++#: ../src/vnr-properties-dialog.c:197
++msgid "<b>Width:</b>"
++msgstr "<b>Bredde:</b>"
++
++#: ../src/vnr-properties-dialog.c:201
++msgid "<b>Height:</b>"
++msgstr "<b>Høyde:</b>"
++
++#: ../src/vnr-properties-dialog.c:373 ../src/vnr-properties-dialog.c:374
++#: ../src/vnr-properties-dialog.c:375 ../src/vnr-properties-dialog.c:376
++#: ../src/vnr-properties-dialog.c:377 ../src/vnr-properties-dialog.c:378
++msgid "None"
++msgstr "Ingen"
++
++#: ../src/vnr-window.c:297
++#, c-format
++msgid "Use \"%s\" to open the selected image"
++msgstr "Bruk \"%s\" for å åpne valgt bilde"
++
++#: ../src/vnr-window.c:467
++msgid "Show next image after: "
++msgstr "Vis neste bilde etter: "
++
++#: ../src/vnr-window.c:485 ../src/vnr-window.c:902
++msgid " second"
++msgid_plural " seconds"
++msgstr[0] " sekund"
++msgstr[1] " sekunder"
++
++#: ../src/vnr-window.c:727 ../src/vnr-window.c:790
++msgid "Not enough virtual memory."
++msgstr "Ikke nok virtuelt minne."
++
++#: ../src/vnr-window.c:761 ../src/vnr-window.c:819 ../src/vnr-window.c:1706
++msgid ""
++"Image modifications cannot be saved.\n"
++"Writing in this format is not supported."
++msgstr ""
++"Bildeforandringer kan ikke bli lagret.\n"
++"Skriving av dette formatet er ikke støttet."
++
++#: ../src/vnr-window.c:768 ../src/vnr-window.c:826 ../src/vnr-window.c:1713
++msgid ""
++"Save modifications?\n"
++"This will overwrite the image and may reduce its quality!"
++msgstr ""
++"Lagre modifikasjoner?\n"
++"Dette vil overskrive bildet og kan redusere kvaliteten!"
++
++#: ../src/vnr-window.c:1271
++msgid "Open Image"
++msgstr "Åpne Bilde"
++
++#: ../src/vnr-window.c:1282
++msgid "All Images"
++msgstr "Alle Bilder"
++
++#: ../src/vnr-window.c:1288
++msgid "All Files"
++msgstr "Alle Filer"
++
++#: ../src/vnr-window.c:1318
++msgid "Open Folder"
++msgstr "Åpne Mappe"
++
++#: ../src/vnr-window.c:1378
++msgid "translator-credits"
++msgstr ""
++"Oversettere:\n"
++"  Nichlas Severinsen https://nsz.no"
++
++#: ../src/vnr-window.c:1558
++msgid "If you delete an item, it will be permanently lost."
++msgstr "Hvis du sletter et element, blir det borte permanent."
++
++#. I18N: The '%s' is replaced with the name of the file to be deleted.
++#: ../src/vnr-window.c:1561
++#, c-format
++msgid ""
++"Are you sure you want to\n"
++"permanently delete \"%s\"?"
++msgstr ""
++"Er du sikker på at du vil\n"
++"slette \"%s\" permanent?"
++
++#: ../src/vnr-window.c:1721
++msgid "_File"
++msgstr "_Fil"
++
++#: ../src/vnr-window.c:1722
++msgid "_Edit"
++msgstr "_Rediger"
++
++#: ../src/vnr-window.c:1723
++msgid "_View"
++msgstr "_Vis"
++
++#: ../src/vnr-window.c:1724
++msgid "_Image"
++msgstr "_Bilde"
++
++#: ../src/vnr-window.c:1725
++msgid "_Go"
++msgstr "_Gå"
++
++#: ../src/vnr-window.c:1726
++msgid "_Help"
++msgstr "_Hjelp"
++
++#: ../src/vnr-window.c:1728
++msgid "Open _Image..."
++msgstr "Åpne _bilde..."
++
++#: ../src/vnr-window.c:1729
++msgid "Open an Image"
++msgstr "Åpne et bilde"
++
++#: ../src/vnr-window.c:1731
++msgid "Open _Folder..."
++msgstr "Åpne _Mappe..."
++
++#: ../src/vnr-window.c:1732
++msgid "Open a Folder"
++msgstr "Åpne en Mappe"
++
++#: ../src/vnr-window.c:1734
++msgid "_Close"
++msgstr "_Lukk"
++
++#: ../src/vnr-window.c:1735
++msgid "Close window"
++msgstr "Lukk Vindu"
++
++#: ../src/vnr-window.c:1737
++msgid "_About"
++msgstr "_Om"
++
++#: ../src/vnr-window.c:1738
++msgid "About this application"
++msgstr "Om denne applikasjonen"
++
++#: ../src/vnr-window.c:1740
++msgid "_Preferences..."
++msgstr "_Preferanser..."
++
++#: ../src/vnr-window.c:1741
++msgid "User preferences for Viewnior"
++msgstr "Brukerpreferanser for Viewnior"
++
++#: ../src/vnr-window.c:1746
++msgid "_Save"
++msgstr "_Lagre"
++
++#: ../src/vnr-window.c:1747
++msgid "Save changes"
++msgstr "Lagre forandringer"
++
++#: ../src/vnr-window.c:1752
++msgid "_Properties"
++msgstr "_Egenskaper"
++
++#: ../src/vnr-window.c:1753
++msgid "Properties"
++msgstr "Egenskaper"
++
++#: ../src/vnr-window.c:1758
++msgid "Set as _Wallpaper"
++msgstr "Sett som _Bakgrunn"
++
++#: ../src/vnr-window.c:1759
++msgid "Set the selected image as the desktop background"
++msgstr "Sett det valgte bilde som skrivebordsbakgrunn"
++
++#: ../src/vnr-window.c:1764
++msgid "Open _With"
++msgstr "Åpne _Med"
++
++#: ../src/vnr-window.c:1765
++msgid "Open the selected image with a different application"
++msgstr "Åpne det valge bildet med en annen applikasjon"
++
++#: ../src/vnr-window.c:1767 ../src/vnr-window.c:1776
++msgid "_Delete"
++msgstr "_Slett"
++
++#: ../src/vnr-window.c:1768 ../src/vnr-window.c:1777
++msgid "Delete the current file"
++msgstr "Slett den nåværende filen"
++
++#: ../src/vnr-window.c:1770
++msgid "_Properties..."
++msgstr "_Egenskaper..."
++
++#: ../src/vnr-window.c:1771
++msgid "Show information about the current file"
++msgstr "Vis informasjon om den nåværende filen"
++
++#: ../src/vnr-window.c:1773
++msgid "_Reload"
++msgstr "_Last inn på nytt"
++
++#: ../src/vnr-window.c:1774
++msgid "Reload the current file"
++msgstr "Last inn den nåværende filen på nytt"
++
++#: ../src/vnr-window.c:1779 ../src/vnr-window.c:1791 ../src/vnr-window.c:1794
++msgid "_Zoom In"
++msgstr "_Zoom Inn"
++
++#: ../src/vnr-window.c:1780
++msgid "Enlarge the image"
++msgstr "Forstørr Bildet"
++
++#: ../src/vnr-window.c:1782 ../src/vnr-window.c:1797
++msgid "Zoom _Out"
++msgstr "Zoom _Ut"
++
++#: ../src/vnr-window.c:1783 ../src/vnr-window.c:1792 ../src/vnr-window.c:1795
++#: ../src/vnr-window.c:1798
++msgid "Shrink the image"
++msgstr "Krymp bildet"
++
++#: ../src/vnr-window.c:1785
++msgid "_Normal Size"
++msgstr "_Normal Størrelse"
++
++#: ../src/vnr-window.c:1786
++msgid "Show the image at its normal size"
++msgstr "Vis bildet i normal størrelse"
++
++#: ../src/vnr-window.c:1788
++msgid "Best _Fit"
++msgstr "Best _Passform"
++
++#: ../src/vnr-window.c:1789
++msgid "Fit the image to the window"
++msgstr "Tilpass bildet til vinduet"
++
++#: ../src/vnr-window.c:1803
++msgid "Rotate _Clockwise"
++msgstr "Roter _Med klokka"
++
++#: ../src/vnr-window.c:1804
++msgid "Rotate image clockwise"
++msgstr "Roter bildet med klokka"
++
++#: ../src/vnr-window.c:1806
++msgid "Rotate _Anti-clockwise"
++msgstr "Roter _Mot klokka"
++
++#: ../src/vnr-window.c:1807
++msgid "Rotate image anti-clockwise"
++msgstr "Roter bildet mot klokka"
++
++#: ../src/vnr-window.c:1809
++msgid "Flip _Vertical"
++msgstr "Flip _Vertikalt"
++
++#: ../src/vnr-window.c:1810
++msgid "Flip image vertically"
++msgstr "Flip bildet vertikalt"
++
++#: ../src/vnr-window.c:1812
++msgid "Flip _Horizontal"
++msgstr "Flip _Horisontalt"
++
++#: ../src/vnr-window.c:1813
++msgid "Flip image horizontally"
++msgstr "Flip bildet horisontalt"
++
++#: ../src/vnr-window.c:1815
++msgid "Crop..."
++msgstr "Beskjær..."
++
++#: ../src/vnr-window.c:1821
++msgid "Full _Screen"
++msgstr "Full _Skjerm"
++
++#: ../src/vnr-window.c:1822
++msgid "Show in fullscreen mode"
++msgstr "Vis i fullskjerm modus"
++
++#: ../src/vnr-window.c:1824
++msgid "_Adjust window size"
++msgstr "_Juster vinduets størrelse"
++
++#: ../src/vnr-window.c:1825
++msgid "Adjust window size to fit the image"
++msgstr "Juster vindusstørrelsen for å passe bildet"
++
++#: ../src/vnr-window.c:1830
++msgid "Menu Bar"
++msgstr "Meny"
++
++#: ../src/vnr-window.c:1831
++msgid "Show Menu Bar"
++msgstr "Vis Meny"
++
++#: ../src/vnr-window.c:1833
++msgid "Toolbar"
++msgstr "Verktøykasse"
++
++#: ../src/vnr-window.c:1834
++msgid "Show Toolbar"
++msgstr "Vis Verktøykasse"
++
++#: ../src/vnr-window.c:1839
++msgid "Sli_deshow"
++msgstr "Bil_defremvisning"
++
++#: ../src/vnr-window.c:1840
++msgid "Show in slideshow mode"
++msgstr "Vis i bildefremvisnings modus"
++
++#: ../src/vnr-window.c:1845
++msgid "_Previous Image"
++msgstr "_Forrige Bilde"
++
++#: ../src/vnr-window.c:1846
++msgid "Go to the previous image of the collection"
++msgstr "Gå til det forrige bildet av samlingen"
++
++#: ../src/vnr-window.c:1848
++msgid "_Next Image"
++msgstr "_Neste Bilde"
++
++#: ../src/vnr-window.c:1849
++msgid "Go to the next image of the collection"
++msgstr "Gå til det neste bildet av samlingen"
++
++#: ../src/vnr-window.c:1851
++msgid "_First Image"
++msgstr "_Første Bilde"
++
++#: ../src/vnr-window.c:1852
++msgid "Go to the first image of the collection"
++msgstr "Gå til det første bildet av samlingen"
++
++#: ../src/vnr-window.c:1854
++msgid "_Last Image"
++msgstr "_Siste Bilde"
++
++#: ../src/vnr-window.c:1855
++msgid "Go to the last image of the collection"
++msgstr "Gå til det siste bildet av samlingen"
++
++#: ../src/uni-exiv2.hpp:49
++msgid "Camera make"
++msgstr "Kamera merke"
++
++#: ../src/uni-exiv2.hpp:50
++msgid "Camera model"
++msgstr "Kamera modell"
++
++#: ../src/uni-exiv2.hpp:51
++msgid "Date Taken"
++msgstr "Dato Tatt"
++
++#: ../src/uni-exiv2.hpp:52
++msgid "Exposure time"
++msgstr "Eksponeringstid"
++
++#: ../src/uni-exiv2.hpp:53
++msgid "Exposure mode"
++msgstr "Eksponeringsmodus"
++
++#: ../src/uni-exiv2.hpp:54
++msgid "Aperture Value"
++msgstr "Blenderåpning"
++
++#: ../src/uni-exiv2.hpp:55
++msgid "ISO speed"
++msgstr "ISO hastighet"
++
++#: ../src/uni-exiv2.hpp:56
++msgid "Flash"
++msgstr "Blits"
++
++#: ../src/uni-exiv2.hpp:57
++msgid "Metering mode"
++msgstr "Målemodus"
++
++#: ../src/uni-exiv2.hpp:58
++msgid "Focal length"
++msgstr "Brennvidde"
++
++#: ../src/uni-exiv2.hpp:59
++msgid "Software"
++msgstr "Programvare"
++
++#: ../src/uni-exiv2.hpp:63
++msgid "Description"
++msgstr "Beskrivelse"
++
++#: ../src/uni-exiv2.hpp:64
++msgid "Copyright"
++msgstr "Opphavsrett"
++
++#: ../src/uni-exiv2.hpp:65
++msgid "Author"
++msgstr "Forfatter"
+diff --git a/po/zh_TW.po b/po/zh_TW.po
+index adb899f..4d8f74b 100644
+--- a/po/zh_TW.po
++++ b/po/zh_TW.po
+@@ -1,14 +1,14 @@
+ # Chinese (Traditional) translation for viewnior
+ # Copyright (c) 2016 Rosetta Contributors and Canonical Ltd 2016
+ # This file is distributed under the same license as the viewnior package.
+-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
++# Hsiu-Ming Chang <cges30901@gmail.com>, 2018.
+ #
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: viewnior\n"
+ "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+ "POT-Creation-Date: 2014-02-07 22:04+0200\n"
+-"PO-Revision-Date: 2016-10-16 06:12+0000\n"
++"PO-Revision-Date: 2018-11-12 22:37+0800\n"
+ "Last-Translator: Hsiu-Ming Chang <cges30901@gmail.com>\n"
+ "Language-Team: Chinese (Traditional) <zh_TW@li.org>\n"
+ "MIME-Version: 1.0\n"
+@@ -16,7 +16,8 @@ msgstr ""
+ "Content-Transfer-Encoding: 8bit\n"
+ "Plural-Forms: nplurals=1; plural=0;\n"
+ "X-Launchpad-Export-Date: 2018-03-04 17:52+0000\n"
+-"X-Generator: Launchpad (build 18566)\n"
++"X-Generator: Poedit 2.2\n"
++"Language: zh_TW\n"
+ 
+ #: ../data/viewnior.desktop.in.in.h:1
+ msgid "Viewnior"
+@@ -32,7 +33,7 @@ msgstr "Viewnior 偏好設定"
+ 
+ #: ../data/vnr-preferences-dialog.ui.h:2
+ msgid "Open new image in: "
+-msgstr ""
++msgstr "開啟新的圖片使用："
+ 
+ #: ../data/vnr-preferences-dialog.ui.h:3
+ msgid "Desktop: "
+@@ -40,7 +41,7 @@ msgstr "桌面： "
+ 
+ #: ../data/vnr-preferences-dialog.ui.h:4
+ msgid "Smooth images when zoomed"
+-msgstr ""
++msgstr "縮放圖片時平滑處理"
+ 
+ #: ../data/vnr-preferences-dialog.ui.h:5
+ msgid "Confirm image deletion"
+@@ -56,7 +57,7 @@ msgstr "一般"
+ 
+ #: ../data/vnr-preferences-dialog.ui.h:8
+ msgid "Show next image after (in seconds): "
+-msgstr ""
++msgstr "在幾秒後顯示下一張圖片："
+ 
+ #: ../data/vnr-preferences-dialog.ui.h:9
+ msgid "Always expand images to fit screen"
+@@ -84,6 +85,9 @@ msgid ""
+ "  Clicking on the left half of the window shows the\n"
+ "  previous image and on the right side - the next.</small> "
+ msgstr ""
++"<small>  (!) 透過按兩下來瀏覽圖片：\n"
++"  在視窗的左半邊按兩下來瀏覽上一張圖片，\n"
++"  在視窗的右半邊按兩下來瀏覽下一張圖片。</small> "
+ 
+ #: ../data/vnr-preferences-dialog.ui.h:17
+ msgid "Behavior"
+@@ -91,7 +95,7 @@ msgstr "行為"
+ 
+ #: ../data/vnr-preferences-dialog.ui.h:18
+ msgid "Reload image on save"
+-msgstr "儲存圖片後重新讀取"
++msgstr "儲存圖片後重新載入"
+ 
+ #: ../data/vnr-preferences-dialog.ui.h:19
+ msgid "JPEG quality:"
+@@ -132,11 +136,11 @@ msgstr "裁剪"
+ #: ../src/main.c:117 ../src/vnr-window.c:1620 ../src/vnr-window.c:1975
+ #: ../src/vnr-window.c:2414
+ msgid "The given locations contain no images."
+-msgstr "提供的位置並未包含圖片。"
++msgstr "指定的位置並未包含圖片。"
+ 
+ #: ../src/uni-scroll-win.c:223
+ msgid "Open the navigator window"
+-msgstr ""
++msgstr "開啟導覽器視窗"
+ 
+ #: ../src/vnr-file.c:223
+ #, c-format
+@@ -165,7 +169,7 @@ msgstr "上次使用的模式"
+ 
+ #: ../src/vnr-prefs.c:292 ../src/vnr-prefs.c:304
+ msgid "Navigate images"
+-msgstr ""
++msgstr "瀏覽圖片"
+ 
+ #: ../src/vnr-prefs.c:293
+ msgid "Zoom image"
+@@ -197,11 +201,11 @@ msgstr "忽略變更"
+ 
+ #: ../src/vnr-properties-dialog.c:112
+ msgid "_Next"
+-msgstr "下一個(_N)"
++msgstr "下一張(_N)"
+ 
+ #: ../src/vnr-properties-dialog.c:113
+ msgid "_Previous"
+-msgstr "上一個(_P)"
++msgstr "上一張(_P)"
+ 
+ #: ../src/vnr-properties-dialog.c:128
+ msgid "Image Properties"
+@@ -244,7 +248,7 @@ msgstr "使用「%s」開啟選擇的圖片"
+ 
+ #: ../src/vnr-window.c:467
+ msgid "Show next image after: "
+-msgstr ""
++msgstr "多久之後顯示下一張圖片："
+ 
+ #: ../src/vnr-window.c:485 ../src/vnr-window.c:902
+ msgid " second"
+@@ -261,7 +265,7 @@ msgid ""
+ "Writing in this format is not supported."
+ msgstr ""
+ "無法儲存圖片的修改。\n"
+-"這個格式的寫入不被支援。"
++"不支援這個格式的寫入。"
+ 
+ #: ../src/vnr-window.c:768 ../src/vnr-window.c:826 ../src/vnr-window.c:1713
+ msgid ""
+@@ -269,7 +273,7 @@ msgid ""
+ "This will overwrite the image and may reduce its quality!"
+ msgstr ""
+ "要儲存修改嗎？\n"
+-"這將會覆寫圖片並且可能降低它的品質！"
++"這將會覆寫圖片並且可能降低品質！"
+ 
+ #: ../src/vnr-window.c:1271
+ msgid "Open Image"
+@@ -289,9 +293,7 @@ msgstr "開啟資料夾"
+ 
+ #: ../src/vnr-window.c:1378
+ msgid "translator-credits"
+-msgstr ""
+-"Launchpad Contributions:\n"
+-"  Hsiu-Ming Chang https://launchpad.net/~cges30901"
++msgstr "Hsiu-Ming Chang <cges30901@gmail.com>, 2018."
+ 
+ #: ../src/vnr-window.c:1558
+ msgid "If you delete an item, it will be permanently lost."
+@@ -421,11 +423,11 @@ msgstr "顯示目前檔案的資訊"
+ 
+ #: ../src/vnr-window.c:1773
+ msgid "_Reload"
+-msgstr "重新讀取(_R)"
++msgstr "重新載入(_R)"
+ 
+ #: ../src/vnr-window.c:1774
+ msgid "Reload the current file"
+-msgstr "重新讀取目前的檔案"
++msgstr "重新載入目前的檔案"
+ 
+ #: ../src/vnr-window.c:1779 ../src/vnr-window.c:1791 ../src/vnr-window.c:1794
+ msgid "_Zoom In"
+@@ -450,7 +452,7 @@ msgstr "正常大小(_N)"
+ 
+ #: ../src/vnr-window.c:1786
+ msgid "Show the image at its normal size"
+-msgstr "以圖片的原始尺寸顯示"
++msgstr "以圖片的正常大小顯示"
+ 
+ #: ../src/vnr-window.c:1788
+ msgid "Best _Fit"
+@@ -458,7 +460,7 @@ msgstr "最適大小(_F)"
+ 
+ #: ../src/vnr-window.c:1789
+ msgid "Fit the image to the window"
+-msgstr "圖片符合視窗尺寸"
++msgstr "圖片符合視窗大小"
+ 
+ #: ../src/vnr-window.c:1803
+ msgid "Rotate _Clockwise"
+@@ -538,35 +540,35 @@ msgstr "以投影片模式顯示"
+ 
+ #: ../src/vnr-window.c:1845
+ msgid "_Previous Image"
+-msgstr "上一個圖片(_P)"
++msgstr "上一張圖片(_P)"
+ 
+ #: ../src/vnr-window.c:1846
+ msgid "Go to the previous image of the collection"
+-msgstr "移至圖片集的上一張圖片"
++msgstr "前往圖片集的上一張圖片"
+ 
+ #: ../src/vnr-window.c:1848
+ msgid "_Next Image"
+-msgstr "下一個圖片(_N)"
++msgstr "下一張圖片(_N)"
+ 
+ #: ../src/vnr-window.c:1849
+ msgid "Go to the next image of the collection"
+-msgstr "移至圖片集的下一張圖片"
++msgstr "前往圖片集的下一張圖片"
+ 
+ #: ../src/vnr-window.c:1851
+ msgid "_First Image"
+-msgstr "第一個圖片(_F)"
++msgstr "第一張圖片(_F)"
+ 
+ #: ../src/vnr-window.c:1852
+ msgid "Go to the first image of the collection"
+-msgstr "移至圖片集的第一張圖片"
++msgstr "前往圖片集的第一張圖片"
+ 
+ #: ../src/vnr-window.c:1854
+ msgid "_Last Image"
+-msgstr "最後一個圖片(_L)"
++msgstr "最後一張圖片(_L)"
+ 
+ #: ../src/vnr-window.c:1855
+ msgid "Go to the last image of the collection"
+-msgstr "移至圖片集的最後一張圖片"
++msgstr "前往圖片集的最後一張圖片"
+ 
+ #: ../src/uni-exiv2.hpp:49
+ msgid "Camera make"
+diff --git a/src/uni-anim-view.c b/src/uni-anim-view.c
+index 7b4af4c..deba498 100755
+--- a/src/uni-anim-view.c
++++ b/src/uni-anim-view.c
+@@ -337,17 +337,3 @@ uni_anim_view_set_is_playing (UniAnimView * aview, gboolean playing)
+     else if (playing && aview->anim)
+         uni_anim_view_updator (aview);
+ }
+-
+-/**
+- * uni_anim_view_get_is_playing:
+- * @aview: A #UniImageView.
+- * @returns: %TRUE if an animation is playing, %FALSE otherwise.
+- *
+- * Returns whether the animation is playing or not. If there is no
+- * current animation, this method will always returns %FALSE.
+- **/
+-gboolean
+-uni_anim_view_get_is_playing (UniAnimView * aview)
+-{
+-    return aview->timer_id && aview->anim;
+-}
+diff --git a/src/uni-anim-view.h b/src/uni-anim-view.h
+index 55424b0..8dd4325 100755
+--- a/src/uni-anim-view.h
++++ b/src/uni-anim-view.h
+@@ -9,6 +9,7 @@
+  * Viewnior is free software: you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation, either version 3 of the License, or
++
+  * (at your option) any later version.
+  *
+  * Viewnior is distributed in the hope that it will be useful,
+@@ -82,7 +83,5 @@ void        uni_anim_view_set_static        (UniAnimView * aview,
+ void        uni_anim_view_set_is_playing    (UniAnimView * aview,
+                                              gboolean playing);
+ 
+-gboolean    uni_anim_view_get_is_playing    (UniAnimView * aview);
+-
+ G_END_DECLS
+ #endif /* __UNI_ANIM_VIEW_H__ */
+diff --git a/src/uni-cache.c b/src/uni-cache.c
+index 10f8c7a..bc19ef0 100755
+--- a/src/uni-cache.c
++++ b/src/uni-cache.c
+@@ -219,7 +219,7 @@ uni_pixbuf_draw_cache_intersect_draw (UniPixbufDrawCache * cache,
+ 
+     /* If there is no intersection, we have to scale the whole area
+        from the source pixbuf. */
+-    GdkRectangle inter;
++    GdkRectangle inter = {0, 0, 0, 0};
+     GdkRectangle around[4] = {
+         this,
+         {0, 0, 0, 0},
+diff --git a/src/uni-exiv2.cpp b/src/uni-exiv2.cpp
+index 5e04a13..02fe633 100644
+--- a/src/uni-exiv2.cpp
++++ b/src/uni-exiv2.cpp
+@@ -27,20 +27,6 @@
+ 
+ static Exiv2::Image::AutoPtr cached_image;
+ 
+-extern "C"
+-void 
+-uni_exif_dictionary_map(void (*callback)(const char*, const char*, void*), void *user_data)
+-{
+-    uint i;
+-    for( i=0; i<sizeof(exifDataDictionary)/sizeof(exifDataDictionary[0]); i++ ) {
+-        callback(exifDataDictionary[i].key, exifDataDictionary[i].label, user_data);
+-    }
+-
+-    for( i=0; i<sizeof(iptcDataDictionary)/sizeof(iptcDataDictionary[0]); i++ ) {
+-        callback(iptcDataDictionary[i].key, iptcDataDictionary[i].label, user_data);
+-    }
+-}
+-
+ extern "C" 
+ void 
+ uni_read_exiv2_map(const char *uri, void (*callback)(const char*, const char*, void*), void *user_data)
+diff --git a/src/uni-exiv2.hpp b/src/uni-exiv2.hpp
+index 44dfb50..edaced9 100644
+--- a/src/uni-exiv2.hpp
++++ b/src/uni-exiv2.hpp
+@@ -68,8 +68,6 @@ extern "C" {
+ 
+ #endif /* __cplusplus */
+ 
+-void    uni_exif_dictionary_map     (void (*callback)(const char*, const char*, void*), 
+-                                     void *user_data);
+ void    uni_read_exiv2_map          (const char *uri, 
+                                      void (*callback)(const char*, const char*, void*), 
+                                      void *user_data);
+diff --git a/src/uni-image-view.c b/src/uni-image-view.c
+index 3c41b0f..6a6714c 100755
+--- a/src/uni-image-view.c
++++ b/src/uni-image-view.c
+@@ -255,7 +255,7 @@ uni_image_view_repaint_area (UniImageView * view, GdkRectangle * paint_rect)
+     view->is_rendering = TRUE;
+ 
+     // Image area is the area on the widget occupied by the pixbuf.
+-    GdkRectangle image_area;
++    GdkRectangle image_area = {0, 0, 0, 0};
+     Size alloc = uni_image_view_get_allocated_size (view);
+     uni_image_view_get_draw_rect (view, &image_area);
+     if (image_area.x > 0 ||
+@@ -267,7 +267,7 @@ uni_image_view_repaint_area (UniImageView * view, GdkRectangle * paint_rect)
+     GtkWidget *widget = GTK_WIDGET (view);
+ 
+     // Paint area is the area on the widget that should be redrawn.
+-    GdkRectangle paint_area;
++    GdkRectangle paint_area = {0, 0, 0, 0};
+     gboolean intersects = gdk_rectangle_intersect (&image_area,
+                                                    paint_rect,
+                                                    &paint_area);
+diff --git a/src/uni-nav.c b/src/uni-nav.c
+index ee0b82c..a8c841b 100755
+--- a/src/uni-nav.c
++++ b/src/uni-nav.c
+@@ -79,7 +79,7 @@ uni_nav_get_zoom2nav_factor (UniNav * nav)
+ static GdkRectangle
+ gtk_image_get_current_rectangle (UniNav * nav)
+ {
+-    GdkRectangle rect;
++    GdkRectangle rect = {0, 0, 0, 0};
+     uni_image_view_get_viewport (nav->view, &rect);
+ 
+     /* Convert Zoom space to Nav space coordinates. */
+diff --git a/src/uni-utils.c b/src/uni-utils.c
+index 8152848..1b4992a 100755
+--- a/src/uni-utils.c
++++ b/src/uni-utils.c
+@@ -106,10 +106,10 @@ uni_detect_desktop_environment ()
+ {
+     VnrPrefsDesktop environment = VNR_PREFS_DESKTOP_GNOME3;
+ 
+-    gchar *xdg_current_desktop = g_ascii_strup(getenv("XDG_CURRENT_DESKTOP"), -1);
+-    gchar *xdg_session_desktop = g_ascii_strup(getenv("XDG_SESSION_DESKTOP"), -1);
+-    gchar *desktop_session = g_ascii_strdown(getenv("DESKTOP_SESSION"), -1);
+-    gchar *gdmsession = g_ascii_strdown(getenv("GDMSESSION"), -1);
++    gchar *xdg_current_desktop = g_ascii_strup(g_getenv("XDG_CURRENT_DESKTOP"), -1);
++    gchar *xdg_session_desktop = g_ascii_strup(g_getenv("XDG_SESSION_DESKTOP"), -1);
++    gchar *desktop_session = g_ascii_strdown(g_getenv("DESKTOP_SESSION"), -1);
++    gchar *gdmsession = g_ascii_strdown(g_getenv("GDMSESSION"), -1);
+ 
+     if (!g_strcmp0(xdg_current_desktop, "GNOME") || !g_strcmp0(xdg_session_desktop, "GNOME"))
+     {
+diff --git a/src/vnr-file.c b/src/vnr-file.c
+index ce5f13d..2649fdc 100644
+--- a/src/vnr-file.c
++++ b/src/vnr-file.c
+@@ -45,16 +45,14 @@ static GList *
+ vnr_file_get_supported_mime_types (void)
+ {
+     GSList *format_list, *it;
+-    gchar **mime_types;
+-    int i;
+ 
+     if (!supported_mime_types) {
+         format_list = gdk_pixbuf_get_formats ();
+ 
+         for (it = format_list; it != NULL; it = it->next) {
+-            mime_types =
+-                gdk_pixbuf_format_get_mime_types ((GdkPixbufFormat *) it->data);
++            gchar **mime_types = gdk_pixbuf_format_get_mime_types((GdkPixbufFormat *) it->data);
+ 
++            int i;
+             for (i = 0; mime_types[i] != NULL; i++) {
+                 supported_mime_types =
+                     g_list_prepend (supported_mime_types,
+@@ -136,8 +134,6 @@ vnr_file_dir_content_to_list(gchar *path, gboolean sort, gboolean include_hidden
+     GFile *file;
+     GFileEnumerator *f_enum ;
+     GFileInfo *file_info;
+-    VnrFile *vnr_file;
+-    const char *mimetype;
+ 
+     file = g_file_new_for_path(path);
+     f_enum = g_file_enumerate_children(file, G_FILE_ATTRIBUTE_STANDARD_NAME","
+@@ -150,9 +146,9 @@ vnr_file_dir_content_to_list(gchar *path, gboolean sort, gboolean include_hidden
+ 
+ 
+     while(file_info != NULL){
+-        vnr_file = vnr_file_new();
++        VnrFile *vnr_file = vnr_file_new();
+ 
+-        mimetype =g_file_info_get_content_type(file_info);
++        const char *mimetype =g_file_info_get_content_type(file_info);
+ 
+         if(vnr_file_is_supported_mime_type(mimetype) && (include_hidden || !g_file_info_get_is_hidden (file_info)) ){
+             vnr_file_set_display_name(vnr_file, (char*)g_file_info_get_display_name (file_info));
+@@ -232,16 +228,14 @@ vnr_file_load_single_uri(char *p_path, GList **file_list, gboolean include_hidde
+ void
+ vnr_file_load_uri_list (GSList *uri_list, GList **file_list, gboolean include_hidden, GError **error)
+ {
+-    GFile *file;
+-    GFileInfo *fileinfo;
+     GFileType filetype;
+     gchar *p_path;
+ 
+     while(uri_list != NULL)
+     {
+         p_path = uri_list->data;
+-        file = g_file_new_for_path(p_path);
+-        fileinfo = g_file_query_info (file, G_FILE_ATTRIBUTE_STANDARD_TYPE","
++        GFile *file = g_file_new_for_path(p_path);
++        GFileInfo *fileinfo = g_file_query_info (file, G_FILE_ATTRIBUTE_STANDARD_TYPE","
+                                       G_FILE_ATTRIBUTE_STANDARD_DISPLAY_NAME","
+                                       G_FILE_ATTRIBUTE_STANDARD_CONTENT_TYPE","
+                                       G_FILE_ATTRIBUTE_STANDARD_IS_HIDDEN,
+diff --git a/src/vnr-prefs.c b/src/vnr-prefs.c
+index b3b63f4..a6e1609 100644
+--- a/src/vnr-prefs.c
++++ b/src/vnr-prefs.c
+@@ -472,8 +472,10 @@ vnr_prefs_save (VnrPrefs *prefs)
+ 
+     if(rcfile != NULL)
+     {
+-        fputs(g_key_file_to_data (conf, NULL, NULL), rcfile);
++        gchar *data = g_key_file_to_data (conf, NULL, NULL);
++        fputs(data, rcfile);
+         fclose(rcfile);
++        g_free(data);
+     }
+     else
+         g_warning("Saving config file: Unable to open the configuration file for writing!\n");
+diff --git a/src/vnr-tools.c b/src/vnr-tools.c
+index bbb9092..76ab6ba 100755
+--- a/src/vnr-tools.c
++++ b/src/vnr-tools.c
+@@ -131,12 +131,11 @@ vnr_tools_parse_uri_string_list_to_file_list (const gchar *uri_list)
+     GSList* file_list = NULL;
+     gsize i = 0;
+     gchar **uris;
+-    gchar* current_path;
+ 
+     uris = g_uri_list_extract_uris (uri_list);
+ 
+     while (uris[i] != NULL) {
+-        current_path = g_file_get_path (g_file_new_for_uri(uris[i]));
++        gchar* current_path = g_file_get_path (g_file_new_for_uri(uris[i]));
+         if(current_path != NULL)
+             file_list = g_slist_append (file_list, current_path);
+         i++;
+diff --git a/src/vnr-window.c b/src/vnr-window.c
+index f680c89..435b45d 100755
+--- a/src/vnr-window.c
++++ b/src/vnr-window.c
+@@ -27,6 +27,8 @@
+ #include <gtk/gtk.h>
+ #include <gdk/gdkkeysyms.h>
+ #include <errno.h>
++#include <sys/stat.h>
++#include <sys/types.h>
+ #include <sys/wait.h>
+ #include "vnr-window.h"
+ #include "uni-scroll-win.h"
+@@ -385,7 +387,7 @@ update_fs_filename_label(VnrWindow *window)
+         return;
+ 
+     gint position, total;
+-    char *buf = NULL;
++    char *buf;
+ 
+     get_position_of_element_in_list(window->file_list, &position, &total);
+     buf = g_strdup_printf ("%s - %i/%i",
+@@ -1139,10 +1141,10 @@ file_open_dialog_response_cb (GtkWidget *dialog,
+ {
+     if (response_id == GTK_RESPONSE_ACCEPT)
+     {
+-        GSList *uri_list = NULL;
+-        uri_list = gtk_file_chooser_get_filenames (GTK_FILE_CHOOSER (dialog));
++        GSList *uri_list = gtk_file_chooser_get_filenames (GTK_FILE_CHOOSER (dialog));
+         g_return_if_fail(uri_list != NULL);
+         vnr_window_open_from_list(window, uri_list);
++        g_slist_free_full(uri_list, g_free);
+     }
+ 
+     gtk_widget_destroy (dialog);
+@@ -1270,12 +1272,48 @@ vnr_window_cmd_reload (GtkAction *action, VnrWindow *window)
+     vnr_window_open(window, FALSE);
+ }
+ 
++
++static gboolean
++file_size_is_small(char *filename) {
++
++    struct stat st;
++    int four_mb = 4 * 1024 * 1024;
++
++    if(filename != NULL && stat(filename, &st) == 0) {
++        return st.st_size < four_mb;
++    }
++    return FALSE;
++}
++
++static void
++update_preview_cb(GtkFileChooser *file_chooser, gpointer data)
++{
++    GtkWidget *preview = GTK_WIDGET(data);
++    char *filename = gtk_file_chooser_get_preview_filename(file_chooser);
++    gboolean has_preview = FALSE;
++
++    if(file_size_is_small(filename)) {
++        GdkPixbuf *pixbuf = gdk_pixbuf_new_from_file_at_size(filename, 256, 256, NULL);
++        has_preview = pixbuf != NULL;
++
++        gtk_image_set_from_pixbuf(GTK_IMAGE(preview), pixbuf);
++        if(pixbuf) {
++            g_object_unref(pixbuf);
++        }
++    }
++    gtk_file_chooser_set_preview_widget_active(file_chooser, has_preview);
++    if(filename != NULL) {
++        g_free(filename);
++    }
++}
++
+ static void
+ vnr_window_cmd_open(GtkAction *action, VnrWindow *window)
+ {
+     GtkWidget *dialog;
+-    GtkFileFilter *img_filter = NULL;
+-    GtkFileFilter *all_filter = NULL;
++    GtkWidget *preview;
++    GtkFileFilter *img_filter;
++    GtkFileFilter *all_filter;
+ 
+     dialog = gtk_file_chooser_dialog_new (_("Open Image"),
+                           GTK_WINDOW(window),
+@@ -1302,10 +1340,14 @@ vnr_window_cmd_open(GtkAction *action, VnrWindow *window)
+ 
+     gtk_file_chooser_set_filter (GTK_FILE_CHOOSER(dialog), img_filter);
+ 
+-    gchar *dirname;
++    preview = gtk_image_new();
++    gtk_file_chooser_set_preview_widget(GTK_FILE_CHOOSER(dialog), preview);
++    g_signal_connect(GTK_FILE_CHOOSER(dialog), "update-preview",
++                     G_CALLBACK(update_preview_cb), preview);
++
+     if(window->file_list != NULL)
+     {
+-        dirname = g_path_get_dirname (VNR_FILE(window->file_list->data)->path);
++        gchar *dirname = g_path_get_dirname (VNR_FILE(window->file_list->data)->path);
+         gtk_file_chooser_set_current_folder (GTK_FILE_CHOOSER(dialog), dirname);
+         g_free(dirname);
+     }
+@@ -1334,10 +1376,9 @@ vnr_window_cmd_open_dir(GtkAction *action, VnrWindow *window)
+     gtk_window_set_modal (GTK_WINDOW(dialog), FALSE);
+     gtk_file_chooser_set_select_multiple(GTK_FILE_CHOOSER(dialog), TRUE);
+ 
+-    gchar *dirname;
+     if(window->file_list != NULL)
+     {
+-        dirname = g_path_get_dirname (VNR_FILE(window->file_list->data)->path);
++        gchar *dirname = g_path_get_dirname (VNR_FILE(window->file_list->data)->path);
+         gtk_file_chooser_set_current_folder (GTK_FILE_CHOOSER(dialog), dirname);
+         g_free(dirname);
+     }
+@@ -1538,11 +1579,11 @@ vnr_window_cmd_scrollbar (GtkAction *action, VnrWindow *window)
+ static void
+ vnr_window_cmd_slideshow (GtkAction *action, VnrWindow *window)
+ {
++    g_assert(window != NULL && VNR_IS_WINDOW(window));
++
+     if(!window->slideshow)
+         return;
+ 
+-    g_assert(window != NULL && VNR_IS_WINDOW(window));
+-
+     gboolean slideshow;
+ 
+     slideshow = gtk_toggle_action_get_active (GTK_TOGGLE_ACTION (action));
+@@ -2306,6 +2347,9 @@ vnr_window_init (VnrWindow * window)
+ 
+     gtk_widget_grab_focus(window->view);
+ 
++    // Initialize slideshow timeout
++    window->ss_timeout = window->prefs->slideshow_timeout;
++
+     /* Care for Properties dialog */
+     window->props_dlg = vnr_properties_dialog_new(window,
+                              gtk_action_group_get_action (window->actions_collection,

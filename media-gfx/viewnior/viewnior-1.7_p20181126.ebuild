@@ -1,15 +1,15 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
-inherit autotools gnome2-utils meson xdg-utils
+inherit meson xdg-utils
 
 MY_PN="Viewnior"
 
 DESCRIPTION="Fast and simple image viewer"
 HOMEPAGE="http://siyanpanayotov.com/project/viewnior/"
-SRC_URI="https://github.com/hellosiyan/${MY_PN}/archive/${P}.tar.gz"
+SRC_URI="https://github.com/hellosiyan/${MY_PN}/archive/${P%_p*}.tar.gz"
 
 LICENSE="GPL-3+"
 SLOT="0"
@@ -24,16 +24,17 @@ COMMON_DEPEND=">=dev-libs/glib-2.32:2
 DEPEND=${COMMON_DEPEND}
 RDEPEND=${COMMON_DEPEND}
 
-S="${WORKDIR}/${MY_PN}-${P}"
+S="${WORKDIR}/${MY_PN}-${P%_p*}"
 
+PATCHES=( "${FILESDIR}/${P}.patch" )
 DOCS=( AUTHORS NEWS README.md TODO )
 
 pkg_postinst() {
 	xdg_desktop_database_update
-	gnome2_icon_cache_update
+	xdg_icon_cache_update
 }
 
 pkg_postrm() {
 	xdg_desktop_database_update
-	gnome2_icon_cache_update
+	xdg_icon_cache_update
 }

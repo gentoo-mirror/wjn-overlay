@@ -1,0 +1,10 @@
+# ChangeLog for app-eselect/eselect-renpy
+# Copyright 1999-2019 Gentoo Authors; Distributed under the GPL v2
+# (auto-generated from git log)
+
+*eselect-renpy-0.8 (10 Apr 2019)
+
+  10 Apr 2019; wjn <wjn@aol.jp> +eselect-renpy-0.8.ebuild,
+  +files/renpy.eselect-0.8, +metadata.xml:
+  Add newly for game-engines/renpy-7.2.2, version 0.8
+

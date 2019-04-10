@@ -3,7 +3,10 @@
 
 EAPI=7
 
+# Supporting Python 3 is still in progress
+# PYTHON_COMPAT=( python{2_7,3_{5,6,7}} )
 PYTHON_COMPAT=( python2_7 )
+
 DISTUTILS_IN_SOURCE_BUILD=1
 
 inherit desktop distutils-r1 toolchain-funcs xdg-utils
@@ -19,8 +22,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="development doc examples"
 REQUIRED_USE="examples? ( development )"
 
-COMMON_DEPEND=">=app-eselect/eselect-renpy-0.7
-	dev-libs/fribidi
+COMMON_DEPEND=">=app-eselect/eselect-renpy-0.8
 	~dev-python/pygame_sdl2-${PV}[${PYTHON_USEDEP}]
 	>=dev-lang/python-exec-0.3[${PYTHON_USEDEP}]
 	media-libs/glew:0
@@ -35,18 +37,19 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND=${COMMON_DEPEND}
 
 S=${WORKDIR}/${P}-source
+RESTRICT="mirror"
 
-PATCHES=( "${FILESDIR}"/${P}-multiple-abi.patch
-	"${FILESDIR}"/${P}-compat-style.patch
-	"${FILESDIR}"/${P}-compat-infinite-loop.patch
-	"${FILESDIR}"/${P}-not-choose-new-tutorial.patch )
+PATCHES=( "${FILESDIR}"/${PN}-6.99.14.3-multiple-abi.patch
+	"${FILESDIR}"/${PN}-6.99.14.3-compat-style.patch
+	"${FILESDIR}"/${PN}-6.99.14.3-compat-infinite-loop.patch
+	"${FILESDIR}"/${PN}-6.99.14.3-not-choose-new-tutorial.patch )
 
 pkg_setup() {
 	export EPYTHON="python2.7"
 }
 
 python_prepare_all() {
-	export CFLAGS="${CFLAGS} $($(tc-getPKG_CONFIG) --cflags fribidi)"
+#	export CFLAGS="${CFLAGS} $($(tc-getPKG_CONFIG) --cflags fribidi)"
 	distutils-r1_python_prepare_all
 
 	einfo "Deleting precompiled python files"
@@ -75,10 +78,10 @@ python_install() {
 	python_moduleinto renpy${MYSLOT}
 	python_domodule gui renpy
 	if use development ; then
-		python_domodule atom launcher templates
+		python_domodule atom launcher
 	fi
 	if use examples ; then
-		python_domodule the_question oldtutorial tutorial
+		python_domodule the_question tutorial
 	fi
 }
 
