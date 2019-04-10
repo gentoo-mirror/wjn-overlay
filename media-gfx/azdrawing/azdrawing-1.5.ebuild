@@ -1,9 +1,9 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=7
 
-inherit eutils gnome2-utils
+inherit xdg-utils
 
 OSDN_DIR="63500"
 
@@ -26,29 +26,24 @@ COMMON_DEPEND="media-libs/fontconfig
 DEPEND=${COMMON_DEPEND}
 RDEPEND=${COMMON_DEPEND}
 
-RESTRICT="mirror"
+RESTRICT="mirror strip"
 
-src_prepare() {
-	epatch "${FILESDIR}/${PN}-makefile.patch"
-}
+DOCS=( NEWS README manual )
+PATCHES=( "${FILESDIR}/${PN}-makefile.patch" )
 
 src_compile() {
-	emake datadir="/usr/share/${PN}"
+	emake prefix="${EPREFIX}/usr"
 }
 
 src_install() {
-	einstall datadir="${ED}/usr/share/${PN}"
-	dodoc -r NEWS README manual
-}
-
-pkg_preinst() {
-	gnome2_icon_savelist
+	emake prefix="${ED}/usr" install
+	einstalldocs
 }
 
 pkg_postinst() {
-	gnome2_icon_cache_update
+	xdg_icon_cache_update
 }
 
 pkg_postrm() {
-	gnome2_icon_cache_update
+	xdg_icon_cache_update
 }
