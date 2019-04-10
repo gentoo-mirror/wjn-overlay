@@ -1,11 +1,11 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=7
 
-PYTHON_COMPAT=( python3_{4,5,6} )
+PYTHON_COMPAT=( python3_{5,6,7} )
 
-inherit eutils multilib python-r1
+inherit multilib python-r1
 
 MY_PN="gedit-markdown"
 
@@ -32,9 +32,11 @@ S="${WORKDIR}/${MY_PN}-master"
 RESTRICT="mirror"
 
 src_prepare() {
-	# This patch is originally written by Niels Mueller.
+	# This patch is originally written by Niels Mueller
 	# https://github.com/jpfleury/gedit-markdown/compare/master...nielsmde:master
-	epatch "${FILESDIR}/${P}-gedit-3.12.patch"
+	eapply "${FILESDIR}/${P}-gedit-3.12.patch"
+
+	eapply_user
 
 	if use webkit ; then
 		sed -e 's_#!/usr/bin/python_#!/usr/bin/python3_' \
@@ -43,7 +45,7 @@ src_prepare() {
 }
 
 src_compile() {
-	# Due to install raw files, emake must be avoided.
+	# Due to install raw files, emake must be avoided
 	:
 }
 
