@@ -8,7 +8,7 @@ EGO_PN=github.com/browserpass/browserpass-native
 if [[ ${PV} == 9999 ]]; then
 	inherit golang-vcs
 else
-	# KEYWORDS="~amd64"
+	KEYWORDS="~amd64"
 	SRC_URI="https://${EGO_PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 	inherit golang-vcs-snapshot
 fi
