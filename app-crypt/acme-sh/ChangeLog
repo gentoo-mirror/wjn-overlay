@@ -2,6 +2,16 @@
 # Copyright 1999-2019 Gentoo Authors; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  04 May 2019; wjn <wjn@aol.jp> -acme-sh-2.7.9.ebuild:
+  Delete version 2.7.9
+
+*acme-sh-2.8.1 (04 May 2019)
+
+  04 May 2019; wjn <wjn@aol.jp> +acme-sh-2.8.1.ebuild:
+  Add version 2.8.1
+
+   Upstream: https://github.com/Neilpang/acme.sh/releases/tag/2.8.1
+
 *acme-sh-2.8.0 (18 Feb 2019)
 
   18 Feb 2019; wjn <wjn@aol.jp> +acme-sh-2.8.0.ebuild:

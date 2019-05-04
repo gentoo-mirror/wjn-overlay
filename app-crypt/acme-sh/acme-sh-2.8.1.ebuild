@@ -29,6 +29,7 @@ RDEPEND="app-shells/bash
 	idn? ( net-dns/libidn )"
 
 S="${WORKDIR}/${MY_P}"
+RESTRICT="mirror"
 
 src_prepare() {
 	# POSIX compatible shell is needed, C shells will fail
