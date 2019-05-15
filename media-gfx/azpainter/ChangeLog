@@ -2,6 +2,10 @@
 # Copyright 1999-2019 Gentoo Authors; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  15 May 2019; wjn <wjn@aol.jp> -azpainter-2.1.2.ebuild,
+  -azpainter-2.1.3.ebuild:
+  Delete old version 2.1.2 and 2.1.3
+
 *azpainter-2.1.4 (15 May 2019)
 
   15 May 2019; wjn <wjn@aol.jp> +azpainter-2.1.4.ebuild:
