@@ -1,17 +1,17 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
-inherit gnome2-utils xdg-utils
+inherit xdg-utils
 
-OSDN_DIR="69408"
+OSDN_DIR="71051"
 
 DESCRIPTION="A full-color painting software"
 HOMEPAGE="http://azsky2.html.xdomain.jp/linux/azpainter/"
 SRC_URI="mirror://osdn/${PN}/${OSDN_DIR}/${P}.tar.xz"
 
-LICENSE="GPL-3 BSD"
+LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS=""
 
@@ -36,13 +36,13 @@ src_prepare() {
 }
 
 pkg_postinst() {
-	gnome2_icon_cache_update
+	xdg_icon_cache_update
 	xdg_desktop_database_update
 	xdg_mimeinfo_database_update
 }
 
 pkg_postrm() {
-	gnome2_icon_cache_update
+	xdg_icon_cache_update
 	xdg_desktop_database_update
 	xdg_mimeinfo_database_update
 }
