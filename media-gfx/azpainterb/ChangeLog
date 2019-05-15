@@ -2,6 +2,9 @@
 # Copyright 1999-2019 Gentoo Authors; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  15 May 2019; wjn <wjn@aol.jp> -azpainterb-1.1.0.ebuild:
+  Delete old version 1.1.0
+
 *azpainterb-1.1.1 (15 May 2019)
 
   15 May 2019; wjn <wjn@aol.jp> +azpainterb-1.1.1.ebuild:
