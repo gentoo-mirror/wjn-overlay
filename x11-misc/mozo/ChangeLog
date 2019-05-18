@@ -3,6 +3,9 @@
 # (auto-generated from git log)
 
   18 May 2019; wjn <wjn@aol.jp> mozo-9999.ebuild:
+  Support >=sys-devel/gettext-0.20
+
+  18 May 2019; wjn <wjn@aol.jp> mozo-9999.ebuild:
   Support Python 3.7
 
   02 Jan 2019; wjn <wjn@aol.jp> mozo-9999.ebuild:
