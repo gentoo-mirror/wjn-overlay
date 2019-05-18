@@ -2,6 +2,9 @@
 # Copyright 1999-2019 Gentoo Authors; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  18 May 2019; wjn <wjn@aol.jp> mozo-9999.ebuild:
+  Support Python 3.7
+
   02 Jan 2019; wjn <wjn@aol.jp> mozo-9999.ebuild:
   Update the year of copyright notices to 2019
 

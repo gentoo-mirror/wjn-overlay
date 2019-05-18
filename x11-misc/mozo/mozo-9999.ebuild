@@ -5,7 +5,7 @@ EAPI=6
 
 GNOME2_LA_PUNT="yes"
 
-PYTHON_COMPAT=( python3_{5,6} )
+PYTHON_COMPAT=( python3_{5,6,7} )
 PYTHON_REQ_USE="xml"
 
 inherit autotools git-r3 gnome2 python-r1
@@ -41,8 +41,8 @@ src_unpack() {
 }
 
 src_prepare() {
-	# Support build target to Python 3.6
-	sed -i -e '/AM_PATH_PYTHON/s/(3.5)/(3.5, 3.6)/' configure.ac || die
+	# Support build target to Python 3.{6,7}
+	sed -i -e '/AM_PATH_PYTHON/s/(3.5)/(3.5, 3.6, 3.7)/' configure.ac || die
 
 	eapply_user
 	eautoreconf
