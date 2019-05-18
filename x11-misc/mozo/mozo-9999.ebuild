@@ -5,7 +5,7 @@ EAPI=6
 
 GNOME2_LA_PUNT="yes"
 
-PYTHON_COMPAT=( python3_{5,6} )
+PYTHON_COMPAT=( python3_{5,6,7} )
 PYTHON_REQ_USE="xml"
 
 inherit autotools git-r3 gnome2 python-r1
@@ -25,7 +25,7 @@ COMMON_DEPEND="dev-python/pygobject:3[${PYTHON_USEDEP}]
 DEPEND="${COMMON_DEPEND}
 	>=dev-util/intltool-0.40:0
 	sys-apps/sed:0
-	sys-devel/gettext:0
+	>=sys-devel/gettext-0.19.8:0
 	virtual/pkgconfig:0"
 RDEPEND="${COMMON_DEPEND}
 	${PYTHON_DEPS}
@@ -41,8 +41,11 @@ src_unpack() {
 }
 
 src_prepare() {
-	# Support build target to Python 3.6
-	sed -i -e '/AM_PATH_PYTHON/s/(3.5)/(3.5, 3.6)/' configure.ac || die
+	# Support build target to Python 3.{6,7}
+	sed -i -e '/AM_PATH_PYTHON/s/(3.5)/(3.5, 3.6, 3.7)/' configure.ac || die
+
+	has_version ">=sys-devel/gettext-0.20" \
+		&& sed -i -e '/AM_GNU_GETTEXT_VERSION/s/19\.8/20/' configure.ac
 
 	eapply_user
 	eautoreconf
