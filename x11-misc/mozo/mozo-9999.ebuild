@@ -1,14 +1,14 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 GNOME2_LA_PUNT="yes"
 
 PYTHON_COMPAT=( python3_{5,6,7} )
 PYTHON_REQ_USE="xml"
 
-inherit autotools git-r3 gnome2 python-r1
+inherit git-r3 meson multibuild python-r1
 
 DESCRIPTION="Menu editor for MATE desktop using freedesktop.org menu spec"
 HOMEPAGE="http://mate-desktop.org/
@@ -22,10 +22,10 @@ KEYWORDS=""
 
 COMMON_DEPEND="dev-python/pygobject:3[${PYTHON_USEDEP}]
 	>=mate-base/mate-menus-1.21.0:0[introspection,python(+)]"
-DEPEND="${COMMON_DEPEND}
+BDEPEND="${COMMON_DEPEND}
 	>=dev-util/intltool-0.40:0
 	sys-apps/sed:0
-	>=sys-devel/gettext-0.19.8:0
+	sys-devel/gettext:0
 	virtual/pkgconfig:0"
 RDEPEND="${COMMON_DEPEND}
 	${PYTHON_DEPS}
@@ -44,36 +44,31 @@ src_prepare() {
 	# Support build target to Python 3.{6,7}
 	sed -i -e '/AM_PATH_PYTHON/s/(3.5)/(3.5, 3.6, 3.7)/' configure.ac || die
 
-	has_version ">=sys-devel/gettext-0.20" \
-		&& sed -i -e '/AM_GNU_GETTEXT_VERSION/s/19\.8/20/' configure.ac
+	# Fix python path to global one
+	sed -i -e "s:py3.path():'/usr/bin/python':g" meson.build || die
 
 	eapply_user
-	eautoreconf
-	gnome2_src_prepare
 	python_copy_sources
+
+	# Delete duplicated files for meson_src_configure
+	python_foreach_impl run_in_build_dir rm meson.build
 }
 
 src_configure() {
-	python_foreach_impl run_in_build_dir gnome2_src_configure \
-		--disable-icon-update
+	python_foreach_impl run_in_build_dir meson_src_configure
 }
 
 src_compile() {
-	python_foreach_impl run_in_build_dir gnome2_src_compile
+	python_foreach_impl run_in_build_dir meson_src_compile
 }
 
 src_test() {
-	python_foreach_impl run_in_build_dir emake check
+	python_foreach_impl run_in_build_dir meson_src_test
 }
 
 src_install() {
 	installing() {
-		gnome2_src_install
-
-		# Massage shebang to make python_doscript happy
-		sed -e 's:#! '"${PYTHON}:#!/usr/bin/python:" \
-			-i mozo || die
-
+		meson_src_install
 		python_doscript mozo
 	}
 
