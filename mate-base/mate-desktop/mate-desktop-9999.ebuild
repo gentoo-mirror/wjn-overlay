@@ -30,7 +30,6 @@ COMMON_DEPEND=">=dev-libs/glib-2.50:2
 	startup-notification? ( >=x11-libs/startup-notification-0.5:0 )"
 DEPEND="${COMMON_DEPEND}
 	app-text/docbook-xml-dtd:4.1.2
-	>=dev-util/intltool-0.50.1:0
 	>=gnome-base/dconf-0.10:0
 	sys-devel/gettext:0
 	virtual/pkgconfig:0
