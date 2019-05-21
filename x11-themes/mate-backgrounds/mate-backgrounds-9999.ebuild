@@ -3,7 +3,7 @@
 
 EAPI=6
 
-inherit autotools git-r3 gnome2
+inherit autotools git-r3 meson
 
 DESCRIPTION="A set of backgrounds packaged with MATE desktop"
 HOMEPAGE="http://mate-desktop.org/
@@ -28,5 +28,4 @@ src_unpack() {
 src_prepare() {
 	eapply_user
 	eautoreconf
-	gnome2_src_prepare
 }
