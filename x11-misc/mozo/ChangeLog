@@ -3,6 +3,11 @@
 # (auto-generated from git log)
 
   21 May 2019; wjn <wjn@aol.jp> mozo-9999.ebuild:
+  Inherit multibuild.eclass explicitly
+
+   This package is using run_in_build_dir of multibuild.eclass
+
+  21 May 2019; wjn <wjn@aol.jp> mozo-9999.ebuild:
   Remove now needless patching for gettext
 
     Now using meson,

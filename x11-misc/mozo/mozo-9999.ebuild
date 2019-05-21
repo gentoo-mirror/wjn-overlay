@@ -8,7 +8,7 @@ GNOME2_LA_PUNT="yes"
 PYTHON_COMPAT=( python3_{5,6,7} )
 PYTHON_REQ_USE="xml"
 
-inherit git-r3 meson python-r1
+inherit git-r3 meson multibuild python-r1
 
 DESCRIPTION="Menu editor for MATE desktop using freedesktop.org menu spec"
 HOMEPAGE="http://mate-desktop.org/
