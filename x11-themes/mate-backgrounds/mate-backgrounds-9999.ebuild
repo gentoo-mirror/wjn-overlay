@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit autotools git-r3 meson
+inherit git-r3 meson
 
 DESCRIPTION="A set of backgrounds packaged with MATE desktop"
 HOMEPAGE="http://mate-desktop.org/
@@ -23,9 +23,4 @@ DOCS=( AUTHORS ChangeLog NEWS README )
 
 src_unpack() {
 	git-r3_src_unpack
-}
-
-src_prepare() {
-	eapply_user
-	eautoreconf
 }
