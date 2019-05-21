@@ -1,9 +1,9 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
-inherit autotools git-r3 gnome2
+inherit autotools git-r3 meson
 
 DESCRIPTION="A set of backgrounds packaged with MATE desktop"
 HOMEPAGE="http://mate-desktop.org/
@@ -15,7 +15,7 @@ LICENSE="CC-BY-SA-4.0 GPL-2+"
 SLOT="0"
 KEYWORDS=""
 
-DEPEND=">=dev-util/intltool-0.35.0:0
+BDEPEND=">=dev-util/intltool-0.35.0:0
 	sys-devel/gettext:0"
 RDEPEND=""
 
@@ -28,5 +28,4 @@ src_unpack() {
 src_prepare() {
 	eapply_user
 	eautoreconf
-	gnome2_src_prepare
 }
