@@ -3,6 +3,11 @@
 # (auto-generated from git log)
 
   21 May 2019; wjn <wjn@aol.jp> mozo-9999.ebuild:
+  Remove dev-util/intltool dependency from ${BDEPEND}
+
+   Upstream: https://github.com/mate-desktop/mozo/commit/b5dfa41
+
+  21 May 2019; wjn <wjn@aol.jp> mozo-9999.ebuild:
   Update to EAPI=7
 
   21 May 2019; wjn <wjn@aol.jp> mozo-9999.ebuild:
