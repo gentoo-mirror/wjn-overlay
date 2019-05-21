@@ -3,6 +3,12 @@
 # (auto-generated from git log)
 
   21 May 2019; wjn <wjn@aol.jp> mozo-9999.ebuild:
+  Remove now needless patching for gettext
+
+    Now using meson,
+   revert 7ca14e795aaf644803fcaf41a28ed5c0957c0a74
+
+  21 May 2019; wjn <wjn@aol.jp> mozo-9999.ebuild:
   Use meson to build
 
    Upstream: https://github.com/mate-desktop/mozo/commit/d98d60a

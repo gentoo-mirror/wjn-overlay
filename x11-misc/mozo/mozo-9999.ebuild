@@ -25,7 +25,7 @@ COMMON_DEPEND="dev-python/pygobject:3[${PYTHON_USEDEP}]
 DEPEND="${COMMON_DEPEND}
 	>=dev-util/intltool-0.40:0
 	sys-apps/sed:0
-	>=sys-devel/gettext-0.19.8:0
+	sys-devel/gettext:0
 	virtual/pkgconfig:0"
 RDEPEND="${COMMON_DEPEND}
 	${PYTHON_DEPS}
@@ -43,9 +43,6 @@ src_unpack() {
 src_prepare() {
 	# Support build target to Python 3.{6,7}
 	sed -i -e '/AM_PATH_PYTHON/s/(3.5)/(3.5, 3.6, 3.7)/' configure.ac || die
-
-	has_version ">=sys-devel/gettext-0.20" \
-		&& sed -i -e '/AM_GNU_GETTEXT_VERSION/s/19\.8/20/' configure.ac
 
 	# Fix python path to global one
 	sed -i -e "s:py3.path():'/usr/bin/python':g" meson.build || die
