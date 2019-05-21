@@ -3,6 +3,9 @@
 # (auto-generated from git log)
 
   21 May 2019; wjn <wjn@aol.jp> mate-backgrounds-9999.ebuild:
+  Update to EAPI=7
+
+  21 May 2019; wjn <wjn@aol.jp> mate-backgrounds-9999.ebuild:
   Use meson to build
 
   02 Jan 2019; wjn <wjn@aol.jp> mate-backgrounds-9999.ebuild:
