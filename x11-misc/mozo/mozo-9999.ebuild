@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 GNOME2_LA_PUNT="yes"
 
@@ -22,7 +22,7 @@ KEYWORDS=""
 
 COMMON_DEPEND="dev-python/pygobject:3[${PYTHON_USEDEP}]
 	>=mate-base/mate-menus-1.21.0:0[introspection,python(+)]"
-DEPEND="${COMMON_DEPEND}
+BDEPEND="${COMMON_DEPEND}
 	>=dev-util/intltool-0.40:0
 	sys-apps/sed:0
 	sys-devel/gettext:0
