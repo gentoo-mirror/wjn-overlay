@@ -2,6 +2,11 @@
 # Copyright 1999-2019 Gentoo Authors; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  21 May 2019; wjn <wjn@aol.jp> mozo-9999.ebuild:
+  Use meson to build
+
+   Upstream: https://github.com/mate-desktop/mozo/commit/d98d60a
+
   18 May 2019; wjn <wjn@aol.jp> mozo-9999.ebuild:
   Support >=sys-devel/gettext-0.20
 
