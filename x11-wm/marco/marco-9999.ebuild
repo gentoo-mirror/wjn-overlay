@@ -43,7 +43,6 @@ COMMON_DEPEND="dev-libs/atk:0
 	xinerama? ( x11-libs/libXinerama:0 )"
 DEPEND="${COMMON_DEPEND}
 	app-text/yelp-tools:0
-	>=dev-util/intltool-0.34.90:0
 	sys-devel/gettext:0
 	virtual/pkgconfig:0
 	x11-base/xorg-proto
