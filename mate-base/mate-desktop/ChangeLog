@@ -2,6 +2,11 @@
 # Copyright 1999-2019 Gentoo Authors; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  22 May 2019; wjn <wjn@aol.jp> mate-desktop-9999.ebuild:
+  Use meson to build
+
+   Upstream: https://github.com/mate-desktop/mate-desktop/commit/a301856
+
   21 May 2019; wjn <wjn@aol.jp> mate-desktop-9999.ebuild:
   Remove dev-util/intltool dependency from ${BDEPEND}
 

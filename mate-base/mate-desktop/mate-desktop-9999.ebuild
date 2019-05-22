@@ -5,7 +5,7 @@ EAPI=6
 
 GNOME2_LA_PUNT="yes"
 
-inherit autotools git-r3 gnome2
+inherit git-r3 meson
 
 DESCRIPTION="Library with common API for various MATE modules"
 HOMEPAGE="http://mate-desktop.org/
@@ -16,7 +16,7 @@ EGIT_REPO_URI="https://github.com/mate-desktop/${PN}.git"
 LICENSE="GPL-2 FDL-1.1 LGPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="X debug doc introspection startup-notification"
+IUSE="debug doc introspection startup-notification"
 
 COMMON_DEPEND=">=dev-libs/glib-2.50:2
 	>=gnome-base/dconf-0.13.4:0
@@ -43,17 +43,13 @@ src_unpack() {
 	git-r3_src_unpack
 }
 
-src_prepare() {
-	eapply_user
-	eautoreconf
-	gnome2_src_prepare
-}
-
 src_configure() {
-	gnome2_src_configure \
-		--enable-mate-about \
-		$(use_with X x) \
-		$(use_enable doc gtk-doc) \
-		$(use_enable introspection) \
-		$(use_enable startup-notification)
+	local emesonargs=(
+		-Dmate-about=true
+		-Dpnp-ids-path=internal
+		$(meson_use doc gtk-doc)
+		$(meson_use introspection)
+		$(meson_use startup-notification)
+	)
+	meson_src_configure
 }
