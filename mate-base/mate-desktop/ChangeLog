@@ -3,6 +3,9 @@
 # (auto-generated from git log)
 
   22 May 2019; wjn <wjn@aol.jp> mate-desktop-9999.ebuild:
+  Add app-text/iso-codes to dependencies
+
+  22 May 2019; wjn <wjn@aol.jp> mate-desktop-9999.ebuild:
   Use meson to build
 
    Upstream: https://github.com/mate-desktop/mate-desktop/commit/a301856
