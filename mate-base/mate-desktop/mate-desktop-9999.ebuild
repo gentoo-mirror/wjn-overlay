@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 GNOME2_LA_PUNT="yes"
 
@@ -29,14 +29,13 @@ COMMON_DEPEND="app-text/iso-codes
 	virtual/libintl:0
 	introspection? ( >=dev-libs/gobject-introspection-0.9.7:0 )
 	startup-notification? ( >=x11-libs/startup-notification-0.5:0 )"
-DEPEND="${COMMON_DEPEND}
+BDEPEND="${COMMON_DEPEND}
 	app-text/docbook-xml-dtd:4.1.2
-	>=gnome-base/dconf-0.10:0
 	sys-devel/gettext:0
 	virtual/pkgconfig:0
 	x11-base/xorg-proto
 	doc? ( >=dev-util/gtk-doc-1.4:0 )"
-RDEPEND="${COMMON_DEPEND}"
+RDEPEND=${COMMON_DEPEND}
 
 DOCS=( AUTHORS ChangeLog NEWS README )
 
