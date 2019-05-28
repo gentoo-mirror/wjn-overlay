@@ -2,6 +2,12 @@
 # Copyright 1999-2019 Gentoo Authors; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  28 May 2019; wjn <wjn@aol.jp> pygame_sdl2-6.99.14.3.ebuild,
+  pygame_sdl2-7.2.2.ebuild:
+  Replace slotting 62 of virtual/jpeg dep with 0
+
+   virtual/jpeg:62 is removed from getoo repository
+
 *pygame_sdl2-7.2.2 (10 Apr 2019)
 
   10 Apr 2019; wjn <wjn@aol.jp> +pygame_sdl2-7.2.2.ebuild:

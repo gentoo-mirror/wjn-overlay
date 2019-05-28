@@ -23,7 +23,7 @@ COMMON_DEPEND="dev-python/numpy[${PYTHON_USEDEP}]
 	media-libs/sdl2-image[jpeg,png,webp]
 	media-libs/sdl2-mixer[flac,mp3,vorbis]
 	media-libs/sdl2-ttf
-	virtual/jpeg:62"
+	virtual/jpeg:0"
 DEPEND="${COMMON_DEPEND}
 	dev-python/cython[${PYTHON_USEDEP}]"
 RDEPEND=${COMMON_DEPEND}
