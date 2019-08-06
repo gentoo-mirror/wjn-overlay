@@ -1,11 +1,9 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
-GNOME2_LA_PUNT="yes"
-
-inherit autotools git-r3 gnome2
+inherit git-r3 meson
 
 DESCRIPTION="Default window manager of MATE desktop"
 HOMEPAGE="http://mate-desktop.org/
@@ -55,19 +53,15 @@ src_unpack() {
 	git-r3_src_unpack
 }
 
-src_prepare() {
-	eapply_user
-	eautoreconf
-	gnome2_src_prepare
-}
 
 src_configure() {
-	gnome2_src_configure \
-		--enable-compositor \
-		--enable-render \
-		--enable-shape \
-		--enable-sm \
-		--enable-xsync \
-		$(use_enable startup-notification) \
-		$(use_enable xinerama)
+	local emesonargs=(
+		-Ddisable-compositor=false
+		-Ddisable-render=false
+		-Ddisable-sm=false
+		-Ddisable-xsync=false
+		-Ddisable-startup-notification=$(usex startup-notification false true)
+		-D disable-xinerama=$(usex xinerama false true)
+	)
+	meson_src_configure
 }
