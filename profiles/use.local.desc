@@ -2,3 +2,147 @@
 # Please add your descriptions to your package's metadata.xml ONLY.
 # * generated automatically using pmaint *
 
+app-arch/engrampa:caja - Enable engrampa to integrate with mate-base/caja by providing entries in its context menu
+app-editors/pluma:spell - Enable spell checker with app-text/enchant
+app-i18n/mozc:clang - Use sys-devel/clang to compile
+app-i18n/mozc:emacs - Enable support for virtual/emacs
+app-i18n/mozc:fcitx - Enable support for app-i18n/fcitx
+app-i18n/mozc:ibus - Enable support for app-i18n/ibus
+app-i18n/mozc:qt4 - Build with dev-qt/qtgui:4
+app-i18n/mozc:qt5 - Build with dev-qt/qtgui:5
+app-i18n/mozc:renderer - Enable native candidate window
+app-i18n/mozc:tomoe - Use app-i18n/zinnia-tomoe instead of app-i18n/tegaki-zinnia-japanese for handwriting recognition
+app-i18n/mozc:uim - Enable support for app-i18n/uim
+app-i18n/mozc-ut2:ejdic - Add English-Japanese dictionary
+app-i18n/mozc-ut2:emacs - Enable support for virtual/emacs
+app-i18n/mozc-ut2:fcitx - Enable support for app-i18n/fcitx
+app-i18n/mozc-ut2:ibus - Enable support for app-i18n/ibus
+app-i18n/mozc-ut2:nicodic - Add "Nico Nico Pedia" dictionary (NICODIC)
+app-i18n/mozc-ut2:qt5 - Build mozc_tool, depends on dev-qt/qtgui:5
+app-i18n/mozc-ut2:renderer - Enable native candidate window
+app-i18n/mozc-ut2:tomoe - Use app-i18n/zinnia-tomoe instead of app-i18n/tegaki-zinnia-japanese for handwriting recognition
+app-i18n/mozc-ut2:uim - Enable support for app-i18n/uim
+app-i18n/uim:anthy - Enable support for app-i18n/anthy
+app-i18n/uim:canna - Enable support for app-i18n/canna
+app-i18n/uim:curl - Enable support for app-i18n/curl
+app-i18n/uim:eb - Enable support for dev-libs/eb
+app-i18n/uim:emacs - Enable support for virtual/emacs
+app-i18n/uim:expat - Enable support for dev-libs/expat
+app-i18n/uim:gtk - Enable support for x11-libs/gtk+:2
+app-i18n/uim:gtk3 - Enable support for x11-libs/gtk+:3
+app-i18n/uim:kde - Enable support for kde-base/kdelibs
+app-i18n/uim:qt3support - Enable support for dev-qt/qtgui:4[qt3support]
+app-i18n/uim:skk - Enable support for app-i18n/skk-jisyo
+app-text/atril:caja - Enable property page extension in mate-base/caja
+app-text/atril:dvi - Enable build-in DVI viewer
+app-text/atril:epub - Enable EPUB viewer depending on dev-libs/mathjax
+app-text/atril:ps - Enable build-in postscript viewer
+app-text/atril:t1lib - Enable the Type-1 fonts for the build-in DVI viewer (media-libs/t1lib)
+app-text/atril:xps - Enable XPS viewer using app-text/libxps
+app-text/markdown-gtksourceview:gedit - Install plugins for app-editors/gedit
+app-text/markdown-gtksourceview:pluma - Install plugins for app-editors/pluma
+app-text/markdown-gtksourceview:webkit - Install preview plugin powered by net-libs/webkit-gtk
+mate-base/mate:base - Install base MATE Desktop applications that are recommended for the most common usage; for example, this installs the file manager. Disable this and other USE flags if you want a more minimal MATE Desktop
+mate-base/mate:extras - Install additional MATE Desktop applications that are recommended for extended usage of the MATE Desktop as upstream sees it; for example, this installs MATE Desktop's office related applications. Disable this if you plan to use your own non-MATE Desktop alternatives or a custom mixture of MATE and non-MATE packages
+mate-base/mate:netbook - Install mate-extra/mate-netbook
+mate-base/mate:themes - Install MATE Desktop's themes; if you use other themes, you can disable this to spare some space and time
+mate-base/mate:user-guide - Install mate-extra/mate-user-guide
+mate-base/mate-applets:cpufreq - Install CPU frequency monitor applet based on sys-power/cpupower
+mate-base/mate-applets:gucharmap - Install character applet based on gnome-extra/gucharmap
+mate-base/mate-applets:weather - Install dev-libs/libmateweather to enable MATE weather applet
+mate-base/mate-applets-meta:appindicator - Pull in mate-extra/mate-indicator-applet for AppIndicator applet
+mate-base/mate-applets-meta:sensors - Pull in mate-extra/mate-sensors-applet for hw sensors applet
+mate-base/mate-control-center:appindicator - Support dev-libs/libappindicator
+mate-extra/caja-extensions:cdr - Add extension to support sendto by burning media
+mate-extra/caja-extensions:debug - Enable gconf debug
+mate-extra/caja-extensions:drive - Add extension to support sendto disk drives
+mate-extra/caja-extensions:gajim - Add extension to support net-im/gajim
+mate-extra/caja-extensions:gksu - Add extension to open terminal as root
+mate-extra/caja-extensions:image-converter - Add image conversion utility
+mate-extra/caja-extensions:mail - Add extension to support sendto by e-mail
+mate-extra/caja-extensions:open-terminal - Add extension to open terminal
+mate-extra/caja-extensions:pidgin - Add extension to support net-im/pidgin
+mate-extra/caja-extensions:share - Add extension to share files
+mate-extra/caja-extensions:upnp - Add extension to support sendto by upnp
+mate-extra/caja-extensions:wallpaper - Add extension to set wallpapers
+mate-extra/mate-media:debug - Enable gconf debug
+mate-extra/mate-polkit:appindicator - Support dev-libs/libappindicator
+mate-extra/mate-power-manager:applet - Enable building of the MATE applet
+mate-extra/mate-power-manager:man - Build power manager's man page
+mate-extra/mate-screensaver:consolekit - Enable support for sys-auth/consolekit
+mate-extra/mate-sensors-applet:dummy - Enabling dummy plugin support for debug
+mate-extra/mate-utils:applet - Enable the mate dictionary applet
+media-fonts/genju-gothic:rounded-l - Install "Genju Gothic L" as well as "Genju Gothic"
+media-fonts/genju-gothic:rounded-x - Install "Genju Gothic X" as well as "Genju Gothic"
+media-fonts/noto-en:unhinted - Install unhinted fonts instead of hinted fonts
+media-fonts/rounded-mgenplus:rounded-l - Install "Rounded-L Mgen+" as well as "Rounded Mgen+"
+media-fonts/rounded-mgenplus:rounded-x - Install "Rounded-X Mgen+" as well as "Rounded Mgen+"
+media-fonts/rounded-mplus:rounded-l - Install "Rounded-L M+" as well as "Rounded M+"
+media-fonts/rounded-mplus:rounded-x - Install "Rounded-X M+" as well as "Rounded M+"
+media-plugins/audacious-plugins:aac - Support AAC decode
+media-plugins/audacious-plugins:alsa - Support ALSA output
+media-plugins/audacious-plugins:bs2b - Enable Bauer Bauer stereophonic-to-binaural headphone filter
+media-plugins/audacious-plugins:cdda - Support CD-DA input
+media-plugins/audacious-plugins:cue - Support CUE sheets (media-libs/libcue)
+media-plugins/audacious-plugins:ffmpeg - Support FFmpeg library virtual/ffmpeg
+media-plugins/audacious-plugins:filewriter - Enable outputing to file
+media-plugins/audacious-plugins:flac - Support FLAC decode and encode
+media-plugins/audacious-plugins:gnome - Enable GNOME shortcut
+media-plugins/audacious-plugins:gtk - Enable GTK+ User Interface (x11-libs/gtk+)
+media-plugins/audacious-plugins:gtk3 - Link against version 3 of the GIMP Toolkit (x11-libs/gtk+:3) instead of version 2
+media-plugins/audacious-plugins:http - Support neon HTTP transport
+media-plugins/audacious-plugins:jack - Support JACK Audio Connection Kit output
+media-plugins/audacious-plugins:lame - Support mp3 output to file
+media-plugins/audacious-plugins:libav - Support Libav library media-video/libav
+media-plugins/audacious-plugins:libnotify - Enable desktop notification
+media-plugins/audacious-plugins:libsamplerate - Enable libsamplerate converter (Secret Rabbit Code)
+media-plugins/audacious-plugins:lirc - Support Linux Infrared Remote Control
+media-plugins/audacious-plugins:midi - Support amidi-plug (media-sound/fluidsynth)
+media-plugins/audacious-plugins:mms - Support Microsoft Media Server media streaming protocol
+media-plugins/audacious-plugins:modplug - Support module (modplug) decode
+media-plugins/audacious-plugins:mp3 - Support MPEG 1/2 Audio decode
+media-plugins/audacious-plugins:mpris - Support for MPRIS2
+media-plugins/audacious-plugins:pulseaudio - Support PulseAudio output
+media-plugins/audacious-plugins:qt5 - Enable experimental Qt5 UI and output (dev-qt/qtgui:5, dev-qt/qtmultimedia:5)
+media-plugins/audacious-plugins:scrobbler - Enable scrobbler/LastFM submission support
+media-plugins/audacious-plugins:sdl - Support Simple Direct Media Layer
+media-plugins/audacious-plugins:sid - Support SID (Commodore 64 Audio)
+media-plugins/audacious-plugins:sndfile - Enable media-libs/libsndfile
+media-plugins/audacious-plugins:soxr - Enable SoX Resampler library
+media-plugins/audacious-plugins:spectrum - Enable OpenGL spectram analizer
+media-plugins/audacious-plugins:vorbis - Support Volbis decode
+media-plugins/audacious-plugins:wavpack - Support wavpack decode
+media-sound/audacious:gtk - Enable GTK+ User Interface (x11-libs/gtk+)
+media-sound/audacious:gtk3 - Link against version 3 of the GIMP Toolkit instead of version 2 (x11-libs/gtk+)
+media-sound/audacious:qt5 - Enable Qt5 UI and output (dev-qt/qtgui:5, dev-qt/qtmultimedia:5)
+media-sound/audacious:valgrind - Enable dev-util/valgrind analysis support
+media-sound/jack-audio-connection-kit:celt - Support CELT low delay audio codec (media-libs/celt)
+media-sound/jack-audio-connection-kit:opus - Support media-libs/opus
+media-sound/jack-audio-connection-kit:pam - Add basic realime configuration via sys-auth/realtime-base
+media-sound/yoshimi:lv2 - Add support for Ladspa V2
+sci-calculators/galculator:gtk3 - Build for gtk+:3 instead of gtk+:2
+www-apps/nikola:assets - Support web asset management through dev-python/assets
+www-apps/nikola:bbcode - Support bbcode format
+www-apps/nikola:charts - Support chart generation through dev-python/pygal
+www-apps/nikola:ghpages - Support GitHub Page
+www-apps/nikola:husl - Add support for dev-python/husl
+www-apps/nikola:hyphenation - Add hyphenation support through dev-python/pyphen
+www-apps/nikola:ipython - Add IPython notebook compilation and LESS support
+www-apps/nikola:jinja - Add support for dev-python/jinja as alternative templating engine to Mako
+www-apps/nikola:markdown - Add support for Markdown as alternative markup language to reStructuredText
+www-apps/nikola:micawber - Support dev-python/micawber
+www-apps/nikola:php - Support dev-python/phpserialize
+www-apps/nikola:typogrify - Support dev-python/typogrify
+www-apps/nikola:watchdog - Support dev-python/watchdog to monitor file system events
+www-apps/nikola:websocket - Support dev-python/ws4py
+www-apps/nikola:yaml - Support dev-python/pyyaml
+www-plugins/freshplayerplugin:gtk3 - Build with GTK+ 3 instead of GTK+ 2
+www-servers/hiawatha:cache - Enable caching of content
+www-servers/hiawatha:monitor - Pull in www-apps/hiawatha-monitor
+www-servers/hiawatha:rewrite - Enable the rewrite toolkit
+www-servers/hiawatha:rproxy - Enable reverse proxy support
+www-servers/hiawatha:ssl - Enable TLS support via net-libs/mbedtls
+www-servers/hiawatha:tomahawk - Enable Tomahawk control server
+www-servers/hiawatha:xslt - Enable XSLT support. This is also needed for directory listings
+x11-misc/screengrab:xdg - Place config files into $XDG_CONFIG_HOME
+x11-terms/mate-terminal:skey - Enable sys-auth/skey support

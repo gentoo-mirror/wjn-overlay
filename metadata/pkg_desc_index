@@ -1,2 +1,149 @@
+app-accessibility/florence 0.6.3: an extensible scalable virtual keyboard for X11
+app-accessibility/onboard 1.4.1: Onscreen keyboard for everybody who can't use a hardware keyboard
+app-admin/pass-import 0.1_p20170312 0.2_p20171001 2.3: generic importer extension for password manager ZX2C4's pass
+app-arch/engrampa 9999: Engrampa archive manager for MATE desktop
+app-crypt/acme-sh 2.8.0 2.8.1: An ACME protocol client written purely in Shell language
 app-dicts/dictd-wn 3.0_p33: WordNet for dict
+app-editors/cutemarked 0.11.2-r1 0.11.3-r1: Qt5-based Markdown editor with live HTML preview
+app-editors/mined 2015.25: Terminal-based Text Editor with extensive Unicode and CJK support
+app-editors/pluma 9999: A powerful text editor for MATE
 app-eselect/eselect-renpy 0.8: Manages renpy symlink
+app-i18n/fcitx-kkc 0.1.4 9999: Japanese libkkc module for Fcitx
+app-i18n/ibus-kkc 1.5.22 9999: Japanese Kana Kanji input engine for IBus
+app-i18n/libkkc 0.3.5 9999: Japanese Kana Kanji conversion library
+app-i18n/libkkc-data 0.2.7: Japanese Kana Kanji conversion dictionary for libkkc
+app-i18n/mozc 2.23.2815.102: Mozc - a Japanese Input Method Editor designed for multi-platform
+app-i18n/mozc-ut2 2.23.2815.102.20171008: Mozc Japanese Input Method with Additional Japanese dictionary
+app-i18n/uim 9999: Simple, secure and flexible input method library
+app-misc/grc 9999: Generic Colouriser beautifies your logfiles or output of commands
+app-text/aobook 1.0.1 1.0.2 1.0.3: Viewer for Aozora Bunko (Japanese electric library)
+app-text/asciidoc-gtksourceview 2.0.1 3.0.1: AsciiDoc bindings for gtksourceview
+app-text/atril 9999: Atril document viewer for MATE desktop
+app-text/markdown-gtksourceview 2.1.9999-r2 3.2.9999-r1: Extra support for Markdown in GtkSourceView and gedit
+dev-go/go-difflib 1.0.0: Partial port of Python difflib package to Go
+dev-go/go-spew 1.1.1: Implements a deep pretty printer for Go data structures to aid in debugging
+dev-go/go-windows-terminal-sequences 1.0.2: Enable support for Windows Terminal Colors for Go
+dev-go/lfshook 2.4: Local file system hook for golang Logrus logger
+dev-go/logrus 1.4.1: structured logger for Go, API compatible with the standard library logger
+dev-go/objx 0.1.1: Go package for dealing with maps, slices, JSON and other data
+dev-go/testify 1.3.0: Toolkit for testifying that your code will behave as you intend
+dev-libs/libmateweather 9999: MATE library to access weather information from online services
+dev-python/bbcode 1.0.25: A pure python bbcode parser and formatter
+dev-python/ghp-import2 1.0.1: Easily import docs to your gh-pages branch
+dev-python/percol 0.2.1: percol adds flavor of interactive selection to pipe
+dev-python/phpserialize 1.3: A small library for extracting rich content from urls
+dev-python/pygame_sdl2 6.99.14.3 7.2.2: Reimplementation of portions of the pygame API using SDL2
+dev-python/python-caja 9999: Python bindings for Caja file manager
+dev-python/smartypants 2.0.1: Python fork of SmartyPants, a free web publishing plug-in
+dev-python/typogrify 2.0.7: Filters to enhance web typography, often used with Jinja or Django
+games-engines/renpy 6.99.14.3 7.2.2: Visual novel engine written in python
+mate-base/caja 9999: Caja file manager for MATE desktop
+mate-base/libmatekbd 9999: MATE keyboard configuration library
+mate-base/mate 9999: Meta ebuild for MATE, a traditional desktop environment
+mate-base/mate-applets 9999: Applets for use with MATE panel
+mate-base/mate-applets-meta 9999: Meta package for MATE panel applets
+mate-base/mate-common 9999: Common files for development of MATE desktop packages
+mate-base/mate-control-center 9999: Configuration tool for MATE desktop
+mate-base/mate-desktop 9999: Library with common API for various MATE modules
+mate-base/mate-menus 9999: Library implements freedesktop.org specification to MATE desktop
+mate-base/mate-panel 9999: Panel, library and several applets for the MATE desktop
+mate-base/mate-session-manager 9999: MATE session manager
+mate-base/mate-settings-daemon 9999: Daemon which handles session settings of MATE desktop
+mate-extra/caja-dropbox 9999: Dropbox extension for Caja file manager
+mate-extra/caja-extensions 9999: Several extensions for Caja file manager
+mate-extra/mate-calc 9999: Calculator for MATE Desktop, a fork of gnome-calculator
+mate-extra/mate-indicator-applet 9999: Applet to display information from applications in MATE panel
+mate-extra/mate-media 9999: Multimedia related programs for MATE desktop
+mate-extra/mate-netbook 9999: Utilities of MATE desktop for netbooks
+mate-extra/mate-polkit 9999: Authentication agent of PolicyKit for MATE desktop
+mate-extra/mate-power-manager 9999: Session daemon for MATE desktop, acts as a policy agent of UPower
+mate-extra/mate-screensaver 9999: Screensaver and locker for MATE Desktop
+mate-extra/mate-sensors-applet 9999: MATE panel applet to display readings from hardware sensors
+mate-extra/mate-system-monitor 9999: The MATE System Monitor
+mate-extra/mate-user-guide 9999: Documents for end-users of MATE desktop
+mate-extra/mate-user-share 9999: Package for user-level file sharing in MATE desktop
+mate-extra/mate-utils 9999: Utilities for the MATE desktop
+media-fonts/aoyagikohzan 1: Japanese OpenType brush font written by AOYAGI Kohzan.
+media-fonts/aoyagisoseki 2: Japanese OpenType brush font written by AOYAGI Soseki.
+media-fonts/circle-mplus 20130617: Japanese TrueType fonts based on mplus-fonts.
+media-fonts/dejima-mincho 227: Japanese TrueType mincho font derived from Tsukiji Mincho
+media-fonts/genju-gothic 1.002.20150607: Japanese TrueType rounded fonts based on Source Hans Sans (GennoKakuGothic)
+media-fonts/genshin-gothic 1.002.20150607: Japanese TrueType font based on Source Hans Sans (GennoKakuGothic)
+media-fonts/hanazono-marugothic 20090529: HZMaruGothic is a Japanese rounded gothic font based on GlyphWiki
+media-fonts/hanazono-mincho 20141012: Hanazono font is a Japanese mincho font based on GlyphWiki
+media-fonts/hanazono-mincho-otf 0.510: HanaMinOT is a Japanese mincho OpenType font based on GryphWiki
+media-fonts/hannari-mincho 1.12: a Japanese mincho OpenType font with IPAmincho kanji chars
+media-fonts/honoka-mincho 1.00: a Japanese mincho OpenType font with IPAexmincho kanji chars
+media-fonts/k-font 20140908: 'K-Font!', Japanese TrueType font like TV anime 'K-ON!'
+media-fonts/kazesawa 0_alpha1: Kazesawa Font: M+ with Source Sans Pro
+media-fonts/kiloji 2.1.0: A Japanese hand-written TrueType font family
+media-fonts/kokoro-mincho 1.00: a Japanese mincho OpenType font with IPAmincho kanji chars
+media-fonts/koku-gothic 20140906: Japanese gothic TTF based on M+ and SourceHanSans, has smaller kana
+media-fonts/koku-mincho 20140323: Japanese mincho TTF based on IPAex, has smaller kana letter
+media-fonts/komatuna-fonts 20101113: Komatuna fonts are modified Konatu and M+ fonts for Japanese
+media-fonts/konatu 20121218: Japanese TrueType sans-serif font made for BeOS
+media-fonts/meguri-fonts 20101113a: Meguri fonts are modified IPA and M+ fonts for Japanese
+media-fonts/mgenplus 1.059.20150602: Japanese TrueType font based on Source Hans Sans and M+
+media-fonts/migu-vbd 20130617: Japanse fonts mixed mplus, IPA-font and also DejaVu, Bitter or Droid.
+media-fonts/mmcedar 20101113a: MMCedar are combined fonts that use Motoya L Cedar and M+ fonts
+media-fonts/monapo 20170722: Monapo is a combined font of ja-ipafonts (GothicP) and monafont
+media-fonts/noto-cjk-jp 20170512: a Japanese OpenType font family by Google
+media-fonts/noto-emoji 20170518 20180810: Color and Black-and-White Noto Emoji fonts by Google
+media-fonts/noto-en 20170505: Only English fonts package from Noto Fonts by Google
+media-fonts/pixel-mplus 20130602: Japanese TrueType monospace fonts looks like bitmap fonts, based on mplus-fonts.
+media-fonts/rounded-mgenplus 1.059.20150602: Japanese TrueType rounded font based on Source Hans Sans and M+
+media-fonts/rounded-mplus 1.059.20150529: Japanese TrueType rounded gothic fonts based on mplus-fonts
+media-fonts/sawarabi-fonts-otf 20150515b: Sawarabi-fonts is a Japanese OTF font family
+media-fonts/seto-font 6.20: Japanese hand-written TTF includes much more kanji chars
+media-fonts/source-han-code-jp 2.000: Derivative of Source-Han-Sans replaced Latin letters to fixed
+media-fonts/source-han-sans 1.004: an OpenType/CFF Pan-CJK fonts by Adobe and Google. SuperOTC ver.
+media-fonts/source-han-sans-jp 1.004: Subset OTF of GennoKakuGothic, a Japanese font by Adobe and Google
+media-fonts/togoshi-font 20080629: Togoshi-font is a font family based on Kochi-alternative
+media-fonts/ttedit-half 1: Japanese TrueType half-width mincho and gothic fonts based on IPA fonts.
+media-fonts/ttedit-twobythree 1: Japanese TrueType two-thirds-width mincho and gothic fonts based on IPA fonts.
+media-fonts/umeplus-cl-fonts 20150917: UmePlus CL fonts are modified Ume CL and M+ fonts for Japanese
+media-fonts/wlmaru 4.3.9.0: Japanese rounded TTF includes emoji, based on Wadalab Font
+media-fonts/yasashisa-antique 1: Japanese OpenType serif sans-serif mixed font
+media-fonts/yasashisa-gothic 1: Japanese OpenType serif sans-serif mixed font
+media-fonts/yoz-mobomoga 001.02.14: Japanese TrueType fonts based on mplus-fonts and ja-ipafonts.
+media-fonts/yozeng 1.40: Latin OpenType fonts like old typewriter and digital display, made by Y.Oz
+media-fonts/yozfont 13.11: Japanese OpenType pen writing fonts made by Y.Oz
+media-fonts/yozfontkm 7.01: Japanese OpenType brush fonts made by Y.Oz
+media-gfx/azdrawing 1.5: A painting software by drawing
+media-gfx/azpainter 2.1.4: A full-color painting software
+media-gfx/azpainterb 1.1.1: Simple 8bit color paint software
+media-gfx/eom 9999: Image viewer for MATE desktop
+media-gfx/viewnior 1.7_p20181126: Fast and simple image viewer
+media-libs/libmatemixer 9999: Mixer library for MATE Desktop
+media-plugins/audacious-plugins 3.10.1 9999: Plugins for Audacious music player
+media-sound/alsa-tools 1.1.0: Advanced Linux Sound Architecture tools
+media-sound/audacious 3.10.1 9999: A lightweight and versatile audio player
+media-sound/jack-audio-connection-kit 1.9.12: Jackdmp jack implemention for multi-processor machine
+media-sound/yoshimi 1.5.10: A software synthesizer based on ZynAddSubFX
+net-im/diclish 9999: CLI bash script for posting/reading on Diaspora* pod
+net-wireless/create_ap 0.4.6: Script to create a NATed or Bridged WiFi Access Point
+sci-calculators/galculator 2.1.4: GTK+ based algebraic and RPN calculator
+sys-apps/init-system-helpers 1.51: Helper tools for all init systems
+www-apps/nikola 8.0.1 8.0.2: A static website and blog generator
+www-plugins/browserpass 3.0.6: WebExtension host binary for pass, a UNIX password manager
+www-plugins/browserpass-bin 3.0.6: Host application required by Browserpass extension for ZX2C4's pass
+www-plugins/freshplayerplugin 9999: PPAPI-host NPAPI-plugin adapter for flashplayer in npapi based browsers
+www-servers/hiawatha 10.8.3: Advanced and secure webserver
+x11-libs/gdk-pixbuf-psd 0.1.0 9999: A GdkPixbuf loader for Adobe Photoshop images
+x11-libs/gdk-pixbuf-xcf 2012.05: A gdk-pixbuf loader for xcf (The Gimp) files
+x11-libs/libvdpau-va-gl 9999-r1: VDPAU driver with OpenGL/VAAPI backend
+x11-misc/lightdm-gtk-greeter-settings 1.2.2: LightDM Gtk+ Greeter settings editor
+x11-misc/mate-notification-daemon 9999: Notification daemon for MATE desktop
+x11-misc/mate-tweak 18.04.13: Tweak tool for the MATE Desktop, a fork of mintDesktop
+x11-misc/mozo 9999: Menu editor for MATE desktop using freedesktop.org menu spec
+x11-misc/screengrab 2.9999: Qt-based program for fast creating screenshots
+x11-terms/mate-terminal 9999: Terminal emulator for MATE desktop
+x11-themes/faience-icon-theme 0.5.1: A scalable icon theme called Faience
+x11-themes/gion-icon-theme 0.1.2: Scalable and PNG icon theme named Gion
+x11-themes/mate-backgrounds 9999: A set of backgrounds packaged with MATE desktop
+x11-themes/mate-icon-theme 9999: Default icon themes of MATE desktop
+x11-themes/mate-icon-theme-faenza 9999: Faenza icon theme, that was adapted for MATE desktop
+x11-themes/mate-themes 9999: A theme set for MATE desktop
+x11-themes/neu-icon-theme 0.6: Scalable and PNG icon theme named Dropline Neu!
+x11-themes/smooth-themes 0.5.8: Themes for Smooth GTK1/GTK2 Theme Engine
+x11-wm/marco 9999: Default window manager of MATE desktop
