@@ -2,6 +2,17 @@
 # Copyright 1999-2019 Gentoo Authors; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  09 Oct 2019; wjn <wjn@aol.jp> -acme-sh-2.8.0.ebuild, -acme-sh-2.8.1.ebuild:
+  Delete old versions
+
+    Version 2.8.2 and former don't support recent the Let's Encrypt CA
+   All user must upgrade
+
+*acme-sh-2.8.3 (09 Oct 2019)
+
+  09 Oct 2019; wjn <wjn@aol.jp> +acme-sh-2.8.3.ebuild:
+  Add version 2.8.3
+
   04 May 2019; wjn <wjn@aol.jp> -acme-sh-2.7.9.ebuild:
   Delete version 2.7.9
 

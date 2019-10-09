@@ -22,6 +22,7 @@ IUSE="caja dbus debug djvu doc dvi epub +introspection gnome-keyring +pdf +ps
 	t1lib tiff xps"
 
 COMMON_DEPEND="app-text/rarian:0
+	app-text/texlive-core
 	dev-libs/atk:0
 	>=dev-libs/glib-2.50.0:2
 	>=dev-libs/libxml2-2.5.0:2
