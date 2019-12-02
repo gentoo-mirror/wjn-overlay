@@ -43,7 +43,8 @@ COMMON_DEPEND=">=dev-libs/dbus-glib-0.71:0
 	consolekit? ( sys-auth/consolekit:0 )
 	libnotify? ( >=x11-libs/libnotify-0.7:0 )
 	opengl? ( virtual/opengl:0 )
-	pam? ( gnome-base/gnome-keyring:0 virtual/pam:0 )
+	pam? ( gnome-base/gnome-keyring:0
+		sys-libs/pam:0 )
 	!pam? ( kernel_linux? ( sys-apps/shadow:0 ) )
 	systemd? ( sys-apps/systemd:0= )
 	!!<gnome-extra/gnome-screensaver-3:*"

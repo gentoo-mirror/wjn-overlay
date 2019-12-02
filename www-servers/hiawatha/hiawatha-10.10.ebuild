@@ -12,7 +12,7 @@ SRC_URI="https://www.hiawatha-webserver.org/files/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="+cache ipv6 monitor +rewrite +rproxy +ssl tomahawk +xslt"
+IUSE="+cache monitor +rewrite +rproxy +ssl tomahawk +xslt"
 
 RDEPEND="
 	sys-libs/zlib
@@ -108,7 +108,6 @@ src_configure() {
 	local mycmakeargs=(
 		-DCONFIG_DIR:STRING="${HIAWATHA_CONFIG_DIR}"
 		-DENABLE_CACHE=$(usex cache)
-		-DENABLE_IPV6=$(usex ipv6)
 		-DENABLE_LOADCHECK=$(usex kernel_linux)
 		-DENABLE_MONITOR=$(usex monitor)
 		-DENABLE_RPROXY=$(usex rproxy)
