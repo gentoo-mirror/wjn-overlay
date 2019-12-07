@@ -8,5 +8,5 @@ PROPERTIES=live
 RDEPEND=app-misc/jq app-shells/bash net-misc/curl
 RESTRICT=mirror
 SLOT=0
-_eclasses_=git-r3	562b380fc59ae6a8622171d0acb777d1
+_eclasses_=git-r3	6d22636df236df4cc8475f7b7668bdcd
 _md5_=ad319fb8b8cd1fe917ecf060d69a0807
