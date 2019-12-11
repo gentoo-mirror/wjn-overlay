@@ -125,7 +125,7 @@ net-wireless/create_ap 0.4.6: Script to create a NATed or Bridged WiFi Access Po
 sci-calculators/galculator 2.1.4: GTK+ based algebraic and RPN calculator
 sys-apps/init-system-helpers 1.51: Helper tools for all init systems
 www-apps/nikola 8.0.1 8.0.2: A static website and blog generator
-www-plugins/browserpass 3.0.6: WebExtension host binary for pass, a UNIX password manager
+www-plugins/browserpass 3.0.6-r1: WebExtension host binary for pass, a UNIX password manager
 www-plugins/browserpass-bin 3.0.6: Host application required by Browserpass extension for ZX2C4's pass
 www-plugins/freshplayerplugin 9999: PPAPI-host NPAPI-plugin adapter for flashplayer in npapi based browsers
 www-servers/hiawatha 10.10: Advanced and secure webserver
