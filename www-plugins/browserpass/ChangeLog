@@ -2,6 +2,9 @@
 # Copyright 1999-2019 Gentoo Authors; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  11 Dec 2019; wjn <wjn@aol.jp> -browserpass-3.0.6.ebuild:
+  Delete old version 3.0.6
+
 *browserpass-3.0.6-r1 (11 Dec 2019)
 
   11 Dec 2019; wjn <wjn@aol.jp> +browserpass-3.0.6-r1.ebuild:
