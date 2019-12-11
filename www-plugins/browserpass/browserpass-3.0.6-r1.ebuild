@@ -16,7 +16,7 @@ MY_PN="browserpass-native"
 SRC_URI="https://${MY_PN}/archive/${PV}.tar.gz -> ${P}.tar.gz
 	$(go-module_vendor_uris)"
 
-LICENSE="BDS ISC MIT"
+LICENSE="BSD ISC MIT"
 SLOT="0"
 
 DEPEND=""
