@@ -3,50 +3,45 @@
 
 EAPI=7
 
-EGO_PN=github.com/browserpass/browserpass-native
-
-if [[ ${PV} == 9999 ]]; then
-	inherit golang-vcs
-else
-	KEYWORDS="~amd64"
-	SRC_URI="https://${EGO_PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
-	inherit golang-vcs-snapshot
-fi
-inherit golang-build
+inherit go-module
 
 DESCRIPTION="WebExtension host binary for pass, a UNIX password manager"
 HOMEPAGE="https://github.com/browserpass/browserpass-native"
-LICENSE="ISC"
+EGO_VENDOR=(
+	"github.com/mattn/go-zglob a8912a37f9e7" # MIT
+	"github.com/sirupsen/logrus v1.4.2" # MIT
+	"golang.org/x/sys 6d18c012aee9febd81bbf9806760c8c4480e870d github.com/golang/sys" # BSD
+	)
+MY_PN="browserpass-native"
+SRC_URI="https://${MY_PN}/archive/${PV}.tar.gz -> ${P}.tar.gz
+	$(go-module_vendor_uris)"
+
+LICENSE="BDS ISC MIT"
 SLOT="0"
 
+DEPEND=""
 RDEPEND="app-crypt/gnupg"
-DEPEND="${RDEPEND}
-	>=dev-go/go-sys-0_pre20180816:=
-	>=dev-go/lfshook-2.4:=
-	>=dev-go/logrus-1.4.0:=
-	>=dev-go/zglob-0_p20171230:="
+KEYWORDS="~amd64"
 
+S="${WORKDIR}/${MY_PN}-${PV}"
 RESTRICT="mirror"
 
 DOCS=( PROTOCOL.md README.md )
 
 src_prepare() {
 	eapply_user
-	
-	pushd "src/${EGO_PN}" >/dev/null || die
-	sed -e 's|%%replace%%|'${EPREFIX}'/usr/bin/browserpass-native|' \
+
+	sed -e 's|%%replace%%|'${EPREFIX}'/usr/libexec/browserpass-native|' \
 		-i browser-files/firefox-host.json browser-files/chromium-host.json || die
-	popd >/dev/null || die
 }
 
 src_compile() {
-	BIN=browserpass golang-build_src_compile
+	go build || die
 }
 
 src_install() {
-	dobin browserpass-native
-
-	pushd "src/${EGO_PN}" >/dev/null || die
+	exeinto /usr/libexec
+	doexe browserpass-native
 
 	insinto /usr/$(get_libdir)/browserpass/hosts/firefox
 	newins browser-files/firefox-host.json com.github.browserpass.native.json
@@ -60,16 +55,18 @@ src_install() {
 	insinto /usr/$(get_libdir)/browserpass/policies/chromium
 	newins browser-files/chromium-policy.json com.github.browserpass.native.json
 
-	for target in chromium opt/chrome opt/vivaldi opt/brave ; do
+	for target in chromium iridium-browser opt/chrome opt/slimjet opt/vivaldi
+	do
 		dosym \
 			/usr/$(get_libdir)/browserpass/hosts/chromium/com.github.browserpass.native.json \
 			/etc/${target}/native-messaging-hosts/com.github.browserpass.native.json
+	done
+
+	for target in chromium opt/chrome opt/slimjet opt/vivaldi ; do
 		dosym \
 			/usr/$(get_libdir)/browserpass/policies/chromium/com.github.browserpass.native.json \
 			/etc/${target}/policies/managed/com.github.browserpass.native.json
 	done
 
 	einstalldocs
-
-	popd >/dev/null || die
 }
