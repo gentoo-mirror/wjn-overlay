@@ -20,13 +20,7 @@ app-text/aobook 1.0.1 1.0.2 1.0.3: Viewer for Aozora Bunko (Japanese electric li
 app-text/asciidoc-gtksourceview 2.0.1 3.0.1: AsciiDoc bindings for gtksourceview
 app-text/atril 9999: Atril document viewer for MATE desktop
 app-text/markdown-gtksourceview 2.1.9999-r2 3.2.9999-r1: Extra support for Markdown in GtkSourceView and gedit
-dev-go/go-difflib 1.0.0: Partial port of Python difflib package to Go
-dev-go/go-spew 1.1.1: Implements a deep pretty printer for Go data structures to aid in debugging
-dev-go/go-windows-terminal-sequences 1.0.2: Enable support for Windows Terminal Colors for Go
-dev-go/lfshook 2.4: Local file system hook for golang Logrus logger
 dev-go/logrus 1.4.1: structured logger for Go, API compatible with the standard library logger
-dev-go/objx 0.1.1: Go package for dealing with maps, slices, JSON and other data
-dev-go/testify 1.3.0: Toolkit for testifying that your code will behave as you intend
 dev-libs/libmateweather 9999: MATE library to access weather information from online services
 dev-python/bbcode 1.0.25: A pure python bbcode parser and formatter
 dev-python/ghp-import2 1.0.1: Easily import docs to your gh-pages branch
