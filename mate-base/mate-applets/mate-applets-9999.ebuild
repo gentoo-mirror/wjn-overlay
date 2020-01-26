@@ -5,9 +5,7 @@ EAPI=6
 
 GNOME2_LA_PUNT="yes"
 
-PYTHON_COMPAT=( python2_7 )
-
-inherit autotools git-r3 gnome2 python-single-r1
+inherit autotools git-r3 gnome2
 
 DESCRIPTION="Applets for use with MATE panel"
 HOMEPAGE="http://mate-desktop.org/
@@ -24,8 +22,7 @@ IUSE="X +cpufreq gucharmap ipv6 nls policykit upower weather wifi"
 # gnome-extra/gucharmap:2 isn't in the gentoo repository
 REQUIRED_USE="policykit? ( cpufreq )"
 
-COMMON_DEPEND="${PYTHON_DEPS}
-	app-text/rarian:0
+COMMON_DEPEND="app-text/rarian:0
 	dev-libs/atk:0
 	>=dev-libs/dbus-glib-0.74:0
 	>=dev-libs/glib-2.50:2
