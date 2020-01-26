@@ -2,6 +2,9 @@
 # Copyright 1999-2020 Gentoo Authors; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  26 Jan 2020; wjn <wjn@aol.jp> -acme-sh-2.8.3.ebuild:
+  Delete old version 2.8.3
+
 *acme-sh-2.8.5 (26 Jan 2020)
 
   26 Jan 2020; wjn <wjn@aol.jp> +acme-sh-2.8.5.ebuild:
