@@ -128,7 +128,7 @@ x11-libs/gdk-pixbuf-xcf 2012.05: A gdk-pixbuf loader for xcf (The Gimp) files
 x11-libs/libvdpau-va-gl 9999-r1: VDPAU driver with OpenGL/VAAPI backend
 x11-misc/lightdm-gtk-greeter-settings 1.2.2: LightDM Gtk+ Greeter settings editor
 x11-misc/mate-notification-daemon 9999: Notification daemon for MATE desktop
-x11-misc/mate-tweak 18.04.13: Tweak tool for the MATE Desktop, a fork of mintDesktop
+x11-misc/mate-tweak 19.10.4: Tweak tool for the MATE Desktop, a fork of mintDesktop
 x11-misc/mozo 9999: Menu editor for MATE desktop using freedesktop.org menu spec
 x11-misc/screengrab 2.9999: Qt-based program for fast creating screenshots
 x11-terms/mate-terminal 9999: Terminal emulator for MATE desktop
