@@ -1,6 +1,11 @@
 # ChangeLog for dev-python/pygame_sdl2
-# Copyright 1999-2019 Gentoo Authors; Distributed under the GPL v2
+# Copyright 1999-2020 Gentoo Authors; Distributed under the GPL v2
 # (auto-generated from git log)
+
+*pygame_sdl2-7.3.5 (28 Jan 2020)
+
+  28 Jan 2020; wjn <wjn@aol.jp> +pygame_sdl2-7.3.5.ebuild:
+  Add version 7.3.5
 
   28 May 2019; wjn <wjn@aol.jp> pygame_sdl2-6.99.14.3.ebuild,
   pygame_sdl2-7.2.2.ebuild:
