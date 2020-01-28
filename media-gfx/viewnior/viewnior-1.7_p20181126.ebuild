@@ -26,7 +26,9 @@ RDEPEND=${COMMON_DEPEND}
 
 S="${WORKDIR}/${MY_PN}-${P%_p*}"
 
-PATCHES=( "${FILESDIR}/${P}.patch" )
+PATCHES=( "${FILESDIR}/${P}.patch"
+	"${FILESDIR}/${PN}-1.7-do-not-allow-drag-and-drop-from-itself.patch"
+)
 DOCS=( AUTHORS NEWS README.md TODO )
 
 pkg_postinst() {
