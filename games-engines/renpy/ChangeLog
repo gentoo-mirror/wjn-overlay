@@ -1,6 +1,11 @@
 # ChangeLog for games-engines/renpy
-# Copyright 1999-2019 Gentoo Authors; Distributed under the GPL v2
+# Copyright 1999-2020 Gentoo Authors; Distributed under the GPL v2
 # (auto-generated from git log)
+
+*renpy-7.3.5 (28 Jan 2020)
+
+  28 Jan 2020; wjn <wjn@aol.jp> +renpy-7.3.5.ebuild:
+  Add version 7.3.5
 
 *renpy-7.2.2 (10 Apr 2019)
 

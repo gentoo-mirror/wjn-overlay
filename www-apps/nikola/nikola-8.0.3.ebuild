@@ -1,9 +1,11 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
-PYTHON_COMPAT=( python{3_4,3_5,3_6} )
+# doit doesn't support Python3.8 yet: https://github.com/pydoit/doit/issues/341
+# PYTHON_COMPAT=( python3_{6,7,8} )
+PYTHON_COMPAT=( python3_6 )
 PYTHON_REQ_USE="gdbm"
 
 inherit distutils-r1 python-r1
@@ -24,7 +26,7 @@ fi
 LICENSE="CC0-1.0 MIT"
 SLOT="0"
 KEYWORDS=""
-IUSE="bbcode charts ghpages hyphenation ipython jinja micawber php toml typogrify
+IUSE="charts ghpages hyphenation ipython jinja micawber php toml typogrify
 	watchdog websocket yaml"
 
 COMMON_DEPEND=">=dev-python/Babel-2.6.0[${PYTHON_USEDEP}]
@@ -33,12 +35,11 @@ COMMON_DEPEND=">=dev-python/Babel-2.6.0[${PYTHON_USEDEP}]
 DEPEND=${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	>=dev-python/blinker-1.3[${PYTHON_USEDEP}]
-	>=dev-python/doit-0.28.0[${PYTHON_USEDEP}]
+	>=dev-python/doit-0.30.1[${PYTHON_USEDEP}]
 	>=dev-python/logbook-1.3.0[${PYTHON_USEDEP}]
 	>=dev-python/lxml-3.3.5[${PYTHON_USEDEP}]
 	>=dev-python/mako-1.0.0[${PYTHON_USEDEP}]
-	>=dev-python/markdown-2.4.0[${PYTHON_USEDEP}]
-	<dev-python/markdown-3.0.0[${PYTHON_USEDEP}]
+	>=dev-python/markdown-3.0.0[${PYTHON_USEDEP}]
 	>=dev-python/natsort-3.5.2[${PYTHON_USEDEP}]
 	>=dev-python/piexif-1.0.3[${PYTHON_USEDEP}]
 	>=dev-python/pillow-2.4.0[${PYTHON_USEDEP}]
@@ -48,7 +49,6 @@ RDEPEND="${COMMON_DEPEND}
 	>=dev-python/requests-2.2.0[${PYTHON_USEDEP}]
 	>=dev-python/unidecode-0.04.16[${PYTHON_USEDEP}]
 	>=dev-python/yapsy-1.11.223[${PYTHON_USEDEP}]
-	bbcode? ( dev-python/bbcode[${PYTHON_USEDEP}] )
 	charts? ( >=dev-python/pygal-2.0.0[${PYTHON_USEDEP}] )
 	ghpages? ( || ( >=dev-python/ghp-import-0.4.1-r1[${PYTHON_USEDEP}]
 		>=dev-python/ghp-import2-1.0.0[${PYTHON_USEDEP}] ) )
@@ -62,16 +62,11 @@ RDEPEND="${COMMON_DEPEND}
 	typogrify? ( >=dev-python/typogrify-2.0.4[${PYTHON_USEDEP}] )
 	watchdog? ( >=dev-python/watchdog-0.8.3[${PYTHON_USEDEP}] )
 	websocket? ( >=dev-python/aiohttp-2.3.8[${PYTHON_USEDEP}] )
-	yaml? ( || ( =dev-python/pyyaml-3.12[${PYTHON_USEDEP}]
-		=dev-python/pyyaml-3.13[${PYTHON_USEDEP}] ) )"
+	yaml? ( >=dev-python/ruamel-yaml-0.15[${PYTHON_USEDEP}] )"
 
-# >=dev-python/coverage-4.5.1 is neccessary for test.
-RESTRICT="mirror test"
+RESTRICT="mirror"
 
 src_prepare() {
-	# Upstream's doit>=0.30.1 is to block Python 2. But this ebuild is not targeting Python 2.
-	sed -i -e '/doit/s/>=0.30.1/>=0.28.0/' requirements.txt
-
 	# QA: Manuals should not be zipped.
 	unpack docs/man/nikola.1.gz
 
