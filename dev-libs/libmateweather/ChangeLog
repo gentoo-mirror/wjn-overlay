@@ -1,6 +1,12 @@
 # ChangeLog for dev-libs/libmateweather
-# Copyright 1999-2019 Gentoo Authors; Distributed under the GPL v2
+# Copyright 1999-2020 Gentoo Authors; Distributed under the GPL v2
 # (auto-generated from git log)
+
+  09 Feb 2020; wjn <wjn@aol.jp> libmateweather-9999.ebuild:
+  Remove Python dependency
+
+   Upstream already removed Python bindings
+   https://github.com/mate-desktop/libmateweather/blob/23d6945/NEWS#L75
 
   02 Jan 2019; wjn <wjn@aol.jp> libmateweather-9999.ebuild:
   Update the year of copyright notices to 2019
