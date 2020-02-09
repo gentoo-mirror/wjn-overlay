@@ -1,9 +1,9 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=7
 
-PYTHON_COMPAT=( python2_7 )
+PYTHON_COMPAT=( python3_{6,7} )
 
 inherit python-single-r1
 
@@ -16,9 +16,12 @@ SLOT="0"
 KEYWORDS=""
 
 COMMON_DEPEND="${PYTHON_DEPS}
-	app-i18n/libkkc"
+	app-i18n/libkkc
+	dev-libs/marisa[${PYTHON_USEDEP}]"
 DEPEND="${COMMON_DEPEND}"
 RDEPEND="${COMMON_DEPEND}"
+
+PATCHES=( "${FILESDIR}/${P}-enable-python3.patch" )
 
 RESTRICT="mirror"
 
