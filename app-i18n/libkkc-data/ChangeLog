@@ -2,6 +2,11 @@
 # Copyright 1999-2020 Gentoo Authors; Distributed under the GPL v2
 # (auto-generated from git log)
 
+  10 Feb 2020; wjn <wjn@aol.jp> libkkc-data-0.2.7.ebuild:
+  Update ${PYTHON_USEDEP} to ${PYTHON_SINGLE_USEDEP}
+
+   ${PYTHON_USEDEP} is deprecated
+
   09 Feb 2020; wjn <wjn@aol.jp> +files/libkkc-data-0.2.7-enable-python3.patch,
   libkkc-data-0.2.7.ebuild:
   Add Python 3 support, drop Python 2.7

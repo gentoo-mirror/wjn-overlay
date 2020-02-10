@@ -17,7 +17,7 @@ KEYWORDS=""
 
 COMMON_DEPEND="${PYTHON_DEPS}
 	app-i18n/libkkc
-	dev-libs/marisa[${PYTHON_USEDEP}]"
+	dev-libs/marisa[${PYTHON_SINGLE_USEDEP}]"
 DEPEND="${COMMON_DEPEND}"
 RDEPEND="${COMMON_DEPEND}"
 
