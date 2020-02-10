@@ -1,6 +1,20 @@
 # ChangeLog for app-i18n/libkkc-data
-# Copyright 1999-2019 Gentoo Authors; Distributed under the GPL v2
+# Copyright 1999-2020 Gentoo Authors; Distributed under the GPL v2
 # (auto-generated from git log)
+
+  10 Feb 2020; wjn <wjn@aol.jp> libkkc-data-0.2.7.ebuild:
+  Update ${PYTHON_USEDEP} to ${PYTHON_SINGLE_USEDEP}
+
+   ${PYTHON_USEDEP} is deprecated
+
+  09 Feb 2020; wjn <wjn@aol.jp> +files/libkkc-data-0.2.7-enable-python3.patch,
+  libkkc-data-0.2.7.ebuild:
+  Add Python 3 support, drop Python 2.7
+
+   Upstream: https://github.com/ueno/libkkc/commit/ba1c1bd
+
+    dev-libs/marisa (this package depends on) has already dropped Python 2.7,
+   this package can't be built with Python 2.7
 
   02 Jan 2019; wjn <wjn@aol.jp> libkkc-data-0.2.7.ebuild:
   Update the year of copyright notices to 2019
