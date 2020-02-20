@@ -3,6 +3,11 @@
 # (auto-generated from git log)
 
   20 Feb 2020; wjn <wjn@aol.jp> python-caja-9999.ebuild:
+  Update ${PYTHON_USEDEP} to ${PYTHON_SINGLE_USEDEP}
+
+   ${PYTHON_USEDEP} is deprecated
+
+  20 Feb 2020; wjn <wjn@aol.jp> python-caja-9999.ebuild:
   Drop Python 2 support
 
    Upstream: https://github.com/mate-desktop/python-caja/commit/8a6ccef

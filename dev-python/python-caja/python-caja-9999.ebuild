@@ -22,7 +22,7 @@ IUSE="doc"
 
 COMMON_DEPEND="${PYTHON_DEPS}
 	dev-libs/glib:2
-	>=dev-python/pygobject-3.0.0:3[${PYTHON_USEDEP}]
+	>=dev-python/pygobject-3.0.0:3[${PYTHON_SINGLE_USEDEP}]
 	>=mate-base/caja-1.17.1:0[introspection]
 	x11-libs/gtk+:3"
 DEPEND="${RDEPEND}
