@@ -1,11 +1,11 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
 
 GNOME2_LA_PUNT="yes"
 
-PYTHON_COMPAT=( python2_7 python3_{5,6,7,8} )
+PYTHON_COMPAT=( python3_{6,7,8} )
 
 inherit autotools git-r3 gnome2 python-single-r1
 
@@ -22,7 +22,7 @@ IUSE="doc"
 
 COMMON_DEPEND="${PYTHON_DEPS}
 	dev-libs/glib:2
-	>=dev-python/pygobject-3.0.0:3[${PYTHON_USEDEP}]
+	>=dev-python/pygobject-3.0.0:3[${PYTHON_SINGLE_USEDEP}]
 	>=mate-base/caja-1.17.1:0[introspection]
 	x11-libs/gtk+:3"
 DEPEND="${RDEPEND}
