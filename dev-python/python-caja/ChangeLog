@@ -1,6 +1,11 @@
 # ChangeLog for dev-python/python-caja
-# Copyright 1999-2019 Gentoo Authors; Distributed under the GPL v2
+# Copyright 1999-2020 Gentoo Authors; Distributed under the GPL v2
 # (auto-generated from git log)
+
+  20 Feb 2020; wjn <wjn@aol.jp> python-caja-9999.ebuild:
+  Drop Python 2 support
+
+   Upstream: https://github.com/mate-desktop/python-caja/commit/8a6ccef
 
   11 Dec 2019; wjn <wjn@aol.jp> python-caja-9999.ebuild:
   Support Python 3.8
