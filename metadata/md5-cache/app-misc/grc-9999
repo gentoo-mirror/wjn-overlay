@@ -1,13 +1,13 @@
 DEFINED_PHASES=install postinst unpack
-DEPEND=python_targets_python3_6? ( dev-lang/python:3.6 ) >=dev-lang/python-exec-2:=[python_targets_python3_6(-)?,-python_single_target_python3_6(-)] >=dev-vcs/git-1.8.2.1[curl]
+DEPEND=python_targets_python3_6? ( >=dev-lang/python-3.6.10:3.6 ) >=dev-lang/python-exec-2:=[python_targets_python3_6(-)?,-python_single_target_python3_6(-)] >=dev-vcs/git-1.8.2.1[curl]
 DESCRIPTION=Generic Colouriser beautifies your logfiles or output of commands
 EAPI=6
 HOMEPAGE=http://kassiopeia.juls.savba.sk/~garabik/software/grc.html https://github.com/garabik/grc
 IUSE=python_targets_python3_6
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=python_targets_python3_6? ( dev-lang/python:3.6 ) >=dev-lang/python-exec-2:=[python_targets_python3_6(-)?,-python_single_target_python3_6(-)]
+RDEPEND=python_targets_python3_6? ( >=dev-lang/python-3.6.10:3.6 ) >=dev-lang/python-exec-2:=[python_targets_python3_6(-)?,-python_single_target_python3_6(-)]
 REQUIRED_USE=|| ( python_targets_python3_6 )
 SLOT=0
-_eclasses_=git-r3	86a0188f2ad9eb3d65e4d031ab8a0422	multibuild	40fe59465edacd730c644ec2bc197809	multilib	1d91b03d42ab6308b5f4f6b598ed110e	python-r1	8386b016a2b3bbefa88443fdaa898057	python-utils-r1	e03f98555f2634bb9fb3160a8e30e3ec	toolchain-funcs	512eb3367f507ebaa1d1d43ab7d66e6c
+_eclasses_=git-r3	86a0188f2ad9eb3d65e4d031ab8a0422	multibuild	40fe59465edacd730c644ec2bc197809	multilib	1d91b03d42ab6308b5f4f6b598ed110e	python-r1	8386b016a2b3bbefa88443fdaa898057	python-utils-r1	6f5996d2ae01e0c6f2869ed18f023239	toolchain-funcs	512eb3367f507ebaa1d1d43ab7d66e6c
 _md5_=e4307a55f20caa1d8fc21bf496136f3f

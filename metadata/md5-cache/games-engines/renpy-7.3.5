@@ -1,4 +1,4 @@
-BDEPEND=python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python2_7(-)?,-python_single_target_python2_7(-)] >=dev-python/setuptools-42.0.2[python_targets_python2_7(-)?,-python_single_target_python2_7(-)]
+BDEPEND=python_targets_python2_7? ( >=dev-lang/python-2.7.17-r1:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python2_7(-)?,-python_single_target_python2_7(-)] >=dev-python/setuptools-42.0.2[python_targets_python2_7(-)?,-python_single_target_python2_7(-)]
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test
 DEPEND=>=app-eselect/eselect-renpy-0.8 ~dev-python/pygame_sdl2-7.3.5[python_targets_python2_7(-)?,-python_single_target_python2_7(-)] >=dev-lang/python-exec-0.3[python_targets_python2_7(-)?,-python_single_target_python2_7(-)] media-libs/glew:0 media-libs/libpng:0 media-libs/libsdl2[video] media-libs/freetype:2 sys-libs/zlib virtual/ffmpeg dev-python/cython[python_targets_python2_7(-)?,-python_single_target_python2_7(-)] virtual/pkgconfig
 DESCRIPTION=Visual novel engine written in python
@@ -7,10 +7,10 @@ HOMEPAGE=https://www.renpy.org/
 IUSE=development doc examples python_targets_python2_7
 KEYWORDS=~amd64 ~x86
 LICENSE=MIT
-RDEPEND=>=app-eselect/eselect-renpy-0.8 ~dev-python/pygame_sdl2-7.3.5[python_targets_python2_7(-)?,-python_single_target_python2_7(-)] >=dev-lang/python-exec-0.3[python_targets_python2_7(-)?,-python_single_target_python2_7(-)] media-libs/glew:0 media-libs/libpng:0 media-libs/libsdl2[video] media-libs/freetype:2 sys-libs/zlib virtual/ffmpeg python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python2_7(-)?,-python_single_target_python2_7(-)]
+RDEPEND=>=app-eselect/eselect-renpy-0.8 ~dev-python/pygame_sdl2-7.3.5[python_targets_python2_7(-)?,-python_single_target_python2_7(-)] >=dev-lang/python-exec-0.3[python_targets_python2_7(-)?,-python_single_target_python2_7(-)] media-libs/glew:0 media-libs/libpng:0 media-libs/libsdl2[video] media-libs/freetype:2 sys-libs/zlib virtual/ffmpeg python_targets_python2_7? ( >=dev-lang/python-2.7.17-r1:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python2_7(-)?,-python_single_target_python2_7(-)]
 REQUIRED_USE=examples? ( development ) || ( python_targets_python2_7 )
 RESTRICT=mirror
 SLOT=7.3
 SRC_URI=https://www.renpy.org/dl/7.3.5/renpy-7.3.5-source.tar.bz2
-_eclasses_=desktop	3b1f1d9a6b749c9ce2d5182877265b23	distutils-r1	577e2308f7b36e26062d464f59a5ee6c	multibuild	40fe59465edacd730c644ec2bc197809	multilib	1d91b03d42ab6308b5f4f6b598ed110e	multiprocessing	cac3169468f893670dac3e7cb940e045	python-r1	8386b016a2b3bbefa88443fdaa898057	python-utils-r1	e03f98555f2634bb9fb3160a8e30e3ec	toolchain-funcs	512eb3367f507ebaa1d1d43ab7d66e6c	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
+_eclasses_=desktop	3b1f1d9a6b749c9ce2d5182877265b23	distutils-r1	577e2308f7b36e26062d464f59a5ee6c	multibuild	40fe59465edacd730c644ec2bc197809	multilib	1d91b03d42ab6308b5f4f6b598ed110e	multiprocessing	cac3169468f893670dac3e7cb940e045	python-r1	8386b016a2b3bbefa88443fdaa898057	python-utils-r1	6f5996d2ae01e0c6f2869ed18f023239	toolchain-funcs	512eb3367f507ebaa1d1d43ab7d66e6c	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
 _md5_=cb31538e26cca476ed01d9446c2b260f
