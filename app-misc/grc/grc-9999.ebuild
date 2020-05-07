@@ -32,7 +32,8 @@ src_install() {
 	python_foreach_impl python_doscript grc grcat
 
 	insinto /usr/share/grc
-	doins colourfiles/conf.* contrib/mrsmith/conf.*
+	doins colourfiles/conf.*
+	doins -r contrib
 
 	insinto /etc
 	doins grc.conf
