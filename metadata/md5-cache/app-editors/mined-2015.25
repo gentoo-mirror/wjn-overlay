@@ -1,9 +1,0 @@
-DEFINED_PHASES=-
-DESCRIPTION=Terminal-based Text Editor with extensive Unicode and CJK support
-EAPI=5
-HOMEPAGE=http://towo.net/mined/
-LICENSE=GPL-3+
-RESTRICT=mirror
-SLOT=0
-SRC_URI=mirror://sourceforge/mined/mined-2015.25.tar.gz
-_md5_=b48e0e1e190cd99a003513349d5b0758
