@@ -21,4 +21,4 @@ x11-libs/gdk-pixbuf-psd 0.1.0 9999: A GdkPixbuf loader for Adobe Photoshop image
 x11-libs/gdk-pixbuf-xcf 2012.05: A gdk-pixbuf loader for xcf (The Gimp) files
 x11-libs/libvdpau-va-gl 9999-r1: VDPAU driver with OpenGL/VAAPI backend
 x11-misc/lightdm-gtk-greeter-settings 1.2.2: LightDM Gtk+ Greeter settings editor
-x11-misc/mate-tweak 19.10.4: Tweak tool for the MATE Desktop, a fork of mintDesktop
+x11-misc/mate-tweak 20.04.0: Tweak tool for the MATE Desktop, a fork of mintDesktop
