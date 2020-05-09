@@ -3,6 +3,7 @@
 
 EAPI=7
 
+# dev-libs/marisa does not support Python 3.8 yet.
 PYTHON_COMPAT=( python3_{6,7} )
 
 inherit python-single-r1
@@ -17,7 +18,10 @@ KEYWORDS=""
 
 COMMON_DEPEND="${PYTHON_DEPS}
 	app-i18n/libkkc
-	dev-libs/marisa[${PYTHON_SINGLE_USEDEP}]"
+	$(python_gen_cond_dep '
+		dev-libs/marisa[python,${PYTHON_MULTI_USEDEP}]
+	')
+	"
 DEPEND="${COMMON_DEPEND}"
 RDEPEND="${COMMON_DEPEND}"
 
