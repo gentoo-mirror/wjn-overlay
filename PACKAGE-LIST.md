@@ -15,7 +15,7 @@ wjn-overlay packages list
 | app-text/aobook | Viewer for Aozora Bunko (Japanese electric library) | <http://azsky2.html.xdomain.jp/linux/aobook/index.html> | o | |
 | app-text/asciidoc-gtksourceview | AsciiDoc bindings for gtksourceview | <https://launchpad.net/asciidoc-gtk-highlight> | o | |
 | app-text/markdown-gtksourceview | Support for Markdown in GtkSourceView and Pluma | <https://github.com/jpfleury/gedit-markdown> | o | |
-| media-gfx/azdrawing | A painting software by drawing | <http://osdn.jp/projects/azdrawing/> | o | |
+| media-gfx/azdrawing | A painting software by drawing | <http://azsky2.html.xdomain.jp/soft/azdrawing.html> | o | |
 | media-gfx/azpainter | A full-color painting software | <http://azsky2.html.xdomain.jp/linux/azpainter/> | o | |
 | media-gfx/azpainterb | A simple full-color paint software, a successor of AzPainter | <http://azsky2.html.xdomain.jp/> | o | |
 | media-gfx/viewnior | Fast and simple image viewer | <http://siyanpanayotov.com/project/viewnior/> | - | newer ver. |

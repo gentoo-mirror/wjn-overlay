@@ -1,15 +1,13 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
 inherit xdg-utils
 
-OSDN_DIR="63500"
-
 DESCRIPTION="A painting software by drawing"
-HOMEPAGE="http://osdn.jp/projects/azdrawing/"
-SRC_URI="mirror://osdn/${PN}/${OSDN_DIR}/${P}.tar.bz2"
+HOMEPAGE="http://azsky2.html.xdomain.jp/soft/azdrawing.html"
+SRC_URI="http://azsky2.html.xdomain.jp/arc/azdrawing-1.5.tar.bz2"
 
 LICENSE="GPL-3 LGPL-3"
 SLOT="0"
@@ -26,7 +24,7 @@ COMMON_DEPEND="media-libs/fontconfig
 DEPEND=${COMMON_DEPEND}
 RDEPEND=${COMMON_DEPEND}
 
-RESTRICT="mirror strip"
+RESTRICT="mirror"
 
 DOCS=( NEWS README manual )
 PATCHES=( "${FILESDIR}/${PN}-makefile.patch" )
