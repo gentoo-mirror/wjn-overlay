@@ -1,11 +1,11 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=5
 
 DESCRIPTION="Viewer for Aozora Bunko (Japanese electric library)"
-HOMEPAGE="http://azsky2.html.xdomain.jp/linux/aobook/index.html"
-SRC_URI="mirror://osdn/${PN}/67263/${P}.tar.bz2"
+HOMEPAGE="http://azsky2.html.xdomain.jp/soft/aobook.html"
+SRC_URI="http://azsky2.html.xdomain.jp/arc/aobook-1.0.3.tar.bz2"
 
 LICENSE="BSD"
 SLOT="0"
