@@ -1,0 +1,16 @@
+diff -ur --unidirectional-new-file -urN a/configure b/configure
+--- a/configure	2020-05-09 05:03:44.444773440 +0000
++++ b/configure	2020-05-09 05:17:30.772028847 +0000
+@@ -201,12 +193,6 @@
+ 		cf_docdir=$tmp1 ;;
+ 	--no-check-lib)
+ 		cf_check_lib=no ;;
+-	*=*)
+-		tmp2=`expr "X$opt" : 'X\([^=]*\)=.*'`
+-		eval $tmp2=\'$tmp1\' ;;
+-	*)
+-		echo "unknown option: $opt"
+-		exit 1 ;;
+ 	esac
+ done
+ 
