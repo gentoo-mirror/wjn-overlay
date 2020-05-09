@@ -5,7 +5,7 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_{6,7,8} )
 
-inherit distutils-r1 python-utils-r1
+inherit distutils-r1
 
 DESCRIPTION="Tweak tool for the MATE Desktop, a fork of mintDesktop"
 HOMEPAGE="https://launchpad.net/ubuntu/+source/mate-tweak
@@ -25,6 +25,7 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	app-shells/bash:*
 	dev-libs/glib:2
+	dev-python/distro[${PYTHON_USEDEP}]
 	dev-python/psutil[${PYTHON_USEDEP}]
 	dev-python/pygobject:3[${PYTHON_USEDEP}]
 	dev-python/setproctitle[${PYTHON_USEDEP}]
@@ -44,7 +45,7 @@ pkg_setup() {
 	python_setup
 }
 
-src_install() {
-	distutils-r1_python_install
+python_install_all() {
+	distutils-r1_python_install_all
     python_fix_shebang "${ED}"
 }
