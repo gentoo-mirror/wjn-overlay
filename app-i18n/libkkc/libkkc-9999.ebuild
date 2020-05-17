@@ -1,12 +1,15 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=7
 
-# dev-libs/marisa does not support Python 3.7 yet
-PYTHON_COMPAT=( python3_{4,5,6} )
+# dev-libs/marisa does not support Python 3.8 yet.
+PYTHON_COMPAT=( python3_{6,7} )
 VALA_MIN_API_VERSION="0.24"
 
+# Each single files
+#  /usr/share/libkkc/templates/libkkc-data/tools/{genfilter,sortlm}.py
+# need Python, therefore it should have PYTHON_SINGLE_TARGET.
 inherit autotools python-single-r1 vala
 
 DESCRIPTION="Japanese Kana Kanji conversion library"
@@ -30,7 +33,10 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	>=dev-libs/glib-2.24:2
 	>=dev-libs/json-glib-1.0
 	dev-libs/libgee:0.8
-	dev-libs/marisa[python,${PYTHON_USEDEP}]"
+	$(python_gen_cond_dep '
+		dev-libs/marisa[python,${PYTHON_MULTI_USEDEP}]
+	')
+	"
 DEPEND="${COMMON_DEPEND}
 	$(vala_depend)
 	dev-util/intltool
@@ -50,6 +56,8 @@ pkg_setup() {
 }
 
 src_prepare() {
+	eapply_user
+	python_fix_shebang .
 	eautoreconf
 	vala_src_prepare
 }
