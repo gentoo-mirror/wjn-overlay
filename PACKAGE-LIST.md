@@ -23,7 +23,6 @@ wjn-overlay packages list
 | www-plugins/browserpass | Host application required by Browserpass extension for ZX2C4's pass | <https://github.com/dannyvankooten/browserpass> | - | |
 | www-plugins/freshplayerplugin | PPAPI-host NPAPI-plugin adapter for flashplayer in npapi based browsers | <https://github.com/i-rinat/freshplayerplugin> | - | dev ver. |
 | www-servers/hiawatha | Advanced and secure webserver | <https://www.hiawatha-webserver.org/> | o | gentoo repo retired |
-| x11-libs/gdk-pixbuf-xcf | A gdk-pixbuf loader for xcf (The Gimp) files | <https://gitorious.org/xcf-pixbuf-loader/> | o | **UPSTREAM is NOT ALIVE** |
 | x11-libs/libvdpau-va-gl | VDPAU driver with OpenGL/VAAPI backend | <https://github.com/i-rinat/libvdpau-va-gl> | o | |
 | x11-misc/lightdm-gtk-greeter-settings | LightDM Gtk+ Greeter settings editor | <https://launchpad.net/lightdm-gtk-greeter-settings> | o | |
 | x11-misc/mate-tweak | MATE desktop tweak tool | <https://launchpad.net/ubuntu/+source/mate-tweak> | o | |
