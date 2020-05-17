@@ -3,7 +3,7 @@ app-admin/pass-import 3.0: generic importer extension for password manager ZX2C4
 app-crypt/acme-sh 2.8.6: An ACME protocol client written purely in Shell language
 app-dicts/dictd-wn 3.0_p33: WordNet for dict
 app-i18n/fcitx-kkc 0.1.4 9999: Japanese libkkc module for Fcitx
-app-i18n/libkkc 0.3.5 9999: Japanese Kana Kanji conversion library
+app-i18n/libkkc 9999: Japanese Kana Kanji conversion library
 app-i18n/libkkc-data 0.2.7: Japanese Kana Kanji conversion dictionary for libkkc
 app-misc/grc 1.11.3 9999: Generic Colouriser beautifies your logfiles or output of commands
 app-text/aobook 1.0.3: Viewer for Aozora Bunko (Japanese electric library)
@@ -17,8 +17,6 @@ sys-apps/init-system-helpers 1.57: Helper tools for all init systems
 www-plugins/browserpass 3.0.6-r1: WebExtension host binary for pass, a UNIX password manager
 www-plugins/freshplayerplugin 9999: PPAPI-host NPAPI-plugin adapter for flashplayer in npapi based browsers
 www-servers/hiawatha 10.10: Advanced and secure webserver
-x11-libs/gdk-pixbuf-psd 0.1.0 9999: A GdkPixbuf loader for Adobe Photoshop images
-x11-libs/gdk-pixbuf-xcf 2012.05: A gdk-pixbuf loader for xcf (The Gimp) files
 x11-libs/libvdpau-va-gl 9999-r1: VDPAU driver with OpenGL/VAAPI backend
 x11-misc/lightdm-gtk-greeter-settings 1.2.2: LightDM Gtk+ Greeter settings editor
 x11-misc/mate-tweak 20.04.0: Tweak tool for the MATE Desktop, a fork of mintDesktop
