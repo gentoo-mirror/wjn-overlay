@@ -60,6 +60,11 @@ src_prepare() {
 	sed -i -e 's:python3:'${EPYTHON}':g' scripts/import.bash scripts/pimport
 }
 
+src_install() {
+	default
+	python_domodule pass_import
+}
+
 pkg_postinst() {
 	elog "If you want to import passwords from KeePass, install pykeepass."
 	elog "https://pypi.org/project/pykeepass/"
