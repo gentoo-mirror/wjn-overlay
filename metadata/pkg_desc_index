@@ -14,7 +14,6 @@ media-gfx/azpainter 2.1.6: Mainly full-color painting software for illustration 
 media-gfx/azpainterb 1.1.2: Simple full-color paint software
 media-gfx/viewnior 1.7_p20181126: Fast and simple image viewer
 sys-apps/init-system-helpers 1.57: Helper tools for all init systems
-www-plugins/browserpass 3.0.6-r1: WebExtension host binary for pass, a UNIX password manager
 www-plugins/freshplayerplugin 9999: PPAPI-host NPAPI-plugin adapter for flashplayer in npapi based browsers
 www-servers/hiawatha 10.10: Advanced and secure webserver
 x11-libs/libvdpau-va-gl 9999-r1: VDPAU driver with OpenGL/VAAPI backend
