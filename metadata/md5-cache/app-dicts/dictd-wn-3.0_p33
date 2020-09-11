@@ -8,5 +8,5 @@ LICENSE=Princeton
 RDEPEND=app-text/dictd
 SLOT=0
 SRC_URI=mirror://debian/pool/main/w/wordnet/dict-wn_3.0-33_all.deb
-_eclasses_=freedict	02474242ef7b791f4f93ae3d845f6be3	multilib	2477ebe553d3e4d2c606191fe6c33602	toolchain-funcs	605c126bed8d87e4378d5ff1645330cb	unpacker	8ee8c1a2f31437d1766aac890d07a7f4
+_eclasses_=freedict	02474242ef7b791f4f93ae3d845f6be3	multilib	98584e405e2b0264d37e8f728327fed1	toolchain-funcs	605c126bed8d87e4378d5ff1645330cb	unpacker	8ee8c1a2f31437d1766aac890d07a7f4
 _md5_=fcc8f0a6ac1ed6811a56c03a89056785
