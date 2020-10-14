@@ -1,0 +1,11 @@
+DEFINED_PHASES=install postinst prepare
+DESCRIPTION=An ACME protocol client written purely in Shell language
+EAPI=7
+HOMEPAGE=https://github.com/Neilpang/acme.sh
+IUSE=+cron idn
+LICENSE=GPL-3
+RDEPEND=app-shells/bash || ( dev-libs/openssl:0 dev-libs/libressl ) || ( net-misc/curl net-misc/wget ) cron? ( virtual/cron ) idn? ( net-dns/libidn )
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/Neilpang/acme.sh/archive/2.8.7.tar.gz -> acme.sh-2.8.7.tar.gz
+_md5_=f52c0827bcdda9e6168f8e4141471357
