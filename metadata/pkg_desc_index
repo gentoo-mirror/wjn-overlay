@@ -1,5 +1,5 @@
 app-accessibility/onboard 1.4.1: Onscreen keyboard for everybody who can't use a hardware keyboard
-app-admin/pass-import 3.0-r1: generic importer extension for password manager ZX2C4's pass
+app-admin/pass-import 3.1: generic importer extension for password manager ZX2C4's pass
 app-crypt/acme-sh 2.8.6 2.8.7: An ACME protocol client written purely in Shell language
 app-dicts/dictd-wn 3.0_p33: WordNet for dict
 app-i18n/fcitx-kkc 0.1.4 9999: Japanese libkkc module for Fcitx
@@ -14,7 +14,6 @@ media-gfx/azpainter 2.1.6: Mainly full-color painting software for illustration 
 media-gfx/azpainterb 1.1.2: Simple full-color paint software
 media-gfx/viewnior 1.7_p20181126: Fast and simple image viewer
 sys-apps/init-system-helpers 1.57: Helper tools for all init systems
-www-plugins/freshplayerplugin 9999: PPAPI-host NPAPI-plugin adapter for flashplayer in npapi based browsers
 www-servers/hiawatha 10.10: Advanced and secure webserver
 x11-libs/libvdpau-va-gl 9999-r1: VDPAU driver with OpenGL/VAAPI backend
 x11-misc/lightdm-gtk-greeter-settings 1.2.2: LightDM Gtk+ Greeter settings editor
