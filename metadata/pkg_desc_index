@@ -1,7 +1,6 @@
 app-accessibility/onboard 1.4.1: Onscreen keyboard for everybody who can't use a hardware keyboard
 app-admin/pass-import 3.1: generic importer extension for password manager ZX2C4's pass
 app-crypt/acme-sh 2.8.6 2.8.7: An ACME protocol client written purely in Shell language
-app-dicts/dictd-wn 3.0_p33: WordNet for dict
 app-i18n/fcitx-kkc 0.1.4 9999: Japanese libkkc module for Fcitx
 app-i18n/libkkc 9999: Japanese Kana Kanji conversion library
 app-i18n/libkkc-data 0.2.7-r1: Japanese Kana Kanji conversion dictionary for libkkc
