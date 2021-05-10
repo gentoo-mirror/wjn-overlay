@@ -4,6 +4,7 @@
 EAPI=7
 
 PYTHON_COMPAT=( python3_{6,7,8,9} )
+DISTUTILS_USE_SETUPTOOLS="rdepend"
 
 inherit distutils-r1
 
@@ -47,5 +48,5 @@ pkg_setup() {
 
 python_install_all() {
 	distutils-r1_python_install_all
-    python_fix_shebang "${ED}"
+	python_fix_shebang "${ED}"
 }
