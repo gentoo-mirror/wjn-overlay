@@ -1,9 +1,9 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{6,7,8} )
+PYTHON_COMPAT=( python3_{6,7,8,9} )
 
 inherit python-r1
 
@@ -40,7 +40,7 @@ src_install() {
 
 	dodoc CREDITS INSTALL README* Regexp.txt TODO debian/changelog
 	docinto profiles
-	dodoc grc.bashrc grc.fish grc.zsh
+	dodoc grc.sh grc.fish grc.zsh
 	doman grc.1 grcat.1
 }
 
