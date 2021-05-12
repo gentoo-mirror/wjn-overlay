@@ -2,9 +2,6 @@
 # Please add your descriptions to your package's metadata.xml ONLY.
 # * generated automatically using pmaint *
 
-app-text/markdown-gtksourceview:gedit - Install plugins for app-editors/gedit
-app-text/markdown-gtksourceview:pluma - Install plugins for app-editors/pluma
-app-text/markdown-gtksourceview:webkit - Install preview plugin powered by net-libs/webkit-gtk
 www-servers/hiawatha:cache - Enable caching of content
 www-servers/hiawatha:monitor - Pull in www-apps/hiawatha-monitor
 www-servers/hiawatha:rewrite - Enable the rewrite toolkit
