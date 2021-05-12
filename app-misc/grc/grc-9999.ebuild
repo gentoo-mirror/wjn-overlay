@@ -40,7 +40,7 @@ src_install() {
 
 	dodoc CREDITS INSTALL README* Regexp.txt TODO debian/changelog
 	docinto profiles
-	dodoc grc.bashrc grc.fish grc.zsh
+	dodoc grc.sh grc.fish grc.zsh
 	doman grc.1 grcat.1
 }
 
