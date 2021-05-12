@@ -18,7 +18,7 @@ KEYWORDS=""
 COMMON_DEPEND="${PYTHON_DEPS}
 	app-i18n/libkkc
 	$(python_gen_cond_dep '
-		dev-libs/marisa[python,${PYTHON_MULTI_USEDEP}]
+		dev-libs/marisa[python,${PYTHON_USEDEP}]
 	')
 	"
 DEPEND="${COMMON_DEPEND}"
