@@ -1,14 +1,14 @@
 DEFINED_PHASES=setup
-DEPEND=python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) app-i18n/libkkc python_single_target_python3_7? ( dev-libs/marisa[python,python_targets_python3_7(-)] ) python_single_target_python3_8? ( dev-libs/marisa[python,python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-libs/marisa[python,python_targets_python3_9(-)] )
+DEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) app-i18n/libkkc python_single_target_python3_8? ( dev-libs/marisa[python,python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-libs/marisa[python,python_targets_python3_9(-)] )
 DESCRIPTION=Japanese Kana Kanji conversion dictionary for libkkc
 EAPI=7
 HOMEPAGE=https://github.com/ueno/libkkc
 INHERIT=python-single-r1
-IUSE=python_single_target_python3_7 python_single_target_python3_8 python_single_target_python3_9
+IUSE=python_single_target_python3_8 python_single_target_python3_9
 LICENSE=GPL-3+
-RDEPEND=python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) app-i18n/libkkc python_single_target_python3_7? ( dev-libs/marisa[python,python_targets_python3_7(-)] ) python_single_target_python3_8? ( dev-libs/marisa[python,python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-libs/marisa[python,python_targets_python3_9(-)] )
+RDEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) app-i18n/libkkc python_single_target_python3_8? ( dev-libs/marisa[python,python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-libs/marisa[python,python_targets_python3_9(-)] )
 RESTRICT=mirror
 SLOT=0
 SRC_URI=https://github.com/ueno/libkkc/releases/download/v0.3.5/libkkc-data-0.2.7.tar.xz
-_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	d273d56dc725880edbeb1f6389faf5f1	python-single-r1	d25ac9d5d91fe9d44fda6ec192aca11a
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-single-r1	d25ac9d5d91fe9d44fda6ec192aca11a
 _md5_=b086dea5a5b9a9356b74dcdf17cbf2d0
